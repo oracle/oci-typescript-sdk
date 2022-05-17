@@ -49,7 +49,7 @@ export namespace UpdateJobDetails {
       }
     };
 
-    if ("jobType" in obj && obj.jobType) {
+    if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
         case "SQL":
           return model.UpdateSqlJobDetails.getJsonObj(
@@ -75,7 +75,7 @@ export namespace UpdateJobDetails {
       }
     };
 
-    if ("jobType" in obj && obj.jobType) {
+    if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
         case "SQL":
           return model.UpdateSqlJobDetails.getDeserializedJsonObj(

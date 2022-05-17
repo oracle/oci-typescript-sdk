@@ -25,7 +25,7 @@ export namespace CreateEntityShapeDetails {
   export function getJsonObj(obj: CreateEntityShapeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "SQL_ENTITY":
           return model.CreateEntityShapeFromSQL.getJsonObj(
@@ -46,7 +46,7 @@ export namespace CreateEntityShapeDetails {
   export function getDeserializedJsonObj(obj: CreateEntityShapeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "SQL_ENTITY":
           return model.CreateEntityShapeFromSQL.getDeserializedJsonObj(

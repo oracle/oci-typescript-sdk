@@ -43,7 +43,7 @@ export namespace ImageCapabilitySchemaDescriptor {
   export function getJsonObj(obj: ImageCapabilitySchemaDescriptor): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("descriptorType" in obj && obj.descriptorType) {
+    if (obj && "descriptorType" in obj && obj.descriptorType) {
       switch (obj.descriptorType) {
         case "enumstring":
           return model.EnumStringImageCapabilitySchemaDescriptor.getJsonObj(
@@ -69,7 +69,7 @@ export namespace ImageCapabilitySchemaDescriptor {
   export function getDeserializedJsonObj(obj: ImageCapabilitySchemaDescriptor): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("descriptorType" in obj && obj.descriptorType) {
+    if (obj && "descriptorType" in obj && obj.descriptorType) {
       switch (obj.descriptorType) {
         case "enumstring":
           return model.EnumStringImageCapabilitySchemaDescriptor.getDeserializedJsonObj(

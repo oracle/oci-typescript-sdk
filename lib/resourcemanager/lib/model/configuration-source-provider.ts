@@ -86,7 +86,7 @@ export namespace ConfigurationSourceProvider {
   export function getJsonObj(obj: ConfigurationSourceProvider): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceProviderType" in obj && obj.configSourceProviderType) {
+    if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
         case "GITHUB_ACCESS_TOKEN":
           return model.GithubAccessTokenConfigurationSourceProvider.getJsonObj(
@@ -107,7 +107,7 @@ export namespace ConfigurationSourceProvider {
   export function getDeserializedJsonObj(obj: ConfigurationSourceProvider): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceProviderType" in obj && obj.configSourceProviderType) {
+    if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
         case "GITHUB_ACCESS_TOKEN":
           return model.GithubAccessTokenConfigurationSourceProvider.getDeserializedJsonObj(

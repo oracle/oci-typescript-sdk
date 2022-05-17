@@ -32,7 +32,7 @@ export namespace OperationSummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PROCEDURE":
           return model.OperationSummaryFromProcedure.getJsonObj(
@@ -55,7 +55,7 @@ export namespace OperationSummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PROCEDURE":
           return model.OperationSummaryFromProcedure.getDeserializedJsonObj(

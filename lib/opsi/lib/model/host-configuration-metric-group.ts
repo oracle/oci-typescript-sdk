@@ -36,7 +36,7 @@ export namespace HostConfigurationMetricGroup {
   export function getJsonObj(obj: HostConfigurationMetricGroup): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("metricName" in obj && obj.metricName) {
+    if (obj && "metricName" in obj && obj.metricName) {
       switch (obj.metricName) {
         case "HOST_RESOURCE_ALLOCATION":
           return model.HostResourceAllocation.getJsonObj(
@@ -76,7 +76,7 @@ export namespace HostConfigurationMetricGroup {
   export function getDeserializedJsonObj(obj: HostConfigurationMetricGroup): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("metricName" in obj && obj.metricName) {
+    if (obj && "metricName" in obj && obj.metricName) {
       switch (obj.metricName) {
         case "HOST_RESOURCE_ALLOCATION":
           return model.HostResourceAllocation.getDeserializedJsonObj(

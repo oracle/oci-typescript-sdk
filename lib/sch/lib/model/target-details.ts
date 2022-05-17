@@ -34,7 +34,7 @@ export namespace TargetDetails {
   export function getJsonObj(obj: TargetDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "notifications":
           return model.NotificationsTargetDetails.getJsonObj(
@@ -75,7 +75,7 @@ export namespace TargetDetails {
   export function getDeserializedJsonObj(obj: TargetDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "notifications":
           return model.NotificationsTargetDetails.getDeserializedJsonObj(

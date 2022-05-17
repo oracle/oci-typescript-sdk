@@ -25,7 +25,7 @@ export namespace CreateColumnSourceDetails {
   export function getJsonObj(obj: CreateColumnSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("columnSource" in obj && obj.columnSource) {
+    if (obj && "columnSource" in obj && obj.columnSource) {
       switch (obj.columnSource) {
         case "TARGET":
           return model.CreateColumnSourceFromTargetDetails.getJsonObj(
@@ -46,7 +46,7 @@ export namespace CreateColumnSourceDetails {
   export function getDeserializedJsonObj(obj: CreateColumnSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("columnSource" in obj && obj.columnSource) {
+    if (obj && "columnSource" in obj && obj.columnSource) {
       switch (obj.columnSource) {
         case "TARGET":
           return model.CreateColumnSourceFromTargetDetails.getDeserializedJsonObj(

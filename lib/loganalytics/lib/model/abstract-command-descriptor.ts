@@ -67,7 +67,7 @@ export namespace AbstractCommandDescriptor {
       }
     };
 
-    if ("name" in obj && obj.name) {
+    if (obj && "name" in obj && obj.name) {
       switch (obj.name) {
         case "TOP":
           return model.TopCommandDescriptor.getJsonObj(
@@ -317,7 +317,7 @@ export namespace AbstractCommandDescriptor {
       }
     };
 
-    if ("name" in obj && obj.name) {
+    if (obj && "name" in obj && obj.name) {
       switch (obj.name) {
         case "TOP":
           return model.TopCommandDescriptor.getDeserializedJsonObj(

@@ -79,7 +79,7 @@ export namespace AbstractField {
   export function getJsonObj(obj: AbstractField): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("name" in obj && obj.name) {
+    if (obj && "name" in obj && obj.name) {
       switch (obj.name) {
         case "FIELDS":
           return model.FieldsAddRemoveField.getJsonObj(
@@ -101,7 +101,7 @@ export namespace AbstractField {
   export function getDeserializedJsonObj(obj: AbstractField): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("name" in obj && obj.name) {
+    if (obj && "name" in obj && obj.name) {
       switch (obj.name) {
         case "FIELDS":
           return model.FieldsAddRemoveField.getDeserializedJsonObj(

@@ -40,7 +40,7 @@ export namespace Resource {
   export function getJsonObj(obj: Resource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "instancePool":
           return model.InstancePoolResource.getJsonObj(
@@ -56,7 +56,7 @@ export namespace Resource {
   export function getDeserializedJsonObj(obj: Resource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "instancePool":
           return model.InstancePoolResource.getDeserializedJsonObj(

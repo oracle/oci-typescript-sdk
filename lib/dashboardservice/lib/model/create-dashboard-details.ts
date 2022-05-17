@@ -64,7 +64,7 @@ export namespace CreateDashboardDetails {
   export function getJsonObj(obj: CreateDashboardDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("schemaVersion" in obj && obj.schemaVersion) {
+    if (obj && "schemaVersion" in obj && obj.schemaVersion) {
       switch (obj.schemaVersion) {
         case "V1":
           return model.CreateV1DashboardDetails.getJsonObj(
@@ -80,7 +80,7 @@ export namespace CreateDashboardDetails {
   export function getDeserializedJsonObj(obj: CreateDashboardDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("schemaVersion" in obj && obj.schemaVersion) {
+    if (obj && "schemaVersion" in obj && obj.schemaVersion) {
       switch (obj.schemaVersion) {
         case "V1":
           return model.CreateV1DashboardDetails.getDeserializedJsonObj(

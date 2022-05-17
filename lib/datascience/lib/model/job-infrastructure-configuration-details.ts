@@ -27,7 +27,7 @@ export namespace JobInfrastructureConfigurationDetails {
   export function getJsonObj(obj: JobInfrastructureConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("jobInfrastructureType" in obj && obj.jobInfrastructureType) {
+    if (obj && "jobInfrastructureType" in obj && obj.jobInfrastructureType) {
       switch (obj.jobInfrastructureType) {
         case "ME_STANDALONE":
           return model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails.getJsonObj(
@@ -48,7 +48,7 @@ export namespace JobInfrastructureConfigurationDetails {
   export function getDeserializedJsonObj(obj: JobInfrastructureConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("jobInfrastructureType" in obj && obj.jobInfrastructureType) {
+    if (obj && "jobInfrastructureType" in obj && obj.jobInfrastructureType) {
       switch (obj.jobInfrastructureType) {
         case "ME_STANDALONE":
           return model.ManagedEgressStandaloneJobInfrastructureConfigurationDetails.getDeserializedJsonObj(

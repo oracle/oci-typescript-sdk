@@ -27,7 +27,7 @@ export namespace RuleCondition {
   export function getJsonObj(obj: RuleCondition): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("attributeName" in obj && obj.attributeName) {
+    if (obj && "attributeName" in obj && obj.attributeName) {
       switch (obj.attributeName) {
         case "SOURCE_VCN_ID":
           return model.SourceVcnIdCondition.getJsonObj(
@@ -58,7 +58,7 @@ export namespace RuleCondition {
   export function getDeserializedJsonObj(obj: RuleCondition): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("attributeName" in obj && obj.attributeName) {
+    if (obj && "attributeName" in obj && obj.attributeName) {
       switch (obj.attributeName) {
         case "SOURCE_VCN_ID":
           return model.SourceVcnIdCondition.getDeserializedJsonObj(

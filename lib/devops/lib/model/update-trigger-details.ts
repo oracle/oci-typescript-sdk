@@ -55,7 +55,7 @@ export namespace UpdateTriggerDetails {
       }
     };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
         case "DEVOPS_CODE_REPOSITORY":
           return model.UpdateDevopsCodeRepositoryTriggerDetails.getJsonObj(
@@ -70,6 +70,11 @@ export namespace UpdateTriggerDetails {
         case "GITLAB":
           return model.UpdateGitlabTriggerDetails.getJsonObj(
             <model.UpdateGitlabTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.UpdateBitbucketCloudTriggerDetails.getJsonObj(
+            <model.UpdateBitbucketCloudTriggerDetails>(<object>jsonObj),
             true
           );
         default:
@@ -90,7 +95,7 @@ export namespace UpdateTriggerDetails {
       }
     };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
         case "DEVOPS_CODE_REPOSITORY":
           return model.UpdateDevopsCodeRepositoryTriggerDetails.getDeserializedJsonObj(
@@ -105,6 +110,11 @@ export namespace UpdateTriggerDetails {
         case "GITLAB":
           return model.UpdateGitlabTriggerDetails.getDeserializedJsonObj(
             <model.UpdateGitlabTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.UpdateBitbucketCloudTriggerDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketCloudTriggerDetails>(<object>jsonObj),
             true
           );
         default:

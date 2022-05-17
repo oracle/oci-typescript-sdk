@@ -34,7 +34,7 @@ export namespace CredentialDetails {
   export function getJsonObj(obj: CredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("credentialType" in obj && obj.credentialType) {
+    if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
         case "CREDENTIALS_BY_SOURCE":
           return model.CredentialsBySource.getJsonObj(
@@ -55,7 +55,7 @@ export namespace CredentialDetails {
   export function getDeserializedJsonObj(obj: CredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("credentialType" in obj && obj.credentialType) {
+    if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
         case "CREDENTIALS_BY_SOURCE":
           return model.CredentialsBySource.getDeserializedJsonObj(

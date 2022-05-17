@@ -26,7 +26,7 @@ export namespace KeyStoreTypeDetails {
   export function getJsonObj(obj: KeyStoreTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_KEY_VAULT":
           return model.KeyStoreTypeFromOracleKeyVaultDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace KeyStoreTypeDetails {
   export function getDeserializedJsonObj(obj: KeyStoreTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_KEY_VAULT":
           return model.KeyStoreTypeFromOracleKeyVaultDetails.getDeserializedJsonObj(

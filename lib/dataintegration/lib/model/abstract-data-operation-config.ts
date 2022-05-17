@@ -42,7 +42,7 @@ export namespace AbstractDataOperationConfig {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "WRITE_OPERATION_CONFIG":
           return model.WriteOperationConfig.getJsonObj(
@@ -70,7 +70,7 @@ export namespace AbstractDataOperationConfig {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "WRITE_OPERATION_CONFIG":
           return model.WriteOperationConfig.getDeserializedJsonObj(

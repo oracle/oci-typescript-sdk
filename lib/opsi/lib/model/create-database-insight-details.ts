@@ -45,7 +45,7 @@ export namespace CreateDatabaseInsightDetails {
   export function getJsonObj(obj: CreateDatabaseInsightDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.CreateEmManagedExternalDatabaseInsightDetails.getJsonObj(
@@ -66,7 +66,7 @@ export namespace CreateDatabaseInsightDetails {
   export function getDeserializedJsonObj(obj: CreateDatabaseInsightDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.CreateEmManagedExternalDatabaseInsightDetails.getDeserializedJsonObj(

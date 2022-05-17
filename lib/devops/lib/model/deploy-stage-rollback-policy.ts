@@ -25,7 +25,7 @@ export namespace DeployStageRollbackPolicy {
   export function getJsonObj(obj: DeployStageRollbackPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "NO_STAGE_ROLLBACK_POLICY":
           return model.NoDeployStageRollbackPolicy.getJsonObj(
@@ -46,7 +46,7 @@ export namespace DeployStageRollbackPolicy {
   export function getDeserializedJsonObj(obj: DeployStageRollbackPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "NO_STAGE_ROLLBACK_POLICY":
           return model.NoDeployStageRollbackPolicy.getDeserializedJsonObj(

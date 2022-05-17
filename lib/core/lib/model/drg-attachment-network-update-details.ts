@@ -27,7 +27,7 @@ export namespace DrgAttachmentNetworkUpdateDetails {
   export function getJsonObj(obj: DrgAttachmentNetworkUpdateDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VCN":
           return model.VcnDrgAttachmentNetworkUpdateDetails.getJsonObj(
@@ -43,7 +43,7 @@ export namespace DrgAttachmentNetworkUpdateDetails {
   export function getDeserializedJsonObj(obj: DrgAttachmentNetworkUpdateDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VCN":
           return model.VcnDrgAttachmentNetworkUpdateDetails.getDeserializedJsonObj(

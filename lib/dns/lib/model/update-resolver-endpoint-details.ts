@@ -30,7 +30,7 @@ export namespace UpdateResolverEndpointDetails {
   export function getJsonObj(obj: UpdateResolverEndpointDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("endpointType" in obj && obj.endpointType) {
+    if (obj && "endpointType" in obj && obj.endpointType) {
       switch (obj.endpointType) {
         case "VNIC":
           return model.UpdateResolverVnicEndpointDetails.getJsonObj(
@@ -46,7 +46,7 @@ export namespace UpdateResolverEndpointDetails {
   export function getDeserializedJsonObj(obj: UpdateResolverEndpointDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("endpointType" in obj && obj.endpointType) {
+    if (obj && "endpointType" in obj && obj.endpointType) {
       switch (obj.endpointType) {
         case "VNIC":
           return model.UpdateResolverVnicEndpointDetails.getDeserializedJsonObj(

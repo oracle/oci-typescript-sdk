@@ -63,7 +63,7 @@ export namespace UpdateScheduledTaskDetails {
       }
     };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "STANDARD":
           return model.UpdateStandardTaskDetails.getJsonObj(
@@ -88,7 +88,7 @@ export namespace UpdateScheduledTaskDetails {
       }
     };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "STANDARD":
           return model.UpdateStandardTaskDetails.getDeserializedJsonObj(

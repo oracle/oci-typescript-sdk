@@ -25,7 +25,7 @@ export namespace Dataset {
   export function getJsonObj(obj: Dataset): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("datasetType" in obj && obj.datasetType) {
+    if (obj && "datasetType" in obj && obj.datasetType) {
       switch (obj.datasetType) {
         case "DATA_SCIENCE_LABELING":
           return model.DataScienceLabelingDataset.getJsonObj(
@@ -46,7 +46,7 @@ export namespace Dataset {
   export function getDeserializedJsonObj(obj: Dataset): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("datasetType" in obj && obj.datasetType) {
+    if (obj && "datasetType" in obj && obj.datasetType) {
       switch (obj.datasetType) {
         case "DATA_SCIENCE_LABELING":
           return model.DataScienceLabelingDataset.getDeserializedJsonObj(

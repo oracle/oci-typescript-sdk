@@ -28,7 +28,7 @@ export namespace InfluxDetails {
   export function getJsonObj(obj: InfluxDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("influxVersion" in obj && obj.influxVersion) {
+    if (obj && "influxVersion" in obj && obj.influxVersion) {
       switch (obj.influxVersion) {
         case "V_1_8":
           return model.InfluxDetailsV1v8.getJsonObj(
@@ -49,7 +49,7 @@ export namespace InfluxDetails {
   export function getDeserializedJsonObj(obj: InfluxDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("influxVersion" in obj && obj.influxVersion) {
+    if (obj && "influxVersion" in obj && obj.influxVersion) {
       switch (obj.influxVersion) {
         case "V_1_8":
           return model.InfluxDetailsV1v8.getDeserializedJsonObj(

@@ -27,7 +27,7 @@ export namespace InstanceAgentCommandSourceDetails {
   export function getJsonObj(obj: InstanceAgentCommandSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OBJECT_STORAGE_TUPLE":
           return model.InstanceAgentCommandSourceViaObjectStorageTupleDetails.getJsonObj(
@@ -53,7 +53,7 @@ export namespace InstanceAgentCommandSourceDetails {
   export function getDeserializedJsonObj(obj: InstanceAgentCommandSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OBJECT_STORAGE_TUPLE":
           return model.InstanceAgentCommandSourceViaObjectStorageTupleDetails.getDeserializedJsonObj(

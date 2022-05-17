@@ -33,7 +33,7 @@ export namespace DatabaseDetails {
   export function getJsonObj(obj: DatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("databaseType" in obj && obj.databaseType) {
+    if (obj && "databaseType" in obj && obj.databaseType) {
       switch (obj.databaseType) {
         case "INSTALLED_DATABASE":
           return model.InstalledDatabaseDetails.getJsonObj(
@@ -59,7 +59,7 @@ export namespace DatabaseDetails {
   export function getDeserializedJsonObj(obj: DatabaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("databaseType" in obj && obj.databaseType) {
+    if (obj && "databaseType" in obj && obj.databaseType) {
       switch (obj.databaseType) {
         case "INSTALLED_DATABASE":
           return model.InstalledDatabaseDetails.getDeserializedJsonObj(

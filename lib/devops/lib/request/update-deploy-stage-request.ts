@@ -28,6 +28,7 @@ export interface UpdateDeployStageRequest extends common.BaseRequest {
   "updateDeployStageDetails":
     | model.UpdateOkeCanaryTrafficShiftDeployStageDetails
     | model.UpdateOkeCanaryDeployStageDetails
+    | model.UpdateOkeHelmChartDeployStageDetails
     | model.UpdateComputeInstanceGroupDeployStageDetails
     | model.UpdateOkeCanaryApprovalDeployStageDetails
     | model.UpdateOkeDeployStageDetails

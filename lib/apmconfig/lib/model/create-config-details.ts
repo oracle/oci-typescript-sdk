@@ -42,7 +42,7 @@ export namespace CreateConfigDetails {
   export function getJsonObj(obj: CreateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "SPAN_FILTER":
           return model.CreateSpanFilterDetails.getJsonObj(
@@ -68,7 +68,7 @@ export namespace CreateConfigDetails {
   export function getDeserializedJsonObj(obj: CreateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "SPAN_FILTER":
           return model.CreateSpanFilterDetails.getDeserializedJsonObj(

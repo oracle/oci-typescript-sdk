@@ -48,6 +48,7 @@ export interface DeployArtifact {
   "argumentSubstitutionMode": DeployArtifact.ArgumentSubstitutionMode;
   "deployArtifactSource":
     | model.GenericDeployArtifactSource
+    | model.HelmRepositoryDeployArtifactSource
     | model.OcirDeployArtifactSource
     | model.InlineDeployArtifactSource;
   /**
@@ -87,6 +88,7 @@ export namespace DeployArtifact {
     KubernetesManifest = "KUBERNETES_MANIFEST",
     GenericFile = "GENERIC_FILE",
     DockerImage = "DOCKER_IMAGE",
+    HelmChart = "HELM_CHART",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -47,7 +47,7 @@ export namespace CreatePublicationPackage {
       }
     };
 
-    if ("packageType" in obj && obj.packageType) {
+    if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
         case "IMAGE":
           return model.CreateImagePublicationPackage.getJsonObj(
@@ -75,7 +75,7 @@ export namespace CreatePublicationPackage {
       }
     };
 
-    if ("packageType" in obj && obj.packageType) {
+    if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
         case "IMAGE":
           return model.CreateImagePublicationPackage.getDeserializedJsonObj(

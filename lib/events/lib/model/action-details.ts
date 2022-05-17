@@ -42,7 +42,7 @@ export namespace ActionDetails {
   export function getJsonObj(obj: ActionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("actionType" in obj && obj.actionType) {
+    if (obj && "actionType" in obj && obj.actionType) {
       switch (obj.actionType) {
         case "OSS":
           return model.CreateStreamingServiceActionDetails.getJsonObj(
@@ -68,7 +68,7 @@ export namespace ActionDetails {
   export function getDeserializedJsonObj(obj: ActionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("actionType" in obj && obj.actionType) {
+    if (obj && "actionType" in obj && obj.actionType) {
       switch (obj.actionType) {
         case "OSS":
           return model.CreateStreamingServiceActionDetails.getDeserializedJsonObj(

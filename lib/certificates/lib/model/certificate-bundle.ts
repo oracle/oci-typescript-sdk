@@ -92,7 +92,7 @@ export namespace CertificateBundle {
       }
     };
 
-    if ("certificateBundleType" in obj && obj.certificateBundleType) {
+    if (obj && "certificateBundleType" in obj && obj.certificateBundleType) {
       switch (obj.certificateBundleType) {
         case "CERTIFICATE_CONTENT_PUBLIC_ONLY":
           return model.CertificateBundlePublicOnly.getJsonObj(
@@ -122,7 +122,7 @@ export namespace CertificateBundle {
       }
     };
 
-    if ("certificateBundleType" in obj && obj.certificateBundleType) {
+    if (obj && "certificateBundleType" in obj && obj.certificateBundleType) {
       switch (obj.certificateBundleType) {
         case "CERTIFICATE_CONTENT_PUBLIC_ONLY":
           return model.CertificateBundlePublicOnly.getDeserializedJsonObj(

@@ -115,7 +115,7 @@ export namespace Deployment {
       }
     };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "SINGLE_STAGE_REDEPLOYMENT":
           return model.SingleDeployStageRedeployment.getJsonObj(
@@ -174,7 +174,7 @@ export namespace Deployment {
       }
     };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "SINGLE_STAGE_REDEPLOYMENT":
           return model.SingleDeployStageRedeployment.getDeserializedJsonObj(

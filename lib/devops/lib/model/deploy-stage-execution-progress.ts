@@ -80,7 +80,7 @@ export namespace DeployStageExecutionProgress {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
           return model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageExecutionProgress.getJsonObj(
@@ -151,6 +151,11 @@ export namespace DeployStageExecutionProgress {
             <model.OkeBlueGreenTrafficShiftDeployStageExecutionProgress>(<object>jsonObj),
             true
           );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.OkeHelmChartDeploymentStageExecutionProgress.getJsonObj(
+            <model.OkeHelmChartDeploymentStageExecutionProgress>(<object>jsonObj),
+            true
+          );
         case "INVOKE_FUNCTION":
           return model.InvokeFunctionDeployStageExecutionProgress.getJsonObj(
             <model.InvokeFunctionDeployStageExecutionProgress>(<object>jsonObj),
@@ -194,7 +199,7 @@ export namespace DeployStageExecutionProgress {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
           return model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStageExecutionProgress.getDeserializedJsonObj(
@@ -263,6 +268,11 @@ export namespace DeployStageExecutionProgress {
         case "OKE_BLUE_GREEN_TRAFFIC_SHIFT":
           return model.OkeBlueGreenTrafficShiftDeployStageExecutionProgress.getDeserializedJsonObj(
             <model.OkeBlueGreenTrafficShiftDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.OkeHelmChartDeploymentStageExecutionProgress.getDeserializedJsonObj(
+            <model.OkeHelmChartDeploymentStageExecutionProgress>(<object>jsonObj),
             true
           );
         case "INVOKE_FUNCTION":

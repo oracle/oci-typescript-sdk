@@ -25,7 +25,7 @@ export namespace AbstractCallAttribute {
   export function getJsonObj(obj: AbstractCallAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "BIPCALLATTRIBUTE":
           return model.BipCallAttribute.getJsonObj(<model.BipCallAttribute>(<object>jsonObj), true);
@@ -38,7 +38,7 @@ export namespace AbstractCallAttribute {
   export function getDeserializedJsonObj(obj: AbstractCallAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "BIPCALLATTRIBUTE":
           return model.BipCallAttribute.getDeserializedJsonObj(

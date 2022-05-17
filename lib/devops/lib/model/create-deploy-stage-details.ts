@@ -54,7 +54,7 @@ export namespace CreateDeployStageDetails {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "OKE_CANARY_TRAFFIC_SHIFT":
           return model.CreateOkeCanaryTrafficShiftDeployStageDetails.getJsonObj(
@@ -123,6 +123,11 @@ export namespace CreateDeployStageDetails {
             <model.CreateComputeInstanceGroupCanaryApprovalDeployStageDetails>(<object>jsonObj),
             true
           );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.CreateOkeHelmChartDeployStageDetails.getJsonObj(
+            <model.CreateOkeHelmChartDeployStageDetails>(<object>jsonObj),
+            true
+          );
         case "MANUAL_APPROVAL":
           return model.CreateManualApprovalDeployStageDetails.getJsonObj(
             <model.CreateManualApprovalDeployStageDetails>(<object>jsonObj),
@@ -161,7 +166,7 @@ export namespace CreateDeployStageDetails {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "OKE_CANARY_TRAFFIC_SHIFT":
           return model.CreateOkeCanaryTrafficShiftDeployStageDetails.getDeserializedJsonObj(
@@ -228,6 +233,11 @@ export namespace CreateDeployStageDetails {
         case "COMPUTE_INSTANCE_GROUP_CANARY_APPROVAL":
           return model.CreateComputeInstanceGroupCanaryApprovalDeployStageDetails.getDeserializedJsonObj(
             <model.CreateComputeInstanceGroupCanaryApprovalDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.CreateOkeHelmChartDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateOkeHelmChartDeployStageDetails>(<object>jsonObj),
             true
           );
         case "MANUAL_APPROVAL":

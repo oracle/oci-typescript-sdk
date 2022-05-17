@@ -39,7 +39,7 @@ export namespace VirtualServiceTrafficRouteRule {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TCP":
           return model.TcpVirtualServiceTrafficRouteRule.getJsonObj(
@@ -74,7 +74,7 @@ export namespace VirtualServiceTrafficRouteRule {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TCP":
           return model.TcpVirtualServiceTrafficRouteRule.getDeserializedJsonObj(

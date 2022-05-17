@@ -149,7 +149,7 @@ export namespace ScheduledTask {
       }
     };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "STANDARD":
           return model.StandardTask.getJsonObj(<model.StandardTask>(<object>jsonObj), true);
@@ -172,7 +172,7 @@ export namespace ScheduledTask {
       }
     };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "STANDARD":
           return model.StandardTask.getDeserializedJsonObj(

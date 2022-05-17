@@ -25,7 +25,7 @@ export namespace AbstractReadAttribute {
   export function getJsonObj(obj: AbstractReadAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLE_READ_ATTRIBUTE":
           return model.OracleReadAttributes.getJsonObj(
@@ -56,7 +56,7 @@ export namespace AbstractReadAttribute {
   export function getDeserializedJsonObj(obj: AbstractReadAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLE_READ_ATTRIBUTE":
           return model.OracleReadAttributes.getDeserializedJsonObj(

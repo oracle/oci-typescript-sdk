@@ -28,7 +28,7 @@ export namespace TargetDetails {
   export function getJsonObj(obj: TargetDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetResourceType" in obj && obj.targetResourceType) {
+    if (obj && "targetResourceType" in obj && obj.targetResourceType) {
       switch (obj.targetResourceType) {
         case "SECURITY_ZONE":
           return model.SecurityZoneTargetDetails.getJsonObj(
@@ -44,7 +44,7 @@ export namespace TargetDetails {
   export function getDeserializedJsonObj(obj: TargetDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetResourceType" in obj && obj.targetResourceType) {
+    if (obj && "targetResourceType" in obj && obj.targetResourceType) {
       switch (obj.targetResourceType) {
         case "SECURITY_ZONE":
           return model.SecurityZoneTargetDetails.getDeserializedJsonObj(

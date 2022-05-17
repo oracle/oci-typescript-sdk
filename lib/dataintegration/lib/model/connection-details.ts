@@ -79,7 +79,7 @@ export namespace ConnectionDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "GENERIC_JDBC_CONNECTION":
           return model.ConnectionFromJdbcDetails.getJsonObj(
@@ -155,7 +155,7 @@ export namespace ConnectionDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "GENERIC_JDBC_CONNECTION":
           return model.ConnectionFromJdbcDetails.getDeserializedJsonObj(

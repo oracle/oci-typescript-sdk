@@ -25,7 +25,7 @@ export namespace CreateChannelSourceDetails {
   export function getJsonObj(obj: CreateChannelSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "MYSQL":
           return model.CreateChannelSourceFromMysqlDetails.getJsonObj(
@@ -41,7 +41,7 @@ export namespace CreateChannelSourceDetails {
   export function getDeserializedJsonObj(obj: CreateChannelSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "MYSQL":
           return model.CreateChannelSourceFromMysqlDetails.getDeserializedJsonObj(

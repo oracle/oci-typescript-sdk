@@ -25,11 +25,16 @@ export namespace DeployArtifactSource {
   export function getJsonObj(obj: DeployArtifactSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployArtifactSourceType" in obj && obj.deployArtifactSourceType) {
+    if (obj && "deployArtifactSourceType" in obj && obj.deployArtifactSourceType) {
       switch (obj.deployArtifactSourceType) {
         case "GENERIC_ARTIFACT":
           return model.GenericDeployArtifactSource.getJsonObj(
             <model.GenericDeployArtifactSource>(<object>jsonObj),
+            true
+          );
+        case "HELM_CHART":
+          return model.HelmRepositoryDeployArtifactSource.getJsonObj(
+            <model.HelmRepositoryDeployArtifactSource>(<object>jsonObj),
             true
           );
         case "OCIR":
@@ -51,11 +56,16 @@ export namespace DeployArtifactSource {
   export function getDeserializedJsonObj(obj: DeployArtifactSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployArtifactSourceType" in obj && obj.deployArtifactSourceType) {
+    if (obj && "deployArtifactSourceType" in obj && obj.deployArtifactSourceType) {
       switch (obj.deployArtifactSourceType) {
         case "GENERIC_ARTIFACT":
           return model.GenericDeployArtifactSource.getDeserializedJsonObj(
             <model.GenericDeployArtifactSource>(<object>jsonObj),
+            true
+          );
+        case "HELM_CHART":
+          return model.HelmRepositoryDeployArtifactSource.getDeserializedJsonObj(
+            <model.HelmRepositoryDeployArtifactSource>(<object>jsonObj),
             true
           );
         case "OCIR":

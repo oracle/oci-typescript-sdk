@@ -42,7 +42,7 @@ export namespace UpdateDeployEnvironmentDetails {
   export function getJsonObj(obj: UpdateDeployEnvironmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "FUNCTION":
           return model.UpdateFunctionDeployEnvironmentDetails.getJsonObj(
@@ -68,7 +68,7 @@ export namespace UpdateDeployEnvironmentDetails {
   export function getDeserializedJsonObj(obj: UpdateDeployEnvironmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "FUNCTION":
           return model.UpdateFunctionDeployEnvironmentDetails.getDeserializedJsonObj(

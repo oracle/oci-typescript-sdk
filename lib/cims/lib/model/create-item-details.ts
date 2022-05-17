@@ -47,7 +47,7 @@ export namespace CreateItemDetails {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "tech":
           return model.CreateTechSupportItemDetails.getJsonObj(
@@ -81,7 +81,7 @@ export namespace CreateItemDetails {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "tech":
           return model.CreateTechSupportItemDetails.getDeserializedJsonObj(

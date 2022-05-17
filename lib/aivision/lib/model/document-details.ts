@@ -25,7 +25,7 @@ export namespace DocumentDetails {
   export function getJsonObj(obj: DocumentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageDocumentDetails.getJsonObj(
@@ -46,7 +46,7 @@ export namespace DocumentDetails {
   export function getDeserializedJsonObj(obj: DocumentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageDocumentDetails.getDeserializedJsonObj(

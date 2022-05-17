@@ -25,7 +25,7 @@ export namespace ServiceDiscoveryConfiguration {
   export function getJsonObj(obj: ServiceDiscoveryConfiguration): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DNS":
           return model.DnsServiceDiscoveryConfiguration.getJsonObj(
@@ -41,7 +41,7 @@ export namespace ServiceDiscoveryConfiguration {
   export function getDeserializedJsonObj(obj: ServiceDiscoveryConfiguration): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DNS":
           return model.DnsServiceDiscoveryConfiguration.getDeserializedJsonObj(

@@ -30,7 +30,7 @@ export namespace ComputeInstanceGroupRolloutPolicy {
   export function getJsonObj(obj: ComputeInstanceGroupRolloutPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "COMPUTE_INSTANCE_GROUP_LINEAR_ROLLOUT_POLICY_BY_PERCENTAGE":
           return model.ComputeInstanceGroupLinearRolloutPolicyByPercentage.getJsonObj(
@@ -51,7 +51,7 @@ export namespace ComputeInstanceGroupRolloutPolicy {
   export function getDeserializedJsonObj(obj: ComputeInstanceGroupRolloutPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "COMPUTE_INSTANCE_GROUP_LINEAR_ROLLOUT_POLICY_BY_PERCENTAGE":
           return model.ComputeInstanceGroupLinearRolloutPolicyByPercentage.getDeserializedJsonObj(

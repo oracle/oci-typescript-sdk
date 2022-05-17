@@ -100,7 +100,7 @@ export namespace UpdateTaskDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "REST_TASK":
           return model.UpdateTaskFromRestTask.getJsonObj(
@@ -173,7 +173,7 @@ export namespace UpdateTaskDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "REST_TASK":
           return model.UpdateTaskFromRestTask.getDeserializedJsonObj(

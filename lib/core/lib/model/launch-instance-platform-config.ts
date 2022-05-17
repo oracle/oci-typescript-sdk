@@ -60,7 +60,7 @@ export namespace LaunchInstancePlatformConfig {
   export function getJsonObj(obj: LaunchInstancePlatformConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AMD_ROME_BM_GPU":
           return model.AmdRomeBmGpuLaunchInstancePlatformConfig.getJsonObj(
@@ -106,7 +106,7 @@ export namespace LaunchInstancePlatformConfig {
   export function getDeserializedJsonObj(obj: LaunchInstancePlatformConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AMD_ROME_BM_GPU":
           return model.AmdRomeBmGpuLaunchInstancePlatformConfig.getDeserializedJsonObj(

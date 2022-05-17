@@ -37,7 +37,7 @@ export namespace InstanceAgentCommandExecutionOutputContent {
   export function getJsonObj(obj: InstanceAgentCommandExecutionOutputContent): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("outputType" in obj && obj.outputType) {
+    if (obj && "outputType" in obj && obj.outputType) {
       switch (obj.outputType) {
         case "TEXT":
           return model.InstanceAgentCommandExecutionOutputViaTextDetails.getJsonObj(
@@ -65,7 +65,7 @@ export namespace InstanceAgentCommandExecutionOutputContent {
   export function getDeserializedJsonObj(obj: InstanceAgentCommandExecutionOutputContent): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("outputType" in obj && obj.outputType) {
+    if (obj && "outputType" in obj && obj.outputType) {
       switch (obj.outputType) {
         case "TEXT":
           return model.InstanceAgentCommandExecutionOutputViaTextDetails.getDeserializedJsonObj(

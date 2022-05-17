@@ -42,7 +42,7 @@ export namespace CreateDeploymentDetails {
   export function getJsonObj(obj: CreateDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "PIPELINE_REDEPLOYMENT":
           return model.CreateDeployPipelineRedeploymentDetails.getJsonObj(
@@ -73,7 +73,7 @@ export namespace CreateDeploymentDetails {
   export function getDeserializedJsonObj(obj: CreateDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "PIPELINE_REDEPLOYMENT":
           return model.CreateDeployPipelineRedeploymentDetails.getDeserializedJsonObj(

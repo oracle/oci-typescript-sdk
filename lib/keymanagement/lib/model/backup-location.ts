@@ -27,7 +27,7 @@ export namespace BackupLocation {
   export function getJsonObj(obj: BackupLocation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("destination" in obj && obj.destination) {
+    if (obj && "destination" in obj && obj.destination) {
       switch (obj.destination) {
         case "BUCKET":
           return model.BackupLocationBucket.getJsonObj(
@@ -48,7 +48,7 @@ export namespace BackupLocation {
   export function getDeserializedJsonObj(obj: BackupLocation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("destination" in obj && obj.destination) {
+    if (obj && "destination" in obj && obj.destination) {
       switch (obj.destination) {
         case "BUCKET":
           return model.BackupLocationBucket.getDeserializedJsonObj(

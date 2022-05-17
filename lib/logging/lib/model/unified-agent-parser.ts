@@ -54,7 +54,7 @@ export namespace UnifiedAgentParser {
   export function getJsonObj(obj: UnifiedAgentParser): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("parserType" in obj && obj.parserType) {
+    if (obj && "parserType" in obj && obj.parserType) {
       switch (obj.parserType) {
         case "MULTILINE_GROK":
           return model.UnifiedAgentMultilineGrokParser.getJsonObj(
@@ -130,7 +130,7 @@ export namespace UnifiedAgentParser {
   export function getDeserializedJsonObj(obj: UnifiedAgentParser): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("parserType" in obj && obj.parserType) {
+    if (obj && "parserType" in obj && obj.parserType) {
       switch (obj.parserType) {
         case "MULTILINE_GROK":
           return model.UnifiedAgentMultilineGrokParser.getDeserializedJsonObj(

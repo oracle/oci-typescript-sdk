@@ -26,7 +26,7 @@ export namespace UpgradeDeploymentDetails {
   export function getJsonObj(obj: UpgradeDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "CURRENT_RELEASE":
           return model.UpgradeDeploymentCurrentReleaseDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace UpgradeDeploymentDetails {
   export function getDeserializedJsonObj(obj: UpgradeDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "CURRENT_RELEASE":
           return model.UpgradeDeploymentCurrentReleaseDetails.getDeserializedJsonObj(

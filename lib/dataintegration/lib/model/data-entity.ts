@@ -32,7 +32,7 @@ export namespace DataEntity {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "TABLE_ENTITY":
           return model.DataEntityFromTable.getJsonObj(
@@ -75,7 +75,7 @@ export namespace DataEntity {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "TABLE_ENTITY":
           return model.DataEntityFromTable.getDeserializedJsonObj(

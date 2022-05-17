@@ -46,7 +46,7 @@ export namespace RepositoryRefSummary {
   export function getJsonObj(obj: RepositoryRefSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("refType" in obj && obj.refType) {
+    if (obj && "refType" in obj && obj.refType) {
       switch (obj.refType) {
         case "BRANCH":
           return model.RepositoryBranchSummary.getJsonObj(
@@ -67,7 +67,7 @@ export namespace RepositoryRefSummary {
   export function getDeserializedJsonObj(obj: RepositoryRefSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("refType" in obj && obj.refType) {
+    if (obj && "refType" in obj && obj.refType) {
       switch (obj.refType) {
         case "BRANCH":
           return model.RepositoryBranchSummary.getDeserializedJsonObj(

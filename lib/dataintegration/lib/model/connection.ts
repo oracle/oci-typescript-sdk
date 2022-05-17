@@ -83,7 +83,7 @@ export namespace Connection {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionFromObjectStorage.getJsonObj(
@@ -159,7 +159,7 @@ export namespace Connection {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionFromObjectStorage.getDeserializedJsonObj(

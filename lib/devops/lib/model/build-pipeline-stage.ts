@@ -105,7 +105,7 @@ export namespace BuildPipelineStage {
       }
     };
 
-    if ("buildPipelineStageType" in obj && obj.buildPipelineStageType) {
+    if (obj && "buildPipelineStageType" in obj && obj.buildPipelineStageType) {
       switch (obj.buildPipelineStageType) {
         case "DELIVER_ARTIFACT":
           return model.DeliverArtifactStage.getJsonObj(
@@ -139,7 +139,7 @@ export namespace BuildPipelineStage {
       }
     };
 
-    if ("buildPipelineStageType" in obj && obj.buildPipelineStageType) {
+    if (obj && "buildPipelineStageType" in obj && obj.buildPipelineStageType) {
       switch (obj.buildPipelineStageType) {
         case "DELIVER_ARTIFACT":
           return model.DeliverArtifactStage.getDeserializedJsonObj(

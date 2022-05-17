@@ -34,7 +34,7 @@ export namespace DeliveredArtifact {
   export function getJsonObj(obj: DeliveredArtifact): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("artifactType" in obj && obj.artifactType) {
+    if (obj && "artifactType" in obj && obj.artifactType) {
       switch (obj.artifactType) {
         case "OCIR":
           return model.ContainerRegistryDeliveredArtifact.getJsonObj(
@@ -55,7 +55,7 @@ export namespace DeliveredArtifact {
   export function getDeserializedJsonObj(obj: DeliveredArtifact): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("artifactType" in obj && obj.artifactType) {
+    if (obj && "artifactType" in obj && obj.artifactType) {
       switch (obj.artifactType) {
         case "OCIR":
           return model.ContainerRegistryDeliveredArtifact.getDeserializedJsonObj(

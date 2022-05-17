@@ -26,7 +26,7 @@ export namespace UpdateAutoScalePolicyDetails {
   export function getJsonObj(obj: UpdateAutoScalePolicyDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "SCHEDULE_BASED_HORIZONTAL_SCALING_POLICY":
           return model.UpdateScheduleBasedHorizontalScalingPolicyDetails.getJsonObj(
@@ -57,7 +57,7 @@ export namespace UpdateAutoScalePolicyDetails {
   export function getDeserializedJsonObj(obj: UpdateAutoScalePolicyDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "SCHEDULE_BASED_HORIZONTAL_SCALING_POLICY":
           return model.UpdateScheduleBasedHorizontalScalingPolicyDetails.getDeserializedJsonObj(

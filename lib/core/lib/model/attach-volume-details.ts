@@ -58,7 +58,7 @@ export namespace AttachVolumeDetails {
   export function getJsonObj(obj: AttachVolumeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "service_determined":
           return model.AttachServiceDeterminedVolumeDetails.getJsonObj(
@@ -89,7 +89,7 @@ export namespace AttachVolumeDetails {
   export function getDeserializedJsonObj(obj: AttachVolumeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "service_determined":
           return model.AttachServiceDeterminedVolumeDetails.getDeserializedJsonObj(

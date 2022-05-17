@@ -26,7 +26,7 @@ export namespace RecordMetadata {
   export function getJsonObj(obj: RecordMetadata): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("recordType" in obj && obj.recordType) {
+    if (obj && "recordType" in obj && obj.recordType) {
       switch (obj.recordType) {
         case "DOCUMENT_METADATA":
           return model.DocumentMetadata.getJsonObj(<model.DocumentMetadata>(<object>jsonObj), true);
@@ -43,7 +43,7 @@ export namespace RecordMetadata {
   export function getDeserializedJsonObj(obj: RecordMetadata): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("recordType" in obj && obj.recordType) {
+    if (obj && "recordType" in obj && obj.recordType) {
       switch (obj.recordType) {
         case "DOCUMENT_METADATA":
           return model.DocumentMetadata.getDeserializedJsonObj(

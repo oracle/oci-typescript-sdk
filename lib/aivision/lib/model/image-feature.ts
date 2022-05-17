@@ -25,7 +25,7 @@ export namespace ImageFeature {
   export function getJsonObj(obj: ImageFeature): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("featureType" in obj && obj.featureType) {
+    if (obj && "featureType" in obj && obj.featureType) {
       switch (obj.featureType) {
         case "TEXT_DETECTION":
           return model.ImageTextDetectionFeature.getJsonObj(
@@ -51,7 +51,7 @@ export namespace ImageFeature {
   export function getDeserializedJsonObj(obj: ImageFeature): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("featureType" in obj && obj.featureType) {
+    if (obj && "featureType" in obj && obj.featureType) {
       switch (obj.featureType) {
         case "TEXT_DETECTION":
           return model.ImageTextDetectionFeature.getDeserializedJsonObj(

@@ -25,7 +25,7 @@ export namespace UnifiedAgentServiceConfigurationDetails {
   export function getJsonObj(obj: UnifiedAgentServiceConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configurationType" in obj && obj.configurationType) {
+    if (obj && "configurationType" in obj && obj.configurationType) {
       switch (obj.configurationType) {
         case "LOGGING":
           return model.UnifiedAgentLoggingConfiguration.getJsonObj(
@@ -41,7 +41,7 @@ export namespace UnifiedAgentServiceConfigurationDetails {
   export function getDeserializedJsonObj(obj: UnifiedAgentServiceConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configurationType" in obj && obj.configurationType) {
+    if (obj && "configurationType" in obj && obj.configurationType) {
       switch (obj.configurationType) {
         case "LOGGING":
           return model.UnifiedAgentLoggingConfiguration.getDeserializedJsonObj(

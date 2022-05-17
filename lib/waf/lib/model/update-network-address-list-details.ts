@@ -50,7 +50,7 @@ export namespace UpdateNetworkAddressListDetails {
   export function getJsonObj(obj: UpdateNetworkAddressListDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ADDRESSES":
           return model.UpdateNetworkAddressListAddressesDetails.getJsonObj(
@@ -71,7 +71,7 @@ export namespace UpdateNetworkAddressListDetails {
   export function getDeserializedJsonObj(obj: UpdateNetworkAddressListDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ADDRESSES":
           return model.UpdateNetworkAddressListAddressesDetails.getDeserializedJsonObj(

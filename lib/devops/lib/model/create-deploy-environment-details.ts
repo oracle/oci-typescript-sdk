@@ -46,7 +46,7 @@ export namespace CreateDeployEnvironmentDetails {
   export function getJsonObj(obj: CreateDeployEnvironmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "COMPUTE_INSTANCE_GROUP":
           return model.CreateComputeInstanceGroupDeployEnvironmentDetails.getJsonObj(
@@ -72,7 +72,7 @@ export namespace CreateDeployEnvironmentDetails {
   export function getDeserializedJsonObj(obj: CreateDeployEnvironmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "COMPUTE_INSTANCE_GROUP":
           return model.CreateComputeInstanceGroupDeployEnvironmentDetails.getDeserializedJsonObj(

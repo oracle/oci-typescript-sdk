@@ -46,7 +46,7 @@ export namespace ExecutionSchedule {
   export function getJsonObj(obj: ExecutionSchedule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "cron":
           return model.CronExecutionSchedule.getJsonObj(
@@ -62,7 +62,7 @@ export namespace ExecutionSchedule {
   export function getDeserializedJsonObj(obj: ExecutionSchedule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "cron":
           return model.CronExecutionSchedule.getDeserializedJsonObj(

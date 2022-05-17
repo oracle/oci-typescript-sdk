@@ -101,7 +101,7 @@ export namespace CreateDataGuardAssociationDetails {
   export function getJsonObj(obj: CreateDataGuardAssociationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("creationType" in obj && obj.creationType) {
+    if (obj && "creationType" in obj && obj.creationType) {
       switch (obj.creationType) {
         case "NewDbSystem":
           return model.CreateDataGuardAssociationWithNewDbSystemDetails.getJsonObj(
@@ -127,7 +127,7 @@ export namespace CreateDataGuardAssociationDetails {
   export function getDeserializedJsonObj(obj: CreateDataGuardAssociationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("creationType" in obj && obj.creationType) {
+    if (obj && "creationType" in obj && obj.creationType) {
       switch (obj.creationType) {
         case "NewDbSystem":
           return model.CreateDataGuardAssociationWithNewDbSystemDetails.getDeserializedJsonObj(

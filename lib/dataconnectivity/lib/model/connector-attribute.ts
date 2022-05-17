@@ -25,7 +25,7 @@ export namespace ConnectorAttribute {
   export function getJsonObj(obj: ConnectorAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "EXTERNAL_STORAGE":
           return model.ExternalStorage.getJsonObj(<model.ExternalStorage>(<object>jsonObj), true);
@@ -38,7 +38,7 @@ export namespace ConnectorAttribute {
   export function getDeserializedJsonObj(obj: ConnectorAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "EXTERNAL_STORAGE":
           return model.ExternalStorage.getDeserializedJsonObj(

@@ -58,7 +58,7 @@ export namespace CreateWebAppFirewallDetails {
   export function getJsonObj(obj: CreateWebAppFirewallDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("backendType" in obj && obj.backendType) {
+    if (obj && "backendType" in obj && obj.backendType) {
       switch (obj.backendType) {
         case "LOAD_BALANCER":
           return model.CreateWebAppFirewallLoadBalancerDetails.getJsonObj(
@@ -74,7 +74,7 @@ export namespace CreateWebAppFirewallDetails {
   export function getDeserializedJsonObj(obj: CreateWebAppFirewallDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("backendType" in obj && obj.backendType) {
+    if (obj && "backendType" in obj && obj.backendType) {
       switch (obj.backendType) {
         case "LOAD_BALANCER":
           return model.CreateWebAppFirewallLoadBalancerDetails.getDeserializedJsonObj(

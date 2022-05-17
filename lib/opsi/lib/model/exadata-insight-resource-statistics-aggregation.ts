@@ -28,7 +28,7 @@ export namespace ExadataInsightResourceStatisticsAggregation {
   export function getJsonObj(obj: ExadataInsightResourceStatisticsAggregation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("exadataResourceType" in obj && obj.exadataResourceType) {
+    if (obj && "exadataResourceType" in obj && obj.exadataResourceType) {
       switch (obj.exadataResourceType) {
         case "STORAGE_SERVER":
           return model.ExadataStorageServerStatisticsSummary.getJsonObj(
@@ -59,7 +59,7 @@ export namespace ExadataInsightResourceStatisticsAggregation {
   export function getDeserializedJsonObj(obj: ExadataInsightResourceStatisticsAggregation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("exadataResourceType" in obj && obj.exadataResourceType) {
+    if (obj && "exadataResourceType" in obj && obj.exadataResourceType) {
       switch (obj.exadataResourceType) {
         case "STORAGE_SERVER":
           return model.ExadataStorageServerStatisticsSummary.getDeserializedJsonObj(

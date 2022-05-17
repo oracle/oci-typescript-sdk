@@ -34,7 +34,7 @@ export namespace FormatEntry {
   export function getJsonObj(obj: FormatEntry): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "RANDOM_STRING":
           return model.RandomStringFormatEntry.getJsonObj(
@@ -154,7 +154,7 @@ export namespace FormatEntry {
   export function getDeserializedJsonObj(obj: FormatEntry): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "RANDOM_STRING":
           return model.RandomStringFormatEntry.getDeserializedJsonObj(

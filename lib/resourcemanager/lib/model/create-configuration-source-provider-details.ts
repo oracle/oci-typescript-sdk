@@ -59,7 +59,7 @@ export namespace CreateConfigurationSourceProviderDetails {
   export function getJsonObj(obj: CreateConfigurationSourceProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceProviderType" in obj && obj.configSourceProviderType) {
+    if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
         case "GITLAB_ACCESS_TOKEN":
           return model.CreateGitlabAccessTokenConfigurationSourceProviderDetails.getJsonObj(
@@ -80,7 +80,7 @@ export namespace CreateConfigurationSourceProviderDetails {
   export function getDeserializedJsonObj(obj: CreateConfigurationSourceProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceProviderType" in obj && obj.configSourceProviderType) {
+    if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
         case "GITLAB_ACCESS_TOKEN":
           return model.CreateGitlabAccessTokenConfigurationSourceProviderDetails.getDeserializedJsonObj(

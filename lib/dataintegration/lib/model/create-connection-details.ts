@@ -70,7 +70,7 @@ export namespace CreateConnectionDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "MYSQL_CONNECTION":
           return model.CreateConnectionFromMySQL.getJsonObj(
@@ -142,7 +142,7 @@ export namespace CreateConnectionDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "MYSQL_CONNECTION":
           return model.CreateConnectionFromMySQL.getDeserializedJsonObj(

@@ -52,7 +52,7 @@ export namespace CreateScheduledTaskDetails {
   export function getJsonObj(obj: CreateScheduledTaskDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "STANDARD":
           return model.CreateStandardTaskDetails.getJsonObj(
@@ -73,7 +73,7 @@ export namespace CreateScheduledTaskDetails {
   export function getDeserializedJsonObj(obj: CreateScheduledTaskDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "STANDARD":
           return model.CreateStandardTaskDetails.getDeserializedJsonObj(

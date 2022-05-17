@@ -42,6 +42,7 @@ export interface BuildRunSummary {
     | model.GithubBuildRunSource
     | model.DevopsCodeRepositoryBuildRunSource
     | model.ManualBuildRunSource
+    | model.BitbucketCloudBuildRunSource
     | model.GitlabBuildRunSource;
   "buildRunArguments"?: model.BuildRunArgumentCollection;
   "buildRunProgressSummary"?: model.BuildRunProgressSummary;

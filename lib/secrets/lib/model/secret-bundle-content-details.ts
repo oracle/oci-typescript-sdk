@@ -25,7 +25,7 @@ export namespace SecretBundleContentDetails {
   export function getJsonObj(obj: SecretBundleContentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("contentType" in obj && obj.contentType) {
+    if (obj && "contentType" in obj && obj.contentType) {
       switch (obj.contentType) {
         case "BASE64":
           return model.Base64SecretBundleContentDetails.getJsonObj(
@@ -41,7 +41,7 @@ export namespace SecretBundleContentDetails {
   export function getDeserializedJsonObj(obj: SecretBundleContentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("contentType" in obj && obj.contentType) {
+    if (obj && "contentType" in obj && obj.contentType) {
       switch (obj.contentType) {
         case "BASE64":
           return model.Base64SecretBundleContentDetails.getDeserializedJsonObj(

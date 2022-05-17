@@ -50,7 +50,7 @@ export namespace UpdateDeployStageDetails {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "OKE_CANARY_TRAFFIC_SHIFT":
           return model.UpdateOkeCanaryTrafficShiftDeployStageDetails.getJsonObj(
@@ -60,6 +60,11 @@ export namespace UpdateDeployStageDetails {
         case "OKE_CANARY_DEPLOYMENT":
           return model.UpdateOkeCanaryDeployStageDetails.getJsonObj(
             <model.UpdateOkeCanaryDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.UpdateOkeHelmChartDeployStageDetails.getJsonObj(
+            <model.UpdateOkeHelmChartDeployStageDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
@@ -157,7 +162,7 @@ export namespace UpdateDeployStageDetails {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "OKE_CANARY_TRAFFIC_SHIFT":
           return model.UpdateOkeCanaryTrafficShiftDeployStageDetails.getDeserializedJsonObj(
@@ -167,6 +172,11 @@ export namespace UpdateDeployStageDetails {
         case "OKE_CANARY_DEPLOYMENT":
           return model.UpdateOkeCanaryDeployStageDetails.getDeserializedJsonObj(
             <model.UpdateOkeCanaryDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.UpdateOkeHelmChartDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateOkeHelmChartDeployStageDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":

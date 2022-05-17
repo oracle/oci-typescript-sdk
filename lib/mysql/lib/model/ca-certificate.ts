@@ -25,7 +25,7 @@ export namespace CaCertificate {
   export function getJsonObj(obj: CaCertificate): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("certificateType" in obj && obj.certificateType) {
+    if (obj && "certificateType" in obj && obj.certificateType) {
       switch (obj.certificateType) {
         case "PEM":
           return model.PemCaCertificate.getJsonObj(<model.PemCaCertificate>(<object>jsonObj), true);
@@ -38,7 +38,7 @@ export namespace CaCertificate {
   export function getDeserializedJsonObj(obj: CaCertificate): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("certificateType" in obj && obj.certificateType) {
+    if (obj && "certificateType" in obj && obj.certificateType) {
       switch (obj.certificateType) {
         case "PEM":
           return model.PemCaCertificate.getDeserializedJsonObj(

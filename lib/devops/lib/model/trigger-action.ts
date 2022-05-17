@@ -18,7 +18,11 @@ import common = require("oci-common");
  * The trigger action to be performed.
  */
 export interface TriggerAction {
-  "filter"?: model.DevopsCodeRepositoryFilter | model.GitlabFilter | model.GithubFilter;
+  "filter"?:
+    | model.DevopsCodeRepositoryFilter
+    | model.BitbucketCloudFilter
+    | model.GitlabFilter
+    | model.GithubFilter;
 
   "type": string;
 }
@@ -32,7 +36,7 @@ export namespace TriggerAction {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TRIGGER_BUILD_PIPELINE":
           return model.TriggerBuildPipelineAction.getJsonObj(
@@ -53,7 +57,7 @@ export namespace TriggerAction {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TRIGGER_BUILD_PIPELINE":
           return model.TriggerBuildPipelineAction.getDeserializedJsonObj(

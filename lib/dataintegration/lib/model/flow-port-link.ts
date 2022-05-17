@@ -52,7 +52,7 @@ export namespace FlowPortLink {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "INPUT_LINK":
           return model.InputLink.getJsonObj(<model.InputLink>(<object>jsonObj), true);
@@ -79,7 +79,7 @@ export namespace FlowPortLink {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "INPUT_LINK":
           return model.InputLink.getDeserializedJsonObj(<model.InputLink>(<object>jsonObj), true);

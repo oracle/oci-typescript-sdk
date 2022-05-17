@@ -54,7 +54,7 @@ export namespace InstanceConfigurationAttachVolumeDetails {
   export function getJsonObj(obj: InstanceConfigurationAttachVolumeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "iscsi":
           return model.InstanceConfigurationIscsiAttachVolumeDetails.getJsonObj(
@@ -75,7 +75,7 @@ export namespace InstanceConfigurationAttachVolumeDetails {
   export function getDeserializedJsonObj(obj: InstanceConfigurationAttachVolumeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "iscsi":
           return model.InstanceConfigurationIscsiAttachVolumeDetails.getDeserializedJsonObj(

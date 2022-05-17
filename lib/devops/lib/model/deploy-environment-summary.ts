@@ -74,7 +74,7 @@ export namespace DeployEnvironmentSummary {
   export function getJsonObj(obj: DeployEnvironmentSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "FUNCTION":
           return model.FunctionDeployEnvironmentSummary.getJsonObj(
@@ -100,7 +100,7 @@ export namespace DeployEnvironmentSummary {
   export function getDeserializedJsonObj(obj: DeployEnvironmentSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "FUNCTION":
           return model.FunctionDeployEnvironmentSummary.getDeserializedJsonObj(

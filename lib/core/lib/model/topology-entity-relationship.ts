@@ -39,7 +39,7 @@ export namespace TopologyEntityRelationship {
   export function getJsonObj(obj: TopologyEntityRelationship): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ROUTES_TO":
           return model.TopologyRoutesToEntityRelationship.getJsonObj(
@@ -65,7 +65,7 @@ export namespace TopologyEntityRelationship {
   export function getDeserializedJsonObj(obj: TopologyEntityRelationship): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ROUTES_TO":
           return model.TopologyRoutesToEntityRelationship.getDeserializedJsonObj(

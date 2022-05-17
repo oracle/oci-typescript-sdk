@@ -28,7 +28,7 @@ export namespace EnableExadataInsightDetails {
   export function getJsonObj(obj: EnableExadataInsightDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.EnableEmManagedExternalExadataInsightDetails.getJsonObj(
@@ -44,7 +44,7 @@ export namespace EnableExadataInsightDetails {
   export function getDeserializedJsonObj(obj: EnableExadataInsightDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.EnableEmManagedExternalExadataInsightDetails.getDeserializedJsonObj(

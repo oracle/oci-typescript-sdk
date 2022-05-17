@@ -93,7 +93,7 @@ export namespace Operator {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "JOINER_OPERATOR":
           return model.Joiner.getJsonObj(<model.Joiner>(<object>jsonObj), true);
@@ -176,7 +176,7 @@ export namespace Operator {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "JOINER_OPERATOR":
           return model.Joiner.getDeserializedJsonObj(<model.Joiner>(<object>jsonObj), true);

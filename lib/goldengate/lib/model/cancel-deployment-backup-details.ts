@@ -26,7 +26,7 @@ export namespace CancelDeploymentBackupDetails {
   export function getJsonObj(obj: CancelDeploymentBackupDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DEFAULT":
           return model.DefaultCancelDeploymentBackupDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace CancelDeploymentBackupDetails {
   export function getDeserializedJsonObj(obj: CancelDeploymentBackupDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DEFAULT":
           return model.DefaultCancelDeploymentBackupDetails.getDeserializedJsonObj(

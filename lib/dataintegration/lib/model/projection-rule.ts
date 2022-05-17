@@ -57,7 +57,7 @@ export namespace ProjectionRule {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "RENAME_RULE":
           return model.RenameRule.getJsonObj(<model.RenameRule>(<object>jsonObj), true);
@@ -92,7 +92,7 @@ export namespace ProjectionRule {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "RENAME_RULE":
           return model.RenameRule.getDeserializedJsonObj(<model.RenameRule>(<object>jsonObj), true);

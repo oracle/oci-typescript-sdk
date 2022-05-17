@@ -25,7 +25,7 @@ export namespace SecretRule {
   export function getJsonObj(obj: SecretRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("ruleType" in obj && obj.ruleType) {
+    if (obj && "ruleType" in obj && obj.ruleType) {
       switch (obj.ruleType) {
         case "SECRET_EXPIRY_RULE":
           return model.SecretExpiryRule.getJsonObj(<model.SecretExpiryRule>(<object>jsonObj), true);
@@ -40,7 +40,7 @@ export namespace SecretRule {
   export function getDeserializedJsonObj(obj: SecretRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("ruleType" in obj && obj.ruleType) {
+    if (obj && "ruleType" in obj && obj.ruleType) {
       switch (obj.ruleType) {
         case "SECRET_EXPIRY_RULE":
           return model.SecretExpiryRule.getDeserializedJsonObj(

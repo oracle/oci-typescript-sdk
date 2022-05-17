@@ -61,7 +61,7 @@ export namespace CreateRepositoryDetails {
   export function getJsonObj(obj: CreateRepositoryDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("repositoryType" in obj && obj.repositoryType) {
+    if (obj && "repositoryType" in obj && obj.repositoryType) {
       switch (obj.repositoryType) {
         case "GENERIC":
           return model.CreateGenericRepositoryDetails.getJsonObj(
@@ -77,7 +77,7 @@ export namespace CreateRepositoryDetails {
   export function getDeserializedJsonObj(obj: CreateRepositoryDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("repositoryType" in obj && obj.repositoryType) {
+    if (obj && "repositoryType" in obj && obj.repositoryType) {
       switch (obj.repositoryType) {
         case "GENERIC":
           return model.CreateGenericRepositoryDetails.getDeserializedJsonObj(

@@ -79,7 +79,7 @@ export namespace DataAsset {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "GENERIC_JDBC_DATA_ASSET":
           return model.DataAssetFromJdbc.getJsonObj(
@@ -144,7 +144,7 @@ export namespace DataAsset {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "GENERIC_JDBC_DATA_ASSET":
           return model.DataAssetFromJdbc.getDeserializedJsonObj(

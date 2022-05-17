@@ -68,7 +68,7 @@ export namespace CreateIdentityProviderDetails {
   export function getJsonObj(obj: CreateIdentityProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("protocol" in obj && obj.protocol) {
+    if (obj && "protocol" in obj && obj.protocol) {
       switch (obj.protocol) {
         case "SAML2":
           return model.CreateSaml2IdentityProviderDetails.getJsonObj(
@@ -84,7 +84,7 @@ export namespace CreateIdentityProviderDetails {
   export function getDeserializedJsonObj(obj: CreateIdentityProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("protocol" in obj && obj.protocol) {
+    if (obj && "protocol" in obj && obj.protocol) {
       switch (obj.protocol) {
         case "SAML2":
           return model.CreateSaml2IdentityProviderDetails.getDeserializedJsonObj(

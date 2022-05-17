@@ -42,7 +42,7 @@ export namespace SqlTuningTaskCredentialDetails {
   export function getJsonObj(obj: SqlTuningTaskCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sqlTuningTaskCredentialType" in obj && obj.sqlTuningTaskCredentialType) {
+    if (obj && "sqlTuningTaskCredentialType" in obj && obj.sqlTuningTaskCredentialType) {
       switch (obj.sqlTuningTaskCredentialType) {
         case "SECRET":
           return model.SqlTuningTaskSecretCredentialDetails.getJsonObj(
@@ -63,7 +63,7 @@ export namespace SqlTuningTaskCredentialDetails {
   export function getDeserializedJsonObj(obj: SqlTuningTaskCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sqlTuningTaskCredentialType" in obj && obj.sqlTuningTaskCredentialType) {
+    if (obj && "sqlTuningTaskCredentialType" in obj && obj.sqlTuningTaskCredentialType) {
       switch (obj.sqlTuningTaskCredentialType) {
         case "SECRET":
           return model.SqlTuningTaskSecretCredentialDetails.getDeserializedJsonObj(

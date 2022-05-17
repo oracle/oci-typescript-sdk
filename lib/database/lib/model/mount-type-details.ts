@@ -26,7 +26,7 @@ export namespace MountTypeDetails {
   export function getJsonObj(obj: MountTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("mountType" in obj && obj.mountType) {
+    if (obj && "mountType" in obj && obj.mountType) {
       switch (obj.mountType) {
         case "SELF_MOUNT":
           return model.SelfMountDetails.getJsonObj(<model.SelfMountDetails>(<object>jsonObj), true);
@@ -44,7 +44,7 @@ export namespace MountTypeDetails {
   export function getDeserializedJsonObj(obj: MountTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("mountType" in obj && obj.mountType) {
+    if (obj && "mountType" in obj && obj.mountType) {
       switch (obj.mountType) {
         case "SELF_MOUNT":
           return model.SelfMountDetails.getDeserializedJsonObj(

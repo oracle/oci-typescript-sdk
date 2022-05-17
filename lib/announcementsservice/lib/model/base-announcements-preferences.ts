@@ -54,7 +54,7 @@ export namespace BaseAnnouncementsPreferences {
   export function getJsonObj(obj: BaseAnnouncementsPreferences): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AnnouncementsPreferencesSummary":
           return model.AnnouncementsPreferencesSummary.getJsonObj(
@@ -75,7 +75,7 @@ export namespace BaseAnnouncementsPreferences {
   export function getDeserializedJsonObj(obj: BaseAnnouncementsPreferences): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AnnouncementsPreferencesSummary":
           return model.AnnouncementsPreferencesSummary.getDeserializedJsonObj(

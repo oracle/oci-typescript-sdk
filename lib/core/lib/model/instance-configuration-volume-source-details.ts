@@ -27,7 +27,7 @@ export namespace InstanceConfigurationVolumeSourceDetails {
   export function getJsonObj(obj: InstanceConfigurationVolumeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "volumeBackup":
           return model.InstanceConfigurationVolumeSourceFromVolumeBackupDetails.getJsonObj(
@@ -48,7 +48,7 @@ export namespace InstanceConfigurationVolumeSourceDetails {
   export function getDeserializedJsonObj(obj: InstanceConfigurationVolumeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "volumeBackup":
           return model.InstanceConfigurationVolumeSourceFromVolumeBackupDetails.getDeserializedJsonObj(

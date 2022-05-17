@@ -87,7 +87,7 @@ export namespace TriggerCreateResult {
       }
     };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
         case "GITHUB":
           return model.GithubTriggerCreateResult.getJsonObj(
@@ -102,6 +102,11 @@ export namespace TriggerCreateResult {
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryTriggerCreateResult.getJsonObj(
             <model.DevopsCodeRepositoryTriggerCreateResult>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudTriggerCreateResult.getJsonObj(
+            <model.BitbucketCloudTriggerCreateResult>(<object>jsonObj),
             true
           );
         default:
@@ -122,7 +127,7 @@ export namespace TriggerCreateResult {
       }
     };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
         case "GITHUB":
           return model.GithubTriggerCreateResult.getDeserializedJsonObj(
@@ -137,6 +142,11 @@ export namespace TriggerCreateResult {
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryTriggerCreateResult.getDeserializedJsonObj(
             <model.DevopsCodeRepositoryTriggerCreateResult>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudTriggerCreateResult.getDeserializedJsonObj(
+            <model.BitbucketCloudTriggerCreateResult>(<object>jsonObj),
             true
           );
         default:

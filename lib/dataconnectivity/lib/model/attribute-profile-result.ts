@@ -59,7 +59,7 @@ export namespace AttributeProfileResult {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "STRING":
           return model.StringAttribute.getJsonObj(<model.StringAttribute>(<object>jsonObj), true);
@@ -99,7 +99,7 @@ export namespace AttributeProfileResult {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "STRING":
           return model.StringAttribute.getDeserializedJsonObj(

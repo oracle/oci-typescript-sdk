@@ -60,7 +60,7 @@ export namespace CreateSensitiveTypeDetails {
   export function getJsonObj(obj: CreateSensitiveTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "SENSITIVE_CATEGORY":
           return model.CreateSensitiveCategoryDetails.getJsonObj(
@@ -81,7 +81,7 @@ export namespace CreateSensitiveTypeDetails {
   export function getDeserializedJsonObj(obj: CreateSensitiveTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "SENSITIVE_CATEGORY":
           return model.CreateSensitiveCategoryDetails.getDeserializedJsonObj(

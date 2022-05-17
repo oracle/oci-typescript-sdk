@@ -65,7 +65,7 @@ export namespace ExadataConfigurationSummary {
   export function getJsonObj(obj: ExadataConfigurationSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.ExadataDatabaseMachineConfigurationSummary.getJsonObj(
@@ -81,7 +81,7 @@ export namespace ExadataConfigurationSummary {
   export function getDeserializedJsonObj(obj: ExadataConfigurationSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.ExadataDatabaseMachineConfigurationSummary.getDeserializedJsonObj(

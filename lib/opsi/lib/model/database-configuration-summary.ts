@@ -73,7 +73,7 @@ export namespace DatabaseConfigurationSummary {
   export function getJsonObj(obj: DatabaseConfigurationSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.EmManagedExternalDatabaseConfigurationSummary.getJsonObj(
@@ -104,7 +104,7 @@ export namespace DatabaseConfigurationSummary {
   export function getDeserializedJsonObj(obj: DatabaseConfigurationSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_DATABASE":
           return model.EmManagedExternalDatabaseConfigurationSummary.getDeserializedJsonObj(

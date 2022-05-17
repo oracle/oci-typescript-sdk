@@ -38,11 +38,16 @@ export namespace BuildSource {
   export function getJsonObj(obj: BuildSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "GITHUB":
           return model.GithubBuildSource.getJsonObj(
             <model.GithubBuildSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudBuildSource.getJsonObj(
+            <model.BitbucketCloudBuildSource>(<object>jsonObj),
             true
           );
         case "DEVOPS_CODE_REPOSITORY":
@@ -64,11 +69,16 @@ export namespace BuildSource {
   export function getDeserializedJsonObj(obj: BuildSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "GITHUB":
           return model.GithubBuildSource.getDeserializedJsonObj(
             <model.GithubBuildSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudBuildSource.getDeserializedJsonObj(
+            <model.BitbucketCloudBuildSource>(<object>jsonObj),
             true
           );
         case "DEVOPS_CODE_REPOSITORY":

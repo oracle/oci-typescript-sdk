@@ -28,7 +28,7 @@ export namespace NodeSourceDetails {
   export function getJsonObj(obj: NodeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "IMAGE":
           return model.NodeSourceViaImageDetails.getJsonObj(
@@ -44,7 +44,7 @@ export namespace NodeSourceDetails {
   export function getDeserializedJsonObj(obj: NodeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "IMAGE":
           return model.NodeSourceViaImageDetails.getDeserializedJsonObj(

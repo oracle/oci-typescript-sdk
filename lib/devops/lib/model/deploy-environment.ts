@@ -89,7 +89,7 @@ export namespace DeployEnvironment {
   export function getJsonObj(obj: DeployEnvironment): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "COMPUTE_INSTANCE_GROUP":
           return model.ComputeInstanceGroupDeployEnvironment.getJsonObj(
@@ -115,7 +115,7 @@ export namespace DeployEnvironment {
   export function getDeserializedJsonObj(obj: DeployEnvironment): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deployEnvironmentType" in obj && obj.deployEnvironmentType) {
+    if (obj && "deployEnvironmentType" in obj && obj.deployEnvironmentType) {
       switch (obj.deployEnvironmentType) {
         case "COMPUTE_INSTANCE_GROUP":
           return model.ComputeInstanceGroupDeployEnvironment.getDeserializedJsonObj(

@@ -26,7 +26,7 @@ export namespace Action {
   export function getJsonObj(obj: Action): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "PURGE":
           return model.PurgeAction.getJsonObj(<model.PurgeAction>(<object>jsonObj), true);
@@ -41,7 +41,7 @@ export namespace Action {
   export function getDeserializedJsonObj(obj: Action): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "PURGE":
           return model.PurgeAction.getDeserializedJsonObj(

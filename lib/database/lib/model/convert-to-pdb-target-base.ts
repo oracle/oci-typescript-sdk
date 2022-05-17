@@ -27,7 +27,7 @@ export namespace ConvertToPdbTargetBase {
   export function getJsonObj(obj: ConvertToPdbTargetBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("target" in obj && obj.target) {
+    if (obj && "target" in obj && obj.target) {
       switch (obj.target) {
         case "NEW_DATABASE":
           return model.PdbConversionToNewDatabaseDetails.getJsonObj(
@@ -43,7 +43,7 @@ export namespace ConvertToPdbTargetBase {
   export function getDeserializedJsonObj(obj: ConvertToPdbTargetBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("target" in obj && obj.target) {
+    if (obj && "target" in obj && obj.target) {
       switch (obj.target) {
         case "NEW_DATABASE":
           return model.PdbConversionToNewDatabaseDetails.getDeserializedJsonObj(

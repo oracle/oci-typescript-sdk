@@ -88,7 +88,7 @@ export namespace DeploymentSummary {
       }
     };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "SINGLE_STAGE_DEPLOYMENT":
           return model.SingleDeployStageDeploymentSummary.getJsonObj(
@@ -131,7 +131,7 @@ export namespace DeploymentSummary {
       }
     };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "SINGLE_STAGE_DEPLOYMENT":
           return model.SingleDeployStageDeploymentSummary.getDeserializedJsonObj(

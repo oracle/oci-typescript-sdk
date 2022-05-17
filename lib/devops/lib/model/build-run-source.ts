@@ -25,7 +25,7 @@ export namespace BuildRunSource {
   export function getJsonObj(obj: BuildRunSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "GITHUB":
           return model.GithubBuildRunSource.getJsonObj(
@@ -42,6 +42,11 @@ export namespace BuildRunSource {
             <model.ManualBuildRunSource>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudBuildRunSource.getJsonObj(
+            <model.BitbucketCloudBuildRunSource>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.GitlabBuildRunSource.getJsonObj(
             <model.GitlabBuildRunSource>(<object>jsonObj),
@@ -56,7 +61,7 @@ export namespace BuildRunSource {
   export function getDeserializedJsonObj(obj: BuildRunSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "GITHUB":
           return model.GithubBuildRunSource.getDeserializedJsonObj(
@@ -71,6 +76,11 @@ export namespace BuildRunSource {
         case "MANUAL":
           return model.ManualBuildRunSource.getDeserializedJsonObj(
             <model.ManualBuildRunSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudBuildRunSource.getDeserializedJsonObj(
+            <model.BitbucketCloudBuildRunSource>(<object>jsonObj),
             true
           );
         case "GITLAB":

@@ -107,7 +107,7 @@ export namespace DatabaseInsightSummary {
   export function getJsonObj(obj: DatabaseInsightSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "MACS_MANAGED_EXTERNAL_DATABASE":
           return model.MacsManagedExternalDatabaseInsightSummary.getJsonObj(
@@ -138,7 +138,7 @@ export namespace DatabaseInsightSummary {
   export function getDeserializedJsonObj(obj: DatabaseInsightSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "MACS_MANAGED_EXTERNAL_DATABASE":
           return model.MacsManagedExternalDatabaseInsightSummary.getDeserializedJsonObj(

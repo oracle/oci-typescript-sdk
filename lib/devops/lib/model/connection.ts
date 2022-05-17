@@ -79,7 +79,7 @@ export namespace Connection {
   export function getJsonObj(obj: Connection): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConnection.getJsonObj(
@@ -91,6 +91,11 @@ export namespace Connection {
             <model.GithubAccessTokenConnection>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD_APP_PASSWORD":
+          return model.BitbucketCloudAppPasswordConnection.getJsonObj(
+            <model.BitbucketCloudAppPasswordConnection>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.connectionType);
       }
@@ -100,7 +105,7 @@ export namespace Connection {
   export function getDeserializedJsonObj(obj: Connection): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConnection.getDeserializedJsonObj(
@@ -110,6 +115,11 @@ export namespace Connection {
         case "GITHUB_ACCESS_TOKEN":
           return model.GithubAccessTokenConnection.getDeserializedJsonObj(
             <model.GithubAccessTokenConnection>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_APP_PASSWORD":
+          return model.BitbucketCloudAppPasswordConnection.getDeserializedJsonObj(
+            <model.BitbucketCloudAppPasswordConnection>(<object>jsonObj),
             true
           );
         default:

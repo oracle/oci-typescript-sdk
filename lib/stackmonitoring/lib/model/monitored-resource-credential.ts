@@ -42,7 +42,7 @@ export namespace MonitoredResourceCredential {
   export function getJsonObj(obj: MonitoredResourceCredential): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("credentialType" in obj && obj.credentialType) {
+    if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
         case "EXISTING":
           return model.PreExistingCredentials.getJsonObj(
@@ -68,7 +68,7 @@ export namespace MonitoredResourceCredential {
   export function getDeserializedJsonObj(obj: MonitoredResourceCredential): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("credentialType" in obj && obj.credentialType) {
+    if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
         case "EXISTING":
           return model.PreExistingCredentials.getDeserializedJsonObj(

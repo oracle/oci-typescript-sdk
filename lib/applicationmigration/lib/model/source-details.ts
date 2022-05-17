@@ -38,7 +38,7 @@ export namespace SourceDetails {
   export function getJsonObj(obj: SourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "IMPORT":
           return model.ImportSourceDetails.getJsonObj(
@@ -66,7 +66,7 @@ export namespace SourceDetails {
   export function getDeserializedJsonObj(obj: SourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "IMPORT":
           return model.ImportSourceDetails.getDeserializedJsonObj(

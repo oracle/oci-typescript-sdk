@@ -30,7 +30,7 @@ export namespace InstancePowerActionDetails {
   export function getJsonObj(obj: InstancePowerActionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("actionType" in obj && obj.actionType) {
+    if (obj && "actionType" in obj && obj.actionType) {
       switch (obj.actionType) {
         case "reset":
           return model.ResetActionDetails.getJsonObj(
@@ -51,7 +51,7 @@ export namespace InstancePowerActionDetails {
   export function getDeserializedJsonObj(obj: InstancePowerActionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("actionType" in obj && obj.actionType) {
+    if (obj && "actionType" in obj && obj.actionType) {
       switch (obj.actionType) {
         case "reset":
           return model.ResetActionDetails.getDeserializedJsonObj(

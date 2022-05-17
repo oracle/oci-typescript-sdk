@@ -25,7 +25,7 @@ export namespace ConnectionOption {
   export function getJsonObj(obj: ConnectionOption): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "PRIVATE_ENDPOINT":
           return model.PrivateEndpoint.getJsonObj(<model.PrivateEndpoint>(<object>jsonObj), true);
@@ -43,7 +43,7 @@ export namespace ConnectionOption {
   export function getDeserializedJsonObj(obj: ConnectionOption): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "PRIVATE_ENDPOINT":
           return model.PrivateEndpoint.getDeserializedJsonObj(

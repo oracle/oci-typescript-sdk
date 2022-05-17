@@ -89,7 +89,7 @@ export namespace SensitiveType {
   export function getJsonObj(obj: SensitiveType): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "SENSITIVE_TYPE":
           return model.SensitiveTypePattern.getJsonObj(
@@ -110,7 +110,7 @@ export namespace SensitiveType {
   export function getDeserializedJsonObj(obj: SensitiveType): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "SENSITIVE_TYPE":
           return model.SensitiveTypePattern.getDeserializedJsonObj(

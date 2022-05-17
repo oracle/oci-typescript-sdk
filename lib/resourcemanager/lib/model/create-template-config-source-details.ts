@@ -30,7 +30,7 @@ export namespace CreateTemplateConfigSourceDetails {
   export function getJsonObj(obj: CreateTemplateConfigSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("templateConfigSourceType" in obj && obj.templateConfigSourceType) {
+    if (obj && "templateConfigSourceType" in obj && obj.templateConfigSourceType) {
       switch (obj.templateConfigSourceType) {
         case "ZIP_UPLOAD":
           return model.CreateTemplateZipUploadConfigSourceDetails.getJsonObj(
@@ -46,7 +46,7 @@ export namespace CreateTemplateConfigSourceDetails {
   export function getDeserializedJsonObj(obj: CreateTemplateConfigSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("templateConfigSourceType" in obj && obj.templateConfigSourceType) {
+    if (obj && "templateConfigSourceType" in obj && obj.templateConfigSourceType) {
       switch (obj.templateConfigSourceType) {
         case "ZIP_UPLOAD":
           return model.CreateTemplateZipUploadConfigSourceDetails.getDeserializedJsonObj(

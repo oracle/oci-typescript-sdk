@@ -25,7 +25,7 @@ export namespace PutRepositoryRefDetails {
   export function getJsonObj(obj: PutRepositoryRefDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("refType" in obj && obj.refType) {
+    if (obj && "refType" in obj && obj.refType) {
       switch (obj.refType) {
         case "TAG":
           return model.PutRepositoryTagDetails.getJsonObj(
@@ -46,7 +46,7 @@ export namespace PutRepositoryRefDetails {
   export function getDeserializedJsonObj(obj: PutRepositoryRefDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("refType" in obj && obj.refType) {
+    if (obj && "refType" in obj && obj.refType) {
       switch (obj.refType) {
         case "TAG":
           return model.PutRepositoryTagDetails.getDeserializedJsonObj(

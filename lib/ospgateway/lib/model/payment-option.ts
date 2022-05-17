@@ -34,7 +34,7 @@ export namespace PaymentOption {
   export function getJsonObj(obj: PaymentOption): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("paymentMethod" in obj && obj.paymentMethod) {
+    if (obj && "paymentMethod" in obj && obj.paymentMethod) {
       switch (obj.paymentMethod) {
         case "CREDIT_CARD":
           return model.CreditCardPaymentOption.getJsonObj(
@@ -55,7 +55,7 @@ export namespace PaymentOption {
   export function getDeserializedJsonObj(obj: PaymentOption): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("paymentMethod" in obj && obj.paymentMethod) {
+    if (obj && "paymentMethod" in obj && obj.paymentMethod) {
       switch (obj.paymentMethod) {
         case "CREDIT_CARD":
           return model.CreditCardPaymentOption.getDeserializedJsonObj(

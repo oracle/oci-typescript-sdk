@@ -11625,6 +11625,72 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * Gets a list of supported character sets.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousDatabaseCharacterSetsRequest
+   * @return ListAutonomousDatabaseCharacterSetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseCharacterSets.ts.html |here} to see how to use ListAutonomousDatabaseCharacterSets API.
+   */
+  public async listAutonomousDatabaseCharacterSets(
+    listAutonomousDatabaseCharacterSetsRequest: requests.ListAutonomousDatabaseCharacterSetsRequest
+  ): Promise<responses.ListAutonomousDatabaseCharacterSetsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseCharacterSets.");
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutonomousDatabaseCharacterSetsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabaseCharacterSetsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseCharacterSets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousDatabaseCharacterSetsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AutonomousDatabaseCharacterSets,
+        type: "Array<model.AutonomousDatabaseCharacterSets>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the Autonomous Database clones for the specified Autonomous Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -14856,6 +14922,75 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * Gets a list of expected compute performance parameters for a virtual machine DB system based on system configuration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbSystemComputePerformancesRequest
+   * @return ListDbSystemComputePerformancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemComputePerformances.ts.html |here} to see how to use ListDbSystemComputePerformances API.
+   */
+  public async listDbSystemComputePerformances(
+    listDbSystemComputePerformancesRequest: requests.ListDbSystemComputePerformancesRequest
+  ): Promise<responses.ListDbSystemComputePerformancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemComputePerformances.");
+    const pathParams = {};
+
+    const queryParams = {
+      "dbSystemShape": listDbSystemComputePerformancesRequest.dbSystemShape
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbSystemComputePerformancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemComputePerformancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystemComputePerformance",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbSystemComputePerformancesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbSystemComputePerformanceSummary,
+        type: "Array<model.DbSystemComputePerformanceSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the history of the patch actions performed on the specified DB system.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -15219,6 +15354,76 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListDbSystemShapesRequest
   ): AsyncIterableIterator<responses.ListDbSystemShapesResponse> {
     return paginateResponses(request, req => this.listDbSystemShapes(req));
+  }
+
+  /**
+   * Gets a list of possible expected storage performance parameters of a VMDB System based on Configuration.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDbSystemStoragePerformancesRequest
+   * @return ListDbSystemStoragePerformancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListDbSystemStoragePerformances.ts.html |here} to see how to use ListDbSystemStoragePerformances API.
+   */
+  public async listDbSystemStoragePerformances(
+    listDbSystemStoragePerformancesRequest: requests.ListDbSystemStoragePerformancesRequest
+  ): Promise<responses.ListDbSystemStoragePerformancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listDbSystemStoragePerformances.");
+    const pathParams = {};
+
+    const queryParams = {
+      "storageManagement": listDbSystemStoragePerformancesRequest.storageManagement,
+      "shapeType": listDbSystemStoragePerformancesRequest.shapeType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDbSystemStoragePerformancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDbSystemStoragePerformancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbSystemStoragePerformance",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDbSystemStoragePerformancesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DbSystemStoragePerformanceSummary,
+        type: "Array<model.DbSystemStoragePerformanceSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

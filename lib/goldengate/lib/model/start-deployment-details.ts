@@ -26,7 +26,7 @@ export namespace StartDeploymentDetails {
   export function getJsonObj(obj: StartDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DEFAULT":
           return model.DefaultStartDeploymentDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace StartDeploymentDetails {
   export function getDeserializedJsonObj(obj: StartDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DEFAULT":
           return model.DefaultStartDeploymentDetails.getDeserializedJsonObj(

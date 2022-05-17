@@ -30,7 +30,7 @@ export namespace CreatePrivateApplicationPackage {
   export function getJsonObj(obj: CreatePrivateApplicationPackage): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("packageType" in obj && obj.packageType) {
+    if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
         case "STACK":
           return model.CreatePrivateApplicationStackPackage.getJsonObj(
@@ -46,7 +46,7 @@ export namespace CreatePrivateApplicationPackage {
   export function getDeserializedJsonObj(obj: CreatePrivateApplicationPackage): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("packageType" in obj && obj.packageType) {
+    if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
         case "STACK":
           return model.CreatePrivateApplicationStackPackage.getDeserializedJsonObj(

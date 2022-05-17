@@ -41,7 +41,7 @@ export namespace ImageSourceDetails {
   export function getJsonObj(obj: ImageSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "objectStorageTuple":
           return model.ImageSourceViaObjectStorageTupleDetails.getJsonObj(
@@ -62,7 +62,7 @@ export namespace ImageSourceDetails {
   export function getDeserializedJsonObj(obj: ImageSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "objectStorageTuple":
           return model.ImageSourceViaObjectStorageTupleDetails.getDeserializedJsonObj(

@@ -29,7 +29,7 @@ export namespace ResponseCacheStorePolicy {
   export function getJsonObj(obj: ResponseCacheStorePolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "FIXED_TTL_STORE_POLICY":
           return model.FixedTTLResponseCacheStorePolicy.getJsonObj(
@@ -45,7 +45,7 @@ export namespace ResponseCacheStorePolicy {
   export function getDeserializedJsonObj(obj: ResponseCacheStorePolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "FIXED_TTL_STORE_POLICY":
           return model.FixedTTLResponseCacheStorePolicy.getDeserializedJsonObj(

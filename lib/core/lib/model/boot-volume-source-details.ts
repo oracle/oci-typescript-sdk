@@ -27,7 +27,7 @@ export namespace BootVolumeSourceDetails {
   export function getJsonObj(obj: BootVolumeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "bootVolumeBackup":
           return model.BootVolumeSourceFromBootVolumeBackupDetails.getJsonObj(
@@ -53,7 +53,7 @@ export namespace BootVolumeSourceDetails {
   export function getDeserializedJsonObj(obj: BootVolumeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "bootVolumeBackup":
           return model.BootVolumeSourceFromBootVolumeBackupDetails.getDeserializedJsonObj(

@@ -110,7 +110,7 @@ export namespace Dashboard {
   export function getJsonObj(obj: Dashboard): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("schemaVersion" in obj && obj.schemaVersion) {
+    if (obj && "schemaVersion" in obj && obj.schemaVersion) {
       switch (obj.schemaVersion) {
         case "V1":
           return model.V1Dashboard.getJsonObj(<model.V1Dashboard>(<object>jsonObj), true);
@@ -123,7 +123,7 @@ export namespace Dashboard {
   export function getDeserializedJsonObj(obj: Dashboard): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("schemaVersion" in obj && obj.schemaVersion) {
+    if (obj && "schemaVersion" in obj && obj.schemaVersion) {
       switch (obj.schemaVersion) {
         case "V1":
           return model.V1Dashboard.getDeserializedJsonObj(

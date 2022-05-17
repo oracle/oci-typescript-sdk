@@ -46,7 +46,7 @@ export namespace FieldValue {
       }
     };
 
-    if ("valueType" in obj && obj.valueType) {
+    if (obj && "valueType" in obj && obj.valueType) {
       switch (obj.valueType) {
         case "TIME":
           return model.ValueTime.getJsonObj(<model.ValueTime>(<object>jsonObj), true);
@@ -78,7 +78,7 @@ export namespace FieldValue {
       }
     };
 
-    if ("valueType" in obj && obj.valueType) {
+    if (obj && "valueType" in obj && obj.valueType) {
       switch (obj.valueType) {
         case "TIME":
           return model.ValueTime.getDeserializedJsonObj(<model.ValueTime>(<object>jsonObj), true);

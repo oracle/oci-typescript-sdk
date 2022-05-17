@@ -35,7 +35,7 @@ export namespace Action {
   export function getJsonObj(obj: Action): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "RETURN_HTTP_RESPONSE":
           return model.ReturnHttpResponseAction.getJsonObj(
@@ -55,7 +55,7 @@ export namespace Action {
   export function getDeserializedJsonObj(obj: Action): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "RETURN_HTTP_RESPONSE":
           return model.ReturnHttpResponseAction.getDeserializedJsonObj(

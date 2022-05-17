@@ -29,7 +29,7 @@ export namespace ApiSpecificationRouteBackend {
   export function getJsonObj(obj: ApiSpecificationRouteBackend): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "HTTP_BACKEND":
           return model.HTTPBackend.getJsonObj(<model.HTTPBackend>(<object>jsonObj), true);
@@ -52,7 +52,7 @@ export namespace ApiSpecificationRouteBackend {
   export function getDeserializedJsonObj(obj: ApiSpecificationRouteBackend): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "HTTP_BACKEND":
           return model.HTTPBackend.getDeserializedJsonObj(

@@ -26,7 +26,7 @@ export namespace RestoreDeploymentDetails {
   export function getJsonObj(obj: RestoreDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DEFAULT":
           return model.DefaultRestoreDeploymentDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace RestoreDeploymentDetails {
   export function getDeserializedJsonObj(obj: RestoreDeploymentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DEFAULT":
           return model.DefaultRestoreDeploymentDetails.getDeserializedJsonObj(

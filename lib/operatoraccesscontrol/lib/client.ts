@@ -290,6 +290,82 @@ export class AccessRequestsClient {
   }
 
   /**
+   * Posts query for additional information for the given access request.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param InteractionRequestRequest
+   * @return InteractionRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/InteractionRequest.ts.html |here} to see how to use InteractionRequest API.
+   */
+  public async interactionRequest(
+    interactionRequestRequest: requests.InteractionRequestRequest
+  ): Promise<responses.InteractionRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AccessRequestsClient#interactionRequest.");
+    const pathParams = {
+      "{accessRequestId}": interactionRequestRequest.accessRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": interactionRequestRequest.opcRetryToken,
+      "if-match": interactionRequestRequest.ifMatch,
+      "opc-request-id": interactionRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      interactionRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/accessRequests/{accessRequestId}/action/interactionRequest",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        interactionRequestRequest.interactionRequestDetails,
+        "InteractionRequestDetails",
+        model.InteractionRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InteractionRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "accessRequest",
+        bodyModel: model.AccessRequest,
+        type: "model.AccessRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a history of all status associated with the accessRequestId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -419,6 +495,77 @@ export class AccessRequestsClient {
         bodyKey: "accessRequestCollection",
         bodyModel: model.AccessRequestCollection,
         type: "model.AccessRequestCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the MoreInformation interaction between customer and operators.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListInteractionsRequest
+   * @return ListInteractionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/operatoraccesscontrol/ListInteractions.ts.html |here} to see how to use ListInteractions API.
+   */
+  public async listInteractions(
+    listInteractionsRequest: requests.ListInteractionsRequest
+  ): Promise<responses.ListInteractionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#listInteractions.");
+    const pathParams = {
+      "{accessRequestId}": listInteractionsRequest.accessRequestId
+    };
+
+    const queryParams = {
+      "limit": listInteractionsRequest.limit,
+      "page": listInteractionsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listInteractionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listInteractionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/accessRequests/{accessRequestId}/interactions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListInteractionsResponse>{},
+        body: await response.json(),
+        bodyKey: "interactionCollection",
+        bodyModel: model.InteractionCollection,
+        type: "model.InteractionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

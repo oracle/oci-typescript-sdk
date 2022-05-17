@@ -30,7 +30,7 @@ export namespace VolumeGroupSourceDetails {
   export function getJsonObj(obj: VolumeGroupSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "volumeGroupReplicaId":
           return model.VolumeGroupSourceFromVolumeGroupReplicaDetails.getJsonObj(
@@ -61,7 +61,7 @@ export namespace VolumeGroupSourceDetails {
   export function getDeserializedJsonObj(obj: VolumeGroupSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "volumeGroupReplicaId":
           return model.VolumeGroupSourceFromVolumeGroupReplicaDetails.getDeserializedJsonObj(

@@ -27,7 +27,7 @@ export namespace Argument {
   export function getJsonObj(obj: Argument): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "LITERAL":
           return model.LiteralArgument.getJsonObj(<model.LiteralArgument>(<object>jsonObj), true);
@@ -42,7 +42,7 @@ export namespace Argument {
   export function getDeserializedJsonObj(obj: Argument): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "LITERAL":
           return model.LiteralArgument.getDeserializedJsonObj(

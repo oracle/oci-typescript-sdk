@@ -25,7 +25,7 @@ export namespace AbstractDataOperationConfig {
   export function getJsonObj(obj: AbstractDataOperationConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "WRITE_OPERATION_CONFIG":
           return model.WriteOperationConfig.getJsonObj(
@@ -46,7 +46,7 @@ export namespace AbstractDataOperationConfig {
   export function getDeserializedJsonObj(obj: AbstractDataOperationConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "WRITE_OPERATION_CONFIG":
           return model.WriteOperationConfig.getDeserializedJsonObj(

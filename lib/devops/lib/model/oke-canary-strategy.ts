@@ -25,7 +25,7 @@ export namespace OkeCanaryStrategy {
   export function getJsonObj(obj: OkeCanaryStrategy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("strategyType" in obj && obj.strategyType) {
+    if (obj && "strategyType" in obj && obj.strategyType) {
       switch (obj.strategyType) {
         case "NGINX_CANARY_STRATEGY":
           return model.NginxCanaryStrategy.getJsonObj(
@@ -41,7 +41,7 @@ export namespace OkeCanaryStrategy {
   export function getDeserializedJsonObj(obj: OkeCanaryStrategy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("strategyType" in obj && obj.strategyType) {
+    if (obj && "strategyType" in obj && obj.strategyType) {
       switch (obj.strategyType) {
         case "NGINX_CANARY_STRATEGY":
           return model.NginxCanaryStrategy.getDeserializedJsonObj(

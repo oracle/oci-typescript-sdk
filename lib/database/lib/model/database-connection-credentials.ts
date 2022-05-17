@@ -27,7 +27,7 @@ export namespace DatabaseConnectionCredentials {
   export function getJsonObj(obj: DatabaseConnectionCredentials): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("credentialType" in obj && obj.credentialType) {
+    if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
         case "NAME_REFERENCE":
           return model.DatabaseConnectionCredentailsByName.getJsonObj(
@@ -53,7 +53,7 @@ export namespace DatabaseConnectionCredentials {
   export function getDeserializedJsonObj(obj: DatabaseConnectionCredentials): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("credentialType" in obj && obj.credentialType) {
+    if (obj && "credentialType" in obj && obj.credentialType) {
       switch (obj.credentialType) {
         case "NAME_REFERENCE":
           return model.DatabaseConnectionCredentailsByName.getDeserializedJsonObj(

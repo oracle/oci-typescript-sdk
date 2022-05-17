@@ -27,7 +27,7 @@ export namespace Action {
   export function getJsonObj(obj: Action): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("name" in obj && obj.name) {
+    if (obj && "name" in obj && obj.name) {
       switch (obj.name) {
         case "FORWARD_TO_BACKENDSET":
           return model.ForwardToBackendSet.getJsonObj(
@@ -43,7 +43,7 @@ export namespace Action {
   export function getDeserializedJsonObj(obj: Action): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("name" in obj && obj.name) {
+    if (obj && "name" in obj && obj.name) {
       switch (obj.name) {
         case "FORWARD_TO_BACKENDSET":
           return model.ForwardToBackendSet.getDeserializedJsonObj(

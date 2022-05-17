@@ -85,7 +85,7 @@ export namespace ExternalDatabaseConnectorSummary {
   export function getJsonObj(obj: ExternalDatabaseConnectorSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectorType" in obj && obj.connectorType) {
+    if (obj && "connectorType" in obj && obj.connectorType) {
       switch (obj.connectorType) {
         case "MACS":
           return model.ExternalMacsConnectorSummary.getJsonObj(
@@ -101,7 +101,7 @@ export namespace ExternalDatabaseConnectorSummary {
   export function getDeserializedJsonObj(obj: ExternalDatabaseConnectorSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectorType" in obj && obj.connectorType) {
+    if (obj && "connectorType" in obj && obj.connectorType) {
       switch (obj.connectorType) {
         case "MACS":
           return model.ExternalMacsConnectorSummary.getDeserializedJsonObj(

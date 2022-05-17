@@ -35,7 +35,7 @@ export namespace DhcpOption {
   export function getJsonObj(obj: DhcpOption): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DomainNameServer":
           return model.DhcpDnsOption.getJsonObj(<model.DhcpDnsOption>(<object>jsonObj), true);
@@ -53,7 +53,7 @@ export namespace DhcpOption {
   export function getDeserializedJsonObj(obj: DhcpOption): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "DomainNameServer":
           return model.DhcpDnsOption.getDeserializedJsonObj(

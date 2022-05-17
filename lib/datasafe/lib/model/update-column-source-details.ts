@@ -25,7 +25,7 @@ export namespace UpdateColumnSourceDetails {
   export function getJsonObj(obj: UpdateColumnSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("columnSource" in obj && obj.columnSource) {
+    if (obj && "columnSource" in obj && obj.columnSource) {
       switch (obj.columnSource) {
         case "SENSITIVE_DATA_MODEL":
           return model.UpdateColumnSourceSdmDetails.getJsonObj(
@@ -46,7 +46,7 @@ export namespace UpdateColumnSourceDetails {
   export function getDeserializedJsonObj(obj: UpdateColumnSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("columnSource" in obj && obj.columnSource) {
+    if (obj && "columnSource" in obj && obj.columnSource) {
       switch (obj.columnSource) {
         case "SENSITIVE_DATA_MODEL":
           return model.UpdateColumnSourceSdmDetails.getDeserializedJsonObj(

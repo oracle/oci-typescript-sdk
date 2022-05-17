@@ -30,7 +30,7 @@ export namespace FieldMap {
   export function getJsonObj(obj: FieldMap): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "RULE_BASED_FIELD_MAP":
           return model.RuleBasedFieldMap.getJsonObj(
@@ -70,7 +70,7 @@ export namespace FieldMap {
   export function getDeserializedJsonObj(obj: FieldMap): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "RULE_BASED_FIELD_MAP":
           return model.RuleBasedFieldMap.getDeserializedJsonObj(

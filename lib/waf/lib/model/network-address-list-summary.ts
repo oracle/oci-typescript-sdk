@@ -76,7 +76,7 @@ export namespace NetworkAddressListSummary {
   export function getJsonObj(obj: NetworkAddressListSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VCN_ADDRESSES":
           return model.NetworkAddressListVcnAddressesSummary.getJsonObj(
@@ -97,7 +97,7 @@ export namespace NetworkAddressListSummary {
   export function getDeserializedJsonObj(obj: NetworkAddressListSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VCN_ADDRESSES":
           return model.NetworkAddressListVcnAddressesSummary.getDeserializedJsonObj(

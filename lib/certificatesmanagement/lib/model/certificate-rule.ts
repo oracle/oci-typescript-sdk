@@ -25,7 +25,7 @@ export namespace CertificateRule {
   export function getJsonObj(obj: CertificateRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("ruleType" in obj && obj.ruleType) {
+    if (obj && "ruleType" in obj && obj.ruleType) {
       switch (obj.ruleType) {
         case "CERTIFICATE_RENEWAL_RULE":
           return model.CertificateRenewalRule.getJsonObj(
@@ -41,7 +41,7 @@ export namespace CertificateRule {
   export function getDeserializedJsonObj(obj: CertificateRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("ruleType" in obj && obj.ruleType) {
+    if (obj && "ruleType" in obj && obj.ruleType) {
       switch (obj.ruleType) {
         case "CERTIFICATE_RENEWAL_RULE":
           return model.CertificateRenewalRule.getDeserializedJsonObj(

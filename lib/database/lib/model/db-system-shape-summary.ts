@@ -33,6 +33,10 @@ export interface DbSystemShapeSummary {
    */
   "shapeFamily"?: string;
   /**
+   * The shape type for the virtual machine DB system. Shape type is determined by CPU hardware. Valid values are `AMD` and `INTEL`.
+   */
+  "shapeType"?: DbSystemShapeSummary.ShapeType;
+  /**
    * Deprecated. Use `name` instead of `shape`.
    */
   "shape"?: string;
@@ -111,6 +115,16 @@ export interface DbSystemShapeSummary {
 }
 
 export namespace DbSystemShapeSummary {
+  export enum ShapeType {
+    Amd = "AMD",
+    Intel = "INTEL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: DbSystemShapeSummary): object {
     const jsonObj = { ...obj, ...{} };
 
