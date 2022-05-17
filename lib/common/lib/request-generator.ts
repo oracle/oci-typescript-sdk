@@ -62,12 +62,21 @@ export async function composeRequest(params: RequestParams): Promise<HttpRequest
     const content = await autoDetectContentLengthAndReadBody(headers, params);
     body = content ? content : body;
   }
-  return {
-    method: params.method,
-    headers: headers,
-    uri: uri,
-    body: body
-  };
+
+  if (body === "{}") {
+    return {
+      method: params.method,
+      headers: headers,
+      uri: uri
+    };
+  } else {
+    return {
+      method: params.method,
+      headers: headers,
+      uri: uri,
+      body: body
+    };
+  }
 }
 
 function computeUri(params: RequestParams): string {

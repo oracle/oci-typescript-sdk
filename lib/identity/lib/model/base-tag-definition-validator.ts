@@ -36,7 +36,7 @@ export namespace BaseTagDefinitionValidator {
   export function getJsonObj(obj: BaseTagDefinitionValidator): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("validatorType" in obj && obj.validatorType) {
+    if (obj && "validatorType" in obj && obj.validatorType) {
       switch (obj.validatorType) {
         case "DEFAULT":
           return model.DefaultTagDefinitionValidator.getJsonObj(
@@ -57,7 +57,7 @@ export namespace BaseTagDefinitionValidator {
   export function getDeserializedJsonObj(obj: BaseTagDefinitionValidator): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("validatorType" in obj && obj.validatorType) {
+    if (obj && "validatorType" in obj && obj.validatorType) {
       switch (obj.validatorType) {
         case "DEFAULT":
           return model.DefaultTagDefinitionValidator.getDeserializedJsonObj(

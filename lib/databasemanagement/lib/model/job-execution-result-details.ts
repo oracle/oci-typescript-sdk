@@ -28,7 +28,7 @@ export namespace JobExecutionResultDetails {
   export function getJsonObj(obj: JobExecutionResultDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageJobExecutionResultDetails.getJsonObj(
@@ -44,7 +44,7 @@ export namespace JobExecutionResultDetails {
   export function getDeserializedJsonObj(obj: JobExecutionResultDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageJobExecutionResultDetails.getDeserializedJsonObj(

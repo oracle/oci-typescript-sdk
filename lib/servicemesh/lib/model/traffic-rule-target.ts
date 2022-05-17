@@ -25,7 +25,7 @@ export namespace TrafficRuleTarget {
   export function getJsonObj(obj: TrafficRuleTarget): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VIRTUAL_DEPLOYMENT":
           return model.VirtualDeploymentTrafficRuleTarget.getJsonObj(
@@ -46,7 +46,7 @@ export namespace TrafficRuleTarget {
   export function getDeserializedJsonObj(obj: TrafficRuleTarget): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VIRTUAL_DEPLOYMENT":
           return model.VirtualDeploymentTrafficRuleTarget.getDeserializedJsonObj(

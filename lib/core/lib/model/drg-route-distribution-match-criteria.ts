@@ -32,7 +32,7 @@ export namespace DrgRouteDistributionMatchCriteria {
   export function getJsonObj(obj: DrgRouteDistributionMatchCriteria): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("matchType" in obj && obj.matchType) {
+    if (obj && "matchType" in obj && obj.matchType) {
       switch (obj.matchType) {
         case "DRG_ATTACHMENT_ID":
           return model.DrgAttachmentIdDrgRouteDistributionMatchCriteria.getJsonObj(
@@ -58,7 +58,7 @@ export namespace DrgRouteDistributionMatchCriteria {
   export function getDeserializedJsonObj(obj: DrgRouteDistributionMatchCriteria): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("matchType" in obj && obj.matchType) {
+    if (obj && "matchType" in obj && obj.matchType) {
       switch (obj.matchType) {
         case "DRG_ATTACHMENT_ID":
           return model.DrgAttachmentIdDrgRouteDistributionMatchCriteria.getDeserializedJsonObj(

@@ -62,7 +62,7 @@ export namespace Config {
   export function getJsonObj(obj: Config): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "METRIC_GROUP":
           return model.MetricGroup.getJsonObj(<model.MetricGroup>(<object>jsonObj), true);
@@ -79,7 +79,7 @@ export namespace Config {
   export function getDeserializedJsonObj(obj: Config): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "METRIC_GROUP":
           return model.MetricGroup.getDeserializedJsonObj(

@@ -25,7 +25,7 @@ export namespace SnapshotExportDetails {
   export function getJsonObj(obj: SnapshotExportDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("exportType" in obj && obj.exportType) {
+    if (obj && "exportType" in obj && obj.exportType) {
       switch (obj.exportType) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageSnapshotExportDetails.getJsonObj(
@@ -41,7 +41,7 @@ export namespace SnapshotExportDetails {
   export function getDeserializedJsonObj(obj: SnapshotExportDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("exportType" in obj && obj.exportType) {
+    if (obj && "exportType" in obj && obj.exportType) {
       switch (obj.exportType) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageSnapshotExportDetails.getDeserializedJsonObj(

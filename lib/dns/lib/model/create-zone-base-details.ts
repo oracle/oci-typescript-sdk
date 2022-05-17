@@ -58,7 +58,7 @@ export namespace CreateZoneBaseDetails {
   export function getJsonObj(obj: CreateZoneBaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("migrationSource" in obj && obj.migrationSource) {
+    if (obj && "migrationSource" in obj && obj.migrationSource) {
       switch (obj.migrationSource) {
         case "NONE":
           return model.CreateZoneDetails.getJsonObj(
@@ -79,7 +79,7 @@ export namespace CreateZoneBaseDetails {
   export function getDeserializedJsonObj(obj: CreateZoneBaseDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("migrationSource" in obj && obj.migrationSource) {
+    if (obj && "migrationSource" in obj && obj.migrationSource) {
       switch (obj.migrationSource) {
         case "NONE":
           return model.CreateZoneDetails.getDeserializedJsonObj(

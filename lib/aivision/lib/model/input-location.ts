@@ -25,7 +25,7 @@ export namespace InputLocation {
   export function getJsonObj(obj: InputLocation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OBJECT_LIST_INLINE_INPUT_LOCATION":
           return model.ObjectListInlineInputLocation.getJsonObj(
@@ -41,7 +41,7 @@ export namespace InputLocation {
   export function getDeserializedJsonObj(obj: InputLocation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OBJECT_LIST_INLINE_INPUT_LOCATION":
           return model.ObjectListInlineInputLocation.getDeserializedJsonObj(

@@ -25,7 +25,7 @@ export namespace HeaderManipulationAction {
   export function getJsonObj(obj: HeaderManipulationAction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("action" in obj && obj.action) {
+    if (obj && "action" in obj && obj.action) {
       switch (obj.action) {
         case "EXTEND_HTTP_RESPONSE_HEADER":
           return model.ExtendHttpResponseHeaderAction.getJsonObj(
@@ -51,7 +51,7 @@ export namespace HeaderManipulationAction {
   export function getDeserializedJsonObj(obj: HeaderManipulationAction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("action" in obj && obj.action) {
+    if (obj && "action" in obj && obj.action) {
       switch (obj.action) {
         case "EXTEND_HTTP_RESPONSE_HEADER":
           return model.ExtendHttpResponseHeaderAction.getDeserializedJsonObj(

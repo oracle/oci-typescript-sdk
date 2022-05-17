@@ -98,7 +98,7 @@ export namespace CreateTaskValidationDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_LOADER_TASK":
           return model.CreateTaskValidationFromDataLoaderTask.getJsonObj(
@@ -156,7 +156,7 @@ export namespace CreateTaskValidationDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_LOADER_TASK":
           return model.CreateTaskValidationFromDataLoaderTask.getDeserializedJsonObj(

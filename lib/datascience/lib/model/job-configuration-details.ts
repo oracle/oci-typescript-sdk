@@ -27,7 +27,7 @@ export namespace JobConfigurationDetails {
   export function getJsonObj(obj: JobConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("jobType" in obj && obj.jobType) {
+    if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
         case "DEFAULT":
           return model.DefaultJobConfigurationDetails.getJsonObj(
@@ -43,7 +43,7 @@ export namespace JobConfigurationDetails {
   export function getDeserializedJsonObj(obj: JobConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("jobType" in obj && obj.jobType) {
+    if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
         case "DEFAULT":
           return model.DefaultJobConfigurationDetails.getDeserializedJsonObj(

@@ -32,6 +32,7 @@ export interface CreateDeployArtifactDetails {
   "deployArtifactType": string;
   "deployArtifactSource":
     | model.GenericDeployArtifactSource
+    | model.HelmRepositoryDeployArtifactSource
     | model.OcirDeployArtifactSource
     | model.InlineDeployArtifactSource;
   /**

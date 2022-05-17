@@ -27,7 +27,7 @@ export namespace Rule {
   export function getJsonObj(obj: Rule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("action" in obj && obj.action) {
+    if (obj && "action" in obj && obj.action) {
       switch (obj.action) {
         case "ADD_HTTP_REQUEST_HEADER":
           return model.AddHttpRequestHeaderRule.getJsonObj(
@@ -79,7 +79,7 @@ export namespace Rule {
   export function getDeserializedJsonObj(obj: Rule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("action" in obj && obj.action) {
+    if (obj && "action" in obj && obj.action) {
       switch (obj.action) {
         case "ADD_HTTP_REQUEST_HEADER":
           return model.AddHttpRequestHeaderRule.getDeserializedJsonObj(

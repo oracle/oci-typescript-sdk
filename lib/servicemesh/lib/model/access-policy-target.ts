@@ -25,7 +25,7 @@ export namespace AccessPolicyTarget {
   export function getJsonObj(obj: AccessPolicyTarget): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VIRTUAL_SERVICE":
           return model.VirtualServiceAccessPolicyTarget.getJsonObj(
@@ -56,7 +56,7 @@ export namespace AccessPolicyTarget {
   export function getDeserializedJsonObj(obj: AccessPolicyTarget): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VIRTUAL_SERVICE":
           return model.VirtualServiceAccessPolicyTarget.getDeserializedJsonObj(

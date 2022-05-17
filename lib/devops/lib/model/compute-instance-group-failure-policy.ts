@@ -25,7 +25,7 @@ export namespace ComputeInstanceGroupFailurePolicy {
   export function getJsonObj(obj: ComputeInstanceGroupFailurePolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "COMPUTE_INSTANCE_GROUP_FAILURE_POLICY_BY_PERCENTAGE":
           return model.ComputeInstanceGroupFailurePolicyByPercentage.getJsonObj(
@@ -46,7 +46,7 @@ export namespace ComputeInstanceGroupFailurePolicy {
   export function getDeserializedJsonObj(obj: ComputeInstanceGroupFailurePolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "COMPUTE_INSTANCE_GROUP_FAILURE_POLICY_BY_PERCENTAGE":
           return model.ComputeInstanceGroupFailurePolicyByPercentage.getDeserializedJsonObj(

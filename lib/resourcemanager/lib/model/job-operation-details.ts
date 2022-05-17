@@ -30,7 +30,7 @@ export namespace JobOperationDetails {
   export function getJsonObj(obj: JobOperationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("operation" in obj && obj.operation) {
+    if (obj && "operation" in obj && obj.operation) {
       switch (obj.operation) {
         case "IMPORT_TF_STATE":
           return model.ImportTfStateJobOperationDetails.getJsonObj(
@@ -61,7 +61,7 @@ export namespace JobOperationDetails {
   export function getDeserializedJsonObj(obj: JobOperationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("operation" in obj && obj.operation) {
+    if (obj && "operation" in obj && obj.operation) {
       switch (obj.operation) {
         case "IMPORT_TF_STATE":
           return model.ImportTfStateJobOperationDetails.getDeserializedJsonObj(

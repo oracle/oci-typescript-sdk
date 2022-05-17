@@ -70,7 +70,7 @@ export namespace DpEndpoint {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PRIVATE_END_POINT":
           return model.DpEndpointFromPrivate.getJsonObj(
@@ -104,7 +104,7 @@ export namespace DpEndpoint {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PRIVATE_END_POINT":
           return model.DpEndpointFromPrivate.getDeserializedJsonObj(

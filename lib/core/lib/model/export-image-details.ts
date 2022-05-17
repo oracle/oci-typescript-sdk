@@ -62,7 +62,7 @@ export namespace ExportImageDetails {
   export function getJsonObj(obj: ExportImageDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("destinationType" in obj && obj.destinationType) {
+    if (obj && "destinationType" in obj && obj.destinationType) {
       switch (obj.destinationType) {
         case "objectStorageUri":
           return model.ExportImageViaObjectStorageUriDetails.getJsonObj(
@@ -83,7 +83,7 @@ export namespace ExportImageDetails {
   export function getDeserializedJsonObj(obj: ExportImageDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("destinationType" in obj && obj.destinationType) {
+    if (obj && "destinationType" in obj && obj.destinationType) {
       switch (obj.destinationType) {
         case "objectStorageUri":
           return model.ExportImageViaObjectStorageUriDetails.getDeserializedJsonObj(

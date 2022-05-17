@@ -43,7 +43,7 @@ export namespace AbstractFrequencyDetails {
   export function getJsonObj(obj: AbstractFrequencyDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "MONTHLY":
           return model.MonthlyFrequencyDetails.getJsonObj(
@@ -84,7 +84,7 @@ export namespace AbstractFrequencyDetails {
   export function getDeserializedJsonObj(obj: AbstractFrequencyDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "MONTHLY":
           return model.MonthlyFrequencyDetails.getDeserializedJsonObj(

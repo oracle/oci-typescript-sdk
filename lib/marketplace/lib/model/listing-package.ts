@@ -61,7 +61,7 @@ export namespace ListingPackage {
       }
     };
 
-    if ("packageType" in obj && obj.packageType) {
+    if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
         case "ORCHESTRATION":
           return model.OrchestrationListingPackage.getJsonObj(
@@ -91,7 +91,7 @@ export namespace ListingPackage {
       }
     };
 
-    if ("packageType" in obj && obj.packageType) {
+    if (obj && "packageType" in obj && obj.packageType) {
       switch (obj.packageType) {
         case "ORCHESTRATION":
           return model.OrchestrationListingPackage.getDeserializedJsonObj(

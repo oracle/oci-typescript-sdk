@@ -92,7 +92,7 @@ export namespace AbstractColumn {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TIME_COLUMN":
           return model.TimeColumn.getJsonObj(<model.TimeColumn>(<object>jsonObj), true);
@@ -124,7 +124,7 @@ export namespace AbstractColumn {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TIME_COLUMN":
           return model.TimeColumn.getDeserializedJsonObj(<model.TimeColumn>(<object>jsonObj), true);

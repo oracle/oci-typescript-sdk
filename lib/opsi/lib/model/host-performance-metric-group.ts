@@ -36,7 +36,7 @@ export namespace HostPerformanceMetricGroup {
   export function getJsonObj(obj: HostPerformanceMetricGroup): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("metricName" in obj && obj.metricName) {
+    if (obj && "metricName" in obj && obj.metricName) {
       switch (obj.metricName) {
         case "HOST_MEMORY_USAGE":
           return model.HostMemoryUsage.getJsonObj(<model.HostMemoryUsage>(<object>jsonObj), true);
@@ -58,7 +58,7 @@ export namespace HostPerformanceMetricGroup {
   export function getDeserializedJsonObj(obj: HostPerformanceMetricGroup): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("metricName" in obj && obj.metricName) {
+    if (obj && "metricName" in obj && obj.metricName) {
       switch (obj.metricName) {
         case "HOST_MEMORY_USAGE":
           return model.HostMemoryUsage.getDeserializedJsonObj(

@@ -41,7 +41,7 @@ export namespace UpdateConfigDetails {
   export function getJsonObj(obj: UpdateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "METRIC_GROUP":
           return model.UpdateMetricGroupDetails.getJsonObj(
@@ -67,7 +67,7 @@ export namespace UpdateConfigDetails {
   export function getDeserializedJsonObj(obj: UpdateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "METRIC_GROUP":
           return model.UpdateMetricGroupDetails.getDeserializedJsonObj(

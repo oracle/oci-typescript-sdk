@@ -52,7 +52,7 @@ export namespace UpdateRepositoryDetails {
   export function getJsonObj(obj: UpdateRepositoryDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("repositoryType" in obj && obj.repositoryType) {
+    if (obj && "repositoryType" in obj && obj.repositoryType) {
       switch (obj.repositoryType) {
         case "GENERIC":
           return model.UpdateGenericRepositoryDetails.getJsonObj(
@@ -68,7 +68,7 @@ export namespace UpdateRepositoryDetails {
   export function getDeserializedJsonObj(obj: UpdateRepositoryDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("repositoryType" in obj && obj.repositoryType) {
+    if (obj && "repositoryType" in obj && obj.repositoryType) {
       switch (obj.repositoryType) {
         case "GENERIC":
           return model.UpdateGenericRepositoryDetails.getDeserializedJsonObj(

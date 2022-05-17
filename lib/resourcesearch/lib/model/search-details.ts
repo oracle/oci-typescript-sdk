@@ -36,7 +36,7 @@ export namespace SearchDetails {
   export function getJsonObj(obj: SearchDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "Structured":
           return model.StructuredSearchDetails.getJsonObj(
@@ -57,7 +57,7 @@ export namespace SearchDetails {
   export function getDeserializedJsonObj(obj: SearchDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "Structured":
           return model.StructuredSearchDetails.getDeserializedJsonObj(

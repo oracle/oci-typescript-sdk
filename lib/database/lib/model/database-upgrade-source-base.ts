@@ -34,7 +34,7 @@ export namespace DatabaseUpgradeSourceBase {
   export function getJsonObj(obj: DatabaseUpgradeSourceBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "DB_HOME":
           return model.DatabaseUpgradeWithDbHomeDetails.getJsonObj(
@@ -60,7 +60,7 @@ export namespace DatabaseUpgradeSourceBase {
   export function getDeserializedJsonObj(obj: DatabaseUpgradeSourceBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "DB_HOME":
           return model.DatabaseUpgradeWithDbHomeDetails.getDeserializedJsonObj(

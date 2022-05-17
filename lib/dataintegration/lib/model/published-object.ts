@@ -60,7 +60,7 @@ export namespace PublishedObject {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_LOADER_TASK":
           return model.PublishedObjectFromDataLoaderTask.getJsonObj(
@@ -93,7 +93,7 @@ export namespace PublishedObject {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_LOADER_TASK":
           return model.PublishedObjectFromDataLoaderTask.getDeserializedJsonObj(

@@ -47,7 +47,7 @@ export namespace CreateDatabaseBase {
   export function getJsonObj(obj: CreateDatabaseBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "NONE":
           return model.CreateNewDatabaseDetails.getJsonObj(
@@ -68,7 +68,7 @@ export namespace CreateDatabaseBase {
   export function getDeserializedJsonObj(obj: CreateDatabaseBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "NONE":
           return model.CreateNewDatabaseDetails.getDeserializedJsonObj(

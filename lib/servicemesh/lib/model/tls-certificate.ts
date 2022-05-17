@@ -25,7 +25,7 @@ export namespace TlsCertificate {
   export function getJsonObj(obj: TlsCertificate): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OCI_CERTIFICATES":
           return model.OciTlsCertificate.getJsonObj(
@@ -46,7 +46,7 @@ export namespace TlsCertificate {
   export function getDeserializedJsonObj(obj: TlsCertificate): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OCI_CERTIFICATES":
           return model.OciTlsCertificate.getDeserializedJsonObj(

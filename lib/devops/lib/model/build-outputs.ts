@@ -21,6 +21,7 @@ export interface BuildOutputs {
   "exportedVariables"?: model.ExportedVariableCollection;
   "deliveredArtifacts"?: model.DeliveredArtifactCollection;
   "artifactOverrideParameters"?: model.DeployArtifactOverrideArgumentCollection;
+  "vulnerabilityAuditSummaryCollection"?: model.VulnerabilityAuditSummaryCollection;
 }
 
 export namespace BuildOutputs {
@@ -37,6 +38,11 @@ export namespace BuildOutputs {
         "artifactOverrideParameters": obj.artifactOverrideParameters
           ? model.DeployArtifactOverrideArgumentCollection.getJsonObj(
               obj.artifactOverrideParameters
+            )
+          : undefined,
+        "vulnerabilityAuditSummaryCollection": obj.vulnerabilityAuditSummaryCollection
+          ? model.VulnerabilityAuditSummaryCollection.getJsonObj(
+              obj.vulnerabilityAuditSummaryCollection
             )
           : undefined
       }
@@ -57,6 +63,11 @@ export namespace BuildOutputs {
         "artifactOverrideParameters": obj.artifactOverrideParameters
           ? model.DeployArtifactOverrideArgumentCollection.getDeserializedJsonObj(
               obj.artifactOverrideParameters
+            )
+          : undefined,
+        "vulnerabilityAuditSummaryCollection": obj.vulnerabilityAuditSummaryCollection
+          ? model.VulnerabilityAuditSummaryCollection.getDeserializedJsonObj(
+              obj.vulnerabilityAuditSummaryCollection
             )
           : undefined
       }

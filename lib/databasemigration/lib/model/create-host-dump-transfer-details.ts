@@ -26,7 +26,7 @@ export namespace CreateHostDumpTransferDetails {
   export function getJsonObj(obj: CreateHostDumpTransferDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "OCI_CLI":
           return model.CreateOciCliDumpTransferDetails.getJsonObj(
@@ -47,7 +47,7 @@ export namespace CreateHostDumpTransferDetails {
   export function getDeserializedJsonObj(obj: CreateHostDumpTransferDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "OCI_CLI":
           return model.CreateOciCliDumpTransferDetails.getDeserializedJsonObj(

@@ -25,7 +25,7 @@ export namespace PushDownOperation {
   export function getJsonObj(obj: PushDownOperation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "QUERY":
           return model.Query.getJsonObj(<model.Query>(<object>jsonObj), true);
@@ -46,7 +46,7 @@ export namespace PushDownOperation {
   export function getDeserializedJsonObj(obj: PushDownOperation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "QUERY":
           return model.Query.getDeserializedJsonObj(<model.Query>(<object>jsonObj), true);

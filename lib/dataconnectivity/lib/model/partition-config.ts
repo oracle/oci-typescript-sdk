@@ -25,7 +25,7 @@ export namespace PartitionConfig {
   export function getJsonObj(obj: PartitionConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "KEYRANGEPARTITIONCONFIG":
           return model.KeyRangePartitionConfig.getJsonObj(
@@ -41,7 +41,7 @@ export namespace PartitionConfig {
   export function getDeserializedJsonObj(obj: PartitionConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "KEYRANGEPARTITIONCONFIG":
           return model.KeyRangePartitionConfig.getDeserializedJsonObj(

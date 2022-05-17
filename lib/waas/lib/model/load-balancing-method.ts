@@ -22,7 +22,7 @@ export namespace LoadBalancingMethod {
   export function getJsonObj(obj: LoadBalancingMethod): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("method" in obj && obj.method) {
+    if (obj && "method" in obj && obj.method) {
       switch (obj.method) {
         case "ROUND_ROBIN":
           return model.RoundRobinLoadBalancingMethod.getJsonObj(
@@ -48,7 +48,7 @@ export namespace LoadBalancingMethod {
   export function getDeserializedJsonObj(obj: LoadBalancingMethod): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("method" in obj && obj.method) {
+    if (obj && "method" in obj && obj.method) {
       switch (obj.method) {
         case "ROUND_ROBIN":
           return model.RoundRobinLoadBalancingMethod.getDeserializedJsonObj(

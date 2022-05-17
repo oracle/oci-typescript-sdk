@@ -36,7 +36,7 @@ export namespace DatabaseConfigurationMetricGroup {
   export function getJsonObj(obj: DatabaseConfigurationMetricGroup): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("metricName" in obj && obj.metricName) {
+    if (obj && "metricName" in obj && obj.metricName) {
       switch (obj.metricName) {
         case "DB_OS_CONFIG_INSTANCE":
           return model.DBOSConfigInstance.getJsonObj(
@@ -62,7 +62,7 @@ export namespace DatabaseConfigurationMetricGroup {
   export function getDeserializedJsonObj(obj: DatabaseConfigurationMetricGroup): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("metricName" in obj && obj.metricName) {
+    if (obj && "metricName" in obj && obj.metricName) {
       switch (obj.metricName) {
         case "DB_OS_CONFIG_INSTANCE":
           return model.DBOSConfigInstance.getDeserializedJsonObj(

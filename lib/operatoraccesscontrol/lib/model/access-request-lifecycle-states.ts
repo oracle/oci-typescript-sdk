@@ -26,6 +26,7 @@ export enum AccessRequestLifecycleStates {
   Approvalwaiting = "APPROVALWAITING",
   Preapproved = "PREAPPROVED",
   Approved = "APPROVED",
+  Moreinfo = "MOREINFO",
   Rejected = "REJECTED",
   Deployed = "DEPLOYED",
   Deployfailed = "DEPLOYFAILED",

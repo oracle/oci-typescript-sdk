@@ -71,8 +71,13 @@ export namespace ConnectionSummary {
   export function getJsonObj(obj: ConnectionSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "BITBUCKET_CLOUD_APP_PASSWORD":
+          return model.BitbucketCloudAppPasswordConnectionSummary.getJsonObj(
+            <model.BitbucketCloudAppPasswordConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.GithubAccessTokenConnectionSummary.getJsonObj(
             <model.GithubAccessTokenConnectionSummary>(<object>jsonObj),
@@ -92,8 +97,13 @@ export namespace ConnectionSummary {
   export function getDeserializedJsonObj(obj: ConnectionSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "BITBUCKET_CLOUD_APP_PASSWORD":
+          return model.BitbucketCloudAppPasswordConnectionSummary.getDeserializedJsonObj(
+            <model.BitbucketCloudAppPasswordConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.GithubAccessTokenConnectionSummary.getDeserializedJsonObj(
             <model.GithubAccessTokenConnectionSummary>(<object>jsonObj),

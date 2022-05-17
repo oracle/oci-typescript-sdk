@@ -26,7 +26,7 @@ export namespace HorizontalScalingScheduleDetails {
   export function getJsonObj(obj: HorizontalScalingScheduleDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("scheduleType" in obj && obj.scheduleType) {
+    if (obj && "scheduleType" in obj && obj.scheduleType) {
       switch (obj.scheduleType) {
         case "DAY_BASED":
           return model.DayBasedHorizontalScalingScheduleDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace HorizontalScalingScheduleDetails {
   export function getDeserializedJsonObj(obj: HorizontalScalingScheduleDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("scheduleType" in obj && obj.scheduleType) {
+    if (obj && "scheduleType" in obj && obj.scheduleType) {
       switch (obj.scheduleType) {
         case "DAY_BASED":
           return model.DayBasedHorizontalScalingScheduleDetails.getDeserializedJsonObj(

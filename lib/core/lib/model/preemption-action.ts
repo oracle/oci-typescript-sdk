@@ -31,7 +31,7 @@ export namespace PreemptionAction {
   export function getJsonObj(obj: PreemptionAction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TERMINATE":
           return model.TerminatePreemptionAction.getJsonObj(
@@ -47,7 +47,7 @@ export namespace PreemptionAction {
   export function getDeserializedJsonObj(obj: PreemptionAction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "TERMINATE":
           return model.TerminatePreemptionAction.getDeserializedJsonObj(

@@ -52,7 +52,7 @@ export namespace BaseType {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "CONFIGURED_TYPE":
           return model.ConfiguredType.getJsonObj(<model.ConfiguredType>(<object>jsonObj), true);
@@ -82,7 +82,7 @@ export namespace BaseType {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "CONFIGURED_TYPE":
           return model.ConfiguredType.getDeserializedJsonObj(

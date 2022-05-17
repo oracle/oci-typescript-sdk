@@ -35,7 +35,7 @@ export namespace StaticPublicKey {
   export function getJsonObj(obj: StaticPublicKey): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("format" in obj && obj.format) {
+    if (obj && "format" in obj && obj.format) {
       switch (obj.format) {
         case "JSON_WEB_KEY":
           return model.JsonWebKey.getJsonObj(<model.JsonWebKey>(<object>jsonObj), true);
@@ -53,7 +53,7 @@ export namespace StaticPublicKey {
   export function getDeserializedJsonObj(obj: StaticPublicKey): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("format" in obj && obj.format) {
+    if (obj && "format" in obj && obj.format) {
       switch (obj.format) {
         case "JSON_WEB_KEY":
           return model.JsonWebKey.getDeserializedJsonObj(<model.JsonWebKey>(<object>jsonObj), true);

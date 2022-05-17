@@ -45,6 +45,7 @@ export interface BuildRun {
     | model.GithubBuildRunSource
     | model.DevopsCodeRepositoryBuildRunSource
     | model.ManualBuildRunSource
+    | model.BitbucketCloudBuildRunSource
     | model.GitlabBuildRunSource;
   "buildRunArguments"?: model.BuildRunArgumentCollection;
   /**

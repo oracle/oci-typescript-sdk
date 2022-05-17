@@ -25,7 +25,7 @@ export namespace DynamicTypeHandler {
   export function getJsonObj(obj: DynamicTypeHandler): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "RULE_TYPE_CONFIGS":
           return model.RuleTypeConfig.getJsonObj(<model.RuleTypeConfig>(<object>jsonObj), true);
@@ -38,7 +38,7 @@ export namespace DynamicTypeHandler {
   export function getDeserializedJsonObj(obj: DynamicTypeHandler): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "RULE_TYPE_CONFIGS":
           return model.RuleTypeConfig.getDeserializedJsonObj(

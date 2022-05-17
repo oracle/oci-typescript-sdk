@@ -60,7 +60,7 @@ export namespace CreateInstanceConfigurationBase {
   export function getJsonObj(obj: CreateInstanceConfigurationBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "NONE":
           return model.CreateInstanceConfigurationDetails.getJsonObj(
@@ -81,7 +81,7 @@ export namespace CreateInstanceConfigurationBase {
   export function getDeserializedJsonObj(obj: CreateInstanceConfigurationBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "NONE":
           return model.CreateInstanceConfigurationDetails.getDeserializedJsonObj(

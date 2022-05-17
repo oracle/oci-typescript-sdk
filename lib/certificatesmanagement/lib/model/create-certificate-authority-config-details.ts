@@ -31,7 +31,7 @@ export namespace CreateCertificateAuthorityConfigDetails {
   export function getJsonObj(obj: CreateCertificateAuthorityConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "ROOT_CA_GENERATED_INTERNALLY":
           return model.CreateRootCaByGeneratingInternallyConfigDetails.getJsonObj(
@@ -52,7 +52,7 @@ export namespace CreateCertificateAuthorityConfigDetails {
   export function getDeserializedJsonObj(obj: CreateCertificateAuthorityConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "ROOT_CA_GENERATED_INTERNALLY":
           return model.CreateRootCaByGeneratingInternallyConfigDetails.getDeserializedJsonObj(

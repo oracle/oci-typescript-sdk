@@ -93,7 +93,7 @@ export namespace CreateConnectivityValidationDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "TARGET_OPERATOR":
           return model.Target.getJsonObj(<model.Target>(<object>jsonObj), true);
@@ -135,7 +135,7 @@ export namespace CreateConnectivityValidationDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "TARGET_OPERATOR":
           return model.Target.getDeserializedJsonObj(<model.Target>(<object>jsonObj), true);

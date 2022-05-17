@@ -27,7 +27,7 @@ export namespace NetworkEndpointDetails {
   export function getJsonObj(obj: NetworkEndpointDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("networkEndpointType" in obj && obj.networkEndpointType) {
+    if (obj && "networkEndpointType" in obj && obj.networkEndpointType) {
       switch (obj.networkEndpointType) {
         case "PRIVATE":
           return model.PrivateEndpointDetails.getJsonObj(
@@ -48,7 +48,7 @@ export namespace NetworkEndpointDetails {
   export function getDeserializedJsonObj(obj: NetworkEndpointDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("networkEndpointType" in obj && obj.networkEndpointType) {
+    if (obj && "networkEndpointType" in obj && obj.networkEndpointType) {
       switch (obj.networkEndpointType) {
         case "PRIVATE":
           return model.PrivateEndpointDetails.getDeserializedJsonObj(

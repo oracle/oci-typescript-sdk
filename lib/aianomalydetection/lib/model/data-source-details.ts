@@ -28,7 +28,7 @@ export namespace DataSourceDetails {
   export function getJsonObj(obj: DataSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("dataSourceType" in obj && obj.dataSourceType) {
+    if (obj && "dataSourceType" in obj && obj.dataSourceType) {
       switch (obj.dataSourceType) {
         case "ORACLE_OBJECT_STORAGE":
           return model.DataSourceDetailsObjectStorage.getJsonObj(
@@ -54,7 +54,7 @@ export namespace DataSourceDetails {
   export function getDeserializedJsonObj(obj: DataSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("dataSourceType" in obj && obj.dataSourceType) {
+    if (obj && "dataSourceType" in obj && obj.dataSourceType) {
       switch (obj.dataSourceType) {
         case "ORACLE_OBJECT_STORAGE":
           return model.DataSourceDetailsObjectStorage.getDeserializedJsonObj(

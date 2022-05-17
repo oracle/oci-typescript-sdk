@@ -56,7 +56,7 @@ export namespace TypedObject {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "OUTPUT_PORT":
           return model.OutputPort.getJsonObj(<model.OutputPort>(<object>jsonObj), true);
@@ -120,7 +120,7 @@ export namespace TypedObject {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "OUTPUT_PORT":
           return model.OutputPort.getDeserializedJsonObj(<model.OutputPort>(<object>jsonObj), true);

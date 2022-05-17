@@ -26,7 +26,7 @@ export namespace TargetTypeTablespaceDetails {
   export function getJsonObj(obj: TargetTypeTablespaceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetType" in obj && obj.targetType) {
+    if (obj && "targetType" in obj && obj.targetType) {
       switch (obj.targetType) {
         case "ADB_D_AUTOCREATE":
           return model.ADBDedicatedAutoCreateTablespaceDetails.getJsonObj(
@@ -62,7 +62,7 @@ export namespace TargetTypeTablespaceDetails {
   export function getDeserializedJsonObj(obj: TargetTypeTablespaceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetType" in obj && obj.targetType) {
+    if (obj && "targetType" in obj && obj.targetType) {
       switch (obj.targetType) {
         case "ADB_D_AUTOCREATE":
           return model.ADBDedicatedAutoCreateTablespaceDetails.getDeserializedJsonObj(

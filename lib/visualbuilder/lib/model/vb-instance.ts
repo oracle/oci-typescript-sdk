@@ -88,6 +88,12 @@ export interface VbInstance {
    * The entitlement used for billing purposes.
    */
   "consumptionModel"?: VbInstance.ConsumptionModel;
+  "idcsInfo"?: model.IdcsInfoDetails;
+  /**
+   * A list of associated attachments to other services
+   *
+   */
+  "attachments"?: Array<model.AttachmentDetails>;
 }
 
 export namespace VbInstance {
@@ -128,6 +134,13 @@ export namespace VbInstance {
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CustomEndpointDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "idcsInfo": obj.idcsInfo ? model.IdcsInfoDetails.getJsonObj(obj.idcsInfo) : undefined,
+        "attachments": obj.attachments
+          ? obj.attachments.map(item => {
+              return model.AttachmentDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -144,6 +157,15 @@ export namespace VbInstance {
         "alternateCustomEndpoints": obj.alternateCustomEndpoints
           ? obj.alternateCustomEndpoints.map(item => {
               return model.CustomEndpointDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "idcsInfo": obj.idcsInfo
+          ? model.IdcsInfoDetails.getDeserializedJsonObj(obj.idcsInfo)
+          : undefined,
+        "attachments": obj.attachments
+          ? obj.attachments.map(item => {
+              return model.AttachmentDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

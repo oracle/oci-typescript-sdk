@@ -19,10 +19,14 @@ import * as ApproveAccessRequestResponse from "./approve-access-request-response
 export import ApproveAccessRequestResponse = ApproveAccessRequestResponse.ApproveAccessRequestResponse;
 import * as GetAccessRequestResponse from "./get-access-request-response";
 export import GetAccessRequestResponse = GetAccessRequestResponse.GetAccessRequestResponse;
+import * as InteractionRequestResponse from "./interaction-request-response";
+export import InteractionRequestResponse = InteractionRequestResponse.InteractionRequestResponse;
 import * as ListAccessRequestHistoriesResponse from "./list-access-request-histories-response";
 export import ListAccessRequestHistoriesResponse = ListAccessRequestHistoriesResponse.ListAccessRequestHistoriesResponse;
 import * as ListAccessRequestsResponse from "./list-access-requests-response";
 export import ListAccessRequestsResponse = ListAccessRequestsResponse.ListAccessRequestsResponse;
+import * as ListInteractionsResponse from "./list-interactions-response";
+export import ListInteractionsResponse = ListInteractionsResponse.ListInteractionsResponse;
 import * as RejectAccessRequestResponse from "./reject-access-request-response";
 export import RejectAccessRequestResponse = RejectAccessRequestResponse.RejectAccessRequestResponse;
 import * as ReviewAccessRequestResponse from "./review-access-request-response";

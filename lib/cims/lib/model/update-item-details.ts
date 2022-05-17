@@ -28,7 +28,7 @@ export namespace UpdateItemDetails {
   export function getJsonObj(obj: UpdateItemDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "activity":
           return model.UpdateActivityItemDetails.getJsonObj(
@@ -44,7 +44,7 @@ export namespace UpdateItemDetails {
   export function getDeserializedJsonObj(obj: UpdateItemDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "activity":
           return model.UpdateActivityItemDetails.getDeserializedJsonObj(

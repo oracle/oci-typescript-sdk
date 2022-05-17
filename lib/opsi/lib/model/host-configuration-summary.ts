@@ -130,7 +130,7 @@ export namespace HostConfigurationSummary {
   export function getJsonObj(obj: HostConfigurationSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.MacsManagedExternalHostConfigurationSummary.getJsonObj(
@@ -151,7 +151,7 @@ export namespace HostConfigurationSummary {
   export function getDeserializedJsonObj(obj: HostConfigurationSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.MacsManagedExternalHostConfigurationSummary.getDeserializedJsonObj(

@@ -42,7 +42,7 @@ export namespace UpdateDatabaseToolsConnectionDetails {
   export function getJsonObj(obj: UpdateDatabaseToolsConnectionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_DATABASE":
           return model.UpdateDatabaseToolsConnectionOracleDatabaseDetails.getJsonObj(
@@ -58,7 +58,7 @@ export namespace UpdateDatabaseToolsConnectionDetails {
   export function getDeserializedJsonObj(obj: UpdateDatabaseToolsConnectionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_DATABASE":
           return model.UpdateDatabaseToolsConnectionOracleDatabaseDetails.getDeserializedJsonObj(

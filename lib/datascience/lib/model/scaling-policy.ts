@@ -26,7 +26,7 @@ export namespace ScalingPolicy {
   export function getJsonObj(obj: ScalingPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "FIXED_SIZE":
           return model.FixedSizeScalingPolicy.getJsonObj(
@@ -42,7 +42,7 @@ export namespace ScalingPolicy {
   export function getDeserializedJsonObj(obj: ScalingPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "FIXED_SIZE":
           return model.FixedSizeScalingPolicy.getDeserializedJsonObj(

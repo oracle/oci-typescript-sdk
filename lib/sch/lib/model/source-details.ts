@@ -34,7 +34,7 @@ export namespace SourceDetails {
   export function getJsonObj(obj: SourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "logging":
           return model.LoggingSourceDetails.getJsonObj(
@@ -60,7 +60,7 @@ export namespace SourceDetails {
   export function getDeserializedJsonObj(obj: SourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "logging":
           return model.LoggingSourceDetails.getDeserializedJsonObj(

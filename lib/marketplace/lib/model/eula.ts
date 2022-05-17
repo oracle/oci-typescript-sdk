@@ -25,7 +25,7 @@ export namespace Eula {
   export function getJsonObj(obj: Eula): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("eulaType" in obj && obj.eulaType) {
+    if (obj && "eulaType" in obj && obj.eulaType) {
       switch (obj.eulaType) {
         case "TEXT":
           return model.TextBasedEula.getJsonObj(<model.TextBasedEula>(<object>jsonObj), true);
@@ -38,7 +38,7 @@ export namespace Eula {
   export function getDeserializedJsonObj(obj: Eula): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("eulaType" in obj && obj.eulaType) {
+    if (obj && "eulaType" in obj && obj.eulaType) {
       switch (obj.eulaType) {
         case "TEXT":
           return model.TextBasedEula.getDeserializedJsonObj(

@@ -44,7 +44,7 @@ export namespace SecretContentDetails {
   export function getJsonObj(obj: SecretContentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("contentType" in obj && obj.contentType) {
+    if (obj && "contentType" in obj && obj.contentType) {
       switch (obj.contentType) {
         case "BASE64":
           return model.Base64SecretContentDetails.getJsonObj(
@@ -60,7 +60,7 @@ export namespace SecretContentDetails {
   export function getDeserializedJsonObj(obj: SecretContentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("contentType" in obj && obj.contentType) {
+    if (obj && "contentType" in obj && obj.contentType) {
       switch (obj.contentType) {
         case "BASE64":
           return model.Base64SecretContentDetails.getDeserializedJsonObj(

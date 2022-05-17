@@ -25,7 +25,7 @@ export namespace EntityReference {
   export function getJsonObj(obj: EntityReference): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "INDICATOR":
           return model.IndicatorReference.getJsonObj(
@@ -41,7 +41,7 @@ export namespace EntityReference {
   export function getDeserializedJsonObj(obj: EntityReference): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "INDICATOR":
           return model.IndicatorReference.getDeserializedJsonObj(

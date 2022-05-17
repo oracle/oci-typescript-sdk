@@ -33,7 +33,7 @@ export namespace VolumeSourceDetails {
   export function getJsonObj(obj: VolumeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "blockVolumeReplica":
           return model.VolumeSourceFromBlockVolumeReplicaDetails.getJsonObj(
@@ -59,7 +59,7 @@ export namespace VolumeSourceDetails {
   export function getDeserializedJsonObj(obj: VolumeSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "blockVolumeReplica":
           return model.VolumeSourceFromBlockVolumeReplicaDetails.getDeserializedJsonObj(

@@ -26,7 +26,7 @@ export namespace Entity {
   export function getJsonObj(obj: Entity): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "IMAGEOBJECTSELECTION":
           return model.ImageObjectSelectionEntity.getJsonObj(
@@ -49,7 +49,7 @@ export namespace Entity {
   export function getDeserializedJsonObj(obj: Entity): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "IMAGEOBJECTSELECTION":
           return model.ImageObjectSelectionEntity.getDeserializedJsonObj(

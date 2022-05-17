@@ -25,7 +25,7 @@ export namespace SecretConfig {
   export function getJsonObj(obj: SecretConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "OCI_VAULT_SECRET_CONFIG":
           return model.OciVaultSecretConfig.getJsonObj(
@@ -41,7 +41,7 @@ export namespace SecretConfig {
   export function getDeserializedJsonObj(obj: SecretConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "OCI_VAULT_SECRET_CONFIG":
           return model.OciVaultSecretConfig.getDeserializedJsonObj(

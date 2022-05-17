@@ -35,6 +35,7 @@ export interface CreateDeployStageRequest extends common.BaseRequest {
     | model.CreateOkeCanaryDeployStageDetails
     | model.CreateComputeInstanceGroupCanaryTrafficShiftDeployStageDetails
     | model.CreateComputeInstanceGroupCanaryApprovalDeployStageDetails
+    | model.CreateOkeHelmChartDeployStageDetails
     | model.CreateManualApprovalDeployStageDetails
     | model.CreateOkeDeployStageDetails
     | model.CreateComputeInstanceGroupBlueGreenDeployStageDetails

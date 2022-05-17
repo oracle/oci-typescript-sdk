@@ -26,7 +26,7 @@ export namespace SourceDetails {
   export function getJsonObj(obj: SourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageSourceDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace SourceDetails {
   export function getDeserializedJsonObj(obj: SourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageSourceDetails.getDeserializedJsonObj(

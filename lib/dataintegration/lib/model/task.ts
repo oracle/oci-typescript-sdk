@@ -107,7 +107,7 @@ export namespace Task {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PIPELINE_TASK":
           return model.TaskFromPipelineTaskDetails.getJsonObj(
@@ -184,7 +184,7 @@ export namespace Task {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PIPELINE_TASK":
           return model.TaskFromPipelineTaskDetails.getDeserializedJsonObj(

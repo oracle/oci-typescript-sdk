@@ -42,7 +42,7 @@ export namespace UpdateCertificateConfigDetails {
   export function getJsonObj(obj: UpdateCertificateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "IMPORTED":
           return model.UpdateCertificateByImportingConfigDetails.getJsonObj(
@@ -70,7 +70,7 @@ export namespace UpdateCertificateConfigDetails {
   export function getDeserializedJsonObj(obj: UpdateCertificateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "IMPORTED":
           return model.UpdateCertificateByImportingConfigDetails.getDeserializedJsonObj(

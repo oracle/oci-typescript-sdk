@@ -25,7 +25,7 @@ export namespace ApprovalPolicy {
   export function getJsonObj(obj: ApprovalPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("approvalPolicyType" in obj && obj.approvalPolicyType) {
+    if (obj && "approvalPolicyType" in obj && obj.approvalPolicyType) {
       switch (obj.approvalPolicyType) {
         case "COUNT_BASED_APPROVAL":
           return model.CountBasedApprovalPolicy.getJsonObj(
@@ -41,7 +41,7 @@ export namespace ApprovalPolicy {
   export function getDeserializedJsonObj(obj: ApprovalPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("approvalPolicyType" in obj && obj.approvalPolicyType) {
+    if (obj && "approvalPolicyType" in obj && obj.approvalPolicyType) {
       switch (obj.approvalPolicyType) {
         case "COUNT_BASED_APPROVAL":
           return model.CountBasedApprovalPolicy.getDeserializedJsonObj(

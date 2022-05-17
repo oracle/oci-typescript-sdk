@@ -27,7 +27,7 @@ export namespace HttpResponseBody {
   export function getJsonObj(obj: HttpResponseBody): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "STATIC_TEXT":
           return model.StaticTextHttpResponseBody.getJsonObj(
@@ -43,7 +43,7 @@ export namespace HttpResponseBody {
   export function getDeserializedJsonObj(obj: HttpResponseBody): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "STATIC_TEXT":
           return model.StaticTextHttpResponseBody.getDeserializedJsonObj(

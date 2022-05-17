@@ -29,7 +29,7 @@ export namespace DiscoveryDetails {
   export function getJsonObj(obj: DiscoveryDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OIC":
           return model.OicDiscoveryDetails.getJsonObj(
@@ -70,7 +70,7 @@ export namespace DiscoveryDetails {
   export function getDeserializedJsonObj(obj: DiscoveryDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OIC":
           return model.OicDiscoveryDetails.getDeserializedJsonObj(

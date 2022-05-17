@@ -30,7 +30,7 @@ export namespace UnifiedAgentLoggingSource {
   export function getJsonObj(obj: UnifiedAgentLoggingSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "WINDOWS_EVENT_LOG":
           return model.UnifiedAgentWindowsEventSource.getJsonObj(
@@ -51,7 +51,7 @@ export namespace UnifiedAgentLoggingSource {
   export function getDeserializedJsonObj(obj: UnifiedAgentLoggingSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "WINDOWS_EVENT_LOG":
           return model.UnifiedAgentWindowsEventSource.getDeserializedJsonObj(

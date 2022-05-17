@@ -28,7 +28,7 @@ export namespace TargetSelected {
   export function getJsonObj(obj: TargetSelected): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "ALL":
           return model.AllTargetsSelected.getJsonObj(
@@ -54,7 +54,7 @@ export namespace TargetSelected {
   export function getDeserializedJsonObj(obj: TargetSelected): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "ALL":
           return model.AllTargetsSelected.getDeserializedJsonObj(

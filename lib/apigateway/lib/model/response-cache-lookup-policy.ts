@@ -45,7 +45,7 @@ export namespace ResponseCacheLookupPolicy {
   export function getJsonObj(obj: ResponseCacheLookupPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "SIMPLE_LOOKUP_POLICY":
           return model.SimpleLookupPolicy.getJsonObj(
@@ -61,7 +61,7 @@ export namespace ResponseCacheLookupPolicy {
   export function getDeserializedJsonObj(obj: ResponseCacheLookupPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "SIMPLE_LOOKUP_POLICY":
           return model.SimpleLookupPolicy.getDeserializedJsonObj(

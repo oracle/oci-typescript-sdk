@@ -25,7 +25,7 @@ export namespace DatasetFormatDetails {
   export function getJsonObj(obj: DatasetFormatDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("formatType" in obj && obj.formatType) {
+    if (obj && "formatType" in obj && obj.formatType) {
       switch (obj.formatType) {
         case "IMAGE":
           return model.ImageDatasetFormatDetails.getJsonObj(
@@ -51,7 +51,7 @@ export namespace DatasetFormatDetails {
   export function getDeserializedJsonObj(obj: DatasetFormatDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("formatType" in obj && obj.formatType) {
+    if (obj && "formatType" in obj && obj.formatType) {
       switch (obj.formatType) {
         case "IMAGE":
           return model.ImageDatasetFormatDetails.getDeserializedJsonObj(

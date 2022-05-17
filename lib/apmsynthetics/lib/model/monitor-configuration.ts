@@ -30,7 +30,7 @@ export namespace MonitorConfiguration {
   export function getJsonObj(obj: MonitorConfiguration): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "SCRIPTED_REST_CONFIG":
           return model.ScriptedRestMonitorConfiguration.getJsonObj(
@@ -61,7 +61,7 @@ export namespace MonitorConfiguration {
   export function getDeserializedJsonObj(obj: MonitorConfiguration): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "SCRIPTED_REST_CONFIG":
           return model.ScriptedRestMonitorConfiguration.getDeserializedJsonObj(

@@ -28,7 +28,7 @@ export namespace ContentValidation {
   export function getJsonObj(obj: ContentValidation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("validationType" in obj && obj.validationType) {
+    if (obj && "validationType" in obj && obj.validationType) {
       switch (obj.validationType) {
         case "NONE":
           return model.NoContentValidation.getJsonObj(
@@ -44,7 +44,7 @@ export namespace ContentValidation {
   export function getDeserializedJsonObj(obj: ContentValidation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("validationType" in obj && obj.validationType) {
+    if (obj && "validationType" in obj && obj.validationType) {
       switch (obj.validationType) {
         case "NONE":
           return model.NoContentValidation.getDeserializedJsonObj(

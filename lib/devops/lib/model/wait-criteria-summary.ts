@@ -25,7 +25,7 @@ export namespace WaitCriteriaSummary {
   export function getJsonObj(obj: WaitCriteriaSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("waitType" in obj && obj.waitType) {
+    if (obj && "waitType" in obj && obj.waitType) {
       switch (obj.waitType) {
         case "ABSOLUTE_WAIT":
           return model.AbsoluteWaitCriteriaSummary.getJsonObj(
@@ -41,7 +41,7 @@ export namespace WaitCriteriaSummary {
   export function getDeserializedJsonObj(obj: WaitCriteriaSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("waitType" in obj && obj.waitType) {
+    if (obj && "waitType" in obj && obj.waitType) {
       switch (obj.waitType) {
         case "ABSOLUTE_WAIT":
           return model.AbsoluteWaitCriteriaSummary.getDeserializedJsonObj(

@@ -56,7 +56,7 @@ export namespace UpdateSensitiveTypeDetails {
   export function getJsonObj(obj: UpdateSensitiveTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "SENSITIVE_CATEGORY":
           return model.UpdateSensitiveCategoryDetails.getJsonObj(
@@ -77,7 +77,7 @@ export namespace UpdateSensitiveTypeDetails {
   export function getDeserializedJsonObj(obj: UpdateSensitiveTypeDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entityType" in obj && obj.entityType) {
+    if (obj && "entityType" in obj && obj.entityType) {
       switch (obj.entityType) {
         case "SENSITIVE_CATEGORY":
           return model.UpdateSensitiveCategoryDetails.getDeserializedJsonObj(

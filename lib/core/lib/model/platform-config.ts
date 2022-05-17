@@ -47,7 +47,7 @@ export namespace PlatformConfig {
   export function getJsonObj(obj: PlatformConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AMD_MILAN_BM":
           return model.AmdMilanBmPlatformConfig.getJsonObj(
@@ -93,7 +93,7 @@ export namespace PlatformConfig {
   export function getDeserializedJsonObj(obj: PlatformConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AMD_MILAN_BM":
           return model.AmdMilanBmPlatformConfig.getDeserializedJsonObj(

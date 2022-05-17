@@ -25,7 +25,7 @@ export namespace AbstractFormatAttribute {
   export function getJsonObj(obj: AbstractFormatAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "AVRO_FORMAT":
           return model.AvroFormatAttribute.getJsonObj(
@@ -56,7 +56,7 @@ export namespace AbstractFormatAttribute {
   export function getDeserializedJsonObj(obj: AbstractFormatAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "AVRO_FORMAT":
           return model.AvroFormatAttribute.getDeserializedJsonObj(

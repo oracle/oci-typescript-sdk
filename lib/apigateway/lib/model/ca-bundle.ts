@@ -28,7 +28,7 @@ export namespace CaBundle {
   export function getJsonObj(obj: CaBundle): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "CA_BUNDLE":
           return model.CertificatesCaBundle.getJsonObj(
@@ -49,7 +49,7 @@ export namespace CaBundle {
   export function getDeserializedJsonObj(obj: CaBundle): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "CA_BUNDLE":
           return model.CertificatesCaBundle.getDeserializedJsonObj(

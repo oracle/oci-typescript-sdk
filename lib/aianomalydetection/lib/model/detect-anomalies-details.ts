@@ -35,7 +35,7 @@ export namespace DetectAnomaliesDetails {
   export function getJsonObj(obj: DetectAnomaliesDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("requestType" in obj && obj.requestType) {
+    if (obj && "requestType" in obj && obj.requestType) {
       switch (obj.requestType) {
         case "INLINE":
           return model.InlineDetectAnomaliesRequest.getJsonObj(
@@ -56,7 +56,7 @@ export namespace DetectAnomaliesDetails {
   export function getDeserializedJsonObj(obj: DetectAnomaliesDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("requestType" in obj && obj.requestType) {
+    if (obj && "requestType" in obj && obj.requestType) {
       switch (obj.requestType) {
         case "INLINE":
           return model.InlineDetectAnomaliesRequest.getDeserializedJsonObj(

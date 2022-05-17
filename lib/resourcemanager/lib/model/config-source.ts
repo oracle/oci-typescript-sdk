@@ -41,7 +41,7 @@ export namespace ConfigSource {
   export function getJsonObj(obj: ConfigSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceType" in obj && obj.configSourceType) {
+    if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSource.getJsonObj(<model.GitConfigSource>(<object>jsonObj), true);
@@ -69,7 +69,7 @@ export namespace ConfigSource {
   export function getDeserializedJsonObj(obj: ConfigSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceType" in obj && obj.configSourceType) {
+    if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSource.getDeserializedJsonObj(

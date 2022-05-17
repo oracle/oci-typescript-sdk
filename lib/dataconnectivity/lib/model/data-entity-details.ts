@@ -25,7 +25,7 @@ export namespace DataEntityDetails {
   export function getJsonObj(obj: DataEntityDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "FILE_ENTITY":
           return model.DataEntityFromFileEntityDetails.getJsonObj(
@@ -61,7 +61,7 @@ export namespace DataEntityDetails {
   export function getDeserializedJsonObj(obj: DataEntityDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "FILE_ENTITY":
           return model.DataEntityFromFileEntityDetails.getDeserializedJsonObj(

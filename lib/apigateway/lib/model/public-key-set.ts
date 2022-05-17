@@ -28,7 +28,7 @@ export namespace PublicKeySet {
   export function getJsonObj(obj: PublicKeySet): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "STATIC_KEYS":
           return model.StaticPublicKeySet.getJsonObj(
@@ -49,7 +49,7 @@ export namespace PublicKeySet {
   export function getDeserializedJsonObj(obj: PublicKeySet): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "STATIC_KEYS":
           return model.StaticPublicKeySet.getDeserializedJsonObj(

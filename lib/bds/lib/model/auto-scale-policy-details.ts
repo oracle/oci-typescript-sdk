@@ -63,7 +63,7 @@ export namespace AutoScalePolicyDetails {
   export function getJsonObj(obj: AutoScalePolicyDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "METRIC_BASED_VERTICAL_SCALING_POLICY":
           return model.MetricBasedVerticalScalingPolicyDetails.getJsonObj(
@@ -94,7 +94,7 @@ export namespace AutoScalePolicyDetails {
   export function getDeserializedJsonObj(obj: AutoScalePolicyDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "METRIC_BASED_VERTICAL_SCALING_POLICY":
           return model.MetricBasedVerticalScalingPolicyDetails.getDeserializedJsonObj(

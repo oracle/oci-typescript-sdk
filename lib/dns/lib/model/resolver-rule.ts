@@ -42,7 +42,7 @@ export namespace ResolverRule {
   export function getJsonObj(obj: ResolverRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("action" in obj && obj.action) {
+    if (obj && "action" in obj && obj.action) {
       switch (obj.action) {
         case "FORWARD":
           return model.ResolverForwardRule.getJsonObj(
@@ -58,7 +58,7 @@ export namespace ResolverRule {
   export function getDeserializedJsonObj(obj: ResolverRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("action" in obj && obj.action) {
+    if (obj && "action" in obj && obj.action) {
       switch (obj.action) {
         case "FORWARD":
           return model.ResolverForwardRule.getDeserializedJsonObj(

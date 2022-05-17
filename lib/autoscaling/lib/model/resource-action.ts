@@ -31,7 +31,7 @@ export namespace ResourceAction {
   export function getJsonObj(obj: ResourceAction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("actionType" in obj && obj.actionType) {
+    if (obj && "actionType" in obj && obj.actionType) {
       switch (obj.actionType) {
         case "power":
           return model.ResourcePowerAction.getJsonObj(
@@ -47,7 +47,7 @@ export namespace ResourceAction {
   export function getDeserializedJsonObj(obj: ResourceAction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("actionType" in obj && obj.actionType) {
+    if (obj && "actionType" in obj && obj.actionType) {
       switch (obj.actionType) {
         case "power":
           return model.ResourcePowerAction.getDeserializedJsonObj(

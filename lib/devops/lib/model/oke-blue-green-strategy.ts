@@ -25,7 +25,7 @@ export namespace OkeBlueGreenStrategy {
   export function getJsonObj(obj: OkeBlueGreenStrategy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("strategyType" in obj && obj.strategyType) {
+    if (obj && "strategyType" in obj && obj.strategyType) {
       switch (obj.strategyType) {
         case "NGINX_BLUE_GREEN_STRATEGY":
           return model.NginxBlueGreenStrategy.getJsonObj(
@@ -41,7 +41,7 @@ export namespace OkeBlueGreenStrategy {
   export function getDeserializedJsonObj(obj: OkeBlueGreenStrategy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("strategyType" in obj && obj.strategyType) {
+    if (obj && "strategyType" in obj && obj.strategyType) {
       switch (obj.strategyType) {
         case "NGINX_BLUE_GREEN_STRATEGY":
           return model.NginxBlueGreenStrategy.getDeserializedJsonObj(

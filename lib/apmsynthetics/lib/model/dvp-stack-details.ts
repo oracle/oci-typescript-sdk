@@ -30,7 +30,7 @@ export namespace DvpStackDetails {
   export function getJsonObj(obj: DvpStackDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("dvpStackType" in obj && obj.dvpStackType) {
+    if (obj && "dvpStackType" in obj && obj.dvpStackType) {
       switch (obj.dvpStackType) {
         case "ORACLE_RM_STACK":
           return model.OracleRMStack.getJsonObj(<model.OracleRMStack>(<object>jsonObj), true);
@@ -43,7 +43,7 @@ export namespace DvpStackDetails {
   export function getDeserializedJsonObj(obj: DvpStackDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("dvpStackType" in obj && obj.dvpStackType) {
+    if (obj && "dvpStackType" in obj && obj.dvpStackType) {
       switch (obj.dvpStackType) {
         case "ORACLE_RM_STACK":
           return model.OracleRMStack.getDeserializedJsonObj(

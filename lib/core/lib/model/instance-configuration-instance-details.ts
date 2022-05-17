@@ -27,7 +27,7 @@ export namespace InstanceConfigurationInstanceDetails {
   export function getJsonObj(obj: InstanceConfigurationInstanceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("instanceType" in obj && obj.instanceType) {
+    if (obj && "instanceType" in obj && obj.instanceType) {
       switch (obj.instanceType) {
         case "compute":
           return model.ComputeInstanceDetails.getJsonObj(
@@ -43,7 +43,7 @@ export namespace InstanceConfigurationInstanceDetails {
   export function getDeserializedJsonObj(obj: InstanceConfigurationInstanceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("instanceType" in obj && obj.instanceType) {
+    if (obj && "instanceType" in obj && obj.instanceType) {
       switch (obj.instanceType) {
         case "compute":
           return model.ComputeInstanceDetails.getDeserializedJsonObj(

@@ -30,7 +30,7 @@ export namespace CreateCertificateConfigDetails {
   export function getJsonObj(obj: CreateCertificateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "MANAGED_EXTERNALLY_ISSUED_BY_INTERNAL_CA":
           return model.CreateCertificateManagedExternallyIssuedByInternalCaConfigDetails.getJsonObj(
@@ -58,7 +58,7 @@ export namespace CreateCertificateConfigDetails {
   export function getDeserializedJsonObj(obj: CreateCertificateConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "MANAGED_EXTERNALLY_ISSUED_BY_INTERNAL_CA":
           return model.CreateCertificateManagedExternallyIssuedByInternalCaConfigDetails.getDeserializedJsonObj(

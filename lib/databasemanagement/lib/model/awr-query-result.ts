@@ -45,7 +45,7 @@ export namespace AwrQueryResult {
   export function getJsonObj(obj: AwrQueryResult): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("awrResultType" in obj && obj.awrResultType) {
+    if (obj && "awrResultType" in obj && obj.awrResultType) {
       switch (obj.awrResultType) {
         case "AWRDB_DB_PARAMETER_CHANGE":
           return model.AwrDbParameterChangeCollection.getJsonObj(
@@ -112,7 +112,7 @@ export namespace AwrQueryResult {
   export function getDeserializedJsonObj(obj: AwrQueryResult): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("awrResultType" in obj && obj.awrResultType) {
+    if (obj && "awrResultType" in obj && obj.awrResultType) {
       switch (obj.awrResultType) {
         case "AWRDB_DB_PARAMETER_CHANGE":
           return model.AwrDbParameterChangeCollection.getDeserializedJsonObj(

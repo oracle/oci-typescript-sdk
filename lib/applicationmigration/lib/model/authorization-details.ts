@@ -31,7 +31,7 @@ export namespace AuthorizationDetails {
   export function getJsonObj(obj: AuthorizationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OCC":
           return model.OccAuthorizationDetails.getJsonObj(
@@ -62,7 +62,7 @@ export namespace AuthorizationDetails {
   export function getDeserializedJsonObj(obj: AuthorizationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "OCC":
           return model.OccAuthorizationDetails.getDeserializedJsonObj(

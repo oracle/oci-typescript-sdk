@@ -25,7 +25,7 @@ export namespace CreateChannelTargetDetails {
   export function getJsonObj(obj: CreateChannelTargetDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetType" in obj && obj.targetType) {
+    if (obj && "targetType" in obj && obj.targetType) {
       switch (obj.targetType) {
         case "DBSYSTEM":
           return model.CreateChannelTargetFromDbSystemDetails.getJsonObj(
@@ -41,7 +41,7 @@ export namespace CreateChannelTargetDetails {
   export function getDeserializedJsonObj(obj: CreateChannelTargetDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetType" in obj && obj.targetType) {
+    if (obj && "targetType" in obj && obj.targetType) {
       switch (obj.targetType) {
         case "DBSYSTEM":
           return model.CreateChannelTargetFromDbSystemDetails.getDeserializedJsonObj(

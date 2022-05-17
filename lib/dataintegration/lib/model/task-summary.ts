@@ -102,7 +102,7 @@ export namespace TaskSummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "INTEGRATION_TASK":
           return model.TaskSummaryFromIntegrationTask.getJsonObj(
@@ -175,7 +175,7 @@ export namespace TaskSummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "INTEGRATION_TASK":
           return model.TaskSummaryFromIntegrationTask.getDeserializedJsonObj(

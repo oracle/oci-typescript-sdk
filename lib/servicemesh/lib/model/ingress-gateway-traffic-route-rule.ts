@@ -43,7 +43,7 @@ export namespace IngressGatewayTrafficRouteRule {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "HTTP":
           return model.HttpIngressGatewayTrafficRouteRule.getJsonObj(
@@ -81,7 +81,7 @@ export namespace IngressGatewayTrafficRouteRule {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "HTTP":
           return model.HttpIngressGatewayTrafficRouteRule.getDeserializedJsonObj(

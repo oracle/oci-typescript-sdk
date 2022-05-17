@@ -138,7 +138,7 @@ export namespace VolumeAttachment {
   export function getJsonObj(obj: VolumeAttachment): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("attachmentType" in obj && obj.attachmentType) {
+    if (obj && "attachmentType" in obj && obj.attachmentType) {
       switch (obj.attachmentType) {
         case "iscsi":
           return model.IScsiVolumeAttachment.getJsonObj(
@@ -164,7 +164,7 @@ export namespace VolumeAttachment {
   export function getDeserializedJsonObj(obj: VolumeAttachment): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("attachmentType" in obj && obj.attachmentType) {
+    if (obj && "attachmentType" in obj && obj.attachmentType) {
       switch (obj.attachmentType) {
         case "iscsi":
           return model.IScsiVolumeAttachment.getDeserializedJsonObj(

@@ -30,7 +30,7 @@ export namespace TargetResourceDetails {
   export function getJsonObj(obj: TargetResourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sessionType" in obj && obj.sessionType) {
+    if (obj && "sessionType" in obj && obj.sessionType) {
       switch (obj.sessionType) {
         case "MANAGED_SSH":
           return model.ManagedSshSessionTargetResourceDetails.getJsonObj(
@@ -51,7 +51,7 @@ export namespace TargetResourceDetails {
   export function getDeserializedJsonObj(obj: TargetResourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sessionType" in obj && obj.sessionType) {
+    if (obj && "sessionType" in obj && obj.sessionType) {
       switch (obj.sessionType) {
         case "MANAGED_SSH":
           return model.ManagedSshSessionTargetResourceDetails.getDeserializedJsonObj(

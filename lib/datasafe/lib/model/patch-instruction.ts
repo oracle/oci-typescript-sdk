@@ -30,7 +30,7 @@ export namespace PatchInstruction {
   export function getJsonObj(obj: PatchInstruction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("operation" in obj && obj.operation) {
+    if (obj && "operation" in obj && obj.operation) {
       switch (obj.operation) {
         case "REMOVE":
           return model.PatchRemoveInstruction.getJsonObj(
@@ -56,7 +56,7 @@ export namespace PatchInstruction {
   export function getDeserializedJsonObj(obj: PatchInstruction): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("operation" in obj && obj.operation) {
+    if (obj && "operation" in obj && obj.operation) {
       switch (obj.operation) {
         case "REMOVE":
           return model.PatchRemoveInstruction.getDeserializedJsonObj(

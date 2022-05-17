@@ -52,7 +52,7 @@ export namespace UpdateBuildPipelineStageDetails {
       }
     };
 
-    if ("buildPipelineStageType" in obj && obj.buildPipelineStageType) {
+    if (obj && "buildPipelineStageType" in obj && obj.buildPipelineStageType) {
       switch (obj.buildPipelineStageType) {
         case "WAIT":
           return model.UpdateWaitStageDetails.getJsonObj(
@@ -92,7 +92,7 @@ export namespace UpdateBuildPipelineStageDetails {
       }
     };
 
-    if ("buildPipelineStageType" in obj && obj.buildPipelineStageType) {
+    if (obj && "buildPipelineStageType" in obj && obj.buildPipelineStageType) {
       switch (obj.buildPipelineStageType) {
         case "WAIT":
           return model.UpdateWaitStageDetails.getDeserializedJsonObj(

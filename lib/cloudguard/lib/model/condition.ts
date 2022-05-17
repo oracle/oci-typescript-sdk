@@ -28,7 +28,7 @@ export namespace Condition {
   export function getJsonObj(obj: Condition): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "SIMPLE":
           return model.SimpleCondition.getJsonObj(<model.SimpleCondition>(<object>jsonObj), true);
@@ -46,7 +46,7 @@ export namespace Condition {
   export function getDeserializedJsonObj(obj: Condition): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "SIMPLE":
           return model.SimpleCondition.getDeserializedJsonObj(

@@ -25,7 +25,7 @@ export namespace Key {
   export function getJsonObj(obj: Key): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "FOREIGN_KEY":
           return model.ForeignKey.getJsonObj(<model.ForeignKey>(<object>jsonObj), true);
@@ -38,7 +38,7 @@ export namespace Key {
   export function getDeserializedJsonObj(obj: Key): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "FOREIGN_KEY":
           return model.ForeignKey.getDeserializedJsonObj(<model.ForeignKey>(<object>jsonObj), true);

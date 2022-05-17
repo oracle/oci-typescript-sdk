@@ -29,7 +29,7 @@ export namespace MonitoringSourceNamespaceDetails {
   export function getJsonObj(obj: MonitoringSourceNamespaceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "selected":
           return model.MonitoringSourceSelectedNamespaceDetails.getJsonObj(
@@ -45,7 +45,7 @@ export namespace MonitoringSourceNamespaceDetails {
   export function getDeserializedJsonObj(obj: MonitoringSourceNamespaceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "selected":
           return model.MonitoringSourceSelectedNamespaceDetails.getDeserializedJsonObj(

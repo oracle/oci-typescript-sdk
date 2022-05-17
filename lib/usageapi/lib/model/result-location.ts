@@ -27,7 +27,7 @@ export namespace ResultLocation {
   export function getJsonObj(obj: ResultLocation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("locationType" in obj && obj.locationType) {
+    if (obj && "locationType" in obj && obj.locationType) {
       switch (obj.locationType) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageLocation.getJsonObj(
@@ -43,7 +43,7 @@ export namespace ResultLocation {
   export function getDeserializedJsonObj(obj: ResultLocation): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("locationType" in obj && obj.locationType) {
+    if (obj && "locationType" in obj && obj.locationType) {
       switch (obj.locationType) {
         case "OBJECT_STORAGE":
           return model.ObjectStorageLocation.getDeserializedJsonObj(

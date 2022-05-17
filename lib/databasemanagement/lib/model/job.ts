@@ -123,7 +123,7 @@ export namespace Job {
       }
     };
 
-    if ("jobType" in obj && obj.jobType) {
+    if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
         case "SQL":
           return model.SqlJob.getJsonObj(<model.SqlJob>(<object>jsonObj), true);
@@ -152,7 +152,7 @@ export namespace Job {
       }
     };
 
-    if ("jobType" in obj && obj.jobType) {
+    if (obj && "jobType" in obj && obj.jobType) {
       switch (obj.jobType) {
         case "SQL":
           return model.SqlJob.getDeserializedJsonObj(<model.SqlJob>(<object>jsonObj), true);

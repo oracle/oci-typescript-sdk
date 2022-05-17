@@ -25,7 +25,7 @@ export namespace ComputeInstanceGroupSelector {
   export function getJsonObj(obj: ComputeInstanceGroupSelector): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("selectorType" in obj && obj.selectorType) {
+    if (obj && "selectorType" in obj && obj.selectorType) {
       switch (obj.selectorType) {
         case "INSTANCE_IDS":
           return model.ComputeInstanceGroupByIdsSelector.getJsonObj(
@@ -46,7 +46,7 @@ export namespace ComputeInstanceGroupSelector {
   export function getDeserializedJsonObj(obj: ComputeInstanceGroupSelector): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("selectorType" in obj && obj.selectorType) {
+    if (obj && "selectorType" in obj && obj.selectorType) {
       switch (obj.selectorType) {
         case "INSTANCE_IDS":
           return model.ComputeInstanceGroupByIdsSelector.getDeserializedJsonObj(

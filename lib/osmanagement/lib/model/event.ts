@@ -80,7 +80,7 @@ export namespace Event {
   export function getJsonObj(obj: Event): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("eventType" in obj && obj.eventType) {
+    if (obj && "eventType" in obj && obj.eventType) {
       switch (obj.eventType) {
         case "KERNEL_OOPS":
           return model.KernelOopsEvent.getJsonObj(<model.KernelOopsEvent>(<object>jsonObj), true);
@@ -95,7 +95,7 @@ export namespace Event {
   export function getDeserializedJsonObj(obj: Event): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("eventType" in obj && obj.eventType) {
+    if (obj && "eventType" in obj && obj.eventType) {
       switch (obj.eventType) {
         case "KERNEL_OOPS":
           return model.KernelOopsEvent.getDeserializedJsonObj(

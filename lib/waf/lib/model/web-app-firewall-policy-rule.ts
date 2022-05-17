@@ -52,7 +52,7 @@ export namespace WebAppFirewallPolicyRule {
   export function getJsonObj(obj: WebAppFirewallPolicyRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "PROTECTION":
           return model.ProtectionRule.getJsonObj(<model.ProtectionRule>(<object>jsonObj), true);
@@ -75,7 +75,7 @@ export namespace WebAppFirewallPolicyRule {
   export function getDeserializedJsonObj(obj: WebAppFirewallPolicyRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "PROTECTION":
           return model.ProtectionRule.getDeserializedJsonObj(

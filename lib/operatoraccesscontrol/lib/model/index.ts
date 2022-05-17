@@ -41,6 +41,12 @@ import * as CreateOperatorControlDetails from "./create-operator-control-details
 export import CreateOperatorControlDetails = CreateOperatorControlDetails.CreateOperatorControlDetails;
 import * as InfrastrcutureLayers from "./infrastrcuture-layers";
 export import InfrastrcutureLayers = InfrastrcutureLayers.InfrastrcutureLayers;
+import * as InteractionCollection from "./interaction-collection";
+export import InteractionCollection = InteractionCollection.InteractionCollection;
+import * as InteractionRequestDetails from "./interaction-request-details";
+export import InteractionRequestDetails = InteractionRequestDetails.InteractionRequestDetails;
+import * as InteractionSummary from "./interaction-summary";
+export import InteractionSummary = InteractionSummary.InteractionSummary;
 import * as OperatorAction from "./operator-action";
 export import OperatorAction = OperatorAction.OperatorAction;
 import * as OperatorActionCategories from "./operator-action-categories";

@@ -25,11 +25,16 @@ export namespace Filter {
   export function getJsonObj(obj: Filter): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryFilter.getJsonObj(
             <model.DevopsCodeRepositoryFilter>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudFilter.getJsonObj(
+            <model.BitbucketCloudFilter>(<object>jsonObj),
             true
           );
         case "GITLAB":
@@ -45,11 +50,16 @@ export namespace Filter {
   export function getDeserializedJsonObj(obj: Filter): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryFilter.getDeserializedJsonObj(
             <model.DevopsCodeRepositoryFilter>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudFilter.getDeserializedJsonObj(
+            <model.BitbucketCloudFilter>(<object>jsonObj),
             true
           );
         case "GITLAB":

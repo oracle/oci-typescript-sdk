@@ -30,7 +30,7 @@ export namespace RouteAuthorizationPolicy {
   export function getJsonObj(obj: RouteAuthorizationPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ANY_OF":
           return model.AnyOfRouteAuthorizationPolicy.getJsonObj(
@@ -56,7 +56,7 @@ export namespace RouteAuthorizationPolicy {
   export function getDeserializedJsonObj(obj: RouteAuthorizationPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ANY_OF":
           return model.AnyOfRouteAuthorizationPolicy.getDeserializedJsonObj(

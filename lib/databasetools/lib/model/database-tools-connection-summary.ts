@@ -72,7 +72,7 @@ export namespace DatabaseToolsConnectionSummary {
   export function getJsonObj(obj: DatabaseToolsConnectionSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_DATABASE":
           return model.DatabaseToolsConnectionOracleDatabaseSummary.getJsonObj(
@@ -88,7 +88,7 @@ export namespace DatabaseToolsConnectionSummary {
   export function getDeserializedJsonObj(obj: DatabaseToolsConnectionSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_DATABASE":
           return model.DatabaseToolsConnectionOracleDatabaseSummary.getDeserializedJsonObj(

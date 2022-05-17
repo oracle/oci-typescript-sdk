@@ -25,7 +25,7 @@ export namespace ColumnSourceDetails {
   export function getJsonObj(obj: ColumnSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("columnSource" in obj && obj.columnSource) {
+    if (obj && "columnSource" in obj && obj.columnSource) {
       switch (obj.columnSource) {
         case "SENSITIVE_DATA_MODEL":
           return model.ColumnSourceFromSdmDetails.getJsonObj(
@@ -46,7 +46,7 @@ export namespace ColumnSourceDetails {
   export function getDeserializedJsonObj(obj: ColumnSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("columnSource" in obj && obj.columnSource) {
+    if (obj && "columnSource" in obj && obj.columnSource) {
       switch (obj.columnSource) {
         case "SENSITIVE_DATA_MODEL":
           return model.ColumnSourceFromSdmDetails.getDeserializedJsonObj(

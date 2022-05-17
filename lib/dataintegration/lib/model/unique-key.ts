@@ -58,7 +58,7 @@ export namespace UniqueKey {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PRIMARY_KEY":
           return model.PrimaryKey.getJsonObj(<model.PrimaryKey>(<object>jsonObj), true);
@@ -86,7 +86,7 @@ export namespace UniqueKey {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "PRIMARY_KEY":
           return model.PrimaryKey.getDeserializedJsonObj(<model.PrimaryKey>(<object>jsonObj), true);

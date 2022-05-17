@@ -44,7 +44,7 @@ export namespace Item {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "limit":
           return model.LimitItem.getJsonObj(<model.LimitItem>(<object>jsonObj), true);
@@ -72,7 +72,7 @@ export namespace Item {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "limit":
           return model.LimitItem.getDeserializedJsonObj(<model.LimitItem>(<object>jsonObj), true);

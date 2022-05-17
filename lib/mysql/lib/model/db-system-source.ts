@@ -26,7 +26,7 @@ export namespace DbSystemSource {
   export function getJsonObj(obj: DbSystemSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "BACKUP":
           return model.DbSystemSourceFromBackup.getJsonObj(
@@ -52,7 +52,7 @@ export namespace DbSystemSource {
   export function getDeserializedJsonObj(obj: DbSystemSource): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "BACKUP":
           return model.DbSystemSourceFromBackup.getDeserializedJsonObj(

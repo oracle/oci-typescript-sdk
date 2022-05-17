@@ -25,7 +25,7 @@ export namespace UpdateChannelSourceDetails {
   export function getJsonObj(obj: UpdateChannelSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "MYSQL":
           return model.UpdateChannelSourceFromMysqlDetails.getJsonObj(
@@ -41,7 +41,7 @@ export namespace UpdateChannelSourceDetails {
   export function getDeserializedJsonObj(obj: UpdateChannelSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "MYSQL":
           return model.UpdateChannelSourceFromMysqlDetails.getDeserializedJsonObj(

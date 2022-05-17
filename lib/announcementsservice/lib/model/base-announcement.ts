@@ -159,7 +159,7 @@ export namespace BaseAnnouncement {
   export function getJsonObj(obj: BaseAnnouncement): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AnnouncementSummary":
           return model.AnnouncementSummary.getJsonObj(
@@ -177,7 +177,7 @@ export namespace BaseAnnouncement {
   export function getDeserializedJsonObj(obj: BaseAnnouncement): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AnnouncementSummary":
           return model.AnnouncementSummary.getDeserializedJsonObj(

@@ -42,7 +42,7 @@ export namespace TablespaceAdminCredentialDetails {
   export function getJsonObj(obj: TablespaceAdminCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("tablespaceAdminCredentialType" in obj && obj.tablespaceAdminCredentialType) {
+    if (obj && "tablespaceAdminCredentialType" in obj && obj.tablespaceAdminCredentialType) {
       switch (obj.tablespaceAdminCredentialType) {
         case "PASSWORD":
           return model.TablespaceAdminPasswordCredentialDetails.getJsonObj(
@@ -63,7 +63,7 @@ export namespace TablespaceAdminCredentialDetails {
   export function getDeserializedJsonObj(obj: TablespaceAdminCredentialDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("tablespaceAdminCredentialType" in obj && obj.tablespaceAdminCredentialType) {
+    if (obj && "tablespaceAdminCredentialType" in obj && obj.tablespaceAdminCredentialType) {
       switch (obj.tablespaceAdminCredentialType) {
         case "PASSWORD":
           return model.TablespaceAdminPasswordCredentialDetails.getDeserializedJsonObj(

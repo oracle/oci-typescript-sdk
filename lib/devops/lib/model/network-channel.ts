@@ -15,8 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies the configuration needed when the target OCI resource, OKE cluster resides
- *  in the customer's private network.
+ * Specifies the configuration needed when the target OCI resource, i.e., OKE cluster, resides
+ *  in customer's private network.
  *
  */
 export interface NetworkChannel {
@@ -27,7 +27,7 @@ export namespace NetworkChannel {
   export function getJsonObj(obj: NetworkChannel): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("networkChannelType" in obj && obj.networkChannelType) {
+    if (obj && "networkChannelType" in obj && obj.networkChannelType) {
       switch (obj.networkChannelType) {
         case "PRIVATE_ENDPOINT_CHANNEL":
           return model.PrivateEndpointChannel.getJsonObj(
@@ -43,7 +43,7 @@ export namespace NetworkChannel {
   export function getDeserializedJsonObj(obj: NetworkChannel): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("networkChannelType" in obj && obj.networkChannelType) {
+    if (obj && "networkChannelType" in obj && obj.networkChannelType) {
       switch (obj.networkChannelType) {
         case "PRIVATE_ENDPOINT_CHANNEL":
           return model.PrivateEndpointChannel.getDeserializedJsonObj(

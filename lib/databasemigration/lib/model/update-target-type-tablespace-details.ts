@@ -26,7 +26,7 @@ export namespace UpdateTargetTypeTablespaceDetails {
   export function getJsonObj(obj: UpdateTargetTypeTablespaceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetType" in obj && obj.targetType) {
+    if (obj && "targetType" in obj && obj.targetType) {
       switch (obj.targetType) {
         case "TARGET_DEFAULTS_REMAP":
           return model.UpdateTargetDefaultsRemapTablespaceDetails.getJsonObj(
@@ -72,7 +72,7 @@ export namespace UpdateTargetTypeTablespaceDetails {
   export function getDeserializedJsonObj(obj: UpdateTargetTypeTablespaceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("targetType" in obj && obj.targetType) {
+    if (obj && "targetType" in obj && obj.targetType) {
       switch (obj.targetType) {
         case "TARGET_DEFAULTS_REMAP":
           return model.UpdateTargetDefaultsRemapTablespaceDetails.getDeserializedJsonObj(

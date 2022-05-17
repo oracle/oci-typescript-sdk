@@ -43,7 +43,7 @@ export namespace UpdateConnectionDetails {
   export function getJsonObj(obj: UpdateConnectionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "GITHUB_ACCESS_TOKEN":
           return model.UpdateGithubAccessTokenConnectionDetails.getJsonObj(
@@ -55,6 +55,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGitlabAccessTokenConnectionDetails>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD_APP_PASSWORD":
+          return model.UpdateBitbucketCloudAppPasswordConnectionDetails.getJsonObj(
+            <model.UpdateBitbucketCloudAppPasswordConnectionDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.connectionType);
       }
@@ -64,7 +69,7 @@ export namespace UpdateConnectionDetails {
   export function getDeserializedJsonObj(obj: UpdateConnectionDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("connectionType" in obj && obj.connectionType) {
+    if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
         case "GITHUB_ACCESS_TOKEN":
           return model.UpdateGithubAccessTokenConnectionDetails.getDeserializedJsonObj(
@@ -74,6 +79,11 @@ export namespace UpdateConnectionDetails {
         case "GITLAB_ACCESS_TOKEN":
           return model.UpdateGitlabAccessTokenConnectionDetails.getDeserializedJsonObj(
             <model.UpdateGitlabAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_APP_PASSWORD":
+          return model.UpdateBitbucketCloudAppPasswordConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketCloudAppPasswordConnectionDetails>(<object>jsonObj),
             true
           );
         default:

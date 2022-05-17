@@ -26,7 +26,7 @@ export namespace UpdateHostDumpTransferDetails {
   export function getJsonObj(obj: UpdateHostDumpTransferDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "CURL":
           return model.UpdateCurlTransferDetails.getJsonObj(
@@ -47,7 +47,7 @@ export namespace UpdateHostDumpTransferDetails {
   export function getDeserializedJsonObj(obj: UpdateHostDumpTransferDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "CURL":
           return model.UpdateCurlTransferDetails.getDeserializedJsonObj(

@@ -30,7 +30,7 @@ export namespace ConfigSourceRecord {
   export function getJsonObj(obj: ConfigSourceRecord): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceRecordType" in obj && obj.configSourceRecordType) {
+    if (obj && "configSourceRecordType" in obj && obj.configSourceRecordType) {
       switch (obj.configSourceRecordType) {
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSourceRecord.getJsonObj(
@@ -56,7 +56,7 @@ export namespace ConfigSourceRecord {
   export function getDeserializedJsonObj(obj: ConfigSourceRecord): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceRecordType" in obj && obj.configSourceRecordType) {
+    if (obj && "configSourceRecordType" in obj && obj.configSourceRecordType) {
       switch (obj.configSourceRecordType) {
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSourceRecord.getDeserializedJsonObj(

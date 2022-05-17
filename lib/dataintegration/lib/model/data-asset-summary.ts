@@ -75,7 +75,7 @@ export namespace DataAssetSummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "MYSQL_DATA_ASSET":
           return model.DataAssetSummaryFromMySQL.getJsonObj(
@@ -140,7 +140,7 @@ export namespace DataAssetSummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "MYSQL_DATA_ASSET":
           return model.DataAssetSummaryFromMySQL.getDeserializedJsonObj(

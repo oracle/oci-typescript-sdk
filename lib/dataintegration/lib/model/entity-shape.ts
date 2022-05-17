@@ -32,7 +32,7 @@ export namespace EntityShape {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "SQL_ENTITY":
           return model.EntityShapeFromSQL.getJsonObj(
@@ -60,7 +60,7 @@ export namespace EntityShape {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "SQL_ENTITY":
           return model.EntityShapeFromSQL.getDeserializedJsonObj(

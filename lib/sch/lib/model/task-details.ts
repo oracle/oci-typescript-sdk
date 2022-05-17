@@ -34,7 +34,7 @@ export namespace TaskDetails {
   export function getJsonObj(obj: TaskDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "function":
           return model.FunctionTaskDetails.getJsonObj(
@@ -55,7 +55,7 @@ export namespace TaskDetails {
   export function getDeserializedJsonObj(obj: TaskDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "function":
           return model.FunctionTaskDetails.getDeserializedJsonObj(

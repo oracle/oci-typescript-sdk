@@ -32,7 +32,7 @@ export namespace DataEntitySummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "FILE_ENTITY":
           return model.DataEntitySummaryFromFile.getJsonObj(
@@ -75,7 +75,7 @@ export namespace DataEntitySummary {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "FILE_ENTITY":
           return model.DataEntitySummaryFromFile.getDeserializedJsonObj(

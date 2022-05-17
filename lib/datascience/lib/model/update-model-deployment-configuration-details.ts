@@ -26,7 +26,7 @@ export namespace UpdateModelDeploymentConfigurationDetails {
   export function getJsonObj(obj: UpdateModelDeploymentConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "SINGLE_MODEL":
           return model.UpdateSingleModelDeploymentConfigurationDetails.getJsonObj(
@@ -42,7 +42,7 @@ export namespace UpdateModelDeploymentConfigurationDetails {
   export function getDeserializedJsonObj(obj: UpdateModelDeploymentConfigurationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("deploymentType" in obj && obj.deploymentType) {
+    if (obj && "deploymentType" in obj && obj.deploymentType) {
       switch (obj.deploymentType) {
         case "SINGLE_MODEL":
           return model.UpdateSingleModelDeploymentConfigurationDetails.getDeserializedJsonObj(

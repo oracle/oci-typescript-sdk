@@ -65,7 +65,7 @@ export namespace CreateDbHomeBase {
   export function getJsonObj(obj: CreateDbHomeBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "DATABASE":
           return model.CreateDbHomeWithDbSystemIdFromDatabaseDetails.getJsonObj(
@@ -101,7 +101,7 @@ export namespace CreateDbHomeBase {
   export function getDeserializedJsonObj(obj: CreateDbHomeBase): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("source" in obj && obj.source) {
+    if (obj && "source" in obj && obj.source) {
       switch (obj.source) {
         case "DATABASE":
           return model.CreateDbHomeWithDbSystemIdFromDatabaseDetails.getDeserializedJsonObj(

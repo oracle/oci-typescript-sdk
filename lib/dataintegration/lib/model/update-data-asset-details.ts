@@ -70,7 +70,7 @@ export namespace UpdateDataAssetDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLE_ATP_DATA_ASSET":
           return model.UpdateDataAssetFromAtp.getJsonObj(
@@ -128,7 +128,7 @@ export namespace UpdateDataAssetDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLE_ATP_DATA_ASSET":
           return model.UpdateDataAssetFromAtp.getDeserializedJsonObj(

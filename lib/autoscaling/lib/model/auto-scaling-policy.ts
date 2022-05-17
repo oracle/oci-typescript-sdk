@@ -70,7 +70,7 @@ export namespace AutoScalingPolicy {
       }
     };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "scheduled":
           return model.ScheduledPolicy.getJsonObj(<model.ScheduledPolicy>(<object>jsonObj), true);
@@ -90,7 +90,7 @@ export namespace AutoScalingPolicy {
       }
     };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "scheduled":
           return model.ScheduledPolicy.getDeserializedJsonObj(

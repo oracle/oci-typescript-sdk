@@ -43,7 +43,7 @@ export namespace UpdateCertificateAuthorityConfigDetails {
   export function getJsonObj(obj: UpdateCertificateAuthorityConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "SUBORDINATE_CA_ISSUED_BY_INTERNAL_CA":
           return model.UpdateSubordinateCaIssuedByInternalCaConfigDetails.getJsonObj(
@@ -64,7 +64,7 @@ export namespace UpdateCertificateAuthorityConfigDetails {
   export function getDeserializedJsonObj(obj: UpdateCertificateAuthorityConfigDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "SUBORDINATE_CA_ISSUED_BY_INTERNAL_CA":
           return model.UpdateSubordinateCaIssuedByInternalCaConfigDetails.getDeserializedJsonObj(

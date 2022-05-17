@@ -32,7 +32,7 @@ export namespace EntityShape {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_STORE_ENTITY":
           return model.EntityShapeFromDataStore.getJsonObj(
@@ -75,7 +75,7 @@ export namespace EntityShape {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_STORE_ENTITY":
           return model.EntityShapeFromDataStore.getDeserializedJsonObj(

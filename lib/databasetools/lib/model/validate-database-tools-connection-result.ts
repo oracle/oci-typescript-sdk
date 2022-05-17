@@ -42,7 +42,7 @@ export namespace ValidateDatabaseToolsConnectionResult {
   export function getJsonObj(obj: ValidateDatabaseToolsConnectionResult): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_DATABASE":
           return model.ValidateDatabaseToolsConnectionOracleDatabaseResult.getJsonObj(
@@ -58,7 +58,7 @@ export namespace ValidateDatabaseToolsConnectionResult {
   export function getDeserializedJsonObj(obj: ValidateDatabaseToolsConnectionResult): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "ORACLE_DATABASE":
           return model.ValidateDatabaseToolsConnectionOracleDatabaseResult.getDeserializedJsonObj(

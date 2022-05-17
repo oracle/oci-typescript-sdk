@@ -52,7 +52,7 @@ export namespace Topology {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VCN":
           return model.VcnTopology.getJsonObj(<model.VcnTopology>(<object>jsonObj), true);
@@ -81,7 +81,7 @@ export namespace Topology {
       }
     };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "VCN":
           return model.VcnTopology.getDeserializedJsonObj(

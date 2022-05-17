@@ -100,7 +100,7 @@ export namespace DeployStage {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
           return model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStage.getJsonObj(
@@ -156,6 +156,11 @@ export namespace DeployStage {
           );
         case "WAIT":
           return model.WaitDeployStage.getJsonObj(<model.WaitDeployStage>(<object>jsonObj), true);
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.OkeHelmChartDeployStage.getJsonObj(
+            <model.OkeHelmChartDeployStage>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT":
           return model.ComputeInstanceGroupBlueGreenDeployStage.getJsonObj(
             <model.ComputeInstanceGroupBlueGreenDeployStage>(<object>jsonObj),
@@ -199,7 +204,7 @@ export namespace DeployStage {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
           return model.ComputeInstanceGroupBlueGreenTrafficShiftDeployStage.getDeserializedJsonObj(
@@ -259,6 +264,11 @@ export namespace DeployStage {
         case "WAIT":
           return model.WaitDeployStage.getDeserializedJsonObj(
             <model.WaitDeployStage>(<object>jsonObj),
+            true
+          );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.OkeHelmChartDeployStage.getDeserializedJsonObj(
+            <model.OkeHelmChartDeployStage>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT":

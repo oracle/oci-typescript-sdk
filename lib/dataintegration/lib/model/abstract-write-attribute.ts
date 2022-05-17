@@ -25,7 +25,7 @@ export namespace AbstractWriteAttribute {
   export function getJsonObj(obj: AbstractWriteAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLEADWCWRITEATTRIBUTE":
           return model.OracleAdwcWriteAttribute.getJsonObj(
@@ -76,7 +76,7 @@ export namespace AbstractWriteAttribute {
   export function getDeserializedJsonObj(obj: AbstractWriteAttribute): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "ORACLEADWCWRITEATTRIBUTE":
           return model.OracleAdwcWriteAttribute.getDeserializedJsonObj(

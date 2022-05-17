@@ -25,7 +25,7 @@ export namespace DocumentFeature {
   export function getJsonObj(obj: DocumentFeature): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("featureType" in obj && obj.featureType) {
+    if (obj && "featureType" in obj && obj.featureType) {
       switch (obj.featureType) {
         case "TABLE_DETECTION":
           return model.DocumentTableDetectionFeature.getJsonObj(
@@ -61,7 +61,7 @@ export namespace DocumentFeature {
   export function getDeserializedJsonObj(obj: DocumentFeature): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("featureType" in obj && obj.featureType) {
+    if (obj && "featureType" in obj && obj.featureType) {
       switch (obj.featureType) {
         case "TABLE_DETECTION":
           return model.DocumentTableDetectionFeature.getDeserializedJsonObj(

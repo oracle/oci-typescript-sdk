@@ -27,7 +27,7 @@ export namespace FunctionProvisionedConcurrencyConfig {
   export function getJsonObj(obj: FunctionProvisionedConcurrencyConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("strategy" in obj && obj.strategy) {
+    if (obj && "strategy" in obj && obj.strategy) {
       switch (obj.strategy) {
         case "NONE":
           return model.NoneProvisionedConcurrencyConfig.getJsonObj(
@@ -48,7 +48,7 @@ export namespace FunctionProvisionedConcurrencyConfig {
   export function getDeserializedJsonObj(obj: FunctionProvisionedConcurrencyConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("strategy" in obj && obj.strategy) {
+    if (obj && "strategy" in obj && obj.strategy) {
       switch (obj.strategy) {
         case "NONE":
           return model.NoneProvisionedConcurrencyConfig.getDeserializedJsonObj(

@@ -43,7 +43,7 @@ export namespace SteeringPolicyRule {
   export function getJsonObj(obj: SteeringPolicyRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("ruleType" in obj && obj.ruleType) {
+    if (obj && "ruleType" in obj && obj.ruleType) {
       switch (obj.ruleType) {
         case "FILTER":
           return model.SteeringPolicyFilterRule.getJsonObj(
@@ -79,7 +79,7 @@ export namespace SteeringPolicyRule {
   export function getDeserializedJsonObj(obj: SteeringPolicyRule): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("ruleType" in obj && obj.ruleType) {
+    if (obj && "ruleType" in obj && obj.ruleType) {
       switch (obj.ruleType) {
         case "FILTER":
           return model.SteeringPolicyFilterRule.getDeserializedJsonObj(

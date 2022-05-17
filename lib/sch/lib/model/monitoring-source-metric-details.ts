@@ -29,7 +29,7 @@ export namespace MonitoringSourceMetricDetails {
   export function getJsonObj(obj: MonitoringSourceMetricDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "all":
           return model.MonitoringSourceAllMetrics.getJsonObj(
@@ -45,7 +45,7 @@ export namespace MonitoringSourceMetricDetails {
   export function getDeserializedJsonObj(obj: MonitoringSourceMetricDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "all":
           return model.MonitoringSourceAllMetrics.getDeserializedJsonObj(

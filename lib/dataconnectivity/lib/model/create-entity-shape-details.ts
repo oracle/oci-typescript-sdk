@@ -112,7 +112,7 @@ export namespace CreateEntityShapeDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_STORE_ENTITY":
           return model.CreateEntityShapeFromDataStore.getJsonObj(
@@ -170,7 +170,7 @@ export namespace CreateEntityShapeDetails {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "DATA_STORE_ENTITY":
           return model.CreateEntityShapeFromDataStore.getDeserializedJsonObj(

@@ -27,7 +27,7 @@ export namespace DateRange {
   export function getJsonObj(obj: DateRange): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("dateRangeType" in obj && obj.dateRangeType) {
+    if (obj && "dateRangeType" in obj && obj.dateRangeType) {
       switch (obj.dateRangeType) {
         case "STATIC":
           return model.StaticDateRange.getJsonObj(<model.StaticDateRange>(<object>jsonObj), true);
@@ -42,7 +42,7 @@ export namespace DateRange {
   export function getDeserializedJsonObj(obj: DateRange): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("dateRangeType" in obj && obj.dateRangeType) {
+    if (obj && "dateRangeType" in obj && obj.dateRangeType) {
       switch (obj.dateRangeType) {
         case "STATIC":
           return model.StaticDateRange.getDeserializedJsonObj(

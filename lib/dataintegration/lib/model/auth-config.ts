@@ -40,7 +40,7 @@ export namespace AuthConfig {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "OCI_RESOURCE_AUTH_CONFIG":
           return model.ResourcePrincipalAuthConfig.getJsonObj(
@@ -63,7 +63,7 @@ export namespace AuthConfig {
       }
     };
 
-    if ("modelType" in obj && obj.modelType) {
+    if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
         case "OCI_RESOURCE_AUTH_CONFIG":
           return model.ResourcePrincipalAuthConfig.getDeserializedJsonObj(

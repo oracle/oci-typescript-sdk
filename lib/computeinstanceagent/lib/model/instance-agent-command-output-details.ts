@@ -27,7 +27,7 @@ export namespace InstanceAgentCommandOutputDetails {
   export function getJsonObj(obj: InstanceAgentCommandOutputDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("outputType" in obj && obj.outputType) {
+    if (obj && "outputType" in obj && obj.outputType) {
       switch (obj.outputType) {
         case "OBJECT_STORAGE_URI":
           return model.InstanceAgentCommandOutputViaObjectStorageUriDetails.getJsonObj(
@@ -53,7 +53,7 @@ export namespace InstanceAgentCommandOutputDetails {
   export function getDeserializedJsonObj(obj: InstanceAgentCommandOutputDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("outputType" in obj && obj.outputType) {
+    if (obj && "outputType" in obj && obj.outputType) {
       switch (obj.outputType) {
         case "OBJECT_STORAGE_URI":
           return model.InstanceAgentCommandOutputViaObjectStorageUriDetails.getDeserializedJsonObj(

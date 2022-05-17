@@ -91,7 +91,7 @@ export namespace ExadataInsightSummary {
   export function getJsonObj(obj: ExadataInsightSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.EmManagedExternalExadataInsightSummary.getJsonObj(
@@ -107,7 +107,7 @@ export namespace ExadataInsightSummary {
   export function getDeserializedJsonObj(obj: ExadataInsightSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.EmManagedExternalExadataInsightSummary.getDeserializedJsonObj(

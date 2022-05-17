@@ -43,7 +43,7 @@ export namespace UpdateIdentityProviderDetails {
   export function getJsonObj(obj: UpdateIdentityProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("protocol" in obj && obj.protocol) {
+    if (obj && "protocol" in obj && obj.protocol) {
       switch (obj.protocol) {
         case "SAML2":
           return model.UpdateSaml2IdentityProviderDetails.getJsonObj(
@@ -59,7 +59,7 @@ export namespace UpdateIdentityProviderDetails {
   export function getDeserializedJsonObj(obj: UpdateIdentityProviderDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("protocol" in obj && obj.protocol) {
+    if (obj && "protocol" in obj && obj.protocol) {
       switch (obj.protocol) {
         case "SAML2":
           return model.UpdateSaml2IdentityProviderDetails.getDeserializedJsonObj(

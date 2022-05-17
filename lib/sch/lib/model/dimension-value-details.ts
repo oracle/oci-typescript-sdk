@@ -29,7 +29,7 @@ export namespace DimensionValueDetails {
   export function getJsonObj(obj: DimensionValueDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "static":
           return model.StaticDimensionValue.getJsonObj(
@@ -50,7 +50,7 @@ export namespace DimensionValueDetails {
   export function getDeserializedJsonObj(obj: DimensionValueDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "static":
           return model.StaticDimensionValue.getDeserializedJsonObj(

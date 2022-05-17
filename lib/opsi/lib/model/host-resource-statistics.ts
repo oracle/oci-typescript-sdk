@@ -49,7 +49,7 @@ export namespace HostResourceStatistics {
   export function getJsonObj(obj: HostResourceStatistics): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("resourceName" in obj && obj.resourceName) {
+    if (obj && "resourceName" in obj && obj.resourceName) {
       switch (obj.resourceName) {
         case "HOST_MEMORY_STATISTICS":
           return model.HostMemoryStatistics.getJsonObj(
@@ -70,7 +70,7 @@ export namespace HostResourceStatistics {
   export function getDeserializedJsonObj(obj: HostResourceStatistics): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("resourceName" in obj && obj.resourceName) {
+    if (obj && "resourceName" in obj && obj.resourceName) {
       switch (obj.resourceName) {
         case "HOST_MEMORY_STATISTICS":
           return model.HostMemoryStatistics.getDeserializedJsonObj(

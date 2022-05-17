@@ -91,7 +91,7 @@ export namespace HostInsight {
   export function getJsonObj(obj: HostInsight): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostInsight.getJsonObj(
@@ -112,7 +112,7 @@ export namespace HostInsight {
   export function getDeserializedJsonObj(obj: HostInsight): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("entitySource" in obj && obj.entitySource) {
+    if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostInsight.getDeserializedJsonObj(

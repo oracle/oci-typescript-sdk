@@ -74,8 +74,13 @@ export namespace TriggerSummary {
   export function getJsonObj(obj: TriggerSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudTriggerSummary.getJsonObj(
+            <model.BitbucketCloudTriggerSummary>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.GitlabTriggerSummary.getJsonObj(
             <model.GitlabTriggerSummary>(<object>jsonObj),
@@ -100,8 +105,13 @@ export namespace TriggerSummary {
   export function getDeserializedJsonObj(obj: TriggerSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("triggerSource" in obj && obj.triggerSource) {
+    if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "BITBUCKET_CLOUD":
+          return model.BitbucketCloudTriggerSummary.getDeserializedJsonObj(
+            <model.BitbucketCloudTriggerSummary>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.GitlabTriggerSummary.getDeserializedJsonObj(
             <model.GitlabTriggerSummary>(<object>jsonObj),

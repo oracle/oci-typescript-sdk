@@ -35,7 +35,7 @@ export namespace AuthenticationPolicy {
   export function getJsonObj(obj: AuthenticationPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "JWT_AUTHENTICATION":
           return model.JwtAuthenticationPolicy.getJsonObj(
@@ -56,7 +56,7 @@ export namespace AuthenticationPolicy {
   export function getDeserializedJsonObj(obj: AuthenticationPolicy): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "JWT_AUTHENTICATION":
           return model.JwtAuthenticationPolicy.getDeserializedJsonObj(

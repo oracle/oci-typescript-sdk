@@ -54,7 +54,7 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
   export function getJsonObj(obj: InstanceConfigurationLaunchInstancePlatformConfig): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AMD_MILAN_BM":
           return model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig.getJsonObj(
@@ -106,7 +106,7 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
   ): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "AMD_MILAN_BM":
           return model.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig.getDeserializedJsonObj(

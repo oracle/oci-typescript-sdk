@@ -49,7 +49,7 @@ export namespace CreateBackupDestinationDetails {
   export function getJsonObj(obj: CreateBackupDestinationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "NFS":
           return model.CreateNFSBackupDestinationDetails.getJsonObj(
@@ -70,7 +70,7 @@ export namespace CreateBackupDestinationDetails {
   export function getDeserializedJsonObj(obj: CreateBackupDestinationDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "NFS":
           return model.CreateNFSBackupDestinationDetails.getDeserializedJsonObj(

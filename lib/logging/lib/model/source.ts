@@ -25,7 +25,7 @@ export namespace Source {
   export function getJsonObj(obj: Source): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OCISERVICE":
           return model.OciService.getJsonObj(<model.OciService>(<object>jsonObj), true);
@@ -38,7 +38,7 @@ export namespace Source {
   export function getDeserializedJsonObj(obj: Source): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "OCISERVICE":
           return model.OciService.getDeserializedJsonObj(<model.OciService>(<object>jsonObj), true);

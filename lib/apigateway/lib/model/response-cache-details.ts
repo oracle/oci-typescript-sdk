@@ -29,7 +29,7 @@ export namespace ResponseCacheDetails {
   export function getJsonObj(obj: ResponseCacheDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "EXTERNAL_RESP_CACHE":
           return model.ExternalRespCache.getJsonObj(
@@ -47,7 +47,7 @@ export namespace ResponseCacheDetails {
   export function getDeserializedJsonObj(obj: ResponseCacheDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("type" in obj && obj.type) {
+    if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
         case "EXTERNAL_RESP_CACHE":
           return model.ExternalRespCache.getDeserializedJsonObj(

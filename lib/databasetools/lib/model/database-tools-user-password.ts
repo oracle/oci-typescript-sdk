@@ -25,7 +25,7 @@ export namespace DatabaseToolsUserPassword {
   export function getJsonObj(obj: DatabaseToolsUserPassword): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("valueType" in obj && obj.valueType) {
+    if (obj && "valueType" in obj && obj.valueType) {
       switch (obj.valueType) {
         case "SECRETID":
           return model.DatabaseToolsUserPasswordSecretId.getJsonObj(
@@ -41,7 +41,7 @@ export namespace DatabaseToolsUserPassword {
   export function getDeserializedJsonObj(obj: DatabaseToolsUserPassword): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("valueType" in obj && obj.valueType) {
+    if (obj && "valueType" in obj && obj.valueType) {
       switch (obj.valueType) {
         case "SECRETID":
           return model.DatabaseToolsUserPasswordSecretId.getDeserializedJsonObj(

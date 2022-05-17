@@ -61,7 +61,7 @@ export namespace ConfigSummary {
   export function getJsonObj(obj: ConfigSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "METRIC_GROUP":
           return model.MetricGroupSummary.getJsonObj(
@@ -87,7 +87,7 @@ export namespace ConfigSummary {
   export function getDeserializedJsonObj(obj: ConfigSummary): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configType" in obj && obj.configType) {
+    if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
         case "METRIC_GROUP":
           return model.MetricGroupSummary.getDeserializedJsonObj(

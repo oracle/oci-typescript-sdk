@@ -47,7 +47,7 @@ export namespace UpdateAutoScalingPolicyDetails {
       }
     };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "threshold":
           return model.UpdateThresholdPolicyDetails.getJsonObj(
@@ -73,7 +73,7 @@ export namespace UpdateAutoScalingPolicyDetails {
       }
     };
 
-    if ("policyType" in obj && obj.policyType) {
+    if (obj && "policyType" in obj && obj.policyType) {
       switch (obj.policyType) {
         case "threshold":
           return model.UpdateThresholdPolicyDetails.getDeserializedJsonObj(

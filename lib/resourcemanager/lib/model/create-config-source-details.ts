@@ -41,7 +41,7 @@ export namespace CreateConfigSourceDetails {
   export function getJsonObj(obj: CreateConfigSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceType" in obj && obj.configSourceType) {
+    if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
         case "ZIP_UPLOAD":
           return model.CreateZipUploadConfigSourceDetails.getJsonObj(
@@ -77,7 +77,7 @@ export namespace CreateConfigSourceDetails {
   export function getDeserializedJsonObj(obj: CreateConfigSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("configSourceType" in obj && obj.configSourceType) {
+    if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
         case "ZIP_UPLOAD":
           return model.CreateZipUploadConfigSourceDetails.getDeserializedJsonObj(

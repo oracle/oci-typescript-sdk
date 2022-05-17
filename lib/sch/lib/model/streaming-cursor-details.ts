@@ -29,7 +29,7 @@ export namespace StreamingCursorDetails {
   export function getJsonObj(obj: StreamingCursorDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "TRIM_HORIZON":
           return model.TrimHorizonStreamingCursor.getJsonObj(
@@ -50,7 +50,7 @@ export namespace StreamingCursorDetails {
   export function getDeserializedJsonObj(obj: StreamingCursorDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("kind" in obj && obj.kind) {
+    if (obj && "kind" in obj && obj.kind) {
       switch (obj.kind) {
         case "TRIM_HORIZON":
           return model.TrimHorizonStreamingCursor.getDeserializedJsonObj(

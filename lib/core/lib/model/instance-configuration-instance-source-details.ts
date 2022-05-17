@@ -27,7 +27,7 @@ export namespace InstanceConfigurationInstanceSourceDetails {
   export function getJsonObj(obj: InstanceConfigurationInstanceSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "image":
           return model.InstanceConfigurationInstanceSourceViaImageDetails.getJsonObj(
@@ -48,7 +48,7 @@ export namespace InstanceConfigurationInstanceSourceDetails {
   export function getDeserializedJsonObj(obj: InstanceConfigurationInstanceSourceDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if ("sourceType" in obj && obj.sourceType) {
+    if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
         case "image":
           return model.InstanceConfigurationInstanceSourceViaImageDetails.getDeserializedJsonObj(

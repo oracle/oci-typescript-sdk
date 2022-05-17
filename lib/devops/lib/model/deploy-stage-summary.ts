@@ -86,7 +86,7 @@ export namespace DeployStageSummary {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT":
           return model.ComputeInstanceGroupBlueGreenDeployStageSummary.getJsonObj(
@@ -121,6 +121,11 @@ export namespace DeployStageSummary {
         case "INVOKE_FUNCTION":
           return model.InvokeFunctionDeployStageSummary.getJsonObj(
             <model.InvokeFunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.OkeHelmChartDeployStageSummary.getJsonObj(
+            <model.OkeHelmChartDeployStageSummary>(<object>jsonObj),
             true
           );
         case "OKE_CANARY_TRAFFIC_SHIFT":
@@ -191,7 +196,7 @@ export namespace DeployStageSummary {
       }
     };
 
-    if ("deployStageType" in obj && obj.deployStageType) {
+    if (obj && "deployStageType" in obj && obj.deployStageType) {
       switch (obj.deployStageType) {
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT":
           return model.ComputeInstanceGroupBlueGreenDeployStageSummary.getDeserializedJsonObj(
@@ -226,6 +231,11 @@ export namespace DeployStageSummary {
         case "INVOKE_FUNCTION":
           return model.InvokeFunctionDeployStageSummary.getDeserializedJsonObj(
             <model.InvokeFunctionDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "OKE_HELM_CHART_DEPLOYMENT":
+          return model.OkeHelmChartDeployStageSummary.getDeserializedJsonObj(
+            <model.OkeHelmChartDeployStageSummary>(<object>jsonObj),
             true
           );
         case "OKE_CANARY_TRAFFIC_SHIFT":
