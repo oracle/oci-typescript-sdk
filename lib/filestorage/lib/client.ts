@@ -37,6 +37,7 @@ export class FileStorageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "FileStorage";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class FileStorageClient {
   ): Promise<responses.ChangeFileSystemCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FileStorageClient#changeFileSystemCompartment.");
+    const operationName = "changeFileSystemCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/ChangeFileSystemCompartment";
     const pathParams = {
       "{fileSystemId}": changeFileSystemCompartmentRequest.fileSystemId
     };
@@ -198,7 +202,13 @@ export class FileStorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeFileSystemCompartmentResponse>{},
         responseHeaders: [
@@ -230,6 +240,9 @@ export class FileStorageClient {
   ): Promise<responses.ChangeMountTargetCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FileStorageClient#changeMountTargetCompartment.");
+    const operationName = "changeMountTargetCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/ChangeMountTargetCompartment";
     const pathParams = {
       "{mountTargetId}": changeMountTargetCompartmentRequest.mountTargetId
     };
@@ -264,7 +277,13 @@ export class FileStorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMountTargetCompartmentResponse>{},
         responseHeaders: [
@@ -296,6 +315,9 @@ export class FileStorageClient {
     createExportRequest: requests.CreateExportRequest
   ): Promise<responses.CreateExportResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#createExport.");
+    const operationName = "createExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/CreateExport";
     const pathParams = {};
 
     const queryParams = {};
@@ -328,7 +350,13 @@ export class FileStorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExportResponse>{},
         body: await response.json(),
@@ -396,6 +424,9 @@ All Oracle Cloud Infrastructure resources, including
     createFileSystemRequest: requests.CreateFileSystemRequest
   ): Promise<responses.CreateFileSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#createFileSystem.");
+    const operationName = "createFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/CreateFileSystem";
     const pathParams = {};
 
     const queryParams = {};
@@ -428,7 +459,13 @@ All Oracle Cloud Infrastructure resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFileSystemResponse>{},
         body: await response.json(),
@@ -499,6 +536,9 @@ All Oracle Cloud Infrastructure Services resources, including
     createMountTargetRequest: requests.CreateMountTargetRequest
   ): Promise<responses.CreateMountTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#createMountTarget.");
+    const operationName = "createMountTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/CreateMountTarget";
     const pathParams = {};
 
     const queryParams = {};
@@ -531,7 +571,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMountTargetResponse>{},
         body: await response.json(),
@@ -572,6 +618,9 @@ All Oracle Cloud Infrastructure Services resources, including
     createSnapshotRequest: requests.CreateSnapshotRequest
   ): Promise<responses.CreateSnapshotResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#createSnapshot.");
+    const operationName = "createSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/CreateSnapshot";
     const pathParams = {};
 
     const queryParams = {};
@@ -604,7 +653,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSnapshotResponse>{},
         body: await response.json(),
@@ -644,6 +699,9 @@ All Oracle Cloud Infrastructure Services resources, including
     deleteExportRequest: requests.DeleteExportRequest
   ): Promise<responses.DeleteExportResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteExport.");
+    const operationName = "deleteExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/DeleteExport";
     const pathParams = {
       "{exportId}": deleteExportRequest.exportId
     };
@@ -673,7 +731,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExportResponse>{},
         responseHeaders: [
@@ -706,6 +770,9 @@ All Oracle Cloud Infrastructure Services resources, including
     deleteFileSystemRequest: requests.DeleteFileSystemRequest
   ): Promise<responses.DeleteFileSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteFileSystem.");
+    const operationName = "deleteFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/DeleteFileSystem";
     const pathParams = {
       "{fileSystemId}": deleteFileSystemRequest.fileSystemId
     };
@@ -735,7 +802,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFileSystemResponse>{},
         responseHeaders: [
@@ -767,6 +840,9 @@ All Oracle Cloud Infrastructure Services resources, including
     deleteMountTargetRequest: requests.DeleteMountTargetRequest
   ): Promise<responses.DeleteMountTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteMountTarget.");
+    const operationName = "deleteMountTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/DeleteMountTarget";
     const pathParams = {
       "{mountTargetId}": deleteMountTargetRequest.mountTargetId
     };
@@ -796,7 +872,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMountTargetResponse>{},
         responseHeaders: [
@@ -827,6 +909,9 @@ All Oracle Cloud Infrastructure Services resources, including
     deleteSnapshotRequest: requests.DeleteSnapshotRequest
   ): Promise<responses.DeleteSnapshotResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteSnapshot.");
+    const operationName = "deleteSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/DeleteSnapshot";
     const pathParams = {
       "{snapshotId}": deleteSnapshotRequest.snapshotId
     };
@@ -856,7 +941,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSnapshotResponse>{},
         responseHeaders: [
@@ -886,6 +977,9 @@ All Oracle Cloud Infrastructure Services resources, including
     getExportRequest: requests.GetExportRequest
   ): Promise<responses.GetExportResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#getExport.");
+    const operationName = "getExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/GetExport";
     const pathParams = {
       "{exportId}": getExportRequest.exportId
     };
@@ -914,7 +1008,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExportResponse>{},
         body: await response.json(),
@@ -953,6 +1053,9 @@ All Oracle Cloud Infrastructure Services resources, including
     getExportSetRequest: requests.GetExportSetRequest
   ): Promise<responses.GetExportSetResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#getExportSet.");
+    const operationName = "getExportSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSet/GetExportSet";
     const pathParams = {
       "{exportSetId}": getExportSetRequest.exportSetId
     };
@@ -981,7 +1084,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExportSetResponse>{},
         body: await response.json(),
@@ -1020,6 +1129,9 @@ All Oracle Cloud Infrastructure Services resources, including
     getFileSystemRequest: requests.GetFileSystemRequest
   ): Promise<responses.GetFileSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#getFileSystem.");
+    const operationName = "getFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/GetFileSystem";
     const pathParams = {
       "{fileSystemId}": getFileSystemRequest.fileSystemId
     };
@@ -1048,7 +1160,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFileSystemResponse>{},
         body: await response.json(),
@@ -1087,6 +1205,9 @@ All Oracle Cloud Infrastructure Services resources, including
     getMountTargetRequest: requests.GetMountTargetRequest
   ): Promise<responses.GetMountTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#getMountTarget.");
+    const operationName = "getMountTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/GetMountTarget";
     const pathParams = {
       "{mountTargetId}": getMountTargetRequest.mountTargetId
     };
@@ -1115,7 +1236,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMountTargetResponse>{},
         body: await response.json(),
@@ -1154,6 +1281,9 @@ All Oracle Cloud Infrastructure Services resources, including
     getSnapshotRequest: requests.GetSnapshotRequest
   ): Promise<responses.GetSnapshotResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#getSnapshot.");
+    const operationName = "getSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/GetSnapshot";
     const pathParams = {
       "{snapshotId}": getSnapshotRequest.snapshotId
     };
@@ -1182,7 +1312,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSnapshotResponse>{},
         body: await response.json(),
@@ -1222,6 +1358,9 @@ All Oracle Cloud Infrastructure Services resources, including
     listExportSetsRequest: requests.ListExportSetsRequest
   ): Promise<responses.ListExportSetsResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#listExportSets.");
+    const operationName = "listExportSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSetSummary/ListExportSets";
     const pathParams = {};
 
     const queryParams = {
@@ -1258,7 +1397,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExportSetsResponse>{},
         body: await response.json(),
@@ -1352,6 +1497,9 @@ All Oracle Cloud Infrastructure Services resources, including
     listExportsRequest: requests.ListExportsRequest
   ): Promise<responses.ListExportsResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#listExports.");
+    const operationName = "listExports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSummary/ListExports";
     const pathParams = {};
 
     const queryParams = {
@@ -1388,7 +1536,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExportsResponse>{},
         body: await response.json(),
@@ -1480,6 +1634,9 @@ All Oracle Cloud Infrastructure Services resources, including
     listFileSystemsRequest: requests.ListFileSystemsRequest
   ): Promise<responses.ListFileSystemsResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#listFileSystems.");
+    const operationName = "listFileSystems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystemSummary/ListFileSystems";
     const pathParams = {};
 
     const queryParams = {
@@ -1518,7 +1675,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFileSystemsResponse>{},
         body: await response.json(),
@@ -1610,6 +1773,9 @@ All Oracle Cloud Infrastructure Services resources, including
     listMountTargetsRequest: requests.ListMountTargetsRequest
   ): Promise<responses.ListMountTargetsResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#listMountTargets.");
+    const operationName = "listMountTargets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTargetSummary/ListMountTargets";
     const pathParams = {};
 
     const queryParams = {
@@ -1647,7 +1813,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMountTargetsResponse>{},
         body: await response.json(),
@@ -1739,6 +1911,9 @@ All Oracle Cloud Infrastructure Services resources, including
     listSnapshotsRequest: requests.ListSnapshotsRequest
   ): Promise<responses.ListSnapshotsResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#listSnapshots.");
+    const operationName = "listSnapshots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/SnapshotSummary/ListSnapshots";
     const pathParams = {};
 
     const queryParams = {
@@ -1772,7 +1947,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSnapshotsResponse>{},
         body: await response.json(),
@@ -1863,6 +2044,9 @@ All Oracle Cloud Infrastructure Services resources, including
     updateExportRequest: requests.UpdateExportRequest
   ): Promise<responses.UpdateExportResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateExport.");
+    const operationName = "updateExport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Export/UpdateExport";
     const pathParams = {
       "{exportId}": updateExportRequest.exportId
     };
@@ -1897,7 +2081,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExportResponse>{},
         body: await response.json(),
@@ -1936,6 +2126,9 @@ All Oracle Cloud Infrastructure Services resources, including
     updateExportSetRequest: requests.UpdateExportSetRequest
   ): Promise<responses.UpdateExportSetResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateExportSet.");
+    const operationName = "updateExportSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ExportSet/UpdateExportSet";
     const pathParams = {
       "{exportSetId}": updateExportSetRequest.exportSetId
     };
@@ -1970,7 +2163,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExportSetResponse>{},
         body: await response.json(),
@@ -2011,6 +2210,9 @@ All Oracle Cloud Infrastructure Services resources, including
     updateFileSystemRequest: requests.UpdateFileSystemRequest
   ): Promise<responses.UpdateFileSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateFileSystem.");
+    const operationName = "updateFileSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/UpdateFileSystem";
     const pathParams = {
       "{fileSystemId}": updateFileSystemRequest.fileSystemId
     };
@@ -2045,7 +2247,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFileSystemResponse>{},
         body: await response.json(),
@@ -2084,6 +2292,9 @@ All Oracle Cloud Infrastructure Services resources, including
     updateMountTargetRequest: requests.UpdateMountTargetRequest
   ): Promise<responses.UpdateMountTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateMountTarget.");
+    const operationName = "updateMountTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/UpdateMountTarget";
     const pathParams = {
       "{mountTargetId}": updateMountTargetRequest.mountTargetId
     };
@@ -2118,7 +2329,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMountTargetResponse>{},
         body: await response.json(),
@@ -2157,6 +2374,9 @@ All Oracle Cloud Infrastructure Services resources, including
     updateSnapshotRequest: requests.UpdateSnapshotRequest
   ): Promise<responses.UpdateSnapshotResponse> {
     if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateSnapshot.");
+    const operationName = "updateSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Snapshot/UpdateSnapshot";
     const pathParams = {
       "{snapshotId}": updateSnapshotRequest.snapshotId
     };
@@ -2191,7 +2411,13 @@ All Oracle Cloud Infrastructure Services resources, including
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSnapshotResponse>{},
         body: await response.json(),

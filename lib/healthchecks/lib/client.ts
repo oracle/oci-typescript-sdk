@@ -38,6 +38,7 @@ export class HealthChecksClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "HealthChecks";
 
   protected _httpClient: common.HttpClient;
 
@@ -143,6 +144,9 @@ export class HealthChecksClient {
   ): Promise<responses.ChangeHttpMonitorCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation HealthChecksClient#changeHttpMonitorCompartment.");
+    const operationName = "changeHttpMonitorCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/ChangeHttpMonitorCompartment";
     const pathParams = {
       "{monitorId}": changeHttpMonitorCompartmentRequest.monitorId
     };
@@ -178,7 +182,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeHttpMonitorCompartmentResponse>{},
         responseHeaders: [
@@ -211,6 +221,9 @@ export class HealthChecksClient {
   ): Promise<responses.ChangePingMonitorCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation HealthChecksClient#changePingMonitorCompartment.");
+    const operationName = "changePingMonitorCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/ChangePingMonitorCompartment";
     const pathParams = {
       "{monitorId}": changePingMonitorCompartmentRequest.monitorId
     };
@@ -246,7 +259,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangePingMonitorCompartmentResponse>{},
         responseHeaders: [
@@ -279,6 +298,9 @@ export class HealthChecksClient {
     createHttpMonitorRequest: requests.CreateHttpMonitorRequest
   ): Promise<responses.CreateHttpMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#createHttpMonitor.");
+    const operationName = "createHttpMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/CreateHttpMonitor";
     const pathParams = {};
 
     const queryParams = {};
@@ -311,7 +333,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateHttpMonitorResponse>{},
         body: await response.json(),
@@ -360,6 +388,9 @@ export class HealthChecksClient {
   ): Promise<responses.CreateOnDemandHttpProbeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation HealthChecksClient#createOnDemandHttpProbe.");
+    const operationName = "createOnDemandHttpProbe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpProbe/CreateOnDemandHttpProbe";
     const pathParams = {};
 
     const queryParams = {};
@@ -391,7 +422,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOnDemandHttpProbeResponse>{},
         body: await response.json(),
@@ -435,6 +472,9 @@ export class HealthChecksClient {
   ): Promise<responses.CreateOnDemandPingProbeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation HealthChecksClient#createOnDemandPingProbe.");
+    const operationName = "createOnDemandPingProbe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingProbe/CreateOnDemandPingProbe";
     const pathParams = {};
 
     const queryParams = {};
@@ -466,7 +506,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOnDemandPingProbeResponse>{},
         body: await response.json(),
@@ -508,6 +554,9 @@ export class HealthChecksClient {
     createPingMonitorRequest: requests.CreatePingMonitorRequest
   ): Promise<responses.CreatePingMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#createPingMonitor.");
+    const operationName = "createPingMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/CreatePingMonitor";
     const pathParams = {};
 
     const queryParams = {};
@@ -540,7 +589,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePingMonitorResponse>{},
         body: await response.json(),
@@ -586,6 +641,9 @@ export class HealthChecksClient {
     deleteHttpMonitorRequest: requests.DeleteHttpMonitorRequest
   ): Promise<responses.DeleteHttpMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#deleteHttpMonitor.");
+    const operationName = "deleteHttpMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/DeleteHttpMonitor";
     const pathParams = {
       "{monitorId}": deleteHttpMonitorRequest.monitorId
     };
@@ -615,7 +673,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteHttpMonitorResponse>{},
         responseHeaders: [
@@ -647,6 +711,9 @@ export class HealthChecksClient {
     deletePingMonitorRequest: requests.DeletePingMonitorRequest
   ): Promise<responses.DeletePingMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#deletePingMonitor.");
+    const operationName = "deletePingMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/DeletePingMonitor";
     const pathParams = {
       "{monitorId}": deletePingMonitorRequest.monitorId
     };
@@ -676,7 +743,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePingMonitorResponse>{},
         responseHeaders: [
@@ -707,6 +780,9 @@ export class HealthChecksClient {
     getHttpMonitorRequest: requests.GetHttpMonitorRequest
   ): Promise<responses.GetHttpMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#getHttpMonitor.");
+    const operationName = "getHttpMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/GetHttpMonitor";
     const pathParams = {
       "{monitorId}": getHttpMonitorRequest.monitorId
     };
@@ -736,7 +812,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHttpMonitorResponse>{},
         body: await response.json(),
@@ -776,6 +858,9 @@ export class HealthChecksClient {
     getPingMonitorRequest: requests.GetPingMonitorRequest
   ): Promise<responses.GetPingMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#getPingMonitor.");
+    const operationName = "getPingMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/GetPingMonitor";
     const pathParams = {
       "{monitorId}": getPingMonitorRequest.monitorId
     };
@@ -805,7 +890,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPingMonitorResponse>{},
         body: await response.json(),
@@ -846,6 +937,9 @@ export class HealthChecksClient {
   ): Promise<responses.ListHealthChecksVantagePointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation HealthChecksClient#listHealthChecksVantagePoints.");
+    const operationName = "listHealthChecksVantagePoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HealthChecksVantagePointSummary/ListHealthChecksVantagePoints";
     const pathParams = {};
 
     const queryParams = {
@@ -879,7 +973,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListHealthChecksVantagePointsResponse>{},
         body: await response.json(),
@@ -971,6 +1071,9 @@ export class HealthChecksClient {
     listHttpMonitorsRequest: requests.ListHttpMonitorsRequest
   ): Promise<responses.ListHttpMonitorsResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#listHttpMonitors.");
+    const operationName = "listHttpMonitors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitorSummary/ListHttpMonitors";
     const pathParams = {};
 
     const queryParams = {
@@ -1005,7 +1108,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListHttpMonitorsResponse>{},
         body: await response.json(),
@@ -1100,6 +1209,9 @@ export class HealthChecksClient {
   ): Promise<responses.ListHttpProbeResultsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation HealthChecksClient#listHttpProbeResults.");
+    const operationName = "listHttpProbeResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpProbeResultSummary/ListHttpProbeResults";
     const pathParams = {
       "{probeConfigurationId}": listHttpProbeResultsRequest.probeConfigurationId
     };
@@ -1135,7 +1247,13 @@ export class HealthChecksClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListHttpProbeResultsResponse>{},
         body: await response.json(),
@@ -1230,6 +1348,9 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
     listPingMonitorsRequest: requests.ListPingMonitorsRequest
   ): Promise<responses.ListPingMonitorsResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#listPingMonitors.");
+    const operationName = "listPingMonitors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitorSummary/ListPingMonitors";
     const pathParams = {};
 
     const queryParams = {
@@ -1264,7 +1385,13 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPingMonitorsResponse>{},
         body: await response.json(),
@@ -1363,6 +1490,9 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
   ): Promise<responses.ListPingProbeResultsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation HealthChecksClient#listPingProbeResults.");
+    const operationName = "listPingProbeResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingProbeResultSummary/ListPingProbeResults";
     const pathParams = {
       "{probeConfigurationId}": listPingProbeResultsRequest.probeConfigurationId
     };
@@ -1398,7 +1528,13 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPingProbeResultsResponse>{},
         body: await response.json(),
@@ -1492,6 +1628,9 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
     updateHttpMonitorRequest: requests.UpdateHttpMonitorRequest
   ): Promise<responses.UpdateHttpMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#updateHttpMonitor.");
+    const operationName = "updateHttpMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/HttpMonitor/UpdateHttpMonitor";
     const pathParams = {
       "{monitorId}": updateHttpMonitorRequest.monitorId
     };
@@ -1526,7 +1665,13 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHttpMonitorResponse>{},
         body: await response.json(),
@@ -1568,6 +1713,9 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
     updatePingMonitorRequest: requests.UpdatePingMonitorRequest
   ): Promise<responses.UpdatePingMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation HealthChecksClient#updatePingMonitor.");
+    const operationName = "updatePingMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/healthchecks/20180501/PingMonitor/UpdatePingMonitor";
     const pathParams = {
       "{monitorId}": updatePingMonitorRequest.monitorId
     };
@@ -1602,7 +1750,13 @@ Results are paginated based on `page` and `limit`.  The `opc-next-page` header p
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePingMonitorResponse>{},
         body: await response.json(),

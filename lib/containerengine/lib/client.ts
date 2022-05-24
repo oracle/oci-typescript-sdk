@@ -40,6 +40,7 @@ export class ContainerEngineClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ContainerEngine";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,9 @@ export class ContainerEngineClient {
   ): Promise<responses.ClusterMigrateToNativeVcnResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#clusterMigrateToNativeVcn.");
+    const operationName = "clusterMigrateToNativeVcn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/ClusterMigrateToNativeVcn";
     const pathParams = {
       "{clusterId}": clusterMigrateToNativeVcnRequest.clusterId
     };
@@ -200,7 +204,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ClusterMigrateToNativeVcnResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class ContainerEngineClient {
     createClusterRequest: requests.CreateClusterRequest
   ): Promise<responses.CreateClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createCluster.");
+    const operationName = "createCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CreateCluster";
     const pathParams = {};
 
     const queryParams = {};
@@ -267,7 +280,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateClusterResponse>{},
         responseHeaders: [
@@ -302,6 +321,9 @@ export class ContainerEngineClient {
     createKubeconfigRequest: requests.CreateKubeconfigRequest
   ): Promise<responses.CreateKubeconfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createKubeconfig.");
+    const operationName = "createKubeconfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CreateKubeconfig";
     const pathParams = {
       "{clusterId}": createKubeconfigRequest.clusterId
     };
@@ -335,7 +357,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateKubeconfigResponse>{},
 
@@ -369,6 +397,9 @@ export class ContainerEngineClient {
     createNodePoolRequest: requests.CreateNodePoolRequest
   ): Promise<responses.CreateNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#createNodePool.");
+    const operationName = "createNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/CreateNodePool";
     const pathParams = {};
 
     const queryParams = {};
@@ -401,7 +432,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNodePoolResponse>{},
         responseHeaders: [
@@ -436,6 +473,9 @@ export class ContainerEngineClient {
     deleteClusterRequest: requests.DeleteClusterRequest
   ): Promise<responses.DeleteClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteCluster.");
+    const operationName = "deleteCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/DeleteCluster";
     const pathParams = {
       "{clusterId}": deleteClusterRequest.clusterId
     };
@@ -465,7 +505,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteClusterResponse>{},
         responseHeaders: [
@@ -500,6 +546,9 @@ export class ContainerEngineClient {
     deleteNodePoolRequest: requests.DeleteNodePoolRequest
   ): Promise<responses.DeleteNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteNodePool.");
+    const operationName = "deleteNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/DeleteNodePool";
     const pathParams = {
       "{nodePoolId}": deleteNodePoolRequest.nodePoolId
     };
@@ -529,7 +578,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNodePoolResponse>{},
         responseHeaders: [
@@ -565,6 +620,9 @@ export class ContainerEngineClient {
   ): Promise<responses.DeleteWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#deleteWorkRequest.");
+    const operationName = "deleteWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequest/DeleteWorkRequest";
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -594,7 +652,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
         responseHeaders: [
@@ -624,6 +688,9 @@ export class ContainerEngineClient {
     getClusterRequest: requests.GetClusterRequest
   ): Promise<responses.GetClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getCluster.");
+    const operationName = "getCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/GetCluster";
     const pathParams = {
       "{clusterId}": getClusterRequest.clusterId
     };
@@ -652,7 +719,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetClusterResponse>{},
         body: await response.json(),
@@ -694,6 +767,9 @@ export class ContainerEngineClient {
       this.logger.debug(
         "Calling operation ContainerEngineClient#getClusterMigrateToNativeVcnStatus."
       );
+    const operationName = "getClusterMigrateToNativeVcnStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterMigrateToNativeVcnStatus/GetClusterMigrateToNativeVcnStatus";
     const pathParams = {
       "{clusterId}": getClusterMigrateToNativeVcnStatusRequest.clusterId
     };
@@ -722,7 +798,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetClusterMigrateToNativeVcnStatusResponse>{},
         body: await response.json(),
@@ -762,6 +844,9 @@ export class ContainerEngineClient {
   ): Promise<responses.GetClusterOptionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#getClusterOptions.");
+    const operationName = "getClusterOptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterOptions/GetClusterOptions";
     const pathParams = {
       "{clusterOptionId}": getClusterOptionsRequest.clusterOptionId
     };
@@ -792,7 +877,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetClusterOptionsResponse>{},
         body: await response.json(),
@@ -826,6 +917,9 @@ export class ContainerEngineClient {
     getNodePoolRequest: requests.GetNodePoolRequest
   ): Promise<responses.GetNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getNodePool.");
+    const operationName = "getNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/GetNodePool";
     const pathParams = {
       "{nodePoolId}": getNodePoolRequest.nodePoolId
     };
@@ -854,7 +948,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNodePoolResponse>{},
         body: await response.json(),
@@ -894,6 +994,9 @@ export class ContainerEngineClient {
   ): Promise<responses.GetNodePoolOptionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#getNodePoolOptions.");
+    const operationName = "getNodePoolOptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePoolOptions/GetNodePoolOptions";
     const pathParams = {
       "{nodePoolOptionId}": getNodePoolOptionsRequest.nodePoolOptionId
     };
@@ -924,7 +1027,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNodePoolOptionsResponse>{},
         body: await response.json(),
@@ -958,6 +1067,9 @@ export class ContainerEngineClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -986,7 +1098,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1030,6 +1148,9 @@ export class ContainerEngineClient {
     listClustersRequest: requests.ListClustersRequest
   ): Promise<responses.ListClustersResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listClusters.");
+    const operationName = "listClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/ClusterSummary/ListClusters";
     const pathParams = {};
 
     const queryParams = {
@@ -1064,7 +1185,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListClustersResponse>{},
         body: await response.json(),
@@ -1155,6 +1282,9 @@ export class ContainerEngineClient {
     listNodePoolsRequest: requests.ListNodePoolsRequest
   ): Promise<responses.ListNodePoolsResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listNodePools.");
+    const operationName = "listNodePools";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePoolSummary/ListNodePools";
     const pathParams = {};
 
     const queryParams = {
@@ -1189,7 +1319,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNodePoolsResponse>{},
         body: await response.json(),
@@ -1281,6 +1417,9 @@ export class ContainerEngineClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1311,7 +1450,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1346,6 +1491,9 @@ export class ContainerEngineClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1376,7 +1524,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1410,6 +1564,9 @@ export class ContainerEngineClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1446,7 +1603,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1537,6 +1700,9 @@ export class ContainerEngineClient {
     updateClusterRequest: requests.UpdateClusterRequest
   ): Promise<responses.UpdateClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateCluster.");
+    const operationName = "updateCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateCluster";
     const pathParams = {
       "{clusterId}": updateClusterRequest.clusterId
     };
@@ -1571,7 +1737,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateClusterResponse>{},
         responseHeaders: [
@@ -1607,6 +1779,9 @@ export class ContainerEngineClient {
   ): Promise<responses.UpdateClusterEndpointConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ContainerEngineClient#updateClusterEndpointConfig.");
+    const operationName = "updateClusterEndpointConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateClusterEndpointConfig";
     const pathParams = {
       "{clusterId}": updateClusterEndpointConfigRequest.clusterId
     };
@@ -1641,7 +1816,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateClusterEndpointConfigResponse>{},
         responseHeaders: [
@@ -1676,6 +1857,9 @@ export class ContainerEngineClient {
     updateNodePoolRequest: requests.UpdateNodePoolRequest
   ): Promise<responses.UpdateNodePoolResponse> {
     if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateNodePool.");
+    const operationName = "updateNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/UpdateNodePool";
     const pathParams = {
       "{nodePoolId}": updateNodePoolRequest.nodePoolId
     };
@@ -1710,7 +1894,13 @@ export class ContainerEngineClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNodePoolResponse>{},
         responseHeaders: [

@@ -36,6 +36,7 @@ export class DataLabelingManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataLabelingManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.AddDatasetLabelsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#addDatasetLabels.");
+    const operationName = "addDatasetLabels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/AddDatasetLabels";
     const pathParams = {
       "{datasetId}": addDatasetLabelsRequest.datasetId
     };
@@ -199,7 +203,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddDatasetLabelsResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.ChangeDatasetCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#changeDatasetCompartment.");
+    const operationName = "changeDatasetCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/ChangeDatasetCompartment";
     const pathParams = {
       "{datasetId}": changeDatasetCompartmentRequest.datasetId
     };
@@ -269,7 +282,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDatasetCompartmentResponse>{},
         responseHeaders: [
@@ -306,6 +325,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.CreateDatasetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#createDataset.");
+    const operationName = "createDataset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/CreateDataset";
     const pathParams = {};
 
     const queryParams = {};
@@ -338,7 +360,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDatasetResponse>{},
         body: await response.json(),
@@ -393,6 +421,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.DeleteDatasetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#deleteDataset.");
+    const operationName = "deleteDataset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/DeleteDataset";
     const pathParams = {
       "{datasetId}": deleteDatasetRequest.datasetId
     };
@@ -422,7 +453,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatasetResponse>{},
         responseHeaders: [
@@ -458,6 +495,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.GenerateDatasetRecordsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#generateDatasetRecords.");
+    const operationName = "generateDatasetRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/GenerateDatasetRecords";
     const pathParams = {
       "{datasetId}": generateDatasetRecordsRequest.datasetId
     };
@@ -493,7 +533,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateDatasetRecordsResponse>{},
         responseHeaders: [
@@ -529,6 +575,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.GetDatasetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#getDataset.");
+    const operationName = "getDataset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/GetDataset";
     const pathParams = {
       "{datasetId}": getDatasetRequest.datasetId
     };
@@ -557,7 +606,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatasetResponse>{},
         body: await response.json(),
@@ -597,6 +652,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -625,7 +683,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -665,6 +729,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.ListAnnotationFormatsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#listAnnotationFormats.");
+    const operationName = "listAnnotationFormats";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/AnnotationFormat/ListAnnotationFormats";
     const pathParams = {};
 
     const queryParams = {
@@ -696,7 +763,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAnnotationFormatsResponse>{},
         body: await response.json(),
@@ -737,6 +810,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.ListDatasetsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#listDatasets.");
+    const operationName = "listDatasets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/DatasetCollection/ListDatasets";
     const pathParams = {};
 
     const queryParams = {
@@ -773,7 +849,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatasetsResponse>{},
         body: await response.json(),
@@ -814,6 +896,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -845,7 +930,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -886,6 +977,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -917,7 +1011,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -958,6 +1058,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -989,7 +1092,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1030,6 +1139,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.RemoveDatasetLabelsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#removeDatasetLabels.");
+    const operationName = "removeDatasetLabels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/RemoveDatasetLabels";
     const pathParams = {
       "{datasetId}": removeDatasetLabelsRequest.datasetId
     };
@@ -1065,7 +1177,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveDatasetLabelsResponse>{},
         responseHeaders: [
@@ -1102,6 +1220,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.RenameDatasetLabelsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#renameDatasetLabels.");
+    const operationName = "renameDatasetLabels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/RenameDatasetLabels";
     const pathParams = {
       "{datasetId}": renameDatasetLabelsRequest.datasetId
     };
@@ -1137,7 +1258,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RenameDatasetLabelsResponse>{},
         responseHeaders: [
@@ -1175,6 +1302,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.SnapshotDatasetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#snapshotDataset.");
+    const operationName = "snapshotDataset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/SnapshotDataset";
     const pathParams = {
       "{datasetId}": snapshotDatasetRequest.datasetId
     };
@@ -1210,7 +1340,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SnapshotDatasetResponse>{},
         responseHeaders: [
@@ -1246,6 +1382,9 @@ export class DataLabelingManagementClient {
   ): Promise<responses.UpdateDatasetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingManagementClient#updateDataset.");
+    const operationName = "updateDataset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/UpdateDataset";
     const pathParams = {
       "{datasetId}": updateDatasetRequest.datasetId
     };
@@ -1280,7 +1419,13 @@ export class DataLabelingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDatasetResponse>{},
         body: await response.json(),

@@ -40,6 +40,7 @@ export class AutoScalingClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AutoScaling";
 
   protected _httpClient: common.HttpClient;
 
@@ -151,6 +152,9 @@ When you move an autoscaling configuration to a different compartment, associate
       this.logger.debug(
         "Calling operation AutoScalingClient#changeAutoScalingConfigurationCompartment."
       );
+    const operationName = "changeAutoScalingConfigurationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/ChangeAutoScalingConfigurationCompartment";
     const pathParams = {
       "{autoScalingConfigurationId}":
         changeAutoScalingConfigurationCompartmentRequest.autoScalingConfigurationId
@@ -187,7 +191,13 @@ When you move an autoscaling configuration to a different compartment, associate
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAutoScalingConfigurationCompartmentResponse>{},
         responseHeaders: [
@@ -223,6 +233,9 @@ When you move an autoscaling configuration to a different compartment, associate
   ): Promise<responses.CreateAutoScalingConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#createAutoScalingConfiguration.");
+    const operationName = "createAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/CreateAutoScalingConfiguration";
     const pathParams = {};
 
     const queryParams = {};
@@ -255,7 +268,13 @@ When you move an autoscaling configuration to a different compartment, associate
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAutoScalingConfigurationResponse>{},
         body: await response.json(),
@@ -304,6 +323,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.CreateAutoScalingPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#createAutoScalingPolicy.");
+    const operationName = "createAutoScalingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/CreateAutoScalingPolicy";
     const pathParams = {
       "{autoScalingConfigurationId}": createAutoScalingPolicyRequest.autoScalingConfigurationId
     };
@@ -338,7 +360,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAutoScalingPolicyResponse>{},
         body: await response.json(),
@@ -378,6 +406,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.DeleteAutoScalingConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#deleteAutoScalingConfiguration.");
+    const operationName = "deleteAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/DeleteAutoScalingConfiguration";
     const pathParams = {
       "{autoScalingConfigurationId}":
         deleteAutoScalingConfigurationRequest.autoScalingConfigurationId
@@ -408,7 +439,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAutoScalingConfigurationResponse>{},
         responseHeaders: [
@@ -439,6 +476,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.DeleteAutoScalingPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#deleteAutoScalingPolicy.");
+    const operationName = "deleteAutoScalingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/DeleteAutoScalingPolicy";
     const pathParams = {
       "{autoScalingConfigurationId}": deleteAutoScalingPolicyRequest.autoScalingConfigurationId,
       "{autoScalingPolicyId}": deleteAutoScalingPolicyRequest.autoScalingPolicyId
@@ -470,7 +510,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAutoScalingPolicyResponse>{},
         responseHeaders: [
@@ -501,6 +547,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.GetAutoScalingConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#getAutoScalingConfiguration.");
+    const operationName = "getAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/GetAutoScalingConfiguration";
     const pathParams = {
       "{autoScalingConfigurationId}": getAutoScalingConfigurationRequest.autoScalingConfigurationId
     };
@@ -529,7 +578,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutoScalingConfigurationResponse>{},
         body: await response.json(),
@@ -568,6 +623,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
     getAutoScalingPolicyRequest: requests.GetAutoScalingPolicyRequest
   ): Promise<responses.GetAutoScalingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation AutoScalingClient#getAutoScalingPolicy.");
+    const operationName = "getAutoScalingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/GetAutoScalingPolicy";
     const pathParams = {
       "{autoScalingConfigurationId}": getAutoScalingPolicyRequest.autoScalingConfigurationId,
       "{autoScalingPolicyId}": getAutoScalingPolicyRequest.autoScalingPolicyId
@@ -598,7 +656,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutoScalingPolicyResponse>{},
         body: await response.json(),
@@ -639,6 +703,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.ListAutoScalingConfigurationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#listAutoScalingConfigurations.");
+    const operationName = "listAutoScalingConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfigurationSummary/ListAutoScalingConfigurations";
     const pathParams = {};
 
     const queryParams = {
@@ -672,7 +739,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutoScalingConfigurationsResponse>{},
         body: await response.json(),
@@ -765,6 +838,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.ListAutoScalingPoliciesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#listAutoScalingPolicies.");
+    const operationName = "listAutoScalingPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicySummary/ListAutoScalingPolicies";
     const pathParams = {
       "{autoScalingConfigurationId}": listAutoScalingPoliciesRequest.autoScalingConfigurationId
     };
@@ -799,7 +875,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutoScalingPoliciesResponse>{},
         body: await response.json(),
@@ -893,6 +975,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.UpdateAutoScalingConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#updateAutoScalingConfiguration.");
+    const operationName = "updateAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingConfiguration/UpdateAutoScalingConfiguration";
     const pathParams = {
       "{autoScalingConfigurationId}":
         updateAutoScalingConfigurationRequest.autoScalingConfigurationId
@@ -929,7 +1014,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutoScalingConfigurationResponse>{},
         body: await response.json(),
@@ -969,6 +1060,9 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
   ): Promise<responses.UpdateAutoScalingPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AutoScalingClient#updateAutoScalingPolicy.");
+    const operationName = "updateAutoScalingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/autoscaling/20181001/AutoScalingPolicy/UpdateAutoScalingPolicy";
     const pathParams = {
       "{autoScalingConfigurationId}": updateAutoScalingPolicyRequest.autoScalingConfigurationId,
       "{autoScalingPolicyId}": updateAutoScalingPolicyRequest.autoScalingPolicyId
@@ -1006,7 +1100,13 @@ An autoscaling configuration can either have multiple schedule-based autoscaling
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutoScalingPolicyResponse>{},
         body: await response.json(),

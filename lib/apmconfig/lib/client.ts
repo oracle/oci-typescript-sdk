@@ -35,6 +35,7 @@ export class ConfigClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Config";
 
   protected _httpClient: common.HttpClient;
 
@@ -137,6 +138,9 @@ export class ConfigClient {
     createConfigRequest: requests.CreateConfigRequest
   ): Promise<responses.CreateConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ConfigClient#createConfig.");
+    const operationName = "createConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/CreateConfig";
     const pathParams = {};
 
     const queryParams = {
@@ -172,7 +176,13 @@ export class ConfigClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConfigResponse>{},
         body: await response.json(),
@@ -211,6 +221,9 @@ export class ConfigClient {
     deleteConfigRequest: requests.DeleteConfigRequest
   ): Promise<responses.DeleteConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ConfigClient#deleteConfig.");
+    const operationName = "deleteConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/DeleteConfig";
     const pathParams = {
       "{configId}": deleteConfigRequest.configId
     };
@@ -242,7 +255,13 @@ export class ConfigClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConfigResponse>{},
         responseHeaders: [
@@ -272,6 +291,9 @@ export class ConfigClient {
     getConfigRequest: requests.GetConfigRequest
   ): Promise<responses.GetConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ConfigClient#getConfig.");
+    const operationName = "getConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/GetConfig";
     const pathParams = {
       "{configId}": getConfigRequest.configId
     };
@@ -302,7 +324,13 @@ export class ConfigClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConfigResponse>{},
         body: await response.json(),
@@ -341,6 +369,9 @@ export class ConfigClient {
     listConfigsRequest: requests.ListConfigsRequest
   ): Promise<responses.ListConfigsResponse> {
     if (this.logger) this.logger.debug("Calling operation ConfigClient#listConfigs.");
+    const operationName = "listConfigs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/ConfigCollection/ListConfigs";
     const pathParams = {};
 
     const queryParams = {
@@ -375,7 +406,13 @@ export class ConfigClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConfigsResponse>{},
         body: await response.json(),
@@ -414,6 +451,9 @@ export class ConfigClient {
     updateConfigRequest: requests.UpdateConfigRequest
   ): Promise<responses.UpdateConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ConfigClient#updateConfig.");
+    const operationName = "updateConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/Config/UpdateConfig";
     const pathParams = {
       "{configId}": updateConfigRequest.configId
     };
@@ -451,7 +491,13 @@ export class ConfigClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConfigResponse>{},
         body: await response.json(),

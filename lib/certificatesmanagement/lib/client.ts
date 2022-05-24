@@ -36,6 +36,7 @@ export class CertificatesManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "CertificatesManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class CertificatesManagementClient {
       this.logger.debug(
         "Calling operation CertificatesManagementClient#cancelCertificateAuthorityDeletion."
       );
+    const operationName = "cancelCertificateAuthorityDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/CancelCertificateAuthorityDeletion";
     const pathParams = {
       "{certificateAuthorityId}": cancelCertificateAuthorityDeletionRequest.certificateAuthorityId
     };
@@ -194,7 +198,13 @@ export class CertificatesManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelCertificateAuthorityDeletionResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class CertificatesManagementClient {
       this.logger.debug(
         "Calling operation CertificatesManagementClient#cancelCertificateAuthorityVersionDeletion."
       );
+    const operationName = "cancelCertificateAuthorityVersionDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/CancelCertificateAuthorityVersionDeletion";
     const pathParams = {
       "{certificateAuthorityId}":
         cancelCertificateAuthorityVersionDeletionRequest.certificateAuthorityId,
@@ -268,7 +281,13 @@ export class CertificatesManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelCertificateAuthorityVersionDeletionResponse>{},
         responseHeaders: [
@@ -309,6 +328,9 @@ export class CertificatesManagementClient {
       this.logger.debug(
         "Calling operation CertificatesManagementClient#cancelCertificateDeletion."
       );
+    const operationName = "cancelCertificateDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/CancelCertificateDeletion";
     const pathParams = {
       "{certificateId}": cancelCertificateDeletionRequest.certificateId
     };
@@ -338,7 +360,13 @@ export class CertificatesManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelCertificateDeletionResponse>{},
         responseHeaders: [
@@ -376,6 +404,9 @@ export class CertificatesManagementClient {
       this.logger.debug(
         "Calling operation CertificatesManagementClient#cancelCertificateVersionDeletion."
       );
+    const operationName = "cancelCertificateVersionDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/CancelCertificateVersionDeletion";
     const pathParams = {
       "{certificateId}": cancelCertificateVersionDeletionRequest.certificateId,
       "{certificateVersionNumber}": cancelCertificateVersionDeletionRequest.certificateVersionNumber
@@ -407,7 +438,13 @@ export class CertificatesManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelCertificateVersionDeletionResponse>{},
         responseHeaders: [
@@ -449,6 +486,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#changeCaBundleCompartment."
       );
+    const operationName = "changeCaBundleCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/ChangeCaBundleCompartment";
     const pathParams = {
       "{caBundleId}": changeCaBundleCompartmentRequest.caBundleId
     };
@@ -484,7 +524,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCaBundleCompartmentResponse>{},
         responseHeaders: [
@@ -521,6 +567,9 @@ When provided, If-Match is checked against the ETag values of the source.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#changeCertificateAuthorityCompartment."
       );
+    const operationName = "changeCertificateAuthorityCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/ChangeCertificateAuthorityCompartment";
     const pathParams = {
       "{certificateAuthorityId}":
         changeCertificateAuthorityCompartmentRequest.certificateAuthorityId
@@ -557,7 +606,13 @@ When provided, If-Match is checked against the ETag values of the source.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCertificateAuthorityCompartmentResponse>{},
         responseHeaders: [
@@ -594,6 +649,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#changeCertificateCompartment."
       );
+    const operationName = "changeCertificateCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/ChangeCertificateCompartment";
     const pathParams = {
       "{certificateId}": changeCertificateCompartmentRequest.certificateId
     };
@@ -629,7 +687,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCertificateCompartmentResponse>{},
         responseHeaders: [
@@ -660,6 +724,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.CreateCaBundleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#createCaBundle.");
+    const operationName = "createCaBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/CreateCaBundle";
     const pathParams = {};
 
     const queryParams = {};
@@ -692,7 +759,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCaBundleResponse>{},
         body: await response.json(),
@@ -732,6 +805,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.CreateCertificateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#createCertificate.");
+    const operationName = "createCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/CreateCertificate";
     const pathParams = {};
 
     const queryParams = {};
@@ -764,7 +840,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCertificateResponse>{},
         body: await response.json(),
@@ -806,6 +888,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#createCertificateAuthority."
       );
+    const operationName = "createCertificateAuthority";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/CreateCertificateAuthority";
     const pathParams = {};
 
     const queryParams = {};
@@ -838,7 +923,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCertificateAuthorityResponse>{},
         body: await response.json(),
@@ -878,6 +969,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.DeleteCaBundleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#deleteCaBundle.");
+    const operationName = "deleteCaBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/DeleteCaBundle";
     const pathParams = {
       "{caBundleId}": deleteCaBundleRequest.caBundleId
     };
@@ -907,7 +1001,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCaBundleResponse>{},
         responseHeaders: [
@@ -938,6 +1038,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.GetAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#getAssociation.");
+    const operationName = "getAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Association/GetAssociation";
     const pathParams = {
       "{associationId}": getAssociationRequest.associationId
     };
@@ -966,7 +1069,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAssociationResponse>{},
         body: await response.json(),
@@ -1006,6 +1115,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.GetCaBundleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#getCaBundle.");
+    const operationName = "getCaBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/GetCaBundle";
     const pathParams = {
       "{caBundleId}": getCaBundleRequest.caBundleId
     };
@@ -1034,7 +1146,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCaBundleResponse>{},
         body: await response.json(),
@@ -1074,6 +1192,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.GetCertificateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#getCertificate.");
+    const operationName = "getCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/GetCertificate";
     const pathParams = {
       "{certificateId}": getCertificateRequest.certificateId
     };
@@ -1102,7 +1223,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCertificateResponse>{},
         body: await response.json(),
@@ -1142,6 +1269,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.GetCertificateAuthorityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#getCertificateAuthority.");
+    const operationName = "getCertificateAuthority";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/GetCertificateAuthority";
     const pathParams = {
       "{certificateAuthorityId}": getCertificateAuthorityRequest.certificateAuthorityId
     };
@@ -1170,7 +1300,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCertificateAuthorityResponse>{},
         body: await response.json(),
@@ -1212,6 +1348,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#getCertificateAuthorityVersion."
       );
+    const operationName = "getCertificateAuthorityVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/GetCertificateAuthorityVersion";
     const pathParams = {
       "{certificateAuthorityId}": getCertificateAuthorityVersionRequest.certificateAuthorityId,
       "{certificateAuthorityVersionNumber}":
@@ -1243,7 +1382,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCertificateAuthorityVersionResponse>{},
         body: await response.json(),
@@ -1283,6 +1428,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.GetCertificateVersionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#getCertificateVersion.");
+    const operationName = "getCertificateVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/GetCertificateVersion";
     const pathParams = {
       "{certificateId}": getCertificateVersionRequest.certificateId,
       "{certificateVersionNumber}": getCertificateVersionRequest.certificateVersionNumber
@@ -1312,7 +1460,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCertificateVersionResponse>{},
         body: await response.json(),
@@ -1354,6 +1508,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.ListAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#listAssociations.");
+    const operationName = "listAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/AssociationSummary/ListAssociations";
     const pathParams = {};
 
     const queryParams = {
@@ -1391,7 +1548,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAssociationsResponse>{},
         body: await response.json(),
@@ -1433,6 +1596,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.ListCaBundlesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#listCaBundles.");
+    const operationName = "listCaBundles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundleSummary/ListCaBundles";
     const pathParams = {};
 
     const queryParams = {
@@ -1468,7 +1634,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCaBundlesResponse>{},
         body: await response.json(),
@@ -1512,6 +1684,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#listCertificateAuthorities."
       );
+    const operationName = "listCertificateAuthorities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthoritySummary/ListCertificateAuthorities";
     const pathParams = {};
 
     const queryParams = {
@@ -1549,7 +1724,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificateAuthoritiesResponse>{},
         body: await response.json(),
@@ -1593,6 +1774,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#listCertificateAuthorityVersions."
       );
+    const operationName = "listCertificateAuthorityVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersionSummary/ListCertificateAuthorityVersions";
     const pathParams = {
       "{certificateAuthorityId}": listCertificateAuthorityVersionsRequest.certificateAuthorityId
     };
@@ -1627,7 +1811,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificateAuthorityVersionsResponse>{},
         body: await response.json(),
@@ -1669,6 +1859,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.ListCertificateVersionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#listCertificateVersions.");
+    const operationName = "listCertificateVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersionSummary/ListCertificateVersions";
     const pathParams = {
       "{certificateId}": listCertificateVersionsRequest.certificateId
     };
@@ -1703,7 +1896,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificateVersionsResponse>{},
         body: await response.json(),
@@ -1745,6 +1944,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.ListCertificatesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#listCertificates.");
+    const operationName = "listCertificates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateSummary/ListCertificates";
     const pathParams = {};
 
     const queryParams = {
@@ -1781,7 +1983,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificatesResponse>{},
         body: await response.json(),
@@ -1823,6 +2031,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#revokeCertificateAuthorityVersion."
       );
+    const operationName = "revokeCertificateAuthorityVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/RevokeCertificateAuthorityVersion";
     const pathParams = {
       "{certificateAuthorityId}": revokeCertificateAuthorityVersionRequest.certificateAuthorityId,
       "{certificateAuthorityVersionNumber}":
@@ -1861,7 +2072,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RevokeCertificateAuthorityVersionResponse>{},
         responseHeaders: [
@@ -1897,6 +2114,9 @@ When provided, if-match is checked against the ETag values of the secret.
   ): Promise<responses.RevokeCertificateVersionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#revokeCertificateVersion.");
+    const operationName = "revokeCertificateVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/RevokeCertificateVersion";
     const pathParams = {
       "{certificateId}": revokeCertificateVersionRequest.certificateId,
       "{certificateVersionNumber}": revokeCertificateVersionRequest.certificateVersionNumber
@@ -1933,7 +2153,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RevokeCertificateVersionResponse>{},
         responseHeaders: [
@@ -1972,6 +2198,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#scheduleCertificateAuthorityDeletion."
       );
+    const operationName = "scheduleCertificateAuthorityDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/ScheduleCertificateAuthorityDeletion";
     const pathParams = {
       "{certificateAuthorityId}": scheduleCertificateAuthorityDeletionRequest.certificateAuthorityId
     };
@@ -2006,7 +2235,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleCertificateAuthorityDeletionResponse>{},
         responseHeaders: [
@@ -2047,6 +2282,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#scheduleCertificateAuthorityVersionDeletion."
       );
+    const operationName = "scheduleCertificateAuthorityVersionDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthorityVersion/ScheduleCertificateAuthorityVersionDeletion";
     const pathParams = {
       "{certificateAuthorityId}":
         scheduleCertificateAuthorityVersionDeletionRequest.certificateAuthorityId,
@@ -2085,7 +2323,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleCertificateAuthorityVersionDeletionResponse>{},
         responseHeaders: [
@@ -2126,6 +2370,9 @@ When provided, if-match is checked against the ETag values of the secret.
       this.logger.debug(
         "Calling operation CertificatesManagementClient#scheduleCertificateDeletion."
       );
+    const operationName = "scheduleCertificateDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/ScheduleCertificateDeletion";
     const pathParams = {
       "{certificateId}": scheduleCertificateDeletionRequest.certificateId
     };
@@ -2160,7 +2407,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleCertificateDeletionResponse>{},
         responseHeaders: [
@@ -2202,6 +2455,9 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       this.logger.debug(
         "Calling operation CertificatesManagementClient#scheduleCertificateVersionDeletion."
       );
+    const operationName = "scheduleCertificateVersionDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateVersion/ScheduleCertificateVersionDeletion";
     const pathParams = {
       "{certificateId}": scheduleCertificateVersionDeletionRequest.certificateId,
       "{certificateVersionNumber}":
@@ -2239,7 +2495,13 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleCertificateVersionDeletionResponse>{},
         responseHeaders: [
@@ -2275,6 +2537,9 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
   ): Promise<responses.UpdateCaBundleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#updateCaBundle.");
+    const operationName = "updateCaBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CaBundle/UpdateCaBundle";
     const pathParams = {
       "{caBundleId}": updateCaBundleRequest.caBundleId
     };
@@ -2309,7 +2574,13 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCaBundleResponse>{},
         body: await response.json(),
@@ -2349,6 +2620,9 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
   ): Promise<responses.UpdateCertificateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesManagementClient#updateCertificate.");
+    const operationName = "updateCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/Certificate/UpdateCertificate";
     const pathParams = {
       "{certificateId}": updateCertificateRequest.certificateId
     };
@@ -2383,7 +2657,13 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCertificateResponse>{},
         body: await response.json(),
@@ -2425,6 +2705,9 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       this.logger.debug(
         "Calling operation CertificatesManagementClient#updateCertificateAuthority."
       );
+    const operationName = "updateCertificateAuthority";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificatesmgmt/20210224/CertificateAuthority/UpdateCertificateAuthority";
     const pathParams = {
       "{certificateAuthorityId}": updateCertificateAuthorityRequest.certificateAuthorityId
     };
@@ -2459,7 +2742,13 @@ You can subsequently use `GetCertificateVersion` to determine the current certif
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCertificateAuthorityResponse>{},
         body: await response.json(),

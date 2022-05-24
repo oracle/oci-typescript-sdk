@@ -35,6 +35,7 @@ export class StreamClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Stream";
 
   protected _httpClient: common.HttpClient;
 
@@ -100,6 +101,9 @@ export class StreamClient {
     consumerCommitRequest: requests.ConsumerCommitRequest
   ): Promise<responses.ConsumerCommitResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#consumerCommit.");
+    const operationName = "consumerCommit";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/ConsumerCommit";
     const pathParams = {
       "{streamId}": consumerCommitRequest.streamId
     };
@@ -130,7 +134,13 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ConsumerCommitResponse>{},
         body: await response.json(),
@@ -165,6 +175,9 @@ export class StreamClient {
     consumerHeartbeatRequest: requests.ConsumerHeartbeatRequest
   ): Promise<responses.ConsumerHeartbeatResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#consumerHeartbeat.");
+    const operationName = "consumerHeartbeat";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/ConsumerHeartbeat";
     const pathParams = {
       "{streamId}": consumerHeartbeatRequest.streamId
     };
@@ -195,7 +208,13 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ConsumerHeartbeatResponse>{},
         body: await response.json(),
@@ -234,6 +253,9 @@ export class StreamClient {
     createCursorRequest: requests.CreateCursorRequest
   ): Promise<responses.CreateCursorResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#createCursor.");
+    const operationName = "createCursor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Cursor/CreateCursor";
     const pathParams = {
       "{streamId}": createCursorRequest.streamId
     };
@@ -267,7 +289,13 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCursorResponse>{},
         body: await response.json(),
@@ -302,6 +330,9 @@ export class StreamClient {
     createGroupCursorRequest: requests.CreateGroupCursorRequest
   ): Promise<responses.CreateGroupCursorResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#createGroupCursor.");
+    const operationName = "createGroupCursor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Cursor/CreateGroupCursor";
     const pathParams = {
       "{streamId}": createGroupCursorRequest.streamId
     };
@@ -335,7 +366,13 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateGroupCursorResponse>{},
         body: await response.json(),
@@ -370,6 +407,9 @@ export class StreamClient {
     getGroupRequest: requests.GetGroupRequest
   ): Promise<responses.GetGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#getGroup.");
+    const operationName = "getGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/GetGroup";
     const pathParams = {
       "{streamId}": getGroupRequest.streamId,
       "{groupName}": getGroupRequest.groupName
@@ -399,7 +439,13 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGroupResponse>{},
         body: await response.json(),
@@ -436,6 +482,9 @@ export class StreamClient {
     getMessagesRequest: requests.GetMessagesRequest
   ): Promise<responses.GetMessagesResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#getMessages.");
+    const operationName = "getMessages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Message/GetMessages";
     const pathParams = {
       "{streamId}": getMessagesRequest.streamId
     };
@@ -467,7 +516,13 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMessagesResponse>{},
         body: await response.json(),
@@ -510,6 +565,9 @@ export class StreamClient {
     putMessagesRequest: requests.PutMessagesRequest
   ): Promise<responses.PutMessagesResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#putMessages.");
+    const operationName = "putMessages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Message/PutMessages";
     const pathParams = {
       "{streamId}": putMessagesRequest.streamId
     };
@@ -543,7 +601,14 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PutMessagesResponse>{},
         body: await response.json(),
@@ -578,6 +643,9 @@ export class StreamClient {
     updateGroupRequest: requests.UpdateGroupRequest
   ): Promise<responses.UpdateGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamClient#updateGroup.");
+    const operationName = "updateGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Group/UpdateGroup";
     const pathParams = {
       "{streamId}": updateGroupRequest.streamId,
       "{groupName}": updateGroupRequest.groupName
@@ -612,7 +680,13 @@ export class StreamClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateGroupResponse>{},
         responseHeaders: [
@@ -643,6 +717,7 @@ export class StreamAdminClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "StreamAdmin";
 
   protected _httpClient: common.HttpClient;
 
@@ -769,6 +844,9 @@ export class StreamAdminClient {
   ): Promise<responses.ChangeConnectHarnessCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StreamAdminClient#changeConnectHarnessCompartment.");
+    const operationName = "changeConnectHarnessCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/ChangeConnectHarnessCompartment";
     const pathParams = {
       "{connectHarnessId}": changeConnectHarnessCompartmentRequest.connectHarnessId
     };
@@ -803,7 +881,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeConnectHarnessCompartmentResponse>{},
         responseHeaders: [
@@ -837,6 +921,9 @@ export class StreamAdminClient {
   ): Promise<responses.ChangeStreamCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StreamAdminClient#changeStreamCompartment.");
+    const operationName = "changeStreamCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/ChangeStreamCompartment";
     const pathParams = {
       "{streamId}": changeStreamCompartmentRequest.streamId
     };
@@ -871,7 +958,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeStreamCompartmentResponse>{},
         responseHeaders: [
@@ -902,6 +995,9 @@ export class StreamAdminClient {
   ): Promise<responses.ChangeStreamPoolCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StreamAdminClient#changeStreamPoolCompartment.");
+    const operationName = "changeStreamPoolCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/ChangeStreamPoolCompartment";
     const pathParams = {
       "{streamPoolId}": changeStreamPoolCompartmentRequest.streamPoolId
     };
@@ -936,7 +1032,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeStreamPoolCompartmentResponse>{},
         responseHeaders: [
@@ -968,6 +1070,9 @@ export class StreamAdminClient {
     createConnectHarnessRequest: requests.CreateConnectHarnessRequest
   ): Promise<responses.CreateConnectHarnessResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createConnectHarness.");
+    const operationName = "createConnectHarness";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/CreateConnectHarness";
     const pathParams = {};
 
     const queryParams = {};
@@ -1000,7 +1105,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectHarnessResponse>{},
         body: await response.json(),
@@ -1044,6 +1155,9 @@ export class StreamAdminClient {
     createStreamRequest: requests.CreateStreamRequest
   ): Promise<responses.CreateStreamResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createStream.");
+    const operationName = "createStream";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/CreateStream";
     const pathParams = {};
 
     const queryParams = {};
@@ -1075,7 +1189,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateStreamResponse>{},
         body: await response.json(),
@@ -1117,6 +1237,9 @@ export class StreamAdminClient {
     createStreamPoolRequest: requests.CreateStreamPoolRequest
   ): Promise<responses.CreateStreamPoolResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#createStreamPool.");
+    const operationName = "createStreamPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/CreateStreamPool";
     const pathParams = {};
 
     const queryParams = {};
@@ -1149,7 +1272,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateStreamPoolResponse>{},
         body: await response.json(),
@@ -1193,6 +1322,9 @@ export class StreamAdminClient {
     deleteConnectHarnessRequest: requests.DeleteConnectHarnessRequest
   ): Promise<responses.DeleteConnectHarnessResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteConnectHarness.");
+    const operationName = "deleteConnectHarness";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/DeleteConnectHarness";
     const pathParams = {
       "{connectHarnessId}": deleteConnectHarnessRequest.connectHarnessId
     };
@@ -1222,7 +1354,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectHarnessResponse>{},
         responseHeaders: [
@@ -1257,6 +1395,9 @@ export class StreamAdminClient {
     deleteStreamRequest: requests.DeleteStreamRequest
   ): Promise<responses.DeleteStreamResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteStream.");
+    const operationName = "deleteStream";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/DeleteStream";
     const pathParams = {
       "{streamId}": deleteStreamRequest.streamId
     };
@@ -1286,7 +1427,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteStreamResponse>{},
         responseHeaders: [
@@ -1318,6 +1465,9 @@ export class StreamAdminClient {
     deleteStreamPoolRequest: requests.DeleteStreamPoolRequest
   ): Promise<responses.DeleteStreamPoolResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#deleteStreamPool.");
+    const operationName = "deleteStreamPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/DeleteStreamPool";
     const pathParams = {
       "{streamPoolId}": deleteStreamPoolRequest.streamPoolId
     };
@@ -1347,7 +1497,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteStreamPoolResponse>{},
         responseHeaders: [
@@ -1377,6 +1533,9 @@ export class StreamAdminClient {
     getConnectHarnessRequest: requests.GetConnectHarnessRequest
   ): Promise<responses.GetConnectHarnessResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getConnectHarness.");
+    const operationName = "getConnectHarness";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/GetConnectHarness";
     const pathParams = {
       "{connectHarnessId}": getConnectHarnessRequest.connectHarnessId
     };
@@ -1405,7 +1564,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectHarnessResponse>{},
         body: await response.json(),
@@ -1444,6 +1609,9 @@ export class StreamAdminClient {
     getStreamRequest: requests.GetStreamRequest
   ): Promise<responses.GetStreamResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getStream.");
+    const operationName = "getStream";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/GetStream";
     const pathParams = {
       "{streamId}": getStreamRequest.streamId
     };
@@ -1472,7 +1640,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStreamResponse>{},
         body: await response.json(),
@@ -1511,6 +1685,9 @@ export class StreamAdminClient {
     getStreamPoolRequest: requests.GetStreamPoolRequest
   ): Promise<responses.GetStreamPoolResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#getStreamPool.");
+    const operationName = "getStreamPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/GetStreamPool";
     const pathParams = {
       "{streamPoolId}": getStreamPoolRequest.streamPoolId
     };
@@ -1539,7 +1716,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStreamPoolResponse>{},
         body: await response.json(),
@@ -1578,6 +1761,9 @@ export class StreamAdminClient {
     listConnectHarnessesRequest: requests.ListConnectHarnessesRequest
   ): Promise<responses.ListConnectHarnessesResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listConnectHarnesses.");
+    const operationName = "listConnectHarnesses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarnessSummary/ListConnectHarnesses";
     const pathParams = {};
 
     const queryParams = {
@@ -1613,7 +1799,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectHarnessesResponse>{},
         body: await response.json(),
@@ -1709,6 +1901,9 @@ export class StreamAdminClient {
     listStreamPoolsRequest: requests.ListStreamPoolsRequest
   ): Promise<responses.ListStreamPoolsResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listStreamPools.");
+    const operationName = "listStreamPools";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPoolSummary/ListStreamPools";
     const pathParams = {};
 
     const queryParams = {
@@ -1744,7 +1939,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListStreamPoolsResponse>{},
         body: await response.json(),
@@ -1844,6 +2045,9 @@ export class StreamAdminClient {
     listStreamsRequest: requests.ListStreamsRequest
   ): Promise<responses.ListStreamsResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#listStreams.");
+    const operationName = "listStreams";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamSummary/ListStreams";
     const pathParams = {};
 
     const queryParams = {
@@ -1880,7 +2084,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListStreamsResponse>{},
         body: await response.json(),
@@ -1977,6 +2187,9 @@ export class StreamAdminClient {
     updateConnectHarnessRequest: requests.UpdateConnectHarnessRequest
   ): Promise<responses.UpdateConnectHarnessResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateConnectHarness.");
+    const operationName = "updateConnectHarness";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/ConnectHarness/UpdateConnectHarness";
     const pathParams = {
       "{connectHarnessId}": updateConnectHarnessRequest.connectHarnessId
     };
@@ -2011,7 +2224,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConnectHarnessResponse>{},
         body: await response.json(),
@@ -2051,6 +2270,9 @@ export class StreamAdminClient {
     updateStreamRequest: requests.UpdateStreamRequest
   ): Promise<responses.UpdateStreamResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateStream.");
+    const operationName = "updateStream";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/Stream/UpdateStream";
     const pathParams = {
       "{streamId}": updateStreamRequest.streamId
     };
@@ -2085,7 +2307,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateStreamResponse>{},
         body: await response.json(),
@@ -2125,6 +2353,9 @@ export class StreamAdminClient {
     updateStreamPoolRequest: requests.UpdateStreamPoolRequest
   ): Promise<responses.UpdateStreamPoolResponse> {
     if (this.logger) this.logger.debug("Calling operation StreamAdminClient#updateStreamPool.");
+    const operationName = "updateStreamPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/streaming/20180418/StreamPool/UpdateStreamPool";
     const pathParams = {
       "{streamPoolId}": updateStreamPoolRequest.streamPoolId
     };
@@ -2159,7 +2390,13 @@ export class StreamAdminClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateStreamPoolResponse>{},
         body: await response.json(),

@@ -33,6 +33,7 @@ export class RewardsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Rewards";
 
   protected _httpClient: common.HttpClient;
 
@@ -136,6 +137,9 @@ export class RewardsClient {
     createRedeemableUserRequest: requests.CreateRedeemableUserRequest
   ): Promise<responses.CreateRedeemableUserResponse> {
     if (this.logger) this.logger.debug("Calling operation RewardsClient#createRedeemableUser.");
+    const operationName = "createRedeemableUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedeemableUser/CreateRedeemableUser";
     const pathParams = {
       "{subscriptionId}": createRedeemableUserRequest.subscriptionId
     };
@@ -174,7 +178,13 @@ export class RewardsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRedeemableUserResponse>{},
         body: await response.json(),
@@ -214,6 +224,9 @@ export class RewardsClient {
     deleteRedeemableUserRequest: requests.DeleteRedeemableUserRequest
   ): Promise<responses.DeleteRedeemableUserResponse> {
     if (this.logger) this.logger.debug("Calling operation RewardsClient#deleteRedeemableUser.");
+    const operationName = "deleteRedeemableUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedeemableUser/DeleteRedeemableUser";
     const pathParams = {
       "{subscriptionId}": deleteRedeemableUserRequest.subscriptionId
     };
@@ -246,7 +259,13 @@ export class RewardsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRedeemableUserResponse>{},
         responseHeaders: [
@@ -277,6 +296,9 @@ export class RewardsClient {
     listProductsRequest: requests.ListProductsRequest
   ): Promise<responses.ListProductsResponse> {
     if (this.logger) this.logger.debug("Calling operation RewardsClient#listProducts.");
+    const operationName = "listProducts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/ProductSummary/ListProducts";
     const pathParams = {
       "{subscriptionId}": listProductsRequest.subscriptionId
     };
@@ -313,7 +335,13 @@ export class RewardsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProductsResponse>{},
         body: await response.json(),
@@ -353,6 +381,9 @@ export class RewardsClient {
     listRedeemableUsersRequest: requests.ListRedeemableUsersRequest
   ): Promise<responses.ListRedeemableUsersResponse> {
     if (this.logger) this.logger.debug("Calling operation RewardsClient#listRedeemableUsers.");
+    const operationName = "listRedeemableUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedeemableUserSummary/ListRedeemableUsers";
     const pathParams = {
       "{subscriptionId}": listRedeemableUsersRequest.subscriptionId
     };
@@ -387,7 +418,13 @@ export class RewardsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRedeemableUsersResponse>{},
         body: await response.json(),
@@ -427,6 +464,9 @@ export class RewardsClient {
     listRewardsRequest: requests.ListRewardsRequest
   ): Promise<responses.ListRewardsResponse> {
     if (this.logger) this.logger.debug("Calling operation RewardsClient#listRewards.");
+    const operationName = "listRewards";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/MonthlyRewardSummary/ListRewards";
     const pathParams = {
       "{subscriptionId}": listRewardsRequest.subscriptionId
     };
@@ -457,7 +497,13 @@ export class RewardsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRewardsResponse>{},
         body: await response.json(),

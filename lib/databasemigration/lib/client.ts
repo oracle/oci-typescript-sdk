@@ -35,6 +35,7 @@ export class DatabaseMigrationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DatabaseMigration";
 
   protected _httpClient: common.HttpClient;
 
@@ -161,6 +162,9 @@ export class DatabaseMigrationClient {
     abortJobRequest: requests.AbortJobRequest
   ): Promise<responses.AbortJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#abortJob.");
+    const operationName = "abortJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/AbortJob";
     const pathParams = {
       "{jobId}": abortJobRequest.jobId
     };
@@ -191,7 +195,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AbortJobResponse>{},
         body: await response.json(),
@@ -232,6 +242,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.AddMigrationObjectsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#addMigrationObjects.");
+    const operationName = "addMigrationObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/AddMigrationObjects";
     const pathParams = {
       "{migrationId}": addMigrationObjectsRequest.migrationId
     };
@@ -266,7 +279,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddMigrationObjectsResponse>{},
         responseHeaders: [
@@ -298,6 +317,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ChangeAgentCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#changeAgentCompartment.");
+    const operationName = "changeAgentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/ChangeAgentCompartment";
     const pathParams = {
       "{agentId}": changeAgentCompartmentRequest.agentId
     };
@@ -333,7 +355,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAgentCompartmentResponse>{},
         responseHeaders: [
@@ -365,6 +393,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ChangeConnectionCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#changeConnectionCompartment.");
+    const operationName = "changeConnectionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/ChangeConnectionCompartment";
     const pathParams = {
       "{connectionId}": changeConnectionCompartmentRequest.connectionId
     };
@@ -400,7 +431,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeConnectionCompartmentResponse>{},
         responseHeaders: [
@@ -432,6 +469,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ChangeMigrationCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#changeMigrationCompartment.");
+    const operationName = "changeMigrationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/ChangeMigrationCompartment";
     const pathParams = {
       "{migrationId}": changeMigrationCompartmentRequest.migrationId
     };
@@ -467,7 +507,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMigrationCompartmentResponse>{},
         responseHeaders: [
@@ -498,6 +544,9 @@ export class DatabaseMigrationClient {
     cloneMigrationRequest: requests.CloneMigrationRequest
   ): Promise<responses.CloneMigrationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#cloneMigration.");
+    const operationName = "cloneMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/CloneMigration";
     const pathParams = {
       "{migrationId}": cloneMigrationRequest.migrationId
     };
@@ -533,7 +582,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CloneMigrationResponse>{},
         body: await response.json(),
@@ -580,6 +635,8 @@ export class DatabaseMigrationClient {
   ): Promise<responses.CreateConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#createConnection.");
+    const operationName = "createConnection";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -612,7 +669,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
@@ -660,6 +723,8 @@ export class DatabaseMigrationClient {
   ): Promise<responses.CreateMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#createMigration.");
+    const operationName = "createMigration";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -692,7 +757,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMigrationResponse>{},
         body: await response.json(),
@@ -737,6 +808,9 @@ export class DatabaseMigrationClient {
     deleteAgentRequest: requests.DeleteAgentRequest
   ): Promise<responses.DeleteAgentResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#deleteAgent.");
+    const operationName = "deleteAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/DeleteAgent";
     const pathParams = {
       "{agentId}": deleteAgentRequest.agentId
     };
@@ -766,7 +840,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAgentResponse>{},
         responseHeaders: [
@@ -803,6 +883,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.DeleteConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#deleteConnection.");
+    const operationName = "deleteConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/DeleteConnection";
     const pathParams = {
       "{connectionId}": deleteConnectionRequest.connectionId
     };
@@ -832,7 +915,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionResponse>{},
         responseHeaders: [
@@ -868,6 +957,9 @@ export class DatabaseMigrationClient {
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#deleteJob.");
+    const operationName = "deleteJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/DeleteJob";
     const pathParams = {
       "{jobId}": deleteJobRequest.jobId
     };
@@ -897,7 +989,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteJobResponse>{},
         responseHeaders: [
@@ -929,6 +1027,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.DeleteMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#deleteMigration.");
+    const operationName = "deleteMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/DeleteMigration";
     const pathParams = {
       "{migrationId}": deleteMigrationRequest.migrationId
     };
@@ -958,7 +1059,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMigrationResponse>{},
         responseHeaders: [
@@ -995,6 +1102,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.EvaluateMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#evaluateMigration.");
+    const operationName = "evaluateMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/EvaluateMigration";
     const pathParams = {
       "{migrationId}": evaluateMigrationRequest.migrationId
     };
@@ -1025,7 +1135,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EvaluateMigrationResponse>{},
         body: await response.json(),
@@ -1071,6 +1187,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.GetAdvisorReportResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#getAdvisorReport.");
+    const operationName = "getAdvisorReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/GetAdvisorReport";
     const pathParams = {
       "{jobId}": getAdvisorReportRequest.jobId
     };
@@ -1099,7 +1218,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAdvisorReportResponse>{},
         body: await response.json(),
@@ -1139,6 +1264,9 @@ export class DatabaseMigrationClient {
     getAgentRequest: requests.GetAgentRequest
   ): Promise<responses.GetAgentResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getAgent.");
+    const operationName = "getAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/GetAgent";
     const pathParams = {
       "{agentId}": getAgentRequest.agentId
     };
@@ -1167,7 +1295,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAgentResponse>{},
         body: await response.json(),
@@ -1207,6 +1341,9 @@ export class DatabaseMigrationClient {
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getConnection.");
+    const operationName = "getConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/GetConnection";
     const pathParams = {
       "{connectionId}": getConnectionRequest.connectionId
     };
@@ -1235,7 +1372,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
@@ -1273,6 +1416,9 @@ export class DatabaseMigrationClient {
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getJob.");
+    const operationName = "getJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/GetJob";
     const pathParams = {
       "{jobId}": getJobRequest.jobId
     };
@@ -1301,7 +1447,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
@@ -1342,6 +1494,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.GetJobOutputContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#getJobOutputContent.");
+    const operationName = "getJobOutputContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/GetJobOutputContent";
     const pathParams = {
       "{jobId}": getJobOutputContentRequest.jobId
     };
@@ -1370,7 +1525,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobOutputContentResponse>{},
 
@@ -1405,6 +1566,9 @@ export class DatabaseMigrationClient {
     getMigrationRequest: requests.GetMigrationRequest
   ): Promise<responses.GetMigrationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getMigration.");
+    const operationName = "getMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/GetMigration";
     const pathParams = {
       "{migrationId}": getMigrationRequest.migrationId
     };
@@ -1434,7 +1598,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMigrationResponse>{},
         body: await response.json(),
@@ -1474,6 +1644,9 @@ export class DatabaseMigrationClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1502,7 +1675,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1538,6 +1717,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListAgentImagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listAgentImages.");
+    const operationName = "listAgentImages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/AgentImageSummary/ListAgentImages";
     const pathParams = {};
 
     const queryParams = {
@@ -1568,7 +1750,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAgentImagesResponse>{},
         body: await response.json(),
@@ -1608,6 +1796,9 @@ export class DatabaseMigrationClient {
     listAgentsRequest: requests.ListAgentsRequest
   ): Promise<responses.ListAgentsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listAgents.");
+    const operationName = "listAgents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/AgentSummary/ListAgents";
     const pathParams = {};
 
     const queryParams = {
@@ -1642,7 +1833,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAgentsResponse>{},
         body: await response.json(),
@@ -1683,6 +1880,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListConnectionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listConnections.");
+    const operationName = "listConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/ConnectionSummary/ListConnections";
     const pathParams = {};
 
     const queryParams = {
@@ -1717,7 +1917,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
@@ -1758,6 +1964,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListExcludedObjectsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listExcludedObjects.");
+    const operationName = "listExcludedObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/ExcludedObjectSummary/ListExcludedObjects";
     const pathParams = {
       "{jobId}": listExcludedObjectsRequest.jobId
     };
@@ -1798,7 +2007,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExcludedObjectsResponse>{},
         body: await response.json(),
@@ -1838,6 +2053,9 @@ export class DatabaseMigrationClient {
     listJobOutputsRequest: requests.ListJobOutputsRequest
   ): Promise<responses.ListJobOutputsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listJobOutputs.");
+    const operationName = "listJobOutputs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/JobOutputSummary/ListJobOutputs";
     const pathParams = {
       "{jobId}": listJobOutputsRequest.jobId
     };
@@ -1869,7 +2087,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobOutputsResponse>{},
         body: await response.json(),
@@ -1910,6 +2134,9 @@ export class DatabaseMigrationClient {
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listJobs.");
+    const operationName = "listJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/JobSummary/ListJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -1944,7 +2171,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
@@ -1985,6 +2218,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListMigrationObjectTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listMigrationObjectTypes.");
+    const operationName = "listMigrationObjectTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/MigrationObjectTypeSummary/ListMigrationObjectTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -2016,7 +2252,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMigrationObjectTypesResponse>{},
         body: await response.json(),
@@ -2057,6 +2299,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListMigrationObjectsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listMigrationObjects.");
+    const operationName = "listMigrationObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/MigrationObjectCollection/ListMigrationObjects";
     const pathParams = {
       "{migrationId}": listMigrationObjectsRequest.migrationId
     };
@@ -2089,7 +2334,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMigrationObjectsResponse>{},
         body: await response.json(),
@@ -2129,6 +2380,9 @@ export class DatabaseMigrationClient {
     listMigrationsRequest: requests.ListMigrationsRequest
   ): Promise<responses.ListMigrationsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#listMigrations.");
+    const operationName = "listMigrations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/MigrationSummary/ListMigrations";
     const pathParams = {};
 
     const queryParams = {
@@ -2164,7 +2418,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMigrationsResponse>{},
         body: await response.json(),
@@ -2205,6 +2465,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -2238,7 +2501,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -2279,6 +2548,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2312,7 +2584,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -2353,6 +2631,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -2387,7 +2668,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -2428,6 +2715,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.RemoveMigrationObjectsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#removeMigrationObjects.");
+    const operationName = "removeMigrationObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/RemoveMigrationObjects";
     const pathParams = {
       "{migrationId}": removeMigrationObjectsRequest.migrationId
     };
@@ -2462,7 +2752,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveMigrationObjectsResponse>{},
         responseHeaders: [
@@ -2493,6 +2789,9 @@ export class DatabaseMigrationClient {
     resumeJobRequest: requests.ResumeJobRequest
   ): Promise<responses.ResumeJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#resumeJob.");
+    const operationName = "resumeJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/ResumeJob";
     const pathParams = {
       "{jobId}": resumeJobRequest.jobId
     };
@@ -2528,7 +2827,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResumeJobResponse>{},
         body: await response.json(),
@@ -2569,6 +2874,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.RetrieveSupportedPhasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#retrieveSupportedPhases.");
+    const operationName = "retrieveSupportedPhases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/RetrieveSupportedPhases";
     const pathParams = {
       "{migrationId}": retrieveSupportedPhasesRequest.migrationId
     };
@@ -2597,7 +2905,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RetrieveSupportedPhasesResponse>{},
         body: await response.json(),
@@ -2632,6 +2946,9 @@ export class DatabaseMigrationClient {
     startMigrationRequest: requests.StartMigrationRequest
   ): Promise<responses.StartMigrationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#startMigration.");
+    const operationName = "startMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/StartMigration";
     const pathParams = {
       "{migrationId}": startMigrationRequest.migrationId
     };
@@ -2667,7 +2984,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartMigrationResponse>{},
         body: await response.json(),
@@ -2712,6 +3035,9 @@ export class DatabaseMigrationClient {
     updateAgentRequest: requests.UpdateAgentRequest
   ): Promise<responses.UpdateAgentResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#updateAgent.");
+    const operationName = "updateAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Agent/UpdateAgent";
     const pathParams = {
       "{agentId}": updateAgentRequest.agentId
     };
@@ -2747,7 +3073,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAgentResponse>{},
         body: await response.json(),
@@ -2788,6 +3120,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.UpdateConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#updateConnection.");
+    const operationName = "updateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/UpdateConnection";
     const pathParams = {
       "{connectionId}": updateConnectionRequest.connectionId
     };
@@ -2822,7 +3157,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConnectionResponse>{},
         responseHeaders: [
@@ -2858,6 +3199,9 @@ export class DatabaseMigrationClient {
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseMigrationClient#updateJob.");
+    const operationName = "updateJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Job/UpdateJob";
     const pathParams = {
       "{jobId}": updateJobRequest.jobId
     };
@@ -2892,7 +3236,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
@@ -2933,6 +3283,9 @@ export class DatabaseMigrationClient {
   ): Promise<responses.UpdateMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseMigrationClient#updateMigration.");
+    const operationName = "updateMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Migration/UpdateMigration";
     const pathParams = {
       "{migrationId}": updateMigrationRequest.migrationId
     };
@@ -2967,7 +3320,13 @@ export class DatabaseMigrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMigrationResponse>{},
         responseHeaders: [

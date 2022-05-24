@@ -35,6 +35,7 @@ export class AccountClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Account";
 
   protected _httpClient: common.HttpClient;
 
@@ -137,6 +138,9 @@ export class AccountClient {
     getLaunchEligibilityRequest: requests.GetLaunchEligibilityRequest
   ): Promise<responses.GetLaunchEligibilityResponse> {
     if (this.logger) this.logger.debug("Calling operation AccountClient#getLaunchEligibility.");
+    const operationName = "getLaunchEligibility";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/LaunchEligibility/GetLaunchEligibility";
     const pathParams = {};
 
     const queryParams = {
@@ -166,7 +170,13 @@ export class AccountClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLaunchEligibilityResponse>{},
         body: await response.json(),
@@ -201,6 +211,9 @@ export class AccountClient {
   ): Promise<responses.GetThirdPartyPaidListingEligibilityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccountClient#getThirdPartyPaidListingEligibility.");
+    const operationName = "getThirdPartyPaidListingEligibility";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ThirdPartyPaidListingEligibility/GetThirdPartyPaidListingEligibility";
     const pathParams = {};
 
     const queryParams = {
@@ -229,7 +242,13 @@ export class AccountClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetThirdPartyPaidListingEligibilityResponse>{},
         body: await response.json(),
@@ -264,6 +283,7 @@ export class MarketplaceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Marketplace";
 
   protected _httpClient: common.HttpClient;
 
@@ -390,6 +410,9 @@ export class MarketplaceClient {
   ): Promise<responses.ChangePublicationCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MarketplaceClient#changePublicationCompartment.");
+    const operationName = "changePublicationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/ChangePublicationCompartment";
     const pathParams = {
       "{publicationId}": changePublicationCompartmentRequest.publicationId
     };
@@ -425,7 +448,13 @@ export class MarketplaceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangePublicationCompartmentResponse>{},
         responseHeaders: [
@@ -458,6 +487,9 @@ export class MarketplaceClient {
   ): Promise<responses.CreateAcceptedAgreementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MarketplaceClient#createAcceptedAgreement.");
+    const operationName = "createAcceptedAgreement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/CreateAcceptedAgreement";
     const pathParams = {};
 
     const queryParams = {};
@@ -490,7 +522,13 @@ export class MarketplaceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAcceptedAgreementResponse>{},
         body: await response.json(),
@@ -529,6 +567,9 @@ export class MarketplaceClient {
     createPublicationRequest: requests.CreatePublicationRequest
   ): Promise<responses.CreatePublicationResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#createPublication.");
+    const operationName = "createPublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/CreatePublication";
     const pathParams = {};
 
     const queryParams = {};
@@ -561,7 +602,13 @@ export class MarketplaceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePublicationResponse>{},
         body: await response.json(),
@@ -604,6 +651,9 @@ export class MarketplaceClient {
   ): Promise<responses.DeleteAcceptedAgreementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MarketplaceClient#deleteAcceptedAgreement.");
+    const operationName = "deleteAcceptedAgreement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/DeleteAcceptedAgreement";
     const pathParams = {
       "{acceptedAgreementId}": deleteAcceptedAgreementRequest.acceptedAgreementId
     };
@@ -635,7 +685,13 @@ export class MarketplaceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAcceptedAgreementResponse>{},
         responseHeaders: [
@@ -665,6 +721,9 @@ export class MarketplaceClient {
     deletePublicationRequest: requests.DeletePublicationRequest
   ): Promise<responses.DeletePublicationResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#deletePublication.");
+    const operationName = "deletePublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/DeletePublication";
     const pathParams = {
       "{publicationId}": deletePublicationRequest.publicationId
     };
@@ -694,7 +753,13 @@ export class MarketplaceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePublicationResponse>{},
         responseHeaders: [
@@ -725,6 +790,9 @@ export class MarketplaceClient {
     getAcceptedAgreementRequest: requests.GetAcceptedAgreementRequest
   ): Promise<responses.GetAcceptedAgreementResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getAcceptedAgreement.");
+    const operationName = "getAcceptedAgreement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/GetAcceptedAgreement";
     const pathParams = {
       "{acceptedAgreementId}": getAcceptedAgreementRequest.acceptedAgreementId
     };
@@ -753,7 +821,13 @@ export class MarketplaceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAcceptedAgreementResponse>{},
         body: await response.json(),
@@ -794,6 +868,9 @@ export class MarketplaceClient {
     getAgreementRequest: requests.GetAgreementRequest
   ): Promise<responses.GetAgreementResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getAgreement.");
+    const operationName = "getAgreement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Agreement/GetAgreement";
     const pathParams = {
       "{listingId}": getAgreementRequest.listingId,
       "{packageVersion}": getAgreementRequest.packageVersion,
@@ -826,7 +903,13 @@ export class MarketplaceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAgreementResponse>{},
         body: await response.json(),
@@ -875,6 +958,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     getListingRequest: requests.GetListingRequest
   ): Promise<responses.GetListingResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getListing.");
+    const operationName = "getListing";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Listing/GetListing";
     const pathParams = {
       "{listingId}": getListingRequest.listingId
     };
@@ -905,7 +991,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetListingResponse>{},
         body: await response.json(),
@@ -958,6 +1050,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     getPackageRequest: requests.GetPackageRequest
   ): Promise<responses.GetPackageResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getPackage.");
+    const operationName = "getPackage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingPackage/GetPackage";
     const pathParams = {
       "{listingId}": getPackageRequest.listingId,
       "{packageVersion}": getPackageRequest.packageVersion
@@ -989,7 +1084,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPackageResponse>{},
         body: await response.json(),
@@ -1028,6 +1129,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     getPublicationRequest: requests.GetPublicationRequest
   ): Promise<responses.GetPublicationResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getPublication.");
+    const operationName = "getPublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/GetPublication";
     const pathParams = {
       "{publicationId}": getPublicationRequest.publicationId
     };
@@ -1056,7 +1160,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPublicationResponse>{},
         body: await response.json(),
@@ -1096,6 +1206,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   ): Promise<responses.GetPublicationPackageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MarketplaceClient#getPublicationPackage.");
+    const operationName = "getPublicationPackage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublicationPackage/GetPublicationPackage";
     const pathParams = {
       "{publicationId}": getPublicationPackageRequest.publicationId,
       "{packageVersion}": getPublicationPackageRequest.packageVersion
@@ -1125,7 +1238,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPublicationPackageResponse>{},
         body: await response.json(),
@@ -1167,6 +1286,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   ): Promise<responses.ListAcceptedAgreementsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MarketplaceClient#listAcceptedAgreements.");
+    const operationName = "listAcceptedAgreements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreementSummary/ListAcceptedAgreements";
     const pathParams = {};
 
     const queryParams = {
@@ -1203,7 +1325,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAcceptedAgreementsResponse>{},
         body: await response.json(),
@@ -1295,6 +1423,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listAgreementsRequest: requests.ListAgreementsRequest
   ): Promise<responses.ListAgreementsResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listAgreements.");
+    const operationName = "listAgreements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AgreementSummary/ListAgreements";
     const pathParams = {
       "{listingId}": listAgreementsRequest.listingId,
       "{packageVersion}": listAgreementsRequest.packageVersion
@@ -1328,7 +1459,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAgreementsResponse>{},
         body: await response.json(),
@@ -1421,6 +1558,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listCategories.");
+    const operationName = "listCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/CategorySummary/ListCategories";
     const pathParams = {};
 
     const queryParams = {
@@ -1451,7 +1591,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCategoriesResponse>{},
         body: await response.json(),
@@ -1557,6 +1703,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listListingsRequest: requests.ListListingsRequest
   ): Promise<responses.ListListingsResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listListings.");
+    const operationName = "listListings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingSummary/ListListings";
     const pathParams = {};
 
     const queryParams = {
@@ -1599,7 +1748,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListListingsResponse>{},
         body: await response.json(),
@@ -1704,6 +1859,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listPackagesRequest: requests.ListPackagesRequest
   ): Promise<responses.ListPackagesResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPackages.");
+    const operationName = "listPackages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingPackageSummary/ListPackages";
     const pathParams = {
       "{listingId}": listPackagesRequest.listingId
     };
@@ -1740,7 +1898,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPackagesResponse>{},
         body: await response.json(),
@@ -1832,6 +1996,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   ): Promise<responses.ListPublicationPackagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MarketplaceClient#listPublicationPackages.");
+    const operationName = "listPublicationPackages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublicationPackageSummary/ListPublicationPackages";
     const pathParams = {
       "{publicationId}": listPublicationPackagesRequest.publicationId
     };
@@ -1867,7 +2034,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublicationPackagesResponse>{},
         body: await response.json(),
@@ -1958,6 +2131,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listPublicationsRequest: requests.ListPublicationsRequest
   ): Promise<responses.ListPublicationsResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPublications.");
+    const operationName = "listPublications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublicationSummary/ListPublications";
     const pathParams = {};
 
     const queryParams = {
@@ -1994,7 +2170,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublicationsResponse>{},
         body: await response.json(),
@@ -2086,6 +2268,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listPublishersRequest: requests.ListPublishersRequest
   ): Promise<responses.ListPublishersResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listPublishers.");
+    const operationName = "listPublishers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/PublisherSummary/ListPublishers";
     const pathParams = {};
 
     const queryParams = {
@@ -2117,7 +2302,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublishersResponse>{},
         body: await response.json(),
@@ -2208,6 +2399,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listReportTypesRequest: requests.ListReportTypesRequest
   ): Promise<responses.ListReportTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listReportTypes.");
+    const operationName = "listReportTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ReportTypeCollection/ListReportTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -2237,7 +2431,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReportTypesResponse>{},
         body: await response.json(),
@@ -2276,6 +2476,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listReportsRequest: requests.ListReportsRequest
   ): Promise<responses.ListReportsResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listReports.");
+    const operationName = "listReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ReportCollection/ListReports";
     const pathParams = {};
 
     const queryParams = {
@@ -2307,7 +2510,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReportsResponse>{},
         body: await response.json(),
@@ -2346,6 +2555,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     listTaxesRequest: requests.ListTaxesRequest
   ): Promise<responses.ListTaxesResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listTaxes.");
+    const operationName = "listTaxes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/TaxSummary/ListTaxes";
     const pathParams = {
       "{listingId}": listTaxesRequest.listingId
     };
@@ -2376,7 +2588,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaxesResponse>{},
         body: await response.json(),
@@ -2417,6 +2635,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     searchListingsRequest: requests.SearchListingsRequest
   ): Promise<responses.SearchListingsResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#searchListings.");
+    const operationName = "searchListings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/ListingSummary/SearchListings";
     const pathParams = {};
 
     const queryParams = {
@@ -2451,7 +2672,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchListingsResponse>{},
         body: await response.json(),
@@ -2544,6 +2771,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
   ): Promise<responses.UpdateAcceptedAgreementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MarketplaceClient#updateAcceptedAgreement.");
+    const operationName = "updateAcceptedAgreement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/AcceptedAgreement/UpdateAcceptedAgreement";
     const pathParams = {
       "{acceptedAgreementId}": updateAcceptedAgreementRequest.acceptedAgreementId
     };
@@ -2579,7 +2809,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAcceptedAgreementResponse>{},
         body: await response.json(),
@@ -2618,6 +2854,9 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
     updatePublicationRequest: requests.UpdatePublicationRequest
   ): Promise<responses.UpdatePublicationResponse> {
     if (this.logger) this.logger.debug("Calling operation MarketplaceClient#updatePublication.");
+    const operationName = "updatePublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Publication/UpdatePublication";
     const pathParams = {
       "{publicationId}": updatePublicationRequest.publicationId
     };
@@ -2653,7 +2892,13 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePublicationResponse>{},
         body: await response.json(),

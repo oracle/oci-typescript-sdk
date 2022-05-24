@@ -38,6 +38,7 @@ export class KmsCryptoClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "KmsCrypto";
 
   protected _httpClient: common.HttpClient;
 
@@ -101,6 +102,8 @@ export class KmsCryptoClient {
     decryptRequest: requests.DecryptRequest
   ): Promise<responses.DecryptResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#decrypt.");
+    const operationName = "decrypt";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -132,7 +135,13 @@ export class KmsCryptoClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DecryptResponse>{},
         body: await response.json(),
@@ -168,6 +177,8 @@ export class KmsCryptoClient {
     encryptRequest: requests.EncryptRequest
   ): Promise<responses.EncryptResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#encrypt.");
+    const operationName = "encrypt";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -199,7 +210,13 @@ export class KmsCryptoClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EncryptResponse>{},
         body: await response.json(),
@@ -236,6 +253,8 @@ export class KmsCryptoClient {
     exportKeyRequest: requests.ExportKeyRequest
   ): Promise<responses.ExportKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#exportKey.");
+    const operationName = "exportKey";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -266,7 +285,13 @@ export class KmsCryptoClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExportKeyResponse>{},
         body: await response.json(),
@@ -302,6 +327,8 @@ export class KmsCryptoClient {
   ): Promise<responses.GenerateDataEncryptionKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsCryptoClient#generateDataEncryptionKey.");
+    const operationName = "generateDataEncryptionKey";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -333,7 +360,13 @@ export class KmsCryptoClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateDataEncryptionKeyResponse>{},
         body: await response.json(),
@@ -368,6 +401,8 @@ export class KmsCryptoClient {
    */
   public async sign(signRequest: requests.SignRequest): Promise<responses.SignResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#sign.");
+    const operationName = "sign";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -399,7 +434,13 @@ export class KmsCryptoClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SignResponse>{},
         body: await response.json(),
@@ -434,6 +475,8 @@ export class KmsCryptoClient {
    */
   public async verify(verifyRequest: requests.VerifyRequest): Promise<responses.VerifyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsCryptoClient#verify.");
+    const operationName = "verify";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -465,7 +508,13 @@ export class KmsCryptoClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.VerifyResponse>{},
         body: await response.json(),
@@ -500,6 +549,7 @@ export class KmsManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "KmsManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -587,6 +637,8 @@ export class KmsManagementClient {
     backupKeyRequest: requests.BackupKeyRequest
   ): Promise<responses.BackupKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#backupKey.");
+    const operationName = "backupKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": backupKeyRequest.keyId
     };
@@ -622,7 +674,13 @@ export class KmsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BackupKeyResponse>{},
         body: await response.json(),
@@ -674,6 +732,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     cancelKeyDeletionRequest: requests.CancelKeyDeletionRequest
   ): Promise<responses.CancelKeyDeletionResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#cancelKeyDeletion.");
+    const operationName = "cancelKeyDeletion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": cancelKeyDeletionRequest.keyId
     };
@@ -704,7 +764,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelKeyDeletionResponse>{},
         body: await response.json(),
@@ -752,6 +818,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   ): Promise<responses.CancelKeyVersionDeletionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsManagementClient#cancelKeyVersionDeletion.");
+    const operationName = "cancelKeyVersionDeletion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": cancelKeyVersionDeletionRequest.keyId,
       "{keyVersionId}": cancelKeyVersionDeletionRequest.keyVersionId
@@ -783,7 +851,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelKeyVersionDeletionResponse>{},
         body: await response.json(),
@@ -832,6 +906,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   ): Promise<responses.ChangeKeyCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsManagementClient#changeKeyCompartment.");
+    const operationName = "changeKeyCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": changeKeyCompartmentRequest.keyId
     };
@@ -867,7 +943,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeKeyCompartmentResponse>{},
         responseHeaders: [
@@ -908,6 +990,8 @@ As a management operation, this call is subject to a Key Management limit that a
     createKeyRequest: requests.CreateKeyRequest
   ): Promise<responses.CreateKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#createKey.");
+    const operationName = "createKey";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -940,7 +1024,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateKeyResponse>{},
         body: await response.json(),
@@ -986,6 +1076,8 @@ As a management operation, this call is subject to a Key Management limit that a
     createKeyVersionRequest: requests.CreateKeyVersionRequest
   ): Promise<responses.CreateKeyVersionResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#createKeyVersion.");
+    const operationName = "createKeyVersion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": createKeyVersionRequest.keyId
     };
@@ -1015,7 +1107,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateKeyVersionResponse>{},
         body: await response.json(),
@@ -1061,6 +1159,8 @@ As a management operation, this call is subject to a Key Management limit that a
     disableKeyRequest: requests.DisableKeyRequest
   ): Promise<responses.DisableKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#disableKey.");
+    const operationName = "disableKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": disableKeyRequest.keyId
     };
@@ -1091,7 +1191,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableKeyResponse>{},
         body: await response.json(),
@@ -1137,6 +1243,8 @@ As a management operation, this call is subject to a Key Management limit that a
     enableKeyRequest: requests.EnableKeyRequest
   ): Promise<responses.EnableKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#enableKey.");
+    const operationName = "enableKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": enableKeyRequest.keyId
     };
@@ -1167,7 +1275,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableKeyResponse>{},
         body: await response.json(),
@@ -1210,6 +1324,8 @@ As a management operation, this call is subject to a Key Management limit that a
      */
   public async getKey(getKeyRequest: requests.GetKeyRequest): Promise<responses.GetKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getKey.");
+    const operationName = "getKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": getKeyRequest.keyId
     };
@@ -1238,7 +1354,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetKeyResponse>{},
         body: await response.json(),
@@ -1283,6 +1405,8 @@ As a management operation, this call is subject to a Key Management limit that a
     getKeyVersionRequest: requests.GetKeyVersionRequest
   ): Promise<responses.GetKeyVersionResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getKeyVersion.");
+    const operationName = "getKeyVersion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": getKeyVersionRequest.keyId,
       "{keyVersionId}": getKeyVersionRequest.keyVersionId
@@ -1312,7 +1436,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetKeyVersionResponse>{},
         body: await response.json(),
@@ -1356,6 +1486,8 @@ As a management operation, this call is subject to a Key Management limit that a
   ): Promise<responses.GetReplicationStatusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsManagementClient#getReplicationStatus.");
+    const operationName = "getReplicationStatus";
+    const apiReferenceLink = "";
     const pathParams = {
       "{replicationId}": getReplicationStatusRequest.replicationId
     };
@@ -1384,7 +1516,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetReplicationStatusResponse>{},
         body: await response.json(),
@@ -1425,6 +1563,8 @@ As a management operation, this call is subject to a Key Management limit that a
     getWrappingKeyRequest: requests.GetWrappingKeyRequest
   ): Promise<responses.GetWrappingKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#getWrappingKey.");
+    const operationName = "getWrappingKey";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1451,7 +1591,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWrappingKeyResponse>{},
         body: await response.json(),
@@ -1493,6 +1639,8 @@ As a management operation, this call is subject to a Key Management limit that a
     importKeyRequest: requests.ImportKeyRequest
   ): Promise<responses.ImportKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#importKey.");
+    const operationName = "importKey";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1525,7 +1673,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportKeyResponse>{},
         body: await response.json(),
@@ -1569,6 +1723,8 @@ As a management operation, this call is subject to a Key Management limit that a
     importKeyVersionRequest: requests.ImportKeyVersionRequest
   ): Promise<responses.ImportKeyVersionResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#importKeyVersion.");
+    const operationName = "importKeyVersion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": importKeyVersionRequest.keyId
     };
@@ -1603,7 +1759,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportKeyVersionResponse>{},
         body: await response.json(),
@@ -1649,6 +1811,8 @@ As a management operation, this call is subject to a Key Management limit that a
     listKeyVersionsRequest: requests.ListKeyVersionsRequest
   ): Promise<responses.ListKeyVersionsResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#listKeyVersions.");
+    const operationName = "listKeyVersions";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": listKeyVersionsRequest.keyId
     };
@@ -1682,7 +1846,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListKeyVersionsResponse>{},
         body: await response.json(),
@@ -1779,6 +1949,8 @@ As a management operation, this call is subject to a Key Management limit that a
     listKeysRequest: requests.ListKeysRequest
   ): Promise<responses.ListKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#listKeys.");
+    const operationName = "listKeys";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1815,7 +1987,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListKeysResponse>{},
         body: await response.json(),
@@ -1907,6 +2085,8 @@ As a management operation, this call is subject to a Key Management limit that a
     restoreKeyFromFileRequest: requests.RestoreKeyFromFileRequest
   ): Promise<responses.RestoreKeyFromFileResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#restoreKeyFromFile.");
+    const operationName = "restoreKeyFromFile";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1938,7 +2118,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreKeyFromFileResponse>{},
         body: await response.json(),
@@ -1991,6 +2177,8 @@ As a management operation, this call is subject to a Key Management limit that a
   ): Promise<responses.RestoreKeyFromObjectStoreResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsManagementClient#restoreKeyFromObjectStore.");
+    const operationName = "restoreKeyFromObjectStore";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2024,7 +2212,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreKeyFromObjectStoreResponse>{},
         body: await response.json(),
@@ -2076,6 +2270,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   ): Promise<responses.ScheduleKeyDeletionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsManagementClient#scheduleKeyDeletion.");
+    const operationName = "scheduleKeyDeletion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": scheduleKeyDeletionRequest.keyId
     };
@@ -2111,7 +2307,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleKeyDeletionResponse>{},
         body: await response.json(),
@@ -2158,6 +2360,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   ): Promise<responses.ScheduleKeyVersionDeletionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsManagementClient#scheduleKeyVersionDeletion.");
+    const operationName = "scheduleKeyVersionDeletion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": scheduleKeyVersionDeletionRequest.keyId,
       "{keyVersionId}": scheduleKeyVersionDeletionRequest.keyVersionId
@@ -2194,7 +2398,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleKeyVersionDeletionResponse>{},
         body: await response.json(),
@@ -2241,6 +2451,8 @@ As a management operation, this call is subject to a Key Management limit that a
     updateKeyRequest: requests.UpdateKeyRequest
   ): Promise<responses.UpdateKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsManagementClient#updateKey.");
+    const operationName = "updateKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{keyId}": updateKeyRequest.keyId
     };
@@ -2275,7 +2487,13 @@ As a management operation, this call is subject to a Key Management limit that a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateKeyResponse>{},
         body: await response.json(),
@@ -2315,6 +2533,7 @@ export class KmsVaultClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "KmsVault";
 
   protected _httpClient: common.HttpClient;
 
@@ -2442,6 +2661,8 @@ export class KmsVaultClient {
     backupVaultRequest: requests.BackupVaultRequest
   ): Promise<responses.BackupVaultResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#backupVault.");
+    const operationName = "backupVault";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": backupVaultRequest.vaultId
     };
@@ -2477,7 +2698,13 @@ export class KmsVaultClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BackupVaultResponse>{},
         body: await response.json(),
@@ -2530,6 +2757,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     cancelVaultDeletionRequest: requests.CancelVaultDeletionRequest
   ): Promise<responses.CancelVaultDeletionResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#cancelVaultDeletion.");
+    const operationName = "cancelVaultDeletion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": cancelVaultDeletionRequest.vaultId
     };
@@ -2560,7 +2789,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelVaultDeletionResponse>{},
         body: await response.json(),
@@ -2608,6 +2843,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     changeVaultCompartmentRequest: requests.ChangeVaultCompartmentRequest
   ): Promise<responses.ChangeVaultCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#changeVaultCompartment.");
+    const operationName = "changeVaultCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": changeVaultCompartmentRequest.vaultId
     };
@@ -2643,7 +2880,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVaultCompartmentResponse>{},
         responseHeaders: [
@@ -2687,6 +2930,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     createVaultRequest: requests.CreateVaultRequest
   ): Promise<responses.CreateVaultResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#createVault.");
+    const operationName = "createVault";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2719,7 +2964,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVaultResponse>{},
         body: await response.json(),
@@ -2768,6 +3019,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     createVaultReplicaRequest: requests.CreateVaultReplicaRequest
   ): Promise<responses.CreateVaultReplicaResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#createVaultReplica.");
+    const operationName = "createVaultReplica";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": createVaultReplicaRequest.vaultId
     };
@@ -2803,7 +3056,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVaultReplicaResponse>{},
         responseHeaders: [
@@ -2844,6 +3103,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     deleteVaultReplicaRequest: requests.DeleteVaultReplicaRequest
   ): Promise<responses.DeleteVaultReplicaResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#deleteVaultReplica.");
+    const operationName = "deleteVaultReplica";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": deleteVaultReplicaRequest.vaultId
     };
@@ -2879,7 +3140,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVaultReplicaResponse>{},
         responseHeaders: [
@@ -2920,6 +3187,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     getVaultRequest: requests.GetVaultRequest
   ): Promise<responses.GetVaultResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#getVault.");
+    const operationName = "getVault";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": getVaultRequest.vaultId
     };
@@ -2948,7 +3217,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVaultResponse>{},
         body: await response.json(),
@@ -2988,6 +3263,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     getVaultUsageRequest: requests.GetVaultUsageRequest
   ): Promise<responses.GetVaultUsageResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#getVaultUsage.");
+    const operationName = "getVaultUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": getVaultUsageRequest.vaultId
     };
@@ -3016,7 +3293,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVaultUsageResponse>{},
         body: await response.json(),
@@ -3056,6 +3339,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     listVaultReplicasRequest: requests.ListVaultReplicasRequest
   ): Promise<responses.ListVaultReplicasResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#listVaultReplicas.");
+    const operationName = "listVaultReplicas";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": listVaultReplicasRequest.vaultId
     };
@@ -3091,7 +3376,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVaultReplicasResponse>{},
         body: await response.json(),
@@ -3193,6 +3484,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     listVaultsRequest: requests.ListVaultsRequest
   ): Promise<responses.ListVaultsResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#listVaults.");
+    const operationName = "listVaults";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3225,7 +3518,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVaultsResponse>{},
         body: await response.json(),
@@ -3319,6 +3618,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     restoreVaultFromFileRequest: requests.RestoreVaultFromFileRequest
   ): Promise<responses.RestoreVaultFromFileResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#restoreVaultFromFile.");
+    const operationName = "restoreVaultFromFile";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3352,7 +3653,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreVaultFromFileResponse>{},
         body: await response.json(),
@@ -3405,6 +3712,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
   ): Promise<responses.RestoreVaultFromObjectStoreResponse> {
     if (this.logger)
       this.logger.debug("Calling operation KmsVaultClient#restoreVaultFromObjectStore.");
+    const operationName = "restoreVaultFromObjectStore";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3440,7 +3749,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreVaultFromObjectStoreResponse>{},
         body: await response.json(),
@@ -3494,6 +3809,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     scheduleVaultDeletionRequest: requests.ScheduleVaultDeletionRequest
   ): Promise<responses.ScheduleVaultDeletionResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#scheduleVaultDeletion.");
+    const operationName = "scheduleVaultDeletion";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": scheduleVaultDeletionRequest.vaultId
     };
@@ -3529,7 +3846,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleVaultDeletionResponse>{},
         body: await response.json(),
@@ -3576,6 +3899,8 @@ As a provisioning operation, this call is subject to a Key Management limit that
     updateVaultRequest: requests.UpdateVaultRequest
   ): Promise<responses.UpdateVaultResponse> {
     if (this.logger) this.logger.debug("Calling operation KmsVaultClient#updateVault.");
+    const operationName = "updateVault";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vaultId}": updateVaultRequest.vaultId
     };
@@ -3610,7 +3935,13 @@ As a provisioning operation, this call is subject to a Key Management limit that
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVaultResponse>{},
         body: await response.json(),

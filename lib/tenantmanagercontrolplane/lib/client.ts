@@ -43,6 +43,7 @@ export class DomainClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Domain";
 
   protected _httpClient: common.HttpClient;
 
@@ -168,6 +169,8 @@ export class DomainClient {
     createDomainRequest: requests.CreateDomainRequest
   ): Promise<responses.CreateDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation DomainClient#createDomain.");
+    const operationName = "createDomain";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -200,7 +203,13 @@ export class DomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDomainResponse>{},
         body: await response.json(),
@@ -244,6 +253,9 @@ export class DomainClient {
     deleteDomainRequest: requests.DeleteDomainRequest
   ): Promise<responses.DeleteDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation DomainClient#deleteDomain.");
+    const operationName = "deleteDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Domain/DeleteDomain";
     const pathParams = {
       "{domainId}": deleteDomainRequest.domainId
     };
@@ -273,7 +285,13 @@ export class DomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDomainResponse>{},
         responseHeaders: [
@@ -303,6 +321,9 @@ export class DomainClient {
     getDomainRequest: requests.GetDomainRequest
   ): Promise<responses.GetDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation DomainClient#getDomain.");
+    const operationName = "getDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Domain/GetDomain";
     const pathParams = {
       "{domainId}": getDomainRequest.domainId
     };
@@ -331,7 +352,13 @@ export class DomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDomainResponse>{},
         body: await response.json(),
@@ -371,6 +398,9 @@ export class DomainClient {
     listDomainsRequest: requests.ListDomainsRequest
   ): Promise<responses.ListDomainsResponse> {
     if (this.logger) this.logger.debug("Calling operation DomainClient#listDomains.");
+    const operationName = "listDomains";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Domain/ListDomains";
     const pathParams = {};
 
     const queryParams = {
@@ -407,7 +437,13 @@ export class DomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDomainsResponse>{},
         body: await response.json(),
@@ -446,6 +482,9 @@ export class DomainClient {
     updateDomainRequest: requests.UpdateDomainRequest
   ): Promise<responses.UpdateDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation DomainClient#updateDomain.");
+    const operationName = "updateDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Domain/UpdateDomain";
     const pathParams = {
       "{domainId}": updateDomainRequest.domainId
     };
@@ -480,7 +519,13 @@ export class DomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDomainResponse>{},
         body: await response.json(),
@@ -521,6 +566,7 @@ export class DomainGovernanceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DomainGovernance";
 
   protected _httpClient: common.HttpClient;
 
@@ -647,6 +693,9 @@ export class DomainGovernanceClient {
   ): Promise<responses.CreateDomainGovernanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DomainGovernanceClient#createDomainGovernance.");
+    const operationName = "createDomainGovernance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/DomainGovernance/CreateDomainGovernance";
     const pathParams = {};
 
     const queryParams = {};
@@ -679,7 +728,13 @@ export class DomainGovernanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDomainGovernanceResponse>{},
         body: await response.json(),
@@ -719,6 +774,9 @@ export class DomainGovernanceClient {
   ): Promise<responses.DeleteDomainGovernanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DomainGovernanceClient#deleteDomainGovernance.");
+    const operationName = "deleteDomainGovernance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/DomainGovernance/DeleteDomainGovernance";
     const pathParams = {
       "{domainGovernanceId}": deleteDomainGovernanceRequest.domainGovernanceId
     };
@@ -748,7 +806,13 @@ export class DomainGovernanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDomainGovernanceResponse>{},
         responseHeaders: [
@@ -779,6 +843,9 @@ export class DomainGovernanceClient {
   ): Promise<responses.GetDomainGovernanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DomainGovernanceClient#getDomainGovernance.");
+    const operationName = "getDomainGovernance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/DomainGovernance/GetDomainGovernance";
     const pathParams = {
       "{domainGovernanceId}": getDomainGovernanceRequest.domainGovernanceId
     };
@@ -807,7 +874,13 @@ export class DomainGovernanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDomainGovernanceResponse>{},
         body: await response.json(),
@@ -848,6 +921,9 @@ export class DomainGovernanceClient {
   ): Promise<responses.ListDomainGovernancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DomainGovernanceClient#listDomainGovernances.");
+    const operationName = "listDomainGovernances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/DomainGovernance/ListDomainGovernances";
     const pathParams = {};
 
     const queryParams = {
@@ -884,7 +960,13 @@ export class DomainGovernanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDomainGovernancesResponse>{},
         body: await response.json(),
@@ -924,6 +1006,9 @@ export class DomainGovernanceClient {
   ): Promise<responses.UpdateDomainGovernanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DomainGovernanceClient#updateDomainGovernance.");
+    const operationName = "updateDomainGovernance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/DomainGovernance/UpdateDomainGovernance";
     const pathParams = {
       "{domainGovernanceId}": updateDomainGovernanceRequest.domainGovernanceId
     };
@@ -958,7 +1043,13 @@ export class DomainGovernanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDomainGovernanceResponse>{},
         body: await response.json(),
@@ -999,6 +1090,7 @@ export class LinkClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Link";
 
   protected _httpClient: common.HttpClient;
 
@@ -1124,6 +1216,9 @@ export class LinkClient {
     deleteLinkRequest: requests.DeleteLinkRequest
   ): Promise<responses.DeleteLinkResponse> {
     if (this.logger) this.logger.debug("Calling operation LinkClient#deleteLink.");
+    const operationName = "deleteLink";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Link/DeleteLink";
     const pathParams = {
       "{linkId}": deleteLinkRequest.linkId
     };
@@ -1153,7 +1248,13 @@ export class LinkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLinkResponse>{},
         responseHeaders: [
@@ -1188,6 +1289,9 @@ export class LinkClient {
     getLinkRequest: requests.GetLinkRequest
   ): Promise<responses.GetLinkResponse> {
     if (this.logger) this.logger.debug("Calling operation LinkClient#getLink.");
+    const operationName = "getLink";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Link/GetLink";
     const pathParams = {
       "{linkId}": getLinkRequest.linkId
     };
@@ -1216,7 +1320,13 @@ export class LinkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLinkResponse>{},
         body: await response.json(),
@@ -1255,6 +1365,9 @@ export class LinkClient {
     listLinksRequest: requests.ListLinksRequest
   ): Promise<responses.ListLinksResponse> {
     if (this.logger) this.logger.debug("Calling operation LinkClient#listLinks.");
+    const operationName = "listLinks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Link/ListLinks";
     const pathParams = {};
 
     const queryParams = {
@@ -1288,7 +1401,13 @@ export class LinkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLinksResponse>{},
         body: await response.json(),
@@ -1328,6 +1447,7 @@ export class OrdersClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Orders";
 
   protected _httpClient: common.HttpClient;
 
@@ -1430,6 +1550,9 @@ export class OrdersClient {
     activateOrderRequest: requests.ActivateOrderRequest
   ): Promise<responses.ActivateOrderResponse> {
     if (this.logger) this.logger.debug("Calling operation OrdersClient#activateOrder.");
+    const operationName = "activateOrder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Order/ActivateOrder";
     const pathParams = {
       "{activationToken}": activateOrderRequest.activationToken
     };
@@ -1464,7 +1587,13 @@ export class OrdersClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateOrderResponse>{},
         responseHeaders: [
@@ -1500,6 +1629,9 @@ export class OrdersClient {
     getOrderRequest: requests.GetOrderRequest
   ): Promise<responses.GetOrderResponse> {
     if (this.logger) this.logger.debug("Calling operation OrdersClient#getOrder.");
+    const operationName = "getOrder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Order/GetOrder";
     const pathParams = {
       "{activationToken}": getOrderRequest.activationToken
     };
@@ -1528,7 +1660,13 @@ export class OrdersClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOrderResponse>{},
         body: await response.json(),
@@ -1564,6 +1702,7 @@ export class OrganizationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Organization";
 
   protected _httpClient: common.HttpClient;
 
@@ -1692,6 +1831,9 @@ export class OrganizationClient {
       this.logger.debug(
         "Calling operation OrganizationClient#approveOrganizationTenancyForTransfer."
       );
+    const operationName = "approveOrganizationTenancyForTransfer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/OrganizationTenancy/ApproveOrganizationTenancyForTransfer";
     const pathParams = {
       "{organizationTenancyId}": approveOrganizationTenancyForTransferRequest.organizationTenancyId
     };
@@ -1724,7 +1866,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ApproveOrganizationTenancyForTransferResponse>{},
         body: await response.json(),
@@ -1763,6 +1911,8 @@ export class OrganizationClient {
     createChildTenancyRequest: requests.CreateChildTenancyRequest
   ): Promise<responses.CreateChildTenancyResponse> {
     if (this.logger) this.logger.debug("Calling operation OrganizationClient#createChildTenancy.");
+    const operationName = "createChildTenancy";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1795,7 +1945,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateChildTenancyResponse>{},
         responseHeaders: [
@@ -1831,6 +1987,9 @@ export class OrganizationClient {
   ): Promise<responses.DeleteOrganizationTenancyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OrganizationClient#deleteOrganizationTenancy.");
+    const operationName = "deleteOrganizationTenancy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/OrganizationTenancy/DeleteOrganizationTenancy";
     const pathParams = {
       "{organizationTenancyId}": deleteOrganizationTenancyRequest.organizationTenancyId
     };
@@ -1861,7 +2020,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOrganizationTenancyResponse>{},
         responseHeaders: [
@@ -1896,6 +2061,9 @@ export class OrganizationClient {
     getOrganizationRequest: requests.GetOrganizationRequest
   ): Promise<responses.GetOrganizationResponse> {
     if (this.logger) this.logger.debug("Calling operation OrganizationClient#getOrganization.");
+    const operationName = "getOrganization";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Organization/GetOrganization";
     const pathParams = {
       "{organizationId}": getOrganizationRequest.organizationId
     };
@@ -1924,7 +2092,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOrganizationResponse>{},
         body: await response.json(),
@@ -1964,6 +2138,9 @@ export class OrganizationClient {
   ): Promise<responses.GetOrganizationTenancyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OrganizationClient#getOrganizationTenancy.");
+    const operationName = "getOrganizationTenancy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/OrganizationTenancy/GetOrganizationTenancy";
     const pathParams = {
       "{organizationId}": getOrganizationTenancyRequest.organizationId,
       "{tenancyId}": getOrganizationTenancyRequest.tenancyId
@@ -1993,7 +2170,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOrganizationTenancyResponse>{},
         body: await response.json(),
@@ -2033,6 +2216,9 @@ export class OrganizationClient {
   ): Promise<responses.ListOrganizationTenanciesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OrganizationClient#listOrganizationTenancies.");
+    const operationName = "listOrganizationTenancies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Organization/ListOrganizationTenancies";
     const pathParams = {
       "{organizationId}": listOrganizationTenanciesRequest.organizationId
     };
@@ -2064,7 +2250,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOrganizationTenanciesResponse>{},
         body: await response.json(),
@@ -2103,6 +2295,9 @@ export class OrganizationClient {
     listOrganizationsRequest: requests.ListOrganizationsRequest
   ): Promise<responses.ListOrganizationsResponse> {
     if (this.logger) this.logger.debug("Calling operation OrganizationClient#listOrganizations.");
+    const operationName = "listOrganizations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Organization/ListOrganizations";
     const pathParams = {};
 
     const queryParams = {
@@ -2133,7 +2328,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOrganizationsResponse>{},
         body: await response.json(),
@@ -2173,6 +2374,9 @@ export class OrganizationClient {
   ): Promise<responses.RestoreOrganizationTenancyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OrganizationClient#restoreOrganizationTenancy.");
+    const operationName = "restoreOrganizationTenancy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/OrganizationTenancy/RestoreOrganizationTenancy";
     const pathParams = {
       "{organizationTenancyId}": restoreOrganizationTenancyRequest.organizationTenancyId
     };
@@ -2202,7 +2406,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreOrganizationTenancyResponse>{},
         responseHeaders: [
@@ -2240,6 +2450,9 @@ export class OrganizationClient {
       this.logger.debug(
         "Calling operation OrganizationClient#unapproveOrganizationTenancyForTransfer."
       );
+    const operationName = "unapproveOrganizationTenancyForTransfer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/OrganizationTenancy/UnapproveOrganizationTenancyForTransfer";
     const pathParams = {
       "{organizationTenancyId}":
         unapproveOrganizationTenancyForTransferRequest.organizationTenancyId
@@ -2273,7 +2486,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UnapproveOrganizationTenancyForTransferResponse>{},
         body: await response.json(),
@@ -2312,6 +2531,9 @@ export class OrganizationClient {
     updateOrganizationRequest: requests.UpdateOrganizationRequest
   ): Promise<responses.UpdateOrganizationResponse> {
     if (this.logger) this.logger.debug("Calling operation OrganizationClient#updateOrganization.");
+    const operationName = "updateOrganization";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Organization/UpdateOrganization";
     const pathParams = {
       "{organizationId}": updateOrganizationRequest.organizationId
     };
@@ -2347,7 +2569,13 @@ export class OrganizationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOrganizationResponse>{},
         responseHeaders: [
@@ -2384,6 +2612,7 @@ export class RecipientInvitationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "RecipientInvitation";
 
   protected _httpClient: common.HttpClient;
 
@@ -2511,6 +2740,9 @@ export class RecipientInvitationClient {
   ): Promise<responses.AcceptRecipientInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RecipientInvitationClient#acceptRecipientInvitation.");
+    const operationName = "acceptRecipientInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/RecipientInvitation/AcceptRecipientInvitation";
     const pathParams = {
       "{recipientInvitationId}": acceptRecipientInvitationRequest.recipientInvitationId
     };
@@ -2541,7 +2773,13 @@ export class RecipientInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AcceptRecipientInvitationResponse>{},
         responseHeaders: [
@@ -2577,6 +2815,9 @@ export class RecipientInvitationClient {
   ): Promise<responses.GetRecipientInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RecipientInvitationClient#getRecipientInvitation.");
+    const operationName = "getRecipientInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/RecipientInvitation/GetRecipientInvitation";
     const pathParams = {
       "{recipientInvitationId}": getRecipientInvitationRequest.recipientInvitationId
     };
@@ -2605,7 +2846,13 @@ export class RecipientInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRecipientInvitationResponse>{},
         body: await response.json(),
@@ -2645,6 +2892,9 @@ export class RecipientInvitationClient {
   ): Promise<responses.IgnoreRecipientInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RecipientInvitationClient#ignoreRecipientInvitation.");
+    const operationName = "ignoreRecipientInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/RecipientInvitation/IgnoreRecipientInvitation";
     const pathParams = {
       "{recipientInvitationId}": ignoreRecipientInvitationRequest.recipientInvitationId
     };
@@ -2675,7 +2925,13 @@ export class RecipientInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.IgnoreRecipientInvitationResponse>{},
         body: await response.json(),
@@ -2716,6 +2972,9 @@ export class RecipientInvitationClient {
   ): Promise<responses.ListRecipientInvitationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RecipientInvitationClient#listRecipientInvitations.");
+    const operationName = "listRecipientInvitations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/RecipientInvitation/ListRecipientInvitations";
     const pathParams = {};
 
     const queryParams = {
@@ -2748,7 +3007,13 @@ export class RecipientInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRecipientInvitationsResponse>{},
         body: await response.json(),
@@ -2788,6 +3053,9 @@ export class RecipientInvitationClient {
   ): Promise<responses.UpdateRecipientInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RecipientInvitationClient#updateRecipientInvitation.");
+    const operationName = "updateRecipientInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/RecipientInvitation/UpdateRecipientInvitation";
     const pathParams = {
       "{recipientInvitationId}": updateRecipientInvitationRequest.recipientInvitationId
     };
@@ -2822,7 +3090,13 @@ export class RecipientInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRecipientInvitationResponse>{},
         body: await response.json(),
@@ -2863,6 +3137,7 @@ export class SenderInvitationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "SenderInvitation";
 
   protected _httpClient: common.HttpClient;
 
@@ -2989,6 +3264,9 @@ export class SenderInvitationClient {
   ): Promise<responses.CancelSenderInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SenderInvitationClient#cancelSenderInvitation.");
+    const operationName = "cancelSenderInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SenderInvitation/CancelSenderInvitation";
     const pathParams = {
       "{senderInvitationId}": cancelSenderInvitationRequest.senderInvitationId
     };
@@ -3019,7 +3297,13 @@ export class SenderInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelSenderInvitationResponse>{},
         responseHeaders: [
@@ -3055,6 +3339,9 @@ export class SenderInvitationClient {
   ): Promise<responses.CreateSenderInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SenderInvitationClient#createSenderInvitation.");
+    const operationName = "createSenderInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SenderInvitation/CreateSenderInvitation";
     const pathParams = {};
 
     const queryParams = {};
@@ -3087,7 +3374,13 @@ export class SenderInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSenderInvitationResponse>{},
         body: await response.json(),
@@ -3132,6 +3425,9 @@ export class SenderInvitationClient {
   ): Promise<responses.GetSenderInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SenderInvitationClient#getSenderInvitation.");
+    const operationName = "getSenderInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SenderInvitation/GetSenderInvitation";
     const pathParams = {
       "{senderInvitationId}": getSenderInvitationRequest.senderInvitationId
     };
@@ -3160,7 +3456,13 @@ export class SenderInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSenderInvitationResponse>{},
         body: await response.json(),
@@ -3201,6 +3503,9 @@ export class SenderInvitationClient {
   ): Promise<responses.ListSenderInvitationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SenderInvitationClient#listSenderInvitations.");
+    const operationName = "listSenderInvitations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SenderInvitation/ListSenderInvitations";
     const pathParams = {};
 
     const queryParams = {
@@ -3237,7 +3542,13 @@ export class SenderInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSenderInvitationsResponse>{},
         body: await response.json(),
@@ -3277,6 +3588,9 @@ export class SenderInvitationClient {
   ): Promise<responses.UpdateSenderInvitationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SenderInvitationClient#updateSenderInvitation.");
+    const operationName = "updateSenderInvitation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SenderInvitation/UpdateSenderInvitation";
     const pathParams = {
       "{senderInvitationId}": updateSenderInvitationRequest.senderInvitationId
     };
@@ -3311,7 +3625,13 @@ export class SenderInvitationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSenderInvitationResponse>{},
         body: await response.json(),
@@ -3352,6 +3672,7 @@ export class SubscriptionClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Subscription";
 
   protected _httpClient: common.HttpClient;
 
@@ -3478,6 +3799,9 @@ export class SubscriptionClient {
   ): Promise<responses.CreateSubscriptionMappingResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionClient#createSubscriptionMapping.");
+    const operationName = "createSubscriptionMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SubscriptionMapping/CreateSubscriptionMapping";
     const pathParams = {};
 
     const queryParams = {};
@@ -3511,7 +3835,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSubscriptionMappingResponse>{},
         body: await response.json(),
@@ -3556,6 +3886,9 @@ export class SubscriptionClient {
   ): Promise<responses.DeleteSubscriptionMappingResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionClient#deleteSubscriptionMapping.");
+    const operationName = "deleteSubscriptionMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SubscriptionMapping/DeleteSubscriptionMapping";
     const pathParams = {
       "{subscriptionMappingId}": deleteSubscriptionMappingRequest.subscriptionMappingId
     };
@@ -3585,7 +3918,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSubscriptionMappingResponse>{},
         responseHeaders: [
@@ -3616,6 +3955,9 @@ export class SubscriptionClient {
   ): Promise<responses.GetAssignedSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionClient#getAssignedSubscription.");
+    const operationName = "getAssignedSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/AssignedSubscription/GetAssignedSubscription";
     const pathParams = {
       "{assignedSubscriptionId}": getAssignedSubscriptionRequest.assignedSubscriptionId
     };
@@ -3644,7 +3986,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAssignedSubscriptionResponse>{},
         body: await response.json(),
@@ -3683,6 +4031,9 @@ export class SubscriptionClient {
     getSubscriptionRequest: requests.GetSubscriptionRequest
   ): Promise<responses.GetSubscriptionResponse> {
     if (this.logger) this.logger.debug("Calling operation SubscriptionClient#getSubscription.");
+    const operationName = "getSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Subscription/GetSubscription";
     const pathParams = {
       "{subscriptionId}": getSubscriptionRequest.subscriptionId
     };
@@ -3711,7 +4062,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSubscriptionResponse>{},
         body: await response.json(),
@@ -3751,6 +4108,9 @@ export class SubscriptionClient {
   ): Promise<responses.GetSubscriptionMappingResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionClient#getSubscriptionMapping.");
+    const operationName = "getSubscriptionMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SubscriptionMapping/GetSubscriptionMapping";
     const pathParams = {
       "{subscriptionMappingId}": getSubscriptionMappingRequest.subscriptionMappingId
     };
@@ -3779,7 +4139,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSubscriptionMappingResponse>{},
         body: await response.json(),
@@ -3819,6 +4185,9 @@ export class SubscriptionClient {
   ): Promise<responses.ListAssignedSubscriptionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionClient#listAssignedSubscriptions.");
+    const operationName = "listAssignedSubscriptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/AssignedSubscription/ListAssignedSubscriptions";
     const pathParams = {};
 
     const queryParams = {
@@ -3852,7 +4221,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAssignedSubscriptionsResponse>{},
         body: await response.json(),
@@ -3892,6 +4267,9 @@ export class SubscriptionClient {
   ): Promise<responses.ListAvailableRegionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionClient#listAvailableRegions.");
+    const operationName = "listAvailableRegions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Subscription/ListAvailableRegions";
     const pathParams = {
       "{subscriptionId}": listAvailableRegionsRequest.subscriptionId
     };
@@ -3922,7 +4300,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailableRegionsResponse>{},
         body: await response.json(),
@@ -3962,6 +4346,9 @@ export class SubscriptionClient {
   ): Promise<responses.ListSubscriptionMappingsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionClient#listSubscriptionMappings.");
+    const operationName = "listSubscriptionMappings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/SubscriptionMapping/ListSubscriptionMappings";
     const pathParams = {};
 
     const queryParams = {
@@ -3997,7 +4384,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSubscriptionMappingsResponse>{},
         body: await response.json(),
@@ -4036,6 +4429,9 @@ export class SubscriptionClient {
     listSubscriptionsRequest: requests.ListSubscriptionsRequest
   ): Promise<responses.ListSubscriptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation SubscriptionClient#listSubscriptions.");
+    const operationName = "listSubscriptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/Subscription/ListSubscriptions";
     const pathParams = {};
 
     const queryParams = {
@@ -4069,7 +4465,13 @@ export class SubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSubscriptionsResponse>{},
         body: await response.json(),
@@ -4110,6 +4512,7 @@ export class WorkRequestClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "WorkRequest";
 
   protected _httpClient: common.HttpClient;
 
@@ -4235,6 +4638,9 @@ export class WorkRequestClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -4263,7 +4669,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -4304,6 +4716,9 @@ export class WorkRequestClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -4336,7 +4751,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -4376,6 +4797,9 @@ export class WorkRequestClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -4408,7 +4832,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -4448,6 +4878,9 @@ export class WorkRequestClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -4479,7 +4912,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),

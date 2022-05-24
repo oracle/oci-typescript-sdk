@@ -12,7 +12,15 @@ const Breaker = require("opossum");
 promise.polyfill();
 
 export interface HttpClient {
-  send(req: HttpRequest, forceExcludeBody?: boolean): Promise<Response>;
+  send(
+    req: HttpRequest,
+    forceExcludeBody?: boolean,
+    targetService?: string,
+    operationName?: string,
+    timestamp?: string,
+    endpoint?: string,
+    apiReferenceLink?: string
+  ): Promise<Response>;
 }
 
 export class FetchHttpClient implements HttpClient {
@@ -31,7 +39,15 @@ export class FetchHttpClient implements HttpClient {
     if (httpOptions) this.httpOptions = httpOptions;
   }
 
-  public async send(req: HttpRequest, forceExcludeBody: boolean = false): Promise<Response> {
+  public async send(
+    req: HttpRequest,
+    forceExcludeBody: boolean = false,
+    targetService: string = "",
+    operationName: string = "",
+    timestamp: string = new Date().toISOString(),
+    endpoint: string = "",
+    apiReferenceLink: string = ""
+  ): Promise<Response> {
     // Get Request body
     const body = getSignerAndReqBody(req.body, forceExcludeBody);
     // Sign Request
@@ -57,9 +73,25 @@ export class FetchHttpClient implements HttpClient {
 
     if (this.circuitBreaker) {
       return options
-        ? this.circuitBreaker.fire(request, options)
+        ? this.circuitBreaker.fire(
+            request,
+            options,
+            targetService,
+            operationName,
+            timestamp,
+            endpoint,
+            apiReferenceLink
+          )
         : this.circuitBreaker
-            .fire(request)
+            .fire(
+              request,
+              undefined,
+              targetService,
+              operationName,
+              timestamp,
+              endpoint,
+              apiReferenceLink
+            )
             .then((e: any) => {
               return e.response ? e.response : e;
             })

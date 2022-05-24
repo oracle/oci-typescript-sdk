@@ -42,6 +42,7 @@ export class ApplianceExportJobClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ApplianceExportJob";
 
   protected _httpClient: common.HttpClient;
 
@@ -170,6 +171,8 @@ export class ApplianceExportJobClient {
       this.logger.debug(
         "Calling operation ApplianceExportJobClient#changeApplianceExportJobCompartment."
       );
+    const operationName = "changeApplianceExportJobCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{applianceExportJobId}": changeApplianceExportJobCompartmentRequest.applianceExportJobId
     };
@@ -205,7 +208,13 @@ export class ApplianceExportJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeApplianceExportJobCompartmentResponse>{},
         responseHeaders: [
@@ -236,6 +245,8 @@ export class ApplianceExportJobClient {
   ): Promise<responses.CreateApplianceExportJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplianceExportJobClient#createApplianceExportJob.");
+    const operationName = "createApplianceExportJob";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -268,7 +279,13 @@ export class ApplianceExportJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateApplianceExportJobResponse>{},
         body: await response.json(),
@@ -308,6 +325,8 @@ export class ApplianceExportJobClient {
   ): Promise<responses.DeleteApplianceExportJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplianceExportJobClient#deleteApplianceExportJob.");
+    const operationName = "deleteApplianceExportJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{applianceExportJobId}": deleteApplianceExportJobRequest.applianceExportJobId
     };
@@ -337,7 +356,13 @@ export class ApplianceExportJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteApplianceExportJobResponse>{},
         responseHeaders: [
@@ -368,6 +393,8 @@ export class ApplianceExportJobClient {
   ): Promise<responses.GetApplianceExportJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplianceExportJobClient#getApplianceExportJob.");
+    const operationName = "getApplianceExportJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{applianceExportJobId}": getApplianceExportJobRequest.applianceExportJobId
     };
@@ -396,7 +423,13 @@ export class ApplianceExportJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetApplianceExportJobResponse>{},
         body: await response.json(),
@@ -436,6 +469,8 @@ export class ApplianceExportJobClient {
   ): Promise<responses.ListApplianceExportJobsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplianceExportJobClient#listApplianceExportJobs.");
+    const operationName = "listApplianceExportJobs";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -468,7 +503,13 @@ export class ApplianceExportJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApplianceExportJobsResponse>{},
         body: await response.json(),
@@ -560,6 +601,8 @@ export class ApplianceExportJobClient {
   ): Promise<responses.UpdateApplianceExportJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplianceExportJobClient#updateApplianceExportJob.");
+    const operationName = "updateApplianceExportJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{applianceExportJobId}": updateApplianceExportJobRequest.applianceExportJobId
     };
@@ -594,7 +637,13 @@ export class ApplianceExportJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateApplianceExportJobResponse>{},
         body: await response.json(),
@@ -634,6 +683,7 @@ export class ShippingVendorsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ShippingVendors";
 
   protected _httpClient: common.HttpClient;
 
@@ -737,6 +787,8 @@ export class ShippingVendorsClient {
   ): Promise<responses.ListShippingVendorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ShippingVendorsClient#listShippingVendors.");
+    const operationName = "listShippingVendors";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -762,7 +814,13 @@ export class ShippingVendorsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListShippingVendorsResponse>{},
         body: await response.json(),
@@ -798,6 +856,7 @@ export class TransferApplianceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "TransferAppliance";
 
   protected _httpClient: common.HttpClient;
 
@@ -924,6 +983,8 @@ export class TransferApplianceClient {
   ): Promise<responses.CreateTransferApplianceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferApplianceClient#createTransferAppliance.");
+    const operationName = "createTransferAppliance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": createTransferApplianceRequest.id
     };
@@ -957,7 +1018,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTransferApplianceResponse>{},
         body: await response.json(),
@@ -999,6 +1066,8 @@ export class TransferApplianceClient {
       this.logger.debug(
         "Calling operation TransferApplianceClient#createTransferApplianceAdminCredentials."
       );
+    const operationName = "createTransferApplianceAdminCredentials";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": createTransferApplianceAdminCredentialsRequest.id,
       "{transferApplianceLabel}":
@@ -1033,7 +1102,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTransferApplianceAdminCredentialsResponse>{},
         body: await response.json(),
@@ -1073,6 +1148,8 @@ export class TransferApplianceClient {
   ): Promise<responses.DeleteTransferApplianceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferApplianceClient#deleteTransferAppliance.");
+    const operationName = "deleteTransferAppliance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": deleteTransferApplianceRequest.id,
       "{transferApplianceLabel}": deleteTransferApplianceRequest.transferApplianceLabel
@@ -1101,7 +1178,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTransferApplianceResponse>{},
         responseHeaders: [
@@ -1132,6 +1215,8 @@ export class TransferApplianceClient {
   ): Promise<responses.GetTransferApplianceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferApplianceClient#getTransferAppliance.");
+    const operationName = "getTransferAppliance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": getTransferApplianceRequest.id,
       "{transferApplianceLabel}": getTransferApplianceRequest.transferApplianceLabel
@@ -1160,7 +1245,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTransferApplianceResponse>{},
         body: await response.json(),
@@ -1202,6 +1293,8 @@ export class TransferApplianceClient {
       this.logger.debug(
         "Calling operation TransferApplianceClient#getTransferApplianceCertificateAuthorityCertificate."
       );
+    const operationName = "getTransferApplianceCertificateAuthorityCertificate";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": getTransferApplianceCertificateAuthorityCertificateRequest.id,
       "{transferApplianceLabel}":
@@ -1232,7 +1325,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTransferApplianceCertificateAuthorityCertificateResponse>{},
         body: await response.json(),
@@ -1274,6 +1373,8 @@ export class TransferApplianceClient {
       this.logger.debug(
         "Calling operation TransferApplianceClient#getTransferApplianceEncryptionPassphrase."
       );
+    const operationName = "getTransferApplianceEncryptionPassphrase";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": getTransferApplianceEncryptionPassphraseRequest.id,
       "{transferApplianceLabel}":
@@ -1303,7 +1404,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTransferApplianceEncryptionPassphraseResponse>{},
         body: await response.json(),
@@ -1343,6 +1450,8 @@ export class TransferApplianceClient {
   ): Promise<responses.ListTransferAppliancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferApplianceClient#listTransferAppliances.");
+    const operationName = "listTransferAppliances";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": listTransferAppliancesRequest.id
     };
@@ -1372,7 +1481,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTransferAppliancesResponse>{},
         body: await response.json(),
@@ -1407,6 +1522,8 @@ export class TransferApplianceClient {
   ): Promise<responses.UpdateTransferApplianceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferApplianceClient#updateTransferAppliance.");
+    const operationName = "updateTransferAppliance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": updateTransferApplianceRequest.id,
       "{transferApplianceLabel}": updateTransferApplianceRequest.transferApplianceLabel
@@ -1441,7 +1558,13 @@ export class TransferApplianceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTransferApplianceResponse>{},
         body: await response.json(),
@@ -1482,6 +1605,7 @@ export class TransferApplianceEntitlementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "TransferApplianceEntitlement";
 
   protected _httpClient: common.HttpClient;
 
@@ -1611,6 +1735,8 @@ export class TransferApplianceEntitlementClient {
       this.logger.debug(
         "Calling operation TransferApplianceEntitlementClient#createTransferApplianceEntitlement."
       );
+    const operationName = "createTransferApplianceEntitlement";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1643,7 +1769,13 @@ export class TransferApplianceEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTransferApplianceEntitlementResponse>{},
         body: await response.json(),
@@ -1685,6 +1817,8 @@ export class TransferApplianceEntitlementClient {
       this.logger.debug(
         "Calling operation TransferApplianceEntitlementClient#getTransferApplianceEntitlement."
       );
+    const operationName = "getTransferApplianceEntitlement";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": getTransferApplianceEntitlementRequest.id
     };
@@ -1714,7 +1848,13 @@ export class TransferApplianceEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTransferApplianceEntitlementResponse>{},
         body: await response.json(),
@@ -1751,6 +1891,8 @@ export class TransferApplianceEntitlementClient {
       this.logger.debug(
         "Calling operation TransferApplianceEntitlementClient#listTransferApplianceEntitlement."
       );
+    const operationName = "listTransferApplianceEntitlement";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1781,7 +1923,13 @@ export class TransferApplianceEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTransferApplianceEntitlementResponse>{},
         body: await response.json(),
@@ -1817,6 +1965,7 @@ export class TransferDeviceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "TransferDevice";
 
   protected _httpClient: common.HttpClient;
 
@@ -1943,6 +2092,8 @@ export class TransferDeviceClient {
   ): Promise<responses.CreateTransferDeviceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferDeviceClient#createTransferDevice.");
+    const operationName = "createTransferDevice";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": createTransferDeviceRequest.id
     };
@@ -1976,7 +2127,13 @@ export class TransferDeviceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTransferDeviceResponse>{},
         body: await response.json(),
@@ -2016,6 +2173,8 @@ export class TransferDeviceClient {
   ): Promise<responses.DeleteTransferDeviceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferDeviceClient#deleteTransferDevice.");
+    const operationName = "deleteTransferDevice";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": deleteTransferDeviceRequest.id,
       "{transferDeviceLabel}": deleteTransferDeviceRequest.transferDeviceLabel
@@ -2044,7 +2203,13 @@ export class TransferDeviceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTransferDeviceResponse>{},
         responseHeaders: [
@@ -2074,6 +2239,8 @@ export class TransferDeviceClient {
     getTransferDeviceRequest: requests.GetTransferDeviceRequest
   ): Promise<responses.GetTransferDeviceResponse> {
     if (this.logger) this.logger.debug("Calling operation TransferDeviceClient#getTransferDevice.");
+    const operationName = "getTransferDevice";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": getTransferDeviceRequest.id,
       "{transferDeviceLabel}": getTransferDeviceRequest.transferDeviceLabel
@@ -2102,7 +2269,13 @@ export class TransferDeviceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTransferDeviceResponse>{},
         body: await response.json(),
@@ -2142,6 +2315,8 @@ export class TransferDeviceClient {
   ): Promise<responses.ListTransferDevicesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferDeviceClient#listTransferDevices.");
+    const operationName = "listTransferDevices";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": listTransferDevicesRequest.id
     };
@@ -2172,7 +2347,13 @@ export class TransferDeviceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTransferDevicesResponse>{},
         body: await response.json(),
@@ -2207,6 +2388,8 @@ export class TransferDeviceClient {
   ): Promise<responses.UpdateTransferDeviceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferDeviceClient#updateTransferDevice.");
+    const operationName = "updateTransferDevice";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": updateTransferDeviceRequest.id,
       "{transferDeviceLabel}": updateTransferDeviceRequest.transferDeviceLabel
@@ -2241,7 +2424,13 @@ export class TransferDeviceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTransferDeviceResponse>{},
         body: await response.json(),
@@ -2282,6 +2471,7 @@ export class TransferJobClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "TransferJob";
 
   protected _httpClient: common.HttpClient;
 
@@ -2408,6 +2598,8 @@ export class TransferJobClient {
   ): Promise<responses.ChangeTransferJobCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferJobClient#changeTransferJobCompartment.");
+    const operationName = "changeTransferJobCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{transferJobId}": changeTransferJobCompartmentRequest.transferJobId
     };
@@ -2443,7 +2635,13 @@ export class TransferJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTransferJobCompartmentResponse>{},
         responseHeaders: [
@@ -2478,6 +2676,8 @@ export class TransferJobClient {
     createTransferJobRequest: requests.CreateTransferJobRequest
   ): Promise<responses.CreateTransferJobResponse> {
     if (this.logger) this.logger.debug("Calling operation TransferJobClient#createTransferJob.");
+    const operationName = "createTransferJob";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2510,7 +2710,13 @@ export class TransferJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTransferJobResponse>{},
         body: await response.json(),
@@ -2549,6 +2755,8 @@ export class TransferJobClient {
     deleteTransferJobRequest: requests.DeleteTransferJobRequest
   ): Promise<responses.DeleteTransferJobResponse> {
     if (this.logger) this.logger.debug("Calling operation TransferJobClient#deleteTransferJob.");
+    const operationName = "deleteTransferJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": deleteTransferJobRequest.id
     };
@@ -2577,7 +2785,13 @@ export class TransferJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTransferJobResponse>{},
         responseHeaders: [
@@ -2607,6 +2821,8 @@ export class TransferJobClient {
     getTransferJobRequest: requests.GetTransferJobRequest
   ): Promise<responses.GetTransferJobResponse> {
     if (this.logger) this.logger.debug("Calling operation TransferJobClient#getTransferJob.");
+    const operationName = "getTransferJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": getTransferJobRequest.id
     };
@@ -2635,7 +2851,13 @@ export class TransferJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTransferJobResponse>{},
         body: await response.json(),
@@ -2674,6 +2896,8 @@ export class TransferJobClient {
     listTransferJobsRequest: requests.ListTransferJobsRequest
   ): Promise<responses.ListTransferJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation TransferJobClient#listTransferJobs.");
+    const operationName = "listTransferJobs";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -2706,7 +2930,13 @@ export class TransferJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTransferJobsResponse>{},
         body: await response.json(),
@@ -2797,6 +3027,8 @@ export class TransferJobClient {
     updateTransferJobRequest: requests.UpdateTransferJobRequest
   ): Promise<responses.UpdateTransferJobResponse> {
     if (this.logger) this.logger.debug("Calling operation TransferJobClient#updateTransferJob.");
+    const operationName = "updateTransferJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": updateTransferJobRequest.id
     };
@@ -2831,7 +3063,13 @@ export class TransferJobClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTransferJobResponse>{},
         body: await response.json(),
@@ -2872,6 +3110,7 @@ export class TransferPackageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "TransferPackage";
 
   protected _httpClient: common.HttpClient;
 
@@ -2998,6 +3237,8 @@ export class TransferPackageClient {
   ): Promise<responses.AttachDevicesToTransferPackageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferPackageClient#attachDevicesToTransferPackage.");
+    const operationName = "attachDevicesToTransferPackage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": attachDevicesToTransferPackageRequest.id,
       "{transferPackageLabel}": attachDevicesToTransferPackageRequest.transferPackageLabel
@@ -3031,7 +3272,13 @@ export class TransferPackageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachDevicesToTransferPackageResponse>{},
         responseHeaders: [
@@ -3067,6 +3314,8 @@ export class TransferPackageClient {
   ): Promise<responses.CreateTransferPackageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferPackageClient#createTransferPackage.");
+    const operationName = "createTransferPackage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": createTransferPackageRequest.id
     };
@@ -3100,7 +3349,13 @@ export class TransferPackageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTransferPackageResponse>{},
         body: await response.json(),
@@ -3140,6 +3395,8 @@ export class TransferPackageClient {
   ): Promise<responses.DeleteTransferPackageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferPackageClient#deleteTransferPackage.");
+    const operationName = "deleteTransferPackage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": deleteTransferPackageRequest.id,
       "{transferPackageLabel}": deleteTransferPackageRequest.transferPackageLabel
@@ -3168,7 +3425,13 @@ export class TransferPackageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTransferPackageResponse>{},
         responseHeaders: [
@@ -3201,6 +3464,8 @@ export class TransferPackageClient {
       this.logger.debug(
         "Calling operation TransferPackageClient#detachDevicesFromTransferPackage."
       );
+    const operationName = "detachDevicesFromTransferPackage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": detachDevicesFromTransferPackageRequest.id,
       "{transferPackageLabel}": detachDevicesFromTransferPackageRequest.transferPackageLabel
@@ -3234,7 +3499,13 @@ export class TransferPackageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachDevicesFromTransferPackageResponse>{},
         responseHeaders: [
@@ -3270,6 +3541,8 @@ export class TransferPackageClient {
   ): Promise<responses.GetTransferPackageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferPackageClient#getTransferPackage.");
+    const operationName = "getTransferPackage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": getTransferPackageRequest.id,
       "{transferPackageLabel}": getTransferPackageRequest.transferPackageLabel
@@ -3298,7 +3571,13 @@ export class TransferPackageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTransferPackageResponse>{},
         body: await response.json(),
@@ -3338,6 +3617,8 @@ export class TransferPackageClient {
   ): Promise<responses.ListTransferPackagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferPackageClient#listTransferPackages.");
+    const operationName = "listTransferPackages";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": listTransferPackagesRequest.id
     };
@@ -3368,7 +3649,13 @@ export class TransferPackageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTransferPackagesResponse>{},
         body: await response.json(),
@@ -3403,6 +3690,8 @@ export class TransferPackageClient {
   ): Promise<responses.UpdateTransferPackageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation TransferPackageClient#updateTransferPackage.");
+    const operationName = "updateTransferPackage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{id}": updateTransferPackageRequest.id,
       "{transferPackageLabel}": updateTransferPackageRequest.transferPackageLabel
@@ -3437,7 +3726,13 @@ export class TransferPackageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTransferPackageResponse>{},
         body: await response.json(),

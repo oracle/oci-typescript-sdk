@@ -35,6 +35,7 @@ export class ComputedUsageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ComputedUsage";
 
   protected _httpClient: common.HttpClient;
 
@@ -138,6 +139,8 @@ export class ComputedUsageClient {
     getComputedUsageRequest: requests.GetComputedUsageRequest
   ): Promise<responses.GetComputedUsageResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputedUsageClient#getComputedUsage.");
+    const operationName = "getComputedUsage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{computedUsageId}": getComputedUsageRequest.computedUsageId
     };
@@ -170,7 +173,13 @@ export class ComputedUsageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetComputedUsageResponse>{},
         body: await response.json(),
@@ -206,6 +215,8 @@ export class ComputedUsageClient {
   ): Promise<responses.ListComputedUsageAggregatedsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputedUsageClient#listComputedUsageAggregateds.");
+    const operationName = "listComputedUsageAggregateds";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -242,7 +253,13 @@ export class ComputedUsageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputedUsageAggregatedsResponse>{},
         body: await response.json(),
@@ -334,6 +351,8 @@ export class ComputedUsageClient {
     listComputedUsagesRequest: requests.ListComputedUsagesRequest
   ): Promise<responses.ListComputedUsagesResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputedUsageClient#listComputedUsages.");
+    const operationName = "listComputedUsages";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -372,7 +391,13 @@ export class ComputedUsageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputedUsagesResponse>{},
         body: await response.json(),

@@ -36,6 +36,7 @@ export class OceInstanceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "OceInstance";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,8 @@ export class OceInstanceClient {
   ): Promise<responses.ChangeOceInstanceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OceInstanceClient#changeOceInstanceCompartment.");
+    const operationName = "changeOceInstanceCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{oceInstanceId}": changeOceInstanceCompartmentRequest.oceInstanceId
     };
@@ -197,7 +200,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeOceInstanceCompartmentResponse>{},
         responseHeaders: [
@@ -233,6 +242,8 @@ export class OceInstanceClient {
     createOceInstanceRequest: requests.CreateOceInstanceRequest
   ): Promise<responses.CreateOceInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#createOceInstance.");
+    const operationName = "createOceInstance";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -265,7 +276,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOceInstanceResponse>{},
         responseHeaders: [
@@ -300,6 +317,8 @@ export class OceInstanceClient {
     deleteOceInstanceRequest: requests.DeleteOceInstanceRequest
   ): Promise<responses.DeleteOceInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#deleteOceInstance.");
+    const operationName = "deleteOceInstance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{oceInstanceId}": deleteOceInstanceRequest.oceInstanceId
     };
@@ -329,7 +348,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOceInstanceResponse>{},
         responseHeaders: [
@@ -364,6 +389,8 @@ export class OceInstanceClient {
     getOceInstanceRequest: requests.GetOceInstanceRequest
   ): Promise<responses.GetOceInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#getOceInstance.");
+    const operationName = "getOceInstance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{oceInstanceId}": getOceInstanceRequest.oceInstanceId
     };
@@ -392,7 +419,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOceInstanceResponse>{},
         body: await response.json(),
@@ -431,6 +464,8 @@ export class OceInstanceClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -459,7 +494,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -504,6 +545,8 @@ export class OceInstanceClient {
     listOceInstancesRequest: requests.ListOceInstancesRequest
   ): Promise<responses.ListOceInstancesResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listOceInstances.");
+    const operationName = "listOceInstances";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -539,7 +582,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOceInstancesResponse>{},
         body: await response.json(),
@@ -632,6 +681,8 @@ export class OceInstanceClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OceInstanceClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -663,7 +714,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -755,6 +812,8 @@ export class OceInstanceClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -786,7 +845,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -878,6 +943,8 @@ export class OceInstanceClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -909,7 +976,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1000,6 +1073,8 @@ export class OceInstanceClient {
     updateOceInstanceRequest: requests.UpdateOceInstanceRequest
   ): Promise<responses.UpdateOceInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation OceInstanceClient#updateOceInstance.");
+    const operationName = "updateOceInstance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{oceInstanceId}": updateOceInstanceRequest.oceInstanceId
     };
@@ -1034,7 +1109,13 @@ export class OceInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOceInstanceResponse>{},
         responseHeaders: [

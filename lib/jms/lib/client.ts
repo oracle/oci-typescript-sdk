@@ -36,6 +36,7 @@ export class JavaManagementServiceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "JavaManagementService";
 
   protected _httpClient: common.HttpClient;
 
@@ -163,6 +164,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -192,7 +196,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -224,6 +234,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ChangeFleetCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#changeFleetCompartment.");
+    const operationName = "changeFleetCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/ChangeFleetCompartment";
     const pathParams = {
       "{fleetId}": changeFleetCompartmentRequest.fleetId
     };
@@ -259,7 +272,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeFleetCompartmentResponse>{},
         responseHeaders: [
@@ -296,6 +315,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.CreateBlocklistResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#createBlocklist.");
+    const operationName = "createBlocklist";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/CreateBlocklist";
     const pathParams = {
       "{fleetId}": createBlocklistRequest.fleetId
     };
@@ -330,7 +352,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBlocklistResponse>{},
         body: await response.json(),
@@ -371,6 +399,8 @@ export class JavaManagementServiceClient {
   ): Promise<responses.CreateFleetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#createFleet.");
+    const operationName = "createFleet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/CreateFleet";
     const pathParams = {};
 
     const queryParams = {};
@@ -403,7 +433,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFleetResponse>{},
         responseHeaders: [
@@ -439,6 +475,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.DeleteBlocklistResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#deleteBlocklist.");
+    const operationName = "deleteBlocklist";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/DeleteBlocklist";
     const pathParams = {
       "{fleetId}": deleteBlocklistRequest.fleetId,
       "{blocklistKey}": deleteBlocklistRequest.blocklistKey
@@ -469,7 +508,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBlocklistResponse>{},
         responseHeaders: [
@@ -500,6 +545,8 @@ export class JavaManagementServiceClient {
   ): Promise<responses.DeleteFleetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#deleteFleet.");
+    const operationName = "deleteFleet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/DeleteFleet";
     const pathParams = {
       "{fleetId}": deleteFleetRequest.fleetId
     };
@@ -529,7 +576,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFleetResponse>{},
         responseHeaders: [
@@ -564,6 +617,8 @@ export class JavaManagementServiceClient {
     getFleetRequest: requests.GetFleetRequest
   ): Promise<responses.GetFleetResponse> {
     if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#getFleet.");
+    const operationName = "getFleet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/GetFleet";
     const pathParams = {
       "{fleetId}": getFleetRequest.fleetId
     };
@@ -592,7 +647,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFleetResponse>{},
         body: await response.json(),
@@ -634,6 +695,9 @@ export class JavaManagementServiceClient {
       this.logger.debug(
         "Calling operation JavaManagementServiceClient#getFleetAgentConfiguration."
       );
+    const operationName = "getFleetAgentConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAgentConfiguration/GetFleetAgentConfiguration";
     const pathParams = {
       "{fleetId}": getFleetAgentConfigurationRequest.fleetId
     };
@@ -662,7 +726,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFleetAgentConfigurationResponse>{},
         body: await response.json(),
@@ -702,6 +772,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -730,7 +803,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -776,6 +855,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListBlocklistsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listBlocklists.");
+    const operationName = "listBlocklists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Blocklist/ListBlocklists";
     const pathParams = {
       "{fleetId}": listBlocklistsRequest.fleetId
     };
@@ -811,7 +893,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBlocklistsResponse>{},
         body: await response.json(),
@@ -852,6 +940,8 @@ export class JavaManagementServiceClient {
     listFleetsRequest: requests.ListFleetsRequest
   ): Promise<responses.ListFleetsResponse> {
     if (this.logger) this.logger.debug("Calling operation JavaManagementServiceClient#listFleets.");
+    const operationName = "listFleets";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/ListFleets";
     const pathParams = {};
 
     const queryParams = {
@@ -887,7 +977,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFleetsResponse>{},
         body: await response.json(),
@@ -927,6 +1023,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListInstallationSitesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listInstallationSites.");
+    const operationName = "listInstallationSites";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/ListInstallationSites";
     const pathParams = {
       "{fleetId}": listInstallationSitesRequest.fleetId
     };
@@ -968,7 +1067,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstallationSitesResponse>{},
         body: await response.json(),
@@ -1008,6 +1113,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListJreUsageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listJreUsage.");
+    const operationName = "listJreUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JreUsage/ListJreUsage";
     const pathParams = {};
 
     const queryParams = {
@@ -1045,7 +1153,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJreUsageResponse>{},
         body: await response.json(),
@@ -1086,6 +1200,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListWorkItemsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkItems.");
+    const operationName = "listWorkItems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkItemSummary/ListWorkItems";
     const pathParams = {
       "{workRequestId}": listWorkItemsRequest.workRequestId
     };
@@ -1117,7 +1234,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkItemsResponse>{},
         body: await response.json(),
@@ -1158,6 +1281,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1189,7 +1315,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1230,6 +1362,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1261,7 +1396,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1302,6 +1443,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1334,7 +1478,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1376,6 +1526,9 @@ export class JavaManagementServiceClient {
       this.logger.debug(
         "Calling operation JavaManagementServiceClient#removeFleetInstallationSites."
       );
+    const operationName = "removeFleetInstallationSites";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/RemoveFleetInstallationSites";
     const pathParams = {
       "{fleetId}": removeFleetInstallationSitesRequest.fleetId
     };
@@ -1411,7 +1564,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveFleetInstallationSitesResponse>{},
         responseHeaders: [
@@ -1447,6 +1606,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.SummarizeApplicationUsageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#summarizeApplicationUsage.");
+    const operationName = "summarizeApplicationUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ApplicationUsage/SummarizeApplicationUsage";
     const pathParams = {
       "{fleetId}": summarizeApplicationUsageRequest.fleetId
     };
@@ -1492,7 +1654,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeApplicationUsageResponse>{},
         body: await response.json(),
@@ -1534,6 +1702,9 @@ export class JavaManagementServiceClient {
       this.logger.debug(
         "Calling operation JavaManagementServiceClient#summarizeInstallationUsage."
       );
+    const operationName = "summarizeInstallationUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationUsage/SummarizeInstallationUsage";
     const pathParams = {
       "{fleetId}": summarizeInstallationUsageRequest.fleetId
     };
@@ -1577,7 +1748,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeInstallationUsageResponse>{},
         body: await response.json(),
@@ -1617,6 +1794,9 @@ export class JavaManagementServiceClient {
   ): Promise<responses.SummarizeJreUsageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#summarizeJreUsage.");
+    const operationName = "summarizeJreUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JreUsage/SummarizeJreUsage";
     const pathParams = {
       "{fleetId}": summarizeJreUsageRequest.fleetId
     };
@@ -1660,7 +1840,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeJreUsageResponse>{},
         body: await response.json(),
@@ -1702,6 +1888,9 @@ export class JavaManagementServiceClient {
       this.logger.debug(
         "Calling operation JavaManagementServiceClient#summarizeManagedInstanceUsage."
       );
+    const operationName = "summarizeManagedInstanceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ManagedInstanceUsage/SummarizeManagedInstanceUsage";
     const pathParams = {
       "{fleetId}": summarizeManagedInstanceUsageRequest.fleetId
     };
@@ -1746,7 +1935,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeManagedInstanceUsageResponse>{},
         body: await response.json(),
@@ -1789,6 +1984,9 @@ export class JavaManagementServiceClient {
       this.logger.debug(
         "Calling operation JavaManagementServiceClient#summarizeResourceInventory."
       );
+    const operationName = "summarizeResourceInventory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/SummarizeResourceInventory";
     const pathParams = {};
 
     const queryParams = {
@@ -1819,7 +2017,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeResourceInventoryResponse>{},
         body: await response.json(),
@@ -1854,6 +2058,8 @@ export class JavaManagementServiceClient {
   ): Promise<responses.UpdateFleetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation JavaManagementServiceClient#updateFleet.");
+    const operationName = "updateFleet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/UpdateFleet";
     const pathParams = {
       "{fleetId}": updateFleetRequest.fleetId
     };
@@ -1888,7 +2094,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFleetResponse>{},
         responseHeaders: [
@@ -1926,6 +2138,9 @@ export class JavaManagementServiceClient {
       this.logger.debug(
         "Calling operation JavaManagementServiceClient#updateFleetAgentConfiguration."
       );
+    const operationName = "updateFleetAgentConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAgentConfiguration/UpdateFleetAgentConfiguration";
     const pathParams = {
       "{fleetId}": updateFleetAgentConfigurationRequest.fleetId
     };
@@ -1960,7 +2175,13 @@ export class JavaManagementServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFleetAgentConfigurationResponse>{},
         responseHeaders: [

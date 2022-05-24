@@ -42,6 +42,7 @@ export class AccessRequestsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AccessRequests";
 
   protected _httpClient: common.HttpClient;
 
@@ -169,6 +170,9 @@ export class AccessRequestsClient {
   ): Promise<responses.ApproveAccessRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#approveAccessRequest.");
+    const operationName = "approveAccessRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ApproveAccessRequest";
     const pathParams = {
       "{accessRequestId}": approveAccessRequestRequest.accessRequestId
     };
@@ -204,7 +208,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ApproveAccessRequestResponse>{},
         responseHeaders: [
@@ -239,6 +249,9 @@ export class AccessRequestsClient {
     getAccessRequestRequest: requests.GetAccessRequestRequest
   ): Promise<responses.GetAccessRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#getAccessRequest.");
+    const operationName = "getAccessRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/GetAccessRequest";
     const pathParams = {
       "{accessRequestId}": getAccessRequestRequest.accessRequestId
     };
@@ -267,7 +280,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAccessRequestResponse>{},
         body: await response.json(),
@@ -303,6 +322,9 @@ export class AccessRequestsClient {
   ): Promise<responses.InteractionRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#interactionRequest.");
+    const operationName = "interactionRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/InteractionRequest";
     const pathParams = {
       "{accessRequestId}": interactionRequestRequest.accessRequestId
     };
@@ -338,7 +360,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InteractionRequestResponse>{},
         body: await response.json(),
@@ -379,6 +407,9 @@ export class AccessRequestsClient {
   ): Promise<responses.ListAccessRequestHistoriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#listAccessRequestHistories.");
+    const operationName = "listAccessRequestHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListAccessRequestHistories";
     const pathParams = {
       "{accessRequestId}": listAccessRequestHistoriesRequest.accessRequestId
     };
@@ -410,7 +441,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAccessRequestHistoriesResponse>{},
         body: await response.json(),
@@ -451,6 +488,9 @@ export class AccessRequestsClient {
   ): Promise<responses.ListAccessRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#listAccessRequests.");
+    const operationName = "listAccessRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListAccessRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -488,7 +528,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAccessRequestsResponse>{},
         body: await response.json(),
@@ -528,6 +574,9 @@ export class AccessRequestsClient {
     listInteractionsRequest: requests.ListInteractionsRequest
   ): Promise<responses.ListInteractionsResponse> {
     if (this.logger) this.logger.debug("Calling operation AccessRequestsClient#listInteractions.");
+    const operationName = "listInteractions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ListInteractions";
     const pathParams = {
       "{accessRequestId}": listInteractionsRequest.accessRequestId
     };
@@ -559,7 +608,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInteractionsResponse>{},
         body: await response.json(),
@@ -600,6 +655,9 @@ export class AccessRequestsClient {
   ): Promise<responses.RejectAccessRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#rejectAccessRequest.");
+    const operationName = "rejectAccessRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/RejectAccessRequest";
     const pathParams = {
       "{accessRequestId}": rejectAccessRequestRequest.accessRequestId
     };
@@ -635,7 +693,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RejectAccessRequestResponse>{},
         responseHeaders: [
@@ -672,6 +736,9 @@ export class AccessRequestsClient {
   ): Promise<responses.ReviewAccessRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#reviewAccessRequest.");
+    const operationName = "reviewAccessRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/ReviewAccessRequest";
     const pathParams = {
       "{accessRequestId}": reviewAccessRequestRequest.accessRequestId
     };
@@ -707,7 +774,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ReviewAccessRequestResponse>{},
         body: await response.json(),
@@ -748,6 +821,9 @@ export class AccessRequestsClient {
   ): Promise<responses.RevokeAccessRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AccessRequestsClient#revokeAccessRequest.");
+    const operationName = "revokeAccessRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/AccessRequest/RevokeAccessRequest";
     const pathParams = {
       "{accessRequestId}": revokeAccessRequestRequest.accessRequestId
     };
@@ -783,7 +859,13 @@ export class AccessRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RevokeAccessRequestResponse>{},
         responseHeaders: [
@@ -819,6 +901,7 @@ export class OperatorActionsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "OperatorActions";
 
   protected _httpClient: common.HttpClient;
 
@@ -922,6 +1005,9 @@ export class OperatorActionsClient {
   ): Promise<responses.GetOperatorActionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OperatorActionsClient#getOperatorAction.");
+    const operationName = "getOperatorAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorAction/GetOperatorAction";
     const pathParams = {
       "{operatorActionId}": getOperatorActionRequest.operatorActionId
     };
@@ -950,7 +1036,13 @@ export class OperatorActionsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOperatorActionResponse>{},
         body: await response.json(),
@@ -986,6 +1078,9 @@ export class OperatorActionsClient {
   ): Promise<responses.ListOperatorActionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OperatorActionsClient#listOperatorActions.");
+    const operationName = "listOperatorActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorAction/ListOperatorActions";
     const pathParams = {};
 
     const queryParams = {
@@ -1021,7 +1116,13 @@ export class OperatorActionsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOperatorActionsResponse>{},
         body: await response.json(),
@@ -1062,6 +1163,7 @@ export class OperatorControlClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "OperatorControl";
 
   protected _httpClient: common.HttpClient;
 
@@ -1191,6 +1293,9 @@ export class OperatorControlClient {
       this.logger.debug(
         "Calling operation OperatorControlClient#changeOperatorControlCompartment."
       );
+    const operationName = "changeOperatorControlCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/ChangeOperatorControlCompartment";
     const pathParams = {
       "{operatorControlId}": changeOperatorControlCompartmentRequest.operatorControlId
     };
@@ -1226,7 +1331,13 @@ export class OperatorControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeOperatorControlCompartmentResponse>{},
         responseHeaders: [
@@ -1258,6 +1369,9 @@ export class OperatorControlClient {
   ): Promise<responses.CreateOperatorControlResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#createOperatorControl.");
+    const operationName = "createOperatorControl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/CreateOperatorControl";
     const pathParams = {};
 
     const queryParams = {};
@@ -1290,7 +1404,13 @@ export class OperatorControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOperatorControlResponse>{},
         body: await response.json(),
@@ -1335,6 +1455,9 @@ export class OperatorControlClient {
   ): Promise<responses.DeleteOperatorControlResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#deleteOperatorControl.");
+    const operationName = "deleteOperatorControl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/DeleteOperatorControl";
     const pathParams = {
       "{operatorControlId}": deleteOperatorControlRequest.operatorControlId
     };
@@ -1366,7 +1489,13 @@ export class OperatorControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOperatorControlResponse>{},
         responseHeaders: [
@@ -1397,6 +1526,9 @@ export class OperatorControlClient {
   ): Promise<responses.GetOperatorControlResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#getOperatorControl.");
+    const operationName = "getOperatorControl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/GetOperatorControl";
     const pathParams = {
       "{operatorControlId}": getOperatorControlRequest.operatorControlId
     };
@@ -1425,7 +1557,13 @@ export class OperatorControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOperatorControlResponse>{},
         body: await response.json(),
@@ -1466,6 +1604,9 @@ export class OperatorControlClient {
   ): Promise<responses.ListOperatorControlsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#listOperatorControls.");
+    const operationName = "listOperatorControls";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/ListOperatorControls";
     const pathParams = {};
 
     const queryParams = {
@@ -1501,7 +1642,13 @@ export class OperatorControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOperatorControlsResponse>{},
         body: await response.json(),
@@ -1542,6 +1689,9 @@ export class OperatorControlClient {
   ): Promise<responses.UpdateOperatorControlResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OperatorControlClient#updateOperatorControl.");
+    const operationName = "updateOperatorControl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControl/UpdateOperatorControl";
     const pathParams = {
       "{operatorControlId}": updateOperatorControlRequest.operatorControlId
     };
@@ -1576,7 +1726,13 @@ export class OperatorControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOperatorControlResponse>{},
         body: await response.json(),
@@ -1617,6 +1773,7 @@ export class OperatorControlAssignmentClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "OperatorControlAssignment";
 
   protected _httpClient: common.HttpClient;
 
@@ -1747,6 +1904,9 @@ export class OperatorControlAssignmentClient {
       this.logger.debug(
         "Calling operation OperatorControlAssignmentClient#changeOperatorControlAssignmentCompartment."
       );
+    const operationName = "changeOperatorControlAssignmentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ChangeOperatorControlAssignmentCompartment";
     const pathParams = {
       "{operatorControlAssignmentId}":
         changeOperatorControlAssignmentCompartmentRequest.operatorControlAssignmentId
@@ -1783,7 +1943,13 @@ export class OperatorControlAssignmentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeOperatorControlAssignmentCompartmentResponse>{},
         responseHeaders: [
@@ -1816,6 +1982,9 @@ export class OperatorControlAssignmentClient {
       this.logger.debug(
         "Calling operation OperatorControlAssignmentClient#createOperatorControlAssignment."
       );
+    const operationName = "createOperatorControlAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/CreateOperatorControlAssignment";
     const pathParams = {};
 
     const queryParams = {};
@@ -1848,7 +2017,13 @@ export class OperatorControlAssignmentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOperatorControlAssignmentResponse>{},
         body: await response.json(),
@@ -1895,6 +2070,9 @@ export class OperatorControlAssignmentClient {
       this.logger.debug(
         "Calling operation OperatorControlAssignmentClient#deleteOperatorControlAssignment."
       );
+    const operationName = "deleteOperatorControlAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/DeleteOperatorControlAssignment";
     const pathParams = {
       "{operatorControlAssignmentId}":
         deleteOperatorControlAssignmentRequest.operatorControlAssignmentId
@@ -1927,7 +2105,13 @@ export class OperatorControlAssignmentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOperatorControlAssignmentResponse>{},
         responseHeaders: [
@@ -1960,6 +2144,9 @@ export class OperatorControlAssignmentClient {
       this.logger.debug(
         "Calling operation OperatorControlAssignmentClient#getOperatorControlAssignment."
       );
+    const operationName = "getOperatorControlAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/GetOperatorControlAssignment";
     const pathParams = {
       "{operatorControlAssignmentId}":
         getOperatorControlAssignmentRequest.operatorControlAssignmentId
@@ -1989,7 +2176,13 @@ export class OperatorControlAssignmentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOperatorControlAssignmentResponse>{},
         body: await response.json(),
@@ -2031,6 +2224,9 @@ export class OperatorControlAssignmentClient {
       this.logger.debug(
         "Calling operation OperatorControlAssignmentClient#listOperatorControlAssignments."
       );
+    const operationName = "listOperatorControlAssignments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/ListOperatorControlAssignments";
     const pathParams = {};
 
     const queryParams = {
@@ -2067,7 +2263,13 @@ export class OperatorControlAssignmentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOperatorControlAssignmentsResponse>{},
         body: await response.json(),
@@ -2110,6 +2312,9 @@ export class OperatorControlAssignmentClient {
       this.logger.debug(
         "Calling operation OperatorControlAssignmentClient#updateOperatorControlAssignment."
       );
+    const operationName = "updateOperatorControlAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operatoraccesscontrol/20200630/OperatorControlAssignment/UpdateOperatorControlAssignment";
     const pathParams = {
       "{operatorControlAssignmentId}":
         updateOperatorControlAssignmentRequest.operatorControlAssignmentId
@@ -2145,7 +2350,13 @@ export class OperatorControlAssignmentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOperatorControlAssignmentResponse>{},
         body: await response.json(),

@@ -25,19 +25,67 @@ export function mapContainer(obj: { [k: string]: any }, getJsonObj: Function): o
   return constructedObj;
 }
 
-export function handleErrorResponse(response: Response, body: any): OciError {
+export function handleErrorResponse(
+  response: Response,
+  body: any,
+  targetService: string,
+  operationName: string,
+  timestamp: string,
+  endpoint: string,
+  apiReferenceLink: string
+): OciError {
   const statusCode = response.status || -1;
   const requestId = response.headers.get("opc-request-id");
 
   if (body && body.code && body.message) {
-    return new OciError(statusCode, body.code, body.message, requestId);
+    return new OciError(
+      statusCode,
+      body.code,
+      body.message,
+      requestId,
+      targetService,
+      operationName,
+      timestamp,
+      endpoint,
+      apiReferenceLink
+    );
   } else if (typeof body == "string" && body.length > 0) {
-    return new OciError(statusCode, "None", body, requestId);
+    return new OciError(
+      statusCode,
+      "None",
+      body,
+      requestId,
+      targetService,
+      operationName,
+      timestamp,
+      endpoint,
+      apiReferenceLink
+    );
   } else if (response.statusText && response.statusText.length > 0) {
     // There is no body text but statusText exists
-    return new OciError(statusCode, "None", response.statusText, requestId);
+    return new OciError(
+      statusCode,
+      "None",
+      response.statusText,
+      requestId,
+      targetService,
+      operationName,
+      timestamp,
+      endpoint,
+      apiReferenceLink
+    );
   } else {
-    return new OciError(statusCode, "None", "unknown reason.", requestId);
+    return new OciError(
+      statusCode,
+      "None",
+      "unknown reason.",
+      requestId,
+      targetService,
+      operationName,
+      timestamp,
+      endpoint,
+      apiReferenceLink
+    );
   }
 }
 

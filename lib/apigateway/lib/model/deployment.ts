@@ -60,7 +60,7 @@ Example: `My new resource`
    * The endpoint to access this deployment on the gateway.
    */
   "endpoint": string;
-  "specification"?: model.ApiSpecification;
+  "specification": model.ApiSpecification;
   /**
    * The time this resource was created. An RFC3339 formatted datetime string.
    */

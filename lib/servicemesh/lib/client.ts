@@ -35,6 +35,7 @@ export class ServiceMeshClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ServiceMesh";
 
   protected _httpClient: common.HttpClient;
 
@@ -161,6 +162,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ChangeAccessPolicyCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#changeAccessPolicyCompartment.");
+    const operationName = "changeAccessPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/AccessPolicy/ChangeAccessPolicyCompartment";
     const pathParams = {
       "{accessPolicyId}": changeAccessPolicyCompartmentRequest.accessPolicyId
     };
@@ -196,7 +200,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAccessPolicyCompartmentResponse>{},
         responseHeaders: [
@@ -232,6 +242,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ChangeIngressGatewayCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#changeIngressGatewayCompartment.");
+    const operationName = "changeIngressGatewayCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGateway/ChangeIngressGatewayCompartment";
     const pathParams = {
       "{ingressGatewayId}": changeIngressGatewayCompartmentRequest.ingressGatewayId
     };
@@ -267,7 +280,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeIngressGatewayCompartmentResponse>{},
         responseHeaders: [
@@ -305,6 +324,9 @@ export class ServiceMeshClient {
       this.logger.debug(
         "Calling operation ServiceMeshClient#changeIngressGatewayRouteTableCompartment."
       );
+    const operationName = "changeIngressGatewayRouteTableCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGatewayRouteTable/ChangeIngressGatewayRouteTableCompartment";
     const pathParams = {
       "{ingressGatewayRouteTableId}":
         changeIngressGatewayRouteTableCompartmentRequest.ingressGatewayRouteTableId
@@ -341,7 +363,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeIngressGatewayRouteTableCompartmentResponse>{},
         responseHeaders: [
@@ -377,6 +405,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ChangeMeshCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#changeMeshCompartment.");
+    const operationName = "changeMeshCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/Mesh/ChangeMeshCompartment";
     const pathParams = {
       "{meshId}": changeMeshCompartmentRequest.meshId
     };
@@ -412,7 +443,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMeshCompartmentResponse>{},
         responseHeaders: [
@@ -448,6 +485,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ChangeVirtualDeploymentCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#changeVirtualDeploymentCompartment.");
+    const operationName = "changeVirtualDeploymentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualDeployment/ChangeVirtualDeploymentCompartment";
     const pathParams = {
       "{virtualDeploymentId}": changeVirtualDeploymentCompartmentRequest.virtualDeploymentId
     };
@@ -483,7 +523,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVirtualDeploymentCompartmentResponse>{},
         responseHeaders: [
@@ -519,6 +565,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ChangeVirtualServiceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#changeVirtualServiceCompartment.");
+    const operationName = "changeVirtualServiceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualService/ChangeVirtualServiceCompartment";
     const pathParams = {
       "{virtualServiceId}": changeVirtualServiceCompartmentRequest.virtualServiceId
     };
@@ -554,7 +603,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVirtualServiceCompartmentResponse>{},
         responseHeaders: [
@@ -592,6 +647,9 @@ export class ServiceMeshClient {
       this.logger.debug(
         "Calling operation ServiceMeshClient#changeVirtualServiceRouteTableCompartment."
       );
+    const operationName = "changeVirtualServiceRouteTableCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualServiceRouteTable/ChangeVirtualServiceRouteTableCompartment";
     const pathParams = {
       "{virtualServiceRouteTableId}":
         changeVirtualServiceRouteTableCompartmentRequest.virtualServiceRouteTableId
@@ -628,7 +686,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVirtualServiceRouteTableCompartmentResponse>{},
         responseHeaders: [
@@ -664,6 +728,9 @@ export class ServiceMeshClient {
     createAccessPolicyRequest: requests.CreateAccessPolicyRequest
   ): Promise<responses.CreateAccessPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createAccessPolicy.");
+    const operationName = "createAccessPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/AccessPolicy/CreateAccessPolicy";
     const pathParams = {};
 
     const queryParams = {};
@@ -696,7 +763,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAccessPolicyResponse>{},
         body: await response.json(),
@@ -746,6 +819,9 @@ export class ServiceMeshClient {
     createIngressGatewayRequest: requests.CreateIngressGatewayRequest
   ): Promise<responses.CreateIngressGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createIngressGateway.");
+    const operationName = "createIngressGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGateway/CreateIngressGateway";
     const pathParams = {};
 
     const queryParams = {};
@@ -778,7 +854,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIngressGatewayResponse>{},
         body: await response.json(),
@@ -829,6 +911,9 @@ export class ServiceMeshClient {
   ): Promise<responses.CreateIngressGatewayRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#createIngressGatewayRouteTable.");
+    const operationName = "createIngressGatewayRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGatewayRouteTable/CreateIngressGatewayRouteTable";
     const pathParams = {};
 
     const queryParams = {};
@@ -861,7 +946,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIngressGatewayRouteTableResponse>{},
         body: await response.json(),
@@ -911,6 +1002,9 @@ export class ServiceMeshClient {
     createMeshRequest: requests.CreateMeshRequest
   ): Promise<responses.CreateMeshResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createMesh.");
+    const operationName = "createMesh";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/Mesh/CreateMesh";
     const pathParams = {};
 
     const queryParams = {};
@@ -943,7 +1037,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMeshResponse>{},
         body: await response.json(),
@@ -994,6 +1094,9 @@ export class ServiceMeshClient {
   ): Promise<responses.CreateVirtualDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#createVirtualDeployment.");
+    const operationName = "createVirtualDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualDeployment/CreateVirtualDeployment";
     const pathParams = {};
 
     const queryParams = {};
@@ -1026,7 +1129,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVirtualDeploymentResponse>{},
         body: await response.json(),
@@ -1076,6 +1185,9 @@ export class ServiceMeshClient {
     createVirtualServiceRequest: requests.CreateVirtualServiceRequest
   ): Promise<responses.CreateVirtualServiceResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#createVirtualService.");
+    const operationName = "createVirtualService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualService/CreateVirtualService";
     const pathParams = {};
 
     const queryParams = {};
@@ -1108,7 +1220,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVirtualServiceResponse>{},
         body: await response.json(),
@@ -1159,6 +1277,9 @@ export class ServiceMeshClient {
   ): Promise<responses.CreateVirtualServiceRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#createVirtualServiceRouteTable.");
+    const operationName = "createVirtualServiceRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualServiceRouteTable/CreateVirtualServiceRouteTable";
     const pathParams = {};
 
     const queryParams = {};
@@ -1191,7 +1312,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVirtualServiceRouteTableResponse>{},
         body: await response.json(),
@@ -1240,6 +1367,9 @@ export class ServiceMeshClient {
     deleteAccessPolicyRequest: requests.DeleteAccessPolicyRequest
   ): Promise<responses.DeleteAccessPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteAccessPolicy.");
+    const operationName = "deleteAccessPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/AccessPolicy/DeleteAccessPolicy";
     const pathParams = {
       "{accessPolicyId}": deleteAccessPolicyRequest.accessPolicyId
     };
@@ -1269,7 +1399,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAccessPolicyResponse>{},
         responseHeaders: [
@@ -1304,6 +1440,9 @@ export class ServiceMeshClient {
     deleteIngressGatewayRequest: requests.DeleteIngressGatewayRequest
   ): Promise<responses.DeleteIngressGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteIngressGateway.");
+    const operationName = "deleteIngressGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGateway/DeleteIngressGateway";
     const pathParams = {
       "{ingressGatewayId}": deleteIngressGatewayRequest.ingressGatewayId
     };
@@ -1333,7 +1472,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIngressGatewayResponse>{},
         responseHeaders: [
@@ -1369,6 +1514,9 @@ export class ServiceMeshClient {
   ): Promise<responses.DeleteIngressGatewayRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#deleteIngressGatewayRouteTable.");
+    const operationName = "deleteIngressGatewayRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGatewayRouteTable/DeleteIngressGatewayRouteTable";
     const pathParams = {
       "{ingressGatewayRouteTableId}":
         deleteIngressGatewayRouteTableRequest.ingressGatewayRouteTableId
@@ -1399,7 +1547,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIngressGatewayRouteTableResponse>{},
         responseHeaders: [
@@ -1434,6 +1588,9 @@ export class ServiceMeshClient {
     deleteMeshRequest: requests.DeleteMeshRequest
   ): Promise<responses.DeleteMeshResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteMesh.");
+    const operationName = "deleteMesh";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/Mesh/DeleteMesh";
     const pathParams = {
       "{meshId}": deleteMeshRequest.meshId
     };
@@ -1463,7 +1620,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMeshResponse>{},
         responseHeaders: [
@@ -1499,6 +1662,9 @@ export class ServiceMeshClient {
   ): Promise<responses.DeleteVirtualDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#deleteVirtualDeployment.");
+    const operationName = "deleteVirtualDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualDeployment/DeleteVirtualDeployment";
     const pathParams = {
       "{virtualDeploymentId}": deleteVirtualDeploymentRequest.virtualDeploymentId
     };
@@ -1528,7 +1694,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVirtualDeploymentResponse>{},
         responseHeaders: [
@@ -1563,6 +1735,9 @@ export class ServiceMeshClient {
     deleteVirtualServiceRequest: requests.DeleteVirtualServiceRequest
   ): Promise<responses.DeleteVirtualServiceResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#deleteVirtualService.");
+    const operationName = "deleteVirtualService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualService/DeleteVirtualService";
     const pathParams = {
       "{virtualServiceId}": deleteVirtualServiceRequest.virtualServiceId
     };
@@ -1592,7 +1767,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVirtualServiceResponse>{},
         responseHeaders: [
@@ -1628,6 +1809,9 @@ export class ServiceMeshClient {
   ): Promise<responses.DeleteVirtualServiceRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#deleteVirtualServiceRouteTable.");
+    const operationName = "deleteVirtualServiceRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualServiceRouteTable/DeleteVirtualServiceRouteTable";
     const pathParams = {
       "{virtualServiceRouteTableId}":
         deleteVirtualServiceRouteTableRequest.virtualServiceRouteTableId
@@ -1658,7 +1842,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVirtualServiceRouteTableResponse>{},
         responseHeaders: [
@@ -1693,6 +1883,9 @@ export class ServiceMeshClient {
     getAccessPolicyRequest: requests.GetAccessPolicyRequest
   ): Promise<responses.GetAccessPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getAccessPolicy.");
+    const operationName = "getAccessPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/AccessPolicy/GetAccessPolicy";
     const pathParams = {
       "{accessPolicyId}": getAccessPolicyRequest.accessPolicyId
     };
@@ -1721,7 +1914,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAccessPolicyResponse>{},
         body: await response.json(),
@@ -1760,6 +1959,9 @@ export class ServiceMeshClient {
     getIngressGatewayRequest: requests.GetIngressGatewayRequest
   ): Promise<responses.GetIngressGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getIngressGateway.");
+    const operationName = "getIngressGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGateway/GetIngressGateway";
     const pathParams = {
       "{ingressGatewayId}": getIngressGatewayRequest.ingressGatewayId
     };
@@ -1788,7 +1990,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIngressGatewayResponse>{},
         body: await response.json(),
@@ -1828,6 +2036,9 @@ export class ServiceMeshClient {
   ): Promise<responses.GetIngressGatewayRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#getIngressGatewayRouteTable.");
+    const operationName = "getIngressGatewayRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGatewayRouteTable/GetIngressGatewayRouteTable";
     const pathParams = {
       "{ingressGatewayRouteTableId}": getIngressGatewayRouteTableRequest.ingressGatewayRouteTableId
     };
@@ -1856,7 +2067,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIngressGatewayRouteTableResponse>{},
         body: await response.json(),
@@ -1895,6 +2112,9 @@ export class ServiceMeshClient {
     getMeshRequest: requests.GetMeshRequest
   ): Promise<responses.GetMeshResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getMesh.");
+    const operationName = "getMesh";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/Mesh/GetMesh";
     const pathParams = {
       "{meshId}": getMeshRequest.meshId
     };
@@ -1923,7 +2143,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMeshResponse>{},
         body: await response.json(),
@@ -1963,6 +2189,9 @@ export class ServiceMeshClient {
     getProxyDetailsRequest: requests.GetProxyDetailsRequest
   ): Promise<responses.GetProxyDetailsResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getProxyDetails.");
+    const operationName = "getProxyDetails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/ProxyDetails/GetProxyDetails";
     const pathParams = {};
 
     const queryParams = {};
@@ -1989,7 +2218,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProxyDetailsResponse>{},
         body: await response.json(),
@@ -2023,6 +2258,9 @@ export class ServiceMeshClient {
     getVirtualDeploymentRequest: requests.GetVirtualDeploymentRequest
   ): Promise<responses.GetVirtualDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getVirtualDeployment.");
+    const operationName = "getVirtualDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualDeployment/GetVirtualDeployment";
     const pathParams = {
       "{virtualDeploymentId}": getVirtualDeploymentRequest.virtualDeploymentId
     };
@@ -2051,7 +2289,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVirtualDeploymentResponse>{},
         body: await response.json(),
@@ -2090,6 +2334,9 @@ export class ServiceMeshClient {
     getVirtualServiceRequest: requests.GetVirtualServiceRequest
   ): Promise<responses.GetVirtualServiceResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getVirtualService.");
+    const operationName = "getVirtualService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualService/GetVirtualService";
     const pathParams = {
       "{virtualServiceId}": getVirtualServiceRequest.virtualServiceId
     };
@@ -2118,7 +2365,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVirtualServiceResponse>{},
         body: await response.json(),
@@ -2158,6 +2411,9 @@ export class ServiceMeshClient {
   ): Promise<responses.GetVirtualServiceRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#getVirtualServiceRouteTable.");
+    const operationName = "getVirtualServiceRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualServiceRouteTable/GetVirtualServiceRouteTable";
     const pathParams = {
       "{virtualServiceRouteTableId}": getVirtualServiceRouteTableRequest.virtualServiceRouteTableId
     };
@@ -2186,7 +2442,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVirtualServiceRouteTableResponse>{},
         body: await response.json(),
@@ -2225,6 +2487,9 @@ export class ServiceMeshClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2253,7 +2518,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2293,6 +2564,9 @@ export class ServiceMeshClient {
     listAccessPoliciesRequest: requests.ListAccessPoliciesRequest
   ): Promise<responses.ListAccessPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listAccessPolicies.");
+    const operationName = "listAccessPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/AccessPolicy/ListAccessPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -2329,7 +2603,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAccessPoliciesResponse>{},
         body: await response.json(),
@@ -2370,6 +2650,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ListIngressGatewayRouteTablesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#listIngressGatewayRouteTables.");
+    const operationName = "listIngressGatewayRouteTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGatewayRouteTable/ListIngressGatewayRouteTables";
     const pathParams = {};
 
     const queryParams = {
@@ -2406,7 +2689,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIngressGatewayRouteTablesResponse>{},
         body: await response.json(),
@@ -2446,6 +2735,9 @@ export class ServiceMeshClient {
     listIngressGatewaysRequest: requests.ListIngressGatewaysRequest
   ): Promise<responses.ListIngressGatewaysResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listIngressGateways.");
+    const operationName = "listIngressGateways";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGateway/ListIngressGateways";
     const pathParams = {};
 
     const queryParams = {
@@ -2482,7 +2774,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIngressGatewaysResponse>{},
         body: await response.json(),
@@ -2522,6 +2820,9 @@ export class ServiceMeshClient {
     listMeshesRequest: requests.ListMeshesRequest
   ): Promise<responses.ListMeshesResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listMeshes.");
+    const operationName = "listMeshes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/Mesh/ListMeshes";
     const pathParams = {};
 
     const queryParams = {
@@ -2557,7 +2858,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMeshesResponse>{},
         body: await response.json(),
@@ -2598,6 +2905,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ListVirtualDeploymentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#listVirtualDeployments.");
+    const operationName = "listVirtualDeployments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualDeployment/ListVirtualDeployments";
     const pathParams = {};
 
     const queryParams = {
@@ -2634,7 +2944,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVirtualDeploymentsResponse>{},
         body: await response.json(),
@@ -2675,6 +2991,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ListVirtualServiceRouteTablesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#listVirtualServiceRouteTables.");
+    const operationName = "listVirtualServiceRouteTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualServiceRouteTable/ListVirtualServiceRouteTables";
     const pathParams = {};
 
     const queryParams = {
@@ -2711,7 +3030,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVirtualServiceRouteTablesResponse>{},
         body: await response.json(),
@@ -2751,6 +3076,9 @@ export class ServiceMeshClient {
     listVirtualServicesRequest: requests.ListVirtualServicesRequest
   ): Promise<responses.ListVirtualServicesResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listVirtualServices.");
+    const operationName = "listVirtualServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualService/ListVirtualServices";
     const pathParams = {};
 
     const queryParams = {
@@ -2787,7 +3115,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVirtualServicesResponse>{},
         body: await response.json(),
@@ -2828,6 +3162,9 @@ export class ServiceMeshClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/WorkRequest/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -2859,7 +3196,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -2899,6 +3242,9 @@ export class ServiceMeshClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/WorkRequest/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2930,7 +3276,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -2970,6 +3322,9 @@ export class ServiceMeshClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -3001,7 +3356,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -3040,6 +3401,9 @@ export class ServiceMeshClient {
     updateAccessPolicyRequest: requests.UpdateAccessPolicyRequest
   ): Promise<responses.UpdateAccessPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateAccessPolicy.");
+    const operationName = "updateAccessPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/AccessPolicy/UpdateAccessPolicy";
     const pathParams = {
       "{accessPolicyId}": updateAccessPolicyRequest.accessPolicyId
     };
@@ -3075,7 +3439,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAccessPolicyResponse>{},
         responseHeaders: [
@@ -3110,6 +3480,9 @@ export class ServiceMeshClient {
     updateIngressGatewayRequest: requests.UpdateIngressGatewayRequest
   ): Promise<responses.UpdateIngressGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateIngressGateway.");
+    const operationName = "updateIngressGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGateway/UpdateIngressGateway";
     const pathParams = {
       "{ingressGatewayId}": updateIngressGatewayRequest.ingressGatewayId
     };
@@ -3145,7 +3518,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIngressGatewayResponse>{},
         responseHeaders: [
@@ -3181,6 +3560,9 @@ export class ServiceMeshClient {
   ): Promise<responses.UpdateIngressGatewayRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#updateIngressGatewayRouteTable.");
+    const operationName = "updateIngressGatewayRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/IngressGatewayRouteTable/UpdateIngressGatewayRouteTable";
     const pathParams = {
       "{ingressGatewayRouteTableId}":
         updateIngressGatewayRouteTableRequest.ingressGatewayRouteTableId
@@ -3217,7 +3599,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIngressGatewayRouteTableResponse>{},
         responseHeaders: [
@@ -3252,6 +3640,9 @@ export class ServiceMeshClient {
     updateMeshRequest: requests.UpdateMeshRequest
   ): Promise<responses.UpdateMeshResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateMesh.");
+    const operationName = "updateMesh";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/Mesh/UpdateMesh";
     const pathParams = {
       "{meshId}": updateMeshRequest.meshId
     };
@@ -3287,7 +3678,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMeshResponse>{},
         responseHeaders: [
@@ -3323,6 +3720,9 @@ export class ServiceMeshClient {
   ): Promise<responses.UpdateVirtualDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#updateVirtualDeployment.");
+    const operationName = "updateVirtualDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualDeployment/UpdateVirtualDeployment";
     const pathParams = {
       "{virtualDeploymentId}": updateVirtualDeploymentRequest.virtualDeploymentId
     };
@@ -3358,7 +3758,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVirtualDeploymentResponse>{},
         responseHeaders: [
@@ -3393,6 +3799,9 @@ export class ServiceMeshClient {
     updateVirtualServiceRequest: requests.UpdateVirtualServiceRequest
   ): Promise<responses.UpdateVirtualServiceResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceMeshClient#updateVirtualService.");
+    const operationName = "updateVirtualService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualService/UpdateVirtualService";
     const pathParams = {
       "{virtualServiceId}": updateVirtualServiceRequest.virtualServiceId
     };
@@ -3428,7 +3837,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVirtualServiceResponse>{},
         responseHeaders: [
@@ -3464,6 +3879,9 @@ export class ServiceMeshClient {
   ): Promise<responses.UpdateVirtualServiceRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceMeshClient#updateVirtualServiceRouteTable.");
+    const operationName = "updateVirtualServiceRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-mesh/20210930/VirtualServiceRouteTable/UpdateVirtualServiceRouteTable";
     const pathParams = {
       "{virtualServiceRouteTableId}":
         updateVirtualServiceRouteTableRequest.virtualServiceRouteTableId
@@ -3500,7 +3918,13 @@ export class ServiceMeshClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVirtualServiceRouteTableResponse>{},
         responseHeaders: [

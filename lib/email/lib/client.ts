@@ -42,6 +42,7 @@ export class EmailClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Email";
 
   protected _httpClient: common.HttpClient;
 
@@ -174,6 +175,9 @@ export class EmailClient {
   ): Promise<responses.ChangeEmailDomainCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation EmailClient#changeEmailDomainCompartment.");
+    const operationName = "changeEmailDomainCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/ChangeEmailDomainCompartment";
     const pathParams = {
       "{emailDomainId}": changeEmailDomainCompartmentRequest.emailDomainId
     };
@@ -209,7 +213,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeEmailDomainCompartmentResponse>{},
         responseHeaders: [
@@ -244,6 +254,9 @@ export class EmailClient {
     changeSenderCompartmentRequest: requests.ChangeSenderCompartmentRequest
   ): Promise<responses.ChangeSenderCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#changeSenderCompartment.");
+    const operationName = "changeSenderCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/ChangeSenderCompartment";
     const pathParams = {
       "{senderId}": changeSenderCompartmentRequest.senderId
     };
@@ -278,7 +291,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSenderCompartmentResponse>{},
         responseHeaders: [
@@ -313,6 +332,9 @@ export class EmailClient {
     createDkimRequest: requests.CreateDkimRequest
   ): Promise<responses.CreateDkimResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#createDkim.");
+    const operationName = "createDkim";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/CreateDkim";
     const pathParams = {};
 
     const queryParams = {};
@@ -345,7 +367,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDkimResponse>{},
         body: await response.json(),
@@ -399,6 +427,9 @@ export class EmailClient {
     createEmailDomainRequest: requests.CreateEmailDomainRequest
   ): Promise<responses.CreateEmailDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#createEmailDomain.");
+    const operationName = "createEmailDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/CreateEmailDomain";
     const pathParams = {};
 
     const queryParams = {};
@@ -431,7 +462,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateEmailDomainResponse>{},
         body: await response.json(),
@@ -485,6 +522,9 @@ export class EmailClient {
     createSenderRequest: requests.CreateSenderRequest
   ): Promise<responses.CreateSenderResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#createSender.");
+    const operationName = "createSender";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/CreateSender";
     const pathParams = {};
 
     const queryParams = {};
@@ -516,7 +556,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSenderResponse>{},
         body: await response.json(),
@@ -559,6 +605,9 @@ export class EmailClient {
     createSuppressionRequest: requests.CreateSuppressionRequest
   ): Promise<responses.CreateSuppressionResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#createSuppression.");
+    const operationName = "createSuppression";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/CreateSuppression";
     const pathParams = {};
 
     const queryParams = {};
@@ -590,7 +639,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSuppressionResponse>{},
         body: await response.json(),
@@ -630,6 +685,9 @@ export class EmailClient {
     deleteDkimRequest: requests.DeleteDkimRequest
   ): Promise<responses.DeleteDkimResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#deleteDkim.");
+    const operationName = "deleteDkim";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/DeleteDkim";
     const pathParams = {
       "{dkimId}": deleteDkimRequest.dkimId
     };
@@ -659,7 +717,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDkimResponse>{},
         responseHeaders: [
@@ -694,6 +758,9 @@ export class EmailClient {
     deleteEmailDomainRequest: requests.DeleteEmailDomainRequest
   ): Promise<responses.DeleteEmailDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#deleteEmailDomain.");
+    const operationName = "deleteEmailDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/DeleteEmailDomain";
     const pathParams = {
       "{emailDomainId}": deleteEmailDomainRequest.emailDomainId
     };
@@ -723,7 +790,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEmailDomainResponse>{},
         responseHeaders: [
@@ -760,6 +833,9 @@ export class EmailClient {
     deleteSenderRequest: requests.DeleteSenderRequest
   ): Promise<responses.DeleteSenderResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#deleteSender.");
+    const operationName = "deleteSender";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/DeleteSender";
     const pathParams = {
       "{senderId}": deleteSenderRequest.senderId
     };
@@ -789,7 +865,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSenderResponse>{},
         responseHeaders: [
@@ -821,6 +903,9 @@ export class EmailClient {
     deleteSuppressionRequest: requests.DeleteSuppressionRequest
   ): Promise<responses.DeleteSuppressionResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#deleteSuppression.");
+    const operationName = "deleteSuppression";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/DeleteSuppression";
     const pathParams = {
       "{suppressionId}": deleteSuppressionRequest.suppressionId
     };
@@ -849,7 +934,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSuppressionResponse>{},
         responseHeaders: [
@@ -879,6 +970,9 @@ export class EmailClient {
     getDkimRequest: requests.GetDkimRequest
   ): Promise<responses.GetDkimResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#getDkim.");
+    const operationName = "getDkim";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/GetDkim";
     const pathParams = {
       "{dkimId}": getDkimRequest.dkimId
     };
@@ -907,7 +1001,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDkimResponse>{},
         body: await response.json(),
@@ -946,6 +1046,9 @@ export class EmailClient {
     getEmailDomainRequest: requests.GetEmailDomainRequest
   ): Promise<responses.GetEmailDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#getEmailDomain.");
+    const operationName = "getEmailDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/GetEmailDomain";
     const pathParams = {
       "{emailDomainId}": getEmailDomainRequest.emailDomainId
     };
@@ -974,7 +1077,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEmailDomainResponse>{},
         body: await response.json(),
@@ -1013,6 +1122,9 @@ export class EmailClient {
     getSenderRequest: requests.GetSenderRequest
   ): Promise<responses.GetSenderResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#getSender.");
+    const operationName = "getSender";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/GetSender";
     const pathParams = {
       "{senderId}": getSenderRequest.senderId
     };
@@ -1041,7 +1153,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSenderResponse>{},
         body: await response.json(),
@@ -1082,6 +1200,9 @@ export class EmailClient {
     getSuppressionRequest: requests.GetSuppressionRequest
   ): Promise<responses.GetSuppressionResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#getSuppression.");
+    const operationName = "getSuppression";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/GetSuppression";
     const pathParams = {
       "{suppressionId}": getSuppressionRequest.suppressionId
     };
@@ -1110,7 +1231,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSuppressionResponse>{},
         body: await response.json(),
@@ -1144,6 +1271,9 @@ export class EmailClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1172,7 +1302,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1211,6 +1347,9 @@ export class EmailClient {
     listDkimsRequest: requests.ListDkimsRequest
   ): Promise<responses.ListDkimsResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#listDkims.");
+    const operationName = "listDkims";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/ListDkims";
     const pathParams = {};
 
     const queryParams = {
@@ -1246,7 +1385,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDkimsResponse>{},
         body: await response.json(),
@@ -1285,6 +1430,9 @@ export class EmailClient {
     listEmailDomainsRequest: requests.ListEmailDomainsRequest
   ): Promise<responses.ListEmailDomainsResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#listEmailDomains.");
+    const operationName = "listEmailDomains";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/ListEmailDomains";
     const pathParams = {};
 
     const queryParams = {
@@ -1320,7 +1468,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEmailDomainsResponse>{},
         body: await response.json(),
@@ -1360,6 +1514,9 @@ export class EmailClient {
     listSendersRequest: requests.ListSendersRequest
   ): Promise<responses.ListSendersResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#listSenders.");
+    const operationName = "listSenders";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/ListSenders";
     const pathParams = {};
 
     const queryParams = {
@@ -1395,7 +1552,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSendersResponse>{},
         body: await response.json(),
@@ -1499,6 +1662,9 @@ export class EmailClient {
     listSuppressionsRequest: requests.ListSuppressionsRequest
   ): Promise<responses.ListSuppressionsResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#listSuppressions.");
+    const operationName = "listSuppressions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Suppression/ListSuppressions";
     const pathParams = {};
 
     const queryParams = {
@@ -1534,7 +1700,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSuppressionsResponse>{},
         body: await response.json(),
@@ -1631,6 +1803,9 @@ export class EmailClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequestErrorCollection/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1662,7 +1837,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1702,6 +1883,9 @@ export class EmailClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequestLogEntryCollection/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1733,7 +1917,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1773,6 +1963,9 @@ export class EmailClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/WorkRequestSummaryCollection/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1804,7 +1997,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1843,6 +2042,9 @@ export class EmailClient {
     updateDkimRequest: requests.UpdateDkimRequest
   ): Promise<responses.UpdateDkimResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#updateDkim.");
+    const operationName = "updateDkim";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Dkim/UpdateDkim";
     const pathParams = {
       "{dkimId}": updateDkimRequest.dkimId
     };
@@ -1877,7 +2079,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDkimResponse>{},
         responseHeaders: [
@@ -1912,6 +2120,9 @@ export class EmailClient {
     updateEmailDomainRequest: requests.UpdateEmailDomainRequest
   ): Promise<responses.UpdateEmailDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#updateEmailDomain.");
+    const operationName = "updateEmailDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/EmailDomain/UpdateEmailDomain";
     const pathParams = {
       "{emailDomainId}": updateEmailDomainRequest.emailDomainId
     };
@@ -1946,7 +2157,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEmailDomainResponse>{},
         responseHeaders: [
@@ -1985,6 +2202,9 @@ export class EmailClient {
     updateSenderRequest: requests.UpdateSenderRequest
   ): Promise<responses.UpdateSenderResponse> {
     if (this.logger) this.logger.debug("Calling operation EmailClient#updateSender.");
+    const operationName = "updateSender";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/emaildelivery/20170907/Sender/UpdateSender";
     const pathParams = {
       "{senderId}": updateSenderRequest.senderId
     };
@@ -2019,7 +2239,13 @@ export class EmailClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSenderResponse>{},
         body: await response.json(),

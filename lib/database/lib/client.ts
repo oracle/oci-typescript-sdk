@@ -38,6 +38,7 @@ export class DatabaseClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Database";
 
   protected _httpClient: common.HttpClient;
 
@@ -169,6 +170,9 @@ export class DatabaseClient {
   ): Promise<responses.ActivateExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#activateExadataInfrastructure.");
+    const operationName = "activateExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/ActivateExadataInfrastructure";
     const pathParams = {
       "{exadataInfrastructureId}": activateExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -203,7 +207,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -251,6 +261,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#addStorageCapacityExadataInfrastructure."
       );
+    const operationName = "addStorageCapacityExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/AddStorageCapacityExadataInfrastructure";
     const pathParams = {
       "{exadataInfrastructureId}":
         addStorageCapacityExadataInfrastructureRequest.exadataInfrastructureId
@@ -282,7 +295,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddStorageCapacityExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -328,6 +347,9 @@ export class DatabaseClient {
   ): Promise<responses.AddVirtualMachineToVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#addVirtualMachineToVmCluster.");
+    const operationName = "addVirtualMachineToVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/AddVirtualMachineToVmCluster";
     const pathParams = {
       "{vmClusterId}": addVirtualMachineToVmClusterRequest.vmClusterId
     };
@@ -363,7 +385,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddVirtualMachineToVmClusterResponse>{},
         body: await response.json(),
@@ -409,6 +437,9 @@ export class DatabaseClient {
   ): Promise<responses.AutonomousDatabaseManualRefreshResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#autonomousDatabaseManualRefresh.");
+    const operationName = "autonomousDatabaseManualRefresh";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/AutonomousDatabaseManualRefresh";
     const pathParams = {
       "{autonomousDatabaseId}": autonomousDatabaseManualRefreshRequest.autonomousDatabaseId
     };
@@ -444,7 +475,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AutonomousDatabaseManualRefreshResponse>{},
         body: await response.json(),
@@ -494,6 +531,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#changeAutonomousContainerDatabaseCompartment."
       );
+    const operationName = "changeAutonomousContainerDatabaseCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ChangeAutonomousContainerDatabaseCompartment";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         changeAutonomousContainerDatabaseCompartmentRequest.autonomousContainerDatabaseId
@@ -531,7 +571,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAutonomousContainerDatabaseCompartmentResponse>{},
         responseHeaders: [
@@ -575,6 +621,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeAutonomousDatabaseCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeAutonomousDatabaseCompartment.");
+    const operationName = "changeAutonomousDatabaseCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ChangeAutonomousDatabaseCompartment";
     const pathParams = {
       "{autonomousDatabaseId}": changeAutonomousDatabaseCompartmentRequest.autonomousDatabaseId
     };
@@ -610,7 +659,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAutonomousDatabaseCompartmentResponse>{},
         responseHeaders: [
@@ -656,6 +711,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#changeAutonomousExadataInfrastructureCompartment."
       );
+    const operationName = "changeAutonomousExadataInfrastructureCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/ChangeAutonomousExadataInfrastructureCompartment";
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         changeAutonomousExadataInfrastructureCompartmentRequest.autonomousExadataInfrastructureId
@@ -693,7 +751,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAutonomousExadataInfrastructureCompartmentResponse>{},
         responseHeaders: [
@@ -735,6 +799,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeAutonomousVmClusterCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeAutonomousVmClusterCompartment.");
+    const operationName = "changeAutonomousVmClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/ChangeAutonomousVmClusterCompartment";
     const pathParams = {
       "{autonomousVmClusterId}": changeAutonomousVmClusterCompartmentRequest.autonomousVmClusterId
     };
@@ -770,7 +837,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAutonomousVmClusterCompartmentResponse>{},
         responseHeaders: [
@@ -809,6 +882,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeBackupDestinationCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeBackupDestinationCompartment.");
+    const operationName = "changeBackupDestinationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/ChangeBackupDestinationCompartment";
     const pathParams = {
       "{backupDestinationId}": changeBackupDestinationCompartmentRequest.backupDestinationId
     };
@@ -844,7 +920,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBackupDestinationCompartmentResponse>{},
         responseHeaders: [
@@ -888,6 +970,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#changeCloudAutonomousVmClusterCompartment."
       );
+    const operationName = "changeCloudAutonomousVmClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ChangeCloudAutonomousVmClusterCompartment";
     const pathParams = {
       "{cloudAutonomousVmClusterId}":
         changeCloudAutonomousVmClusterCompartmentRequest.cloudAutonomousVmClusterId
@@ -924,7 +1009,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCloudAutonomousVmClusterCompartmentResponse>{},
         responseHeaders: [
@@ -963,6 +1054,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#changeCloudExadataInfrastructureCompartment."
       );
+    const operationName = "changeCloudExadataInfrastructureCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/ChangeCloudExadataInfrastructureCompartment";
     const pathParams = {
       "{cloudExadataInfrastructureId}":
         changeCloudExadataInfrastructureCompartmentRequest.cloudExadataInfrastructureId
@@ -999,7 +1093,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCloudExadataInfrastructureCompartmentResponse>{},
         responseHeaders: [
@@ -1036,6 +1136,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeCloudVmClusterCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeCloudVmClusterCompartment.");
+    const operationName = "changeCloudVmClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/ChangeCloudVmClusterCompartment";
     const pathParams = {
       "{cloudVmClusterId}": changeCloudVmClusterCompartmentRequest.cloudVmClusterId
     };
@@ -1071,7 +1174,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCloudVmClusterCompartmentResponse>{},
         responseHeaders: [
@@ -1110,6 +1219,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeDatabaseSoftwareImageCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeDatabaseSoftwareImageCompartment.");
+    const operationName = "changeDatabaseSoftwareImageCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/ChangeDatabaseSoftwareImageCompartment";
     const pathParams = {
       "{databaseSoftwareImageId}":
         changeDatabaseSoftwareImageCompartmentRequest.databaseSoftwareImageId
@@ -1146,7 +1258,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDatabaseSoftwareImageCompartmentResponse>{},
         responseHeaders: [
@@ -1190,6 +1308,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeDbSystemCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeDbSystemCompartment.");
+    const operationName = "changeDbSystemCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ChangeDbSystemCompartment";
     const pathParams = {
       "{dbSystemId}": changeDbSystemCompartmentRequest.dbSystemId
     };
@@ -1225,7 +1346,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDbSystemCompartmentResponse>{},
         responseHeaders: [
@@ -1268,6 +1395,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeExadataInfrastructureCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeExadataInfrastructureCompartment.");
+    const operationName = "changeExadataInfrastructureCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/ChangeExadataInfrastructureCompartment";
     const pathParams = {
       "{exadataInfrastructureId}":
         changeExadataInfrastructureCompartmentRequest.exadataInfrastructureId
@@ -1304,7 +1434,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeExadataInfrastructureCompartmentResponse>{},
         responseHeaders: [
@@ -1346,6 +1482,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#changeExternalContainerDatabaseCompartment."
       );
+    const operationName = "changeExternalContainerDatabaseCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/ChangeExternalContainerDatabaseCompartment";
     const pathParams = {
       "{externalContainerDatabaseId}":
         changeExternalContainerDatabaseCompartmentRequest.externalContainerDatabaseId
@@ -1382,7 +1521,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeExternalContainerDatabaseCompartmentResponse>{},
         responseHeaders: [
@@ -1428,6 +1573,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#changeExternalNonContainerDatabaseCompartment."
       );
+    const operationName = "changeExternalNonContainerDatabaseCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/ChangeExternalNonContainerDatabaseCompartment";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         changeExternalNonContainerDatabaseCompartmentRequest.externalNonContainerDatabaseId
@@ -1465,7 +1613,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeExternalNonContainerDatabaseCompartmentResponse>{},
         responseHeaders: [
@@ -1512,6 +1666,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#changeExternalPluggableDatabaseCompartment."
       );
+    const operationName = "changeExternalPluggableDatabaseCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/ChangeExternalPluggableDatabaseCompartment";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         changeExternalPluggableDatabaseCompartmentRequest.externalPluggableDatabaseId
@@ -1548,7 +1705,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeExternalPluggableDatabaseCompartmentResponse>{},
         responseHeaders: [
@@ -1592,6 +1755,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeKeyStoreCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeKeyStoreCompartment.");
+    const operationName = "changeKeyStoreCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/ChangeKeyStoreCompartment";
     const pathParams = {
       "{keyStoreId}": changeKeyStoreCompartmentRequest.keyStoreId
     };
@@ -1627,7 +1793,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeKeyStoreCompartmentResponse>{},
         responseHeaders: [
@@ -1665,6 +1837,9 @@ export class DatabaseClient {
   ): Promise<responses.ChangeVmClusterCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#changeVmClusterCompartment.");
+    const operationName = "changeVmClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/ChangeVmClusterCompartment";
     const pathParams = {
       "{vmClusterId}": changeVmClusterCompartmentRequest.vmClusterId
     };
@@ -1700,7 +1875,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVmClusterCompartmentResponse>{},
         responseHeaders: [
@@ -1740,6 +1921,9 @@ export class DatabaseClient {
       this.logger.debug(
         "Calling operation DatabaseClient#checkExternalDatabaseConnectorConnectionStatus."
       );
+    const operationName = "checkExternalDatabaseConnectorConnectionStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/CheckExternalDatabaseConnectorConnectionStatus";
     const pathParams = {
       "{externalDatabaseConnectorId}":
         checkExternalDatabaseConnectorConnectionStatusRequest.externalDatabaseConnectorId
@@ -1772,7 +1956,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CheckExternalDatabaseConnectorConnectionStatusResponse>{},
         responseHeaders: [
@@ -1816,6 +2006,9 @@ export class DatabaseClient {
   ): Promise<responses.CompleteExternalBackupJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#completeExternalBackupJob.");
+    const operationName = "completeExternalBackupJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalBackupJob/CompleteExternalBackupJob";
     const pathParams = {
       "{backupId}": completeExternalBackupJobRequest.backupId
     };
@@ -1850,7 +2043,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CompleteExternalBackupJobResponse>{},
         body: await response.json(),
@@ -1896,6 +2095,9 @@ export class DatabaseClient {
   ): Promise<responses.ConfigureAutonomousDatabaseVaultKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#configureAutonomousDatabaseVaultKey.");
+    const operationName = "configureAutonomousDatabaseVaultKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ConfigureAutonomousDatabaseVaultKey";
     const pathParams = {
       "{autonomousDatabaseId}": configureAutonomousDatabaseVaultKeyRequest.autonomousDatabaseId
     };
@@ -1932,7 +2134,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ConfigureAutonomousDatabaseVaultKeyResponse>{},
         responseHeaders: [
@@ -1968,6 +2176,9 @@ export class DatabaseClient {
     convertToPdbRequest: requests.ConvertToPdbRequest
   ): Promise<responses.ConvertToPdbResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#convertToPdb.");
+    const operationName = "convertToPdb";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ConvertToPdb";
     const pathParams = {
       "{databaseId}": convertToPdbRequest.databaseId
     };
@@ -2002,7 +2213,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ConvertToPdbResponse>{},
         body: await response.json(),
@@ -2048,6 +2265,9 @@ export class DatabaseClient {
   ): Promise<responses.CreateAutonomousContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createAutonomousContainerDatabase.");
+    const operationName = "createAutonomousContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/CreateAutonomousContainerDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -2079,7 +2299,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
@@ -2125,6 +2351,9 @@ export class DatabaseClient {
   ): Promise<responses.CreateAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createAutonomousDatabase.");
+    const operationName = "createAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/CreateAutonomousDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -2157,7 +2386,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -2203,6 +2438,9 @@ export class DatabaseClient {
   ): Promise<responses.CreateAutonomousDatabaseBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createAutonomousDatabaseBackup.");
+    const operationName = "createAutonomousDatabaseBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/CreateAutonomousDatabaseBackup";
     const pathParams = {};
 
     const queryParams = {};
@@ -2235,7 +2473,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAutonomousDatabaseBackupResponse>{},
         body: await response.json(),
@@ -2281,6 +2525,9 @@ export class DatabaseClient {
   ): Promise<responses.CreateAutonomousVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createAutonomousVmCluster.");
+    const operationName = "createAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/CreateAutonomousVmCluster";
     const pathParams = {};
 
     const queryParams = {};
@@ -2313,7 +2560,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAutonomousVmClusterResponse>{},
         body: await response.json(),
@@ -2358,6 +2611,9 @@ export class DatabaseClient {
     createBackupRequest: requests.CreateBackupRequest
   ): Promise<responses.CreateBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createBackup.");
+    const operationName = "createBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/CreateBackup";
     const pathParams = {};
 
     const queryParams = {};
@@ -2389,7 +2645,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBackupResponse>{},
         body: await response.json(),
@@ -2434,6 +2696,9 @@ export class DatabaseClient {
     createBackupDestinationRequest: requests.CreateBackupDestinationRequest
   ): Promise<responses.CreateBackupDestinationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createBackupDestination.");
+    const operationName = "createBackupDestination";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/CreateBackupDestination";
     const pathParams = {};
 
     const queryParams = {};
@@ -2466,7 +2731,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBackupDestinationResponse>{},
         body: await response.json(),
@@ -2507,6 +2778,9 @@ export class DatabaseClient {
   ): Promise<responses.CreateCloudAutonomousVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createCloudAutonomousVmCluster.");
+    const operationName = "createCloudAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/CreateCloudAutonomousVmCluster";
     const pathParams = {};
 
     const queryParams = {};
@@ -2539,7 +2813,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCloudAutonomousVmClusterResponse>{},
         body: await response.json(),
@@ -2585,6 +2865,9 @@ export class DatabaseClient {
   ): Promise<responses.CreateCloudExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createCloudExadataInfrastructure.");
+    const operationName = "createCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/CreateCloudExadataInfrastructure";
     const pathParams = {};
 
     const queryParams = {};
@@ -2617,7 +2900,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCloudExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -2662,6 +2951,9 @@ export class DatabaseClient {
     createCloudVmClusterRequest: requests.CreateCloudVmClusterRequest
   ): Promise<responses.CreateCloudVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createCloudVmCluster.");
+    const operationName = "createCloudVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/CreateCloudVmCluster";
     const pathParams = {};
 
     const queryParams = {};
@@ -2694,7 +2986,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCloudVmClusterResponse>{},
         body: await response.json(),
@@ -2741,6 +3039,9 @@ export class DatabaseClient {
     createConsoleConnectionRequest: requests.CreateConsoleConnectionRequest
   ): Promise<responses.CreateConsoleConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createConsoleConnection.");
+    const operationName = "createConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/CreateConsoleConnection";
     const pathParams = {
       "{dbNodeId}": createConsoleConnectionRequest.dbNodeId
     };
@@ -2774,7 +3075,13 @@ export class DatabaseClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConsoleConnectionResponse>{},
         body: await response.json(),
@@ -2822,6 +3129,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.CreateDataGuardAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createDataGuardAssociation.");
+    const operationName = "createDataGuardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/CreateDataGuardAssociation";
     const pathParams = {
       "{databaseId}": createDataGuardAssociationRequest.databaseId
     };
@@ -2855,7 +3165,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataGuardAssociationResponse>{},
         body: await response.json(),
@@ -2900,6 +3216,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     createDatabaseRequest: requests.CreateDatabaseRequest
   ): Promise<responses.CreateDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createDatabase.");
+    const operationName = "createDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/CreateDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -2932,7 +3251,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDatabaseResponse>{},
         body: await response.json(),
@@ -2978,6 +3303,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.CreateDatabaseSoftwareImageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createDatabaseSoftwareImage.");
+    const operationName = "createDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/CreateDatabaseSoftwareImage";
     const pathParams = {};
 
     const queryParams = {};
@@ -3009,7 +3337,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDatabaseSoftwareImageResponse>{},
         body: await response.json(),
@@ -3054,6 +3388,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     createDbHomeRequest: requests.CreateDbHomeRequest
   ): Promise<responses.CreateDbHomeResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createDbHome.");
+    const operationName = "createDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/CreateDbHome";
     const pathParams = {};
 
     const queryParams = {};
@@ -3085,7 +3422,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDbHomeResponse>{},
         body: await response.json(),
@@ -3132,6 +3475,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.CreateExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createExadataInfrastructure.");
+    const operationName = "createExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/CreateExadataInfrastructure";
     const pathParams = {};
 
     const queryParams = {};
@@ -3164,7 +3510,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -3211,6 +3563,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     createExternalBackupJobRequest: requests.CreateExternalBackupJobRequest
   ): Promise<responses.CreateExternalBackupJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createExternalBackupJob.");
+    const operationName = "createExternalBackupJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalBackupJob/CreateExternalBackupJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -3242,7 +3597,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExternalBackupJobResponse>{},
         body: await response.json(),
@@ -3287,6 +3648,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.CreateExternalContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createExternalContainerDatabase.");
+    const operationName = "createExternalContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/CreateExternalContainerDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -3319,7 +3683,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExternalContainerDatabaseResponse>{},
         body: await response.json(),
@@ -3364,6 +3734,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.CreateExternalDatabaseConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createExternalDatabaseConnector.");
+    const operationName = "createExternalDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/CreateExternalDatabaseConnector";
     const pathParams = {};
 
     const queryParams = {};
@@ -3396,7 +3769,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExternalDatabaseConnectorResponse>{},
         body: await response.json(),
@@ -3442,6 +3821,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.CreateExternalNonContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createExternalNonContainerDatabase.");
+    const operationName = "createExternalNonContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/CreateExternalNonContainerDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -3474,7 +3856,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExternalNonContainerDatabaseResponse>{},
         body: await response.json(),
@@ -3521,6 +3909,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.CreateExternalPluggableDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#createExternalPluggableDatabase.");
+    const operationName = "createExternalPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/CreateExternalPluggableDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -3553,7 +3944,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExternalPluggableDatabaseResponse>{},
         body: await response.json(),
@@ -3598,6 +3995,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     createKeyStoreRequest: requests.CreateKeyStoreRequest
   ): Promise<responses.CreateKeyStoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createKeyStore.");
+    const operationName = "createKeyStore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/CreateKeyStore";
     const pathParams = {};
 
     const queryParams = {};
@@ -3630,7 +4030,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateKeyStoreResponse>{},
         body: await response.json(),
@@ -3671,6 +4077,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     createPluggableDatabaseRequest: requests.CreatePluggableDatabaseRequest
   ): Promise<responses.CreatePluggableDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createPluggableDatabase.");
+    const operationName = "createPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/CreatePluggableDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -3703,7 +4112,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePluggableDatabaseResponse>{},
         body: await response.json(),
@@ -3748,6 +4163,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     createVmClusterRequest: requests.CreateVmClusterRequest
   ): Promise<responses.CreateVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createVmCluster.");
+    const operationName = "createVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/CreateVmCluster";
     const pathParams = {};
 
     const queryParams = {};
@@ -3780,7 +4198,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVmClusterResponse>{},
         body: await response.json(),
@@ -3826,6 +4250,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     createVmClusterNetworkRequest: requests.CreateVmClusterNetworkRequest
   ): Promise<responses.CreateVmClusterNetworkResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#createVmClusterNetwork.");
+    const operationName = "createVmClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/CreateVmClusterNetwork";
     const pathParams = {
       "{exadataInfrastructureId}": createVmClusterNetworkRequest.exadataInfrastructureId
     };
@@ -3860,7 +4287,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVmClusterNetworkResponse>{},
         body: await response.json(),
@@ -3917,6 +4350,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     dbNodeActionRequest: requests.DbNodeActionRequest
   ): Promise<responses.DbNodeActionResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#dbNodeAction.");
+    const operationName = "dbNodeAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/DbNodeAction";
     const pathParams = {
       "{dbNodeId}": dbNodeActionRequest.dbNodeId
     };
@@ -3948,7 +4384,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DbNodeActionResponse>{},
         body: await response.json(),
@@ -3994,6 +4436,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.DeleteAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabase.");
+    const operationName = "deleteAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DeleteAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": deleteAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -4023,7 +4468,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAutonomousDatabaseResponse>{},
         responseHeaders: [
@@ -4060,6 +4511,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.DeleteAutonomousVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteAutonomousVmCluster.");
+    const operationName = "deleteAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/DeleteAutonomousVmCluster";
     const pathParams = {
       "{autonomousVmClusterId}": deleteAutonomousVmClusterRequest.autonomousVmClusterId
     };
@@ -4089,7 +4543,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAutonomousVmClusterResponse>{},
         responseHeaders: [
@@ -4124,6 +4584,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     deleteBackupRequest: requests.DeleteBackupRequest
   ): Promise<responses.DeleteBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteBackup.");
+    const operationName = "deleteBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/DeleteBackup";
     const pathParams = {
       "{backupId}": deleteBackupRequest.backupId
     };
@@ -4152,7 +4615,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackupResponse>{},
         responseHeaders: [
@@ -4188,6 +4657,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     deleteBackupDestinationRequest: requests.DeleteBackupDestinationRequest
   ): Promise<responses.DeleteBackupDestinationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteBackupDestination.");
+    const operationName = "deleteBackupDestination";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/DeleteBackupDestination";
     const pathParams = {
       "{backupDestinationId}": deleteBackupDestinationRequest.backupDestinationId
     };
@@ -4217,7 +4689,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackupDestinationResponse>{},
         responseHeaders: [
@@ -4249,6 +4727,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.DeleteCloudAutonomousVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteCloudAutonomousVmCluster.");
+    const operationName = "deleteCloudAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/DeleteCloudAutonomousVmCluster";
     const pathParams = {
       "{cloudAutonomousVmClusterId}":
         deleteCloudAutonomousVmClusterRequest.cloudAutonomousVmClusterId
@@ -4279,7 +4760,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCloudAutonomousVmClusterResponse>{},
         responseHeaders: [
@@ -4316,6 +4803,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   ): Promise<responses.DeleteCloudExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteCloudExadataInfrastructure.");
+    const operationName = "deleteCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/DeleteCloudExadataInfrastructure";
     const pathParams = {
       "{cloudExadataInfrastructureId}":
         deleteCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
@@ -4348,7 +4838,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCloudExadataInfrastructureResponse>{},
         responseHeaders: [
@@ -4384,6 +4880,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     deleteCloudVmClusterRequest: requests.DeleteCloudVmClusterRequest
   ): Promise<responses.DeleteCloudVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteCloudVmCluster.");
+    const operationName = "deleteCloudVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/DeleteCloudVmCluster";
     const pathParams = {
       "{cloudVmClusterId}": deleteCloudVmClusterRequest.cloudVmClusterId
     };
@@ -4413,7 +4912,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCloudVmClusterResponse>{},
         responseHeaders: [
@@ -4448,6 +4953,9 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
     deleteConsoleConnectionRequest: requests.DeleteConsoleConnectionRequest
   ): Promise<responses.DeleteConsoleConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteConsoleConnection.");
+    const operationName = "deleteConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/DeleteConsoleConnection";
     const pathParams = {
       "{dbNodeId}": deleteConsoleConnectionRequest.dbNodeId,
       "{consoleConnectionId}": deleteConsoleConnectionRequest.consoleConnectionId
@@ -4477,7 +4985,13 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConsoleConnectionResponse>{},
         responseHeaders: [
@@ -4510,6 +5024,9 @@ The data in this database is local to the Exadata system and will be lost when t
     deleteDatabaseRequest: requests.DeleteDatabaseRequest
   ): Promise<responses.DeleteDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDatabase.");
+    const operationName = "deleteDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/DeleteDatabase";
     const pathParams = {
       "{databaseId}": deleteDatabaseRequest.databaseId
     };
@@ -4541,7 +5058,13 @@ The data in this database is local to the Exadata system and will be lost when t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseResponse>{},
         responseHeaders: [
@@ -4577,6 +5100,9 @@ The data in this database is local to the Exadata system and will be lost when t
   ): Promise<responses.DeleteDatabaseSoftwareImageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteDatabaseSoftwareImage.");
+    const operationName = "deleteDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/DeleteDatabaseSoftwareImage";
     const pathParams = {
       "{databaseSoftwareImageId}": deleteDatabaseSoftwareImageRequest.databaseSoftwareImageId
     };
@@ -4605,7 +5131,13 @@ The data in this database is local to the Exadata system and will be lost when t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseSoftwareImageResponse>{},
         responseHeaders: [
@@ -4643,6 +5175,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     deleteDbHomeRequest: requests.DeleteDbHomeRequest
   ): Promise<responses.DeleteDbHomeResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteDbHome.");
+    const operationName = "deleteDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/DeleteDbHome";
     const pathParams = {
       "{dbHomeId}": deleteDbHomeRequest.dbHomeId
     };
@@ -4673,7 +5208,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDbHomeResponse>{},
         responseHeaders: [
@@ -4710,6 +5251,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DeleteExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteExadataInfrastructure.");
+    const operationName = "deleteExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/DeleteExadataInfrastructure";
     const pathParams = {
       "{exadataInfrastructureId}": deleteExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -4739,7 +5283,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExadataInfrastructureResponse>{},
         responseHeaders: [
@@ -4778,6 +5328,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DeleteExternalContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteExternalContainerDatabase.");
+    const operationName = "deleteExternalContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/DeleteExternalContainerDatabase";
     const pathParams = {
       "{externalContainerDatabaseId}":
         deleteExternalContainerDatabaseRequest.externalContainerDatabaseId
@@ -4808,7 +5361,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalContainerDatabaseResponse>{},
         responseHeaders: [
@@ -4847,6 +5406,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DeleteExternalDatabaseConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteExternalDatabaseConnector.");
+    const operationName = "deleteExternalDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/DeleteExternalDatabaseConnector";
     const pathParams = {
       "{externalDatabaseConnectorId}":
         deleteExternalDatabaseConnectorRequest.externalDatabaseConnectorId
@@ -4877,7 +5439,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalDatabaseConnectorResponse>{},
         responseHeaders: [
@@ -4914,6 +5482,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DeleteExternalNonContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteExternalNonContainerDatabase.");
+    const operationName = "deleteExternalNonContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DeleteExternalNonContainerDatabase";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         deleteExternalNonContainerDatabaseRequest.externalNonContainerDatabaseId
@@ -4944,7 +5515,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalNonContainerDatabaseResponse>{},
         responseHeaders: [
@@ -4982,6 +5559,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DeleteExternalPluggableDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deleteExternalPluggableDatabase.");
+    const operationName = "deleteExternalPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DeleteExternalPluggableDatabase";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         deleteExternalPluggableDatabaseRequest.externalPluggableDatabaseId
@@ -5012,7 +5592,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalPluggableDatabaseResponse>{},
         responseHeaders: [
@@ -5048,6 +5634,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     deleteKeyStoreRequest: requests.DeleteKeyStoreRequest
   ): Promise<responses.DeleteKeyStoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteKeyStore.");
+    const operationName = "deleteKeyStore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/DeleteKeyStore";
     const pathParams = {
       "{keyStoreId}": deleteKeyStoreRequest.keyStoreId
     };
@@ -5077,7 +5666,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteKeyStoreResponse>{},
         responseHeaders: [
@@ -5107,6 +5702,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     deletePluggableDatabaseRequest: requests.DeletePluggableDatabaseRequest
   ): Promise<responses.DeletePluggableDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deletePluggableDatabase.");
+    const operationName = "deletePluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/DeletePluggableDatabase";
     const pathParams = {
       "{pluggableDatabaseId}": deletePluggableDatabaseRequest.pluggableDatabaseId
     };
@@ -5136,7 +5734,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePluggableDatabaseResponse>{},
         responseHeaders: [
@@ -5172,6 +5776,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     deleteVmClusterRequest: requests.DeleteVmClusterRequest
   ): Promise<responses.DeleteVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteVmCluster.");
+    const operationName = "deleteVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/DeleteVmCluster";
     const pathParams = {
       "{vmClusterId}": deleteVmClusterRequest.vmClusterId
     };
@@ -5201,7 +5808,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVmClusterResponse>{},
         responseHeaders: [
@@ -5238,6 +5851,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
     deleteVmClusterNetworkRequest: requests.DeleteVmClusterNetworkRequest
   ): Promise<responses.DeleteVmClusterNetworkResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteVmClusterNetwork.");
+    const operationName = "deleteVmClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/DeleteVmClusterNetwork";
     const pathParams = {
       "{exadataInfrastructureId}": deleteVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": deleteVmClusterNetworkRequest.vmClusterNetworkId
@@ -5269,7 +5885,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVmClusterNetworkResponse>{},
         responseHeaders: [
@@ -5306,6 +5928,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DeregisterAutonomousDatabaseDataSafeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#deregisterAutonomousDatabaseDataSafe.");
+    const operationName = "deregisterAutonomousDatabaseDataSafe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DeregisterAutonomousDatabaseDataSafe";
     const pathParams = {
       "{autonomousDatabaseId}": deregisterAutonomousDatabaseDataSafeRequest.autonomousDatabaseId
     };
@@ -5339,7 +5964,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeregisterAutonomousDatabaseDataSafeResponse>{},
         responseHeaders: [
@@ -5376,6 +6007,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DisableAutonomousDatabaseManagementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#disableAutonomousDatabaseManagement.");
+    const operationName = "disableAutonomousDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DisableAutonomousDatabaseManagement";
     const pathParams = {
       "{autonomousDatabaseId}": disableAutonomousDatabaseManagementRequest.autonomousDatabaseId
     };
@@ -5404,7 +6038,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableAutonomousDatabaseManagementResponse>{},
         responseHeaders: [
@@ -5443,6 +6083,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableAutonomousDatabaseOperationsInsights."
       );
+    const operationName = "disableAutonomousDatabaseOperationsInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/DisableAutonomousDatabaseOperationsInsights";
     const pathParams = {
       "{autonomousDatabaseId}":
         disableAutonomousDatabaseOperationsInsightsRequest.autonomousDatabaseId
@@ -5472,7 +6115,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableAutonomousDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
@@ -5509,6 +6158,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DisableDatabaseManagementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#disableDatabaseManagement.");
+    const operationName = "disableDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/DisableDatabaseManagement";
     const pathParams = {
       "{databaseId}": disableDatabaseManagementRequest.databaseId
     };
@@ -5539,7 +6191,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableDatabaseManagementResponse>{},
         body: await response.json(),
@@ -5587,6 +6245,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalContainerDatabaseDatabaseManagement."
       );
+    const operationName = "disableExternalContainerDatabaseDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/DisableExternalContainerDatabaseDatabaseManagement";
     const pathParams = {
       "{externalContainerDatabaseId}":
         disableExternalContainerDatabaseDatabaseManagementRequest.externalContainerDatabaseId
@@ -5619,7 +6280,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalContainerDatabaseDatabaseManagementResponse>{},
         responseHeaders: [
@@ -5663,6 +6330,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalContainerDatabaseStackMonitoring."
       );
+    const operationName = "disableExternalContainerDatabaseStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/DisableExternalContainerDatabaseStackMonitoring";
     const pathParams = {
       "{externalContainerDatabaseId}":
         disableExternalContainerDatabaseStackMonitoringRequest.externalContainerDatabaseId
@@ -5695,7 +6365,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalContainerDatabaseStackMonitoringResponse>{},
         responseHeaders: [
@@ -5736,6 +6412,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalNonContainerDatabaseDatabaseManagement."
       );
+    const operationName = "disableExternalNonContainerDatabaseDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DisableExternalNonContainerDatabaseDatabaseManagement";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         disableExternalNonContainerDatabaseDatabaseManagementRequest.externalNonContainerDatabaseId
@@ -5768,7 +6447,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalNonContainerDatabaseDatabaseManagementResponse>{},
         responseHeaders: [
@@ -5812,6 +6497,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalNonContainerDatabaseOperationsInsights."
       );
+    const operationName = "disableExternalNonContainerDatabaseOperationsInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DisableExternalNonContainerDatabaseOperationsInsights";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         disableExternalNonContainerDatabaseOperationsInsightsRequest.externalNonContainerDatabaseId
@@ -5844,7 +6532,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalNonContainerDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
@@ -5888,6 +6582,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalNonContainerDatabaseStackMonitoring."
       );
+    const operationName = "disableExternalNonContainerDatabaseStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/DisableExternalNonContainerDatabaseStackMonitoring";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         disableExternalNonContainerDatabaseStackMonitoringRequest.externalNonContainerDatabaseId
@@ -5920,7 +6617,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalNonContainerDatabaseStackMonitoringResponse>{},
         responseHeaders: [
@@ -5961,6 +6664,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalPluggableDatabaseDatabaseManagement."
       );
+    const operationName = "disableExternalPluggableDatabaseDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DisableExternalPluggableDatabaseDatabaseManagement";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         disableExternalPluggableDatabaseDatabaseManagementRequest.externalPluggableDatabaseId
@@ -5993,7 +6699,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalPluggableDatabaseDatabaseManagementResponse>{},
         responseHeaders: [
@@ -6037,6 +6749,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalPluggableDatabaseOperationsInsights."
       );
+    const operationName = "disableExternalPluggableDatabaseOperationsInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DisableExternalPluggableDatabaseOperationsInsights";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         disableExternalPluggableDatabaseOperationsInsightsRequest.externalPluggableDatabaseId
@@ -6069,7 +6784,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalPluggableDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
@@ -6113,6 +6834,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#disableExternalPluggableDatabaseStackMonitoring."
       );
+    const operationName = "disableExternalPluggableDatabaseStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/DisableExternalPluggableDatabaseStackMonitoring";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         disableExternalPluggableDatabaseStackMonitoringRequest.externalPluggableDatabaseId
@@ -6145,7 +6869,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalPluggableDatabaseStackMonitoringResponse>{},
         responseHeaders: [
@@ -6184,6 +6914,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#downloadExadataInfrastructureConfigFile."
       );
+    const operationName = "downloadExadataInfrastructureConfigFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/DownloadExadataInfrastructureConfigFile";
     const pathParams = {
       "{exadataInfrastructureId}":
         downloadExadataInfrastructureConfigFileRequest.exadataInfrastructureId
@@ -6214,7 +6947,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadExadataInfrastructureConfigFileResponse>{},
 
@@ -6265,6 +7004,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DownloadValidationReportResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#downloadValidationReport.");
+    const operationName = "downloadValidationReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/DownloadValidationReport";
     const pathParams = {
       "{exadataInfrastructureId}": downloadValidationReportRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": downloadValidationReportRequest.vmClusterNetworkId
@@ -6296,7 +7038,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadValidationReportResponse>{},
 
@@ -6347,6 +7095,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.DownloadVmClusterNetworkConfigFileResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#downloadVmClusterNetworkConfigFile.");
+    const operationName = "downloadVmClusterNetworkConfigFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/DownloadVmClusterNetworkConfigFile";
     const pathParams = {
       "{exadataInfrastructureId}":
         downloadVmClusterNetworkConfigFileRequest.exadataInfrastructureId,
@@ -6379,7 +7130,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadVmClusterNetworkConfigFileResponse>{},
 
@@ -6430,6 +7187,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.EnableAutonomousDatabaseManagementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#enableAutonomousDatabaseManagement.");
+    const operationName = "enableAutonomousDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/EnableAutonomousDatabaseManagement";
     const pathParams = {
       "{autonomousDatabaseId}": enableAutonomousDatabaseManagementRequest.autonomousDatabaseId
     };
@@ -6458,7 +7218,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableAutonomousDatabaseManagementResponse>{},
         responseHeaders: [
@@ -6497,6 +7263,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableAutonomousDatabaseOperationsInsights."
       );
+    const operationName = "enableAutonomousDatabaseOperationsInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/EnableAutonomousDatabaseOperationsInsights";
     const pathParams = {
       "{autonomousDatabaseId}":
         enableAutonomousDatabaseOperationsInsightsRequest.autonomousDatabaseId
@@ -6526,7 +7295,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableAutonomousDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
@@ -6562,6 +7337,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.EnableDatabaseManagementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#enableDatabaseManagement.");
+    const operationName = "enableDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/EnableDatabaseManagement";
     const pathParams = {
       "{databaseId}": enableDatabaseManagementRequest.databaseId
     };
@@ -6597,7 +7375,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableDatabaseManagementResponse>{},
         body: await response.json(),
@@ -6647,6 +7431,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalContainerDatabaseDatabaseManagement."
       );
+    const operationName = "enableExternalContainerDatabaseDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/EnableExternalContainerDatabaseDatabaseManagement";
     const pathParams = {
       "{externalContainerDatabaseId}":
         enableExternalContainerDatabaseDatabaseManagementRequest.externalContainerDatabaseId
@@ -6684,7 +7471,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalContainerDatabaseDatabaseManagementResponse>{},
         responseHeaders: [
@@ -6728,6 +7521,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalContainerDatabaseStackMonitoring."
       );
+    const operationName = "enableExternalContainerDatabaseStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/EnableExternalContainerDatabaseStackMonitoring";
     const pathParams = {
       "{externalContainerDatabaseId}":
         enableExternalContainerDatabaseStackMonitoringRequest.externalContainerDatabaseId
@@ -6765,7 +7561,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalContainerDatabaseStackMonitoringResponse>{},
         responseHeaders: [
@@ -6806,6 +7608,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalNonContainerDatabaseDatabaseManagement."
       );
+    const operationName = "enableExternalNonContainerDatabaseDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/EnableExternalNonContainerDatabaseDatabaseManagement";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         enableExternalNonContainerDatabaseDatabaseManagementRequest.externalNonContainerDatabaseId
@@ -6843,7 +7648,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalNonContainerDatabaseDatabaseManagementResponse>{},
         responseHeaders: [
@@ -6887,6 +7698,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalNonContainerDatabaseOperationsInsights."
       );
+    const operationName = "enableExternalNonContainerDatabaseOperationsInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/EnableExternalNonContainerDatabaseOperationsInsights";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         enableExternalNonContainerDatabaseOperationsInsightsRequest.externalNonContainerDatabaseId
@@ -6924,7 +7738,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalNonContainerDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
@@ -6968,6 +7788,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalNonContainerDatabaseStackMonitoring."
       );
+    const operationName = "enableExternalNonContainerDatabaseStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/EnableExternalNonContainerDatabaseStackMonitoring";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         enableExternalNonContainerDatabaseStackMonitoringRequest.externalNonContainerDatabaseId
@@ -7005,7 +7828,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalNonContainerDatabaseStackMonitoringResponse>{},
         responseHeaders: [
@@ -7046,6 +7875,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalPluggableDatabaseDatabaseManagement."
       );
+    const operationName = "enableExternalPluggableDatabaseDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/EnableExternalPluggableDatabaseDatabaseManagement";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         enableExternalPluggableDatabaseDatabaseManagementRequest.externalPluggableDatabaseId
@@ -7083,7 +7915,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalPluggableDatabaseDatabaseManagementResponse>{},
         responseHeaders: [
@@ -7127,6 +7965,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalPluggableDatabaseOperationsInsights."
       );
+    const operationName = "enableExternalPluggableDatabaseOperationsInsights";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/EnableExternalPluggableDatabaseOperationsInsights";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         enableExternalPluggableDatabaseOperationsInsightsRequest.externalPluggableDatabaseId
@@ -7164,7 +8005,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalPluggableDatabaseOperationsInsightsResponse>{},
         responseHeaders: [
@@ -7208,6 +8055,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       this.logger.debug(
         "Calling operation DatabaseClient#enableExternalPluggableDatabaseStackMonitoring."
       );
+    const operationName = "enableExternalPluggableDatabaseStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/EnableExternalPluggableDatabaseStackMonitoring";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         enableExternalPluggableDatabaseStackMonitoringRequest.externalPluggableDatabaseId
@@ -7245,7 +8095,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalPluggableDatabaseStackMonitoringResponse>{},
         responseHeaders: [
@@ -7282,6 +8138,9 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   ): Promise<responses.FailOverAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#failOverAutonomousDatabase.");
+    const operationName = "failOverAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/FailOverAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": failOverAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -7314,7 +8173,13 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.FailOverAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -7364,6 +8229,9 @@ A failover can result in data loss, depending on the protection mode in effect a
       this.logger.debug(
         "Calling operation DatabaseClient#failoverAutonomousContainerDatabaseDataguardAssociation."
       );
+    const operationName = "failoverAutonomousContainerDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/FailoverAutonomousContainerDatabaseDataguardAssociation";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         failoverAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
@@ -7396,7 +8264,13 @@ A failover can result in data loss, depending on the protection mode in effect a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <
           responses.FailoverAutonomousContainerDatabaseDataguardAssociationResponse
@@ -7448,6 +8322,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.FailoverDataGuardAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#failoverDataGuardAssociation.");
+    const operationName = "failoverDataGuardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/FailoverDataGuardAssociation";
     const pathParams = {
       "{databaseId}": failoverDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": failoverDataGuardAssociationRequest.dataGuardAssociationId
@@ -7483,7 +8360,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.FailoverDataGuardAssociationResponse>{},
         body: await response.json(),
@@ -7529,6 +8412,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GenerateAutonomousDatabaseWalletResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#generateAutonomousDatabaseWallet.");
+    const operationName = "generateAutonomousDatabaseWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/GenerateAutonomousDatabaseWallet";
     const pathParams = {
       "{autonomousDatabaseId}": generateAutonomousDatabaseWalletRequest.autonomousDatabaseId
     };
@@ -7563,7 +8449,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateAutonomousDatabaseWalletResponse>{},
 
@@ -7614,6 +8506,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GenerateRecommendedVmClusterNetworkResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#generateRecommendedVmClusterNetwork.");
+    const operationName = "generateRecommendedVmClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/GenerateRecommendedVmClusterNetwork";
     const pathParams = {
       "{exadataInfrastructureId}":
         generateRecommendedVmClusterNetworkRequest.exadataInfrastructureId
@@ -7650,7 +8545,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateRecommendedVmClusterNetworkResponse>{},
         body: await response.json(),
@@ -7690,6 +8591,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetAutonomousContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getAutonomousContainerDatabase.");
+    const operationName = "getAutonomousContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/GetAutonomousContainerDatabase";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         getAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -7718,7 +8622,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
@@ -7761,6 +8671,9 @@ A failover might result in data loss depending on the protection mode in effect 
       this.logger.debug(
         "Calling operation DatabaseClient#getAutonomousContainerDatabaseDataguardAssociation."
       );
+    const operationName = "getAutonomousContainerDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/GetAutonomousContainerDatabaseDataguardAssociation";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         getAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
@@ -7792,7 +8705,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousContainerDatabaseDataguardAssociationResponse>{},
         body: await response.json(),
@@ -7832,6 +8751,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getAutonomousDatabaseRequest: requests.GetAutonomousDatabaseRequest
   ): Promise<responses.GetAutonomousDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabase.");
+    const operationName = "getAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/GetAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": getAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -7860,7 +8782,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -7900,6 +8828,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetAutonomousDatabaseBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseBackup.");
+    const operationName = "getAutonomousDatabaseBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/GetAutonomousDatabaseBackup";
     const pathParams = {
       "{autonomousDatabaseBackupId}": getAutonomousDatabaseBackupRequest.autonomousDatabaseBackupId
     };
@@ -7928,7 +8859,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousDatabaseBackupResponse>{},
         body: await response.json(),
@@ -7971,6 +8908,9 @@ A failover might result in data loss depending on the protection mode in effect 
       this.logger.debug(
         "Calling operation DatabaseClient#getAutonomousDatabaseDataguardAssociation."
       );
+    const operationName = "getAutonomousDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseDataguardAssociation/GetAutonomousDatabaseDataguardAssociation";
     const pathParams = {
       "{autonomousDatabaseId}":
         getAutonomousDatabaseDataguardAssociationRequest.autonomousDatabaseId,
@@ -8003,7 +8943,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousDatabaseDataguardAssociationResponse>{},
         body: await response.json(),
@@ -8044,6 +8990,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetAutonomousDatabaseRegionalWalletResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseRegionalWallet.");
+    const operationName = "getAutonomousDatabaseRegionalWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/GetAutonomousDatabaseRegionalWallet";
     const pathParams = {};
 
     const queryParams = {};
@@ -8070,7 +9019,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousDatabaseRegionalWalletResponse>{},
         body: await response.json(),
@@ -8106,6 +9061,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetAutonomousDatabaseWalletResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getAutonomousDatabaseWallet.");
+    const operationName = "getAutonomousDatabaseWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/GetAutonomousDatabaseWallet";
     const pathParams = {
       "{autonomousDatabaseId}": getAutonomousDatabaseWalletRequest.autonomousDatabaseId
     };
@@ -8134,7 +9092,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousDatabaseWalletResponse>{},
         body: await response.json(),
@@ -8170,6 +9134,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetAutonomousExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getAutonomousExadataInfrastructure.");
+    const operationName = "getAutonomousExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/GetAutonomousExadataInfrastructure";
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         getAutonomousExadataInfrastructureRequest.autonomousExadataInfrastructureId
@@ -8198,7 +9165,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -8237,6 +9210,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getAutonomousPatchRequest: requests.GetAutonomousPatchRequest
   ): Promise<responses.GetAutonomousPatchResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousPatch.");
+    const operationName = "getAutonomousPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousPatch/GetAutonomousPatch";
     const pathParams = {
       "{autonomousPatchId}": getAutonomousPatchRequest.autonomousPatchId
     };
@@ -8264,7 +9240,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousPatchResponse>{},
         body: await response.json(),
@@ -8304,6 +9286,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getAutonomousVmClusterRequest: requests.GetAutonomousVmClusterRequest
   ): Promise<responses.GetAutonomousVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getAutonomousVmCluster.");
+    const operationName = "getAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/GetAutonomousVmCluster";
     const pathParams = {
       "{autonomousVmClusterId}": getAutonomousVmClusterRequest.autonomousVmClusterId
     };
@@ -8332,7 +9317,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutonomousVmClusterResponse>{},
         body: await response.json(),
@@ -8371,6 +9362,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getBackupRequest: requests.GetBackupRequest
   ): Promise<responses.GetBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getBackup.");
+    const operationName = "getBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/GetBackup";
     const pathParams = {
       "{backupId}": getBackupRequest.backupId
     };
@@ -8398,7 +9392,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackupResponse>{},
         body: await response.json(),
@@ -8438,6 +9438,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getBackupDestinationRequest: requests.GetBackupDestinationRequest
   ): Promise<responses.GetBackupDestinationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getBackupDestination.");
+    const operationName = "getBackupDestination";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/GetBackupDestination";
     const pathParams = {
       "{backupDestinationId}": getBackupDestinationRequest.backupDestinationId
     };
@@ -8466,7 +9469,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackupDestinationResponse>{},
         body: await response.json(),
@@ -8507,6 +9516,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetCloudAutonomousVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getCloudAutonomousVmCluster.");
+    const operationName = "getCloudAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/GetCloudAutonomousVmCluster";
     const pathParams = {
       "{cloudAutonomousVmClusterId}": getCloudAutonomousVmClusterRequest.cloudAutonomousVmClusterId
     };
@@ -8535,7 +9547,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCloudAutonomousVmClusterResponse>{},
         body: await response.json(),
@@ -8576,6 +9594,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetCloudExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getCloudExadataInfrastructure.");
+    const operationName = "getCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/GetCloudExadataInfrastructure";
     const pathParams = {
       "{cloudExadataInfrastructureId}":
         getCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
@@ -8605,7 +9626,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCloudExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -8645,6 +9672,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getCloudVmClusterRequest: requests.GetCloudVmClusterRequest
   ): Promise<responses.GetCloudVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getCloudVmCluster.");
+    const operationName = "getCloudVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/GetCloudVmCluster";
     const pathParams = {
       "{cloudVmClusterId}": getCloudVmClusterRequest.cloudVmClusterId
     };
@@ -8673,7 +9703,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCloudVmClusterResponse>{},
         body: await response.json(),
@@ -8715,6 +9751,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetCloudVmClusterIormConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterIormConfig.");
+    const operationName = "getCloudVmClusterIormConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/GetCloudVmClusterIormConfig";
     const pathParams = {
       "{cloudVmClusterId}": getCloudVmClusterIormConfigRequest.cloudVmClusterId
     };
@@ -8743,7 +9782,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCloudVmClusterIormConfigResponse>{},
         body: await response.json(),
@@ -8783,6 +9828,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getCloudVmClusterUpdateRequest: requests.GetCloudVmClusterUpdateRequest
   ): Promise<responses.GetCloudVmClusterUpdateResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdate.");
+    const operationName = "getCloudVmClusterUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Update/GetCloudVmClusterUpdate";
     const pathParams = {
       "{cloudVmClusterId}": getCloudVmClusterUpdateRequest.cloudVmClusterId,
       "{updateId}": getCloudVmClusterUpdateRequest.updateId
@@ -8812,7 +9860,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCloudVmClusterUpdateResponse>{},
         body: await response.json(),
@@ -8848,6 +9902,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetCloudVmClusterUpdateHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getCloudVmClusterUpdateHistoryEntry.");
+    const operationName = "getCloudVmClusterUpdateHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/UpdateHistoryEntry/GetCloudVmClusterUpdateHistoryEntry";
     const pathParams = {
       "{cloudVmClusterId}": getCloudVmClusterUpdateHistoryEntryRequest.cloudVmClusterId,
       "{updateHistoryEntryId}": getCloudVmClusterUpdateHistoryEntryRequest.updateHistoryEntryId
@@ -8877,7 +9934,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCloudVmClusterUpdateHistoryEntryResponse>{},
         body: await response.json(),
@@ -8916,6 +9979,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getConsoleConnectionRequest: requests.GetConsoleConnectionRequest
   ): Promise<responses.GetConsoleConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getConsoleConnection.");
+    const operationName = "getConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/GetConsoleConnection";
     const pathParams = {
       "{dbNodeId}": getConsoleConnectionRequest.dbNodeId,
       "{consoleConnectionId}": getConsoleConnectionRequest.consoleConnectionId
@@ -8944,7 +10010,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConsoleConnectionResponse>{},
         body: await response.json(),
@@ -8984,6 +10056,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getDataGuardAssociationRequest: requests.GetDataGuardAssociationRequest
   ): Promise<responses.GetDataGuardAssociationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDataGuardAssociation.");
+    const operationName = "getDataGuardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/GetDataGuardAssociation";
     const pathParams = {
       "{databaseId}": getDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": getDataGuardAssociationRequest.dataGuardAssociationId
@@ -9012,7 +10087,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataGuardAssociationResponse>{},
         body: await response.json(),
@@ -9051,6 +10132,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getDatabaseRequest: requests.GetDatabaseRequest
   ): Promise<responses.GetDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDatabase.");
+    const operationName = "getDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/GetDatabase";
     const pathParams = {
       "{databaseId}": getDatabaseRequest.databaseId
     };
@@ -9078,7 +10162,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseResponse>{},
         body: await response.json(),
@@ -9118,6 +10208,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetDatabaseSoftwareImageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getDatabaseSoftwareImage.");
+    const operationName = "getDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/GetDatabaseSoftwareImage";
     const pathParams = {
       "{databaseSoftwareImageId}": getDatabaseSoftwareImageRequest.databaseSoftwareImageId
     };
@@ -9145,7 +10238,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseSoftwareImageResponse>{},
         body: await response.json(),
@@ -9186,6 +10285,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetDatabaseUpgradeHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getDatabaseUpgradeHistoryEntry.");
+    const operationName = "getDatabaseUpgradeHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseUpgradeHistoryEntry/GetDatabaseUpgradeHistoryEntry";
     const pathParams = {
       "{databaseId}": getDatabaseUpgradeHistoryEntryRequest.databaseId,
       "{upgradeHistoryEntryId}": getDatabaseUpgradeHistoryEntryRequest.upgradeHistoryEntryId
@@ -9215,7 +10317,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseUpgradeHistoryEntryResponse>{},
         body: await response.json(),
@@ -9249,6 +10357,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getDbHomeRequest: requests.GetDbHomeRequest
   ): Promise<responses.GetDbHomeResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbHome.");
+    const operationName = "getDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/GetDbHome";
     const pathParams = {
       "{dbHomeId}": getDbHomeRequest.dbHomeId
     };
@@ -9276,7 +10387,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbHomeResponse>{},
         body: await response.json(),
@@ -9316,6 +10433,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getDbHomePatchRequest: requests.GetDbHomePatchRequest
   ): Promise<responses.GetDbHomePatchResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbHomePatch.");
+    const operationName = "getDbHomePatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/GetDbHomePatch";
     const pathParams = {
       "{dbHomeId}": getDbHomePatchRequest.dbHomeId,
       "{patchId}": getDbHomePatchRequest.patchId
@@ -9344,7 +10464,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbHomePatchResponse>{},
         body: await response.json(),
@@ -9380,6 +10506,9 @@ A failover might result in data loss depending on the protection mode in effect 
   ): Promise<responses.GetDbHomePatchHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getDbHomePatchHistoryEntry.");
+    const operationName = "getDbHomePatchHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/GetDbHomePatchHistoryEntry";
     const pathParams = {
       "{dbHomeId}": getDbHomePatchHistoryEntryRequest.dbHomeId,
       "{patchHistoryEntryId}": getDbHomePatchHistoryEntryRequest.patchHistoryEntryId
@@ -9408,7 +10537,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbHomePatchHistoryEntryResponse>{},
         body: await response.json(),
@@ -9447,6 +10582,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getDbNodeRequest: requests.GetDbNodeRequest
   ): Promise<responses.GetDbNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbNode.");
+    const operationName = "getDbNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/GetDbNode";
     const pathParams = {
       "{dbNodeId}": getDbNodeRequest.dbNodeId
     };
@@ -9474,7 +10612,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbNodeResponse>{},
         body: await response.json(),
@@ -9514,6 +10658,9 @@ A failover might result in data loss depending on the protection mode in effect 
     getDbServerRequest: requests.GetDbServerRequest
   ): Promise<responses.GetDbServerResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbServer.");
+    const operationName = "getDbServer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbServer/GetDbServer";
     const pathParams = {
       "{dbServerId}": getDbServerRequest.dbServerId
     };
@@ -9544,7 +10691,13 @@ A failover might result in data loss depending on the protection mode in effect 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbServerResponse>{},
         body: await response.json(),
@@ -9588,6 +10741,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbSystem.");
+    const operationName = "getDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/GetDbSystem";
     const pathParams = {
       "{dbSystemId}": getDbSystemRequest.dbSystemId
     };
@@ -9615,7 +10771,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbSystemResponse>{},
         body: await response.json(),
@@ -9655,6 +10817,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     getDbSystemPatchRequest: requests.GetDbSystemPatchRequest
   ): Promise<responses.GetDbSystemPatchResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getDbSystemPatch.");
+    const operationName = "getDbSystemPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/GetDbSystemPatch";
     const pathParams = {
       "{dbSystemId}": getDbSystemPatchRequest.dbSystemId,
       "{patchId}": getDbSystemPatchRequest.patchId
@@ -9683,7 +10848,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbSystemPatchResponse>{},
         body: await response.json(),
@@ -9719,6 +10890,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.GetDbSystemPatchHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getDbSystemPatchHistoryEntry.");
+    const operationName = "getDbSystemPatchHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/GetDbSystemPatchHistoryEntry";
     const pathParams = {
       "{dbSystemId}": getDbSystemPatchHistoryEntryRequest.dbSystemId,
       "{patchHistoryEntryId}": getDbSystemPatchHistoryEntryRequest.patchHistoryEntryId
@@ -9747,7 +10921,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbSystemPatchHistoryEntryResponse>{},
         body: await response.json(),
@@ -9788,6 +10968,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.GetDbSystemUpgradeHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getDbSystemUpgradeHistoryEntry.");
+    const operationName = "getDbSystemUpgradeHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemUpgradeHistoryEntry/GetDbSystemUpgradeHistoryEntry";
     const pathParams = {
       "{dbSystemId}": getDbSystemUpgradeHistoryEntryRequest.dbSystemId,
       "{upgradeHistoryEntryId}": getDbSystemUpgradeHistoryEntryRequest.upgradeHistoryEntryId
@@ -9817,7 +11000,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbSystemUpgradeHistoryEntryResponse>{},
         body: await response.json(),
@@ -9854,6 +11043,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.GetExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getExadataInfrastructure.");
+    const operationName = "getExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/GetExadataInfrastructure";
     const pathParams = {
       "{exadataInfrastructureId}": getExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -9882,7 +11074,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -9923,6 +11121,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.GetExadataInfrastructureOcpusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getExadataInfrastructureOcpus.");
+    const operationName = "getExadataInfrastructureOcpus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OCPUs/GetExadataInfrastructureOcpus";
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         getExadataInfrastructureOcpusRequest.autonomousExadataInfrastructureId
@@ -9952,7 +11153,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExadataInfrastructureOcpusResponse>{},
         body: await response.json(),
@@ -9995,6 +11202,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getExadataIormConfigRequest: requests.GetExadataIormConfigRequest
   ): Promise<responses.GetExadataIormConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExadataIormConfig.");
+    const operationName = "getExadataIormConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/GetExadataIormConfig";
     const pathParams = {
       "{dbSystemId}": getExadataIormConfigRequest.dbSystemId
     };
@@ -10023,7 +11233,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExadataIormConfigResponse>{},
         body: await response.json(),
@@ -10060,6 +11276,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getExternalBackupJobRequest: requests.GetExternalBackupJobRequest
   ): Promise<responses.GetExternalBackupJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getExternalBackupJob.");
+    const operationName = "getExternalBackupJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalBackupJob/GetExternalBackupJob";
     const pathParams = {
       "{backupId}": getExternalBackupJobRequest.backupId
     };
@@ -10087,7 +11306,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExternalBackupJobResponse>{},
         body: await response.json(),
@@ -10127,6 +11352,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.GetExternalContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getExternalContainerDatabase.");
+    const operationName = "getExternalContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/GetExternalContainerDatabase";
     const pathParams = {
       "{externalContainerDatabaseId}":
         getExternalContainerDatabaseRequest.externalContainerDatabaseId
@@ -10156,7 +11384,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExternalContainerDatabaseResponse>{},
         body: await response.json(),
@@ -10196,6 +11430,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.GetExternalDatabaseConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getExternalDatabaseConnector.");
+    const operationName = "getExternalDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/GetExternalDatabaseConnector";
     const pathParams = {
       "{externalDatabaseConnectorId}":
         getExternalDatabaseConnectorRequest.externalDatabaseConnectorId
@@ -10225,7 +11462,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExternalDatabaseConnectorResponse>{},
         body: await response.json(),
@@ -10265,6 +11508,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.GetExternalNonContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getExternalNonContainerDatabase.");
+    const operationName = "getExternalNonContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/GetExternalNonContainerDatabase";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         getExternalNonContainerDatabaseRequest.externalNonContainerDatabaseId
@@ -10294,7 +11540,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExternalNonContainerDatabaseResponse>{},
         body: await response.json(),
@@ -10336,6 +11588,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.GetExternalPluggableDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getExternalPluggableDatabase.");
+    const operationName = "getExternalPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/GetExternalPluggableDatabase";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         getExternalPluggableDatabaseRequest.externalPluggableDatabaseId
@@ -10365,7 +11620,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExternalPluggableDatabaseResponse>{},
         body: await response.json(),
@@ -10405,6 +11666,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getKeyStoreRequest: requests.GetKeyStoreRequest
   ): Promise<responses.GetKeyStoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getKeyStore.");
+    const operationName = "getKeyStore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/GetKeyStore";
     const pathParams = {
       "{keyStoreId}": getKeyStoreRequest.keyStoreId
     };
@@ -10433,7 +11697,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetKeyStoreResponse>{},
         body: await response.json(),
@@ -10472,6 +11742,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getMaintenanceRunRequest: requests.GetMaintenanceRunRequest
   ): Promise<responses.GetMaintenanceRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getMaintenanceRun.");
+    const operationName = "getMaintenanceRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/GetMaintenanceRun";
     const pathParams = {
       "{maintenanceRunId}": getMaintenanceRunRequest.maintenanceRunId
     };
@@ -10499,7 +11772,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMaintenanceRunResponse>{},
         body: await response.json(),
@@ -10540,6 +11819,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.GetPdbConversionHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getPdbConversionHistoryEntry.");
+    const operationName = "getPdbConversionHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PdbConversionHistoryEntry/GetPdbConversionHistoryEntry";
     const pathParams = {
       "{databaseId}": getPdbConversionHistoryEntryRequest.databaseId,
       "{pdbConversionHistoryEntryId}":
@@ -10570,7 +11852,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPdbConversionHistoryEntryResponse>{},
         body: await response.json(),
@@ -10604,6 +11892,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getPluggableDatabaseRequest: requests.GetPluggableDatabaseRequest
   ): Promise<responses.GetPluggableDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getPluggableDatabase.");
+    const operationName = "getPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/GetPluggableDatabase";
     const pathParams = {
       "{pluggableDatabaseId}": getPluggableDatabaseRequest.pluggableDatabaseId
     };
@@ -10631,7 +11922,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPluggableDatabaseResponse>{},
         body: await response.json(),
@@ -10671,6 +11968,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getVmClusterRequest: requests.GetVmClusterRequest
   ): Promise<responses.GetVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmCluster.");
+    const operationName = "getVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/GetVmCluster";
     const pathParams = {
       "{vmClusterId}": getVmClusterRequest.vmClusterId
     };
@@ -10699,7 +11999,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVmClusterResponse>{},
         body: await response.json(),
@@ -10740,6 +12046,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getVmClusterNetworkRequest: requests.GetVmClusterNetworkRequest
   ): Promise<responses.GetVmClusterNetworkResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterNetwork.");
+    const operationName = "getVmClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/GetVmClusterNetwork";
     const pathParams = {
       "{exadataInfrastructureId}": getVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": getVmClusterNetworkRequest.vmClusterNetworkId
@@ -10770,7 +12079,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVmClusterNetworkResponse>{},
         body: await response.json(),
@@ -10810,6 +12125,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getVmClusterPatchRequest: requests.GetVmClusterPatchRequest
   ): Promise<responses.GetVmClusterPatchResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterPatch.");
+    const operationName = "getVmClusterPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/GetVmClusterPatch";
     const pathParams = {
       "{vmClusterId}": getVmClusterPatchRequest.vmClusterId,
       "{patchId}": getVmClusterPatchRequest.patchId
@@ -10838,7 +12156,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVmClusterPatchResponse>{},
         body: await response.json(),
@@ -10874,6 +12198,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.GetVmClusterPatchHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getVmClusterPatchHistoryEntry.");
+    const operationName = "getVmClusterPatchHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/GetVmClusterPatchHistoryEntry";
     const pathParams = {
       "{vmClusterId}": getVmClusterPatchHistoryEntryRequest.vmClusterId,
       "{patchHistoryEntryId}": getVmClusterPatchHistoryEntryRequest.patchHistoryEntryId
@@ -10902,7 +12229,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVmClusterPatchHistoryEntryResponse>{},
         body: await response.json(),
@@ -10942,6 +12275,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
     getVmClusterUpdateRequest: requests.GetVmClusterUpdateRequest
   ): Promise<responses.GetVmClusterUpdateResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#getVmClusterUpdate.");
+    const operationName = "getVmClusterUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdate/GetVmClusterUpdate";
     const pathParams = {
       "{vmClusterId}": getVmClusterUpdateRequest.vmClusterId,
       "{updateId}": getVmClusterUpdateRequest.updateId
@@ -10971,7 +12307,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVmClusterUpdateResponse>{},
         body: await response.json(),
@@ -11007,6 +12349,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.GetVmClusterUpdateHistoryEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#getVmClusterUpdateHistoryEntry.");
+    const operationName = "getVmClusterUpdateHistoryEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdateHistoryEntry/GetVmClusterUpdateHistoryEntry";
     const pathParams = {
       "{vmClusterId}": getVmClusterUpdateHistoryEntryRequest.vmClusterId,
       "{updateHistoryEntryId}": getVmClusterUpdateHistoryEntryRequest.updateHistoryEntryId
@@ -11036,7 +12381,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVmClusterUpdateHistoryEntryResponse>{},
         body: await response.json(),
@@ -11077,6 +12428,9 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   ): Promise<responses.LaunchAutonomousExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#launchAutonomousExadataInfrastructure.");
+    const operationName = "launchAutonomousExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/LaunchAutonomousExadataInfrastructure";
     const pathParams = {};
 
     const queryParams = {};
@@ -11108,7 +12462,13 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.LaunchAutonomousExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -11163,6 +12523,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     launchDbSystemRequest: requests.LaunchDbSystemRequest
   ): Promise<responses.LaunchDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#launchDbSystem.");
+    const operationName = "launchDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/LaunchDbSystem";
     const pathParams = {};
 
     const queryParams = {};
@@ -11194,7 +12557,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.LaunchDbSystemResponse>{},
         body: await response.json(),
@@ -11242,6 +12611,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       this.logger.debug(
         "Calling operation DatabaseClient#listAutonomousContainerDatabaseDataguardAssociations."
       );
+    const operationName = "listAutonomousContainerDatabaseDataguardAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/ListAutonomousContainerDatabaseDataguardAssociations";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         listAutonomousContainerDatabaseDataguardAssociationsRequest.autonomousContainerDatabaseId
@@ -11274,7 +12646,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousContainerDatabaseDataguardAssociationsResponse>{},
         body: await response.json(),
@@ -11375,6 +12753,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousContainerDatabasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousContainerDatabases.");
+    const operationName = "listAutonomousContainerDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ListAutonomousContainerDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -11417,7 +12798,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousContainerDatabasesResponse>{},
         body: await response.json(),
@@ -11510,6 +12897,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousDatabaseBackupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseBackups.");
+    const operationName = "listAutonomousDatabaseBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/ListAutonomousDatabaseBackups";
     const pathParams = {};
 
     const queryParams = {
@@ -11545,7 +12935,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousDatabaseBackupsResponse>{},
         body: await response.json(),
@@ -11637,6 +13033,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousDatabaseCharacterSetsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseCharacterSets.");
+    const operationName = "listAutonomousDatabaseCharacterSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseCharacterSets/ListAutonomousDatabaseCharacterSets";
     const pathParams = {};
 
     const queryParams = {};
@@ -11663,7 +13062,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousDatabaseCharacterSetsResponse>{},
         body: await response.json(),
@@ -11704,6 +13109,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousDatabaseClonesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabaseClones.");
+    const operationName = "listAutonomousDatabaseClones";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListAutonomousDatabaseClones";
     const pathParams = {
       "{autonomousDatabaseId}": listAutonomousDatabaseClonesRequest.autonomousDatabaseId
     };
@@ -11741,7 +13149,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousDatabaseClonesResponse>{},
         body: await response.json(),
@@ -11836,6 +13250,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       this.logger.debug(
         "Calling operation DatabaseClient#listAutonomousDatabaseDataguardAssociations."
       );
+    const operationName = "listAutonomousDatabaseDataguardAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseDataguardAssociation/ListAutonomousDatabaseDataguardAssociations";
     const pathParams = {
       "{autonomousDatabaseId}":
         listAutonomousDatabaseDataguardAssociationsRequest.autonomousDatabaseId
@@ -11867,7 +13284,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousDatabaseDataguardAssociationsResponse>{},
         body: await response.json(),
@@ -11959,6 +13382,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listAutonomousDatabasesRequest: requests.ListAutonomousDatabasesRequest
   ): Promise<responses.ListAutonomousDatabasesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listAutonomousDatabases.");
+    const operationName = "listAutonomousDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListAutonomousDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -12000,7 +13426,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousDatabasesResponse>{},
         body: await response.json(),
@@ -12094,6 +13526,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousDbPreviewVersionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousDbPreviewVersions.");
+    const operationName = "listAutonomousDbPreviewVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDbPreviewVersionSummary/ListAutonomousDbPreviewVersions";
     const pathParams = {};
 
     const queryParams = {
@@ -12126,7 +13561,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousDbPreviewVersionsResponse>{},
         body: await response.json(),
@@ -12218,6 +13659,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousDbVersionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousDbVersions.");
+    const operationName = "listAutonomousDbVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDbVersionSummary/ListAutonomousDbVersions";
     const pathParams = {};
 
     const queryParams = {
@@ -12250,7 +13694,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousDbVersionsResponse>{},
         body: await response.json(),
@@ -12345,6 +13795,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       this.logger.debug(
         "Calling operation DatabaseClient#listAutonomousExadataInfrastructureShapes."
       );
+    const operationName = "listAutonomousExadataInfrastructureShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructureShapeSummary/ListAutonomousExadataInfrastructureShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -12376,7 +13829,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousExadataInfrastructureShapesResponse>{},
         body: await response.json(),
@@ -12469,6 +13928,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousExadataInfrastructuresResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousExadataInfrastructures.");
+    const operationName = "listAutonomousExadataInfrastructures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/ListAutonomousExadataInfrastructures";
     const pathParams = {};
 
     const queryParams = {
@@ -12503,7 +13965,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousExadataInfrastructuresResponse>{},
         body: await response.json(),
@@ -12596,6 +14064,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListAutonomousVmClustersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listAutonomousVmClusters.");
+    const operationName = "listAutonomousVmClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/ListAutonomousVmClusters";
     const pathParams = {};
 
     const queryParams = {
@@ -12631,7 +14102,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutonomousVmClustersResponse>{},
         body: await response.json(),
@@ -12723,6 +14200,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listBackupDestinationRequest: requests.ListBackupDestinationRequest
   ): Promise<responses.ListBackupDestinationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listBackupDestination.");
+    const operationName = "listBackupDestination";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestinationSummary/ListBackupDestination";
     const pathParams = {};
 
     const queryParams = {
@@ -12754,7 +14234,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBackupDestinationResponse>{},
         body: await response.json(),
@@ -12851,6 +14337,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listBackupsRequest: requests.ListBackupsRequest
   ): Promise<responses.ListBackupsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listBackups.");
+    const operationName = "listBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/ListBackups";
     const pathParams = {};
 
     const queryParams = {
@@ -12881,7 +14370,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBackupsResponse>{},
         body: await response.json(),
@@ -12974,6 +14469,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListCloudAutonomousVmClustersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listCloudAutonomousVmClusters.");
+    const operationName = "listCloudAutonomousVmClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ListCloudAutonomousVmClusters";
     const pathParams = {};
 
     const queryParams = {
@@ -13011,7 +14509,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCloudAutonomousVmClustersResponse>{},
         body: await response.json(),
@@ -13104,6 +14608,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListCloudExadataInfrastructuresResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listCloudExadataInfrastructures.");
+    const operationName = "listCloudExadataInfrastructures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/ListCloudExadataInfrastructures";
     const pathParams = {};
 
     const queryParams = {
@@ -13138,7 +14645,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCloudExadataInfrastructuresResponse>{},
         body: await response.json(),
@@ -13231,6 +14744,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListCloudVmClusterUpdateHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdateHistoryEntries.");
+    const operationName = "listCloudVmClusterUpdateHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/UpdateHistoryEntry/ListCloudVmClusterUpdateHistoryEntries";
     const pathParams = {
       "{cloudVmClusterId}": listCloudVmClusterUpdateHistoryEntriesRequest.cloudVmClusterId
     };
@@ -13263,7 +14779,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCloudVmClusterUpdateHistoryEntriesResponse>{},
         body: await response.json(),
@@ -13356,6 +14878,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListCloudVmClusterUpdatesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listCloudVmClusterUpdates.");
+    const operationName = "listCloudVmClusterUpdates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Update/ListCloudVmClusterUpdates";
     const pathParams = {
       "{cloudVmClusterId}": listCloudVmClusterUpdatesRequest.cloudVmClusterId
     };
@@ -13388,7 +14913,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCloudVmClusterUpdatesResponse>{},
         body: await response.json(),
@@ -13480,6 +15011,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listCloudVmClustersRequest: requests.ListCloudVmClustersRequest
   ): Promise<responses.ListCloudVmClustersResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listCloudVmClusters.");
+    const operationName = "listCloudVmClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/ListCloudVmClusters";
     const pathParams = {};
 
     const queryParams = {
@@ -13515,7 +15049,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCloudVmClustersResponse>{},
         body: await response.json(),
@@ -13607,6 +15147,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listConsoleConnectionsRequest: requests.ListConsoleConnectionsRequest
   ): Promise<responses.ListConsoleConnectionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listConsoleConnections.");
+    const operationName = "listConsoleConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/ListConsoleConnections";
     const pathParams = {
       "{dbNodeId}": listConsoleConnectionsRequest.dbNodeId
     };
@@ -13634,7 +15177,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConsoleConnectionsResponse>{},
         body: await response.json(),
@@ -13675,6 +15224,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListContainerDatabasePatchesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listContainerDatabasePatches.");
+    const operationName = "listContainerDatabasePatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousPatch/ListContainerDatabasePatches";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         listContainerDatabasePatchesRequest.autonomousContainerDatabaseId
@@ -13707,7 +15259,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListContainerDatabasePatchesResponse>{},
         body: await response.json(),
@@ -13800,6 +15358,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDataGuardAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDataGuardAssociations.");
+    const operationName = "listDataGuardAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/ListDataGuardAssociations";
     const pathParams = {
       "{databaseId}": listDataGuardAssociationsRequest.databaseId
     };
@@ -13830,7 +15391,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataGuardAssociationsResponse>{},
         body: await response.json(),
@@ -13923,6 +15490,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDatabaseSoftwareImagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDatabaseSoftwareImages.");
+    const operationName = "listDatabaseSoftwareImages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/ListDatabaseSoftwareImages";
     const pathParams = {};
 
     const queryParams = {
@@ -13959,7 +15529,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabaseSoftwareImagesResponse>{},
         body: await response.json(),
@@ -14052,6 +15628,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDatabaseUpgradeHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDatabaseUpgradeHistoryEntries.");
+    const operationName = "listDatabaseUpgradeHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ListDatabaseUpgradeHistoryEntries";
     const pathParams = {
       "{databaseId}": listDatabaseUpgradeHistoryEntriesRequest.databaseId
     };
@@ -14087,7 +15666,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabaseUpgradeHistoryEntriesResponse>{},
         body: await response.json(),
@@ -14179,6 +15764,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listDatabasesRequest: requests.ListDatabasesRequest
   ): Promise<responses.ListDatabasesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDatabases.");
+    const operationName = "listDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ListDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -14214,7 +15802,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabasesResponse>{},
         body: await response.json(),
@@ -14307,6 +15901,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDbHomePatchHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDbHomePatchHistoryEntries.");
+    const operationName = "listDbHomePatchHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/ListDbHomePatchHistoryEntries";
     const pathParams = {
       "{dbHomeId}": listDbHomePatchHistoryEntriesRequest.dbHomeId
     };
@@ -14337,7 +15934,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbHomePatchHistoryEntriesResponse>{},
         body: await response.json(),
@@ -14429,6 +16032,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listDbHomePatchesRequest: requests.ListDbHomePatchesRequest
   ): Promise<responses.ListDbHomePatchesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbHomePatches.");
+    const operationName = "listDbHomePatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/ListDbHomePatches";
     const pathParams = {
       "{dbHomeId}": listDbHomePatchesRequest.dbHomeId
     };
@@ -14459,7 +16065,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbHomePatchesResponse>{},
         body: await response.json(),
@@ -14551,6 +16163,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listDbHomesRequest: requests.ListDbHomesRequest
   ): Promise<responses.ListDbHomesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbHomes.");
+    const operationName = "listDbHomes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/ListDbHomes";
     const pathParams = {};
 
     const queryParams = {
@@ -14588,7 +16203,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbHomesResponse>{},
         body: await response.json(),
@@ -14680,6 +16301,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listDbNodesRequest: requests.ListDbNodesRequest
   ): Promise<responses.ListDbNodesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbNodes.");
+    const operationName = "listDbNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/ListDbNodes";
     const pathParams = {};
 
     const queryParams = {
@@ -14715,7 +16339,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbNodesResponse>{},
         body: await response.json(),
@@ -14807,6 +16437,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listDbServersRequest: requests.ListDbServersRequest
   ): Promise<responses.ListDbServersResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbServers.");
+    const operationName = "listDbServers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbServer/ListDbServers";
     const pathParams = {};
 
     const queryParams = {
@@ -14842,7 +16475,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbServersResponse>{},
         body: await response.json(),
@@ -14935,6 +16574,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDbSystemComputePerformancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDbSystemComputePerformances.");
+    const operationName = "listDbSystemComputePerformances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemComputePerformanceSummary/ListDbSystemComputePerformances";
     const pathParams = {};
 
     const queryParams = {
@@ -14963,7 +16605,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemComputePerformancesResponse>{},
         body: await response.json(),
@@ -15004,6 +16652,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDbSystemPatchHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDbSystemPatchHistoryEntries.");
+    const operationName = "listDbSystemPatchHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/ListDbSystemPatchHistoryEntries";
     const pathParams = {
       "{dbSystemId}": listDbSystemPatchHistoryEntriesRequest.dbSystemId
     };
@@ -15034,7 +16685,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemPatchHistoryEntriesResponse>{},
         body: await response.json(),
@@ -15126,6 +16783,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listDbSystemPatchesRequest: requests.ListDbSystemPatchesRequest
   ): Promise<responses.ListDbSystemPatchesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystemPatches.");
+    const operationName = "listDbSystemPatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/ListDbSystemPatches";
     const pathParams = {
       "{dbSystemId}": listDbSystemPatchesRequest.dbSystemId
     };
@@ -15156,7 +16816,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemPatchesResponse>{},
         body: await response.json(),
@@ -15247,6 +16913,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     listDbSystemShapesRequest: requests.ListDbSystemShapesRequest
   ): Promise<responses.ListDbSystemShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystemShapes.");
+    const operationName = "listDbSystemShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemShapeSummary/ListDbSystemShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -15277,7 +16946,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemShapesResponse>{},
         body: await response.json(),
@@ -15370,6 +17045,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDbSystemStoragePerformancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDbSystemStoragePerformances.");
+    const operationName = "listDbSystemStoragePerformances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemStoragePerformanceSummary/ListDbSystemStoragePerformances";
     const pathParams = {};
 
     const queryParams = {
@@ -15399,7 +17077,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemStoragePerformancesResponse>{},
         body: await response.json(),
@@ -15440,6 +17124,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   ): Promise<responses.ListDbSystemUpgradeHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listDbSystemUpgradeHistoryEntries.");
+    const operationName = "listDbSystemUpgradeHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemUpgradeHistoryEntry/ListDbSystemUpgradeHistoryEntries";
     const pathParams = {
       "{dbSystemId}": listDbSystemUpgradeHistoryEntriesRequest.dbSystemId
     };
@@ -15475,7 +17162,13 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemUpgradeHistoryEntriesResponse>{},
         body: await response.json(),
@@ -15571,6 +17264,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbSystems.");
+    const operationName = "listDbSystems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ListDbSystems";
     const pathParams = {};
 
     const queryParams = {
@@ -15606,7 +17302,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemsResponse>{},
         body: await response.json(),
@@ -15697,6 +17399,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listDbVersionsRequest: requests.ListDbVersionsRequest
   ): Promise<responses.ListDbVersionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listDbVersions.");
+    const operationName = "listDbVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbVersionSummary/ListDbVersions";
     const pathParams = {};
 
     const queryParams = {
@@ -15731,7 +17436,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbVersionsResponse>{},
         body: await response.json(),
@@ -15825,6 +17536,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListExadataInfrastructuresResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listExadataInfrastructures.");
+    const operationName = "listExadataInfrastructures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/ListExadataInfrastructures";
     const pathParams = {};
 
     const queryParams = {
@@ -15859,7 +17573,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExadataInfrastructuresResponse>{},
         body: await response.json(),
@@ -15952,6 +17672,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListExternalContainerDatabasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listExternalContainerDatabases.");
+    const operationName = "listExternalContainerDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/ListExternalContainerDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -15986,7 +17709,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExternalContainerDatabasesResponse>{},
         body: await response.json(),
@@ -16079,6 +17808,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListExternalDatabaseConnectorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listExternalDatabaseConnectors.");
+    const operationName = "listExternalDatabaseConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/ListExternalDatabaseConnectors";
     const pathParams = {};
 
     const queryParams = {
@@ -16114,7 +17846,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExternalDatabaseConnectorsResponse>{},
         body: await response.json(),
@@ -16207,6 +17945,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListExternalNonContainerDatabasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listExternalNonContainerDatabases.");
+    const operationName = "listExternalNonContainerDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/ListExternalNonContainerDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -16241,7 +17982,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExternalNonContainerDatabasesResponse>{},
         body: await response.json(),
@@ -16335,6 +18082,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListExternalPluggableDatabasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listExternalPluggableDatabases.");
+    const operationName = "listExternalPluggableDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/ListExternalPluggableDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -16371,7 +18121,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExternalPluggableDatabasesResponse>{},
         body: await response.json(),
@@ -16462,6 +18218,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listFlexComponentsRequest: requests.ListFlexComponentsRequest
   ): Promise<responses.ListFlexComponentsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listFlexComponents.");
+    const operationName = "listFlexComponents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/FlexComponentCollection/ListFlexComponents";
     const pathParams = {};
 
     const queryParams = {
@@ -16494,7 +18253,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFlexComponentsResponse>{},
         body: await response.json(),
@@ -16533,6 +18298,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listGiVersionsRequest: requests.ListGiVersionsRequest
   ): Promise<responses.ListGiVersionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listGiVersions.");
+    const operationName = "listGiVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/GiVersionSummary/ListGiVersions";
     const pathParams = {};
 
     const queryParams = {
@@ -16564,7 +18332,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListGiVersionsResponse>{},
         body: await response.json(),
@@ -16656,6 +18430,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listKeyStoresRequest: requests.ListKeyStoresRequest
   ): Promise<responses.ListKeyStoresResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listKeyStores.");
+    const operationName = "listKeyStores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStoreSummary/ListKeyStores";
     const pathParams = {};
 
     const queryParams = {
@@ -16686,7 +18463,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListKeyStoresResponse>{},
         body: await response.json(),
@@ -16778,6 +18561,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listMaintenanceRunsRequest: requests.ListMaintenanceRunsRequest
   ): Promise<responses.ListMaintenanceRunsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listMaintenanceRuns.");
+    const operationName = "listMaintenanceRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/ListMaintenanceRuns";
     const pathParams = {};
 
     const queryParams = {
@@ -16814,7 +18600,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMaintenanceRunsResponse>{},
         body: await response.json(),
@@ -16907,6 +18699,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListPdbConversionHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listPdbConversionHistoryEntries.");
+    const operationName = "listPdbConversionHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ListPdbConversionHistoryEntries";
     const pathParams = {
       "{databaseId}": listPdbConversionHistoryEntriesRequest.databaseId
     };
@@ -16942,7 +18737,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPdbConversionHistoryEntriesResponse>{},
         body: await response.json(),
@@ -17034,6 +18835,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listPluggableDatabasesRequest: requests.ListPluggableDatabasesRequest
   ): Promise<responses.ListPluggableDatabasesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listPluggableDatabases.");
+    const operationName = "listPluggableDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/ListPluggableDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -17068,7 +18872,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPluggableDatabasesResponse>{},
         body: await response.json(),
@@ -17160,6 +18970,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listVmClusterNetworksRequest: requests.ListVmClusterNetworksRequest
   ): Promise<responses.ListVmClusterNetworksResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterNetworks.");
+    const operationName = "listVmClusterNetworks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/ListVmClusterNetworks";
     const pathParams = {
       "{exadataInfrastructureId}": listVmClusterNetworksRequest.exadataInfrastructureId
     };
@@ -17196,7 +19009,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVmClusterNetworksResponse>{},
         body: await response.json(),
@@ -17289,6 +19108,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListVmClusterPatchHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listVmClusterPatchHistoryEntries.");
+    const operationName = "listVmClusterPatchHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PatchHistoryEntry/ListVmClusterPatchHistoryEntries";
     const pathParams = {
       "{vmClusterId}": listVmClusterPatchHistoryEntriesRequest.vmClusterId
     };
@@ -17319,7 +19141,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVmClusterPatchHistoryEntriesResponse>{},
         body: await response.json(),
@@ -17411,6 +19239,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listVmClusterPatchesRequest: requests.ListVmClusterPatchesRequest
   ): Promise<responses.ListVmClusterPatchesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterPatches.");
+    const operationName = "listVmClusterPatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Patch/ListVmClusterPatches";
     const pathParams = {
       "{vmClusterId}": listVmClusterPatchesRequest.vmClusterId
     };
@@ -17441,7 +19272,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVmClusterPatchesResponse>{},
         body: await response.json(),
@@ -17534,6 +19371,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ListVmClusterUpdateHistoryEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#listVmClusterUpdateHistoryEntries.");
+    const operationName = "listVmClusterUpdateHistoryEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdateHistoryEntry/ListVmClusterUpdateHistoryEntries";
     const pathParams = {
       "{vmClusterId}": listVmClusterUpdateHistoryEntriesRequest.vmClusterId
     };
@@ -17567,7 +19407,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVmClusterUpdateHistoryEntriesResponse>{},
         body: await response.json(),
@@ -17659,6 +19505,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listVmClusterUpdatesRequest: requests.ListVmClusterUpdatesRequest
   ): Promise<responses.ListVmClusterUpdatesResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusterUpdates.");
+    const operationName = "listVmClusterUpdates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterUpdate/ListVmClusterUpdates";
     const pathParams = {
       "{vmClusterId}": listVmClusterUpdatesRequest.vmClusterId
     };
@@ -17692,7 +19541,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVmClusterUpdatesResponse>{},
         body: await response.json(),
@@ -17785,6 +19640,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     listVmClustersRequest: requests.ListVmClustersRequest
   ): Promise<responses.ListVmClustersResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#listVmClusters.");
+    const operationName = "listVmClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/ListVmClusters";
     const pathParams = {};
 
     const queryParams = {
@@ -17820,7 +19678,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVmClustersResponse>{},
         body: await response.json(),
@@ -17913,6 +19777,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.LocalClonePluggableDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#localClonePluggableDatabase.");
+    const operationName = "localClonePluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/LocalClonePluggableDatabase";
     const pathParams = {
       "{pluggableDatabaseId}": localClonePluggableDatabaseRequest.pluggableDatabaseId
     };
@@ -17948,7 +19815,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.LocalClonePluggableDatabaseResponse>{},
         body: await response.json(),
@@ -17995,6 +19868,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.MigrateExadataDbSystemResourceModelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#migrateExadataDbSystemResourceModel.");
+    const operationName = "migrateExadataDbSystemResourceModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/MigrateExadataDbSystemResourceModel";
     const pathParams = {
       "{dbSystemId}": migrateExadataDbSystemResourceModelRequest.dbSystemId
     };
@@ -18025,7 +19901,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.MigrateExadataDbSystemResourceModelResponse>{},
         body: await response.json(),
@@ -18069,6 +19951,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     migrateVaultKeyRequest: requests.MigrateVaultKeyRequest
   ): Promise<responses.MigrateVaultKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#migrateVaultKey.");
+    const operationName = "migrateVaultKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/MigrateVaultKey";
     const pathParams = {
       "{databaseId}": migrateVaultKeyRequest.databaseId
     };
@@ -18104,7 +19989,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.MigrateVaultKeyResponse>{},
         body: await response.json(),
@@ -18149,6 +20040,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ModifyDatabaseManagementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#modifyDatabaseManagement.");
+    const operationName = "modifyDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ModifyDatabaseManagement";
     const pathParams = {
       "{databaseId}": modifyDatabaseManagementRequest.databaseId
     };
@@ -18184,7 +20078,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ModifyDatabaseManagementResponse>{},
         body: await response.json(),
@@ -18230,6 +20130,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RegisterAutonomousDatabaseDataSafeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#registerAutonomousDatabaseDataSafe.");
+    const operationName = "registerAutonomousDatabaseDataSafe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RegisterAutonomousDatabaseDataSafe";
     const pathParams = {
       "{autonomousDatabaseId}": registerAutonomousDatabaseDataSafeRequest.autonomousDatabaseId
     };
@@ -18263,7 +20166,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RegisterAutonomousDatabaseDataSafeResponse>{},
         responseHeaders: [
@@ -18302,6 +20211,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       this.logger.debug(
         "Calling operation DatabaseClient#reinstateAutonomousContainerDatabaseDataguardAssociation."
       );
+    const operationName = "reinstateAutonomousContainerDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/ReinstateAutonomousContainerDatabaseDataguardAssociation";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         reinstateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
@@ -18334,7 +20246,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <
           responses.ReinstateAutonomousContainerDatabaseDataguardAssociationResponse
@@ -18382,6 +20300,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ReinstateDataGuardAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#reinstateDataGuardAssociation.");
+    const operationName = "reinstateDataGuardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/ReinstateDataGuardAssociation";
     const pathParams = {
       "{databaseId}": reinstateDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": reinstateDataGuardAssociationRequest.dataGuardAssociationId
@@ -18417,7 +20338,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ReinstateDataGuardAssociationResponse>{},
         body: await response.json(),
@@ -18463,6 +20390,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RemoteClonePluggableDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#remoteClonePluggableDatabase.");
+    const operationName = "remoteClonePluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/RemoteClonePluggableDatabase";
     const pathParams = {
       "{pluggableDatabaseId}": remoteClonePluggableDatabaseRequest.pluggableDatabaseId
     };
@@ -18498,7 +20428,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoteClonePluggableDatabaseResponse>{},
         body: await response.json(),
@@ -18544,6 +20480,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RemoveVirtualMachineFromVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromVmCluster.");
+    const operationName = "removeVirtualMachineFromVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/RemoveVirtualMachineFromVmCluster";
     const pathParams = {
       "{vmClusterId}": removeVirtualMachineFromVmClusterRequest.vmClusterId
     };
@@ -18579,7 +20518,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveVirtualMachineFromVmClusterResponse>{},
         body: await response.json(),
@@ -18625,6 +20570,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RestartAutonomousContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#restartAutonomousContainerDatabase.");
+    const operationName = "restartAutonomousContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/RestartAutonomousContainerDatabase";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         restartAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -18655,7 +20603,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
@@ -18701,6 +20655,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RestartAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#restartAutonomousDatabase.");
+    const operationName = "restartAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RestartAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": restartAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -18729,7 +20686,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -18775,6 +20738,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RestoreAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#restoreAutonomousDatabase.");
+    const operationName = "restoreAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RestoreAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": restoreAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -18808,7 +20774,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -18853,6 +20825,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     restoreDatabaseRequest: requests.RestoreDatabaseRequest
   ): Promise<responses.RestoreDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#restoreDatabase.");
+    const operationName = "restoreDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/RestoreDatabase";
     const pathParams = {
       "{databaseId}": restoreDatabaseRequest.databaseId
     };
@@ -18886,7 +20861,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreDatabaseResponse>{},
         body: await response.json(),
@@ -18933,6 +20914,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       this.logger.debug(
         "Calling operation DatabaseClient#rotateAutonomousContainerDatabaseEncryptionKey."
       );
+    const operationName = "rotateAutonomousContainerDatabaseEncryptionKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/RotateAutonomousContainerDatabaseEncryptionKey";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         rotateAutonomousContainerDatabaseEncryptionKeyRequest.autonomousContainerDatabaseId
@@ -18964,7 +20948,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateAutonomousContainerDatabaseEncryptionKeyResponse>{},
         body: await response.json(),
@@ -19009,6 +20999,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RotateAutonomousDatabaseEncryptionKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#rotateAutonomousDatabaseEncryptionKey.");
+    const operationName = "rotateAutonomousDatabaseEncryptionKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/RotateAutonomousDatabaseEncryptionKey";
     const pathParams = {
       "{autonomousDatabaseId}": rotateAutonomousDatabaseEncryptionKeyRequest.autonomousDatabaseId
     };
@@ -19039,7 +21032,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateAutonomousDatabaseEncryptionKeyResponse>{},
         body: await response.json(),
@@ -19087,6 +21086,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       this.logger.debug(
         "Calling operation DatabaseClient#rotateCloudAutonomousVmClusterOrdsCerts."
       );
+    const operationName = "rotateCloudAutonomousVmClusterOrdsCerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/RotateCloudAutonomousVmClusterOrdsCerts";
     const pathParams = {
       "{cloudAutonomousVmClusterId}":
         rotateCloudAutonomousVmClusterOrdsCertsRequest.cloudAutonomousVmClusterId
@@ -19118,7 +21120,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateCloudAutonomousVmClusterOrdsCertsResponse>{},
         responseHeaders: [
@@ -19155,6 +21163,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.RotateCloudAutonomousVmClusterSslCertsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#rotateCloudAutonomousVmClusterSslCerts.");
+    const operationName = "rotateCloudAutonomousVmClusterSslCerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/RotateCloudAutonomousVmClusterSslCerts";
     const pathParams = {
       "{cloudAutonomousVmClusterId}":
         rotateCloudAutonomousVmClusterSslCertsRequest.cloudAutonomousVmClusterId
@@ -19186,7 +21197,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateCloudAutonomousVmClusterSslCertsResponse>{},
         responseHeaders: [
@@ -19222,6 +21239,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     rotateOrdsCertsRequest: requests.RotateOrdsCertsRequest
   ): Promise<responses.RotateOrdsCertsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateOrdsCerts.");
+    const operationName = "rotateOrdsCerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/RotateOrdsCerts";
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         rotateOrdsCertsRequest.autonomousExadataInfrastructureId
@@ -19254,7 +21274,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateOrdsCertsResponse>{},
         responseHeaders: [
@@ -19290,6 +21316,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     rotateSslCertsRequest: requests.RotateSslCertsRequest
   ): Promise<responses.RotateSslCertsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateSslCerts.");
+    const operationName = "rotateSslCerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/RotateSslCerts";
     const pathParams = {
       "{autonomousExadataInfrastructureId}": rotateSslCertsRequest.autonomousExadataInfrastructureId
     };
@@ -19321,7 +21350,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateSslCertsResponse>{},
         responseHeaders: [
@@ -19356,6 +21391,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     rotateVaultKeyRequest: requests.RotateVaultKeyRequest
   ): Promise<responses.RotateVaultKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#rotateVaultKey.");
+    const operationName = "rotateVaultKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/RotateVaultKey";
     const pathParams = {
       "{databaseId}": rotateVaultKeyRequest.databaseId
     };
@@ -19386,7 +21424,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateVaultKeyResponse>{},
         body: await response.json(),
@@ -19435,6 +21479,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       this.logger.debug(
         "Calling operation DatabaseClient#scanExternalContainerDatabasePluggableDatabases."
       );
+    const operationName = "scanExternalContainerDatabasePluggableDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/ScanExternalContainerDatabasePluggableDatabases";
     const pathParams = {
       "{externalContainerDatabaseId}":
         scanExternalContainerDatabasePluggableDatabasesRequest.externalContainerDatabaseId
@@ -19469,7 +21516,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScanExternalContainerDatabasePluggableDatabasesResponse>{},
         responseHeaders: [
@@ -19506,6 +21559,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.ShrinkAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#shrinkAutonomousDatabase.");
+    const operationName = "shrinkAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ShrinkAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": shrinkAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -19534,7 +21590,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ShrinkAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -19579,6 +21641,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     startAutonomousDatabaseRequest: requests.StartAutonomousDatabaseRequest
   ): Promise<responses.StartAutonomousDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#startAutonomousDatabase.");
+    const operationName = "startAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/StartAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": startAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -19607,7 +21672,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -19651,6 +21722,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     startPluggableDatabaseRequest: requests.StartPluggableDatabaseRequest
   ): Promise<responses.StartPluggableDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#startPluggableDatabase.");
+    const operationName = "startPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/StartPluggableDatabase";
     const pathParams = {
       "{pluggableDatabaseId}": startPluggableDatabaseRequest.pluggableDatabaseId
     };
@@ -19681,7 +21755,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartPluggableDatabaseResponse>{},
         body: await response.json(),
@@ -19726,6 +21806,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     stopAutonomousDatabaseRequest: requests.StopAutonomousDatabaseRequest
   ): Promise<responses.StopAutonomousDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#stopAutonomousDatabase.");
+    const operationName = "stopAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/StopAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": stopAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -19755,7 +21838,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -19799,6 +21888,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     stopPluggableDatabaseRequest: requests.StopPluggableDatabaseRequest
   ): Promise<responses.StopPluggableDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#stopPluggableDatabase.");
+    const operationName = "stopPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/StopPluggableDatabase";
     const pathParams = {
       "{pluggableDatabaseId}": stopPluggableDatabaseRequest.pluggableDatabaseId
     };
@@ -19829,7 +21921,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopPluggableDatabaseResponse>{},
         body: await response.json(),
@@ -19879,6 +21977,9 @@ A switchover incurs no data loss.
       this.logger.debug(
         "Calling operation DatabaseClient#switchoverAutonomousContainerDatabaseDataguardAssociation."
       );
+    const operationName = "switchoverAutonomousContainerDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/SwitchoverAutonomousContainerDatabaseDataguardAssociation";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         switchoverAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
@@ -19911,7 +22012,13 @@ A switchover incurs no data loss.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <
           responses.SwitchoverAutonomousContainerDatabaseDataguardAssociationResponse
@@ -19959,6 +22066,9 @@ A switchover incurs no data loss.
   ): Promise<responses.SwitchoverAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#switchoverAutonomousDatabase.");
+    const operationName = "switchoverAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/SwitchoverAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": switchoverAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -19991,7 +22101,13 @@ A switchover incurs no data loss.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SwitchoverAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -20040,6 +22156,9 @@ A switchover guarantees no data loss.
   ): Promise<responses.SwitchoverDataGuardAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#switchoverDataGuardAssociation.");
+    const operationName = "switchoverDataGuardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/SwitchoverDataGuardAssociation";
     const pathParams = {
       "{databaseId}": switchoverDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": switchoverDataGuardAssociationRequest.dataGuardAssociationId
@@ -20075,7 +22194,13 @@ A switchover guarantees no data loss.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SwitchoverDataGuardAssociationResponse>{},
         body: await response.json(),
@@ -20120,6 +22245,9 @@ A switchover guarantees no data loss.
   ): Promise<responses.TerminateAutonomousContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#terminateAutonomousContainerDatabase.");
+    const operationName = "terminateAutonomousContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/TerminateAutonomousContainerDatabase";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         terminateAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -20149,7 +22277,13 @@ A switchover guarantees no data loss.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TerminateAutonomousContainerDatabaseResponse>{},
         responseHeaders: [
@@ -20188,6 +22322,9 @@ A switchover guarantees no data loss.
       this.logger.debug(
         "Calling operation DatabaseClient#terminateAutonomousExadataInfrastructure."
       );
+    const operationName = "terminateAutonomousExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/TerminateAutonomousExadataInfrastructure";
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         terminateAutonomousExadataInfrastructureRequest.autonomousExadataInfrastructureId
@@ -20217,7 +22354,13 @@ A switchover guarantees no data loss.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TerminateAutonomousExadataInfrastructureResponse>{},
         responseHeaders: [
@@ -20257,6 +22400,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     terminateDbSystemRequest: requests.TerminateDbSystemRequest
   ): Promise<responses.TerminateDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#terminateDbSystem.");
+    const operationName = "terminateDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/TerminateDbSystem";
     const pathParams = {
       "{dbSystemId}": terminateDbSystemRequest.dbSystemId
     };
@@ -20285,7 +22431,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TerminateDbSystemResponse>{},
         responseHeaders: [
@@ -20321,6 +22473,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateAutonomousContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateAutonomousContainerDatabase.");
+    const operationName = "updateAutonomousContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/UpdateAutonomousContainerDatabase";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         updateAutonomousContainerDatabaseRequest.autonomousContainerDatabaseId
@@ -20355,7 +22510,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutonomousContainerDatabaseResponse>{},
         body: await response.json(),
@@ -20403,6 +22564,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       this.logger.debug(
         "Calling operation DatabaseClient#updateAutonomousContainerDatabaseDataguardAssociation."
       );
+    const operationName = "updateAutonomousContainerDatabaseDataguardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseDataguardAssociation/UpdateAutonomousContainerDatabaseDataguardAssociation";
     const pathParams = {
       "{autonomousContainerDatabaseId}":
         updateAutonomousContainerDatabaseDataguardAssociationRequest.autonomousContainerDatabaseId,
@@ -20441,7 +22605,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutonomousContainerDatabaseDataguardAssociationResponse>{},
         body: await response.json(),
@@ -20487,6 +22657,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateAutonomousDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabase.");
+    const operationName = "updateAutonomousDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/UpdateAutonomousDatabase";
     const pathParams = {
       "{autonomousDatabaseId}": updateAutonomousDatabaseRequest.autonomousDatabaseId
     };
@@ -20521,7 +22694,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutonomousDatabaseResponse>{},
         body: await response.json(),
@@ -20567,6 +22746,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateAutonomousDatabaseRegionalWalletResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseRegionalWallet.");
+    const operationName = "updateAutonomousDatabaseRegionalWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/UpdateAutonomousDatabaseRegionalWallet";
     const pathParams = {};
 
     const queryParams = {};
@@ -20598,7 +22780,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutonomousDatabaseRegionalWalletResponse>{},
         responseHeaders: [
@@ -20635,6 +22823,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateAutonomousDatabaseWalletResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseWallet.");
+    const operationName = "updateAutonomousDatabaseWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseWallet/UpdateAutonomousDatabaseWallet";
     const pathParams = {
       "{autonomousDatabaseId}": updateAutonomousDatabaseWalletRequest.autonomousDatabaseId
     };
@@ -20668,7 +22859,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutonomousDatabaseWalletResponse>{},
         responseHeaders: [
@@ -20705,6 +22902,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateAutonomousExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateAutonomousExadataInfrastructure.");
+    const operationName = "updateAutonomousExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousExadataInfrastructure/UpdateAutonomousExadataInfrastructure";
     const pathParams = {
       "{autonomousExadataInfrastructureId}":
         updateAutonomousExadataInfrastructureRequest.autonomousExadataInfrastructureId
@@ -20739,7 +22939,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutonomousExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -20785,6 +22991,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateAutonomousVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateAutonomousVmCluster.");
+    const operationName = "updateAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/UpdateAutonomousVmCluster";
     const pathParams = {
       "{autonomousVmClusterId}": updateAutonomousVmClusterRequest.autonomousVmClusterId
     };
@@ -20819,7 +23028,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutonomousVmClusterResponse>{},
         body: await response.json(),
@@ -20866,6 +23081,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     updateBackupDestinationRequest: requests.UpdateBackupDestinationRequest
   ): Promise<responses.UpdateBackupDestinationResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateBackupDestination.");
+    const operationName = "updateBackupDestination";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/BackupDestination/UpdateBackupDestination";
     const pathParams = {
       "{backupDestinationId}": updateBackupDestinationRequest.backupDestinationId
     };
@@ -20900,7 +23118,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBackupDestinationResponse>{},
         body: await response.json(),
@@ -20941,6 +23165,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateCloudAutonomousVmClusterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateCloudAutonomousVmCluster.");
+    const operationName = "updateCloudAutonomousVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/UpdateCloudAutonomousVmCluster";
     const pathParams = {
       "{cloudAutonomousVmClusterId}":
         updateCloudAutonomousVmClusterRequest.cloudAutonomousVmClusterId
@@ -20976,7 +23203,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCloudAutonomousVmClusterResponse>{},
         body: await response.json(),
@@ -21022,6 +23255,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateCloudExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateCloudExadataInfrastructure.");
+    const operationName = "updateCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/UpdateCloudExadataInfrastructure";
     const pathParams = {
       "{cloudExadataInfrastructureId}":
         updateCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
@@ -21057,7 +23293,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCloudExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -21102,6 +23344,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     updateCloudVmClusterRequest: requests.UpdateCloudVmClusterRequest
   ): Promise<responses.UpdateCloudVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateCloudVmCluster.");
+    const operationName = "updateCloudVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/UpdateCloudVmCluster";
     const pathParams = {
       "{cloudVmClusterId}": updateCloudVmClusterRequest.cloudVmClusterId
     };
@@ -21136,7 +23381,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCloudVmClusterResponse>{},
         body: await response.json(),
@@ -21182,6 +23433,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateCloudVmClusterIormConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateCloudVmClusterIormConfig.");
+    const operationName = "updateCloudVmClusterIormConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/UpdateCloudVmClusterIormConfig";
     const pathParams = {
       "{cloudVmClusterId}": updateCloudVmClusterIormConfigRequest.cloudVmClusterId
     };
@@ -21216,7 +23470,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCloudVmClusterIormConfigResponse>{},
         body: await response.json(),
@@ -21262,6 +23522,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateDataGuardAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateDataGuardAssociation.");
+    const operationName = "updateDataGuardAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DataGuardAssociation/UpdateDataGuardAssociation";
     const pathParams = {
       "{databaseId}": updateDataGuardAssociationRequest.databaseId,
       "{dataGuardAssociationId}": updateDataGuardAssociationRequest.dataGuardAssociationId
@@ -21297,7 +23560,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataGuardAssociationResponse>{},
         body: await response.json(),
@@ -21342,6 +23611,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     updateDatabaseRequest: requests.UpdateDatabaseRequest
   ): Promise<responses.UpdateDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDatabase.");
+    const operationName = "updateDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpdateDatabase";
     const pathParams = {
       "{databaseId}": updateDatabaseRequest.databaseId
     };
@@ -21375,7 +23647,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDatabaseResponse>{},
         body: await response.json(),
@@ -21420,6 +23698,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateDatabaseSoftwareImageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateDatabaseSoftwareImage.");
+    const operationName = "updateDatabaseSoftwareImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DatabaseSoftwareImage/UpdateDatabaseSoftwareImage";
     const pathParams = {
       "{databaseSoftwareImageId}": updateDatabaseSoftwareImageRequest.databaseSoftwareImageId
     };
@@ -21453,7 +23734,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDatabaseSoftwareImageResponse>{},
         body: await response.json(),
@@ -21492,6 +23779,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     updateDbHomeRequest: requests.UpdateDbHomeRequest
   ): Promise<responses.UpdateDbHomeResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbHome.");
+    const operationName = "updateDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbHome/UpdateDbHome";
     const pathParams = {
       "{dbHomeId}": updateDbHomeRequest.dbHomeId
     };
@@ -21525,7 +23815,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDbHomeResponse>{},
         body: await response.json(),
@@ -21574,6 +23870,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbSystem.");
+    const operationName = "updateDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/UpdateDbSystem";
     const pathParams = {
       "{dbSystemId}": updateDbSystemRequest.dbSystemId
     };
@@ -21607,7 +23906,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDbSystemResponse>{},
         body: await response.json(),
@@ -21654,6 +23959,9 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   ): Promise<responses.UpdateExadataInfrastructureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateExadataInfrastructure.");
+    const operationName = "updateExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructure/UpdateExadataInfrastructure";
     const pathParams = {
       "{exadataInfrastructureId}": updateExadataInfrastructureRequest.exadataInfrastructureId
     };
@@ -21688,7 +23996,13 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExadataInfrastructureResponse>{},
         body: await response.json(),
@@ -21740,6 +24054,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     updateExadataIormConfigRequest: requests.UpdateExadataIormConfigRequest
   ): Promise<responses.UpdateExadataIormConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateExadataIormConfig.");
+    const operationName = "updateExadataIormConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/UpdateExadataIormConfig";
     const pathParams = {
       "{dbSystemId}": updateExadataIormConfigRequest.dbSystemId
     };
@@ -21774,7 +24091,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExadataIormConfigResponse>{},
         body: await response.json(),
@@ -21822,6 +24145,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   ): Promise<responses.UpdateExternalContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateExternalContainerDatabase.");
+    const operationName = "updateExternalContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalContainerDatabase/UpdateExternalContainerDatabase";
     const pathParams = {
       "{externalContainerDatabaseId}":
         updateExternalContainerDatabaseRequest.externalContainerDatabaseId
@@ -21857,7 +24183,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExternalContainerDatabaseResponse>{},
         body: await response.json(),
@@ -21902,6 +24234,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   ): Promise<responses.UpdateExternalDatabaseConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateExternalDatabaseConnector.");
+    const operationName = "updateExternalDatabaseConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalDatabaseConnector/UpdateExternalDatabaseConnector";
     const pathParams = {
       "{externalDatabaseConnectorId}":
         updateExternalDatabaseConnectorRequest.externalDatabaseConnectorId
@@ -21937,7 +24272,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExternalDatabaseConnectorResponse>{},
         body: await response.json(),
@@ -21982,6 +24323,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   ): Promise<responses.UpdateExternalNonContainerDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateExternalNonContainerDatabase.");
+    const operationName = "updateExternalNonContainerDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalNonContainerDatabase/UpdateExternalNonContainerDatabase";
     const pathParams = {
       "{externalNonContainerDatabaseId}":
         updateExternalNonContainerDatabaseRequest.externalNonContainerDatabaseId
@@ -22017,7 +24361,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExternalNonContainerDatabaseResponse>{},
         body: await response.json(),
@@ -22065,6 +24415,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   ): Promise<responses.UpdateExternalPluggableDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#updateExternalPluggableDatabase.");
+    const operationName = "updateExternalPluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExternalPluggableDatabase/UpdateExternalPluggableDatabase";
     const pathParams = {
       "{externalPluggableDatabaseId}":
         updateExternalPluggableDatabaseRequest.externalPluggableDatabaseId
@@ -22100,7 +24453,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExternalPluggableDatabaseResponse>{},
         body: await response.json(),
@@ -22145,6 +24504,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     updateKeyStoreRequest: requests.UpdateKeyStoreRequest
   ): Promise<responses.UpdateKeyStoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateKeyStore.");
+    const operationName = "updateKeyStore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/KeyStore/UpdateKeyStore";
     const pathParams = {
       "{keyStoreId}": updateKeyStoreRequest.keyStoreId
     };
@@ -22179,7 +24541,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateKeyStoreResponse>{},
         body: await response.json(),
@@ -22218,6 +24586,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     updateMaintenanceRunRequest: requests.UpdateMaintenanceRunRequest
   ): Promise<responses.UpdateMaintenanceRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateMaintenanceRun.");
+    const operationName = "updateMaintenanceRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRun/UpdateMaintenanceRun";
     const pathParams = {
       "{maintenanceRunId}": updateMaintenanceRunRequest.maintenanceRunId
     };
@@ -22251,7 +24622,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMaintenanceRunResponse>{},
         body: await response.json(),
@@ -22290,6 +24667,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     updatePluggableDatabaseRequest: requests.UpdatePluggableDatabaseRequest
   ): Promise<responses.UpdatePluggableDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updatePluggableDatabase.");
+    const operationName = "updatePluggableDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/UpdatePluggableDatabase";
     const pathParams = {
       "{pluggableDatabaseId}": updatePluggableDatabaseRequest.pluggableDatabaseId
     };
@@ -22323,7 +24703,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePluggableDatabaseResponse>{},
         body: await response.json(),
@@ -22368,6 +24754,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     updateVmClusterRequest: requests.UpdateVmClusterRequest
   ): Promise<responses.UpdateVmClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateVmCluster.");
+    const operationName = "updateVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmCluster/UpdateVmCluster";
     const pathParams = {
       "{vmClusterId}": updateVmClusterRequest.vmClusterId
     };
@@ -22402,7 +24791,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVmClusterResponse>{},
         body: await response.json(),
@@ -22448,6 +24843,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     updateVmClusterNetworkRequest: requests.UpdateVmClusterNetworkRequest
   ): Promise<responses.UpdateVmClusterNetworkResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateVmClusterNetwork.");
+    const operationName = "updateVmClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/UpdateVmClusterNetwork";
     const pathParams = {
       "{exadataInfrastructureId}": updateVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": updateVmClusterNetworkRequest.vmClusterNetworkId
@@ -22484,7 +24882,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVmClusterNetworkResponse>{},
         body: await response.json(),
@@ -22529,6 +24933,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     upgradeDatabaseRequest: requests.UpgradeDatabaseRequest
   ): Promise<responses.UpgradeDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#upgradeDatabase.");
+    const operationName = "upgradeDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/UpgradeDatabase";
     const pathParams = {
       "{databaseId}": upgradeDatabaseRequest.databaseId
     };
@@ -22563,7 +24970,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeDatabaseResponse>{},
         body: await response.json(),
@@ -22608,6 +25021,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
     upgradeDbSystemRequest: requests.UpgradeDbSystemRequest
   ): Promise<responses.UpgradeDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseClient#upgradeDbSystem.");
+    const operationName = "upgradeDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/UpgradeDbSystem";
     const pathParams = {
       "{dbSystemId}": upgradeDbSystemRequest.dbSystemId
     };
@@ -22643,7 +25059,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeDbSystemResponse>{},
         body: await response.json(),
@@ -22689,6 +25111,9 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
   ): Promise<responses.ValidateVmClusterNetworkResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseClient#validateVmClusterNetwork.");
+    const operationName = "validateVmClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/ValidateVmClusterNetwork";
     const pathParams = {
       "{exadataInfrastructureId}": validateVmClusterNetworkRequest.exadataInfrastructureId,
       "{vmClusterNetworkId}": validateVmClusterNetworkRequest.vmClusterNetworkId
@@ -22720,7 +25145,13 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateVmClusterNetworkResponse>{},
         body: await response.json(),

@@ -37,6 +37,7 @@ export class LogAnalyticsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "LogAnalytics";
 
   protected _httpClient: common.HttpClient;
 
@@ -163,6 +164,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.AddEntityAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#addEntityAssociation.");
+    const operationName = "addEntityAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/AddEntityAssociation";
     const pathParams = {
       "{namespaceName}": addEntityAssociationRequest.namespaceName,
       "{logAnalyticsEntityId}": addEntityAssociationRequest.logAnalyticsEntityId
@@ -200,7 +204,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddEntityAssociationResponse>{},
         responseHeaders: [
@@ -231,6 +241,9 @@ export class LogAnalyticsClient {
     addSourceEventTypesRequest: requests.AddSourceEventTypesRequest
   ): Promise<responses.AddSourceEventTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#addSourceEventTypes.");
+    const operationName = "addSourceEventTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/AddSourceEventTypes";
     const pathParams = {
       "{namespaceName}": addSourceEventTypesRequest.namespaceName,
       "{sourceName}": addSourceEventTypesRequest.sourceName
@@ -266,7 +279,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddSourceEventTypesResponse>{},
         responseHeaders: [
@@ -297,6 +316,9 @@ export class LogAnalyticsClient {
     appendLookupDataRequest: requests.AppendLookupDataRequest
   ): Promise<responses.AppendLookupDataResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#appendLookupData.");
+    const operationName = "appendLookupData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/AppendLookupData";
     const pathParams = {
       "{namespaceName}": appendLookupDataRequest.namespaceName,
       "{lookupName}": appendLookupDataRequest.lookupName
@@ -333,7 +355,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AppendLookupDataResponse>{},
         responseHeaders: [
@@ -369,6 +397,9 @@ export class LogAnalyticsClient {
     batchGetBasicInfoRequest: requests.BatchGetBasicInfoRequest
   ): Promise<responses.BatchGetBasicInfoResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#batchGetBasicInfo.");
+    const operationName = "batchGetBasicInfo";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/BatchGetBasicInfo";
     const pathParams = {
       "{namespaceName}": batchGetBasicInfoRequest.namespaceName
     };
@@ -408,7 +439,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BatchGetBasicInfoResponse>{},
         body: await response.json(),
@@ -453,6 +490,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.CancelQueryWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#cancelQueryWorkRequest.");
+    const operationName = "cancelQueryWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/CancelQueryWorkRequest";
     const pathParams = {
       "{namespaceName}": cancelQueryWorkRequestRequest.namespaceName,
       "{workRequestId}": cancelQueryWorkRequestRequest.workRequestId
@@ -483,7 +523,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelQueryWorkRequestResponse>{},
         responseHeaders: [
@@ -516,6 +562,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#changeLogAnalyticsEmBridgeCompartment."
       );
+    const operationName = "changeLogAnalyticsEmBridgeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/ChangeLogAnalyticsEmBridgeCompartment";
     const pathParams = {
       "{namespaceName}": changeLogAnalyticsEmBridgeCompartmentRequest.namespaceName,
       "{logAnalyticsEmBridgeId}":
@@ -554,7 +603,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLogAnalyticsEmBridgeCompartmentResponse>{},
         responseHeaders: [
@@ -587,6 +642,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#changeLogAnalyticsEntityCompartment."
       );
+    const operationName = "changeLogAnalyticsEntityCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/ChangeLogAnalyticsEntityCompartment";
     const pathParams = {
       "{namespaceName}": changeLogAnalyticsEntityCompartmentRequest.namespaceName,
       "{logAnalyticsEntityId}": changeLogAnalyticsEntityCompartmentRequest.logAnalyticsEntityId
@@ -624,7 +682,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLogAnalyticsEntityCompartmentResponse>{},
         responseHeaders: [
@@ -658,6 +722,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#changeLogAnalyticsLogGroupCompartment."
       );
+    const operationName = "changeLogAnalyticsLogGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/ChangeLogAnalyticsLogGroupCompartment";
     const pathParams = {
       "{namespaceName}": changeLogAnalyticsLogGroupCompartmentRequest.namespaceName,
       "{logAnalyticsLogGroupId}":
@@ -696,7 +763,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLogAnalyticsLogGroupCompartmentResponse>{},
         responseHeaders: [
@@ -729,6 +802,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#changeLogAnalyticsObjectCollectionRuleCompartment."
       );
+    const operationName = "changeLogAnalyticsObjectCollectionRuleCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/ChangeLogAnalyticsObjectCollectionRuleCompartment";
     const pathParams = {
       "{namespaceName}": changeLogAnalyticsObjectCollectionRuleCompartmentRequest.namespaceName,
       "{logAnalyticsObjectCollectionRuleId}":
@@ -766,7 +842,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLogAnalyticsObjectCollectionRuleCompartmentResponse>{},
         responseHeaders: [
@@ -798,6 +880,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ChangeScheduledTaskCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#changeScheduledTaskCompartment.");
+    const operationName = "changeScheduledTaskCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/ChangeScheduledTaskCompartment";
     const pathParams = {
       "{namespaceName}": changeScheduledTaskCompartmentRequest.namespaceName,
       "{scheduledTaskId}": changeScheduledTaskCompartmentRequest.scheduledTaskId
@@ -835,7 +920,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeScheduledTaskCompartmentResponse>{},
         responseHeaders: [
@@ -865,6 +956,9 @@ export class LogAnalyticsClient {
    */
   public async clean(cleanRequest: requests.CleanRequest): Promise<responses.CleanResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#clean.");
+    const operationName = "clean";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/Clean";
     const pathParams = {
       "{namespaceName}": cleanRequest.namespaceName,
       "{scheduledTaskId}": cleanRequest.scheduledTaskId
@@ -898,7 +992,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CleanResponse>{},
         responseHeaders: [
@@ -929,6 +1029,9 @@ export class LogAnalyticsClient {
     compareContentRequest: requests.CompareContentRequest
   ): Promise<responses.CompareContentResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#compareContent.");
+    const operationName = "compareContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/CompareContent";
     const pathParams = {
       "{namespaceName}": compareContentRequest.namespaceName
     };
@@ -962,7 +1065,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CompareContentResponse>{},
         body: await response.json(),
@@ -997,6 +1106,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.CreateLogAnalyticsEmBridgeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEmBridge.");
+    const operationName = "createLogAnalyticsEmBridge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/CreateLogAnalyticsEmBridge";
     const pathParams = {
       "{namespaceName}": createLogAnalyticsEmBridgeRequest.namespaceName
     };
@@ -1031,7 +1143,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogAnalyticsEmBridgeResponse>{},
         body: await response.json(),
@@ -1071,6 +1189,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.CreateLogAnalyticsEntityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEntity.");
+    const operationName = "createLogAnalyticsEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/CreateLogAnalyticsEntity";
     const pathParams = {
       "{namespaceName}": createLogAnalyticsEntityRequest.namespaceName
     };
@@ -1105,7 +1226,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogAnalyticsEntityResponse>{},
         body: await response.json(),
@@ -1145,6 +1272,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.CreateLogAnalyticsEntityTypeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsEntityType.");
+    const operationName = "createLogAnalyticsEntityType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/CreateLogAnalyticsEntityType";
     const pathParams = {
       "{namespaceName}": createLogAnalyticsEntityTypeRequest.namespaceName
     };
@@ -1179,7 +1309,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogAnalyticsEntityTypeResponse>{},
         responseHeaders: [
@@ -1211,6 +1347,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.CreateLogAnalyticsLogGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#createLogAnalyticsLogGroup.");
+    const operationName = "createLogAnalyticsLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/CreateLogAnalyticsLogGroup";
     const pathParams = {
       "{namespaceName}": createLogAnalyticsLogGroupRequest.namespaceName
     };
@@ -1245,7 +1384,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogAnalyticsLogGroupResponse>{},
         body: await response.json(),
@@ -1287,6 +1432,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#createLogAnalyticsObjectCollectionRule."
       );
+    const operationName = "createLogAnalyticsObjectCollectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/CreateLogAnalyticsObjectCollectionRule";
     const pathParams = {
       "{namespaceName}": createLogAnalyticsObjectCollectionRuleRequest.namespaceName
     };
@@ -1320,7 +1468,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogAnalyticsObjectCollectionRuleResponse>{},
         body: await response.json(),
@@ -1359,6 +1513,9 @@ export class LogAnalyticsClient {
     createScheduledTaskRequest: requests.CreateScheduledTaskRequest
   ): Promise<responses.CreateScheduledTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#createScheduledTask.");
+    const operationName = "createScheduledTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/CreateScheduledTask";
     const pathParams = {
       "{namespaceName}": createScheduledTaskRequest.namespaceName
     };
@@ -1393,7 +1550,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateScheduledTaskResponse>{},
         body: await response.json(),
@@ -1433,6 +1596,9 @@ export class LogAnalyticsClient {
     deleteAssociationsRequest: requests.DeleteAssociationsRequest
   ): Promise<responses.DeleteAssociationsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteAssociations.");
+    const operationName = "deleteAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/DeleteAssociations";
     const pathParams = {
       "{namespaceName}": deleteAssociationsRequest.namespaceName
     };
@@ -1467,7 +1633,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAssociationsResponse>{},
         responseHeaders: [
@@ -1503,6 +1675,9 @@ export class LogAnalyticsClient {
     deleteFieldRequest: requests.DeleteFieldRequest
   ): Promise<responses.DeleteFieldResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteField.");
+    const operationName = "deleteField";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/DeleteField";
     const pathParams = {
       "{namespaceName}": deleteFieldRequest.namespaceName,
       "{fieldName}": deleteFieldRequest.fieldName
@@ -1534,7 +1709,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFieldResponse>{},
         responseHeaders: [
@@ -1565,6 +1746,9 @@ export class LogAnalyticsClient {
     deleteLabelRequest: requests.DeleteLabelRequest
   ): Promise<responses.DeleteLabelResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteLabel.");
+    const operationName = "deleteLabel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/DeleteLabel";
     const pathParams = {
       "{namespaceName}": deleteLabelRequest.namespaceName,
       "{labelName}": deleteLabelRequest.labelName
@@ -1596,7 +1780,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLabelResponse>{},
         responseHeaders: [
@@ -1627,6 +1817,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.DeleteLogAnalyticsEmBridgeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEmBridge.");
+    const operationName = "deleteLogAnalyticsEmBridge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/DeleteLogAnalyticsEmBridge";
     const pathParams = {
       "{namespaceName}": deleteLogAnalyticsEmBridgeRequest.namespaceName,
       "{logAnalyticsEmBridgeId}": deleteLogAnalyticsEmBridgeRequest.logAnalyticsEmBridgeId
@@ -1657,7 +1850,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogAnalyticsEmBridgeResponse>{},
         responseHeaders: [
@@ -1688,6 +1887,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.DeleteLogAnalyticsEntityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEntity.");
+    const operationName = "deleteLogAnalyticsEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/DeleteLogAnalyticsEntity";
     const pathParams = {
       "{namespaceName}": deleteLogAnalyticsEntityRequest.namespaceName,
       "{logAnalyticsEntityId}": deleteLogAnalyticsEntityRequest.logAnalyticsEntityId
@@ -1718,7 +1920,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogAnalyticsEntityResponse>{},
         responseHeaders: [
@@ -1749,6 +1957,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.DeleteLogAnalyticsEntityTypeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsEntityType.");
+    const operationName = "deleteLogAnalyticsEntityType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/DeleteLogAnalyticsEntityType";
     const pathParams = {
       "{namespaceName}": deleteLogAnalyticsEntityTypeRequest.namespaceName,
       "{entityTypeName}": deleteLogAnalyticsEntityTypeRequest.entityTypeName
@@ -1779,7 +1990,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogAnalyticsEntityTypeResponse>{},
         responseHeaders: [
@@ -1811,6 +2028,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.DeleteLogAnalyticsLogGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#deleteLogAnalyticsLogGroup.");
+    const operationName = "deleteLogAnalyticsLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/DeleteLogAnalyticsLogGroup";
     const pathParams = {
       "{namespaceName}": deleteLogAnalyticsLogGroupRequest.namespaceName,
       "{logAnalyticsLogGroupId}": deleteLogAnalyticsLogGroupRequest.logAnalyticsLogGroupId
@@ -1841,7 +2061,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogAnalyticsLogGroupResponse>{},
         responseHeaders: [
@@ -1876,6 +2102,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#deleteLogAnalyticsObjectCollectionRule."
       );
+    const operationName = "deleteLogAnalyticsObjectCollectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/DeleteLogAnalyticsObjectCollectionRule";
     const pathParams = {
       "{namespaceName}": deleteLogAnalyticsObjectCollectionRuleRequest.namespaceName,
       "{logAnalyticsObjectCollectionRuleId}":
@@ -1908,7 +2137,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogAnalyticsObjectCollectionRuleResponse>{},
         responseHeaders: [
@@ -1939,6 +2174,9 @@ export class LogAnalyticsClient {
     deleteLookupRequest: requests.DeleteLookupRequest
   ): Promise<responses.DeleteLookupResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteLookup.");
+    const operationName = "deleteLookup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/DeleteLookup";
     const pathParams = {
       "{namespaceName}": deleteLookupRequest.namespaceName,
       "{lookupName}": deleteLookupRequest.lookupName
@@ -1972,7 +2210,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLookupResponse>{},
         responseHeaders: [
@@ -2008,6 +2252,9 @@ export class LogAnalyticsClient {
     deleteParserRequest: requests.DeleteParserRequest
   ): Promise<responses.DeleteParserResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteParser.");
+    const operationName = "deleteParser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/DeleteParser";
     const pathParams = {
       "{namespaceName}": deleteParserRequest.namespaceName,
       "{parserName}": deleteParserRequest.parserName
@@ -2039,7 +2286,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteParserResponse>{},
         responseHeaders: [
@@ -2069,6 +2322,9 @@ export class LogAnalyticsClient {
     deleteScheduledTaskRequest: requests.DeleteScheduledTaskRequest
   ): Promise<responses.DeleteScheduledTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteScheduledTask.");
+    const operationName = "deleteScheduledTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/DeleteScheduledTask";
     const pathParams = {
       "{namespaceName}": deleteScheduledTaskRequest.namespaceName,
       "{scheduledTaskId}": deleteScheduledTaskRequest.scheduledTaskId
@@ -2099,7 +2355,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteScheduledTaskResponse>{},
         responseHeaders: [
@@ -2130,6 +2392,9 @@ export class LogAnalyticsClient {
     deleteSourceRequest: requests.DeleteSourceRequest
   ): Promise<responses.DeleteSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteSource.");
+    const operationName = "deleteSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/DeleteSource";
     const pathParams = {
       "{namespaceName}": deleteSourceRequest.namespaceName,
       "{sourceName}": deleteSourceRequest.sourceName
@@ -2161,7 +2426,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSourceResponse>{},
         responseHeaders: [
@@ -2193,6 +2464,9 @@ export class LogAnalyticsClient {
     deleteUploadRequest: requests.DeleteUploadRequest
   ): Promise<responses.DeleteUploadResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteUpload.");
+    const operationName = "deleteUpload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/DeleteUpload";
     const pathParams = {
       "{namespaceName}": deleteUploadRequest.namespaceName,
       "{uploadReference}": deleteUploadRequest.uploadReference
@@ -2223,7 +2497,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUploadResponse>{},
         responseHeaders: [
@@ -2265,6 +2545,9 @@ export class LogAnalyticsClient {
     deleteUploadFileRequest: requests.DeleteUploadFileRequest
   ): Promise<responses.DeleteUploadFileResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteUploadFile.");
+    const operationName = "deleteUploadFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/DeleteUploadFile";
     const pathParams = {
       "{namespaceName}": deleteUploadFileRequest.namespaceName,
       "{uploadReference}": deleteUploadFileRequest.uploadReference,
@@ -2295,7 +2578,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUploadFileResponse>{},
         responseHeaders: [
@@ -2336,6 +2625,9 @@ export class LogAnalyticsClient {
     deleteUploadWarningRequest: requests.DeleteUploadWarningRequest
   ): Promise<responses.DeleteUploadWarningResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#deleteUploadWarning.");
+    const operationName = "deleteUploadWarning";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/DeleteUploadWarning";
     const pathParams = {
       "{namespaceName}": deleteUploadWarningRequest.namespaceName,
       "{uploadReference}": deleteUploadWarningRequest.uploadReference,
@@ -2366,7 +2658,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUploadWarningResponse>{},
         responseHeaders: [
@@ -2397,6 +2695,9 @@ export class LogAnalyticsClient {
     disableArchivingRequest: requests.DisableArchivingRequest
   ): Promise<responses.DisableArchivingResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#disableArchiving.");
+    const operationName = "disableArchiving";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/DisableArchiving";
     const pathParams = {
       "{namespaceName}": disableArchivingRequest.namespaceName
     };
@@ -2426,7 +2727,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableArchivingResponse>{},
         body: await response.json(),
@@ -2469,6 +2776,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.DisableAutoAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#disableAutoAssociation.");
+    const operationName = "disableAutoAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/DisableAutoAssociation";
     const pathParams = {
       "{namespaceName}": disableAutoAssociationRequest.namespaceName,
       "{sourceName}": disableAutoAssociationRequest.sourceName
@@ -2504,7 +2814,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableAutoAssociationResponse>{},
         responseHeaders: [
@@ -2541,6 +2857,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.DisableSourceEventTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#disableSourceEventTypes.");
+    const operationName = "disableSourceEventTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/DisableSourceEventTypes";
     const pathParams = {
       "{namespaceName}": disableSourceEventTypesRequest.namespaceName,
       "{sourceName}": disableSourceEventTypesRequest.sourceName
@@ -2576,7 +2895,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableSourceEventTypesResponse>{},
         responseHeaders: [
@@ -2607,6 +2932,9 @@ export class LogAnalyticsClient {
     enableArchivingRequest: requests.EnableArchivingRequest
   ): Promise<responses.EnableArchivingResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#enableArchiving.");
+    const operationName = "enableArchiving";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EnableArchiving";
     const pathParams = {
       "{namespaceName}": enableArchivingRequest.namespaceName
     };
@@ -2636,7 +2964,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableArchivingResponse>{},
         body: await response.json(),
@@ -2679,6 +3013,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.EnableAutoAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#enableAutoAssociation.");
+    const operationName = "enableAutoAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/EnableAutoAssociation";
     const pathParams = {
       "{namespaceName}": enableAutoAssociationRequest.namespaceName,
       "{sourceName}": enableAutoAssociationRequest.sourceName
@@ -2714,7 +3051,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableAutoAssociationResponse>{},
         responseHeaders: [
@@ -2751,6 +3094,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.EnableSourceEventTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#enableSourceEventTypes.");
+    const operationName = "enableSourceEventTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/EnableSourceEventTypes";
     const pathParams = {
       "{namespaceName}": enableSourceEventTypesRequest.namespaceName,
       "{sourceName}": enableSourceEventTypesRequest.sourceName
@@ -2786,7 +3132,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableSourceEventTypesResponse>{},
         responseHeaders: [
@@ -2818,6 +3170,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.EstimatePurgeDataSizeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#estimatePurgeDataSize.");
+    const operationName = "estimatePurgeDataSize";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EstimatePurgeDataSize";
     const pathParams = {
       "{namespaceName}": estimatePurgeDataSizeRequest.namespaceName
     };
@@ -2853,7 +3208,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EstimatePurgeDataSizeResponse>{},
         body: await response.json(),
@@ -2894,6 +3255,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.EstimateRecallDataSizeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#estimateRecallDataSize.");
+    const operationName = "estimateRecallDataSize";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EstimateRecallDataSize";
     const pathParams = {
       "{namespaceName}": estimateRecallDataSizeRequest.namespaceName
     };
@@ -2927,7 +3291,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EstimateRecallDataSizeResponse>{},
         body: await response.json(),
@@ -2963,6 +3333,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.EstimateReleaseDataSizeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#estimateReleaseDataSize.");
+    const operationName = "estimateReleaseDataSize";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/EstimateReleaseDataSize";
     const pathParams = {
       "{namespaceName}": estimateReleaseDataSizeRequest.namespaceName
     };
@@ -2996,7 +3369,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EstimateReleaseDataSizeResponse>{},
         body: await response.json(),
@@ -3031,6 +3410,8 @@ export class LogAnalyticsClient {
     exportCustomContentRequest: requests.ExportCustomContentRequest
   ): Promise<responses.ExportCustomContentResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#exportCustomContent.");
+    const operationName = "exportCustomContent";
+    const apiReferenceLink = "";
     const pathParams = {
       "{namespaceName}": exportCustomContentRequest.namespaceName
     };
@@ -3065,7 +3446,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExportCustomContentResponse>{},
 
@@ -3099,6 +3486,9 @@ export class LogAnalyticsClient {
     exportQueryResultRequest: requests.ExportQueryResultRequest
   ): Promise<responses.ExportQueryResultResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#exportQueryResult.");
+    const operationName = "exportQueryResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/ExportQueryResult";
     const pathParams = {
       "{namespaceName}": exportQueryResultRequest.namespaceName
     };
@@ -3132,7 +3522,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExportQueryResultResponse>{},
 
@@ -3168,6 +3564,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ExtractStructuredLogFieldPathsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#extractStructuredLogFieldPaths.");
+    const operationName = "extractStructuredLogFieldPaths";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ExtractStructuredLogFieldPaths";
     const pathParams = {
       "{namespaceName}": extractStructuredLogFieldPathsRequest.namespaceName
     };
@@ -3204,7 +3603,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExtractStructuredLogFieldPathsResponse>{},
         body: await response.json(),
@@ -3240,6 +3645,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ExtractStructuredLogHeaderPathsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#extractStructuredLogHeaderPaths.");
+    const operationName = "extractStructuredLogHeaderPaths";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ExtractStructuredLogHeaderPaths";
     const pathParams = {
       "{namespaceName}": extractStructuredLogHeaderPathsRequest.namespaceName
     };
@@ -3276,7 +3684,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExtractStructuredLogHeaderPathsResponse>{},
         body: await response.json(),
@@ -3308,6 +3722,9 @@ export class LogAnalyticsClient {
    */
   public async filter(filterRequest: requests.FilterRequest): Promise<responses.FilterResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#filter.");
+    const operationName = "filter";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/Filter";
     const pathParams = {
       "{namespaceName}": filterRequest.namespaceName
     };
@@ -3341,7 +3758,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.FilterResponse>{},
         body: await response.json(),
@@ -3377,6 +3800,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetAssociationSummaryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getAssociationSummary.");
+    const operationName = "getAssociationSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/GetAssociationSummary";
     const pathParams = {
       "{namespaceName}": getAssociationSummaryRequest.namespaceName
     };
@@ -3407,7 +3833,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAssociationSummaryResponse>{},
         body: await response.json(),
@@ -3442,6 +3874,9 @@ export class LogAnalyticsClient {
     getCategoryRequest: requests.GetCategoryRequest
   ): Promise<responses.GetCategoryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getCategory.");
+    const operationName = "getCategory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/GetCategory";
     const pathParams = {
       "{namespaceName}": getCategoryRequest.namespaceName,
       "{categoryName}": getCategoryRequest.categoryName
@@ -3471,7 +3906,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCategoryResponse>{},
         body: await response.json(),
@@ -3506,6 +3947,9 @@ export class LogAnalyticsClient {
     getColumnNamesRequest: requests.GetColumnNamesRequest
   ): Promise<responses.GetColumnNamesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getColumnNames.");
+    const operationName = "getColumnNames";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/GetColumnNames";
     const pathParams = {
       "{namespaceName}": getColumnNamesRequest.namespaceName
     };
@@ -3537,7 +3981,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetColumnNamesResponse>{},
         body: await response.json(),
@@ -3573,6 +4023,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetConfigWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getConfigWorkRequest.");
+    const operationName = "getConfigWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsConfigWorkRequest/GetConfigWorkRequest";
     const pathParams = {
       "{namespaceName}": getConfigWorkRequestRequest.namespaceName,
       "{workRequestId}": getConfigWorkRequestRequest.workRequestId
@@ -3602,7 +4055,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConfigWorkRequestResponse>{},
         body: await response.json(),
@@ -3637,6 +4096,9 @@ export class LogAnalyticsClient {
     getFieldRequest: requests.GetFieldRequest
   ): Promise<responses.GetFieldResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getField.");
+    const operationName = "getField";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/GetField";
     const pathParams = {
       "{namespaceName}": getFieldRequest.namespaceName,
       "{fieldName}": getFieldRequest.fieldName
@@ -3666,7 +4128,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFieldResponse>{},
         body: await response.json(),
@@ -3706,6 +4174,9 @@ export class LogAnalyticsClient {
     getFieldsSummaryRequest: requests.GetFieldsSummaryRequest
   ): Promise<responses.GetFieldsSummaryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getFieldsSummary.");
+    const operationName = "getFieldsSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/GetFieldsSummary";
     const pathParams = {
       "{namespaceName}": getFieldsSummaryRequest.namespaceName
     };
@@ -3736,7 +4207,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFieldsSummaryResponse>{},
         body: await response.json(),
@@ -3771,6 +4248,9 @@ export class LogAnalyticsClient {
     getLabelRequest: requests.GetLabelRequest
   ): Promise<responses.GetLabelResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLabel.");
+    const operationName = "getLabel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/GetLabel";
     const pathParams = {
       "{namespaceName}": getLabelRequest.namespaceName,
       "{labelName}": getLabelRequest.labelName
@@ -3800,7 +4280,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLabelResponse>{},
         body: await response.json(),
@@ -3840,6 +4326,9 @@ export class LogAnalyticsClient {
     getLabelSummaryRequest: requests.GetLabelSummaryRequest
   ): Promise<responses.GetLabelSummaryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLabelSummary.");
+    const operationName = "getLabelSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/GetLabelSummary";
     const pathParams = {
       "{namespaceName}": getLabelSummaryRequest.namespaceName
     };
@@ -3868,7 +4357,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLabelSummaryResponse>{},
         body: await response.json(),
@@ -3903,6 +4398,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetLogAnalyticsEmBridgeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridge.");
+    const operationName = "getLogAnalyticsEmBridge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/GetLogAnalyticsEmBridge";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsEmBridgeRequest.namespaceName,
       "{logAnalyticsEmBridgeId}": getLogAnalyticsEmBridgeRequest.logAnalyticsEmBridgeId
@@ -3932,7 +4430,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsEmBridgeResponse>{},
         body: await response.json(),
@@ -3972,6 +4476,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetLogAnalyticsEmBridgeSummaryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEmBridgeSummary.");
+    const operationName = "getLogAnalyticsEmBridgeSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/GetLogAnalyticsEmBridgeSummary";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsEmBridgeSummaryRequest.namespaceName
     };
@@ -4002,7 +4509,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsEmBridgeSummaryResponse>{},
         body: await response.json(),
@@ -4037,6 +4550,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetLogAnalyticsEntitiesSummaryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntitiesSummary.");
+    const operationName = "getLogAnalyticsEntitiesSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/GetLogAnalyticsEntitiesSummary";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsEntitiesSummaryRequest.namespaceName
     };
@@ -4067,7 +4583,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsEntitiesSummaryResponse>{},
         body: await response.json(),
@@ -4102,6 +4624,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetLogAnalyticsEntityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntity.");
+    const operationName = "getLogAnalyticsEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/GetLogAnalyticsEntity";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsEntityRequest.namespaceName,
       "{logAnalyticsEntityId}": getLogAnalyticsEntityRequest.logAnalyticsEntityId
@@ -4131,7 +4656,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsEntityResponse>{},
         body: await response.json(),
@@ -4171,6 +4702,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetLogAnalyticsEntityTypeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsEntityType.");
+    const operationName = "getLogAnalyticsEntityType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/GetLogAnalyticsEntityType";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsEntityTypeRequest.namespaceName,
       "{entityTypeName}": getLogAnalyticsEntityTypeRequest.entityTypeName
@@ -4200,7 +4734,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsEntityTypeResponse>{},
         body: await response.json(),
@@ -4241,6 +4781,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetLogAnalyticsLogGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsLogGroup.");
+    const operationName = "getLogAnalyticsLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/GetLogAnalyticsLogGroup";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsLogGroupRequest.namespaceName,
       "{logAnalyticsLogGroupId}": getLogAnalyticsLogGroupRequest.logAnalyticsLogGroupId
@@ -4270,7 +4813,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsLogGroupResponse>{},
         body: await response.json(),
@@ -4311,6 +4860,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetLogAnalyticsLogGroupsSummaryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getLogAnalyticsLogGroupsSummary.");
+    const operationName = "getLogAnalyticsLogGroupsSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/GetLogAnalyticsLogGroupsSummary";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsLogGroupsSummaryRequest.namespaceName
     };
@@ -4341,7 +4893,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsLogGroupsSummaryResponse>{},
         body: await response.json(),
@@ -4378,6 +4936,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#getLogAnalyticsObjectCollectionRule."
       );
+    const operationName = "getLogAnalyticsObjectCollectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/GetLogAnalyticsObjectCollectionRule";
     const pathParams = {
       "{namespaceName}": getLogAnalyticsObjectCollectionRuleRequest.namespaceName,
       "{logAnalyticsObjectCollectionRuleId}":
@@ -4409,7 +4970,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogAnalyticsObjectCollectionRuleResponse>{},
         body: await response.json(),
@@ -4449,6 +5016,9 @@ export class LogAnalyticsClient {
     getLogSetsCountRequest: requests.GetLogSetsCountRequest
   ): Promise<responses.GetLogSetsCountResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLogSetsCount.");
+    const operationName = "getLogSetsCount";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetLogSetsCount";
     const pathParams = {
       "{namespaceName}": getLogSetsCountRequest.namespaceName
     };
@@ -4477,7 +5047,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogSetsCountResponse>{},
         body: await response.json(),
@@ -4512,6 +5088,9 @@ export class LogAnalyticsClient {
     getLookupRequest: requests.GetLookupRequest
   ): Promise<responses.GetLookupResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLookup.");
+    const operationName = "getLookup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/GetLookup";
     const pathParams = {
       "{namespaceName}": getLookupRequest.namespaceName,
       "{lookupName}": getLookupRequest.lookupName
@@ -4541,7 +5120,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLookupResponse>{},
         body: await response.json(),
@@ -4580,6 +5165,9 @@ export class LogAnalyticsClient {
     getLookupSummaryRequest: requests.GetLookupSummaryRequest
   ): Promise<responses.GetLookupSummaryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getLookupSummary.");
+    const operationName = "getLookupSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/GetLookupSummary";
     const pathParams = {
       "{namespaceName}": getLookupSummaryRequest.namespaceName
     };
@@ -4608,7 +5196,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLookupSummaryResponse>{},
         body: await response.json(),
@@ -4643,6 +5237,9 @@ export class LogAnalyticsClient {
     getNamespaceRequest: requests.GetNamespaceRequest
   ): Promise<responses.GetNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getNamespace.");
+    const operationName = "getNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/GetNamespace";
     const pathParams = {
       "{namespaceName}": getNamespaceRequest.namespaceName
     };
@@ -4671,7 +5268,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNamespaceResponse>{},
         body: await response.json(),
@@ -4711,6 +5314,9 @@ export class LogAnalyticsClient {
     getParserRequest: requests.GetParserRequest
   ): Promise<responses.GetParserResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getParser.");
+    const operationName = "getParser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/GetParser";
     const pathParams = {
       "{namespaceName}": getParserRequest.namespaceName,
       "{parserName}": getParserRequest.parserName
@@ -4740,7 +5346,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetParserResponse>{},
         body: await response.json(),
@@ -4780,6 +5392,9 @@ export class LogAnalyticsClient {
     getParserSummaryRequest: requests.GetParserSummaryRequest
   ): Promise<responses.GetParserSummaryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getParserSummary.");
+    const operationName = "getParserSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/GetParserSummary";
     const pathParams = {
       "{namespaceName}": getParserSummaryRequest.namespaceName
     };
@@ -4808,7 +5423,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetParserSummaryResponse>{},
         body: await response.json(),
@@ -4843,6 +5464,9 @@ export class LogAnalyticsClient {
     getPreferencesRequest: requests.GetPreferencesRequest
   ): Promise<responses.GetPreferencesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getPreferences.");
+    const operationName = "getPreferences";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsPreference/GetPreferences";
     const pathParams = {
       "{namespaceName}": getPreferencesRequest.namespaceName
     };
@@ -4876,7 +5500,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPreferencesResponse>{},
         body: await response.json(),
@@ -4922,6 +5552,9 @@ export class LogAnalyticsClient {
     getQueryResultRequest: requests.GetQueryResultRequest
   ): Promise<responses.GetQueryResultResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getQueryResult.");
+    const operationName = "getQueryResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/GetQueryResult";
     const pathParams = {
       "{namespaceName}": getQueryResultRequest.namespaceName
     };
@@ -4957,7 +5590,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetQueryResultResponse>{},
         body: await response.json(),
@@ -5006,6 +5645,9 @@ export class LogAnalyticsClient {
     getQueryWorkRequestRequest: requests.GetQueryWorkRequestRequest
   ): Promise<responses.GetQueryWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getQueryWorkRequest.");
+    const operationName = "getQueryWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/GetQueryWorkRequest";
     const pathParams = {
       "{namespaceName}": getQueryWorkRequestRequest.namespaceName,
       "{workRequestId}": getQueryWorkRequestRequest.workRequestId
@@ -5035,7 +5677,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetQueryWorkRequestResponse>{},
         body: await response.json(),
@@ -5079,6 +5727,9 @@ export class LogAnalyticsClient {
     getScheduledTaskRequest: requests.GetScheduledTaskRequest
   ): Promise<responses.GetScheduledTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getScheduledTask.");
+    const operationName = "getScheduledTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/GetScheduledTask";
     const pathParams = {
       "{namespaceName}": getScheduledTaskRequest.namespaceName,
       "{scheduledTaskId}": getScheduledTaskRequest.scheduledTaskId
@@ -5108,7 +5759,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetScheduledTaskResponse>{},
         body: await response.json(),
@@ -5148,6 +5805,9 @@ export class LogAnalyticsClient {
     getSourceRequest: requests.GetSourceRequest
   ): Promise<responses.GetSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getSource.");
+    const operationName = "getSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/GetSource";
     const pathParams = {
       "{namespaceName}": getSourceRequest.namespaceName,
       "{sourceName}": getSourceRequest.sourceName
@@ -5179,7 +5839,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSourceResponse>{},
         body: await response.json(),
@@ -5219,6 +5885,9 @@ export class LogAnalyticsClient {
     getSourceSummaryRequest: requests.GetSourceSummaryRequest
   ): Promise<responses.GetSourceSummaryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getSourceSummary.");
+    const operationName = "getSourceSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/GetSourceSummary";
     const pathParams = {
       "{namespaceName}": getSourceSummaryRequest.namespaceName
     };
@@ -5247,7 +5916,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSourceSummaryResponse>{},
         body: await response.json(),
@@ -5282,6 +5957,9 @@ export class LogAnalyticsClient {
     getStorageRequest: requests.GetStorageRequest
   ): Promise<responses.GetStorageResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getStorage.");
+    const operationName = "getStorage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetStorage";
     const pathParams = {
       "{namespaceName}": getStorageRequest.namespaceName
     };
@@ -5310,7 +5988,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStorageResponse>{},
         body: await response.json(),
@@ -5351,6 +6035,9 @@ export class LogAnalyticsClient {
     getStorageUsageRequest: requests.GetStorageUsageRequest
   ): Promise<responses.GetStorageUsageResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getStorageUsage.");
+    const operationName = "getStorageUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetStorageUsage";
     const pathParams = {
       "{namespaceName}": getStorageUsageRequest.namespaceName
     };
@@ -5379,7 +6066,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStorageUsageResponse>{},
         body: await response.json(),
@@ -5416,6 +6109,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetStorageWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getStorageWorkRequest.");
+    const operationName = "getStorageWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetStorageWorkRequest";
     const pathParams = {
       "{workRequestId}": getStorageWorkRequestRequest.workRequestId,
       "{namespaceName}": getStorageWorkRequestRequest.namespaceName
@@ -5445,7 +6141,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStorageWorkRequestResponse>{},
         body: await response.json(),
@@ -5491,6 +6193,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.GetUnprocessedDataBucketResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#getUnprocessedDataBucket.");
+    const operationName = "getUnprocessedDataBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/GetUnprocessedDataBucket";
     const pathParams = {
       "{namespaceName}": getUnprocessedDataBucketRequest.namespaceName
     };
@@ -5519,7 +6224,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUnprocessedDataBucketResponse>{},
         body: await response.json(),
@@ -5553,6 +6264,9 @@ export class LogAnalyticsClient {
     getUploadRequest: requests.GetUploadRequest
   ): Promise<responses.GetUploadResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getUpload.");
+    const operationName = "getUpload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/GetUpload";
     const pathParams = {
       "{namespaceName}": getUploadRequest.namespaceName,
       "{uploadReference}": getUploadRequest.uploadReference
@@ -5582,7 +6296,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUploadResponse>{},
         body: await response.json(),
@@ -5621,6 +6341,9 @@ export class LogAnalyticsClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{namespaceName}": getWorkRequestRequest.namespaceName,
       "{workRequestId}": getWorkRequestRequest.workRequestId
@@ -5650,7 +6373,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -5690,6 +6419,9 @@ export class LogAnalyticsClient {
     importCustomContentRequest: requests.ImportCustomContentRequest
   ): Promise<responses.ImportCustomContentResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#importCustomContent.");
+    const operationName = "importCustomContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsImportCustomContent/ImportCustomContent";
     const pathParams = {
       "{namespaceName}": importCustomContentRequest.namespaceName
     };
@@ -5723,7 +6455,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportCustomContentResponse>{},
         body: await response.json(),
@@ -5759,6 +6497,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListAssociableEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listAssociableEntities.");
+    const operationName = "listAssociableEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListAssociableEntities";
     const pathParams = {
       "{namespaceName}": listAssociableEntitiesRequest.namespaceName,
       "{sourceName}": listAssociableEntitiesRequest.sourceName
@@ -5796,7 +6537,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAssociableEntitiesResponse>{},
         body: await response.json(),
@@ -5842,6 +6589,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListAssociatedEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listAssociatedEntities.");
+    const operationName = "listAssociatedEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ListAssociatedEntities";
     const pathParams = {
       "{namespaceName}": listAssociatedEntitiesRequest.namespaceName
     };
@@ -5879,7 +6629,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAssociatedEntitiesResponse>{},
         body: await response.json(),
@@ -5925,6 +6681,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListAutoAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listAutoAssociations.");
+    const operationName = "listAutoAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListAutoAssociations";
     const pathParams = {
       "{namespaceName}": listAutoAssociationsRequest.namespaceName,
       "{sourceName}": listAutoAssociationsRequest.sourceName
@@ -5959,7 +6718,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutoAssociationsResponse>{},
         body: await response.json(),
@@ -6004,6 +6769,9 @@ export class LogAnalyticsClient {
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listCategories.");
+    const operationName = "listCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/ListCategories";
     const pathParams = {
       "{namespaceName}": listCategoriesRequest.namespaceName
     };
@@ -6040,7 +6808,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCategoriesResponse>{},
         body: await response.json(),
@@ -6086,6 +6860,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListConfigWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listConfigWorkRequests.");
+    const operationName = "listConfigWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsConfigWorkRequest/ListConfigWorkRequests";
     const pathParams = {
       "{namespaceName}": listConfigWorkRequestsRequest.namespaceName
     };
@@ -6119,7 +6896,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConfigWorkRequestsResponse>{},
         body: await response.json(),
@@ -6164,6 +6947,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListEntityAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listEntityAssociations.");
+    const operationName = "listEntityAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/ListEntityAssociations";
     const pathParams = {
       "{namespaceName}": listEntityAssociationsRequest.namespaceName,
       "{logAnalyticsEntityId}": listEntityAssociationsRequest.logAnalyticsEntityId
@@ -6200,7 +6986,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEntityAssociationsResponse>{},
         body: await response.json(),
@@ -6241,6 +7033,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListEntitySourceAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listEntitySourceAssociations.");
+    const operationName = "listEntitySourceAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ListEntitySourceAssociations";
     const pathParams = {
       "{namespaceName}": listEntitySourceAssociationsRequest.namespaceName
     };
@@ -6280,7 +7075,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEntitySourceAssociationsResponse>{},
         body: await response.json(),
@@ -6325,6 +7126,9 @@ export class LogAnalyticsClient {
     listFieldsRequest: requests.ListFieldsRequest
   ): Promise<responses.ListFieldsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listFields.");
+    const operationName = "listFields";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/ListFields";
     const pathParams = {
       "{namespaceName}": listFieldsRequest.namespaceName
     };
@@ -6366,7 +7170,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFieldsResponse>{},
         body: await response.json(),
@@ -6411,6 +7221,9 @@ export class LogAnalyticsClient {
     listLabelPrioritiesRequest: requests.ListLabelPrioritiesRequest
   ): Promise<responses.ListLabelPrioritiesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLabelPriorities.");
+    const operationName = "listLabelPriorities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/ListLabelPriorities";
     const pathParams = {
       "{namespaceName}": listLabelPrioritiesRequest.namespaceName
     };
@@ -6442,7 +7255,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLabelPrioritiesResponse>{},
         body: await response.json(),
@@ -6488,6 +7307,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListLabelSourceDetailsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listLabelSourceDetails.");
+    const operationName = "listLabelSourceDetails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/ListLabelSourceDetails";
     const pathParams = {
       "{namespaceName}": listLabelSourceDetailsRequest.namespaceName
     };
@@ -6522,7 +7344,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLabelSourceDetailsResponse>{},
         body: await response.json(),
@@ -6567,6 +7395,9 @@ export class LogAnalyticsClient {
     listLabelsRequest: requests.ListLabelsRequest
   ): Promise<responses.ListLabelsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLabels.");
+    const operationName = "listLabels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/ListLabels";
     const pathParams = {
       "{namespaceName}": listLabelsRequest.namespaceName
     };
@@ -6606,7 +7437,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLabelsResponse>{},
         body: await response.json(),
@@ -6651,6 +7488,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListLogAnalyticsEmBridgesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEmBridges.");
+    const operationName = "listLogAnalyticsEmBridges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/ListLogAnalyticsEmBridges";
     const pathParams = {
       "{namespaceName}": listLogAnalyticsEmBridgesRequest.namespaceName
     };
@@ -6689,7 +7529,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogAnalyticsEmBridgesResponse>{},
         body: await response.json(),
@@ -6729,6 +7575,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListLogAnalyticsEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntities.");
+    const operationName = "listLogAnalyticsEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/ListLogAnalyticsEntities";
     const pathParams = {
       "{namespaceName}": listLogAnalyticsEntitiesRequest.namespaceName
     };
@@ -6775,7 +7624,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogAnalyticsEntitiesResponse>{},
         body: await response.json(),
@@ -6815,6 +7670,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListLogAnalyticsEntityTopologyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntityTopology.");
+    const operationName = "listLogAnalyticsEntityTopology";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntitySummary/ListLogAnalyticsEntityTopology";
     const pathParams = {
       "{namespaceName}": listLogAnalyticsEntityTopologyRequest.namespaceName,
       "{logAnalyticsEntityId}": listLogAnalyticsEntityTopologyRequest.logAnalyticsEntityId
@@ -6851,7 +7709,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogAnalyticsEntityTopologyResponse>{},
         body: await response.json(),
@@ -6891,6 +7755,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListLogAnalyticsEntityTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsEntityTypes.");
+    const operationName = "listLogAnalyticsEntityTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/ListLogAnalyticsEntityTypes";
     const pathParams = {
       "{namespaceName}": listLogAnalyticsEntityTypesRequest.namespaceName
     };
@@ -6928,7 +7795,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogAnalyticsEntityTypesResponse>{},
         body: await response.json(),
@@ -6969,6 +7842,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListLogAnalyticsLogGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listLogAnalyticsLogGroups.");
+    const operationName = "listLogAnalyticsLogGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/ListLogAnalyticsLogGroups";
     const pathParams = {
       "{namespaceName}": listLogAnalyticsLogGroupsRequest.namespaceName
     };
@@ -7004,7 +7880,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogAnalyticsLogGroupsResponse>{},
         body: await response.json(),
@@ -7051,6 +7933,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#listLogAnalyticsObjectCollectionRules."
       );
+    const operationName = "listLogAnalyticsObjectCollectionRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/ListLogAnalyticsObjectCollectionRules";
     const pathParams = {
       "{namespaceName}": listLogAnalyticsObjectCollectionRulesRequest.namespaceName
     };
@@ -7087,7 +7972,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogAnalyticsObjectCollectionRulesResponse>{},
         body: await response.json(),
@@ -7127,6 +8018,9 @@ export class LogAnalyticsClient {
     listLogSetsRequest: requests.ListLogSetsRequest
   ): Promise<responses.ListLogSetsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLogSets.");
+    const operationName = "listLogSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListLogSets";
     const pathParams = {
       "{namespaceName}": listLogSetsRequest.namespaceName
     };
@@ -7160,7 +8054,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogSetsResponse>{},
         body: await response.json(),
@@ -7200,6 +8100,9 @@ export class LogAnalyticsClient {
     listLookupsRequest: requests.ListLookupsRequest
   ): Promise<responses.ListLookupsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listLookups.");
+    const operationName = "listLookups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/ListLookups";
     const pathParams = {
       "{namespaceName}": listLookupsRequest.namespaceName
     };
@@ -7239,7 +8142,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLookupsResponse>{},
         body: await response.json(),
@@ -7284,6 +8193,9 @@ export class LogAnalyticsClient {
     listMetaSourceTypesRequest: requests.ListMetaSourceTypesRequest
   ): Promise<responses.ListMetaSourceTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listMetaSourceTypes.");
+    const operationName = "listMetaSourceTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListMetaSourceTypes";
     const pathParams = {
       "{namespaceName}": listMetaSourceTypesRequest.namespaceName
     };
@@ -7317,7 +8229,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMetaSourceTypesResponse>{},
         body: await response.json(),
@@ -7363,6 +8281,9 @@ export class LogAnalyticsClient {
     listNamespacesRequest: requests.ListNamespacesRequest
   ): Promise<responses.ListNamespacesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listNamespaces.");
+    const operationName = "listNamespaces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/ListNamespaces";
     const pathParams = {};
 
     const queryParams = {
@@ -7391,7 +8312,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNamespacesResponse>{},
         body: await response.json(),
@@ -7426,6 +8353,9 @@ export class LogAnalyticsClient {
     listParserFunctionsRequest: requests.ListParserFunctionsRequest
   ): Promise<responses.ListParserFunctionsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listParserFunctions.");
+    const operationName = "listParserFunctions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ListParserFunctions";
     const pathParams = {
       "{namespaceName}": listParserFunctionsRequest.namespaceName
     };
@@ -7460,7 +8390,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListParserFunctionsResponse>{},
         body: await response.json(),
@@ -7506,6 +8442,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListParserMetaPluginsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listParserMetaPlugins.");
+    const operationName = "listParserMetaPlugins";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ListParserMetaPlugins";
     const pathParams = {
       "{namespaceName}": listParserMetaPluginsRequest.namespaceName
     };
@@ -7539,7 +8478,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListParserMetaPluginsResponse>{},
         body: await response.json(),
@@ -7584,6 +8529,9 @@ export class LogAnalyticsClient {
     listParsersRequest: requests.ListParsersRequest
   ): Promise<responses.ListParsersResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listParsers.");
+    const operationName = "listParsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/ListParsers";
     const pathParams = {
       "{namespaceName}": listParsersRequest.namespaceName
     };
@@ -7624,7 +8572,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListParsersResponse>{},
         body: await response.json(),
@@ -7669,6 +8623,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListQueryWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listQueryWorkRequests.");
+    const operationName = "listQueryWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/ListQueryWorkRequests";
     const pathParams = {
       "{namespaceName}": listQueryWorkRequestsRequest.namespaceName
     };
@@ -7704,7 +8661,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListQueryWorkRequestsResponse>{},
         body: await response.json(),
@@ -7749,6 +8712,9 @@ export class LogAnalyticsClient {
     listRecalledDataRequest: requests.ListRecalledDataRequest
   ): Promise<responses.ListRecalledDataResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listRecalledData.");
+    const operationName = "listRecalledData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListRecalledData";
     const pathParams = {
       "{namespaceName}": listRecalledDataRequest.namespaceName
     };
@@ -7785,7 +8751,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRecalledDataResponse>{},
         body: await response.json(),
@@ -7832,6 +8804,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListResourceCategoriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listResourceCategories.");
+    const operationName = "listResourceCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/ListResourceCategories";
     const pathParams = {
       "{namespaceName}": listResourceCategoriesRequest.namespaceName
     };
@@ -7868,7 +8843,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceCategoriesResponse>{},
         body: await response.json(),
@@ -7912,6 +8893,9 @@ export class LogAnalyticsClient {
     listScheduledTasksRequest: requests.ListScheduledTasksRequest
   ): Promise<responses.ListScheduledTasksResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listScheduledTasks.");
+    const operationName = "listScheduledTasks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/ListScheduledTasks";
     const pathParams = {
       "{namespaceName}": listScheduledTasksRequest.namespaceName
     };
@@ -7950,7 +8934,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListScheduledTasksResponse>{},
         body: await response.json(),
@@ -7996,6 +8986,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListSourceAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listSourceAssociations.");
+    const operationName = "listSourceAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ListSourceAssociations";
     const pathParams = {
       "{namespaceName}": listSourceAssociationsRequest.namespaceName
     };
@@ -8034,7 +9027,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourceAssociationsResponse>{},
         body: await response.json(),
@@ -8080,6 +9079,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListSourceEventTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listSourceEventTypes.");
+    const operationName = "listSourceEventTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceEventTypes";
     const pathParams = {
       "{namespaceName}": listSourceEventTypesRequest.namespaceName,
       "{sourceName}": listSourceEventTypesRequest.sourceName
@@ -8117,7 +9119,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourceEventTypesResponse>{},
         body: await response.json(),
@@ -8163,6 +9171,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListSourceExtendedFieldDefinitionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listSourceExtendedFieldDefinitions.");
+    const operationName = "listSourceExtendedFieldDefinitions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceExtendedFieldDefinitions";
     const pathParams = {
       "{namespaceName}": listSourceExtendedFieldDefinitionsRequest.namespaceName,
       "{sourceName}": listSourceExtendedFieldDefinitionsRequest.sourceName
@@ -8197,7 +9208,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourceExtendedFieldDefinitionsResponse>{},
         body: await response.json(),
@@ -8243,6 +9260,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListSourceLabelOperatorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listSourceLabelOperators.");
+    const operationName = "listSourceLabelOperators";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceLabelOperators";
     const pathParams = {
       "{namespaceName}": listSourceLabelOperatorsRequest.namespaceName
     };
@@ -8276,7 +9296,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourceLabelOperatorsResponse>{},
         body: await response.json(),
@@ -8322,6 +9348,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListSourceMetaFunctionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listSourceMetaFunctions.");
+    const operationName = "listSourceMetaFunctions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourceMetaFunctions";
     const pathParams = {
       "{namespaceName}": listSourceMetaFunctionsRequest.namespaceName
     };
@@ -8355,7 +9384,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourceMetaFunctionsResponse>{},
         body: await response.json(),
@@ -8400,6 +9435,9 @@ export class LogAnalyticsClient {
     listSourcePatternsRequest: requests.ListSourcePatternsRequest
   ): Promise<responses.ListSourcePatternsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listSourcePatterns.");
+    const operationName = "listSourcePatterns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSourcePatterns";
     const pathParams = {
       "{namespaceName}": listSourcePatternsRequest.namespaceName,
       "{sourceName}": listSourcePatternsRequest.sourceName
@@ -8435,7 +9473,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourcePatternsResponse>{},
         body: await response.json(),
@@ -8480,6 +9524,9 @@ export class LogAnalyticsClient {
     listSourcesRequest: requests.ListSourcesRequest
   ): Promise<responses.ListSourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listSources.");
+    const operationName = "listSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ListSources";
     const pathParams = {
       "{namespaceName}": listSourcesRequest.namespaceName
     };
@@ -8521,7 +9568,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourcesResponse>{},
         body: await response.json(),
@@ -8566,6 +9619,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListStorageWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listStorageWorkRequestErrors.");
+    const operationName = "listStorageWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListStorageWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listStorageWorkRequestErrorsRequest.workRequestId,
       "{namespaceName}": listStorageWorkRequestErrorsRequest.namespaceName
@@ -8601,7 +9657,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListStorageWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -8647,6 +9709,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListStorageWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listStorageWorkRequests.");
+    const operationName = "listStorageWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListStorageWorkRequests";
     const pathParams = {
       "{namespaceName}": listStorageWorkRequestsRequest.namespaceName
     };
@@ -8687,7 +9752,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListStorageWorkRequestsResponse>{},
         body: await response.json(),
@@ -8732,6 +9803,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListSupportedCharEncodingsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listSupportedCharEncodings.");
+    const operationName = "listSupportedCharEncodings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/CharEncodingCollection/ListSupportedCharEncodings";
     const pathParams = {
       "{namespaceName}": listSupportedCharEncodingsRequest.namespaceName
     };
@@ -8763,7 +9837,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSupportedCharEncodingsResponse>{},
         body: await response.json(),
@@ -8808,6 +9888,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListSupportedTimezonesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listSupportedTimezones.");
+    const operationName = "listSupportedTimezones";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/TimezoneCollection/ListSupportedTimezones";
     const pathParams = {
       "{namespaceName}": listSupportedTimezonesRequest.namespaceName
     };
@@ -8839,7 +9922,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSupportedTimezonesResponse>{},
         body: await response.json(),
@@ -8883,6 +9972,9 @@ export class LogAnalyticsClient {
     listUploadFilesRequest: requests.ListUploadFilesRequest
   ): Promise<responses.ListUploadFilesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listUploadFiles.");
+    const operationName = "listUploadFiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ListUploadFiles";
     const pathParams = {
       "{namespaceName}": listUploadFilesRequest.namespaceName,
       "{uploadReference}": listUploadFilesRequest.uploadReference
@@ -8919,7 +10011,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUploadFilesResponse>{},
         body: await response.json(),
@@ -8958,6 +10056,9 @@ export class LogAnalyticsClient {
     listUploadWarningsRequest: requests.ListUploadWarningsRequest
   ): Promise<responses.ListUploadWarningsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listUploadWarnings.");
+    const operationName = "listUploadWarnings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ListUploadWarnings";
     const pathParams = {
       "{namespaceName}": listUploadWarningsRequest.namespaceName,
       "{uploadReference}": listUploadWarningsRequest.uploadReference
@@ -8990,7 +10091,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUploadWarningsResponse>{},
         body: await response.json(),
@@ -9031,6 +10138,9 @@ export class LogAnalyticsClient {
     listUploadsRequest: requests.ListUploadsRequest
   ): Promise<responses.ListUploadsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listUploads.");
+    const operationName = "listUploads";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ListUploads";
     const pathParams = {
       "{namespaceName}": listUploadsRequest.namespaceName
     };
@@ -9067,7 +10177,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUploadsResponse>{},
         body: await response.json(),
@@ -9112,6 +10228,9 @@ export class LogAnalyticsClient {
     listWarningsRequest: requests.ListWarningsRequest
   ): Promise<responses.ListWarningsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listWarnings.");
+    const operationName = "listWarnings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsWarning/ListWarnings";
     const pathParams = {
       "{namespaceName}": listWarningsRequest.namespaceName
     };
@@ -9156,7 +10275,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWarningsResponse>{},
         body: await response.json(),
@@ -9202,6 +10327,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{namespaceName}": listWorkRequestErrorsRequest.namespaceName,
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
@@ -9234,7 +10362,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -9274,6 +10408,9 @@ export class LogAnalyticsClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequestLog/ListWorkRequestLogs";
     const pathParams = {
       "{namespaceName}": listWorkRequestLogsRequest.namespaceName,
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
@@ -9306,7 +10443,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -9346,6 +10489,9 @@ export class LogAnalyticsClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/WorkRequest/ListWorkRequests";
     const pathParams = {
       "{namespaceName}": listWorkRequestsRequest.namespaceName
     };
@@ -9378,7 +10524,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -9417,6 +10569,9 @@ export class LogAnalyticsClient {
     offboardNamespaceRequest: requests.OffboardNamespaceRequest
   ): Promise<responses.OffboardNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#offboardNamespace.");
+    const operationName = "offboardNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/OffboardNamespace";
     const pathParams = {
       "{namespaceName}": offboardNamespaceRequest.namespaceName
     };
@@ -9446,7 +10601,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.OffboardNamespaceResponse>{},
         responseHeaders: [
@@ -9482,6 +10643,9 @@ export class LogAnalyticsClient {
     onboardNamespaceRequest: requests.OnboardNamespaceRequest
   ): Promise<responses.OnboardNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#onboardNamespace.");
+    const operationName = "onboardNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Namespace/OnboardNamespace";
     const pathParams = {
       "{namespaceName}": onboardNamespaceRequest.namespaceName
     };
@@ -9511,7 +10675,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.OnboardNamespaceResponse>{},
         responseHeaders: [
@@ -9546,6 +10716,9 @@ export class LogAnalyticsClient {
     parseQueryRequest: requests.ParseQueryRequest
   ): Promise<responses.ParseQueryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#parseQuery.");
+    const operationName = "parseQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/ParseQuery";
     const pathParams = {
       "{namespaceName}": parseQueryRequest.namespaceName
     };
@@ -9579,7 +10752,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ParseQueryResponse>{},
         body: await response.json(),
@@ -9614,6 +10793,9 @@ export class LogAnalyticsClient {
     pauseScheduledTaskRequest: requests.PauseScheduledTaskRequest
   ): Promise<responses.PauseScheduledTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#pauseScheduledTask.");
+    const operationName = "pauseScheduledTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/PauseScheduledTask";
     const pathParams = {
       "{namespaceName}": pauseScheduledTaskRequest.namespaceName,
       "{scheduledTaskId}": pauseScheduledTaskRequest.scheduledTaskId
@@ -9644,7 +10826,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PauseScheduledTaskResponse>{},
         body: await response.json(),
@@ -9685,6 +10873,9 @@ export class LogAnalyticsClient {
     purgeStorageDataRequest: requests.PurgeStorageDataRequest
   ): Promise<responses.PurgeStorageDataResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#purgeStorageData.");
+    const operationName = "purgeStorageData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/PurgeStorageData";
     const pathParams = {
       "{namespaceName}": purgeStorageDataRequest.namespaceName
     };
@@ -9720,7 +10911,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PurgeStorageDataResponse>{},
         responseHeaders: [
@@ -9761,6 +10958,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.PutQueryWorkRequestBackgroundResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#putQueryWorkRequestBackground.");
+    const operationName = "putQueryWorkRequestBackground";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryWorkRequest/PutQueryWorkRequestBackground";
     const pathParams = {
       "{namespaceName}": putQueryWorkRequestBackgroundRequest.namespaceName,
       "{workRequestId}": putQueryWorkRequestBackgroundRequest.workRequestId
@@ -9791,7 +10991,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PutQueryWorkRequestBackgroundResponse>{},
         body: await response.json(),
@@ -9829,6 +11035,9 @@ export class LogAnalyticsClient {
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#query.");
+    const operationName = "query";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/Query";
     const pathParams = {
       "{namespaceName}": queryRequest.namespaceName
     };
@@ -9865,7 +11074,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.QueryResponse>{},
         body: await response.json(),
@@ -9920,6 +11135,9 @@ export class LogAnalyticsClient {
     recallArchivedDataRequest: requests.RecallArchivedDataRequest
   ): Promise<responses.RecallArchivedDataResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#recallArchivedData.");
+    const operationName = "recallArchivedData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/RecallArchivedData";
     const pathParams = {
       "{namespaceName}": recallArchivedDataRequest.namespaceName
     };
@@ -9955,7 +11173,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RecallArchivedDataResponse>{},
         responseHeaders: [
@@ -9996,6 +11220,9 @@ export class LogAnalyticsClient {
     registerLookupRequest: requests.RegisterLookupRequest
   ): Promise<responses.RegisterLookupResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#registerLookup.");
+    const operationName = "registerLookup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/RegisterLookup";
     const pathParams = {
       "{namespaceName}": registerLookupRequest.namespaceName
     };
@@ -10033,7 +11260,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RegisterLookupResponse>{},
         body: await response.json(),
@@ -10073,6 +11306,9 @@ export class LogAnalyticsClient {
     releaseRecalledDataRequest: requests.ReleaseRecalledDataRequest
   ): Promise<responses.ReleaseRecalledDataResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#releaseRecalledData.");
+    const operationName = "releaseRecalledData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ReleaseRecalledData";
     const pathParams = {
       "{namespaceName}": releaseRecalledDataRequest.namespaceName
     };
@@ -10108,7 +11344,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ReleaseRecalledDataResponse>{},
         responseHeaders: [
@@ -10149,6 +11391,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.RemoveEntityAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#removeEntityAssociations.");
+    const operationName = "removeEntityAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/RemoveEntityAssociations";
     const pathParams = {
       "{namespaceName}": removeEntityAssociationsRequest.namespaceName,
       "{logAnalyticsEntityId}": removeEntityAssociationsRequest.logAnalyticsEntityId
@@ -10186,7 +11431,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveEntityAssociationsResponse>{},
         responseHeaders: [
@@ -10217,6 +11468,9 @@ export class LogAnalyticsClient {
     removePreferencesRequest: requests.RemovePreferencesRequest
   ): Promise<responses.RemovePreferencesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#removePreferences.");
+    const operationName = "removePreferences";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsPreference/RemovePreferences";
     const pathParams = {
       "{namespaceName}": removePreferencesRequest.namespaceName
     };
@@ -10251,7 +11505,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemovePreferencesResponse>{},
         responseHeaders: [
@@ -10283,6 +11543,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.RemoveResourceCategoriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#removeResourceCategories.");
+    const operationName = "removeResourceCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/RemoveResourceCategories";
     const pathParams = {
       "{namespaceName}": removeResourceCategoriesRequest.namespaceName
     };
@@ -10316,7 +11579,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveResourceCategoriesResponse>{},
         responseHeaders: [
@@ -10348,6 +11617,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.RemoveSourceEventTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#removeSourceEventTypes.");
+    const operationName = "removeSourceEventTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/RemoveSourceEventTypes";
     const pathParams = {
       "{namespaceName}": removeSourceEventTypesRequest.namespaceName,
       "{sourceName}": removeSourceEventTypesRequest.sourceName
@@ -10383,7 +11655,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveSourceEventTypesResponse>{},
         responseHeaders: [
@@ -10414,6 +11692,9 @@ export class LogAnalyticsClient {
     resumeScheduledTaskRequest: requests.ResumeScheduledTaskRequest
   ): Promise<responses.ResumeScheduledTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#resumeScheduledTask.");
+    const operationName = "resumeScheduledTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/ResumeScheduledTask";
     const pathParams = {
       "{namespaceName}": resumeScheduledTaskRequest.namespaceName,
       "{scheduledTaskId}": resumeScheduledTaskRequest.scheduledTaskId
@@ -10444,7 +11725,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResumeScheduledTaskResponse>{},
         body: await response.json(),
@@ -10484,6 +11771,9 @@ export class LogAnalyticsClient {
    */
   public async run(runRequest: requests.RunRequest): Promise<responses.RunResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#run.");
+    const operationName = "run";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/Run";
     const pathParams = {
       "{namespaceName}": runRequest.namespaceName,
       "{scheduledTaskId}": runRequest.scheduledTaskId
@@ -10517,7 +11807,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RunResponse>{},
         responseHeaders: [
@@ -10551,6 +11847,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.SetUnprocessedDataBucketResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#setUnprocessedDataBucket.");
+    const operationName = "setUnprocessedDataBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/SetUnprocessedDataBucket";
     const pathParams = {
       "{namespaceName}": setUnprocessedDataBucketRequest.namespaceName
     };
@@ -10582,7 +11881,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SetUnprocessedDataBucketResponse>{},
         body: await response.json(),
@@ -10616,6 +11921,9 @@ export class LogAnalyticsClient {
     suggestRequest: requests.SuggestRequest
   ): Promise<responses.SuggestResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#suggest.");
+    const operationName = "suggest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/QueryDetails/Suggest";
     const pathParams = {
       "{namespaceName}": suggestRequest.namespaceName
     };
@@ -10649,7 +11957,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SuggestResponse>{},
         body: await response.json(),
@@ -10684,6 +11998,9 @@ export class LogAnalyticsClient {
     suppressWarningRequest: requests.SuppressWarningRequest
   ): Promise<responses.SuppressWarningResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#suppressWarning.");
+    const operationName = "suppressWarning";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsWarning/SuppressWarning";
     const pathParams = {
       "{namespaceName}": suppressWarningRequest.namespaceName
     };
@@ -10720,7 +12037,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SuppressWarningResponse>{},
         responseHeaders: [
@@ -10751,6 +12074,9 @@ export class LogAnalyticsClient {
     testParserRequest: requests.TestParserRequest
   ): Promise<responses.TestParserResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#testParser.");
+    const operationName = "testParser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/TestParser";
     const pathParams = {
       "{namespaceName}": testParserRequest.namespaceName
     };
@@ -10788,7 +12114,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TestParserResponse>{},
         body: await response.json(),
@@ -10823,6 +12155,9 @@ export class LogAnalyticsClient {
     unsuppressWarningRequest: requests.UnsuppressWarningRequest
   ): Promise<responses.UnsuppressWarningResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#unsuppressWarning.");
+    const operationName = "unsuppressWarning";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsWarning/UnsuppressWarning";
     const pathParams = {
       "{namespaceName}": unsuppressWarningRequest.namespaceName
     };
@@ -10859,7 +12194,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UnsuppressWarningResponse>{},
         responseHeaders: [
@@ -10890,6 +12231,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.UpdateLogAnalyticsEmBridgeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEmBridge.");
+    const operationName = "updateLogAnalyticsEmBridge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEmBridge/UpdateLogAnalyticsEmBridge";
     const pathParams = {
       "{namespaceName}": updateLogAnalyticsEmBridgeRequest.namespaceName,
       "{logAnalyticsEmBridgeId}": updateLogAnalyticsEmBridgeRequest.logAnalyticsEmBridgeId
@@ -10925,7 +12269,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogAnalyticsEmBridgeResponse>{},
         body: await response.json(),
@@ -10965,6 +12315,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.UpdateLogAnalyticsEntityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEntity.");
+    const operationName = "updateLogAnalyticsEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntity/UpdateLogAnalyticsEntity";
     const pathParams = {
       "{namespaceName}": updateLogAnalyticsEntityRequest.namespaceName,
       "{logAnalyticsEntityId}": updateLogAnalyticsEntityRequest.logAnalyticsEntityId
@@ -11000,7 +12353,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogAnalyticsEntityResponse>{},
         body: await response.json(),
@@ -11040,6 +12399,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.UpdateLogAnalyticsEntityTypeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsEntityType.");
+    const operationName = "updateLogAnalyticsEntityType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsEntityType/UpdateLogAnalyticsEntityType";
     const pathParams = {
       "{namespaceName}": updateLogAnalyticsEntityTypeRequest.namespaceName,
       "{entityTypeName}": updateLogAnalyticsEntityTypeRequest.entityTypeName
@@ -11075,7 +12437,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogAnalyticsEntityTypeResponse>{},
         responseHeaders: [
@@ -11107,6 +12475,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.UpdateLogAnalyticsLogGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#updateLogAnalyticsLogGroup.");
+    const operationName = "updateLogAnalyticsLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLogGroup/UpdateLogAnalyticsLogGroup";
     const pathParams = {
       "{namespaceName}": updateLogAnalyticsLogGroupRequest.namespaceName,
       "{logAnalyticsLogGroupId}": updateLogAnalyticsLogGroupRequest.logAnalyticsLogGroupId
@@ -11142,7 +12513,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogAnalyticsLogGroupResponse>{},
         body: await response.json(),
@@ -11184,6 +12561,9 @@ export class LogAnalyticsClient {
       this.logger.debug(
         "Calling operation LogAnalyticsClient#updateLogAnalyticsObjectCollectionRule."
       );
+    const operationName = "updateLogAnalyticsObjectCollectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsObjectCollectionRule/UpdateLogAnalyticsObjectCollectionRule";
     const pathParams = {
       "{namespaceName}": updateLogAnalyticsObjectCollectionRuleRequest.namespaceName,
       "{logAnalyticsObjectCollectionRuleId}":
@@ -11221,7 +12601,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogAnalyticsObjectCollectionRuleResponse>{},
         body: await response.json(),
@@ -11261,6 +12647,9 @@ export class LogAnalyticsClient {
     updateLookupRequest: requests.UpdateLookupRequest
   ): Promise<responses.UpdateLookupResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateLookup.");
+    const operationName = "updateLookup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/UpdateLookup";
     const pathParams = {
       "{namespaceName}": updateLookupRequest.namespaceName,
       "{lookupName}": updateLookupRequest.lookupName
@@ -11297,7 +12686,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLookupResponse>{},
         body: await response.json(),
@@ -11337,6 +12732,9 @@ export class LogAnalyticsClient {
     updateLookupDataRequest: requests.UpdateLookupDataRequest
   ): Promise<responses.UpdateLookupDataResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateLookupData.");
+    const operationName = "updateLookupData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLookup/UpdateLookupData";
     const pathParams = {
       "{namespaceName}": updateLookupDataRequest.namespaceName,
       "{lookupName}": updateLookupDataRequest.lookupName
@@ -11373,7 +12771,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLookupDataResponse>{},
         responseHeaders: [
@@ -11409,6 +12813,9 @@ export class LogAnalyticsClient {
     updatePreferencesRequest: requests.UpdatePreferencesRequest
   ): Promise<responses.UpdatePreferencesResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updatePreferences.");
+    const operationName = "updatePreferences";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsPreference/UpdatePreferences";
     const pathParams = {
       "{namespaceName}": updatePreferencesRequest.namespaceName
     };
@@ -11443,7 +12850,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePreferencesResponse>{},
         responseHeaders: [
@@ -11475,6 +12888,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.UpdateResourceCategoriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#updateResourceCategories.");
+    const operationName = "updateResourceCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsCategory/UpdateResourceCategories";
     const pathParams = {
       "{namespaceName}": updateResourceCategoriesRequest.namespaceName
     };
@@ -11508,7 +12924,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateResourceCategoriesResponse>{},
         responseHeaders: [
@@ -11538,6 +12960,9 @@ export class LogAnalyticsClient {
     updateScheduledTaskRequest: requests.UpdateScheduledTaskRequest
   ): Promise<responses.UpdateScheduledTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateScheduledTask.");
+    const operationName = "updateScheduledTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/UpdateScheduledTask";
     const pathParams = {
       "{namespaceName}": updateScheduledTaskRequest.namespaceName,
       "{scheduledTaskId}": updateScheduledTaskRequest.scheduledTaskId
@@ -11573,7 +12998,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateScheduledTaskResponse>{},
         body: await response.json(),
@@ -11613,6 +13044,9 @@ export class LogAnalyticsClient {
     updateStorageRequest: requests.UpdateStorageRequest
   ): Promise<responses.UpdateStorageResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#updateStorage.");
+    const operationName = "updateStorage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/UpdateStorage";
     const pathParams = {
       "{namespaceName}": updateStorageRequest.namespaceName
     };
@@ -11647,7 +13081,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateStorageResponse>{},
         body: await response.json(),
@@ -11687,6 +13127,9 @@ export class LogAnalyticsClient {
     uploadLogEventsFileRequest: requests.UploadLogEventsFileRequest
   ): Promise<responses.UploadLogEventsFileResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#uploadLogEventsFile.");
+    const operationName = "uploadLogEventsFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/UploadLogEventsFile";
     const pathParams = {
       "{namespaceName}": uploadLogEventsFileRequest.namespaceName
     };
@@ -11723,7 +13166,14 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadLogEventsFileResponse>{},
         responseHeaders: [
@@ -11764,6 +13214,9 @@ export class LogAnalyticsClient {
     uploadLogFileRequest: requests.UploadLogFileRequest
   ): Promise<responses.UploadLogFileResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#uploadLogFile.");
+    const operationName = "uploadLogFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/UploadLogFile";
     const pathParams = {
       "{namespaceName}": uploadLogFileRequest.namespaceName
     };
@@ -11809,7 +13262,14 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadLogFileResponse>{},
         body: await response.json(),
@@ -11854,6 +13314,9 @@ export class LogAnalyticsClient {
     upsertAssociationsRequest: requests.UpsertAssociationsRequest
   ): Promise<responses.UpsertAssociationsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertAssociations.");
+    const operationName = "upsertAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/UpsertAssociations";
     const pathParams = {
       "{namespaceName}": upsertAssociationsRequest.namespaceName
     };
@@ -11890,7 +13353,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpsertAssociationsResponse>{},
         responseHeaders: [
@@ -11926,6 +13395,9 @@ export class LogAnalyticsClient {
     upsertFieldRequest: requests.UpsertFieldRequest
   ): Promise<responses.UpsertFieldResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertField.");
+    const operationName = "upsertField";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsField/UpsertField";
     const pathParams = {
       "{namespaceName}": upsertFieldRequest.namespaceName
     };
@@ -11961,7 +13433,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpsertFieldResponse>{},
         body: await response.json(),
@@ -12001,6 +13479,9 @@ export class LogAnalyticsClient {
     upsertLabelRequest: requests.UpsertLabelRequest
   ): Promise<responses.UpsertLabelResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertLabel.");
+    const operationName = "upsertLabel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsLabel/UpsertLabel";
     const pathParams = {
       "{namespaceName}": upsertLabelRequest.namespaceName
     };
@@ -12036,7 +13517,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpsertLabelResponse>{},
         body: await response.json(),
@@ -12076,6 +13563,9 @@ export class LogAnalyticsClient {
     upsertParserRequest: requests.UpsertParserRequest
   ): Promise<responses.UpsertParserResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertParser.");
+    const operationName = "upsertParser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsParser/UpsertParser";
     const pathParams = {
       "{namespaceName}": upsertParserRequest.namespaceName
     };
@@ -12111,7 +13601,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpsertParserResponse>{},
         body: await response.json(),
@@ -12151,6 +13647,9 @@ export class LogAnalyticsClient {
     upsertSourceRequest: requests.UpsertSourceRequest
   ): Promise<responses.UpsertSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#upsertSource.");
+    const operationName = "upsertSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/UpsertSource";
     const pathParams = {
       "{namespaceName}": upsertSourceRequest.namespaceName
     };
@@ -12190,7 +13689,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpsertSourceResponse>{},
         body: await response.json(),
@@ -12231,6 +13736,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ValidateAssociationParametersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#validateAssociationParameters.");
+    const operationName = "validateAssociationParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsAssociation/ValidateAssociationParameters";
     const pathParams = {
       "{namespaceName}": validateAssociationParametersRequest.namespaceName
     };
@@ -12270,7 +13778,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateAssociationParametersResponse>{},
         body: await response.json(),
@@ -12309,6 +13823,9 @@ export class LogAnalyticsClient {
     validateFileRequest: requests.ValidateFileRequest
   ): Promise<responses.ValidateFileResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#validateFile.");
+    const operationName = "validateFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ValidateFile";
     const pathParams = {
       "{namespaceName}": validateFileRequest.namespaceName
     };
@@ -12340,7 +13857,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateFileResponse>{},
         body: await response.json(),
@@ -12375,6 +13898,9 @@ export class LogAnalyticsClient {
     validateSourceRequest: requests.ValidateSourceRequest
   ): Promise<responses.ValidateSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#validateSource.");
+    const operationName = "validateSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateSource";
     const pathParams = {
       "{namespaceName}": validateSourceRequest.namespaceName
     };
@@ -12413,7 +13939,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateSourceResponse>{},
         body: await response.json(),
@@ -12449,6 +13981,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ValidateSourceExtendedFieldDetailsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#validateSourceExtendedFieldDetails.");
+    const operationName = "validateSourceExtendedFieldDetails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateSourceExtendedFieldDetails";
     const pathParams = {
       "{namespaceName}": validateSourceExtendedFieldDetailsRequest.namespaceName
     };
@@ -12483,7 +14018,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateSourceExtendedFieldDetailsResponse>{},
         body: await response.json(),
@@ -12518,6 +14059,9 @@ export class LogAnalyticsClient {
   ): Promise<responses.ValidateSourceMappingResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LogAnalyticsClient#validateSourceMapping.");
+    const operationName = "validateSourceMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Upload/ValidateSourceMapping";
     const pathParams = {
       "{namespaceName}": validateSourceMappingRequest.namespaceName
     };
@@ -12550,7 +14094,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateSourceMappingResponse>{},
         body: await response.json(),
@@ -12586,6 +14136,9 @@ export class LogAnalyticsClient {
    */
   public async verify(verifyRequest: requests.VerifyRequest): Promise<responses.VerifyResponse> {
     if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#verify.");
+    const operationName = "verify";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/ScheduledTask/Verify";
     const pathParams = {
       "{namespaceName}": verifyRequest.namespaceName,
       "{scheduledTaskId}": verifyRequest.scheduledTaskId
@@ -12618,7 +14171,13 @@ export class LogAnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.VerifyResponse>{},
         body: await response.json(),

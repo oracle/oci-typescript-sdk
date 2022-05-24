@@ -39,6 +39,7 @@ export class RedirectClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Redirect";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class RedirectClient {
   ): Promise<responses.ChangeHttpRedirectCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RedirectClient#changeHttpRedirectCompartment.");
+    const operationName = "changeHttpRedirectCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/ChangeHttpRedirectCompartment";
     const pathParams = {
       "{httpRedirectId}": changeHttpRedirectCompartmentRequest.httpRedirectId
     };
@@ -200,7 +204,13 @@ export class RedirectClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeHttpRedirectCompartmentResponse>{},
         responseHeaders: [
@@ -230,6 +240,9 @@ export class RedirectClient {
     createHttpRedirectRequest: requests.CreateHttpRedirectRequest
   ): Promise<responses.CreateHttpRedirectResponse> {
     if (this.logger) this.logger.debug("Calling operation RedirectClient#createHttpRedirect.");
+    const operationName = "createHttpRedirect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/CreateHttpRedirect";
     const pathParams = {};
 
     const queryParams = {};
@@ -262,7 +275,13 @@ export class RedirectClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateHttpRedirectResponse>{},
         responseHeaders: [
@@ -297,6 +316,9 @@ export class RedirectClient {
     deleteHttpRedirectRequest: requests.DeleteHttpRedirectRequest
   ): Promise<responses.DeleteHttpRedirectResponse> {
     if (this.logger) this.logger.debug("Calling operation RedirectClient#deleteHttpRedirect.");
+    const operationName = "deleteHttpRedirect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/DeleteHttpRedirect";
     const pathParams = {
       "{httpRedirectId}": deleteHttpRedirectRequest.httpRedirectId
     };
@@ -327,7 +349,13 @@ export class RedirectClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteHttpRedirectResponse>{},
         responseHeaders: [
@@ -362,6 +390,9 @@ export class RedirectClient {
     getHttpRedirectRequest: requests.GetHttpRedirectRequest
   ): Promise<responses.GetHttpRedirectResponse> {
     if (this.logger) this.logger.debug("Calling operation RedirectClient#getHttpRedirect.");
+    const operationName = "getHttpRedirect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/GetHttpRedirect";
     const pathParams = {
       "{httpRedirectId}": getHttpRedirectRequest.httpRedirectId
     };
@@ -390,7 +421,13 @@ export class RedirectClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHttpRedirectResponse>{},
         body: await response.json(),
@@ -429,6 +466,9 @@ export class RedirectClient {
     listHttpRedirectsRequest: requests.ListHttpRedirectsRequest
   ): Promise<responses.ListHttpRedirectsResponse> {
     if (this.logger) this.logger.debug("Calling operation RedirectClient#listHttpRedirects.");
+    const operationName = "listHttpRedirects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/ListHttpRedirects";
     const pathParams = {};
 
     const queryParams = {
@@ -466,7 +506,13 @@ export class RedirectClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListHttpRedirectsResponse>{},
         body: await response.json(),
@@ -557,6 +603,9 @@ export class RedirectClient {
     updateHttpRedirectRequest: requests.UpdateHttpRedirectRequest
   ): Promise<responses.UpdateHttpRedirectResponse> {
     if (this.logger) this.logger.debug("Calling operation RedirectClient#updateHttpRedirect.");
+    const operationName = "updateHttpRedirect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HttpRedirect/UpdateHttpRedirect";
     const pathParams = {
       "{httpRedirectId}": updateHttpRedirectRequest.httpRedirectId
     };
@@ -592,7 +641,13 @@ export class RedirectClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHttpRedirectResponse>{},
         responseHeaders: [
@@ -630,6 +685,7 @@ export class WaasClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Waas";
 
   protected _httpClient: common.HttpClient;
 
@@ -757,6 +813,9 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     acceptRecommendationsRequest: requests.AcceptRecommendationsRequest
   ): Promise<responses.AcceptRecommendationsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#acceptRecommendations.");
+    const operationName = "acceptRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Recommendation/AcceptRecommendations";
     const pathParams = {
       "{waasPolicyId}": acceptRecommendationsRequest.waasPolicyId
     };
@@ -790,7 +849,13 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AcceptRecommendationsResponse>{},
         responseHeaders: [
@@ -825,6 +890,9 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -855,7 +923,13 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -889,6 +963,9 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   ): Promise<responses.ChangeAddressListCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#changeAddressListCompartment.");
+    const operationName = "changeAddressListCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/ChangeAddressListCompartment";
     const pathParams = {
       "{addressListId}": changeAddressListCompartmentRequest.addressListId
     };
@@ -924,7 +1001,13 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAddressListCompartmentResponse>{},
         responseHeaders: [
@@ -957,6 +1040,9 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   ): Promise<responses.ChangeCertificateCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#changeCertificateCompartment.");
+    const operationName = "changeCertificateCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/ChangeCertificateCompartment";
     const pathParams = {
       "{certificateId}": changeCertificateCompartmentRequest.certificateId
     };
@@ -992,7 +1078,13 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCertificateCompartmentResponse>{},
         responseHeaders: [
@@ -1023,6 +1115,9 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
   ): Promise<responses.ChangeCustomProtectionRuleCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#changeCustomProtectionRuleCompartment.");
+    const operationName = "changeCustomProtectionRuleCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/ChangeCustomProtectionRuleCompartment";
     const pathParams = {
       "{customProtectionRuleId}":
         changeCustomProtectionRuleCompartmentRequest.customProtectionRuleId
@@ -1059,7 +1154,13 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCustomProtectionRuleCompartmentResponse>{},
         responseHeaders: [
@@ -1091,6 +1192,9 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     changeWaasPolicyCompartmentRequest: requests.ChangeWaasPolicyCompartmentRequest
   ): Promise<responses.ChangeWaasPolicyCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#changeWaasPolicyCompartment.");
+    const operationName = "changeWaasPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/ChangeWaasPolicyCompartment";
     const pathParams = {
       "{waasPolicyId}": changeWaasPolicyCompartmentRequest.waasPolicyId
     };
@@ -1126,7 +1230,13 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeWaasPolicyCompartmentResponse>{},
         responseHeaders: [
@@ -1156,6 +1266,9 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
     createAddressListRequest: requests.CreateAddressListRequest
   ): Promise<responses.CreateAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#createAddressList.");
+    const operationName = "createAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/CreateAddressList";
     const pathParams = {};
 
     const queryParams = {};
@@ -1188,7 +1301,13 @@ Use the `GET /waasPolicies/{waasPolicyId}/wafConfig/recommendations` method to v
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAddressListResponse>{},
         body: await response.json(),
@@ -1229,6 +1348,9 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#createCertificate.");
+    const operationName = "createCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/CreateCertificate";
     const pathParams = {};
 
     const queryParams = {};
@@ -1261,7 +1383,13 @@ For more information, see [WAF Settings](https://docs.cloud.oracle.com/iaas/Cont
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCertificateResponse>{},
         body: await response.json(),
@@ -1302,6 +1430,9 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
     createCustomProtectionRuleRequest: requests.CreateCustomProtectionRuleRequest
   ): Promise<responses.CreateCustomProtectionRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#createCustomProtectionRule.");
+    const operationName = "createCustomProtectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/CreateCustomProtectionRule";
     const pathParams = {};
 
     const queryParams = {};
@@ -1334,7 +1465,13 @@ Custom protection rules allow you to create rules in addition to the rulesets pr
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCustomProtectionRuleResponse>{},
         body: await response.json(),
@@ -1385,6 +1522,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     createWaasPolicyRequest: requests.CreateWaasPolicyRequest
   ): Promise<responses.CreateWaasPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#createWaasPolicy.");
+    const operationName = "createWaasPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/CreateWaasPolicy";
     const pathParams = {};
 
     const queryParams = {};
@@ -1417,7 +1557,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateWaasPolicyResponse>{},
         responseHeaders: [
@@ -1457,6 +1603,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     deleteAddressListRequest: requests.DeleteAddressListRequest
   ): Promise<responses.DeleteAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#deleteAddressList.");
+    const operationName = "deleteAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/DeleteAddressList";
     const pathParams = {
       "{addressListId}": deleteAddressListRequest.addressListId
     };
@@ -1487,7 +1636,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAddressListResponse>{},
         responseHeaders: [
@@ -1517,6 +1672,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#deleteCertificate.");
+    const operationName = "deleteCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/DeleteCertificate";
     const pathParams = {
       "{certificateId}": deleteCertificateRequest.certificateId
     };
@@ -1547,7 +1705,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCertificateResponse>{},
         responseHeaders: [
@@ -1577,6 +1741,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     deleteCustomProtectionRuleRequest: requests.DeleteCustomProtectionRuleRequest
   ): Promise<responses.DeleteCustomProtectionRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#deleteCustomProtectionRule.");
+    const operationName = "deleteCustomProtectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/DeleteCustomProtectionRule";
     const pathParams = {
       "{customProtectionRuleId}": deleteCustomProtectionRuleRequest.customProtectionRuleId
     };
@@ -1607,7 +1774,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCustomProtectionRuleResponse>{},
         responseHeaders: [
@@ -1637,6 +1810,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     deleteWaasPolicyRequest: requests.DeleteWaasPolicyRequest
   ): Promise<responses.DeleteWaasPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#deleteWaasPolicy.");
+    const operationName = "deleteWaasPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/DeleteWaasPolicy";
     const pathParams = {
       "{waasPolicyId}": deleteWaasPolicyRequest.waasPolicyId
     };
@@ -1667,7 +1843,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWaasPolicyResponse>{},
         responseHeaders: [
@@ -1702,6 +1884,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getAddressListRequest: requests.GetAddressListRequest
   ): Promise<responses.GetAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getAddressList.");
+    const operationName = "getAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/GetAddressList";
     const pathParams = {
       "{addressListId}": getAddressListRequest.addressListId
     };
@@ -1730,7 +1915,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAddressListResponse>{},
         body: await response.json(),
@@ -1769,6 +1960,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getCertificateRequest: requests.GetCertificateRequest
   ): Promise<responses.GetCertificateResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getCertificate.");
+    const operationName = "getCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/GetCertificate";
     const pathParams = {
       "{certificateId}": getCertificateRequest.certificateId
     };
@@ -1797,7 +1991,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCertificateResponse>{},
         body: await response.json(),
@@ -1836,6 +2036,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getCustomProtectionRuleRequest: requests.GetCustomProtectionRuleRequest
   ): Promise<responses.GetCustomProtectionRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getCustomProtectionRule.");
+    const operationName = "getCustomProtectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/GetCustomProtectionRule";
     const pathParams = {
       "{customProtectionRuleId}": getCustomProtectionRuleRequest.customProtectionRuleId
     };
@@ -1864,7 +2067,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCustomProtectionRuleResponse>{},
         body: await response.json(),
@@ -1904,6 +2113,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   ): Promise<responses.GetDeviceFingerprintChallengeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#getDeviceFingerprintChallenge.");
+    const operationName = "getDeviceFingerprintChallenge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/DeviceFingerprintChallenge/GetDeviceFingerprintChallenge";
     const pathParams = {
       "{waasPolicyId}": getDeviceFingerprintChallengeRequest.waasPolicyId
     };
@@ -1932,7 +2144,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeviceFingerprintChallengeResponse>{},
         body: await response.json(),
@@ -1972,6 +2190,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
   ): Promise<responses.GetHumanInteractionChallengeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#getHumanInteractionChallenge.");
+    const operationName = "getHumanInteractionChallenge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HumanInteractionChallenge/GetHumanInteractionChallenge";
     const pathParams = {
       "{waasPolicyId}": getHumanInteractionChallengeRequest.waasPolicyId
     };
@@ -2000,7 +2221,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHumanInteractionChallengeResponse>{},
         body: await response.json(),
@@ -2039,6 +2266,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getJsChallengeRequest: requests.GetJsChallengeRequest
   ): Promise<responses.GetJsChallengeResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getJsChallenge.");
+    const operationName = "getJsChallenge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/JsChallenge/GetJsChallenge";
     const pathParams = {
       "{waasPolicyId}": getJsChallengeRequest.waasPolicyId
     };
@@ -2067,7 +2297,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJsChallengeResponse>{},
         body: await response.json(),
@@ -2106,6 +2342,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getPolicyConfigRequest: requests.GetPolicyConfigRequest
   ): Promise<responses.GetPolicyConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getPolicyConfig.");
+    const operationName = "getPolicyConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/PolicyConfig/GetPolicyConfig";
     const pathParams = {
       "{waasPolicyId}": getPolicyConfigRequest.waasPolicyId
     };
@@ -2134,7 +2373,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPolicyConfigResponse>{},
         body: await response.json(),
@@ -2173,6 +2418,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getProtectionRuleRequest: requests.GetProtectionRuleRequest
   ): Promise<responses.GetProtectionRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getProtectionRule.");
+    const operationName = "getProtectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionRule/GetProtectionRule";
     const pathParams = {
       "{waasPolicyId}": getProtectionRuleRequest.waasPolicyId,
       "{protectionRuleKey}": getProtectionRuleRequest.protectionRuleKey
@@ -2202,7 +2450,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProtectionRuleResponse>{},
         body: await response.json(),
@@ -2241,6 +2495,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getProtectionSettingsRequest: requests.GetProtectionSettingsRequest
   ): Promise<responses.GetProtectionSettingsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getProtectionSettings.");
+    const operationName = "getProtectionSettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionSettings/GetProtectionSettings";
     const pathParams = {
       "{waasPolicyId}": getProtectionSettingsRequest.waasPolicyId
     };
@@ -2269,7 +2526,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProtectionSettingsResponse>{},
         body: await response.json(),
@@ -2308,6 +2571,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getWaasPolicyRequest: requests.GetWaasPolicyRequest
   ): Promise<responses.GetWaasPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getWaasPolicy.");
+    const operationName = "getWaasPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/GetWaasPolicy";
     const pathParams = {
       "{waasPolicyId}": getWaasPolicyRequest.waasPolicyId
     };
@@ -2336,7 +2602,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWaasPolicyResponse>{},
         body: await response.json(),
@@ -2375,6 +2647,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getWafAddressRateLimitingRequest: requests.GetWafAddressRateLimitingRequest
   ): Promise<responses.GetWafAddressRateLimitingResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getWafAddressRateLimiting.");
+    const operationName = "getWafAddressRateLimiting";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressRateLimiting/GetWafAddressRateLimiting";
     const pathParams = {
       "{waasPolicyId}": getWafAddressRateLimitingRequest.waasPolicyId
     };
@@ -2403,7 +2678,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWafAddressRateLimitingResponse>{},
         body: await response.json(),
@@ -2442,6 +2723,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getWafConfigRequest: requests.GetWafConfigRequest
   ): Promise<responses.GetWafConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getWafConfig.");
+    const operationName = "getWafConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafConfig/GetWafConfig";
     const pathParams = {
       "{waasPolicyId}": getWafConfigRequest.waasPolicyId
     };
@@ -2470,7 +2754,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWafConfigResponse>{},
         body: await response.json(),
@@ -2509,6 +2799,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2537,7 +2830,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2582,6 +2881,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     listAccessRulesRequest: requests.ListAccessRulesRequest
   ): Promise<responses.ListAccessRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listAccessRules.");
+    const operationName = "listAccessRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AccessRule/ListAccessRules";
     const pathParams = {
       "{waasPolicyId}": listAccessRulesRequest.waasPolicyId
     };
@@ -2613,7 +2915,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAccessRulesResponse>{},
         body: await response.json(),
@@ -2709,6 +3017,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     listAddressListsRequest: requests.ListAddressListsRequest
   ): Promise<responses.ListAddressListsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listAddressLists.");
+    const operationName = "listAddressLists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/ListAddressLists";
     const pathParams = {};
 
     const queryParams = {
@@ -2746,7 +3057,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAddressListsResponse>{},
         body: await response.json(),
@@ -2838,6 +3155,9 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
     listCachingRulesRequest: requests.ListCachingRulesRequest
   ): Promise<responses.ListCachingRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listCachingRules.");
+    const operationName = "listCachingRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CachingRuleSummary/ListCachingRules";
     const pathParams = {
       "{waasPolicyId}": listCachingRulesRequest.waasPolicyId
     };
@@ -2869,7 +3189,13 @@ All Oracle Cloud Infrastructure resources, including WAAS policies, receive a un
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCachingRulesResponse>{},
         body: await response.json(),
@@ -2970,6 +3296,9 @@ The order of the CAPTCHA challenges is important. The URL for each
     listCaptchasRequest: requests.ListCaptchasRequest
   ): Promise<responses.ListCaptchasResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listCaptchas.");
+    const operationName = "listCaptchas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Captcha/ListCaptchas";
     const pathParams = {
       "{waasPolicyId}": listCaptchasRequest.waasPolicyId
     };
@@ -3001,7 +3330,13 @@ The order of the CAPTCHA challenges is important. The URL for each
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCaptchasResponse>{},
         body: await response.json(),
@@ -3097,6 +3432,9 @@ The order of the CAPTCHA challenges is important. The URL for each
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listCertificates.");
+    const operationName = "listCertificates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CertificateSummary/ListCertificates";
     const pathParams = {};
 
     const queryParams = {
@@ -3134,7 +3472,13 @@ The order of the CAPTCHA challenges is important. The URL for each
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificatesResponse>{},
         body: await response.json(),
@@ -3225,6 +3569,9 @@ The order of the CAPTCHA challenges is important. The URL for each
     listCustomProtectionRulesRequest: requests.ListCustomProtectionRulesRequest
   ): Promise<responses.ListCustomProtectionRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listCustomProtectionRules.");
+    const operationName = "listCustomProtectionRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/ListCustomProtectionRules";
     const pathParams = {};
 
     const queryParams = {
@@ -3263,7 +3610,13 @@ The order of the CAPTCHA challenges is important. The URL for each
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCustomProtectionRulesResponse>{},
         body: await response.json(),
@@ -3354,6 +3707,9 @@ The order of the CAPTCHA challenges is important. The URL for each
     listEdgeSubnetsRequest: requests.ListEdgeSubnetsRequest
   ): Promise<responses.ListEdgeSubnetsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listEdgeSubnets.");
+    const operationName = "listEdgeSubnets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/EdgeSubnet/ListEdgeSubnets";
     const pathParams = {};
 
     const queryParams = {
@@ -3385,7 +3741,13 @@ The order of the CAPTCHA challenges is important. The URL for each
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEdgeSubnetsResponse>{},
         body: await response.json(),
@@ -3479,6 +3841,9 @@ The list is sorted by `key`, in ascending order.
     listGoodBotsRequest: requests.ListGoodBotsRequest
   ): Promise<responses.ListGoodBotsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listGoodBots.");
+    const operationName = "listGoodBots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/GoodBot/ListGoodBots";
     const pathParams = {
       "{waasPolicyId}": listGoodBotsRequest.waasPolicyId
     };
@@ -3510,7 +3875,13 @@ The list is sorted by `key`, in ascending order.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListGoodBotsResponse>{},
         body: await response.json(),
@@ -3607,6 +3978,9 @@ The list is sorted by `key`, in ascending order.
     listProtectionRulesRequest: requests.ListProtectionRulesRequest
   ): Promise<responses.ListProtectionRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listProtectionRules.");
+    const operationName = "listProtectionRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionRule/ListProtectionRules";
     const pathParams = {
       "{waasPolicyId}": listProtectionRulesRequest.waasPolicyId
     };
@@ -3640,7 +4014,13 @@ The list is sorted by `key`, in ascending order.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProtectionRulesResponse>{},
         body: await response.json(),
@@ -3739,6 +4119,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listRecommendationsRequest: requests.ListRecommendationsRequest
   ): Promise<responses.ListRecommendationsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listRecommendations.");
+    const operationName = "listRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Recommendation/ListRecommendations";
     const pathParams = {
       "{waasPolicyId}": listRecommendationsRequest.waasPolicyId
     };
@@ -3771,7 +4154,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRecommendationsResponse>{},
         body: await response.json(),
@@ -3870,6 +4259,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listThreatFeedsRequest: requests.ListThreatFeedsRequest
   ): Promise<responses.ListThreatFeedsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listThreatFeeds.");
+    const operationName = "listThreatFeeds";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ThreatFeed/ListThreatFeeds";
     const pathParams = {
       "{waasPolicyId}": listThreatFeedsRequest.waasPolicyId
     };
@@ -3901,7 +4293,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListThreatFeedsResponse>{},
         body: await response.json(),
@@ -3997,6 +4395,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listWaasPoliciesRequest: requests.ListWaasPoliciesRequest
   ): Promise<responses.ListWaasPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listWaasPolicies.");
+    const operationName = "listWaasPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/ListWaasPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -4034,7 +4435,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWaasPoliciesResponse>{},
         body: await response.json(),
@@ -4126,6 +4533,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
   ): Promise<responses.ListWaasPolicyCustomProtectionRulesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#listWaasPolicyCustomProtectionRules.");
+    const operationName = "listWaasPolicyCustomProtectionRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/ListWaasPolicyCustomProtectionRules";
     const pathParams = {
       "{waasPolicyId}": listWaasPolicyCustomProtectionRulesRequest.waasPolicyId
     };
@@ -4159,7 +4569,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWaasPolicyCustomProtectionRulesResponse>{},
         body: await response.json(),
@@ -4255,6 +4671,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listWafBlockedRequestsRequest: requests.ListWafBlockedRequestsRequest
   ): Promise<responses.ListWafBlockedRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listWafBlockedRequests.");
+    const operationName = "listWafBlockedRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafBlockedRequest/ListWafBlockedRequests";
     const pathParams = {
       "{waasPolicyId}": listWafBlockedRequestsRequest.waasPolicyId
     };
@@ -4290,7 +4709,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWafBlockedRequestsResponse>{},
         body: await response.json(),
@@ -4384,6 +4809,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listWafLogsRequest: requests.ListWafLogsRequest
   ): Promise<responses.ListWafLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listWafLogs.");
+    const operationName = "listWafLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafLog/ListWafLogs";
     const pathParams = {
       "{waasPolicyId}": listWafLogsRequest.waasPolicyId
     };
@@ -4434,7 +4862,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWafLogsResponse>{},
         body: await response.json(),
@@ -4526,6 +4960,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listWafRequestsRequest: requests.ListWafRequestsRequest
   ): Promise<responses.ListWafRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listWafRequests.");
+    const operationName = "listWafRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafRequest/ListWafRequests";
     const pathParams = {
       "{waasPolicyId}": listWafRequestsRequest.waasPolicyId
     };
@@ -4559,7 +4996,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWafRequestsResponse>{},
         body: await response.json(),
@@ -4652,6 +5095,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listWafTrafficRequest: requests.ListWafTrafficRequest
   ): Promise<responses.ListWafTrafficResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listWafTraffic.");
+    const operationName = "listWafTraffic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafTrafficDatum/ListWafTraffic";
     const pathParams = {
       "{waasPolicyId}": listWafTrafficRequest.waasPolicyId
     };
@@ -4685,7 +5131,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWafTrafficResponse>{},
         body: await response.json(),
@@ -4776,6 +5228,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listWhitelistsRequest: requests.ListWhitelistsRequest
   ): Promise<responses.ListWhitelistsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listWhitelists.");
+    const operationName = "listWhitelists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Whitelist/ListWhitelists";
     const pathParams = {
       "{waasPolicyId}": listWhitelistsRequest.waasPolicyId
     };
@@ -4807,7 +5262,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWhitelistsResponse>{},
         body: await response.json(),
@@ -4903,6 +5364,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -4936,7 +5400,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -5028,6 +5498,9 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
     purgeCacheRequest: requests.PurgeCacheRequest
   ): Promise<responses.PurgeCacheResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#purgeCache.");
+    const operationName = "purgeCache";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/PurgeCache/PurgeCache";
     const pathParams = {
       "{waasPolicyId}": purgeCacheRequest.waasPolicyId
     };
@@ -5062,7 +5535,13 @@ Use the `POST /waasPolicies/{waasPolicyId}/actions/acceptWafConfigRecommendation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PurgeCacheResponse>{},
         responseHeaders: [
@@ -5105,6 +5584,9 @@ Any existing access rules that are not specified with a `key` in the list of acc
     updateAccessRulesRequest: requests.UpdateAccessRulesRequest
   ): Promise<responses.UpdateAccessRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateAccessRules.");
+    const operationName = "updateAccessRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AccessRule/UpdateAccessRules";
     const pathParams = {
       "{waasPolicyId}": updateAccessRulesRequest.waasPolicyId
     };
@@ -5140,7 +5622,13 @@ Any existing access rules that are not specified with a `key` in the list of acc
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAccessRulesResponse>{},
         responseHeaders: [
@@ -5175,6 +5663,9 @@ Any existing access rules that are not specified with a `key` in the list of acc
     updateAddressListRequest: requests.UpdateAddressListRequest
   ): Promise<responses.UpdateAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateAddressList.");
+    const operationName = "updateAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressList/UpdateAddressList";
     const pathParams = {
       "{addressListId}": updateAddressListRequest.addressListId
     };
@@ -5209,7 +5700,13 @@ Any existing access rules that are not specified with a `key` in the list of acc
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAddressListResponse>{},
         body: await response.json(),
@@ -5254,6 +5751,9 @@ The order the caching rules are specified in is important. The rules are process
     updateCachingRulesRequest: requests.UpdateCachingRulesRequest
   ): Promise<responses.UpdateCachingRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateCachingRules.");
+    const operationName = "updateCachingRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CachingRule/UpdateCachingRules";
     const pathParams = {
       "{waasPolicyId}": updateCachingRulesRequest.waasPolicyId
     };
@@ -5289,7 +5789,13 @@ The order the caching rules are specified in is important. The rules are process
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCachingRulesResponse>{},
         responseHeaders: [
@@ -5332,6 +5838,9 @@ Query parameters are allowed in CAPTCHA URL.
     updateCaptchasRequest: requests.UpdateCaptchasRequest
   ): Promise<responses.UpdateCaptchasResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateCaptchas.");
+    const operationName = "updateCaptchas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Captcha/UpdateCaptchas";
     const pathParams = {
       "{waasPolicyId}": updateCaptchasRequest.waasPolicyId
     };
@@ -5367,7 +5876,13 @@ Query parameters are allowed in CAPTCHA URL.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCaptchasResponse>{},
         responseHeaders: [
@@ -5402,6 +5917,9 @@ Query parameters are allowed in CAPTCHA URL.
     updateCertificateRequest: requests.UpdateCertificateRequest
   ): Promise<responses.UpdateCertificateResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateCertificate.");
+    const operationName = "updateCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Certificate/UpdateCertificate";
     const pathParams = {
       "{certificateId}": updateCertificateRequest.certificateId
     };
@@ -5436,7 +5954,13 @@ Query parameters are allowed in CAPTCHA URL.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCertificateResponse>{},
         body: await response.json(),
@@ -5475,6 +5999,9 @@ Query parameters are allowed in CAPTCHA URL.
     updateCustomProtectionRuleRequest: requests.UpdateCustomProtectionRuleRequest
   ): Promise<responses.UpdateCustomProtectionRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateCustomProtectionRule.");
+    const operationName = "updateCustomProtectionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/UpdateCustomProtectionRule";
     const pathParams = {
       "{customProtectionRuleId}": updateCustomProtectionRuleRequest.customProtectionRuleId
     };
@@ -5510,7 +6037,13 @@ Query parameters are allowed in CAPTCHA URL.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCustomProtectionRuleResponse>{},
         body: await response.json(),
@@ -5554,6 +6087,9 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
   ): Promise<responses.UpdateDeviceFingerprintChallengeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#updateDeviceFingerprintChallenge.");
+    const operationName = "updateDeviceFingerprintChallenge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/DeviceFingerprintChallenge/UpdateDeviceFingerprintChallenge";
     const pathParams = {
       "{waasPolicyId}": updateDeviceFingerprintChallengeRequest.waasPolicyId
     };
@@ -5589,7 +6125,13 @@ DFC collects attributes to generate a hashed signature about a client - if a fin
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeviceFingerprintChallengeResponse>{},
         responseHeaders: [
@@ -5626,6 +6168,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     updateGoodBotsRequest: requests.UpdateGoodBotsRequest
   ): Promise<responses.UpdateGoodBotsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateGoodBots.");
+    const operationName = "updateGoodBots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/GoodBot/UpdateGoodBots";
     const pathParams = {
       "{waasPolicyId}": updateGoodBotsRequest.waasPolicyId
     };
@@ -5661,7 +6206,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateGoodBotsResponse>{},
         responseHeaders: [
@@ -5697,6 +6248,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   ): Promise<responses.UpdateHumanInteractionChallengeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#updateHumanInteractionChallenge.");
+    const operationName = "updateHumanInteractionChallenge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/HumanInteractionChallenge/UpdateHumanInteractionChallenge";
     const pathParams = {
       "{waasPolicyId}": updateHumanInteractionChallengeRequest.waasPolicyId
     };
@@ -5732,7 +6286,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHumanInteractionChallengeResponse>{},
         responseHeaders: [
@@ -5767,6 +6327,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     updateJsChallengeRequest: requests.UpdateJsChallengeRequest
   ): Promise<responses.UpdateJsChallengeResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateJsChallenge.");
+    const operationName = "updateJsChallenge";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/JsChallenge/UpdateJsChallenge";
     const pathParams = {
       "{waasPolicyId}": updateJsChallengeRequest.waasPolicyId
     };
@@ -5802,7 +6365,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJsChallengeResponse>{},
         responseHeaders: [
@@ -5837,6 +6406,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     updatePolicyConfigRequest: requests.UpdatePolicyConfigRequest
   ): Promise<responses.UpdatePolicyConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updatePolicyConfig.");
+    const operationName = "updatePolicyConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/PolicyConfig/UpdatePolicyConfig";
     const pathParams = {
       "{waasPolicyId}": updatePolicyConfigRequest.waasPolicyId
     };
@@ -5872,7 +6444,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePolicyConfigResponse>{},
         responseHeaders: [
@@ -5909,6 +6487,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     updateProtectionRulesRequest: requests.UpdateProtectionRulesRequest
   ): Promise<responses.UpdateProtectionRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateProtectionRules.");
+    const operationName = "updateProtectionRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionRule/UpdateProtectionRules";
     const pathParams = {
       "{waasPolicyId}": updateProtectionRulesRequest.waasPolicyId
     };
@@ -5943,7 +6524,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProtectionRulesResponse>{},
         responseHeaders: [
@@ -5978,6 +6565,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     updateProtectionSettingsRequest: requests.UpdateProtectionSettingsRequest
   ): Promise<responses.UpdateProtectionSettingsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateProtectionSettings.");
+    const operationName = "updateProtectionSettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ProtectionSettings/UpdateProtectionSettings";
     const pathParams = {
       "{waasPolicyId}": updateProtectionSettingsRequest.waasPolicyId
     };
@@ -6013,7 +6603,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProtectionSettingsResponse>{},
         responseHeaders: [
@@ -6048,6 +6644,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     updateThreatFeedsRequest: requests.UpdateThreatFeedsRequest
   ): Promise<responses.UpdateThreatFeedsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateThreatFeeds.");
+    const operationName = "updateThreatFeeds";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/ThreatFeed/UpdateThreatFeeds";
     const pathParams = {
       "{waasPolicyId}": updateThreatFeedsRequest.waasPolicyId
     };
@@ -6082,7 +6681,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateThreatFeedsResponse>{},
         responseHeaders: [
@@ -6119,6 +6724,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
     updateWaasPolicyRequest: requests.UpdateWaasPolicyRequest
   ): Promise<responses.UpdateWaasPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateWaasPolicy.");
+    const operationName = "updateWaasPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WaasPolicy/UpdateWaasPolicy";
     const pathParams = {
       "{waasPolicyId}": updateWaasPolicyRequest.waasPolicyId
     };
@@ -6154,7 +6762,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWaasPolicyResponse>{},
         responseHeaders: [
@@ -6190,6 +6804,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   ): Promise<responses.UpdateWaasPolicyCustomProtectionRulesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#updateWaasPolicyCustomProtectionRules.");
+    const operationName = "updateWaasPolicyCustomProtectionRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/CustomProtectionRule/UpdateWaasPolicyCustomProtectionRules";
     const pathParams = {
       "{waasPolicyId}": updateWaasPolicyCustomProtectionRulesRequest.waasPolicyId
     };
@@ -6225,7 +6842,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWaasPolicyCustomProtectionRulesResponse>{},
         responseHeaders: [
@@ -6261,6 +6884,9 @@ Good bots allows you to manage access for bots from known providers, such as Goo
   ): Promise<responses.UpdateWafAddressRateLimitingResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WaasClient#updateWafAddressRateLimiting.");
+    const operationName = "updateWafAddressRateLimiting";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/AddressRateLimiting/UpdateWafAddressRateLimiting";
     const pathParams = {
       "{waasPolicyId}": updateWafAddressRateLimitingRequest.waasPolicyId
     };
@@ -6296,7 +6922,13 @@ Good bots allows you to manage access for bots from known providers, such as Goo
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWafAddressRateLimitingResponse>{},
         responseHeaders: [
@@ -6339,6 +6971,9 @@ The returned list will contain objects with `key` properties that can be used to
     updateWafConfigRequest: requests.UpdateWafConfigRequest
   ): Promise<responses.UpdateWafConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateWafConfig.");
+    const operationName = "updateWafConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/WafConfig/UpdateWafConfig";
     const pathParams = {
       "{waasPolicyId}": updateWafConfigRequest.waasPolicyId
     };
@@ -6374,7 +7009,13 @@ The returned list will contain objects with `key` properties that can be used to
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWafConfigResponse>{},
         responseHeaders: [
@@ -6417,6 +7058,9 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
     updateWhitelistsRequest: requests.UpdateWhitelistsRequest
   ): Promise<responses.UpdateWhitelistsResponse> {
     if (this.logger) this.logger.debug("Calling operation WaasClient#updateWhitelists.");
+    const operationName = "updateWhitelists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waas/20181116/Whitelist/UpdateWhitelists";
     const pathParams = {
       "{waasPolicyId}": updateWhitelistsRequest.waasPolicyId
     };
@@ -6452,7 +7096,13 @@ Whitelists can be deleted by removing the existing whitelist object from the lis
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWhitelistsResponse>{},
         responseHeaders: [

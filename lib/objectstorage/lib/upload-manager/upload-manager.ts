@@ -5,6 +5,8 @@
 
 import { ObjectStorageClient } from "../client";
 import { models } from "../../index";
+import { version } from "../../package.json";
+import os from "os";
 import {
   OciError,
   LOG,
@@ -29,6 +31,11 @@ import {
 import { UploadOptions } from "./upload-options";
 import { UploadableStream } from "./uploadable-stream";
 import { NodeFSBlob } from "./node-fs-blob";
+
+const CLIENT_VERSION = `Oracle-TypeScriptSDK/${version}`;
+
+const OS_VERSION = `${os.type()} ${os.release()} ${os.platform()}`;
+const UPLOAD_MANAGER_DEBUG_INFORMATION_LOG = `Client Version: ${CLIENT_VERSION}, OS Version: ${OS_VERSION}, See https://docs.oracle.com/iaas/Content/API/Concepts/sdk_troubleshooting.htm for common issues and steps to resolve them. If you need to contact support, or file a GitHub issue, please include this full error message.`;
 
 /**
  * UploadManager simplifies interaction with the Object Storage service by abstracting away the method used
@@ -158,7 +165,11 @@ export class UploadManager {
         console.log(
           `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`
         );
-        throw e;
+        const error = {
+          message: `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`,
+          troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
+        };
+        throw error;
       }
     }
   }
@@ -232,10 +243,11 @@ export class UploadManager {
           callback
         );
       } else {
-        console.log(
-          `Upload part retried ${this.numberOfRetries[uploadId]} times and failed. Upload of part: ${uploadPartNum} failed due to ${ex}`
-        );
-        throw ex;
+        const error = {
+          message: `Upload part retried ${this.numberOfRetries[uploadId]} times and failed. Upload of part: ${uploadPartNum} failed due to ${ex}`,
+          troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
+        };
+        throw error;
       }
     }
   }
@@ -260,7 +272,7 @@ export class UploadManager {
     for await (const dataPart of dataFeeder) {
       if (partUploadPromises.length > this.MAX_PARTS) {
         throw new Error(
-          `Exceeded ${this.MAX_PARTS} as part of the upload to ${requestDetails.bucketName}.`
+          `Exceeded ${this.MAX_PARTS} as part of the upload to ${requestDetails.bucketName}. ${UPLOAD_MANAGER_DEBUG_INFORMATION_LOG}`
         );
       }
       if (dataPart.size === 0) {
@@ -290,6 +302,7 @@ export class UploadManager {
     content: UploadableBlob | UploadableStream,
     callback?: Function
   ): Promise<UploadResponse> {
+    const timestamp = Date.now().toString();
     const createUploadResponse = await this.client.createMultipartUpload({
       ...UploadManager.composeRequestDetails(requestDetails),
       createMultipartUploadDetails: {
@@ -340,12 +353,11 @@ export class UploadManager {
         if (this.logger) this.logger.error(`Abort complete`);
       }
       if (ex instanceof OciError) throw ex;
-      throw new OciError(
-        -1,
-        "Unknown code",
-        `Failed to upload object using multi-part uploads due to ${ex}`,
-        null
-      );
+      const error = {
+        message: `Failed to upload due to ${ex}`,
+        troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
+      };
+      throw error;
     }
   }
 

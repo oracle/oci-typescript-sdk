@@ -36,6 +36,7 @@ export class GenericArtifactsContentClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "GenericArtifactsContent";
 
   protected _httpClient: common.HttpClient;
 
@@ -142,6 +143,9 @@ export class GenericArtifactsContentClient {
       this.logger.debug(
         "Calling operation GenericArtifactsContentClient#getGenericArtifactContent."
       );
+    const operationName = "getGenericArtifactContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/generic/20160918/GenericArtifact/GetGenericArtifactContent";
     const pathParams = {
       "{artifactId}": getGenericArtifactContentRequest.artifactId
     };
@@ -170,7 +174,13 @@ export class GenericArtifactsContentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGenericArtifactContentResponse>{},
 
@@ -212,6 +222,9 @@ export class GenericArtifactsContentClient {
       this.logger.debug(
         "Calling operation GenericArtifactsContentClient#getGenericArtifactContentByPath."
       );
+    const operationName = "getGenericArtifactContentByPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/generic/20160918/GenericArtifact/GetGenericArtifactContentByPath";
     const pathParams = {
       "{repositoryId}": getGenericArtifactContentByPathRequest.repositoryId,
       "{artifactPath}": getGenericArtifactContentByPathRequest.artifactPath,
@@ -243,7 +256,13 @@ export class GenericArtifactsContentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGenericArtifactContentByPathResponse>{},
 
@@ -285,6 +304,9 @@ export class GenericArtifactsContentClient {
       this.logger.debug(
         "Calling operation GenericArtifactsContentClient#putGenericArtifactContentByPath."
       );
+    const operationName = "putGenericArtifactContentByPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/generic/20160918/GenericArtifact/PutGenericArtifactContentByPath";
     const pathParams = {
       "{repositoryId}": putGenericArtifactContentByPathRequest.repositoryId,
       "{artifactPath}": putGenericArtifactContentByPathRequest.artifactPath,
@@ -318,7 +340,14 @@ export class GenericArtifactsContentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PutGenericArtifactContentByPathResponse>{},
         body: await response.json(),

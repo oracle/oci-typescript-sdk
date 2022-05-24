@@ -36,6 +36,7 @@ export class AppmgmtControlClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AppmgmtControl";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class AppmgmtControlClient {
   ): Promise<responses.ActivateMonitoringPluginResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AppmgmtControlClient#activateMonitoringPlugin.");
+    const operationName = "activateMonitoringPlugin";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstance/ActivateMonitoringPlugin";
     const pathParams = {
       "{monitoredInstanceId}": activateMonitoringPluginRequest.monitoredInstanceId
     };
@@ -194,7 +198,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateMonitoringPluginResponse>{},
         responseHeaders: [
@@ -230,6 +240,9 @@ export class AppmgmtControlClient {
   ): Promise<responses.GetMonitoredInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AppmgmtControlClient#getMonitoredInstance.");
+    const operationName = "getMonitoredInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstance/GetMonitoredInstance";
     const pathParams = {
       "{monitoredInstanceId}": getMonitoredInstanceRequest.monitoredInstanceId
     };
@@ -258,7 +271,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMonitoredInstanceResponse>{},
         body: await response.json(),
@@ -297,6 +316,9 @@ export class AppmgmtControlClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AppmgmtControlClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -325,7 +347,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -366,6 +394,9 @@ export class AppmgmtControlClient {
   ): Promise<responses.ListMonitoredInstancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AppmgmtControlClient#listMonitoredInstances.");
+    const operationName = "listMonitoredInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstanceCollection/ListMonitoredInstances";
     const pathParams = {};
 
     const queryParams = {
@@ -399,7 +430,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMonitoredInstancesResponse>{},
         body: await response.json(),
@@ -440,6 +477,9 @@ export class AppmgmtControlClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AppmgmtControlClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -471,7 +511,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -512,6 +558,9 @@ export class AppmgmtControlClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AppmgmtControlClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -543,7 +592,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -583,6 +638,9 @@ export class AppmgmtControlClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation AppmgmtControlClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -614,7 +672,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -655,6 +719,9 @@ export class AppmgmtControlClient {
   ): Promise<responses.PublishTopProcessesMetricsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AppmgmtControlClient#publishTopProcessesMetrics.");
+    const operationName = "publishTopProcessesMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resource-discovery-monitoring-control-api/20210330/MonitoredInstance/PublishTopProcessesMetrics";
     const pathParams = {
       "{monitoredInstanceId}": publishTopProcessesMetricsRequest.monitoredInstanceId
     };
@@ -684,7 +751,13 @@ export class AppmgmtControlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PublishTopProcessesMetricsResponse>{},
         responseHeaders: [

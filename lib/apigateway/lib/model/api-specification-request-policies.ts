@@ -25,6 +25,7 @@ export interface ApiSpecificationRequestPolicies {
   "rateLimiting"?: model.RateLimitingPolicy;
   "cors"?: model.CorsPolicy;
   "mutualTls"?: model.MutualTlsDetails;
+  "usagePlans"?: model.UsagePlansPolicy;
 }
 
 export namespace ApiSpecificationRequestPolicies {
@@ -39,7 +40,8 @@ export namespace ApiSpecificationRequestPolicies {
           ? model.RateLimitingPolicy.getJsonObj(obj.rateLimiting)
           : undefined,
         "cors": obj.cors ? model.CorsPolicy.getJsonObj(obj.cors) : undefined,
-        "mutualTls": obj.mutualTls ? model.MutualTlsDetails.getJsonObj(obj.mutualTls) : undefined
+        "mutualTls": obj.mutualTls ? model.MutualTlsDetails.getJsonObj(obj.mutualTls) : undefined,
+        "usagePlans": obj.usagePlans ? model.UsagePlansPolicy.getJsonObj(obj.usagePlans) : undefined
       }
     };
 
@@ -58,6 +60,9 @@ export namespace ApiSpecificationRequestPolicies {
         "cors": obj.cors ? model.CorsPolicy.getDeserializedJsonObj(obj.cors) : undefined,
         "mutualTls": obj.mutualTls
           ? model.MutualTlsDetails.getDeserializedJsonObj(obj.mutualTls)
+          : undefined,
+        "usagePlans": obj.usagePlans
+          ? model.UsagePlansPolicy.getDeserializedJsonObj(obj.usagePlans)
           : undefined
       }
     };

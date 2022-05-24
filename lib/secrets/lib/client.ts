@@ -35,6 +35,7 @@ export class SecretsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Secrets";
 
   protected _httpClient: common.HttpClient;
 
@@ -139,6 +140,9 @@ export class SecretsClient {
     getSecretBundleRequest: requests.GetSecretBundleRequest
   ): Promise<responses.GetSecretBundleResponse> {
     if (this.logger) this.logger.debug("Calling operation SecretsClient#getSecretBundle.");
+    const operationName = "getSecretBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretretrieval/20190301/SecretBundle/GetSecretBundle";
     const pathParams = {
       "{secretId}": getSecretBundleRequest.secretId
     };
@@ -171,7 +175,13 @@ export class SecretsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecretBundleResponse>{},
         body: await response.json(),
@@ -212,6 +222,9 @@ export class SecretsClient {
     getSecretBundleByNameRequest: requests.GetSecretBundleByNameRequest
   ): Promise<responses.GetSecretBundleByNameResponse> {
     if (this.logger) this.logger.debug("Calling operation SecretsClient#getSecretBundleByName.");
+    const operationName = "getSecretBundleByName";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretretrieval/20190301/SecretBundle/GetSecretBundleByName";
     const pathParams = {};
 
     const queryParams = {
@@ -244,7 +257,13 @@ export class SecretsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecretBundleByNameResponse>{},
         body: await response.json(),
@@ -278,6 +297,9 @@ export class SecretsClient {
     listSecretBundleVersionsRequest: requests.ListSecretBundleVersionsRequest
   ): Promise<responses.ListSecretBundleVersionsResponse> {
     if (this.logger) this.logger.debug("Calling operation SecretsClient#listSecretBundleVersions.");
+    const operationName = "listSecretBundleVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretretrieval/20190301/SecretBundleVersionSummary/ListSecretBundleVersions";
     const pathParams = {
       "{secretId}": listSecretBundleVersionsRequest.secretId
     };
@@ -311,7 +333,13 @@ export class SecretsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecretBundleVersionsResponse>{},
         body: await response.json(),

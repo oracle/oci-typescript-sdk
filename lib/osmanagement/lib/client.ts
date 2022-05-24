@@ -37,6 +37,7 @@ export class EventClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Event";
 
   protected _httpClient: common.HttpClient;
 
@@ -140,6 +141,9 @@ export class EventClient {
     deleteEventContentRequest: requests.DeleteEventContentRequest
   ): Promise<responses.DeleteEventContentResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#deleteEventContent.");
+    const operationName = "deleteEventContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventContent/DeleteEventContent";
     const pathParams = {
       "{managedInstanceId}": deleteEventContentRequest.managedInstanceId,
       "{eventId}": deleteEventContentRequest.eventId
@@ -173,7 +177,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEventContentResponse>{},
         responseHeaders: [
@@ -203,6 +213,9 @@ export class EventClient {
     getEventRequest: requests.GetEventRequest
   ): Promise<responses.GetEventResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#getEvent.");
+    const operationName = "getEvent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/Event/GetEvent";
     const pathParams = {
       "{managedInstanceId}": getEventRequest.managedInstanceId,
       "{eventId}": getEventRequest.eventId
@@ -234,7 +247,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEventResponse>{},
         body: await response.json(),
@@ -274,6 +293,8 @@ export class EventClient {
     getEventContentRequest: requests.GetEventContentRequest
   ): Promise<responses.GetEventContentResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#getEventContent.");
+    const operationName = "getEventContent";
+    const apiReferenceLink = "";
     const pathParams = {
       "{managedInstanceId}": getEventContentRequest.managedInstanceId,
       "{eventId}": getEventContentRequest.eventId
@@ -305,7 +326,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEventContentResponse>{},
 
@@ -345,6 +372,9 @@ export class EventClient {
     getEventReportRequest: requests.GetEventReportRequest
   ): Promise<responses.GetEventReportResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#getEventReport.");
+    const operationName = "getEventReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventReport/GetEventReport";
     const pathParams = {
       "{managedInstanceId}": getEventReportRequest.managedInstanceId
     };
@@ -378,7 +408,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEventReportResponse>{},
         body: await response.json(),
@@ -413,6 +449,9 @@ export class EventClient {
     listEventsRequest: requests.ListEventsRequest
   ): Promise<responses.ListEventsResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#listEvents.");
+    const operationName = "listEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventCollection/ListEvents";
     const pathParams = {
       "{managedInstanceId}": listEventsRequest.managedInstanceId
     };
@@ -451,7 +490,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEventsResponse>{},
         body: await response.json(),
@@ -491,6 +536,9 @@ export class EventClient {
     listRelatedEventsRequest: requests.ListRelatedEventsRequest
   ): Promise<responses.ListRelatedEventsResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#listRelatedEvents.");
+    const operationName = "listRelatedEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/RelatedEventCollection/ListRelatedEvents";
     const pathParams = {};
 
     const queryParams = {
@@ -527,7 +575,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRelatedEventsResponse>{},
         body: await response.json(),
@@ -566,6 +620,9 @@ export class EventClient {
     updateEventRequest: requests.UpdateEventRequest
   ): Promise<responses.UpdateEventResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#updateEvent.");
+    const operationName = "updateEvent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/Event/UpdateEvent";
     const pathParams = {
       "{managedInstanceId}": updateEventRequest.managedInstanceId,
       "{eventId}": updateEventRequest.eventId
@@ -603,7 +660,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEventResponse>{},
         body: await response.json(),
@@ -643,6 +706,9 @@ export class EventClient {
     uploadEventContentRequest: requests.UploadEventContentRequest
   ): Promise<responses.UploadEventContentResponse> {
     if (this.logger) this.logger.debug("Calling operation EventClient#uploadEventContent.");
+    const operationName = "uploadEventContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/EventContent/UploadEventContent";
     const pathParams = {
       "{managedInstanceId}": uploadEventContentRequest.managedInstanceId,
       "{eventId}": uploadEventContentRequest.eventId
@@ -676,7 +742,13 @@ export class EventClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadEventContentResponse>{},
         responseHeaders: [
@@ -707,6 +779,7 @@ export class OsManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "OsManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -834,6 +907,9 @@ export class OsManagementClient {
   ): Promise<responses.AddPackagesToSoftwareSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#addPackagesToSoftwareSource.");
+    const operationName = "addPackagesToSoftwareSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/AddPackagesToSoftwareSource";
     const pathParams = {
       "{softwareSourceId}": addPackagesToSoftwareSourceRequest.softwareSourceId
     };
@@ -867,7 +943,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddPackagesToSoftwareSourceResponse>{},
         responseHeaders: [
@@ -903,6 +985,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#attachChildSoftwareSourceToManagedInstance."
       );
+    const operationName = "attachChildSoftwareSourceToManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/AttachChildSoftwareSourceToManagedInstance";
     const pathParams = {
       "{managedInstanceId}": attachChildSoftwareSourceToManagedInstanceRequest.managedInstanceId
     };
@@ -937,7 +1022,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachChildSoftwareSourceToManagedInstanceResponse>{},
         responseHeaders: [
@@ -974,6 +1065,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#attachManagedInstanceToManagedInstanceGroup."
       );
+    const operationName = "attachManagedInstanceToManagedInstanceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/AttachManagedInstanceToManagedInstanceGroup";
     const pathParams = {
       "{managedInstanceGroupId}":
         attachManagedInstanceToManagedInstanceGroupRequest.managedInstanceGroupId
@@ -1006,7 +1100,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachManagedInstanceToManagedInstanceGroupResponse>{},
         responseHeaders: [
@@ -1043,6 +1143,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#attachParentSoftwareSourceToManagedInstance."
       );
+    const operationName = "attachParentSoftwareSourceToManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/AttachParentSoftwareSourceToManagedInstance";
     const pathParams = {
       "{managedInstanceId}": attachParentSoftwareSourceToManagedInstanceRequest.managedInstanceId
     };
@@ -1077,7 +1180,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachParentSoftwareSourceToManagedInstanceResponse>{},
         responseHeaders: [
@@ -1112,6 +1221,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#changeManagedInstanceGroupCompartment."
       );
+    const operationName = "changeManagedInstanceGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/ChangeManagedInstanceGroupCompartment";
     const pathParams = {
       "{managedInstanceGroupId}":
         changeManagedInstanceGroupCompartmentRequest.managedInstanceGroupId
@@ -1148,7 +1260,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagedInstanceGroupCompartmentResponse>{},
         responseHeaders: [
@@ -1181,6 +1299,9 @@ export class OsManagementClient {
   ): Promise<responses.ChangeScheduledJobCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#changeScheduledJobCompartment.");
+    const operationName = "changeScheduledJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/ChangeScheduledJobCompartment";
     const pathParams = {
       "{scheduledJobId}": changeScheduledJobCompartmentRequest.scheduledJobId
     };
@@ -1216,7 +1337,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeScheduledJobCompartmentResponse>{},
         responseHeaders: [
@@ -1249,6 +1376,9 @@ export class OsManagementClient {
   ): Promise<responses.ChangeSoftwareSourceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#changeSoftwareSourceCompartment.");
+    const operationName = "changeSoftwareSourceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/ChangeSoftwareSourceCompartment";
     const pathParams = {
       "{softwareSourceId}": changeSoftwareSourceCompartmentRequest.softwareSourceId
     };
@@ -1284,7 +1414,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSoftwareSourceCompartmentResponse>{},
         responseHeaders: [
@@ -1318,6 +1454,9 @@ export class OsManagementClient {
   ): Promise<responses.CreateManagedInstanceGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#createManagedInstanceGroup.");
+    const operationName = "createManagedInstanceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/CreateManagedInstanceGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -1350,7 +1489,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateManagedInstanceGroupResponse>{},
         body: await response.json(),
@@ -1398,6 +1543,9 @@ export class OsManagementClient {
     createScheduledJobRequest: requests.CreateScheduledJobRequest
   ): Promise<responses.CreateScheduledJobResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#createScheduledJob.");
+    const operationName = "createScheduledJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/CreateScheduledJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -1430,7 +1578,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateScheduledJobResponse>{},
         body: await response.json(),
@@ -1478,6 +1632,9 @@ export class OsManagementClient {
   ): Promise<responses.CreateSoftwareSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#createSoftwareSource.");
+    const operationName = "createSoftwareSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/CreateSoftwareSource";
     const pathParams = {};
 
     const queryParams = {};
@@ -1510,7 +1667,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSoftwareSourceResponse>{},
         body: await response.json(),
@@ -1556,6 +1719,9 @@ export class OsManagementClient {
   ): Promise<responses.DeleteManagedInstanceGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#deleteManagedInstanceGroup.");
+    const operationName = "deleteManagedInstanceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/DeleteManagedInstanceGroup";
     const pathParams = {
       "{managedInstanceGroupId}": deleteManagedInstanceGroupRequest.managedInstanceGroupId
     };
@@ -1585,7 +1751,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagedInstanceGroupResponse>{},
         responseHeaders: [
@@ -1616,6 +1788,9 @@ export class OsManagementClient {
     deleteScheduledJobRequest: requests.DeleteScheduledJobRequest
   ): Promise<responses.DeleteScheduledJobResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#deleteScheduledJob.");
+    const operationName = "deleteScheduledJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/DeleteScheduledJob";
     const pathParams = {
       "{scheduledJobId}": deleteScheduledJobRequest.scheduledJobId
     };
@@ -1645,7 +1820,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteScheduledJobResponse>{},
         responseHeaders: [
@@ -1677,6 +1858,9 @@ export class OsManagementClient {
   ): Promise<responses.DeleteSoftwareSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#deleteSoftwareSource.");
+    const operationName = "deleteSoftwareSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/DeleteSoftwareSource";
     const pathParams = {
       "{softwareSourceId}": deleteSoftwareSourceRequest.softwareSourceId
     };
@@ -1706,7 +1890,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSoftwareSourceResponse>{},
         responseHeaders: [
@@ -1741,6 +1931,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#detachChildSoftwareSourceFromManagedInstance."
       );
+    const operationName = "detachChildSoftwareSourceFromManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/DetachChildSoftwareSourceFromManagedInstance";
     const pathParams = {
       "{managedInstanceId}": detachChildSoftwareSourceFromManagedInstanceRequest.managedInstanceId
     };
@@ -1775,7 +1968,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachChildSoftwareSourceFromManagedInstanceResponse>{},
         responseHeaders: [
@@ -1809,6 +2008,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#detachManagedInstanceFromManagedInstanceGroup."
       );
+    const operationName = "detachManagedInstanceFromManagedInstanceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/DetachManagedInstanceFromManagedInstanceGroup";
     const pathParams = {
       "{managedInstanceGroupId}":
         detachManagedInstanceFromManagedInstanceGroupRequest.managedInstanceGroupId
@@ -1841,7 +2043,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachManagedInstanceFromManagedInstanceGroupResponse>{},
         responseHeaders: [
@@ -1876,6 +2084,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#detachParentSoftwareSourceFromManagedInstance."
       );
+    const operationName = "detachParentSoftwareSourceFromManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/DetachParentSoftwareSourceFromManagedInstance";
     const pathParams = {
       "{managedInstanceId}": detachParentSoftwareSourceFromManagedInstanceRequest.managedInstanceId
     };
@@ -1910,10 +2121,185 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachParentSoftwareSourceFromManagedInstanceResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disables a module stream on a managed instance.  After the stream is
+   * disabled, it is no longer possible to install the profiles that are
+   * contained by the stream.  All installed profiles must be removed prior
+   * to disabling a module stream.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableModuleStreamOnManagedInstanceRequest
+   * @return DisableModuleStreamOnManagedInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/DisableModuleStreamOnManagedInstance.ts.html |here} to see how to use DisableModuleStreamOnManagedInstance API.
+   */
+  public async disableModuleStreamOnManagedInstance(
+    disableModuleStreamOnManagedInstanceRequest: requests.DisableModuleStreamOnManagedInstanceRequest
+  ): Promise<responses.DisableModuleStreamOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#disableModuleStreamOnManagedInstance."
+      );
+    const operationName = "disableModuleStreamOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamDetails/DisableModuleStreamOnManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": disableModuleStreamOnManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "moduleName": disableModuleStreamOnManagedInstanceRequest.moduleName,
+      "streamName": disableModuleStreamOnManagedInstanceRequest.streamName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableModuleStreamOnManagedInstanceRequest.opcRequestId,
+      "opc-retry-token": disableModuleStreamOnManagedInstanceRequest.opcRetryToken,
+      "if-match": disableModuleStreamOnManagedInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableModuleStreamOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/actions/moduleStreams/disable",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableModuleStreamOnManagedInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a module stream on a managed instance.  After the stream is
+   * enabled, it is possible to install the profiles that are contained
+   * by the stream.  Enabling a stream that is already enabled will
+   * succeed.  Attempting to enable a different stream for a module that
+   * already has a stream enabled results in an error.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableModuleStreamOnManagedInstanceRequest
+   * @return EnableModuleStreamOnManagedInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/EnableModuleStreamOnManagedInstance.ts.html |here} to see how to use EnableModuleStreamOnManagedInstance API.
+   */
+  public async enableModuleStreamOnManagedInstance(
+    enableModuleStreamOnManagedInstanceRequest: requests.EnableModuleStreamOnManagedInstanceRequest
+  ): Promise<responses.EnableModuleStreamOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#enableModuleStreamOnManagedInstance."
+      );
+    const operationName = "enableModuleStreamOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamDetails/EnableModuleStreamOnManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": enableModuleStreamOnManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "moduleName": enableModuleStreamOnManagedInstanceRequest.moduleName,
+      "streamName": enableModuleStreamOnManagedInstanceRequest.streamName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableModuleStreamOnManagedInstanceRequest.opcRequestId,
+      "opc-retry-token": enableModuleStreamOnManagedInstanceRequest.opcRetryToken,
+      "if-match": enableModuleStreamOnManagedInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableModuleStreamOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/actions/moduleStreams/enable",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableModuleStreamOnManagedInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1941,6 +2327,9 @@ export class OsManagementClient {
     getErratumRequest: requests.GetErratumRequest
   ): Promise<responses.GetErratumResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#getErratum.");
+    const operationName = "getErratum";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/Erratum/GetErratum";
     const pathParams = {
       "{erratumId}": getErratumRequest.erratumId
     };
@@ -1969,7 +2358,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetErratumResponse>{},
         body: await response.json(),
@@ -2004,6 +2399,9 @@ export class OsManagementClient {
     getManagedInstanceRequest: requests.GetManagedInstanceRequest
   ): Promise<responses.GetManagedInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#getManagedInstance.");
+    const operationName = "getManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/GetManagedInstance";
     const pathParams = {
       "{managedInstanceId}": getManagedInstanceRequest.managedInstanceId
     };
@@ -2032,7 +2430,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagedInstanceResponse>{},
         body: await response.json(),
@@ -2073,6 +2477,9 @@ export class OsManagementClient {
   ): Promise<responses.GetManagedInstanceGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#getManagedInstanceGroup.");
+    const operationName = "getManagedInstanceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/GetManagedInstanceGroup";
     const pathParams = {
       "{managedInstanceGroupId}": getManagedInstanceGroupRequest.managedInstanceGroupId
     };
@@ -2101,7 +2508,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagedInstanceGroupResponse>{},
         body: await response.json(),
@@ -2134,6 +2547,167 @@ export class OsManagementClient {
   }
 
   /**
+   * Retrieve a detailed description of a module stream from a software source.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetModuleStreamRequest
+   * @return GetModuleStreamResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetModuleStream.ts.html |here} to see how to use GetModuleStream API.
+   */
+  public async getModuleStream(
+    getModuleStreamRequest: requests.GetModuleStreamRequest
+  ): Promise<responses.GetModuleStreamResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#getModuleStream.");
+    const operationName = "getModuleStream";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStream/GetModuleStream";
+    const pathParams = {
+      "{softwareSourceId}": getModuleStreamRequest.softwareSourceId,
+      "{moduleName}": getModuleStreamRequest.moduleName,
+      "{streamName}": getModuleStreamRequest.streamName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModuleStreamRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModuleStreamRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/modules/{moduleName}/streams/{streamName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModuleStreamResponse>{},
+        body: await response.json(),
+        bodyKey: "moduleStream",
+        bodyModel: model.ModuleStream,
+        type: "model.ModuleStream",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a detailed description of a module stream profile from a software source.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetModuleStreamProfileRequest
+   * @return GetModuleStreamProfileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/GetModuleStreamProfile.ts.html |here} to see how to use GetModuleStreamProfile API.
+   */
+  public async getModuleStreamProfile(
+    getModuleStreamProfileRequest: requests.GetModuleStreamProfileRequest
+  ): Promise<responses.GetModuleStreamProfileResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#getModuleStreamProfile.");
+    const operationName = "getModuleStreamProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfile/GetModuleStreamProfile";
+    const pathParams = {
+      "{softwareSourceId}": getModuleStreamProfileRequest.softwareSourceId,
+      "{moduleName}": getModuleStreamProfileRequest.moduleName,
+      "{streamName}": getModuleStreamProfileRequest.streamName,
+      "{profileName}": getModuleStreamProfileRequest.profileName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getModuleStreamProfileRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getModuleStreamProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/softwareSources/{softwareSourceId}/modules/{moduleName}/streams/{streamName}/profiles/{profileName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetModuleStreamProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "moduleStreamProfile",
+        bodyModel: model.ModuleStreamProfile,
+        type: "model.ModuleStreamProfile",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the detailed information for the Scheduled Job with the given ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2146,6 +2720,9 @@ export class OsManagementClient {
     getScheduledJobRequest: requests.GetScheduledJobRequest
   ): Promise<responses.GetScheduledJobResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#getScheduledJob.");
+    const operationName = "getScheduledJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/GetScheduledJob";
     const pathParams = {
       "{scheduledJobId}": getScheduledJobRequest.scheduledJobId
     };
@@ -2174,7 +2751,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetScheduledJobResponse>{},
         body: await response.json(),
@@ -2219,6 +2802,9 @@ export class OsManagementClient {
     getSoftwarePackageRequest: requests.GetSoftwarePackageRequest
   ): Promise<responses.GetSoftwarePackageResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#getSoftwarePackage.");
+    const operationName = "getSoftwarePackage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/GetSoftwarePackage";
     const pathParams = {
       "{softwareSourceId}": getSoftwarePackageRequest.softwareSourceId,
       "{softwarePackageName}": getSoftwarePackageRequest.softwarePackageName
@@ -2248,7 +2834,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSoftwarePackageResponse>{},
         body: await response.json(),
@@ -2283,6 +2875,9 @@ export class OsManagementClient {
     getSoftwareSourceRequest: requests.GetSoftwareSourceRequest
   ): Promise<responses.GetSoftwareSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#getSoftwareSource.");
+    const operationName = "getSoftwareSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/GetSoftwareSource";
     const pathParams = {
       "{softwareSourceId}": getSoftwareSourceRequest.softwareSourceId
     };
@@ -2311,7 +2906,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSoftwareSourceResponse>{},
         body: await response.json(),
@@ -2356,6 +2957,9 @@ export class OsManagementClient {
     getWindowsUpdateRequest: requests.GetWindowsUpdateRequest
   ): Promise<responses.GetWindowsUpdateResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#getWindowsUpdate.");
+    const operationName = "getWindowsUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WindowsUpdate/GetWindowsUpdate";
     const pathParams = {
       "{windowsUpdate}": getWindowsUpdateRequest.windowsUpdate
     };
@@ -2384,7 +2988,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWindowsUpdateResponse>{},
         body: await response.json(),
@@ -2418,6 +3028,9 @@ export class OsManagementClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2446,7 +3059,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2494,6 +3113,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#installAllPackageUpdatesOnManagedInstance."
       );
+    const operationName = "installAllPackageUpdatesOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallAllPackageUpdatesOnManagedInstance";
     const pathParams = {
       "{managedInstanceId}": installAllPackageUpdatesOnManagedInstanceRequest.managedInstanceId
     };
@@ -2525,7 +3147,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallAllPackageUpdatesOnManagedInstanceResponse>{},
         responseHeaders: [
@@ -2564,6 +3192,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#installAllUpdatesOnManagedInstanceGroup."
       );
+    const operationName = "installAllUpdatesOnManagedInstanceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/InstallAllUpdatesOnManagedInstanceGroup";
     const pathParams = {
       "{managedInstanceGroupId}":
         installAllUpdatesOnManagedInstanceGroupRequest.managedInstanceGroupId
@@ -2596,7 +3227,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallAllUpdatesOnManagedInstanceGroupResponse>{},
         responseHeaders: [
@@ -2635,6 +3272,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#installAllWindowsUpdatesOnManagedInstance."
       );
+    const operationName = "installAllWindowsUpdatesOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallAllWindowsUpdatesOnManagedInstance";
     const pathParams = {
       "{managedInstanceId}": installAllWindowsUpdatesOnManagedInstanceRequest.managedInstanceId
     };
@@ -2666,9 +3306,99 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallAllWindowsUpdatesOnManagedInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Installs a profile for an module stream.  The stream must be
+   * enabled before a profile can be installed.  If a module stream
+   * defines multiple profiles, each one can be installed independently.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param InstallModuleStreamProfileOnManagedInstanceRequest
+   * @return InstallModuleStreamProfileOnManagedInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/InstallModuleStreamProfileOnManagedInstance.ts.html |here} to see how to use InstallModuleStreamProfileOnManagedInstance API.
+   */
+  public async installModuleStreamProfileOnManagedInstance(
+    installModuleStreamProfileOnManagedInstanceRequest: requests.InstallModuleStreamProfileOnManagedInstanceRequest
+  ): Promise<responses.InstallModuleStreamProfileOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#installModuleStreamProfileOnManagedInstance."
+      );
+    const operationName = "installModuleStreamProfileOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfileDetails/InstallModuleStreamProfileOnManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": installModuleStreamProfileOnManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "moduleName": installModuleStreamProfileOnManagedInstanceRequest.moduleName,
+      "streamName": installModuleStreamProfileOnManagedInstanceRequest.streamName,
+      "profileName": installModuleStreamProfileOnManagedInstanceRequest.profileName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": installModuleStreamProfileOnManagedInstanceRequest.opcRequestId,
+      "opc-retry-token": installModuleStreamProfileOnManagedInstanceRequest.opcRetryToken,
+      "if-match": installModuleStreamProfileOnManagedInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installModuleStreamProfileOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/actions/streamProfiles/install",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InstallModuleStreamProfileOnManagedInstanceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2703,6 +3433,9 @@ export class OsManagementClient {
   ): Promise<responses.InstallPackageOnManagedInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#installPackageOnManagedInstance.");
+    const operationName = "installPackageOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallPackageOnManagedInstance";
     const pathParams = {
       "{managedInstanceId}": installPackageOnManagedInstanceRequest.managedInstanceId
     };
@@ -2734,7 +3467,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallPackageOnManagedInstanceResponse>{},
         responseHeaders: [
@@ -2773,6 +3512,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#installPackageUpdateOnManagedInstance."
       );
+    const operationName = "installPackageUpdateOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallPackageUpdateOnManagedInstance";
     const pathParams = {
       "{managedInstanceId}": installPackageUpdateOnManagedInstanceRequest.managedInstanceId
     };
@@ -2804,7 +3546,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallPackageUpdateOnManagedInstanceResponse>{},
         responseHeaders: [
@@ -2843,6 +3591,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#installWindowsUpdateOnManagedInstance."
       );
+    const operationName = "installWindowsUpdateOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/InstallWindowsUpdateOnManagedInstance";
     const pathParams = {
       "{managedInstanceId}": installWindowsUpdateOnManagedInstanceRequest.managedInstanceId
     };
@@ -2874,7 +3625,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallWindowsUpdateOnManagedInstanceResponse>{},
         responseHeaders: [
@@ -2913,6 +3670,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#listAvailablePackagesForManagedInstance."
       );
+    const operationName = "listAvailablePackagesForManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailablePackagesForManagedInstance";
     const pathParams = {
       "{managedInstanceId}": listAvailablePackagesForManagedInstanceRequest.managedInstanceId
     };
@@ -2948,7 +3708,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailablePackagesForManagedInstanceResponse>{},
         body: await response.json(),
@@ -3043,6 +3809,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#listAvailableSoftwareSourcesForManagedInstance."
       );
+    const operationName = "listAvailableSoftwareSourcesForManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailableSoftwareSourcesForManagedInstance";
     const pathParams = {
       "{managedInstanceId}": listAvailableSoftwareSourcesForManagedInstanceRequest.managedInstanceId
     };
@@ -3078,7 +3847,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailableSoftwareSourcesForManagedInstanceResponse>{},
         body: await response.json(),
@@ -3181,6 +3956,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#listAvailableUpdatesForManagedInstance."
       );
+    const operationName = "listAvailableUpdatesForManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailableUpdatesForManagedInstance";
     const pathParams = {
       "{managedInstanceId}": listAvailableUpdatesForManagedInstanceRequest.managedInstanceId
     };
@@ -3216,7 +3994,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailableUpdatesForManagedInstanceResponse>{},
         body: await response.json(),
@@ -3311,6 +4095,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#listAvailableWindowsUpdatesForManagedInstance."
       );
+    const operationName = "listAvailableWindowsUpdatesForManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListAvailableWindowsUpdatesForManagedInstance";
     const pathParams = {
       "{managedInstanceId}": listAvailableWindowsUpdatesForManagedInstanceRequest.managedInstanceId
     };
@@ -3348,7 +4135,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailableWindowsUpdatesForManagedInstanceResponse>{},
         body: await response.json(),
@@ -3444,6 +4237,9 @@ export class OsManagementClient {
     listErrataRequest: requests.ListErrataRequest
   ): Promise<responses.ListErrataResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#listErrata.");
+    const operationName = "listErrata";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ErratumSummary/ListErrata";
     const pathParams = {};
 
     const queryParams = {
@@ -3480,7 +4276,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListErrataResponse>{},
         body: await response.json(),
@@ -3573,6 +4375,9 @@ export class OsManagementClient {
   ): Promise<responses.ListManagedInstanceErrataResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#listManagedInstanceErrata.");
+    const operationName = "listManagedInstanceErrata";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListManagedInstanceErrata";
     const pathParams = {
       "{managedInstanceId}": listManagedInstanceErrataRequest.managedInstanceId
     };
@@ -3608,7 +4413,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagedInstanceErrataResponse>{},
         body: await response.json(),
@@ -3701,6 +4512,9 @@ export class OsManagementClient {
   ): Promise<responses.ListManagedInstanceGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#listManagedInstanceGroups.");
+    const operationName = "listManagedInstanceGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroupSummary/ListManagedInstanceGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -3736,7 +4550,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagedInstanceGroupsResponse>{},
         body: await response.json(),
@@ -3829,6 +4649,9 @@ export class OsManagementClient {
   ): Promise<responses.ListManagedInstancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#listManagedInstances.");
+    const operationName = "listManagedInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceSummary/ListManagedInstances";
     const pathParams = {};
 
     const queryParams = {
@@ -3863,7 +4686,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagedInstancesResponse>{},
         body: await response.json(),
@@ -3943,6 +4772,654 @@ export class OsManagementClient {
   }
 
   /**
+     * Retrieve a list of module stream profiles from a software source.
+* Filters may be applied to select a subset of module stream profiles
+* based on the filter criteria.
+* <p>
+The \"moduleName\", \"streamName\", and \"profileName\" attributes combine
+* to form a set of filters on the list of module stream profiles.  If
+* a \"moduleName\" is provided, only profiles that belong to that module
+* are returned.  If both a \"moduleName\" and \"streamName\" are given,
+* only profiles belonging to that module stream are returned.  Finally,
+* if all three are given then only the particular profile indicated
+* by the triple is returned.  It is not valid to supply a \"streamName\"
+* without a \"moduleName\".  It is also not valid to supply a \"profileName\"
+* without a \"streamName\".
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListModuleStreamProfilesRequest
+     * @return ListModuleStreamProfilesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamProfiles.ts.html |here} to see how to use ListModuleStreamProfiles API.
+     */
+  public async listModuleStreamProfiles(
+    listModuleStreamProfilesRequest: requests.ListModuleStreamProfilesRequest
+  ): Promise<responses.ListModuleStreamProfilesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listModuleStreamProfiles.");
+    const operationName = "listModuleStreamProfiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfileSummary/ListModuleStreamProfiles";
+    const pathParams = {
+      "{softwareSourceId}": listModuleStreamProfilesRequest.softwareSourceId
+    };
+
+    const queryParams = {
+      "compartmentId": listModuleStreamProfilesRequest.compartmentId,
+      "moduleName": listModuleStreamProfilesRequest.moduleName,
+      "streamName": listModuleStreamProfilesRequest.streamName,
+      "profileName": listModuleStreamProfilesRequest.profileName,
+      "limit": listModuleStreamProfilesRequest.limit,
+      "page": listModuleStreamProfilesRequest.page,
+      "sortOrder": listModuleStreamProfilesRequest.sortOrder,
+      "sortBy": listModuleStreamProfilesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModuleStreamProfilesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModuleStreamProfilesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/streamProfiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModuleStreamProfilesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModuleStreamProfileSummary,
+        type: "Array<model.ModuleStreamProfileSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamProfilesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModuleStreamProfileSummary objects
+   * contained in responses from the listModuleStreamProfiles operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreamProfiles(
+    request: requests.ListModuleStreamProfilesRequest
+  ): AsyncIterableIterator<model.ModuleStreamProfileSummary> {
+    return paginateRecords(request, req => this.listModuleStreamProfiles(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamProfilesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreamProfiles operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreamProfilesResponses(
+    request: requests.ListModuleStreamProfilesRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamProfilesResponse> {
+    return paginateResponses(request, req => this.listModuleStreamProfiles(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModuleStreamProfileSummary objects
+   * contained in responses from the listModuleStreamProfiles operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamProfilesRecordIterator(
+    request: requests.ListModuleStreamProfilesRequest
+  ): AsyncIterableIterator<model.ModuleStreamProfileSummary> {
+    return paginateRecords(request, req => this.listModuleStreamProfiles(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreamProfiles operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamProfilesResponseIterator(
+    request: requests.ListModuleStreamProfilesRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamProfilesResponse> {
+    return paginateResponses(request, req => this.listModuleStreamProfiles(req));
+  }
+
+  /**
+     * Retrieve a list of module stream profiles, along with a summary of their
+* of their status, from a managed instance.  Filters may be applied to
+* select a subset of profiles based on the filter criteria.
+* <p>
+The \"moduleName\", \"streamName\", and \"profileName\" attributes combine
+* to form a set of filters on the list of module stream profiles.  If
+* a \"modulName\" is provided, only profiles that belong to that module
+* are returned.  If both a \"moduleName\" and \"streamName\" are given,
+* only profiles belonging to that module stream are returned.  Finally,
+* if all three are given then only the particular profile indicated
+* by the triple is returned.  It is not valid to supply a \"streamName\"
+* without a \"moduleName\".  It is also not valid to supply a \"profileName\"
+* without a \"streamName\".
+* <p>
+The \"status\" attribute filters against the state of a module stream
+* profile.  Valid values are \"INSTALLED\" and \"AVAILABLE\".  If the
+* attribute is set to \"INSTALLED\", only module stream profiles that
+* are installed are included in the result set.  If the attribute is
+* set to \"AVAILABLE\", only module stream profiles that are not
+* installed are included in the result set.  If the attribute is not
+* defined, the request is not subject to this filter.
+* <p>
+When sorting by display name, the result set is sorted first by
+* module name, then by stream name, and finally by profile name.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListModuleStreamProfilesOnManagedInstanceRequest
+     * @return ListModuleStreamProfilesOnManagedInstanceResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamProfilesOnManagedInstance.ts.html |here} to see how to use ListModuleStreamProfilesOnManagedInstance API.
+     */
+  public async listModuleStreamProfilesOnManagedInstance(
+    listModuleStreamProfilesOnManagedInstanceRequest: requests.ListModuleStreamProfilesOnManagedInstanceRequest
+  ): Promise<responses.ListModuleStreamProfilesOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#listModuleStreamProfilesOnManagedInstance."
+      );
+    const operationName = "listModuleStreamProfilesOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListModuleStreamProfilesOnManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": listModuleStreamProfilesOnManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "compartmentId": listModuleStreamProfilesOnManagedInstanceRequest.compartmentId,
+      "moduleName": listModuleStreamProfilesOnManagedInstanceRequest.moduleName,
+      "streamName": listModuleStreamProfilesOnManagedInstanceRequest.streamName,
+      "profileName": listModuleStreamProfilesOnManagedInstanceRequest.profileName,
+      "profileStatus": listModuleStreamProfilesOnManagedInstanceRequest.profileStatus,
+      "limit": listModuleStreamProfilesOnManagedInstanceRequest.limit,
+      "page": listModuleStreamProfilesOnManagedInstanceRequest.page,
+      "sortOrder": listModuleStreamProfilesOnManagedInstanceRequest.sortOrder,
+      "sortBy": listModuleStreamProfilesOnManagedInstanceRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModuleStreamProfilesOnManagedInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModuleStreamProfilesOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/streamProfiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModuleStreamProfilesOnManagedInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModuleStreamProfileOnManagedInstanceSummary,
+        type: "Array<model.ModuleStreamProfileOnManagedInstanceSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamProfilesOnManagedInstanceRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModuleStreamProfileOnManagedInstanceSummary objects
+   * contained in responses from the listModuleStreamProfilesOnManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreamProfilesOnManagedInstance(
+    request: requests.ListModuleStreamProfilesOnManagedInstanceRequest
+  ): AsyncIterableIterator<model.ModuleStreamProfileOnManagedInstanceSummary> {
+    return paginateRecords(request, req => this.listModuleStreamProfilesOnManagedInstance(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamProfilesOnManagedInstanceResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreamProfilesOnManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreamProfilesOnManagedInstanceResponses(
+    request: requests.ListModuleStreamProfilesOnManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamProfilesOnManagedInstanceResponse> {
+    return paginateResponses(request, req => this.listModuleStreamProfilesOnManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModuleStreamProfileOnManagedInstanceSummary objects
+   * contained in responses from the listModuleStreamProfilesOnManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamProfilesOnManagedInstanceRecordIterator(
+    request: requests.ListModuleStreamProfilesOnManagedInstanceRequest
+  ): AsyncIterableIterator<model.ModuleStreamProfileOnManagedInstanceSummary> {
+    return paginateRecords(request, req => this.listModuleStreamProfilesOnManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreamProfilesOnManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamProfilesOnManagedInstanceResponseIterator(
+    request: requests.ListModuleStreamProfilesOnManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamProfilesOnManagedInstanceResponse> {
+    return paginateResponses(request, req => this.listModuleStreamProfilesOnManagedInstance(req));
+  }
+
+  /**
+     * Retrieve a list of module streams from a software source.
+* Filters may be applied to select a subset of module streams
+* based on the filter criteria.
+* <p>
+The 'moduleName' attribute filters against the name of a module.
+* It accepts strings of the format \"<module>\".  If this attribute
+* is defined, only streams that belong to the specified module are
+* included in the result set.  If it is not defined, the request is
+* not subject to this filter.  The 'streamName' attribute filters
+* against the name of a stream of a module.  If this attribute is
+* defined, only the particular module stream that matches both the
+* module and stream names is included in the result set.  It is
+* not valid to supply 'streamName' without also supplying a
+* 'moduleName'.
+* <p>
+When sorting by display name, the result set is sorted first by
+* module name, then by stream name.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListModuleStreamsRequest
+     * @return ListModuleStreamsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreams.ts.html |here} to see how to use ListModuleStreams API.
+     */
+  public async listModuleStreams(
+    listModuleStreamsRequest: requests.ListModuleStreamsRequest
+  ): Promise<responses.ListModuleStreamsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OsManagementClient#listModuleStreams.");
+    const operationName = "listModuleStreams";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamSummary/ListModuleStreams";
+    const pathParams = {
+      "{softwareSourceId}": listModuleStreamsRequest.softwareSourceId
+    };
+
+    const queryParams = {
+      "compartmentId": listModuleStreamsRequest.compartmentId,
+      "moduleName": listModuleStreamsRequest.moduleName,
+      "streamName": listModuleStreamsRequest.streamName,
+      "limit": listModuleStreamsRequest.limit,
+      "page": listModuleStreamsRequest.page,
+      "sortOrder": listModuleStreamsRequest.sortOrder,
+      "sortBy": listModuleStreamsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModuleStreamsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModuleStreamsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/softwareSources/{softwareSourceId}/moduleStreams",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModuleStreamsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModuleStreamSummary,
+        type: "Array<model.ModuleStreamSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModuleStreamSummary objects
+   * contained in responses from the listModuleStreams operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreams(
+    request: requests.ListModuleStreamsRequest
+  ): AsyncIterableIterator<model.ModuleStreamSummary> {
+    return paginateRecords(request, req => this.listModuleStreams(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreams operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreamsResponses(
+    request: requests.ListModuleStreamsRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamsResponse> {
+    return paginateResponses(request, req => this.listModuleStreams(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModuleStreamSummary objects
+   * contained in responses from the listModuleStreams operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamsRecordIterator(
+    request: requests.ListModuleStreamsRequest
+  ): AsyncIterableIterator<model.ModuleStreamSummary> {
+    return paginateRecords(request, req => this.listModuleStreams(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreams operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamsResponseIterator(
+    request: requests.ListModuleStreamsRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamsResponse> {
+    return paginateResponses(request, req => this.listModuleStreams(req));
+  }
+
+  /**
+     * Retrieve a list of module streams, along with a summary of their
+* status, from a managed instance.  Filters may be applied to select
+* a subset of module streams based on the filter criteria.
+* <p>
+The 'moduleName' attribute filters against the name of a module.
+* It accepts strings of the format \"<module>\".  If this attribute
+* is defined, only streams that belong to the specified module are
+* included in the result set.  If it is not defined, the request is
+* not subject to this filter.
+* <p>
+The \"status\" attribute filters against the state of a module stream.
+* Valid values are \"ENABLED\", \"DISABLED\", and \"ACTIVE\".  If the
+* attribute is set to \"ENABLED\", only module streams that are enabled
+* are included in the result set.  If the attribute is set to \"DISABLED\",
+* only module streams that are not enabled are included in the result
+* set.  If the attribute is set to \"ACTIVE\", only module streams that
+* are active are included in the result set.  If the attribute is not
+* defined, the request is not subject to this filter.
+* <p>
+When sorting by the display name, the result set is sorted first
+* by the module name and then by the stream name.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListModuleStreamsOnManagedInstanceRequest
+     * @return ListModuleStreamsOnManagedInstanceResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ListModuleStreamsOnManagedInstance.ts.html |here} to see how to use ListModuleStreamsOnManagedInstance API.
+     */
+  public async listModuleStreamsOnManagedInstance(
+    listModuleStreamsOnManagedInstanceRequest: requests.ListModuleStreamsOnManagedInstanceRequest
+  ): Promise<responses.ListModuleStreamsOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OsManagementClient#listModuleStreamsOnManagedInstance.");
+    const operationName = "listModuleStreamsOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListModuleStreamsOnManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": listModuleStreamsOnManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "compartmentId": listModuleStreamsOnManagedInstanceRequest.compartmentId,
+      "moduleName": listModuleStreamsOnManagedInstanceRequest.moduleName,
+      "streamName": listModuleStreamsOnManagedInstanceRequest.streamName,
+      "streamStatus": listModuleStreamsOnManagedInstanceRequest.streamStatus,
+      "limit": listModuleStreamsOnManagedInstanceRequest.limit,
+      "page": listModuleStreamsOnManagedInstanceRequest.page,
+      "sortOrder": listModuleStreamsOnManagedInstanceRequest.sortOrder,
+      "sortBy": listModuleStreamsOnManagedInstanceRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listModuleStreamsOnManagedInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listModuleStreamsOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/moduleStreams",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListModuleStreamsOnManagedInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ModuleStreamOnManagedInstanceSummary,
+        type: "Array<model.ModuleStreamOnManagedInstanceSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamsOnManagedInstanceRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ModuleStreamOnManagedInstanceSummary objects
+   * contained in responses from the listModuleStreamsOnManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreamsOnManagedInstance(
+    request: requests.ListModuleStreamsOnManagedInstanceRequest
+  ): AsyncIterableIterator<model.ModuleStreamOnManagedInstanceSummary> {
+    return paginateRecords(request, req => this.listModuleStreamsOnManagedInstance(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listModuleStreamsOnManagedInstanceResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreamsOnManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllModuleStreamsOnManagedInstanceResponses(
+    request: requests.ListModuleStreamsOnManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamsOnManagedInstanceResponse> {
+    return paginateResponses(request, req => this.listModuleStreamsOnManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ModuleStreamOnManagedInstanceSummary objects
+   * contained in responses from the listModuleStreamsOnManagedInstance operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamsOnManagedInstanceRecordIterator(
+    request: requests.ListModuleStreamsOnManagedInstanceRequest
+  ): AsyncIterableIterator<model.ModuleStreamOnManagedInstanceSummary> {
+    return paginateRecords(request, req => this.listModuleStreamsOnManagedInstance(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listModuleStreamsOnManagedInstance operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listModuleStreamsOnManagedInstanceResponseIterator(
+    request: requests.ListModuleStreamsOnManagedInstanceRequest
+  ): AsyncIterableIterator<responses.ListModuleStreamsOnManagedInstanceResponse> {
+    return paginateResponses(request, req => this.listModuleStreamsOnManagedInstance(req));
+  }
+
+  /**
    * Returns a list of installed packages on the Managed Instance.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3958,6 +5435,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#listPackagesInstalledOnManagedInstance."
       );
+    const operationName = "listPackagesInstalledOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListPackagesInstalledOnManagedInstance";
     const pathParams = {
       "{managedInstanceId}": listPackagesInstalledOnManagedInstanceRequest.managedInstanceId
     };
@@ -3993,7 +5473,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPackagesInstalledOnManagedInstanceResponse>{},
         body: await response.json(),
@@ -4085,6 +5571,9 @@ export class OsManagementClient {
     listScheduledJobsRequest: requests.ListScheduledJobsRequest
   ): Promise<responses.ListScheduledJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#listScheduledJobs.");
+    const operationName = "listScheduledJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/ListScheduledJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -4124,7 +5613,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListScheduledJobsResponse>{},
         body: await response.json(),
@@ -4217,6 +5712,9 @@ export class OsManagementClient {
   ): Promise<responses.ListSoftwareSourcePackagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#listSoftwareSourcePackages.");
+    const operationName = "listSoftwareSourcePackages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/ListSoftwareSourcePackages";
     const pathParams = {
       "{softwareSourceId}": listSoftwareSourcePackagesRequest.softwareSourceId
     };
@@ -4252,7 +5750,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSoftwareSourcePackagesResponse>{},
         body: await response.json(),
@@ -4344,6 +5848,9 @@ export class OsManagementClient {
     listSoftwareSourcesRequest: requests.ListSoftwareSourcesRequest
   ): Promise<responses.ListSoftwareSourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#listSoftwareSources.");
+    const operationName = "listSoftwareSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSourceSummary/ListSoftwareSources";
     const pathParams = {};
 
     const queryParams = {
@@ -4378,7 +5885,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSoftwareSourcesResponse>{},
         body: await response.json(),
@@ -4471,6 +5984,9 @@ export class OsManagementClient {
   ): Promise<responses.ListUpcomingScheduledJobsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#listUpcomingScheduledJobs.");
+    const operationName = "listUpcomingScheduledJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/ListUpcomingScheduledJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -4509,7 +6025,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUpcomingScheduledJobsResponse>{},
         body: await response.json(),
@@ -4601,6 +6123,9 @@ export class OsManagementClient {
     listWindowsUpdatesRequest: requests.ListWindowsUpdatesRequest
   ): Promise<responses.ListWindowsUpdatesResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWindowsUpdates.");
+    const operationName = "listWindowsUpdates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WindowsUpdateSummary/ListWindowsUpdates";
     const pathParams = {};
 
     const queryParams = {
@@ -4634,7 +6159,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWindowsUpdatesResponse>{},
         body: await response.json(),
@@ -4729,6 +6260,9 @@ export class OsManagementClient {
       this.logger.debug(
         "Calling operation OsManagementClient#listWindowsUpdatesInstalledOnManagedInstance."
       );
+    const operationName = "listWindowsUpdatesInstalledOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ListWindowsUpdatesInstalledOnManagedInstance";
     const pathParams = {
       "{managedInstanceId}": listWindowsUpdatesInstalledOnManagedInstanceRequest.managedInstanceId
     };
@@ -4764,7 +6298,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWindowsUpdatesInstalledOnManagedInstanceResponse>{},
         body: await response.json(),
@@ -4860,6 +6400,9 @@ export class OsManagementClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequest/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -4893,7 +6436,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -4989,6 +6538,9 @@ export class OsManagementClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequest/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -5022,7 +6574,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -5119,6 +6677,9 @@ export class OsManagementClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -5154,7 +6715,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -5234,6 +6801,232 @@ export class OsManagementClient {
   }
 
   /**
+     * Perform an operation involving modules, streams, and profiles on a
+* managed instance.  Each operation may enable or disable an arbitrary
+* amount of module streams, and install or remove an arbitrary number
+* of module stream profiles.  When the operation is complete, the
+* state of the modules, streams, and profiles on the managed instance
+* will match the state indicated in the operation.
+* <p>
+Each module stream specified in the list of module streams to enable
+* will be in the \"ENABLED\" state upon completion of the operation.
+* If there was already a stream of that module enabled, any work
+* required to switch from the current stream to the new stream is
+* performed implicitly.
+* <p>
+Each module stream specified in the list of module streams to disable
+* will be in the \"DISABLED\" state upon completion of the operation.
+* Any profiles that are installed for the module stream will be removed
+* as part of the operation.
+* <p>
+Each module stream profile specified in the list of profiles to install
+* will be in the \"INSTALLED\" state upon completion of the operation,
+* indicating that any packages that are part of the profile are installed
+* on the managed instance.  If the module stream containing the profile
+* is not enabled, it will be enabled as part of the operation.  There
+* is an exception when attempting to install a stream of a profile when
+* another stream of the same module is enabled.  It is an error to attempt
+* to install a profile of another module stream, unless enabling the
+* new module stream is explicitly included in this operation.
+* <p>
+Each module stream profile specified in the list of profiles to remove
+* will be in the \"AVAILABLE\" state upon completion of the operation.
+* The status of packages within the profile after the operation is
+* complete is defined by the package manager on the managed instance.
+* <p>
+Operations that contain one or more elements that are not allowed
+* are rejected.
+* <p>
+The result of this request is a WorkRequest object.  The returned
+* WorkRequest is the parent of a structure of other WorkRequests.  Taken
+* as a whole, this structure indicates the entire set of work to be
+* performed to complete the operation.
+* <p>
+This interface can also be used to perform a dry run of the operation
+* rather than committing it to a managed instance.  If a dry run is
+* requested, the OS Management Service will evaluate the operation
+* against the current module, stream, and profile state on the managed
+* instance.  It will calculate the impact of the operation on all
+* modules, streams, and profiles on the managed instance, including those
+* that are implicitly impacted by the operation.
+* <p>
+The WorkRequest resulting from a dry run behaves differently than
+* a WorkRequest resulting from a committable operation.  Dry run
+* WorkRequests are always singletons and never have children.  The
+* impact of the operation is returned using the log and error
+* facilities of WorkRequests.  The impact of operations that are
+* allowed by the OS Management Service are communicated as one or
+* more work request log entries.  Operations that are not allowed
+* by the OS Management Service are communicated as one or more
+* work requst error entries.  Each entry, for either logs or errors,
+* contains a structured message containing the results of one
+* or more operations.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ManageModuleStreamsOnManagedInstanceRequest
+     * @return ManageModuleStreamsOnManagedInstanceResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/ManageModuleStreamsOnManagedInstance.ts.html |here} to see how to use ManageModuleStreamsOnManagedInstance API.
+     */
+  public async manageModuleStreamsOnManagedInstance(
+    manageModuleStreamsOnManagedInstanceRequest: requests.ManageModuleStreamsOnManagedInstanceRequest
+  ): Promise<responses.ManageModuleStreamsOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#manageModuleStreamsOnManagedInstance."
+      );
+    const operationName = "manageModuleStreamsOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/ManageModuleStreamsOnManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": manageModuleStreamsOnManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": manageModuleStreamsOnManagedInstanceRequest.opcRequestId,
+      "opc-retry-token": manageModuleStreamsOnManagedInstanceRequest.opcRetryToken,
+      "if-match": manageModuleStreamsOnManagedInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      manageModuleStreamsOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/actions/moduleStreams/manage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        manageModuleStreamsOnManagedInstanceRequest.manageModuleStreamsOnManagedInstanceDetails,
+        "ManageModuleStreamsOnManagedInstanceDetails",
+        model.ManageModuleStreamsOnManagedInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ManageModuleStreamsOnManagedInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Removes a profile for a module stream that is installed on a managed instance.
+   * If a module stream is provided, rather than a fully qualified profile, all
+   * profiles that have been installed for the module stream will be removed.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveModuleStreamProfileFromManagedInstanceRequest
+   * @return RemoveModuleStreamProfileFromManagedInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/RemoveModuleStreamProfileFromManagedInstance.ts.html |here} to see how to use RemoveModuleStreamProfileFromManagedInstance API.
+   */
+  public async removeModuleStreamProfileFromManagedInstance(
+    removeModuleStreamProfileFromManagedInstanceRequest: requests.RemoveModuleStreamProfileFromManagedInstanceRequest
+  ): Promise<responses.RemoveModuleStreamProfileFromManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#removeModuleStreamProfileFromManagedInstance."
+      );
+    const operationName = "removeModuleStreamProfileFromManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamProfileDetails/RemoveModuleStreamProfileFromManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": removeModuleStreamProfileFromManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "moduleName": removeModuleStreamProfileFromManagedInstanceRequest.moduleName,
+      "streamName": removeModuleStreamProfileFromManagedInstanceRequest.streamName,
+      "profileName": removeModuleStreamProfileFromManagedInstanceRequest.profileName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeModuleStreamProfileFromManagedInstanceRequest.opcRequestId,
+      "opc-retry-token": removeModuleStreamProfileFromManagedInstanceRequest.opcRetryToken,
+      "if-match": removeModuleStreamProfileFromManagedInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeModuleStreamProfileFromManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/actions/streamProfiles/remove",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveModuleStreamProfileFromManagedInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes an installed package from a managed instance.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5247,6 +7040,9 @@ export class OsManagementClient {
   ): Promise<responses.RemovePackageFromManagedInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#removePackageFromManagedInstance.");
+    const operationName = "removePackageFromManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstance/RemovePackageFromManagedInstance";
     const pathParams = {
       "{managedInstanceId}": removePackageFromManagedInstanceRequest.managedInstanceId
     };
@@ -5278,7 +7074,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemovePackageFromManagedInstanceResponse>{},
         responseHeaders: [
@@ -5315,6 +7117,9 @@ export class OsManagementClient {
   ): Promise<responses.RemovePackagesFromSoftwareSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#removePackagesFromSoftwareSource.");
+    const operationName = "removePackagesFromSoftwareSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/RemovePackagesFromSoftwareSource";
     const pathParams = {
       "{softwareSourceId}": removePackagesFromSoftwareSourceRequest.softwareSourceId
     };
@@ -5348,7 +7153,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemovePackagesFromSoftwareSourceResponse>{},
         responseHeaders: [
@@ -5380,6 +7191,9 @@ export class OsManagementClient {
     runScheduledJobNowRequest: requests.RunScheduledJobNowRequest
   ): Promise<responses.RunScheduledJobNowResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#runScheduledJobNow.");
+    const operationName = "runScheduledJobNow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/RunScheduledJobNow";
     const pathParams = {
       "{scheduledJobId}": runScheduledJobNowRequest.scheduledJobId
     };
@@ -5410,7 +7224,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RunScheduledJobNowResponse>{},
         responseHeaders: [
@@ -5448,6 +7268,9 @@ export class OsManagementClient {
   ): Promise<responses.SearchSoftwarePackagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#searchSoftwarePackages.");
+    const operationName = "searchSoftwarePackages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/SearchSoftwarePackages";
     const pathParams = {};
 
     const queryParams = {
@@ -5482,7 +7305,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchSoftwarePackagesResponse>{},
         body: await response.json(),
@@ -5576,6 +7405,9 @@ export class OsManagementClient {
   ): Promise<responses.SkipNextScheduledJobExecutionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#skipNextScheduledJobExecution.");
+    const operationName = "skipNextScheduledJobExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/SkipNextScheduledJobExecution";
     const pathParams = {
       "{scheduledJobId}": skipNextScheduledJobExecutionRequest.scheduledJobId
     };
@@ -5606,13 +7438,103 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SkipNextScheduledJobExecutionResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables a new stream for a module that already has a stream enabled.
+   * If any profiles or packages from the original module are installed,
+   * switching to a new stream will remove the existing packages and
+   * install their counterparts in the new stream.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SwitchModuleStreamOnManagedInstanceRequest
+   * @return SwitchModuleStreamOnManagedInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/osmanagement/SwitchModuleStreamOnManagedInstance.ts.html |here} to see how to use SwitchModuleStreamOnManagedInstance API.
+   */
+  public async switchModuleStreamOnManagedInstance(
+    switchModuleStreamOnManagedInstanceRequest: requests.SwitchModuleStreamOnManagedInstanceRequest
+  ): Promise<responses.SwitchModuleStreamOnManagedInstanceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OsManagementClient#switchModuleStreamOnManagedInstance."
+      );
+    const operationName = "switchModuleStreamOnManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ModuleStreamDetails/SwitchModuleStreamOnManagedInstance";
+    const pathParams = {
+      "{managedInstanceId}": switchModuleStreamOnManagedInstanceRequest.managedInstanceId
+    };
+
+    const queryParams = {
+      "moduleName": switchModuleStreamOnManagedInstanceRequest.moduleName,
+      "streamName": switchModuleStreamOnManagedInstanceRequest.streamName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": switchModuleStreamOnManagedInstanceRequest.opcRequestId,
+      "opc-retry-token": switchModuleStreamOnManagedInstanceRequest.opcRetryToken,
+      "if-match": switchModuleStreamOnManagedInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      switchModuleStreamOnManagedInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedInstances/{managedInstanceId}/actions/moduleStreams/switch",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwitchModuleStreamOnManagedInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -5643,6 +7565,9 @@ export class OsManagementClient {
   ): Promise<responses.UpdateManagedInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#updateManagedInstance.");
+    const operationName = "updateManagedInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/UpdateManagedInstanceDetails/UpdateManagedInstance";
     const pathParams = {
       "{managedInstanceId}": updateManagedInstanceRequest.managedInstanceId
     };
@@ -5677,7 +7602,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagedInstanceResponse>{},
         body: await response.json(),
@@ -5718,6 +7649,9 @@ export class OsManagementClient {
   ): Promise<responses.UpdateManagedInstanceGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#updateManagedInstanceGroup.");
+    const operationName = "updateManagedInstanceGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ManagedInstanceGroup/UpdateManagedInstanceGroup";
     const pathParams = {
       "{managedInstanceGroupId}": updateManagedInstanceGroupRequest.managedInstanceGroupId
     };
@@ -5752,7 +7686,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagedInstanceGroupResponse>{},
         body: await response.json(),
@@ -5792,6 +7732,9 @@ export class OsManagementClient {
     updateScheduledJobRequest: requests.UpdateScheduledJobRequest
   ): Promise<responses.UpdateScheduledJobResponse> {
     if (this.logger) this.logger.debug("Calling operation OsManagementClient#updateScheduledJob.");
+    const operationName = "updateScheduledJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/ScheduledJob/UpdateScheduledJob";
     const pathParams = {
       "{scheduledJobId}": updateScheduledJobRequest.scheduledJobId
     };
@@ -5826,7 +7769,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateScheduledJobResponse>{},
         body: await response.json(),
@@ -5867,6 +7816,9 @@ export class OsManagementClient {
   ): Promise<responses.UpdateSoftwareSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OsManagementClient#updateSoftwareSource.");
+    const operationName = "updateSoftwareSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/os-management/20190801/SoftwareSource/UpdateSoftwareSource";
     const pathParams = {
       "{softwareSourceId}": updateSoftwareSourceRequest.softwareSourceId
     };
@@ -5901,7 +7853,13 @@ export class OsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSoftwareSourceResponse>{},
         body: await response.json(),

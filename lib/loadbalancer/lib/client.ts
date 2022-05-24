@@ -38,6 +38,7 @@ export class LoadBalancerClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "LoadBalancer";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,9 @@ export class LoadBalancerClient {
   ): Promise<responses.ChangeLoadBalancerCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#changeLoadBalancerCompartment.");
+    const operationName = "changeLoadBalancerCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/ChangeLoadBalancerCompartment";
     const pathParams = {
       "{loadBalancerId}": changeLoadBalancerCompartmentRequest.loadBalancerId
     };
@@ -201,7 +205,13 @@ export class LoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLoadBalancerCompartmentResponse>{},
         responseHeaders: [
@@ -236,6 +246,8 @@ export class LoadBalancerClient {
     createBackendRequest: requests.CreateBackendRequest
   ): Promise<responses.CreateBackendResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createBackend.");
+    const operationName = "createBackend";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createBackendRequest.loadBalancerId,
       "{backendSetName}": createBackendRequest.backendSetName
@@ -271,7 +283,13 @@ export class LoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBackendResponse>{},
         responseHeaders: [
@@ -306,6 +324,8 @@ export class LoadBalancerClient {
     createBackendSetRequest: requests.CreateBackendSetRequest
   ): Promise<responses.CreateBackendSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createBackendSet.");
+    const operationName = "createBackendSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createBackendSetRequest.loadBalancerId
     };
@@ -340,7 +360,13 @@ export class LoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBackendSetResponse>{},
         responseHeaders: [
@@ -375,6 +401,8 @@ export class LoadBalancerClient {
     createCertificateRequest: requests.CreateCertificateRequest
   ): Promise<responses.CreateCertificateResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createCertificate.");
+    const operationName = "createCertificate";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createCertificateRequest.loadBalancerId
     };
@@ -409,7 +437,13 @@ export class LoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCertificateResponse>{},
         responseHeaders: [
@@ -446,6 +480,8 @@ export class LoadBalancerClient {
     createHostnameRequest: requests.CreateHostnameRequest
   ): Promise<responses.CreateHostnameResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createHostname.");
+    const operationName = "createHostname";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createHostnameRequest.loadBalancerId
     };
@@ -480,7 +516,13 @@ export class LoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateHostnameResponse>{},
         responseHeaders: [
@@ -515,6 +557,8 @@ export class LoadBalancerClient {
     createListenerRequest: requests.CreateListenerRequest
   ): Promise<responses.CreateListenerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createListener.");
+    const operationName = "createListener";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createListenerRequest.loadBalancerId
     };
@@ -549,7 +593,13 @@ export class LoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateListenerResponse>{},
         responseHeaders: [
@@ -611,6 +661,8 @@ When you create a load balancer, the system assigns an IP address.
     createLoadBalancerRequest: requests.CreateLoadBalancerRequest
   ): Promise<responses.CreateLoadBalancerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createLoadBalancer.");
+    const operationName = "createLoadBalancer";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -643,7 +695,13 @@ When you create a load balancer, the system assigns an IP address.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLoadBalancerResponse>{},
         responseHeaders: [
@@ -680,6 +738,8 @@ When you create a load balancer, the system assigns an IP address.
     createPathRouteSetRequest: requests.CreatePathRouteSetRequest
   ): Promise<responses.CreatePathRouteSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createPathRouteSet.");
+    const operationName = "createPathRouteSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createPathRouteSetRequest.loadBalancerId
     };
@@ -714,7 +774,13 @@ When you create a load balancer, the system assigns an IP address.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePathRouteSetResponse>{},
         responseHeaders: [
@@ -751,6 +817,8 @@ When you create a load balancer, the system assigns an IP address.
     createRoutingPolicyRequest: requests.CreateRoutingPolicyRequest
   ): Promise<responses.CreateRoutingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createRoutingPolicy.");
+    const operationName = "createRoutingPolicy";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createRoutingPolicyRequest.loadBalancerId
     };
@@ -785,7 +853,13 @@ When you create a load balancer, the system assigns an IP address.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRoutingPolicyResponse>{},
         responseHeaders: [
@@ -822,6 +896,8 @@ When you create a load balancer, the system assigns an IP address.
     createRuleSetRequest: requests.CreateRuleSetRequest
   ): Promise<responses.CreateRuleSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#createRuleSet.");
+    const operationName = "createRuleSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createRuleSetRequest.loadBalancerId
     };
@@ -855,7 +931,13 @@ When you create a load balancer, the system assigns an IP address.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRuleSetResponse>{},
         responseHeaders: [
@@ -891,6 +973,8 @@ When you create a load balancer, the system assigns an IP address.
   ): Promise<responses.CreateSSLCipherSuiteResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#createSSLCipherSuite.");
+    const operationName = "createSSLCipherSuite";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": createSSLCipherSuiteRequest.loadBalancerId
     };
@@ -925,7 +1009,13 @@ When you create a load balancer, the system assigns an IP address.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSSLCipherSuiteResponse>{},
         responseHeaders: [
@@ -960,6 +1050,8 @@ When you create a load balancer, the system assigns an IP address.
     deleteBackendRequest: requests.DeleteBackendRequest
   ): Promise<responses.DeleteBackendResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteBackend.");
+    const operationName = "deleteBackend";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteBackendRequest.loadBalancerId,
       "{backendSetName}": deleteBackendRequest.backendSetName,
@@ -990,7 +1082,13 @@ When you create a load balancer, the system assigns an IP address.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackendResponse>{},
         responseHeaders: [
@@ -1028,6 +1126,8 @@ Before you can delete a backend set, you must remove it from any active listener
     deleteBackendSetRequest: requests.DeleteBackendSetRequest
   ): Promise<responses.DeleteBackendSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteBackendSet.");
+    const operationName = "deleteBackendSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteBackendSetRequest.loadBalancerId,
       "{backendSetName}": deleteBackendSetRequest.backendSetName
@@ -1057,7 +1157,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackendSetResponse>{},
         responseHeaders: [
@@ -1092,6 +1198,8 @@ Before you can delete a backend set, you must remove it from any active listener
     deleteCertificateRequest: requests.DeleteCertificateRequest
   ): Promise<responses.DeleteCertificateResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteCertificate.");
+    const operationName = "deleteCertificate";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteCertificateRequest.loadBalancerId,
       "{certificateName}": deleteCertificateRequest.certificateName
@@ -1121,7 +1229,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCertificateResponse>{},
         responseHeaders: [
@@ -1157,6 +1271,8 @@ Before you can delete a backend set, you must remove it from any active listener
     deleteHostnameRequest: requests.DeleteHostnameRequest
   ): Promise<responses.DeleteHostnameResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteHostname.");
+    const operationName = "deleteHostname";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteHostnameRequest.loadBalancerId,
       "{name}": deleteHostnameRequest.name
@@ -1186,7 +1302,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteHostnameResponse>{},
         responseHeaders: [
@@ -1221,6 +1343,8 @@ Before you can delete a backend set, you must remove it from any active listener
     deleteListenerRequest: requests.DeleteListenerRequest
   ): Promise<responses.DeleteListenerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteListener.");
+    const operationName = "deleteListener";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteListenerRequest.loadBalancerId,
       "{listenerName}": deleteListenerRequest.listenerName
@@ -1250,7 +1374,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteListenerResponse>{},
         responseHeaders: [
@@ -1285,6 +1415,8 @@ Before you can delete a backend set, you must remove it from any active listener
     deleteLoadBalancerRequest: requests.DeleteLoadBalancerRequest
   ): Promise<responses.DeleteLoadBalancerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteLoadBalancer.");
+    const operationName = "deleteLoadBalancer";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteLoadBalancerRequest.loadBalancerId
     };
@@ -1313,7 +1445,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLoadBalancerResponse>{},
         responseHeaders: [
@@ -1352,6 +1490,8 @@ To delete a path route rule from a path route set, use the
     deletePathRouteSetRequest: requests.DeletePathRouteSetRequest
   ): Promise<responses.DeletePathRouteSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deletePathRouteSet.");
+    const operationName = "deletePathRouteSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deletePathRouteSetRequest.loadBalancerId,
       "{pathRouteSetName}": deletePathRouteSetRequest.pathRouteSetName
@@ -1381,7 +1521,13 @@ To delete a path route rule from a path route set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePathRouteSetResponse>{},
         responseHeaders: [
@@ -1420,6 +1566,8 @@ To delete a routing rule from a routing policy, use the
     deleteRoutingPolicyRequest: requests.DeleteRoutingPolicyRequest
   ): Promise<responses.DeleteRoutingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteRoutingPolicy.");
+    const operationName = "deleteRoutingPolicy";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteRoutingPolicyRequest.loadBalancerId,
       "{routingPolicyName}": deleteRoutingPolicyRequest.routingPolicyName
@@ -1449,7 +1597,13 @@ To delete a routing rule from a routing policy, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRoutingPolicyResponse>{},
         responseHeaders: [
@@ -1488,6 +1642,8 @@ To delete a rule from a rule set, use the
     deleteRuleSetRequest: requests.DeleteRuleSetRequest
   ): Promise<responses.DeleteRuleSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#deleteRuleSet.");
+    const operationName = "deleteRuleSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteRuleSetRequest.loadBalancerId,
       "{ruleSetName}": deleteRuleSetRequest.ruleSetName
@@ -1517,7 +1673,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRuleSetResponse>{},
         responseHeaders: [
@@ -1553,6 +1715,8 @@ To delete a rule from a rule set, use the
   ): Promise<responses.DeleteSSLCipherSuiteResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#deleteSSLCipherSuite.");
+    const operationName = "deleteSSLCipherSuite";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": deleteSSLCipherSuiteRequest.loadBalancerId,
       "{name}": deleteSSLCipherSuiteRequest.name
@@ -1582,7 +1746,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSSLCipherSuiteResponse>{},
         responseHeaders: [
@@ -1617,6 +1787,9 @@ To delete a rule from a rule set, use the
     getBackendRequest: requests.GetBackendRequest
   ): Promise<responses.GetBackendResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackend.");
+    const operationName = "getBackend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Backend/GetBackend";
     const pathParams = {
       "{loadBalancerId}": getBackendRequest.loadBalancerId,
       "{backendSetName}": getBackendRequest.backendSetName,
@@ -1647,7 +1820,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendResponse>{},
         body: await response.json(),
@@ -1681,6 +1860,9 @@ To delete a rule from a rule set, use the
     getBackendHealthRequest: requests.GetBackendHealthRequest
   ): Promise<responses.GetBackendHealthResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendHealth.");
+    const operationName = "getBackendHealth";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendHealth/GetBackendHealth";
     const pathParams = {
       "{loadBalancerId}": getBackendHealthRequest.loadBalancerId,
       "{backendSetName}": getBackendHealthRequest.backendSetName,
@@ -1712,7 +1894,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendHealthResponse>{},
         body: await response.json(),
@@ -1746,6 +1934,9 @@ To delete a rule from a rule set, use the
     getBackendSetRequest: requests.GetBackendSetRequest
   ): Promise<responses.GetBackendSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendSet.");
+    const operationName = "getBackendSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendSet/GetBackendSet";
     const pathParams = {
       "{loadBalancerId}": getBackendSetRequest.loadBalancerId,
       "{backendSetName}": getBackendSetRequest.backendSetName
@@ -1775,7 +1966,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendSetResponse>{},
         body: await response.json(),
@@ -1809,6 +2006,9 @@ To delete a rule from a rule set, use the
     getBackendSetHealthRequest: requests.GetBackendSetHealthRequest
   ): Promise<responses.GetBackendSetHealthResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getBackendSetHealth.");
+    const operationName = "getBackendSetHealth";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendSetHealth/GetBackendSetHealth";
     const pathParams = {
       "{loadBalancerId}": getBackendSetHealthRequest.loadBalancerId,
       "{backendSetName}": getBackendSetHealthRequest.backendSetName
@@ -1838,7 +2038,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendSetHealthResponse>{},
         body: await response.json(),
@@ -1872,6 +2078,9 @@ To delete a rule from a rule set, use the
     getHealthCheckerRequest: requests.GetHealthCheckerRequest
   ): Promise<responses.GetHealthCheckerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getHealthChecker.");
+    const operationName = "getHealthChecker";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/HealthChecker/GetHealthChecker";
     const pathParams = {
       "{loadBalancerId}": getHealthCheckerRequest.loadBalancerId,
       "{backendSetName}": getHealthCheckerRequest.backendSetName
@@ -1901,7 +2110,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHealthCheckerResponse>{},
         body: await response.json(),
@@ -1935,6 +2150,9 @@ To delete a rule from a rule set, use the
     getHostnameRequest: requests.GetHostnameRequest
   ): Promise<responses.GetHostnameResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getHostname.");
+    const operationName = "getHostname";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Hostname/GetHostname";
     const pathParams = {
       "{loadBalancerId}": getHostnameRequest.loadBalancerId,
       "{name}": getHostnameRequest.name
@@ -1964,7 +2182,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHostnameResponse>{},
         body: await response.json(),
@@ -1998,6 +2222,9 @@ To delete a rule from a rule set, use the
     getLoadBalancerRequest: requests.GetLoadBalancerRequest
   ): Promise<responses.GetLoadBalancerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getLoadBalancer.");
+    const operationName = "getLoadBalancer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/GetLoadBalancer";
     const pathParams = {
       "{loadBalancerId}": getLoadBalancerRequest.loadBalancerId
     };
@@ -2026,7 +2253,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLoadBalancerResponse>{},
         body: await response.json(),
@@ -2061,6 +2294,9 @@ To delete a rule from a rule set, use the
   ): Promise<responses.GetLoadBalancerHealthResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#getLoadBalancerHealth.");
+    const operationName = "getLoadBalancerHealth";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerHealth/GetLoadBalancerHealth";
     const pathParams = {
       "{loadBalancerId}": getLoadBalancerHealthRequest.loadBalancerId
     };
@@ -2089,7 +2325,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLoadBalancerHealthResponse>{},
         body: await response.json(),
@@ -2123,6 +2365,9 @@ To delete a rule from a rule set, use the
     getPathRouteSetRequest: requests.GetPathRouteSetRequest
   ): Promise<responses.GetPathRouteSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getPathRouteSet.");
+    const operationName = "getPathRouteSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/PathRouteSet/GetPathRouteSet";
     const pathParams = {
       "{loadBalancerId}": getPathRouteSetRequest.loadBalancerId,
       "{pathRouteSetName}": getPathRouteSetRequest.pathRouteSetName
@@ -2152,7 +2397,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPathRouteSetResponse>{},
         body: await response.json(),
@@ -2186,6 +2437,9 @@ To delete a rule from a rule set, use the
     getRoutingPolicyRequest: requests.GetRoutingPolicyRequest
   ): Promise<responses.GetRoutingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getRoutingPolicy.");
+    const operationName = "getRoutingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RoutingPolicy/GetRoutingPolicy";
     const pathParams = {
       "{loadBalancerId}": getRoutingPolicyRequest.loadBalancerId,
       "{routingPolicyName}": getRoutingPolicyRequest.routingPolicyName
@@ -2215,7 +2469,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoutingPolicyResponse>{},
         body: await response.json(),
@@ -2249,6 +2509,9 @@ To delete a rule from a rule set, use the
     getRuleSetRequest: requests.GetRuleSetRequest
   ): Promise<responses.GetRuleSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getRuleSet.");
+    const operationName = "getRuleSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RuleSet/GetRuleSet";
     const pathParams = {
       "{loadBalancerId}": getRuleSetRequest.loadBalancerId,
       "{ruleSetName}": getRuleSetRequest.ruleSetName
@@ -2278,7 +2541,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRuleSetResponse>{},
         body: await response.json(),
@@ -2312,6 +2581,9 @@ To delete a rule from a rule set, use the
     getSSLCipherSuiteRequest: requests.GetSSLCipherSuiteRequest
   ): Promise<responses.GetSSLCipherSuiteResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getSSLCipherSuite.");
+    const operationName = "getSSLCipherSuite";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/SSLCipherSuite/GetSSLCipherSuite";
     const pathParams = {
       "{loadBalancerId}": getSSLCipherSuiteRequest.loadBalancerId,
       "{name}": getSSLCipherSuiteRequest.name
@@ -2341,7 +2613,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSSLCipherSuiteResponse>{},
         body: await response.json(),
@@ -2375,6 +2653,9 @@ To delete a rule from a rule set, use the
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2403,7 +2684,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2437,6 +2724,9 @@ To delete a rule from a rule set, use the
     listBackendSetsRequest: requests.ListBackendSetsRequest
   ): Promise<responses.ListBackendSetsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listBackendSets.");
+    const operationName = "listBackendSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/BackendSet/ListBackendSets";
     const pathParams = {
       "{loadBalancerId}": listBackendSetsRequest.loadBalancerId
     };
@@ -2465,7 +2755,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBackendSetsResponse>{},
         body: await response.json(),
@@ -2499,6 +2795,9 @@ To delete a rule from a rule set, use the
     listBackendsRequest: requests.ListBackendsRequest
   ): Promise<responses.ListBackendsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listBackends.");
+    const operationName = "listBackends";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Backend/ListBackends";
     const pathParams = {
       "{loadBalancerId}": listBackendsRequest.loadBalancerId,
       "{backendSetName}": listBackendsRequest.backendSetName
@@ -2528,7 +2827,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBackendsResponse>{},
         body: await response.json(),
@@ -2562,6 +2867,9 @@ To delete a rule from a rule set, use the
     listCertificatesRequest: requests.ListCertificatesRequest
   ): Promise<responses.ListCertificatesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listCertificates.");
+    const operationName = "listCertificates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Certificate/ListCertificates";
     const pathParams = {
       "{loadBalancerId}": listCertificatesRequest.loadBalancerId
     };
@@ -2590,7 +2898,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificatesResponse>{},
         body: await response.json(),
@@ -2624,6 +2938,9 @@ To delete a rule from a rule set, use the
     listHostnamesRequest: requests.ListHostnamesRequest
   ): Promise<responses.ListHostnamesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listHostnames.");
+    const operationName = "listHostnames";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/Hostname/ListHostnames";
     const pathParams = {
       "{loadBalancerId}": listHostnamesRequest.loadBalancerId
     };
@@ -2652,7 +2969,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListHostnamesResponse>{},
         body: await response.json(),
@@ -2693,6 +3016,9 @@ To delete a rule from a rule set, use the
     listListenerRulesRequest: requests.ListListenerRulesRequest
   ): Promise<responses.ListListenerRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listListenerRules.");
+    const operationName = "listListenerRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/ListenerRuleSummary/ListListenerRules";
     const pathParams = {
       "{loadBalancerId}": listListenerRulesRequest.loadBalancerId,
       "{listenerName}": listListenerRulesRequest.listenerName
@@ -2722,7 +3048,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListListenerRulesResponse>{},
         body: await response.json(),
@@ -2757,6 +3089,9 @@ To delete a rule from a rule set, use the
   ): Promise<responses.ListLoadBalancerHealthsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#listLoadBalancerHealths.");
+    const operationName = "listLoadBalancerHealths";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerHealthSummary/ListLoadBalancerHealths";
     const pathParams = {};
 
     const queryParams = {
@@ -2787,7 +3122,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLoadBalancerHealthsResponse>{},
         body: await response.json(),
@@ -2878,6 +3219,9 @@ To delete a rule from a rule set, use the
     listLoadBalancersRequest: requests.ListLoadBalancersRequest
   ): Promise<responses.ListLoadBalancersResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listLoadBalancers.");
+    const operationName = "listLoadBalancers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/ListLoadBalancers";
     const pathParams = {};
 
     const queryParams = {
@@ -2913,7 +3257,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLoadBalancersResponse>{},
         body: await response.json(),
@@ -3004,6 +3354,9 @@ To delete a rule from a rule set, use the
     listPathRouteSetsRequest: requests.ListPathRouteSetsRequest
   ): Promise<responses.ListPathRouteSetsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listPathRouteSets.");
+    const operationName = "listPathRouteSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/PathRouteSet/ListPathRouteSets";
     const pathParams = {
       "{loadBalancerId}": listPathRouteSetsRequest.loadBalancerId
     };
@@ -3032,7 +3385,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPathRouteSetsResponse>{},
         body: await response.json(),
@@ -3066,6 +3425,9 @@ To delete a rule from a rule set, use the
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listPolicies.");
+    const operationName = "listPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerPolicy/ListPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -3096,7 +3458,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPoliciesResponse>{},
         body: await response.json(),
@@ -3187,6 +3555,9 @@ To delete a rule from a rule set, use the
     listProtocolsRequest: requests.ListProtocolsRequest
   ): Promise<responses.ListProtocolsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listProtocols.");
+    const operationName = "listProtocols";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerProtocol/ListProtocols";
     const pathParams = {};
 
     const queryParams = {
@@ -3217,7 +3588,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProtocolsResponse>{},
         body: await response.json(),
@@ -3308,6 +3685,9 @@ To delete a rule from a rule set, use the
     listRoutingPoliciesRequest: requests.ListRoutingPoliciesRequest
   ): Promise<responses.ListRoutingPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listRoutingPolicies.");
+    const operationName = "listRoutingPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RoutingPolicy/ListRoutingPolicies";
     const pathParams = {
       "{loadBalancerId}": listRoutingPoliciesRequest.loadBalancerId
     };
@@ -3339,7 +3719,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRoutingPoliciesResponse>{},
         body: await response.json(),
@@ -3430,6 +3816,9 @@ To delete a rule from a rule set, use the
     listRuleSetsRequest: requests.ListRuleSetsRequest
   ): Promise<responses.ListRuleSetsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listRuleSets.");
+    const operationName = "listRuleSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/RuleSet/ListRuleSets";
     const pathParams = {
       "{loadBalancerId}": listRuleSetsRequest.loadBalancerId
     };
@@ -3458,7 +3847,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRuleSetsResponse>{},
         body: await response.json(),
@@ -3492,6 +3887,9 @@ To delete a rule from a rule set, use the
     listSSLCipherSuitesRequest: requests.ListSSLCipherSuitesRequest
   ): Promise<responses.ListSSLCipherSuitesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listSSLCipherSuites.");
+    const operationName = "listSSLCipherSuites";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/SSLCipherSuite/ListSSLCipherSuites";
     const pathParams = {
       "{loadBalancerId}": listSSLCipherSuitesRequest.loadBalancerId
     };
@@ -3520,7 +3918,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSSLCipherSuitesResponse>{},
         body: await response.json(),
@@ -3554,6 +3958,9 @@ To delete a rule from a rule set, use the
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listShapes.");
+    const operationName = "listShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancerShape/ListShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -3584,7 +3991,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListShapesResponse>{},
         body: await response.json(),
@@ -3675,6 +4088,9 @@ To delete a rule from a rule set, use the
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/WorkRequest/ListWorkRequests";
     const pathParams = {
       "{loadBalancerId}": listWorkRequestsRequest.loadBalancerId
     };
@@ -3706,7 +4122,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -3797,6 +4219,8 @@ To delete a rule from a rule set, use the
     updateBackendRequest: requests.UpdateBackendRequest
   ): Promise<responses.UpdateBackendResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateBackend.");
+    const operationName = "updateBackend";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateBackendRequest.loadBalancerId,
       "{backendSetName}": updateBackendRequest.backendSetName,
@@ -3833,7 +4257,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBackendResponse>{},
         responseHeaders: [
@@ -3868,6 +4298,8 @@ To delete a rule from a rule set, use the
     updateBackendSetRequest: requests.UpdateBackendSetRequest
   ): Promise<responses.UpdateBackendSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateBackendSet.");
+    const operationName = "updateBackendSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateBackendSetRequest.loadBalancerId,
       "{backendSetName}": updateBackendSetRequest.backendSetName
@@ -3903,7 +4335,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBackendSetResponse>{},
         responseHeaders: [
@@ -3938,6 +4376,8 @@ To delete a rule from a rule set, use the
     updateHealthCheckerRequest: requests.UpdateHealthCheckerRequest
   ): Promise<responses.UpdateHealthCheckerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateHealthChecker.");
+    const operationName = "updateHealthChecker";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateHealthCheckerRequest.loadBalancerId,
       "{backendSetName}": updateHealthCheckerRequest.backendSetName
@@ -3973,7 +4413,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHealthCheckerResponse>{},
         responseHeaders: [
@@ -4010,6 +4456,8 @@ To delete a rule from a rule set, use the
     updateHostnameRequest: requests.UpdateHostnameRequest
   ): Promise<responses.UpdateHostnameResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateHostname.");
+    const operationName = "updateHostname";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateHostnameRequest.loadBalancerId,
       "{name}": updateHostnameRequest.name
@@ -4044,7 +4492,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHostnameResponse>{},
         responseHeaders: [
@@ -4079,6 +4533,8 @@ To delete a rule from a rule set, use the
     updateListenerRequest: requests.UpdateListenerRequest
   ): Promise<responses.UpdateListenerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateListener.");
+    const operationName = "updateListener";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateListenerRequest.loadBalancerId,
       "{listenerName}": updateListenerRequest.listenerName
@@ -4114,7 +4570,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateListenerResponse>{},
         responseHeaders: [
@@ -4149,6 +4611,8 @@ To delete a rule from a rule set, use the
     updateLoadBalancerRequest: requests.UpdateLoadBalancerRequest
   ): Promise<responses.UpdateLoadBalancerResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateLoadBalancer.");
+    const operationName = "updateLoadBalancer";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateLoadBalancerRequest.loadBalancerId
     };
@@ -4183,7 +4647,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLoadBalancerResponse>{},
         responseHeaders: [
@@ -4225,6 +4695,9 @@ To delete a rule from a rule set, use the
   ): Promise<responses.UpdateLoadBalancerShapeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#updateLoadBalancerShape.");
+    const operationName = "updateLoadBalancerShape";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/LoadBalancer/UpdateLoadBalancerShape";
     const pathParams = {
       "{loadBalancerId}": updateLoadBalancerShapeRequest.loadBalancerId
     };
@@ -4259,7 +4732,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLoadBalancerShapeResponse>{},
         responseHeaders: [
@@ -4295,6 +4774,9 @@ To delete a rule from a rule set, use the
   ): Promise<responses.UpdateNetworkSecurityGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#updateNetworkSecurityGroups.");
+    const operationName = "updateNetworkSecurityGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/loadbalancer/20170115/NetworkSecurityGroups/UpdateNetworkSecurityGroups";
     const pathParams = {
       "{loadBalancerId}": updateNetworkSecurityGroupsRequest.loadBalancerId
     };
@@ -4329,7 +4811,13 @@ To delete a rule from a rule set, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNetworkSecurityGroupsResponse>{},
         responseHeaders: [
@@ -4370,6 +4858,8 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
     updatePathRouteSetRequest: requests.UpdatePathRouteSetRequest
   ): Promise<responses.UpdatePathRouteSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updatePathRouteSet.");
+    const operationName = "updatePathRouteSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updatePathRouteSetRequest.loadBalancerId,
       "{pathRouteSetName}": updatePathRouteSetRequest.pathRouteSetName
@@ -4405,7 +4895,13 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePathRouteSetResponse>{},
         responseHeaders: [
@@ -4444,6 +4940,8 @@ To add a new routing rule to a routing policy, the body must include both the ne
     updateRoutingPolicyRequest: requests.UpdateRoutingPolicyRequest
   ): Promise<responses.UpdateRoutingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateRoutingPolicy.");
+    const operationName = "updateRoutingPolicy";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateRoutingPolicyRequest.loadBalancerId,
       "{routingPolicyName}": updateRoutingPolicyRequest.routingPolicyName
@@ -4479,7 +4977,13 @@ To add a new routing rule to a routing policy, the body must include both the ne
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRoutingPolicyResponse>{},
         responseHeaders: [
@@ -4518,6 +5022,8 @@ To add a new rule to a set, the body must include both the new rule to add and t
     updateRuleSetRequest: requests.UpdateRuleSetRequest
   ): Promise<responses.UpdateRuleSetResponse> {
     if (this.logger) this.logger.debug("Calling operation LoadBalancerClient#updateRuleSet.");
+    const operationName = "updateRuleSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateRuleSetRequest.loadBalancerId,
       "{ruleSetName}": updateRuleSetRequest.ruleSetName
@@ -4552,7 +5058,13 @@ To add a new rule to a set, the body must include both the new rule to add and t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRuleSetResponse>{},
         responseHeaders: [
@@ -4588,6 +5100,8 @@ To add a new rule to a set, the body must include both the new rule to add and t
   ): Promise<responses.UpdateSSLCipherSuiteResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoadBalancerClient#updateSSLCipherSuite.");
+    const operationName = "updateSSLCipherSuite";
+    const apiReferenceLink = "";
     const pathParams = {
       "{loadBalancerId}": updateSSLCipherSuiteRequest.loadBalancerId,
       "{name}": updateSSLCipherSuiteRequest.name
@@ -4623,7 +5137,13 @@ To add a new rule to a set, the body must include both the new rule to add and t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSSLCipherSuiteResponse>{},
         responseHeaders: [

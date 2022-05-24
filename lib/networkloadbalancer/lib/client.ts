@@ -36,6 +36,7 @@ export class NetworkLoadBalancerClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "NetworkLoadBalancer";
 
   protected _httpClient: common.HttpClient;
 
@@ -167,6 +168,9 @@ export class NetworkLoadBalancerClient {
       this.logger.debug(
         "Calling operation NetworkLoadBalancerClient#changeNetworkLoadBalancerCompartment."
       );
+    const operationName = "changeNetworkLoadBalancerCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/ChangeNetworkLoadBalancerCompartment";
     const pathParams = {
       "{networkLoadBalancerId}": changeNetworkLoadBalancerCompartmentRequest.networkLoadBalancerId
     };
@@ -202,7 +206,13 @@ export class NetworkLoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeNetworkLoadBalancerCompartmentResponse>{},
         responseHeaders: [
@@ -238,6 +248,9 @@ export class NetworkLoadBalancerClient {
   ): Promise<responses.CreateBackendResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#createBackend.");
+    const operationName = "createBackend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/CreateBackend";
     const pathParams = {
       "{networkLoadBalancerId}": createBackendRequest.networkLoadBalancerId,
       "{backendSetName}": createBackendRequest.backendSetName
@@ -274,7 +287,13 @@ export class NetworkLoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBackendResponse>{},
         responseHeaders: [
@@ -310,6 +329,9 @@ export class NetworkLoadBalancerClient {
   ): Promise<responses.CreateBackendSetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#createBackendSet.");
+    const operationName = "createBackendSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/CreateBackendSet";
     const pathParams = {
       "{networkLoadBalancerId}": createBackendSetRequest.networkLoadBalancerId
     };
@@ -345,7 +367,13 @@ export class NetworkLoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBackendSetResponse>{},
         responseHeaders: [
@@ -381,6 +409,9 @@ export class NetworkLoadBalancerClient {
   ): Promise<responses.CreateListenerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#createListener.");
+    const operationName = "createListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/CreateListener";
     const pathParams = {
       "{networkLoadBalancerId}": createListenerRequest.networkLoadBalancerId
     };
@@ -416,7 +447,13 @@ export class NetworkLoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateListenerResponse>{},
         responseHeaders: [
@@ -458,6 +495,9 @@ export class NetworkLoadBalancerClient {
   ): Promise<responses.CreateNetworkLoadBalancerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#createNetworkLoadBalancer.");
+    const operationName = "createNetworkLoadBalancer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/CreateNetworkLoadBalancer";
     const pathParams = {};
 
     const queryParams = {};
@@ -490,7 +530,13 @@ export class NetworkLoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNetworkLoadBalancerResponse>{},
         body: await response.json(),
@@ -535,6 +581,9 @@ export class NetworkLoadBalancerClient {
   ): Promise<responses.DeleteBackendResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteBackend.");
+    const operationName = "deleteBackend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/DeleteBackend";
     const pathParams = {
       "{networkLoadBalancerId}": deleteBackendRequest.networkLoadBalancerId,
       "{backendSetName}": deleteBackendRequest.backendSetName,
@@ -567,7 +616,13 @@ export class NetworkLoadBalancerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackendResponse>{},
         responseHeaders: [
@@ -606,6 +661,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.DeleteBackendSetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteBackendSet.");
+    const operationName = "deleteBackendSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/DeleteBackendSet";
     const pathParams = {
       "{networkLoadBalancerId}": deleteBackendSetRequest.networkLoadBalancerId,
       "{backendSetName}": deleteBackendSetRequest.backendSetName
@@ -636,7 +694,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackendSetResponse>{},
         responseHeaders: [
@@ -672,6 +736,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.DeleteListenerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteListener.");
+    const operationName = "deleteListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/DeleteListener";
     const pathParams = {
       "{networkLoadBalancerId}": deleteListenerRequest.networkLoadBalancerId,
       "{listenerName}": deleteListenerRequest.listenerName
@@ -702,7 +769,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteListenerResponse>{},
         responseHeaders: [
@@ -743,6 +816,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.DeleteNetworkLoadBalancerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#deleteNetworkLoadBalancer.");
+    const operationName = "deleteNetworkLoadBalancer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/DeleteNetworkLoadBalancer";
     const pathParams = {
       "{networkLoadBalancerId}": deleteNetworkLoadBalancerRequest.networkLoadBalancerId
     };
@@ -772,7 +848,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNetworkLoadBalancerResponse>{},
         responseHeaders: [
@@ -807,6 +889,9 @@ Before you can delete a backend set, you must remove it from any active listener
     getBackendRequest: requests.GetBackendRequest
   ): Promise<responses.GetBackendResponse> {
     if (this.logger) this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackend.");
+    const operationName = "getBackend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/GetBackend";
     const pathParams = {
       "{networkLoadBalancerId}": getBackendRequest.networkLoadBalancerId,
       "{backendSetName}": getBackendRequest.backendSetName,
@@ -839,7 +924,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendResponse>{},
         body: await response.json(),
@@ -879,6 +970,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.GetBackendHealthResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackendHealth.");
+    const operationName = "getBackendHealth";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendHealth/GetBackendHealth";
     const pathParams = {
       "{networkLoadBalancerId}": getBackendHealthRequest.networkLoadBalancerId,
       "{backendSetName}": getBackendHealthRequest.backendSetName,
@@ -910,7 +1004,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendHealthResponse>{},
         body: await response.json(),
@@ -945,6 +1045,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.GetBackendSetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackendSet.");
+    const operationName = "getBackendSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/GetBackendSet";
     const pathParams = {
       "{networkLoadBalancerId}": getBackendSetRequest.networkLoadBalancerId,
       "{backendSetName}": getBackendSetRequest.backendSetName
@@ -975,7 +1078,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendSetResponse>{},
         body: await response.json(),
@@ -1015,6 +1124,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.GetBackendSetHealthResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#getBackendSetHealth.");
+    const operationName = "getBackendSetHealth";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSetHealth/GetBackendSetHealth";
     const pathParams = {
       "{networkLoadBalancerId}": getBackendSetHealthRequest.networkLoadBalancerId,
       "{backendSetName}": getBackendSetHealthRequest.backendSetName
@@ -1044,7 +1156,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackendSetHealthResponse>{},
         body: await response.json(),
@@ -1084,6 +1202,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.GetHealthCheckerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#getHealthChecker.");
+    const operationName = "getHealthChecker";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/HealthChecker/GetHealthChecker";
     const pathParams = {
       "{networkLoadBalancerId}": getHealthCheckerRequest.networkLoadBalancerId,
       "{backendSetName}": getHealthCheckerRequest.backendSetName
@@ -1116,7 +1237,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHealthCheckerResponse>{},
         body: await response.json(),
@@ -1155,6 +1282,9 @@ Before you can delete a backend set, you must remove it from any active listener
     getListenerRequest: requests.GetListenerRequest
   ): Promise<responses.GetListenerResponse> {
     if (this.logger) this.logger.debug("Calling operation NetworkLoadBalancerClient#getListener.");
+    const operationName = "getListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/GetListener";
     const pathParams = {
       "{networkLoadBalancerId}": getListenerRequest.networkLoadBalancerId,
       "{listenerName}": getListenerRequest.listenerName
@@ -1185,7 +1315,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetListenerResponse>{},
         body: await response.json(),
@@ -1225,6 +1361,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.GetNetworkLoadBalancerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#getNetworkLoadBalancer.");
+    const operationName = "getNetworkLoadBalancer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/GetNetworkLoadBalancer";
     const pathParams = {
       "{networkLoadBalancerId}": getNetworkLoadBalancerRequest.networkLoadBalancerId
     };
@@ -1254,7 +1393,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkLoadBalancerResponse>{},
         body: await response.json(),
@@ -1296,6 +1441,9 @@ Before you can delete a backend set, you must remove it from any active listener
       this.logger.debug(
         "Calling operation NetworkLoadBalancerClient#getNetworkLoadBalancerHealth."
       );
+    const operationName = "getNetworkLoadBalancerHealth";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancerHealth/GetNetworkLoadBalancerHealth";
     const pathParams = {
       "{networkLoadBalancerId}": getNetworkLoadBalancerHealthRequest.networkLoadBalancerId
     };
@@ -1324,7 +1472,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkLoadBalancerHealthResponse>{},
         body: await response.json(),
@@ -1359,6 +1513,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1387,7 +1544,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1427,6 +1590,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.ListBackendSetsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#listBackendSets.");
+    const operationName = "listBackendSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSetSummary/ListBackendSets";
     const pathParams = {
       "{networkLoadBalancerId}": listBackendSetsRequest.networkLoadBalancerId
     };
@@ -1461,7 +1627,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBackendSetsResponse>{},
         body: await response.json(),
@@ -1500,6 +1672,9 @@ Before you can delete a backend set, you must remove it from any active listener
     listBackendsRequest: requests.ListBackendsRequest
   ): Promise<responses.ListBackendsResponse> {
     if (this.logger) this.logger.debug("Calling operation NetworkLoadBalancerClient#listBackends.");
+    const operationName = "listBackends";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSummary/ListBackends";
     const pathParams = {
       "{networkLoadBalancerId}": listBackendsRequest.networkLoadBalancerId,
       "{backendSetName}": listBackendsRequest.backendSetName
@@ -1535,7 +1710,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBackendsResponse>{},
         body: await response.json(),
@@ -1575,6 +1756,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.ListListenersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#listListeners.");
+    const operationName = "listListeners";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/ListenerSummary/ListListeners";
     const pathParams = {
       "{networkLoadBalancerId}": listListenersRequest.networkLoadBalancerId
     };
@@ -1609,7 +1793,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListListenersResponse>{},
         body: await response.json(),
@@ -1651,6 +1841,9 @@ Before you can delete a backend set, you must remove it from any active listener
       this.logger.debug(
         "Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancerHealths."
       );
+    const operationName = "listNetworkLoadBalancerHealths";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancerHealth/ListNetworkLoadBalancerHealths";
     const pathParams = {};
 
     const queryParams = {
@@ -1683,7 +1876,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkLoadBalancerHealthsResponse>{},
         body: await response.json(),
@@ -1724,6 +1923,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.ListNetworkLoadBalancersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancers.");
+    const operationName = "listNetworkLoadBalancers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/ListNetworkLoadBalancers";
     const pathParams = {};
 
     const queryParams = {
@@ -1758,7 +1960,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkLoadBalancersResponse>{},
         body: await response.json(),
@@ -1800,6 +2008,9 @@ Before you can delete a backend set, you must remove it from any active listener
       this.logger.debug(
         "Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancersPolicies."
       );
+    const operationName = "listNetworkLoadBalancersPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancingPolicy/ListNetworkLoadBalancersPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -1831,7 +2042,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkLoadBalancersPoliciesResponse>{},
         body: await response.json(),
@@ -1875,6 +2092,9 @@ Before you can delete a backend set, you must remove it from any active listener
       this.logger.debug(
         "Calling operation NetworkLoadBalancerClient#listNetworkLoadBalancersProtocols."
       );
+    const operationName = "listNetworkLoadBalancersProtocols";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/ListenerProtocols/ListNetworkLoadBalancersProtocols";
     const pathParams = {};
 
     const queryParams = {
@@ -1906,7 +2126,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkLoadBalancersProtocolsResponse>{},
         body: await response.json(),
@@ -1947,6 +2173,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1979,7 +2208,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -2020,6 +2255,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2052,7 +2290,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -2092,6 +2336,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -2122,7 +2369,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -2162,6 +2415,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.UpdateBackendResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#updateBackend.");
+    const operationName = "updateBackend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Backend/UpdateBackend";
     const pathParams = {
       "{networkLoadBalancerId}": updateBackendRequest.networkLoadBalancerId,
       "{backendSetName}": updateBackendRequest.backendSetName,
@@ -2200,7 +2456,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBackendResponse>{},
         responseHeaders: [
@@ -2236,6 +2498,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.UpdateBackendSetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#updateBackendSet.");
+    const operationName = "updateBackendSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/BackendSet/UpdateBackendSet";
     const pathParams = {
       "{networkLoadBalancerId}": updateBackendSetRequest.networkLoadBalancerId,
       "{backendSetName}": updateBackendSetRequest.backendSetName
@@ -2272,7 +2537,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBackendSetResponse>{},
         responseHeaders: [
@@ -2308,6 +2579,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.UpdateHealthCheckerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#updateHealthChecker.");
+    const operationName = "updateHealthChecker";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/HealthChecker/UpdateHealthChecker";
     const pathParams = {
       "{networkLoadBalancerId}": updateHealthCheckerRequest.networkLoadBalancerId,
       "{backendSetName}": updateHealthCheckerRequest.backendSetName
@@ -2345,7 +2619,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHealthCheckerResponse>{},
         responseHeaders: [
@@ -2381,6 +2661,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.UpdateListenerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#updateListener.");
+    const operationName = "updateListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/Listener/UpdateListener";
     const pathParams = {
       "{networkLoadBalancerId}": updateListenerRequest.networkLoadBalancerId,
       "{listenerName}": updateListenerRequest.listenerName
@@ -2417,7 +2700,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateListenerResponse>{},
         responseHeaders: [
@@ -2453,6 +2742,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.UpdateNetworkLoadBalancerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#updateNetworkLoadBalancer.");
+    const operationName = "updateNetworkLoadBalancer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/UpdateNetworkLoadBalancer";
     const pathParams = {
       "{networkLoadBalancerId}": updateNetworkLoadBalancerRequest.networkLoadBalancerId
     };
@@ -2487,7 +2779,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNetworkLoadBalancerResponse>{},
         responseHeaders: [
@@ -2523,6 +2821,9 @@ Before you can delete a backend set, you must remove it from any active listener
   ): Promise<responses.UpdateNetworkSecurityGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NetworkLoadBalancerClient#updateNetworkSecurityGroups.");
+    const operationName = "updateNetworkSecurityGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/networkloadbalancer/20200501/NetworkLoadBalancer/UpdateNetworkSecurityGroups";
     const pathParams = {
       "{networkLoadBalancerId}": updateNetworkSecurityGroupsRequest.networkLoadBalancerId
     };
@@ -2558,7 +2859,13 @@ Before you can delete a backend set, you must remove it from any active listener
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNetworkSecurityGroupsResponse>{},
         responseHeaders: [

@@ -16,8 +16,8 @@ import common = require("oci-common");
 
 export interface ListOdaInstancesResponse {
   /**
-   * Unique Oracle-assigned identifier for the request. If you contact
-   * Oracle about this request, provide this request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
@@ -28,6 +28,11 @@ export interface ListOdaInstancesResponse {
    *
    */
   "opcNextPage": string;
+  /**
+   * The total number of results that match the query.
+   *
+   */
+  "opcTotalItems": number;
   /**
    * A list of OdaInstanceSummary instances.
    */

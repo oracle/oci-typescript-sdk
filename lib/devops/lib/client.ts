@@ -35,6 +35,7 @@ export class DevopsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Devops";
 
   protected _httpClient: common.HttpClient;
 
@@ -160,6 +161,9 @@ export class DevopsClient {
     approveDeploymentRequest: requests.ApproveDeploymentRequest
   ): Promise<responses.ApproveDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#approveDeployment.");
+    const operationName = "approveDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/ApproveDeployment";
     const pathParams = {
       "{deploymentId}": approveDeploymentRequest.deploymentId
     };
@@ -195,7 +199,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ApproveDeploymentResponse>{},
         body: await response.json(),
@@ -234,6 +244,9 @@ export class DevopsClient {
     cancelBuildRunRequest: requests.CancelBuildRunRequest
   ): Promise<responses.CancelBuildRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#cancelBuildRun.");
+    const operationName = "cancelBuildRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/CancelBuildRun";
     const pathParams = {
       "{buildRunId}": cancelBuildRunRequest.buildRunId
     };
@@ -269,7 +282,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelBuildRunResponse>{},
         body: await response.json(),
@@ -308,6 +327,9 @@ export class DevopsClient {
     cancelDeploymentRequest: requests.CancelDeploymentRequest
   ): Promise<responses.CancelDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#cancelDeployment.");
+    const operationName = "cancelDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/CancelDeployment";
     const pathParams = {
       "{deploymentId}": cancelDeploymentRequest.deploymentId
     };
@@ -343,7 +365,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelDeploymentResponse>{},
         body: await response.json(),
@@ -382,6 +410,9 @@ export class DevopsClient {
     changeProjectCompartmentRequest: requests.ChangeProjectCompartmentRequest
   ): Promise<responses.ChangeProjectCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#changeProjectCompartment.");
+    const operationName = "changeProjectCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/ChangeProjectCompartment";
     const pathParams = {
       "{projectId}": changeProjectCompartmentRequest.projectId
     };
@@ -417,7 +448,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeProjectCompartmentResponse>{},
         responseHeaders: [
@@ -453,6 +490,9 @@ export class DevopsClient {
     createBuildPipelineRequest: requests.CreateBuildPipelineRequest
   ): Promise<responses.CreateBuildPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildPipeline.");
+    const operationName = "createBuildPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/CreateBuildPipeline";
     const pathParams = {};
 
     const queryParams = {};
@@ -485,7 +525,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBuildPipelineResponse>{},
         body: await response.json(),
@@ -535,6 +581,9 @@ export class DevopsClient {
     createBuildPipelineStageRequest: requests.CreateBuildPipelineStageRequest
   ): Promise<responses.CreateBuildPipelineStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildPipelineStage.");
+    const operationName = "createBuildPipelineStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/CreateBuildPipelineStage";
     const pathParams = {};
 
     const queryParams = {};
@@ -567,7 +616,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBuildPipelineStageResponse>{},
         body: await response.json(),
@@ -617,6 +672,9 @@ export class DevopsClient {
     createBuildRunRequest: requests.CreateBuildRunRequest
   ): Promise<responses.CreateBuildRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createBuildRun.");
+    const operationName = "createBuildRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/CreateBuildRun";
     const pathParams = {};
 
     const queryParams = {};
@@ -650,7 +708,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBuildRunResponse>{},
         body: await response.json(),
@@ -695,6 +759,9 @@ export class DevopsClient {
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createConnection.");
+    const operationName = "createConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/CreateConnection";
     const pathParams = {};
 
     const queryParams = {};
@@ -727,7 +794,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
@@ -776,6 +849,9 @@ export class DevopsClient {
     createDeployArtifactRequest: requests.CreateDeployArtifactRequest
   ): Promise<responses.CreateDeployArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployArtifact.");
+    const operationName = "createDeployArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/CreateDeployArtifact";
     const pathParams = {};
 
     const queryParams = {};
@@ -808,7 +884,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeployArtifactResponse>{},
         body: await response.json(),
@@ -857,6 +939,9 @@ export class DevopsClient {
     createDeployEnvironmentRequest: requests.CreateDeployEnvironmentRequest
   ): Promise<responses.CreateDeployEnvironmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployEnvironment.");
+    const operationName = "createDeployEnvironment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/CreateDeployEnvironment";
     const pathParams = {};
 
     const queryParams = {};
@@ -889,7 +974,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeployEnvironmentResponse>{},
         body: await response.json(),
@@ -938,6 +1029,9 @@ export class DevopsClient {
     createDeployPipelineRequest: requests.CreateDeployPipelineRequest
   ): Promise<responses.CreateDeployPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployPipeline.");
+    const operationName = "createDeployPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/CreateDeployPipeline";
     const pathParams = {};
 
     const queryParams = {};
@@ -970,7 +1064,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeployPipelineResponse>{},
         body: await response.json(),
@@ -1019,6 +1119,9 @@ export class DevopsClient {
     createDeployStageRequest: requests.CreateDeployStageRequest
   ): Promise<responses.CreateDeployStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployStage.");
+    const operationName = "createDeployStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/CreateDeployStage";
     const pathParams = {};
 
     const queryParams = {};
@@ -1051,7 +1154,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeployStageResponse>{},
         body: await response.json(),
@@ -1100,6 +1209,9 @@ export class DevopsClient {
     createDeploymentRequest: requests.CreateDeploymentRequest
   ): Promise<responses.CreateDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createDeployment.");
+    const operationName = "createDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/CreateDeployment";
     const pathParams = {};
 
     const queryParams = {};
@@ -1132,7 +1244,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeploymentResponse>{},
         body: await response.json(),
@@ -1171,6 +1289,9 @@ export class DevopsClient {
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createProject.");
+    const operationName = "createProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/CreateProject";
     const pathParams = {};
 
     const queryParams = {};
@@ -1203,7 +1324,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
@@ -1253,6 +1380,9 @@ export class DevopsClient {
     createRepositoryRequest: requests.CreateRepositoryRequest
   ): Promise<responses.CreateRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createRepository.");
+    const operationName = "createRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/CreateRepository";
     const pathParams = {};
 
     const queryParams = {};
@@ -1285,7 +1415,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRepositoryResponse>{},
         body: await response.json(),
@@ -1335,6 +1471,9 @@ export class DevopsClient {
     createTriggerRequest: requests.CreateTriggerRequest
   ): Promise<responses.CreateTriggerResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#createTrigger.");
+    const operationName = "createTrigger";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/CreateTrigger";
     const pathParams = {};
 
     const queryParams = {};
@@ -1367,7 +1506,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTriggerResponse>{},
         body: await response.json(),
@@ -1416,6 +1561,9 @@ export class DevopsClient {
     deleteBuildPipelineRequest: requests.DeleteBuildPipelineRequest
   ): Promise<responses.DeleteBuildPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteBuildPipeline.");
+    const operationName = "deleteBuildPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/DeleteBuildPipeline";
     const pathParams = {
       "{buildPipelineId}": deleteBuildPipelineRequest.buildPipelineId
     };
@@ -1445,7 +1593,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBuildPipelineResponse>{},
         responseHeaders: [
@@ -1480,6 +1634,9 @@ export class DevopsClient {
     deleteBuildPipelineStageRequest: requests.DeleteBuildPipelineStageRequest
   ): Promise<responses.DeleteBuildPipelineStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteBuildPipelineStage.");
+    const operationName = "deleteBuildPipelineStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/DeleteBuildPipelineStage";
     const pathParams = {
       "{buildPipelineStageId}": deleteBuildPipelineStageRequest.buildPipelineStageId
     };
@@ -1509,7 +1666,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBuildPipelineStageResponse>{},
         responseHeaders: [
@@ -1544,6 +1707,9 @@ export class DevopsClient {
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteConnection.");
+    const operationName = "deleteConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/DeleteConnection";
     const pathParams = {
       "{connectionId}": deleteConnectionRequest.connectionId
     };
@@ -1573,7 +1739,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionResponse>{},
         responseHeaders: [
@@ -1608,6 +1780,9 @@ export class DevopsClient {
     deleteDeployArtifactRequest: requests.DeleteDeployArtifactRequest
   ): Promise<responses.DeleteDeployArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployArtifact.");
+    const operationName = "deleteDeployArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/DeleteDeployArtifact";
     const pathParams = {
       "{deployArtifactId}": deleteDeployArtifactRequest.deployArtifactId
     };
@@ -1637,7 +1812,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeployArtifactResponse>{},
         responseHeaders: [
@@ -1672,6 +1853,9 @@ export class DevopsClient {
     deleteDeployEnvironmentRequest: requests.DeleteDeployEnvironmentRequest
   ): Promise<responses.DeleteDeployEnvironmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployEnvironment.");
+    const operationName = "deleteDeployEnvironment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/DeleteDeployEnvironment";
     const pathParams = {
       "{deployEnvironmentId}": deleteDeployEnvironmentRequest.deployEnvironmentId
     };
@@ -1701,7 +1885,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeployEnvironmentResponse>{},
         responseHeaders: [
@@ -1736,6 +1926,9 @@ export class DevopsClient {
     deleteDeployPipelineRequest: requests.DeleteDeployPipelineRequest
   ): Promise<responses.DeleteDeployPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployPipeline.");
+    const operationName = "deleteDeployPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/DeleteDeployPipeline";
     const pathParams = {
       "{deployPipelineId}": deleteDeployPipelineRequest.deployPipelineId
     };
@@ -1765,7 +1958,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeployPipelineResponse>{},
         responseHeaders: [
@@ -1800,6 +1999,9 @@ export class DevopsClient {
     deleteDeployStageRequest: requests.DeleteDeployStageRequest
   ): Promise<responses.DeleteDeployStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteDeployStage.");
+    const operationName = "deleteDeployStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/DeleteDeployStage";
     const pathParams = {
       "{deployStageId}": deleteDeployStageRequest.deployStageId
     };
@@ -1829,7 +2031,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeployStageResponse>{},
         responseHeaders: [
@@ -1864,6 +2072,9 @@ export class DevopsClient {
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteProject.");
+    const operationName = "deleteProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/DeleteProject";
     const pathParams = {
       "{projectId}": deleteProjectRequest.projectId
     };
@@ -1893,7 +2104,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProjectResponse>{},
         responseHeaders: [
@@ -1928,6 +2145,9 @@ export class DevopsClient {
     deleteRefRequest: requests.DeleteRefRequest
   ): Promise<responses.DeleteRefResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteRef.");
+    const operationName = "deleteRef";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/DeleteRef";
     const pathParams = {
       "{repositoryId}": deleteRefRequest.repositoryId,
       "{refName}": deleteRefRequest.refName
@@ -1959,7 +2179,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRefResponse>{},
         responseHeaders: [
@@ -1994,6 +2220,9 @@ export class DevopsClient {
     deleteRepositoryRequest: requests.DeleteRepositoryRequest
   ): Promise<responses.DeleteRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteRepository.");
+    const operationName = "deleteRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/DeleteRepository";
     const pathParams = {
       "{repositoryId}": deleteRepositoryRequest.repositoryId
     };
@@ -2023,7 +2252,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRepositoryResponse>{},
         responseHeaders: [
@@ -2058,6 +2293,9 @@ export class DevopsClient {
     deleteTriggerRequest: requests.DeleteTriggerRequest
   ): Promise<responses.DeleteTriggerResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#deleteTrigger.");
+    const operationName = "deleteTrigger";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/DeleteTrigger";
     const pathParams = {
       "{triggerId}": deleteTriggerRequest.triggerId
     };
@@ -2087,7 +2325,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTriggerResponse>{},
         responseHeaders: [
@@ -2122,6 +2366,9 @@ export class DevopsClient {
     getBuildPipelineRequest: requests.GetBuildPipelineRequest
   ): Promise<responses.GetBuildPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildPipeline.");
+    const operationName = "getBuildPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/GetBuildPipeline";
     const pathParams = {
       "{buildPipelineId}": getBuildPipelineRequest.buildPipelineId
     };
@@ -2150,7 +2397,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBuildPipelineResponse>{},
         body: await response.json(),
@@ -2189,6 +2442,9 @@ export class DevopsClient {
     getBuildPipelineStageRequest: requests.GetBuildPipelineStageRequest
   ): Promise<responses.GetBuildPipelineStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildPipelineStage.");
+    const operationName = "getBuildPipelineStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/GetBuildPipelineStage";
     const pathParams = {
       "{buildPipelineStageId}": getBuildPipelineStageRequest.buildPipelineStageId
     };
@@ -2217,7 +2473,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBuildPipelineStageResponse>{},
         body: await response.json(),
@@ -2257,6 +2519,9 @@ export class DevopsClient {
     getBuildRunRequest: requests.GetBuildRunRequest
   ): Promise<responses.GetBuildRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getBuildRun.");
+    const operationName = "getBuildRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/GetBuildRun";
     const pathParams = {
       "{buildRunId}": getBuildRunRequest.buildRunId
     };
@@ -2285,7 +2550,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBuildRunResponse>{},
         body: await response.json(),
@@ -2324,6 +2595,9 @@ export class DevopsClient {
     getCommitRequest: requests.GetCommitRequest
   ): Promise<responses.GetCommitResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getCommit.");
+    const operationName = "getCommit";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetCommit";
     const pathParams = {
       "{repositoryId}": getCommitRequest.repositoryId,
       "{commitId}": getCommitRequest.commitId
@@ -2353,7 +2627,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCommitResponse>{},
         body: await response.json(),
@@ -2393,6 +2673,9 @@ export class DevopsClient {
     getCommitDiffRequest: requests.GetCommitDiffRequest
   ): Promise<responses.GetCommitDiffResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getCommitDiff.");
+    const operationName = "getCommitDiff";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetCommitDiff";
     const pathParams = {
       "{repositoryId}": getCommitDiffRequest.repositoryId
     };
@@ -2425,7 +2708,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCommitDiffResponse>{},
         body: await response.json(),
@@ -2464,6 +2753,9 @@ export class DevopsClient {
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getConnection.");
+    const operationName = "getConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/GetConnection";
     const pathParams = {
       "{connectionId}": getConnectionRequest.connectionId
     };
@@ -2492,7 +2784,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
@@ -2531,6 +2829,9 @@ export class DevopsClient {
     getDeployArtifactRequest: requests.GetDeployArtifactRequest
   ): Promise<responses.GetDeployArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployArtifact.");
+    const operationName = "getDeployArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/GetDeployArtifact";
     const pathParams = {
       "{deployArtifactId}": getDeployArtifactRequest.deployArtifactId
     };
@@ -2559,7 +2860,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeployArtifactResponse>{},
         body: await response.json(),
@@ -2598,6 +2905,9 @@ export class DevopsClient {
     getDeployEnvironmentRequest: requests.GetDeployEnvironmentRequest
   ): Promise<responses.GetDeployEnvironmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployEnvironment.");
+    const operationName = "getDeployEnvironment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/GetDeployEnvironment";
     const pathParams = {
       "{deployEnvironmentId}": getDeployEnvironmentRequest.deployEnvironmentId
     };
@@ -2626,7 +2936,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeployEnvironmentResponse>{},
         body: await response.json(),
@@ -2665,6 +2981,9 @@ export class DevopsClient {
     getDeployPipelineRequest: requests.GetDeployPipelineRequest
   ): Promise<responses.GetDeployPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployPipeline.");
+    const operationName = "getDeployPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/GetDeployPipeline";
     const pathParams = {
       "{deployPipelineId}": getDeployPipelineRequest.deployPipelineId
     };
@@ -2693,7 +3012,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeployPipelineResponse>{},
         body: await response.json(),
@@ -2732,6 +3057,9 @@ export class DevopsClient {
     getDeployStageRequest: requests.GetDeployStageRequest
   ): Promise<responses.GetDeployStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployStage.");
+    const operationName = "getDeployStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/GetDeployStage";
     const pathParams = {
       "{deployStageId}": getDeployStageRequest.deployStageId
     };
@@ -2760,7 +3088,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeployStageResponse>{},
         body: await response.json(),
@@ -2799,6 +3133,9 @@ export class DevopsClient {
     getDeploymentRequest: requests.GetDeploymentRequest
   ): Promise<responses.GetDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getDeployment.");
+    const operationName = "getDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/GetDeployment";
     const pathParams = {
       "{deploymentId}": getDeploymentRequest.deploymentId
     };
@@ -2827,7 +3164,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeploymentResponse>{},
         body: await response.json(),
@@ -2867,6 +3210,9 @@ export class DevopsClient {
     getFileDiffRequest: requests.GetFileDiffRequest
   ): Promise<responses.GetFileDiffResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getFileDiff.");
+    const operationName = "getFileDiff";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetFileDiff";
     const pathParams = {
       "{repositoryId}": getFileDiffRequest.repositoryId,
       "{filePath}": getFileDiffRequest.filePath
@@ -2900,7 +3246,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFileDiffResponse>{},
         body: await response.json(),
@@ -2945,6 +3297,9 @@ export class DevopsClient {
     getMirrorRecordRequest: requests.GetMirrorRecordRequest
   ): Promise<responses.GetMirrorRecordResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getMirrorRecord.");
+    const operationName = "getMirrorRecord";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetMirrorRecord";
     const pathParams = {
       "{repositoryId}": getMirrorRecordRequest.repositoryId,
       "{mirrorRecordType}": getMirrorRecordRequest.mirrorRecordType
@@ -2974,7 +3329,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMirrorRecordResponse>{},
         body: await response.json(),
@@ -3014,6 +3375,9 @@ export class DevopsClient {
     getObjectRequest: requests.GetObjectRequest
   ): Promise<responses.GetObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getObject.");
+    const operationName = "getObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryObject/GetObject";
     const pathParams = {
       "{repositoryId}": getObjectRequest.repositoryId
     };
@@ -3045,7 +3409,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetObjectResponse>{},
         body: await response.json(),
@@ -3085,6 +3455,9 @@ export class DevopsClient {
     getObjectContentRequest: requests.GetObjectContentRequest
   ): Promise<responses.GetObjectContentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getObjectContent.");
+    const operationName = "getObjectContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetObjectContent";
     const pathParams = {
       "{repositoryId}": getObjectContentRequest.repositoryId,
       "{sha}": getObjectContentRequest.sha
@@ -3116,7 +3489,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetObjectContentResponse>{},
 
@@ -3160,6 +3539,9 @@ export class DevopsClient {
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getProject.");
+    const operationName = "getProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/GetProject";
     const pathParams = {
       "{projectId}": getProjectRequest.projectId
     };
@@ -3188,7 +3570,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
@@ -3225,6 +3613,9 @@ export class DevopsClient {
    */
   public async getRef(getRefRequest: requests.GetRefRequest): Promise<responses.GetRefResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getRef.");
+    const operationName = "getRef";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRef";
     const pathParams = {
       "{repositoryId}": getRefRequest.repositoryId,
       "{refName}": getRefRequest.refName
@@ -3254,7 +3645,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRefResponse>{},
         body: await response.json(),
@@ -3294,6 +3691,9 @@ export class DevopsClient {
     getRepoFileDiffRequest: requests.GetRepoFileDiffRequest
   ): Promise<responses.GetRepoFileDiffResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepoFileDiff.");
+    const operationName = "getRepoFileDiff";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepoFileDiff";
     const pathParams = {
       "{repositoryId}": getRepoFileDiffRequest.repositoryId
     };
@@ -3327,7 +3727,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRepoFileDiffResponse>{},
         body: await response.json(),
@@ -3367,6 +3773,9 @@ export class DevopsClient {
     getRepoFileLinesRequest: requests.GetRepoFileLinesRequest
   ): Promise<responses.GetRepoFileLinesResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepoFileLines.");
+    const operationName = "getRepoFileLines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepoFileLines";
     const pathParams = {
       "{repositoryId}": getRepoFileLinesRequest.repositoryId
     };
@@ -3400,7 +3809,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRepoFileLinesResponse>{},
         body: await response.json(),
@@ -3439,6 +3854,9 @@ export class DevopsClient {
     getRepositoryRequest: requests.GetRepositoryRequest
   ): Promise<responses.GetRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepository.");
+    const operationName = "getRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepository";
     const pathParams = {
       "{repositoryId}": getRepositoryRequest.repositoryId
     };
@@ -3469,7 +3887,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRepositoryResponse>{},
         body: await response.json(),
@@ -3510,6 +3934,9 @@ export class DevopsClient {
   ): Promise<responses.GetRepositoryArchiveContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DevopsClient#getRepositoryArchiveContent.");
+    const operationName = "getRepositoryArchiveContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepositoryArchiveContent";
     const pathParams = {
       "{repositoryId}": getRepositoryArchiveContentRequest.repositoryId
     };
@@ -3541,7 +3968,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRepositoryArchiveContentResponse>{},
 
@@ -3586,6 +4019,9 @@ export class DevopsClient {
     getRepositoryFileLinesRequest: requests.GetRepositoryFileLinesRequest
   ): Promise<responses.GetRepositoryFileLinesResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getRepositoryFileLines.");
+    const operationName = "getRepositoryFileLines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/GetRepositoryFileLines";
     const pathParams = {
       "{repositoryId}": getRepositoryFileLinesRequest.repositoryId,
       "{filePath}": getRepositoryFileLinesRequest.filePath
@@ -3619,7 +4055,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRepositoryFileLinesResponse>{},
         body: await response.json(),
@@ -3663,6 +4105,9 @@ export class DevopsClient {
     getTriggerRequest: requests.GetTriggerRequest
   ): Promise<responses.GetTriggerResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getTrigger.");
+    const operationName = "getTrigger";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/GetTrigger";
     const pathParams = {
       "{triggerId}": getTriggerRequest.triggerId
     };
@@ -3691,7 +4136,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTriggerResponse>{},
         body: await response.json(),
@@ -3730,6 +4181,9 @@ export class DevopsClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -3758,7 +4212,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -3798,6 +4258,9 @@ export class DevopsClient {
     listAuthorsRequest: requests.ListAuthorsRequest
   ): Promise<responses.ListAuthorsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listAuthors.");
+    const operationName = "listAuthors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListAuthors";
     const pathParams = {
       "{repositoryId}": listAuthorsRequest.repositoryId
     };
@@ -3831,7 +4294,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuthorsResponse>{},
         body: await response.json(),
@@ -3871,6 +4340,9 @@ export class DevopsClient {
     listBuildPipelineStagesRequest: requests.ListBuildPipelineStagesRequest
   ): Promise<responses.ListBuildPipelineStagesResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildPipelineStages.");
+    const operationName = "listBuildPipelineStages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStageSummary/ListBuildPipelineStages";
     const pathParams = {};
 
     const queryParams = {
@@ -3907,7 +4379,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBuildPipelineStagesResponse>{},
         body: await response.json(),
@@ -3947,6 +4425,9 @@ export class DevopsClient {
     listBuildPipelinesRequest: requests.ListBuildPipelinesRequest
   ): Promise<responses.ListBuildPipelinesResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildPipelines.");
+    const operationName = "listBuildPipelines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineCollection/ListBuildPipelines";
     const pathParams = {};
 
     const queryParams = {
@@ -3983,7 +4464,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBuildPipelinesResponse>{},
         body: await response.json(),
@@ -4023,6 +4510,9 @@ export class DevopsClient {
     listBuildRunsRequest: requests.ListBuildRunsRequest
   ): Promise<responses.ListBuildRunsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listBuildRuns.");
+    const operationName = "listBuildRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRunSummary/ListBuildRuns";
     const pathParams = {};
 
     const queryParams = {
@@ -4060,7 +4550,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBuildRunsResponse>{},
         body: await response.json(),
@@ -4100,6 +4596,9 @@ export class DevopsClient {
     listCommitDiffsRequest: requests.ListCommitDiffsRequest
   ): Promise<responses.ListCommitDiffsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listCommitDiffs.");
+    const operationName = "listCommitDiffs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListCommitDiffs";
     const pathParams = {
       "{repositoryId}": listCommitDiffsRequest.repositoryId
     };
@@ -4134,7 +4633,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCommitDiffsResponse>{},
         body: await response.json(),
@@ -4174,6 +4679,9 @@ export class DevopsClient {
     listCommitsRequest: requests.ListCommitsRequest
   ): Promise<responses.ListCommitsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listCommits.");
+    const operationName = "listCommits";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryCommit/ListCommits";
     const pathParams = {
       "{repositoryId}": listCommitsRequest.repositoryId
     };
@@ -4212,7 +4720,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCommitsResponse>{},
         body: await response.json(),
@@ -4252,6 +4766,9 @@ export class DevopsClient {
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listConnections.");
+    const operationName = "listConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ConnectionCollection/ListConnections";
     const pathParams = {};
 
     const queryParams = {
@@ -4289,7 +4806,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
@@ -4328,6 +4851,9 @@ export class DevopsClient {
     listDeployArtifactsRequest: requests.ListDeployArtifactsRequest
   ): Promise<responses.ListDeployArtifactsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployArtifacts.");
+    const operationName = "listDeployArtifacts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifactSummary/ListDeployArtifacts";
     const pathParams = {};
 
     const queryParams = {
@@ -4364,7 +4890,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeployArtifactsResponse>{},
         body: await response.json(),
@@ -4403,6 +4935,9 @@ export class DevopsClient {
     listDeployEnvironmentsRequest: requests.ListDeployEnvironmentsRequest
   ): Promise<responses.ListDeployEnvironmentsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployEnvironments.");
+    const operationName = "listDeployEnvironments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironmentSummary/ListDeployEnvironments";
     const pathParams = {};
 
     const queryParams = {
@@ -4439,7 +4974,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeployEnvironmentsResponse>{},
         body: await response.json(),
@@ -4478,6 +5019,9 @@ export class DevopsClient {
     listDeployPipelinesRequest: requests.ListDeployPipelinesRequest
   ): Promise<responses.ListDeployPipelinesResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployPipelines.");
+    const operationName = "listDeployPipelines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipelineSummary/ListDeployPipelines";
     const pathParams = {};
 
     const queryParams = {
@@ -4514,7 +5058,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeployPipelinesResponse>{},
         body: await response.json(),
@@ -4553,6 +5103,9 @@ export class DevopsClient {
     listDeployStagesRequest: requests.ListDeployStagesRequest
   ): Promise<responses.ListDeployStagesResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployStages.");
+    const operationName = "listDeployStages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStageSummary/ListDeployStages";
     const pathParams = {};
 
     const queryParams = {
@@ -4589,7 +5142,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeployStagesResponse>{},
         body: await response.json(),
@@ -4628,6 +5187,9 @@ export class DevopsClient {
     listDeploymentsRequest: requests.ListDeploymentsRequest
   ): Promise<responses.ListDeploymentsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listDeployments.");
+    const operationName = "listDeployments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeploymentSummary/ListDeployments";
     const pathParams = {};
 
     const queryParams = {
@@ -4667,7 +5229,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeploymentsResponse>{},
         body: await response.json(),
@@ -4707,6 +5275,9 @@ export class DevopsClient {
     listMirrorRecordsRequest: requests.ListMirrorRecordsRequest
   ): Promise<responses.ListMirrorRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listMirrorRecords.");
+    const operationName = "listMirrorRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListMirrorRecords";
     const pathParams = {
       "{repositoryId}": listMirrorRecordsRequest.repositoryId
     };
@@ -4739,7 +5310,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMirrorRecordsResponse>{},
         body: await response.json(),
@@ -4779,6 +5356,9 @@ export class DevopsClient {
     listPathsRequest: requests.ListPathsRequest
   ): Promise<responses.ListPathsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listPaths.");
+    const operationName = "listPaths";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryPathSummary/ListPaths";
     const pathParams = {
       "{repositoryId}": listPathsRequest.repositoryId
     };
@@ -4816,7 +5396,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPathsResponse>{},
         body: await response.json(),
@@ -4855,6 +5441,9 @@ export class DevopsClient {
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listProjects.");
+    const operationName = "listProjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/ProjectSummary/ListProjects";
     const pathParams = {};
 
     const queryParams = {
@@ -4890,7 +5479,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
@@ -4930,6 +5525,9 @@ export class DevopsClient {
     listRefsRequest: requests.ListRefsRequest
   ): Promise<responses.ListRefsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listRefs.");
+    const operationName = "listRefs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/RepositoryRef/ListRefs";
     const pathParams = {
       "{repositoryId}": listRefsRequest.repositoryId
     };
@@ -4966,7 +5564,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRefsResponse>{},
         body: await response.json(),
@@ -5006,6 +5610,9 @@ export class DevopsClient {
     listRepositoriesRequest: requests.ListRepositoriesRequest
   ): Promise<responses.ListRepositoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listRepositories.");
+    const operationName = "listRepositories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/ListRepositories";
     const pathParams = {};
 
     const queryParams = {
@@ -5042,7 +5649,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRepositoriesResponse>{},
         body: await response.json(),
@@ -5082,6 +5695,9 @@ export class DevopsClient {
     listTriggersRequest: requests.ListTriggersRequest
   ): Promise<responses.ListTriggersResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listTriggers.");
+    const operationName = "listTriggers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/TriggerCollection/ListTriggers";
     const pathParams = {};
 
     const queryParams = {
@@ -5118,7 +5734,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTriggersResponse>{},
         body: await response.json(),
@@ -5157,6 +5779,9 @@ export class DevopsClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -5190,7 +5815,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -5229,6 +5860,9 @@ export class DevopsClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -5262,7 +5896,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -5301,6 +5941,9 @@ export class DevopsClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -5336,7 +5979,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -5376,6 +6025,9 @@ export class DevopsClient {
     mirrorRepositoryRequest: requests.MirrorRepositoryRequest
   ): Promise<responses.MirrorRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#mirrorRepository.");
+    const operationName = "mirrorRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/MirrorRepository";
     const pathParams = {
       "{repositoryId}": mirrorRepositoryRequest.repositoryId
     };
@@ -5405,7 +6057,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.MirrorRepositoryResponse>{},
         responseHeaders: [
@@ -5441,6 +6099,9 @@ export class DevopsClient {
     putRepositoryRefRequest: requests.PutRepositoryRefRequest
   ): Promise<responses.PutRepositoryRefResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#putRepositoryRef.");
+    const operationName = "putRepositoryRef";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/PutRepositoryRef";
     const pathParams = {
       "{repositoryId}": putRepositoryRefRequest.repositoryId,
       "{refName}": putRepositoryRefRequest.refName
@@ -5477,7 +6138,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PutRepositoryRefResponse>{},
         body: await response.json(),
@@ -5526,6 +6193,9 @@ export class DevopsClient {
     updateBuildPipelineRequest: requests.UpdateBuildPipelineRequest
   ): Promise<responses.UpdateBuildPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildPipeline.");
+    const operationName = "updateBuildPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipeline/UpdateBuildPipeline";
     const pathParams = {
       "{buildPipelineId}": updateBuildPipelineRequest.buildPipelineId
     };
@@ -5560,7 +6230,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBuildPipelineResponse>{},
         body: await response.json(),
@@ -5609,6 +6285,9 @@ export class DevopsClient {
     updateBuildPipelineStageRequest: requests.UpdateBuildPipelineStageRequest
   ): Promise<responses.UpdateBuildPipelineStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildPipelineStage.");
+    const operationName = "updateBuildPipelineStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildPipelineStage/UpdateBuildPipelineStage";
     const pathParams = {
       "{buildPipelineStageId}": updateBuildPipelineStageRequest.buildPipelineStageId
     };
@@ -5643,7 +6322,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBuildPipelineStageResponse>{},
         body: await response.json(),
@@ -5692,6 +6377,9 @@ export class DevopsClient {
     updateBuildRunRequest: requests.UpdateBuildRunRequest
   ): Promise<responses.UpdateBuildRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateBuildRun.");
+    const operationName = "updateBuildRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/BuildRun/UpdateBuildRun";
     const pathParams = {
       "{buildRunId}": updateBuildRunRequest.buildRunId
     };
@@ -5726,7 +6414,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBuildRunResponse>{},
         body: await response.json(),
@@ -5770,6 +6464,9 @@ export class DevopsClient {
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateConnection.");
+    const operationName = "updateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/UpdateConnection";
     const pathParams = {
       "{connectionId}": updateConnectionRequest.connectionId
     };
@@ -5804,7 +6501,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConnectionResponse>{},
         body: await response.json(),
@@ -5853,6 +6556,9 @@ export class DevopsClient {
     updateDeployArtifactRequest: requests.UpdateDeployArtifactRequest
   ): Promise<responses.UpdateDeployArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployArtifact.");
+    const operationName = "updateDeployArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployArtifact/UpdateDeployArtifact";
     const pathParams = {
       "{deployArtifactId}": updateDeployArtifactRequest.deployArtifactId
     };
@@ -5887,7 +6593,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeployArtifactResponse>{},
         body: await response.json(),
@@ -5936,6 +6648,9 @@ export class DevopsClient {
     updateDeployEnvironmentRequest: requests.UpdateDeployEnvironmentRequest
   ): Promise<responses.UpdateDeployEnvironmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployEnvironment.");
+    const operationName = "updateDeployEnvironment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployEnvironment/UpdateDeployEnvironment";
     const pathParams = {
       "{deployEnvironmentId}": updateDeployEnvironmentRequest.deployEnvironmentId
     };
@@ -5970,7 +6685,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeployEnvironmentResponse>{},
         body: await response.json(),
@@ -6019,6 +6740,9 @@ export class DevopsClient {
     updateDeployPipelineRequest: requests.UpdateDeployPipelineRequest
   ): Promise<responses.UpdateDeployPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployPipeline.");
+    const operationName = "updateDeployPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployPipeline/UpdateDeployPipeline";
     const pathParams = {
       "{deployPipelineId}": updateDeployPipelineRequest.deployPipelineId
     };
@@ -6053,7 +6777,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeployPipelineResponse>{},
         body: await response.json(),
@@ -6102,6 +6832,9 @@ export class DevopsClient {
     updateDeployStageRequest: requests.UpdateDeployStageRequest
   ): Promise<responses.UpdateDeployStageResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployStage.");
+    const operationName = "updateDeployStage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/DeployStage/UpdateDeployStage";
     const pathParams = {
       "{deployStageId}": updateDeployStageRequest.deployStageId
     };
@@ -6136,7 +6869,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeployStageResponse>{},
         body: await response.json(),
@@ -6185,6 +6924,9 @@ export class DevopsClient {
     updateDeploymentRequest: requests.UpdateDeploymentRequest
   ): Promise<responses.UpdateDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateDeployment.");
+    const operationName = "updateDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Deployment/UpdateDeployment";
     const pathParams = {
       "{deploymentId}": updateDeploymentRequest.deploymentId
     };
@@ -6219,7 +6961,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeploymentResponse>{},
         body: await response.json(),
@@ -6258,6 +7006,9 @@ export class DevopsClient {
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateProject.");
+    const operationName = "updateProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/UpdateProject";
     const pathParams = {
       "{projectId}": updateProjectRequest.projectId
     };
@@ -6292,7 +7043,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProjectResponse>{},
         body: await response.json(),
@@ -6341,6 +7098,9 @@ export class DevopsClient {
     updateRepositoryRequest: requests.UpdateRepositoryRequest
   ): Promise<responses.UpdateRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateRepository.");
+    const operationName = "updateRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Repository/UpdateRepository";
     const pathParams = {
       "{repositoryId}": updateRepositoryRequest.repositoryId
     };
@@ -6375,7 +7135,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRepositoryResponse>{},
         body: await response.json(),
@@ -6419,6 +7185,9 @@ export class DevopsClient {
     updateTriggerRequest: requests.UpdateTriggerRequest
   ): Promise<responses.UpdateTriggerResponse> {
     if (this.logger) this.logger.debug("Calling operation DevopsClient#updateTrigger.");
+    const operationName = "updateTrigger";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Trigger/UpdateTrigger";
     const pathParams = {
       "{triggerId}": updateTriggerRequest.triggerId
     };
@@ -6453,7 +7222,13 @@ export class DevopsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTriggerResponse>{},
         body: await response.json(),

@@ -36,6 +36,7 @@ export class DataSafeClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataSafe";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,9 @@ export class DataSafeClient {
     activateTargetDatabaseRequest: requests.ActivateTargetDatabaseRequest
   ): Promise<responses.ActivateTargetDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#activateTargetDatabase.");
+    const operationName = "activateTargetDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ActivateTargetDatabase";
     const pathParams = {
       "{targetDatabaseId}": activateTargetDatabaseRequest.targetDatabaseId
     };
@@ -197,7 +201,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateTargetDatabaseResponse>{},
         responseHeaders: [
@@ -237,6 +247,9 @@ export class DataSafeClient {
   ): Promise<responses.AddMaskingColumnsFromSdmResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#addMaskingColumnsFromSdm.");
+    const operationName = "addMaskingColumnsFromSdm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/AddMaskingColumnsFromSdm";
     const pathParams = {
       "{maskingPolicyId}": addMaskingColumnsFromSdmRequest.maskingPolicyId
     };
@@ -266,7 +279,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddMaskingColumnsFromSdmResponse>{},
         responseHeaders: [
@@ -306,6 +325,9 @@ export class DataSafeClient {
   ): Promise<responses.ApplyDiscoveryJobResultsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#applyDiscoveryJobResults.");
+    const operationName = "applyDiscoveryJobResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ApplyDiscoveryJobResults";
     const pathParams = {
       "{sensitiveDataModelId}": applyDiscoveryJobResultsRequest.sensitiveDataModelId
     };
@@ -341,7 +363,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ApplyDiscoveryJobResultsResponse>{},
         responseHeaders: [
@@ -377,6 +405,9 @@ export class DataSafeClient {
   ): Promise<responses.CalculateAuditVolumeAvailableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#calculateAuditVolumeAvailable.");
+    const operationName = "calculateAuditVolumeAvailable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/CalculateAuditVolumeAvailable";
     const pathParams = {
       "{auditProfileId}": calculateAuditVolumeAvailableRequest.auditProfileId
     };
@@ -412,7 +443,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CalculateAuditVolumeAvailableResponse>{},
         responseHeaders: [
@@ -448,6 +485,9 @@ export class DataSafeClient {
   ): Promise<responses.CalculateAuditVolumeCollectedResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#calculateAuditVolumeCollected.");
+    const operationName = "calculateAuditVolumeCollected";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/CalculateAuditVolumeCollected";
     const pathParams = {
       "{auditProfileId}": calculateAuditVolumeCollectedRequest.auditProfileId
     };
@@ -483,7 +523,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CalculateAuditVolumeCollectedResponse>{},
         responseHeaders: [
@@ -519,6 +565,9 @@ export class DataSafeClient {
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -549,7 +598,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -584,6 +639,9 @@ export class DataSafeClient {
     changeAlertCompartmentRequest: requests.ChangeAlertCompartmentRequest
   ): Promise<responses.ChangeAlertCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeAlertCompartment.");
+    const operationName = "changeAlertCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/ChangeAlertCompartment";
     const pathParams = {
       "{alertId}": changeAlertCompartmentRequest.alertId
     };
@@ -619,7 +677,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAlertCompartmentResponse>{},
         responseHeaders: [
@@ -651,6 +715,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeAuditArchiveRetrievalCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeAuditArchiveRetrievalCompartment.");
+    const operationName = "changeAuditArchiveRetrievalCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/ChangeAuditArchiveRetrievalCompartment";
     const pathParams = {
       "{auditArchiveRetrievalId}":
         changeAuditArchiveRetrievalCompartmentRequest.auditArchiveRetrievalId
@@ -687,7 +754,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAuditArchiveRetrievalCompartmentResponse>{},
         responseHeaders: [
@@ -723,6 +796,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeAuditPolicyCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeAuditPolicyCompartment.");
+    const operationName = "changeAuditPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/ChangeAuditPolicyCompartment";
     const pathParams = {
       "{auditPolicyId}": changeAuditPolicyCompartmentRequest.auditPolicyId
     };
@@ -758,7 +834,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAuditPolicyCompartmentResponse>{},
         responseHeaders: [
@@ -794,6 +876,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeAuditProfileCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeAuditProfileCompartment.");
+    const operationName = "changeAuditProfileCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ChangeAuditProfileCompartment";
     const pathParams = {
       "{auditProfileId}": changeAuditProfileCompartmentRequest.auditProfileId
     };
@@ -829,7 +914,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAuditProfileCompartmentResponse>{},
         responseHeaders: [
@@ -867,6 +958,9 @@ export class DataSafeClient {
       this.logger.debug(
         "Calling operation DataSafeClient#changeDataSafePrivateEndpointCompartment."
       );
+    const operationName = "changeDataSafePrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/ChangeDataSafePrivateEndpointCompartment";
     const pathParams = {
       "{dataSafePrivateEndpointId}":
         changeDataSafePrivateEndpointCompartmentRequest.dataSafePrivateEndpointId
@@ -902,7 +996,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDataSafePrivateEndpointCompartmentResponse>{},
         responseHeaders: [
@@ -938,6 +1038,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeDiscoveryJobCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeDiscoveryJobCompartment.");
+    const operationName = "changeDiscoveryJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/ChangeDiscoveryJobCompartment";
     const pathParams = {
       "{discoveryJobId}": changeDiscoveryJobCompartmentRequest.discoveryJobId
     };
@@ -973,7 +1076,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDiscoveryJobCompartmentResponse>{},
         responseHeaders: [
@@ -1004,6 +1113,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeLibraryMaskingFormatCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeLibraryMaskingFormatCompartment.");
+    const operationName = "changeLibraryMaskingFormatCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/ChangeLibraryMaskingFormatCompartment";
     const pathParams = {
       "{libraryMaskingFormatId}":
         changeLibraryMaskingFormatCompartmentRequest.libraryMaskingFormatId
@@ -1040,7 +1152,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLibraryMaskingFormatCompartmentResponse>{},
         responseHeaders: [
@@ -1071,6 +1189,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeMaskingPolicyCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeMaskingPolicyCompartment.");
+    const operationName = "changeMaskingPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ChangeMaskingPolicyCompartment";
     const pathParams = {
       "{maskingPolicyId}": changeMaskingPolicyCompartmentRequest.maskingPolicyId
     };
@@ -1106,7 +1227,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMaskingPolicyCompartmentResponse>{},
         responseHeaders: [
@@ -1137,6 +1264,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeOnPremConnectorCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeOnPremConnectorCompartment.");
+    const operationName = "changeOnPremConnectorCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/ChangeOnPremConnectorCompartment";
     const pathParams = {
       "{onPremConnectorId}": changeOnPremConnectorCompartmentRequest.onPremConnectorId
     };
@@ -1172,7 +1302,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeOnPremConnectorCompartmentResponse>{},
         responseHeaders: [
@@ -1202,6 +1338,9 @@ export class DataSafeClient {
     changeReportCompartmentRequest: requests.ChangeReportCompartmentRequest
   ): Promise<responses.ChangeReportCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeReportCompartment.");
+    const operationName = "changeReportCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Report/ChangeReportCompartment";
     const pathParams = {
       "{reportId}": changeReportCompartmentRequest.reportId
     };
@@ -1237,7 +1376,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeReportCompartmentResponse>{},
         responseHeaders: [
@@ -1273,6 +1418,9 @@ export class DataSafeClient {
   ): Promise<responses.ChangeReportDefinitionCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeReportDefinitionCompartment.");
+    const operationName = "changeReportDefinitionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/ChangeReportDefinitionCompartment";
     const pathParams = {
       "{reportDefinitionId}": changeReportDefinitionCompartmentRequest.reportDefinitionId
     };
@@ -1308,7 +1456,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeReportDefinitionCompartmentResponse>{},
         responseHeaders: [
@@ -1343,6 +1497,9 @@ export class DataSafeClient {
     changeRetentionRequest: requests.ChangeRetentionRequest
   ): Promise<responses.ChangeRetentionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#changeRetention.");
+    const operationName = "changeRetention";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ChangeRetention";
     const pathParams = {
       "{auditProfileId}": changeRetentionRequest.auditProfileId
     };
@@ -1378,7 +1535,13 @@ export class DataSafeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRetentionResponse>{},
         responseHeaders: [
@@ -1419,6 +1582,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.ChangeSecurityAssessmentCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeSecurityAssessmentCompartment.");
+    const operationName = "changeSecurityAssessmentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ChangeSecurityAssessmentCompartment";
     const pathParams = {
       "{securityAssessmentId}": changeSecurityAssessmentCompartmentRequest.securityAssessmentId
     };
@@ -1454,7 +1620,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSecurityAssessmentCompartmentResponse>{},
         responseHeaders: [
@@ -1485,6 +1657,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.ChangeSensitiveDataModelCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeSensitiveDataModelCompartment.");
+    const operationName = "changeSensitiveDataModelCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ChangeSensitiveDataModelCompartment";
     const pathParams = {
       "{sensitiveDataModelId}": changeSensitiveDataModelCompartmentRequest.sensitiveDataModelId
     };
@@ -1520,7 +1695,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSensitiveDataModelCompartmentResponse>{},
         responseHeaders: [
@@ -1551,6 +1732,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.ChangeSensitiveTypeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeSensitiveTypeCompartment.");
+    const operationName = "changeSensitiveTypeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/ChangeSensitiveTypeCompartment";
     const pathParams = {
       "{sensitiveTypeId}": changeSensitiveTypeCompartmentRequest.sensitiveTypeId
     };
@@ -1586,7 +1770,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSensitiveTypeCompartmentResponse>{},
         responseHeaders: [
@@ -1619,6 +1809,9 @@ The existing saved security assessments created due to the schedule are not move
       this.logger.debug(
         "Calling operation DataSafeClient#changeTargetAlertPolicyAssociationCompartment."
       );
+    const operationName = "changeTargetAlertPolicyAssociationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/ChangeTargetAlertPolicyAssociationCompartment";
     const pathParams = {
       "{targetAlertPolicyAssociationId}":
         changeTargetAlertPolicyAssociationCompartmentRequest.targetAlertPolicyAssociationId
@@ -1656,7 +1849,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTargetAlertPolicyAssociationCompartmentResponse>{},
         responseHeaders: [
@@ -1687,6 +1886,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.ChangeTargetDatabaseCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeTargetDatabaseCompartment.");
+    const operationName = "changeTargetDatabaseCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ChangeTargetDatabaseCompartment";
     const pathParams = {
       "{targetDatabaseId}": changeTargetDatabaseCompartmentRequest.targetDatabaseId
     };
@@ -1722,7 +1924,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTargetDatabaseCompartmentResponse>{},
         responseHeaders: [
@@ -1758,6 +1966,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.ChangeUserAssessmentCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#changeUserAssessmentCompartment.");
+    const operationName = "changeUserAssessmentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ChangeUserAssessmentCompartment";
     const pathParams = {
       "{userAssessmentId}": changeUserAssessmentCompartmentRequest.userAssessmentId
     };
@@ -1793,7 +2004,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeUserAssessmentCompartmentResponse>{},
         responseHeaders: [
@@ -1826,6 +2043,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.CompareSecurityAssessmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#compareSecurityAssessment.");
+    const operationName = "compareSecurityAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/CompareSecurityAssessment";
     const pathParams = {
       "{securityAssessmentId}": compareSecurityAssessmentRequest.securityAssessmentId
     };
@@ -1861,7 +2081,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CompareSecurityAssessmentResponse>{},
         responseHeaders: [
@@ -1898,6 +2124,9 @@ The existing saved security assessments created due to the schedule are not move
     compareUserAssessmentRequest: requests.CompareUserAssessmentRequest
   ): Promise<responses.CompareUserAssessmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#compareUserAssessment.");
+    const operationName = "compareUserAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/CompareUserAssessment";
     const pathParams = {
       "{userAssessmentId}": compareUserAssessmentRequest.userAssessmentId
     };
@@ -1933,7 +2162,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CompareUserAssessmentResponse>{},
         responseHeaders: [
@@ -1972,6 +2207,8 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.CreateAuditArchiveRetrievalResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#createAuditArchiveRetrieval.");
+    const operationName = "createAuditArchiveRetrieval";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2004,7 +2241,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAuditArchiveRetrievalResponse>{},
         body: await response.json(),
@@ -2050,6 +2293,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.CreateDataSafePrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#createDataSafePrivateEndpoint.");
+    const operationName = "createDataSafePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/CreateDataSafePrivateEndpoint";
     const pathParams = {};
 
     const queryParams = {};
@@ -2082,7 +2328,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataSafePrivateEndpointResponse>{},
         body: await response.json(),
@@ -2136,6 +2388,8 @@ The existing saved security assessments created due to the schedule are not move
     createDiscoveryJobRequest: requests.CreateDiscoveryJobRequest
   ): Promise<responses.CreateDiscoveryJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createDiscoveryJob.");
+    const operationName = "createDiscoveryJob";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2168,7 +2422,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDiscoveryJobResponse>{},
         body: await response.json(),
@@ -2223,6 +2483,9 @@ The existing saved security assessments created due to the schedule are not move
   ): Promise<responses.CreateLibraryMaskingFormatResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#createLibraryMaskingFormat.");
+    const operationName = "createLibraryMaskingFormat";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/CreateLibraryMaskingFormat";
     const pathParams = {};
 
     const queryParams = {};
@@ -2255,7 +2518,13 @@ The existing saved security assessments created due to the schedule are not move
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLibraryMaskingFormatResponse>{},
         body: await response.json(),
@@ -2324,6 +2593,9 @@ You can use the maskingColumnGroup attribute to group the columns that you would
     createMaskingColumnRequest: requests.CreateMaskingColumnRequest
   ): Promise<responses.CreateMaskingColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createMaskingColumn.");
+    const operationName = "createMaskingColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/CreateMaskingColumn";
     const pathParams = {
       "{maskingPolicyId}": createMaskingColumnRequest.maskingPolicyId
     };
@@ -2358,7 +2630,13 @@ You can use the maskingColumnGroup attribute to group the columns that you would
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMaskingColumnResponse>{},
         responseHeaders: [
@@ -2410,6 +2688,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     createMaskingPolicyRequest: requests.CreateMaskingPolicyRequest
   ): Promise<responses.CreateMaskingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createMaskingPolicy.");
+    const operationName = "createMaskingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/CreateMaskingPolicy";
     const pathParams = {};
 
     const queryParams = {};
@@ -2442,7 +2723,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMaskingPolicyResponse>{},
         body: await response.json(),
@@ -2492,6 +2779,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     createOnPremConnectorRequest: requests.CreateOnPremConnectorRequest
   ): Promise<responses.CreateOnPremConnectorResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createOnPremConnector.");
+    const operationName = "createOnPremConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/CreateOnPremConnector";
     const pathParams = {};
 
     const queryParams = {};
@@ -2524,7 +2814,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOnPremConnectorResponse>{},
         body: await response.json(),
@@ -2574,6 +2870,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     createReportDefinitionRequest: requests.CreateReportDefinitionRequest
   ): Promise<responses.CreateReportDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createReportDefinition.");
+    const operationName = "createReportDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/CreateReportDefinition";
     const pathParams = {};
 
     const queryParams = {};
@@ -2606,7 +2905,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateReportDefinitionResponse>{},
         body: await response.json(),
@@ -2654,6 +2959,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.CreateSecurityAssessmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#createSecurityAssessment.");
+    const operationName = "createSecurityAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/CreateSecurityAssessment";
     const pathParams = {};
 
     const queryParams = {};
@@ -2686,7 +2994,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSecurityAssessmentResponse>{},
         body: await response.json(),
@@ -2736,6 +3050,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     createSensitiveColumnRequest: requests.CreateSensitiveColumnRequest
   ): Promise<responses.CreateSensitiveColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSensitiveColumn.");
+    const operationName = "createSensitiveColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/CreateSensitiveColumn";
     const pathParams = {
       "{sensitiveDataModelId}": createSensitiveColumnRequest.sensitiveDataModelId
     };
@@ -2770,7 +3087,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSensitiveColumnResponse>{},
         responseHeaders: [
@@ -2809,6 +3132,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.CreateSensitiveDataModelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#createSensitiveDataModel.");
+    const operationName = "createSensitiveDataModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/CreateSensitiveDataModel";
     const pathParams = {};
 
     const queryParams = {};
@@ -2841,7 +3167,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSensitiveDataModelResponse>{},
         body: await response.json(),
@@ -2893,6 +3225,8 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     createSensitiveTypeRequest: requests.CreateSensitiveTypeRequest
   ): Promise<responses.CreateSensitiveTypeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createSensitiveType.");
+    const operationName = "createSensitiveType";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -2925,7 +3259,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSensitiveTypeResponse>{},
         body: await response.json(),
@@ -2976,6 +3316,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.CreateTargetAlertPolicyAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#createTargetAlertPolicyAssociation.");
+    const operationName = "createTargetAlertPolicyAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/CreateTargetAlertPolicyAssociation";
     const pathParams = {};
 
     const queryParams = {};
@@ -3008,7 +3351,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTargetAlertPolicyAssociationResponse>{},
         body: await response.json(),
@@ -3058,6 +3407,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     createTargetDatabaseRequest: requests.CreateTargetDatabaseRequest
   ): Promise<responses.CreateTargetDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createTargetDatabase.");
+    const operationName = "createTargetDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/CreateTargetDatabase";
     const pathParams = {};
 
     const queryParams = {};
@@ -3090,7 +3442,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTargetDatabaseResponse>{},
         body: await response.json(),
@@ -3142,6 +3500,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     createUserAssessmentRequest: requests.CreateUserAssessmentRequest
   ): Promise<responses.CreateUserAssessmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#createUserAssessment.");
+    const operationName = "createUserAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/CreateUserAssessment";
     const pathParams = {};
 
     const queryParams = {};
@@ -3174,7 +3535,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateUserAssessmentResponse>{},
         body: await response.json(),
@@ -3225,6 +3592,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeactivateTargetDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deactivateTargetDatabase.");
+    const operationName = "deactivateTargetDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/DeactivateTargetDatabase";
     const pathParams = {
       "{targetDatabaseId}": deactivateTargetDatabaseRequest.targetDatabaseId
     };
@@ -3255,7 +3625,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeactivateTargetDatabaseResponse>{},
         responseHeaders: [
@@ -3293,6 +3669,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeleteAuditArchiveRetrievalResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deleteAuditArchiveRetrieval.");
+    const operationName = "deleteAuditArchiveRetrieval";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/DeleteAuditArchiveRetrieval";
     const pathParams = {
       "{auditArchiveRetrievalId}": deleteAuditArchiveRetrievalRequest.auditArchiveRetrievalId
     };
@@ -3322,7 +3701,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAuditArchiveRetrievalResponse>{},
         responseHeaders: [
@@ -3357,6 +3742,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteAuditTrailRequest: requests.DeleteAuditTrailRequest
   ): Promise<responses.DeleteAuditTrailResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteAuditTrail.");
+    const operationName = "deleteAuditTrail";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/DeleteAuditTrail";
     const pathParams = {
       "{auditTrailId}": deleteAuditTrailRequest.auditTrailId
     };
@@ -3386,7 +3774,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAuditTrailResponse>{},
         responseHeaders: [
@@ -3422,6 +3816,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeleteDataSafePrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deleteDataSafePrivateEndpoint.");
+    const operationName = "deleteDataSafePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/DeleteDataSafePrivateEndpoint";
     const pathParams = {
       "{dataSafePrivateEndpointId}": deleteDataSafePrivateEndpointRequest.dataSafePrivateEndpointId
     };
@@ -3451,7 +3848,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataSafePrivateEndpointResponse>{},
         responseHeaders: [
@@ -3486,6 +3889,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteDiscoveryJobRequest: requests.DeleteDiscoveryJobRequest
   ): Promise<responses.DeleteDiscoveryJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteDiscoveryJob.");
+    const operationName = "deleteDiscoveryJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/DeleteDiscoveryJob";
     const pathParams = {
       "{discoveryJobId}": deleteDiscoveryJobRequest.discoveryJobId
     };
@@ -3515,7 +3921,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDiscoveryJobResponse>{},
         responseHeaders: [
@@ -3551,6 +3963,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeleteDiscoveryJobResultResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deleteDiscoveryJobResult.");
+    const operationName = "deleteDiscoveryJobResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJobResult/DeleteDiscoveryJobResult";
     const pathParams = {
       "{discoveryJobId}": deleteDiscoveryJobResultRequest.discoveryJobId,
       "{resultKey}": deleteDiscoveryJobResultRequest.resultKey
@@ -3581,7 +3996,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDiscoveryJobResultResponse>{},
         responseHeaders: [
@@ -3612,6 +4033,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeleteLibraryMaskingFormatResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deleteLibraryMaskingFormat.");
+    const operationName = "deleteLibraryMaskingFormat";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/DeleteLibraryMaskingFormat";
     const pathParams = {
       "{libraryMaskingFormatId}": deleteLibraryMaskingFormatRequest.libraryMaskingFormatId
     };
@@ -3641,7 +4065,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLibraryMaskingFormatResponse>{},
         responseHeaders: [
@@ -3671,6 +4101,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteMaskingColumnRequest: requests.DeleteMaskingColumnRequest
   ): Promise<responses.DeleteMaskingColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteMaskingColumn.");
+    const operationName = "deleteMaskingColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/DeleteMaskingColumn";
     const pathParams = {
       "{maskingColumnKey}": deleteMaskingColumnRequest.maskingColumnKey,
       "{maskingPolicyId}": deleteMaskingColumnRequest.maskingPolicyId
@@ -3701,7 +4134,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMaskingColumnResponse>{},
         responseHeaders: [
@@ -3731,6 +4170,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteMaskingPolicyRequest: requests.DeleteMaskingPolicyRequest
   ): Promise<responses.DeleteMaskingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteMaskingPolicy.");
+    const operationName = "deleteMaskingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DeleteMaskingPolicy";
     const pathParams = {
       "{maskingPolicyId}": deleteMaskingPolicyRequest.maskingPolicyId
     };
@@ -3760,7 +4202,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMaskingPolicyResponse>{},
         responseHeaders: [
@@ -3795,6 +4243,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteOnPremConnectorRequest: requests.DeleteOnPremConnectorRequest
   ): Promise<responses.DeleteOnPremConnectorResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteOnPremConnector.");
+    const operationName = "deleteOnPremConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/DeleteOnPremConnector";
     const pathParams = {
       "{onPremConnectorId}": deleteOnPremConnectorRequest.onPremConnectorId
     };
@@ -3824,7 +4275,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOnPremConnectorResponse>{},
         responseHeaders: [
@@ -3859,6 +4316,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteReportDefinitionRequest: requests.DeleteReportDefinitionRequest
   ): Promise<responses.DeleteReportDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteReportDefinition.");
+    const operationName = "deleteReportDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/DeleteReportDefinition";
     const pathParams = {
       "{reportDefinitionId}": deleteReportDefinitionRequest.reportDefinitionId
     };
@@ -3888,7 +4348,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteReportDefinitionResponse>{},
         responseHeaders: [
@@ -3928,6 +4394,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeleteSecurityAssessmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deleteSecurityAssessment.");
+    const operationName = "deleteSecurityAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/DeleteSecurityAssessment";
     const pathParams = {
       "{securityAssessmentId}": deleteSecurityAssessmentRequest.securityAssessmentId
     };
@@ -3957,7 +4426,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSecurityAssessmentResponse>{},
         responseHeaders: [
@@ -3992,6 +4467,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteSensitiveColumnRequest: requests.DeleteSensitiveColumnRequest
   ): Promise<responses.DeleteSensitiveColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSensitiveColumn.");
+    const operationName = "deleteSensitiveColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/DeleteSensitiveColumn";
     const pathParams = {
       "{sensitiveDataModelId}": deleteSensitiveColumnRequest.sensitiveDataModelId,
       "{sensitiveColumnKey}": deleteSensitiveColumnRequest.sensitiveColumnKey
@@ -4022,7 +4500,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSensitiveColumnResponse>{},
         responseHeaders: [
@@ -4053,6 +4537,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeleteSensitiveDataModelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deleteSensitiveDataModel.");
+    const operationName = "deleteSensitiveDataModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/DeleteSensitiveDataModel";
     const pathParams = {
       "{sensitiveDataModelId}": deleteSensitiveDataModelRequest.sensitiveDataModelId
     };
@@ -4082,7 +4569,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSensitiveDataModelResponse>{},
         responseHeaders: [
@@ -4117,6 +4610,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteSensitiveTypeRequest: requests.DeleteSensitiveTypeRequest
   ): Promise<responses.DeleteSensitiveTypeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteSensitiveType.");
+    const operationName = "deleteSensitiveType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/DeleteSensitiveType";
     const pathParams = {
       "{sensitiveTypeId}": deleteSensitiveTypeRequest.sensitiveTypeId
     };
@@ -4146,7 +4642,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSensitiveTypeResponse>{},
         responseHeaders: [
@@ -4177,6 +4679,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DeleteTargetAlertPolicyAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#deleteTargetAlertPolicyAssociation.");
+    const operationName = "deleteTargetAlertPolicyAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/DeleteTargetAlertPolicyAssociation";
     const pathParams = {
       "{targetAlertPolicyAssociationId}":
         deleteTargetAlertPolicyAssociationRequest.targetAlertPolicyAssociationId
@@ -4207,7 +4712,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTargetAlertPolicyAssociationResponse>{},
         responseHeaders: [
@@ -4242,6 +4753,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteTargetDatabaseRequest: requests.DeleteTargetDatabaseRequest
   ): Promise<responses.DeleteTargetDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteTargetDatabase.");
+    const operationName = "deleteTargetDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/DeleteTargetDatabase";
     const pathParams = {
       "{targetDatabaseId}": deleteTargetDatabaseRequest.targetDatabaseId
     };
@@ -4271,7 +4785,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTargetDatabaseResponse>{},
         responseHeaders: [
@@ -4310,6 +4830,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     deleteUserAssessmentRequest: requests.DeleteUserAssessmentRequest
   ): Promise<responses.DeleteUserAssessmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#deleteUserAssessment.");
+    const operationName = "deleteUserAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/DeleteUserAssessment";
     const pathParams = {
       "{userAssessmentId}": deleteUserAssessmentRequest.userAssessmentId
     };
@@ -4339,7 +4862,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUserAssessmentResponse>{},
         responseHeaders: [
@@ -4378,6 +4907,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     discoverAuditTrailsRequest: requests.DiscoverAuditTrailsRequest
   ): Promise<responses.DiscoverAuditTrailsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#discoverAuditTrails.");
+    const operationName = "discoverAuditTrails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/DiscoverAuditTrails";
     const pathParams = {
       "{auditProfileId}": discoverAuditTrailsRequest.auditProfileId
     };
@@ -4408,7 +4940,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DiscoverAuditTrailsResponse>{},
         responseHeaders: [
@@ -4447,6 +4985,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     downloadDiscoveryReportRequest: requests.DownloadDiscoveryReportRequest
   ): Promise<responses.DownloadDiscoveryReportResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadDiscoveryReport.");
+    const operationName = "downloadDiscoveryReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/DownloadDiscoveryReport";
     const pathParams = {
       "{sensitiveDataModelId}": downloadDiscoveryReportRequest.sensitiveDataModelId
     };
@@ -4480,7 +5021,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadDiscoveryReportResponse>{},
 
@@ -4524,6 +5071,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     downloadMaskingLogRequest: requests.DownloadMaskingLogRequest
   ): Promise<responses.DownloadMaskingLogResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingLog.");
+    const operationName = "downloadMaskingLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DownloadMaskingLog";
     const pathParams = {
       "{maskingPolicyId}": downloadMaskingLogRequest.maskingPolicyId
     };
@@ -4557,7 +5107,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadMaskingLogResponse>{},
 
@@ -4605,6 +5161,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     downloadMaskingPolicyRequest: requests.DownloadMaskingPolicyRequest
   ): Promise<responses.DownloadMaskingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingPolicy.");
+    const operationName = "downloadMaskingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DownloadMaskingPolicy";
     const pathParams = {
       "{maskingPolicyId}": downloadMaskingPolicyRequest.maskingPolicyId
     };
@@ -4638,7 +5197,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadMaskingPolicyResponse>{},
 
@@ -4685,6 +5250,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     downloadMaskingReportRequest: requests.DownloadMaskingReportRequest
   ): Promise<responses.DownloadMaskingReportResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadMaskingReport.");
+    const operationName = "downloadMaskingReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/DownloadMaskingReport";
     const pathParams = {
       "{maskingPolicyId}": downloadMaskingReportRequest.maskingPolicyId
     };
@@ -4718,7 +5286,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadMaskingReportResponse>{},
 
@@ -4763,6 +5337,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     downloadPrivilegeScriptRequest: requests.DownloadPrivilegeScriptRequest
   ): Promise<responses.DownloadPrivilegeScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#downloadPrivilegeScript.");
+    const operationName = "downloadPrivilegeScript";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/DownloadPrivilegeScript";
     const pathParams = {};
 
     const queryParams = {};
@@ -4791,7 +5368,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadPrivilegeScriptResponse>{},
 
@@ -4838,6 +5421,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DownloadSecurityAssessmentReportResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#downloadSecurityAssessmentReport.");
+    const operationName = "downloadSecurityAssessmentReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/DownloadSecurityAssessmentReport";
     const pathParams = {
       "{securityAssessmentId}": downloadSecurityAssessmentReportRequest.securityAssessmentId
     };
@@ -4873,7 +5459,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadSecurityAssessmentReportResponse>{},
 
@@ -4922,6 +5514,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DownloadSensitiveDataModelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#downloadSensitiveDataModel.");
+    const operationName = "downloadSensitiveDataModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/DownloadSensitiveDataModel";
     const pathParams = {
       "{sensitiveDataModelId}": downloadSensitiveDataModelRequest.sensitiveDataModelId
     };
@@ -4955,7 +5550,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadSensitiveDataModelResponse>{},
 
@@ -5002,6 +5603,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.DownloadUserAssessmentReportResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#downloadUserAssessmentReport.");
+    const operationName = "downloadUserAssessmentReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/DownloadUserAssessmentReport";
     const pathParams = {
       "{userAssessmentId}": downloadUserAssessmentReportRequest.userAssessmentId
     };
@@ -5037,7 +5641,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadUserAssessmentReportResponse>{},
 
@@ -5083,6 +5693,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.EnableDataSafeConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#enableDataSafeConfiguration.");
+    const operationName = "enableDataSafeConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafeConfiguration/EnableDataSafeConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -5117,7 +5730,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableDataSafeConfigurationResponse>{},
         responseHeaders: [
@@ -5157,6 +5776,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GenerateDiscoveryReportForDownloadResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#generateDiscoveryReportForDownload.");
+    const operationName = "generateDiscoveryReportForDownload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/GenerateDiscoveryReportForDownload";
     const pathParams = {
       "{sensitiveDataModelId}": generateDiscoveryReportForDownloadRequest.sensitiveDataModelId
     };
@@ -5190,7 +5812,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateDiscoveryReportForDownloadResponse>{},
         responseHeaders: [
@@ -5231,6 +5859,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GenerateMaskingPolicyForDownloadResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#generateMaskingPolicyForDownload.");
+    const operationName = "generateMaskingPolicyForDownload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/GenerateMaskingPolicyForDownload";
     const pathParams = {
       "{maskingPolicyId}": generateMaskingPolicyForDownloadRequest.maskingPolicyId
     };
@@ -5264,7 +5895,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateMaskingPolicyForDownloadResponse>{},
         responseHeaders: [
@@ -5304,6 +5941,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GenerateMaskingReportForDownloadResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#generateMaskingReportForDownload.");
+    const operationName = "generateMaskingReportForDownload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/GenerateMaskingReportForDownload";
     const pathParams = {
       "{maskingPolicyId}": generateMaskingReportForDownloadRequest.maskingPolicyId
     };
@@ -5337,7 +5977,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateMaskingReportForDownloadResponse>{},
         responseHeaders: [
@@ -5374,6 +6020,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GenerateOnPremConnectorConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#generateOnPremConnectorConfiguration.");
+    const operationName = "generateOnPremConnectorConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/GenerateOnPremConnectorConfiguration";
     const pathParams = {
       "{onPremConnectorId}": generateOnPremConnectorConfigurationRequest.onPremConnectorId
     };
@@ -5409,7 +6058,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateOnPremConnectorConfigurationResponse>{},
 
@@ -5453,6 +6108,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     generateReportRequest: requests.GenerateReportRequest
   ): Promise<responses.GenerateReportResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#generateReport.");
+    const operationName = "generateReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/GenerateReport";
     const pathParams = {
       "{reportDefinitionId}": generateReportRequest.reportDefinitionId
     };
@@ -5490,7 +6148,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateReportResponse>{},
         responseHeaders: [
@@ -5528,6 +6192,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GenerateSecurityAssessmentReportResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#generateSecurityAssessmentReport.");
+    const operationName = "generateSecurityAssessmentReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/GenerateSecurityAssessmentReport";
     const pathParams = {
       "{securityAssessmentId}": generateSecurityAssessmentReportRequest.securityAssessmentId
     };
@@ -5563,7 +6230,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateSecurityAssessmentReportResponse>{},
         responseHeaders: [
@@ -5603,6 +6276,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GenerateSensitiveDataModelForDownloadResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#generateSensitiveDataModelForDownload.");
+    const operationName = "generateSensitiveDataModelForDownload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/GenerateSensitiveDataModelForDownload";
     const pathParams = {
       "{sensitiveDataModelId}": generateSensitiveDataModelForDownloadRequest.sensitiveDataModelId
     };
@@ -5636,7 +6312,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateSensitiveDataModelForDownloadResponse>{},
         responseHeaders: [
@@ -5674,6 +6356,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GenerateUserAssessmentReportResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#generateUserAssessmentReport.");
+    const operationName = "generateUserAssessmentReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GenerateUserAssessmentReport";
     const pathParams = {
       "{userAssessmentId}": generateUserAssessmentReportRequest.userAssessmentId
     };
@@ -5709,7 +6394,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateUserAssessmentReportResponse>{},
         responseHeaders: [
@@ -5744,6 +6435,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getAlertRequest: requests.GetAlertRequest
   ): Promise<responses.GetAlertResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAlert.");
+    const operationName = "getAlert";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/GetAlert";
     const pathParams = {
       "{alertId}": getAlertRequest.alertId
     };
@@ -5772,7 +6466,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAlertResponse>{},
         body: await response.json(),
@@ -5811,6 +6511,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getAlertPolicyRequest: requests.GetAlertPolicyRequest
   ): Promise<responses.GetAlertPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAlertPolicy.");
+    const operationName = "getAlertPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/GetAlertPolicy";
     const pathParams = {
       "{alertPolicyId}": getAlertPolicyRequest.alertPolicyId
     };
@@ -5839,7 +6542,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAlertPolicyResponse>{},
         body: await response.json(),
@@ -5879,6 +6588,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetAuditArchiveRetrievalResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getAuditArchiveRetrieval.");
+    const operationName = "getAuditArchiveRetrieval";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/GetAuditArchiveRetrieval";
     const pathParams = {
       "{auditArchiveRetrievalId}": getAuditArchiveRetrievalRequest.auditArchiveRetrievalId
     };
@@ -5908,7 +6620,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAuditArchiveRetrievalResponse>{},
         body: await response.json(),
@@ -5947,6 +6665,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getAuditPolicyRequest: requests.GetAuditPolicyRequest
   ): Promise<responses.GetAuditPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditPolicy.");
+    const operationName = "getAuditPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/GetAuditPolicy";
     const pathParams = {
       "{auditPolicyId}": getAuditPolicyRequest.auditPolicyId
     };
@@ -5975,7 +6696,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAuditPolicyResponse>{},
         body: await response.json(),
@@ -6014,6 +6741,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getAuditProfileRequest: requests.GetAuditProfileRequest
   ): Promise<responses.GetAuditProfileResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditProfile.");
+    const operationName = "getAuditProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/GetAuditProfile";
     const pathParams = {
       "{auditProfileId}": getAuditProfileRequest.auditProfileId
     };
@@ -6042,7 +6772,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAuditProfileResponse>{},
         body: await response.json(),
@@ -6081,6 +6817,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getAuditTrailRequest: requests.GetAuditTrailRequest
   ): Promise<responses.GetAuditTrailResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getAuditTrail.");
+    const operationName = "getAuditTrail";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/GetAuditTrail";
     const pathParams = {
       "{auditTrailId}": getAuditTrailRequest.auditTrailId
     };
@@ -6109,7 +6848,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAuditTrailResponse>{},
         body: await response.json(),
@@ -6156,6 +6901,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetCompatibleFormatsForDataTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForDataTypes.");
+    const operationName = "getCompatibleFormatsForDataTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/GetCompatibleFormatsForDataTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -6185,7 +6933,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCompatibleFormatsForDataTypesResponse>{},
         body: await response.json(),
@@ -6234,6 +6988,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetCompatibleFormatsForSensitiveTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getCompatibleFormatsForSensitiveTypes.");
+    const operationName = "getCompatibleFormatsForSensitiveTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/GetCompatibleFormatsForSensitiveTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -6266,7 +7023,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCompatibleFormatsForSensitiveTypesResponse>{},
         body: await response.json(),
@@ -6311,6 +7074,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetDataSafeConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getDataSafeConfiguration.");
+    const operationName = "getDataSafeConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafeConfiguration/GetDataSafeConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -6339,7 +7105,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataSafeConfigurationResponse>{},
         body: await response.json(),
@@ -6379,6 +7151,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetDataSafePrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getDataSafePrivateEndpoint.");
+    const operationName = "getDataSafePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/GetDataSafePrivateEndpoint";
     const pathParams = {
       "{dataSafePrivateEndpointId}": getDataSafePrivateEndpointRequest.dataSafePrivateEndpointId
     };
@@ -6407,7 +7182,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataSafePrivateEndpointResponse>{},
         body: await response.json(),
@@ -6446,6 +7227,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getDiscoveryJobRequest: requests.GetDiscoveryJobRequest
   ): Promise<responses.GetDiscoveryJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDiscoveryJob.");
+    const operationName = "getDiscoveryJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/GetDiscoveryJob";
     const pathParams = {
       "{discoveryJobId}": getDiscoveryJobRequest.discoveryJobId
     };
@@ -6474,7 +7258,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDiscoveryJobResponse>{},
         body: await response.json(),
@@ -6513,6 +7303,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getDiscoveryJobResultRequest: requests.GetDiscoveryJobResultRequest
   ): Promise<responses.GetDiscoveryJobResultResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDiscoveryJobResult.");
+    const operationName = "getDiscoveryJobResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJobResult/GetDiscoveryJobResult";
     const pathParams = {
       "{discoveryJobId}": getDiscoveryJobResultRequest.discoveryJobId,
       "{resultKey}": getDiscoveryJobResultRequest.resultKey
@@ -6542,7 +7335,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDiscoveryJobResultResponse>{},
         body: await response.json(),
@@ -6581,6 +7380,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getLibraryMaskingFormatRequest: requests.GetLibraryMaskingFormatRequest
   ): Promise<responses.GetLibraryMaskingFormatResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getLibraryMaskingFormat.");
+    const operationName = "getLibraryMaskingFormat";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/GetLibraryMaskingFormat";
     const pathParams = {
       "{libraryMaskingFormatId}": getLibraryMaskingFormatRequest.libraryMaskingFormatId
     };
@@ -6609,7 +7411,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLibraryMaskingFormatResponse>{},
         body: await response.json(),
@@ -6648,6 +7456,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getMaskingColumnRequest: requests.GetMaskingColumnRequest
   ): Promise<responses.GetMaskingColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingColumn.");
+    const operationName = "getMaskingColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/GetMaskingColumn";
     const pathParams = {
       "{maskingPolicyId}": getMaskingColumnRequest.maskingPolicyId,
       "{maskingColumnKey}": getMaskingColumnRequest.maskingColumnKey
@@ -6677,7 +7488,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMaskingColumnResponse>{},
         body: await response.json(),
@@ -6716,6 +7533,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getMaskingPolicyRequest: requests.GetMaskingPolicyRequest
   ): Promise<responses.GetMaskingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingPolicy.");
+    const operationName = "getMaskingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/GetMaskingPolicy";
     const pathParams = {
       "{maskingPolicyId}": getMaskingPolicyRequest.maskingPolicyId
     };
@@ -6744,7 +7564,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMaskingPolicyResponse>{},
         body: await response.json(),
@@ -6783,6 +7609,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getMaskingReportRequest: requests.GetMaskingReportRequest
   ): Promise<responses.GetMaskingReportResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getMaskingReport.");
+    const operationName = "getMaskingReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingReport/GetMaskingReport";
     const pathParams = {
       "{maskingReportId}": getMaskingReportRequest.maskingReportId
     };
@@ -6811,7 +7640,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMaskingReportResponse>{},
         body: await response.json(),
@@ -6850,6 +7685,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getOnPremConnectorRequest: requests.GetOnPremConnectorRequest
   ): Promise<responses.GetOnPremConnectorResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getOnPremConnector.");
+    const operationName = "getOnPremConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/GetOnPremConnector";
     const pathParams = {
       "{onPremConnectorId}": getOnPremConnectorRequest.onPremConnectorId
     };
@@ -6878,7 +7716,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOnPremConnectorResponse>{},
         body: await response.json(),
@@ -6917,6 +7761,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getReportRequest: requests.GetReportRequest
   ): Promise<responses.GetReportResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReport.");
+    const operationName = "getReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Report/GetReport";
     const pathParams = {
       "{reportId}": getReportRequest.reportId
     };
@@ -6945,7 +7792,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetReportResponse>{},
         body: await response.json(),
@@ -6984,6 +7837,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getReportContentRequest: requests.GetReportContentRequest
   ): Promise<responses.GetReportContentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReportContent.");
+    const operationName = "getReportContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Report/GetReportContent";
     const pathParams = {
       "{reportId}": getReportContentRequest.reportId
     };
@@ -7012,7 +7868,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetReportContentResponse>{},
 
@@ -7061,6 +7923,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getReportDefinitionRequest: requests.GetReportDefinitionRequest
   ): Promise<responses.GetReportDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getReportDefinition.");
+    const operationName = "getReportDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/GetReportDefinition";
     const pathParams = {
       "{reportDefinitionId}": getReportDefinitionRequest.reportDefinitionId
     };
@@ -7089,7 +7954,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetReportDefinitionResponse>{},
         body: await response.json(),
@@ -7128,6 +7999,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getSecurityAssessmentRequest: requests.GetSecurityAssessmentRequest
   ): Promise<responses.GetSecurityAssessmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSecurityAssessment.");
+    const operationName = "getSecurityAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/GetSecurityAssessment";
     const pathParams = {
       "{securityAssessmentId}": getSecurityAssessmentRequest.securityAssessmentId
     };
@@ -7156,7 +8030,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecurityAssessmentResponse>{},
         body: await response.json(),
@@ -7196,6 +8076,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetSecurityAssessmentComparisonResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getSecurityAssessmentComparison.");
+    const operationName = "getSecurityAssessmentComparison";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/GetSecurityAssessmentComparison";
     const pathParams = {
       "{securityAssessmentId}": getSecurityAssessmentComparisonRequest.securityAssessmentId,
       "{comparisonSecurityAssessmentId}":
@@ -7227,7 +8110,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecurityAssessmentComparisonResponse>{},
         body: await response.json(),
@@ -7266,6 +8155,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getSensitiveColumnRequest: requests.GetSensitiveColumnRequest
   ): Promise<responses.GetSensitiveColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveColumn.");
+    const operationName = "getSensitiveColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/GetSensitiveColumn";
     const pathParams = {
       "{sensitiveDataModelId}": getSensitiveColumnRequest.sensitiveDataModelId,
       "{sensitiveColumnKey}": getSensitiveColumnRequest.sensitiveColumnKey
@@ -7295,7 +8187,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSensitiveColumnResponse>{},
         body: await response.json(),
@@ -7334,6 +8232,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getSensitiveDataModelRequest: requests.GetSensitiveDataModelRequest
   ): Promise<responses.GetSensitiveDataModelResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveDataModel.");
+    const operationName = "getSensitiveDataModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/GetSensitiveDataModel";
     const pathParams = {
       "{sensitiveDataModelId}": getSensitiveDataModelRequest.sensitiveDataModelId
     };
@@ -7362,7 +8263,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSensitiveDataModelResponse>{},
         body: await response.json(),
@@ -7401,6 +8308,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getSensitiveTypeRequest: requests.GetSensitiveTypeRequest
   ): Promise<responses.GetSensitiveTypeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getSensitiveType.");
+    const operationName = "getSensitiveType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/GetSensitiveType";
     const pathParams = {
       "{sensitiveTypeId}": getSensitiveTypeRequest.sensitiveTypeId
     };
@@ -7429,7 +8339,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSensitiveTypeResponse>{},
         body: await response.json(),
@@ -7469,6 +8385,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetTargetAlertPolicyAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getTargetAlertPolicyAssociation.");
+    const operationName = "getTargetAlertPolicyAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/GetTargetAlertPolicyAssociation";
     const pathParams = {
       "{targetAlertPolicyAssociationId}":
         getTargetAlertPolicyAssociationRequest.targetAlertPolicyAssociationId
@@ -7498,7 +8417,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTargetAlertPolicyAssociationResponse>{},
         body: await response.json(),
@@ -7538,6 +8463,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getTargetDatabaseRequest: requests.GetTargetDatabaseRequest
   ): Promise<responses.GetTargetDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getTargetDatabase.");
+    const operationName = "getTargetDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/GetTargetDatabase";
     const pathParams = {
       "{targetDatabaseId}": getTargetDatabaseRequest.targetDatabaseId
     };
@@ -7566,7 +8494,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTargetDatabaseResponse>{},
         body: await response.json(),
@@ -7605,6 +8539,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getUserAssessmentRequest: requests.GetUserAssessmentRequest
   ): Promise<responses.GetUserAssessmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getUserAssessment.");
+    const operationName = "getUserAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GetUserAssessment";
     const pathParams = {
       "{userAssessmentId}": getUserAssessmentRequest.userAssessmentId
     };
@@ -7633,7 +8570,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserAssessmentResponse>{},
         body: await response.json(),
@@ -7673,6 +8616,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.GetUserAssessmentComparisonResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#getUserAssessmentComparison.");
+    const operationName = "getUserAssessmentComparison";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GetUserAssessmentComparison";
     const pathParams = {
       "{userAssessmentId}": getUserAssessmentComparisonRequest.userAssessmentId,
       "{comparisonUserAssessmentId}": getUserAssessmentComparisonRequest.comparisonUserAssessmentId
@@ -7702,7 +8648,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserAssessmentComparisonResponse>{},
         body: await response.json(),
@@ -7736,6 +8688,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -7764,7 +8719,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -7809,6 +8770,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     listAlertAnalyticsRequest: requests.ListAlertAnalyticsRequest
   ): Promise<responses.ListAlertAnalyticsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertAnalytics.");
+    const operationName = "listAlertAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertSummary/ListAlertAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -7851,7 +8815,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlertAnalyticsResponse>{},
         body: await response.json(),
@@ -7891,6 +8861,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     listAlertPoliciesRequest: requests.ListAlertPoliciesRequest
   ): Promise<responses.ListAlertPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertPolicies.");
+    const operationName = "listAlertPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/ListAlertPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -7932,7 +8905,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlertPoliciesResponse>{},
         body: await response.json(),
@@ -7983,6 +8962,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     listAlertPolicyRulesRequest: requests.ListAlertPolicyRulesRequest
   ): Promise<responses.ListAlertPolicyRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlertPolicyRules.");
+    const operationName = "listAlertPolicyRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertPolicy/ListAlertPolicyRules";
     const pathParams = {
       "{alertPolicyId}": listAlertPolicyRulesRequest.alertPolicyId
     };
@@ -8014,7 +8996,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlertPolicyRulesResponse>{},
         body: await response.json(),
@@ -8064,6 +9052,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     listAlertsRequest: requests.ListAlertsRequest
   ): Promise<responses.ListAlertsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAlerts.");
+    const operationName = "listAlerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AlertSummary/ListAlerts";
     const pathParams = {};
 
     const queryParams = {
@@ -8101,7 +9092,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlertsResponse>{},
         body: await response.json(),
@@ -8147,6 +9144,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   ): Promise<responses.ListAuditArchiveRetrievalsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#listAuditArchiveRetrievals.");
+    const operationName = "listAuditArchiveRetrievals";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/ListAuditArchiveRetrievals";
     const pathParams = {};
 
     const queryParams = {
@@ -8186,7 +9186,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditArchiveRetrievalsResponse>{},
         body: await response.json(),
@@ -8236,6 +9242,9 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
     listAuditEventAnalyticsRequest: requests.ListAuditEventAnalyticsRequest
   ): Promise<responses.ListAuditEventAnalyticsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditEventAnalytics.");
+    const operationName = "listAuditEventAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditEventSummary/ListAuditEventAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -8278,7 +9287,13 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditEventAnalyticsResponse>{},
         body: await response.json(),
@@ -8335,6 +9350,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents 
     listAuditEventsRequest: requests.ListAuditEventsRequest
   ): Promise<responses.ListAuditEventsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditEvents.");
+    const operationName = "listAuditEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditEventSummary/ListAuditEvents";
     const pathParams = {};
 
     const queryParams = {
@@ -8370,7 +9388,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditEvents 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditEventsResponse>{},
         body: await response.json(),
@@ -8429,6 +9453,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
     listAuditPoliciesRequest: requests.ListAuditPoliciesRequest
   ): Promise<responses.ListAuditPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditPolicies.");
+    const operationName = "listAuditPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicyCollection/ListAuditPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -8467,7 +9494,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditPoliciesResponse>{},
         body: await response.json(),
@@ -8525,6 +9558,9 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnal
   ): Promise<responses.ListAuditProfileAnalyticsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#listAuditProfileAnalytics.");
+    const operationName = "listAuditProfileAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfileAnalyticCollection/ListAuditProfileAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -8558,7 +9594,13 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditProfileAnal
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditProfileAnalyticsResponse>{},
         body: await response.json(),
@@ -8617,6 +9659,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfile
     listAuditProfilesRequest: requests.ListAuditProfilesRequest
   ): Promise<responses.ListAuditProfilesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditProfiles.");
+    const operationName = "listAuditProfiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ListAuditProfiles";
     const pathParams = {};
 
     const queryParams = {
@@ -8659,7 +9704,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditProfile
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditProfilesResponse>{},
         body: await response.json(),
@@ -8716,6 +9767,9 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalyt
     listAuditTrailAnalyticsRequest: requests.ListAuditTrailAnalyticsRequest
   ): Promise<responses.ListAuditTrailAnalyticsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditTrailAnalytics.");
+    const operationName = "listAuditTrailAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrailAnalyticCollection/ListAuditTrailAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -8750,7 +9804,13 @@ The parameter `compartmentIdInSubtree` applies when you perform AuditTrailAnalyt
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditTrailAnalyticsResponse>{},
         body: await response.json(),
@@ -8808,6 +9868,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listAuditTrailsRequest: requests.ListAuditTrailsRequest
   ): Promise<responses.ListAuditTrailsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listAuditTrails.");
+    const operationName = "listAuditTrails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/ListAuditTrails";
     const pathParams = {};
 
     const queryParams = {
@@ -8847,7 +9910,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuditTrailsResponse>{},
         body: await response.json(),
@@ -8892,6 +9961,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   ): Promise<responses.ListAvailableAuditVolumesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#listAvailableAuditVolumes.");
+    const operationName = "listAvailableAuditVolumes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ListAvailableAuditVolumes";
     const pathParams = {
       "{auditProfileId}": listAvailableAuditVolumesRequest.auditProfileId
     };
@@ -8930,7 +10002,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailableAuditVolumesResponse>{},
         body: await response.json(),
@@ -8975,6 +10053,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   ): Promise<responses.ListCollectedAuditVolumesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#listCollectedAuditVolumes.");
+    const operationName = "listCollectedAuditVolumes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/ListCollectedAuditVolumes";
     const pathParams = {
       "{auditProfileId}": listCollectedAuditVolumesRequest.auditProfileId
     };
@@ -9012,7 +10093,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCollectedAuditVolumesResponse>{},
         body: await response.json(),
@@ -9057,6 +10144,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listColumnsRequest: requests.ListColumnsRequest
   ): Promise<responses.ListColumnsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listColumns.");
+    const operationName = "listColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListColumns";
     const pathParams = {
       "{targetDatabaseId}": listColumnsRequest.targetDatabaseId
     };
@@ -9097,7 +10187,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListColumnsResponse>{},
         body: await response.json(),
@@ -9195,6 +10291,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   ): Promise<responses.ListDataSafePrivateEndpointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#listDataSafePrivateEndpoints.");
+    const operationName = "listDataSafePrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpointSummary/ListDataSafePrivateEndpoints";
     const pathParams = {};
 
     const queryParams = {
@@ -9232,7 +10331,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataSafePrivateEndpointsResponse>{},
         body: await response.json(),
@@ -9323,6 +10428,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listDiscoveryAnalyticsRequest: requests.ListDiscoveryAnalyticsRequest
   ): Promise<responses.ListDiscoveryAnalyticsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryAnalytics.");
+    const operationName = "listDiscoveryAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ListDiscoveryAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -9357,7 +10465,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDiscoveryAnalyticsResponse>{},
         body: await response.json(),
@@ -9401,6 +10515,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listDiscoveryJobResultsRequest: requests.ListDiscoveryJobResultsRequest
   ): Promise<responses.ListDiscoveryJobResultsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryJobResults.");
+    const operationName = "listDiscoveryJobResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/ListDiscoveryJobResults";
     const pathParams = {
       "{discoveryJobId}": listDiscoveryJobResultsRequest.discoveryJobId
     };
@@ -9440,7 +10557,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDiscoveryJobResultsResponse>{},
         body: await response.json(),
@@ -9484,6 +10607,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listDiscoveryJobsRequest: requests.ListDiscoveryJobsRequest
   ): Promise<responses.ListDiscoveryJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDiscoveryJobs.");
+    const operationName = "listDiscoveryJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/ListDiscoveryJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -9523,7 +10649,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDiscoveryJobsResponse>{},
         body: await response.json(),
@@ -9568,6 +10700,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listFindingsRequest: requests.ListFindingsRequest
   ): Promise<responses.ListFindingsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listFindings.");
+    const operationName = "listFindings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/ListFindings";
     const pathParams = {
       "{securityAssessmentId}": listFindingsRequest.securityAssessmentId
     };
@@ -9603,7 +10738,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFindingsResponse>{},
         body: await response.json(),
@@ -9703,6 +10844,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listGrantsRequest: requests.ListGrantsRequest
   ): Promise<responses.ListGrantsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listGrants.");
+    const operationName = "listGrants";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListGrants";
     const pathParams = {
       "{userAssessmentId}": listGrantsRequest.userAssessmentId,
       "{userKey}": listGrantsRequest.userKey
@@ -9744,7 +10888,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListGrantsResponse>{},
         body: await response.json(),
@@ -9842,6 +10992,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   ): Promise<responses.ListLibraryMaskingFormatsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#listLibraryMaskingFormats.");
+    const operationName = "listLibraryMaskingFormats";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormatSummary/ListLibraryMaskingFormats";
     const pathParams = {};
 
     const queryParams = {
@@ -9883,7 +11036,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLibraryMaskingFormatsResponse>{},
         body: await response.json(),
@@ -9928,6 +11087,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listMaskedColumnsRequest: requests.ListMaskedColumnsRequest
   ): Promise<responses.ListMaskedColumnsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskedColumns.");
+    const operationName = "listMaskedColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskedColumnSummary/ListMaskedColumns";
     const pathParams = {
       "{maskingReportId}": listMaskedColumnsRequest.maskingReportId
     };
@@ -9967,7 +11129,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMaskedColumnsResponse>{},
         body: await response.json(),
@@ -10011,6 +11179,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listMaskingAnalyticsRequest: requests.ListMaskingAnalyticsRequest
   ): Promise<responses.ListMaskingAnalyticsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingAnalytics.");
+    const operationName = "listMaskingAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ListMaskingAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -10045,7 +11216,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMaskingAnalyticsResponse>{},
         body: await response.json(),
@@ -10090,6 +11267,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listMaskingColumnsRequest: requests.ListMaskingColumnsRequest
   ): Promise<responses.ListMaskingColumnsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingColumns.");
+    const operationName = "listMaskingColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/ListMaskingColumns";
     const pathParams = {
       "{maskingPolicyId}": listMaskingColumnsRequest.maskingPolicyId
     };
@@ -10137,7 +11317,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMaskingColumnsResponse>{},
         body: await response.json(),
@@ -10181,6 +11367,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listMaskingPoliciesRequest: requests.ListMaskingPoliciesRequest
   ): Promise<responses.ListMaskingPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingPolicies.");
+    const operationName = "listMaskingPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ListMaskingPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -10222,7 +11411,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMaskingPoliciesResponse>{},
         body: await response.json(),
@@ -10266,6 +11461,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listMaskingReportsRequest: requests.ListMaskingReportsRequest
   ): Promise<responses.ListMaskingReportsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingReports.");
+    const operationName = "listMaskingReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ListMaskingReports";
     const pathParams = {};
 
     const queryParams = {
@@ -10302,7 +11500,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMaskingReportsResponse>{},
         body: await response.json(),
@@ -10347,6 +11551,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listOnPremConnectorsRequest: requests.ListOnPremConnectorsRequest
   ): Promise<responses.ListOnPremConnectorsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listOnPremConnectors.");
+    const operationName = "listOnPremConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnectorSummary/ListOnPremConnectors";
     const pathParams = {};
 
     const queryParams = {
@@ -10384,7 +11591,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOnPremConnectorsResponse>{},
         body: await response.json(),
@@ -10478,6 +11691,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listReportDefinitionsRequest: requests.ListReportDefinitionsRequest
   ): Promise<responses.ListReportDefinitionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listReportDefinitions.");
+    const operationName = "listReportDefinitions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/ListReportDefinitions";
     const pathParams = {};
 
     const queryParams = {
@@ -10517,7 +11733,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReportDefinitionsResponse>{},
         body: await response.json(),
@@ -10556,6 +11778,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listReportsRequest: requests.ListReportsRequest
   ): Promise<responses.ListReportsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listReports.");
+    const operationName = "listReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportSummary/ListReports";
     const pathParams = {};
 
     const queryParams = {
@@ -10593,7 +11818,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReportsResponse>{},
         body: await response.json(),
@@ -10633,6 +11864,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listRolesRequest: requests.ListRolesRequest
   ): Promise<responses.ListRolesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listRoles.");
+    const operationName = "listRoles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListRoles";
     const pathParams = {
       "{targetDatabaseId}": listRolesRequest.targetDatabaseId
     };
@@ -10670,7 +11904,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRolesResponse>{},
         body: await response.json(),
@@ -10767,6 +12007,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     listSchemasRequest: requests.ListSchemasRequest
   ): Promise<responses.ListSchemasResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSchemas.");
+    const operationName = "listSchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListSchemas";
     const pathParams = {
       "{targetDatabaseId}": listSchemasRequest.targetDatabaseId
     };
@@ -10803,7 +12046,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSchemasResponse>{},
         body: await response.json(),
@@ -10914,6 +12163,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
     listSecurityAssessmentsRequest: requests.ListSecurityAssessmentsRequest
   ): Promise<responses.ListSecurityAssessmentsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSecurityAssessments.");
+    const operationName = "listSecurityAssessments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessmentSummary/ListSecurityAssessments";
     const pathParams = {};
 
     const queryParams = {
@@ -10959,7 +12211,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecurityAssessmentsResponse>{},
         body: await response.json(),
@@ -11056,6 +12314,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
     listSensitiveColumnsRequest: requests.ListSensitiveColumnsRequest
   ): Promise<responses.ListSensitiveColumnsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveColumns.");
+    const operationName = "listSensitiveColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/ListSensitiveColumns";
     const pathParams = {
       "{sensitiveDataModelId}": listSensitiveColumnsRequest.sensitiveDataModelId
     };
@@ -11106,7 +12367,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSensitiveColumnsResponse>{},
         body: await response.json(),
@@ -11151,6 +12418,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
     listSensitiveDataModelsRequest: requests.ListSensitiveDataModelsRequest
   ): Promise<responses.ListSensitiveDataModelsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveDataModels.");
+    const operationName = "listSensitiveDataModels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/ListSensitiveDataModels";
     const pathParams = {};
 
     const queryParams = {
@@ -11192,7 +12462,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSensitiveDataModelsResponse>{},
         body: await response.json(),
@@ -11237,6 +12513,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
     listSensitiveTypesRequest: requests.ListSensitiveTypesRequest
   ): Promise<responses.ListSensitiveTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveTypes.");
+    const operationName = "listSensitiveTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/ListSensitiveTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -11280,7 +12559,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSensitiveTypesResponse>{},
         body: await response.json(),
@@ -11325,6 +12610,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
     listTablesRequest: requests.ListTablesRequest
   ): Promise<responses.ListTablesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listTables.");
+    const operationName = "listTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/ListTables";
     const pathParams = {
       "{targetDatabaseId}": listTablesRequest.targetDatabaseId
     };
@@ -11362,7 +12650,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTablesResponse>{},
         body: await response.json(),
@@ -11460,6 +12754,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
   ): Promise<responses.ListTargetAlertPolicyAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#listTargetAlertPolicyAssociations.");
+    const operationName = "listTargetAlertPolicyAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociationSummary/ListTargetAlertPolicyAssociations";
     const pathParams = {};
 
     const queryParams = {
@@ -11502,7 +12799,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTargetAlertPolicyAssociationsResponse>{},
         body: await response.json(),
@@ -11552,6 +12855,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
     listTargetDatabasesRequest: requests.ListTargetDatabasesRequest
   ): Promise<responses.ListTargetDatabasesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listTargetDatabases.");
+    const operationName = "listTargetDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabaseSummary/ListTargetDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -11592,7 +12898,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTargetDatabasesResponse>{},
         body: await response.json(),
@@ -11703,6 +13015,9 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
     listUserAnalyticsRequest: requests.ListUserAnalyticsRequest
   ): Promise<responses.ListUserAnalyticsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUserAnalytics.");
+    const operationName = "listUserAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListUserAnalytics";
     const pathParams = {
       "{userAssessmentId}": listUserAnalyticsRequest.userAssessmentId
     };
@@ -11753,7 +13068,13 @@ To use ListUserAnalytics to get a full list of all compartments and subcompartme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUserAnalyticsResponse>{},
         body: await response.json(),
@@ -11859,6 +13180,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     listUserAssessmentsRequest: requests.ListUserAssessmentsRequest
   ): Promise<responses.ListUserAssessmentsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUserAssessments.");
+    const operationName = "listUserAssessments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessmentSummary/ListUserAssessments";
     const pathParams = {};
 
     const queryParams = {
@@ -11903,7 +13227,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUserAssessmentsResponse>{},
         body: await response.json(),
@@ -12003,6 +13333,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listUsers.");
+    const operationName = "listUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListUsers";
     const pathParams = {
       "{userAssessmentId}": listUsersRequest.userAssessmentId
     };
@@ -12051,7 +13384,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUsersResponse>{},
         body: await response.json(),
@@ -12148,6 +13487,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -12179,7 +13521,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -12271,6 +13619,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -12302,7 +13653,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -12394,6 +13751,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -12429,7 +13789,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -12520,6 +13886,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     maskDataRequest: requests.MaskDataRequest
   ): Promise<responses.MaskDataResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#maskData.");
+    const operationName = "maskData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/MaskData";
     const pathParams = {
       "{maskingPolicyId}": maskDataRequest.maskingPolicyId
     };
@@ -12553,7 +13922,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.MaskDataResponse>{},
         responseHeaders: [
@@ -12589,6 +13964,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     modifyGlobalSettingsRequest: requests.ModifyGlobalSettingsRequest
   ): Promise<responses.ModifyGlobalSettingsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#modifyGlobalSettings.");
+    const operationName = "modifyGlobalSettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafeConfiguration/ModifyGlobalSettings";
     const pathParams = {
       "{compartmentId}": modifyGlobalSettingsRequest.compartmentId
     };
@@ -12624,7 +14002,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ModifyGlobalSettingsResponse>{},
         responseHeaders: [
@@ -12659,6 +14043,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     patchAlertsRequest: requests.PatchAlertsRequest
   ): Promise<responses.PatchAlertsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchAlerts.");
+    const operationName = "patchAlerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/PatchAlerts";
     const pathParams = {};
 
     const queryParams = {};
@@ -12691,7 +14078,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchAlertsResponse>{},
         responseHeaders: [
@@ -12729,6 +14122,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.PatchDiscoveryJobResultsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#patchDiscoveryJobResults.");
+    const operationName = "patchDiscoveryJobResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DiscoveryJob/PatchDiscoveryJobResults";
     const pathParams = {
       "{discoveryJobId}": patchDiscoveryJobResultsRequest.discoveryJobId
     };
@@ -12763,7 +14159,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchDiscoveryJobResultsResponse>{},
         responseHeaders: [
@@ -12801,6 +14203,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     patchMaskingColumnsRequest: requests.PatchMaskingColumnsRequest
   ): Promise<responses.PatchMaskingColumnsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchMaskingColumns.");
+    const operationName = "patchMaskingColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/PatchMaskingColumns";
     const pathParams = {
       "{maskingPolicyId}": patchMaskingColumnsRequest.maskingPolicyId
     };
@@ -12835,7 +14240,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchMaskingColumnsResponse>{},
         responseHeaders: [
@@ -12873,6 +14284,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     patchSensitiveColumnsRequest: requests.PatchSensitiveColumnsRequest
   ): Promise<responses.PatchSensitiveColumnsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#patchSensitiveColumns.");
+    const operationName = "patchSensitiveColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/PatchSensitiveColumns";
     const pathParams = {
       "{sensitiveDataModelId}": patchSensitiveColumnsRequest.sensitiveDataModelId
     };
@@ -12907,7 +14321,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchSensitiveColumnsResponse>{},
         responseHeaders: [
@@ -12942,6 +14362,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     provisionAuditPolicyRequest: requests.ProvisionAuditPolicyRequest
   ): Promise<responses.ProvisionAuditPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#provisionAuditPolicy.");
+    const operationName = "provisionAuditPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/ProvisionAuditPolicy";
     const pathParams = {
       "{auditPolicyId}": provisionAuditPolicyRequest.auditPolicyId
     };
@@ -12977,7 +14400,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ProvisionAuditPolicyResponse>{},
         responseHeaders: [
@@ -13015,6 +14444,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.RefreshSecurityAssessmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#refreshSecurityAssessment.");
+    const operationName = "refreshSecurityAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/RefreshSecurityAssessment";
     const pathParams = {
       "{securityAssessmentId}": refreshSecurityAssessmentRequest.securityAssessmentId
     };
@@ -13050,7 +14482,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshSecurityAssessmentResponse>{},
         responseHeaders: [
@@ -13088,6 +14526,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     refreshUserAssessmentRequest: requests.RefreshUserAssessmentRequest
   ): Promise<responses.RefreshUserAssessmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#refreshUserAssessment.");
+    const operationName = "refreshUserAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/RefreshUserAssessment";
     const pathParams = {
       "{userAssessmentId}": refreshUserAssessmentRequest.userAssessmentId
     };
@@ -13123,7 +14564,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshUserAssessmentResponse>{},
         responseHeaders: [
@@ -13158,6 +14605,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     resumeAuditTrailRequest: requests.ResumeAuditTrailRequest
   ): Promise<responses.ResumeAuditTrailResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#resumeAuditTrail.");
+    const operationName = "resumeAuditTrail";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/ResumeAuditTrail";
     const pathParams = {
       "{auditTrailId}": resumeAuditTrailRequest.auditTrailId
     };
@@ -13187,7 +14637,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResumeAuditTrailResponse>{},
         responseHeaders: [
@@ -13223,6 +14679,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     resumeWorkRequestRequest: requests.ResumeWorkRequestRequest
   ): Promise<responses.ResumeWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#resumeWorkRequest.");
+    const operationName = "resumeWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/ResumeWorkRequest";
     const pathParams = {
       "{workRequestId}": resumeWorkRequestRequest.workRequestId
     };
@@ -13253,7 +14712,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResumeWorkRequestResponse>{},
         responseHeaders: [
@@ -13288,6 +14753,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     retrieveAuditPoliciesRequest: requests.RetrieveAuditPoliciesRequest
   ): Promise<responses.RetrieveAuditPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#retrieveAuditPolicies.");
+    const operationName = "retrieveAuditPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/RetrieveAuditPolicies";
     const pathParams = {
       "{auditPolicyId}": retrieveAuditPoliciesRequest.auditPolicyId
     };
@@ -13318,7 +14786,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RetrieveAuditPoliciesResponse>{},
         responseHeaders: [
@@ -13354,6 +14828,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.SetSecurityAssessmentBaselineResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#setSecurityAssessmentBaseline.");
+    const operationName = "setSecurityAssessmentBaseline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/SetSecurityAssessmentBaseline";
     const pathParams = {
       "{securityAssessmentId}": setSecurityAssessmentBaselineRequest.securityAssessmentId
     };
@@ -13389,7 +14866,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SetSecurityAssessmentBaselineResponse>{},
         responseHeaders: [
@@ -13425,6 +14908,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.SetUserAssessmentBaselineResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#setUserAssessmentBaseline.");
+    const operationName = "setUserAssessmentBaseline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/SetUserAssessmentBaseline";
     const pathParams = {
       "{userAssessmentId}": setUserAssessmentBaselineRequest.userAssessmentId
     };
@@ -13460,7 +14946,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SetUserAssessmentBaselineResponse>{},
         responseHeaders: [
@@ -13495,6 +14987,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     startAuditTrailRequest: requests.StartAuditTrailRequest
   ): Promise<responses.StartAuditTrailResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#startAuditTrail.");
+    const operationName = "startAuditTrail";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/StartAuditTrail";
     const pathParams = {
       "{auditTrailId}": startAuditTrailRequest.auditTrailId
     };
@@ -13530,7 +15025,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartAuditTrailResponse>{},
         responseHeaders: [
@@ -13565,6 +15066,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     stopAuditTrailRequest: requests.StopAuditTrailRequest
   ): Promise<responses.StopAuditTrailResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#stopAuditTrail.");
+    const operationName = "stopAuditTrail";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/StopAuditTrail";
     const pathParams = {
       "{auditTrailId}": stopAuditTrailRequest.auditTrailId
     };
@@ -13594,7 +15098,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopAuditTrailResponse>{},
         responseHeaders: [
@@ -13630,6 +15140,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     suspendWorkRequestRequest: requests.SuspendWorkRequestRequest
   ): Promise<responses.SuspendWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#suspendWorkRequest.");
+    const operationName = "suspendWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/WorkRequest/SuspendWorkRequest";
     const pathParams = {
       "{workRequestId}": suspendWorkRequestRequest.workRequestId
     };
@@ -13660,7 +15173,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SuspendWorkRequestResponse>{},
         responseHeaders: [
@@ -13698,6 +15217,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UnsetSecurityAssessmentBaselineResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#unsetSecurityAssessmentBaseline.");
+    const operationName = "unsetSecurityAssessmentBaseline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/UnsetSecurityAssessmentBaseline";
     const pathParams = {
       "{securityAssessmentId}": unsetSecurityAssessmentBaselineRequest.securityAssessmentId
     };
@@ -13728,7 +15250,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UnsetSecurityAssessmentBaselineResponse>{},
         responseHeaders: [
@@ -13766,6 +15294,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UnsetUserAssessmentBaselineResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#unsetUserAssessmentBaseline.");
+    const operationName = "unsetUserAssessmentBaseline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/UnsetUserAssessmentBaseline";
     const pathParams = {
       "{userAssessmentId}": unsetUserAssessmentBaselineRequest.userAssessmentId
     };
@@ -13796,7 +15327,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UnsetUserAssessmentBaselineResponse>{},
         responseHeaders: [
@@ -13831,6 +15368,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateAlertRequest: requests.UpdateAlertRequest
   ): Promise<responses.UpdateAlertResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAlert.");
+    const operationName = "updateAlert";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/UpdateAlert";
     const pathParams = {
       "{alertId}": updateAlertRequest.alertId
     };
@@ -13865,7 +15405,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAlertResponse>{},
         body: await response.json(),
@@ -13905,6 +15451,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UpdateAuditArchiveRetrievalResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#updateAuditArchiveRetrieval.");
+    const operationName = "updateAuditArchiveRetrieval";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditArchiveRetrieval/UpdateAuditArchiveRetrieval";
     const pathParams = {
       "{auditArchiveRetrievalId}": updateAuditArchiveRetrievalRequest.auditArchiveRetrievalId
     };
@@ -13939,7 +15488,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAuditArchiveRetrievalResponse>{},
         responseHeaders: [
@@ -13974,6 +15529,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateAuditPolicyRequest: requests.UpdateAuditPolicyRequest
   ): Promise<responses.UpdateAuditPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditPolicy.");
+    const operationName = "updateAuditPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicy/UpdateAuditPolicy";
     const pathParams = {
       "{auditPolicyId}": updateAuditPolicyRequest.auditPolicyId
     };
@@ -14008,7 +15566,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAuditPolicyResponse>{},
         responseHeaders: [
@@ -14043,6 +15607,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateAuditProfileRequest: requests.UpdateAuditProfileRequest
   ): Promise<responses.UpdateAuditProfileResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditProfile.");
+    const operationName = "updateAuditProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditProfile/UpdateAuditProfile";
     const pathParams = {
       "{auditProfileId}": updateAuditProfileRequest.auditProfileId
     };
@@ -14077,7 +15644,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAuditProfileResponse>{},
         responseHeaders: [
@@ -14112,6 +15685,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateAuditTrailRequest: requests.UpdateAuditTrailRequest
   ): Promise<responses.UpdateAuditTrailResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateAuditTrail.");
+    const operationName = "updateAuditTrail";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditTrail/UpdateAuditTrail";
     const pathParams = {
       "{auditTrailId}": updateAuditTrailRequest.auditTrailId
     };
@@ -14146,7 +15722,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAuditTrailResponse>{},
         responseHeaders: [
@@ -14182,6 +15764,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UpdateDataSafePrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#updateDataSafePrivateEndpoint.");
+    const operationName = "updateDataSafePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DataSafePrivateEndpoint/UpdateDataSafePrivateEndpoint";
     const pathParams = {
       "{dataSafePrivateEndpointId}": updateDataSafePrivateEndpointRequest.dataSafePrivateEndpointId
     };
@@ -14216,7 +15801,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataSafePrivateEndpointResponse>{},
         responseHeaders: [
@@ -14252,6 +15843,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UpdateLibraryMaskingFormatResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#updateLibraryMaskingFormat.");
+    const operationName = "updateLibraryMaskingFormat";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/LibraryMaskingFormat/UpdateLibraryMaskingFormat";
     const pathParams = {
       "{libraryMaskingFormatId}": updateLibraryMaskingFormatRequest.libraryMaskingFormatId
     };
@@ -14286,7 +15880,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLibraryMaskingFormatResponse>{},
         responseHeaders: [
@@ -14323,6 +15923,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateMaskingColumnRequest: requests.UpdateMaskingColumnRequest
   ): Promise<responses.UpdateMaskingColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateMaskingColumn.");
+    const operationName = "updateMaskingColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingColumn/UpdateMaskingColumn";
     const pathParams = {
       "{maskingColumnKey}": updateMaskingColumnRequest.maskingColumnKey,
       "{maskingPolicyId}": updateMaskingColumnRequest.maskingPolicyId
@@ -14358,7 +15961,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMaskingColumnResponse>{},
         responseHeaders: [
@@ -14393,6 +16002,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateMaskingPolicyRequest: requests.UpdateMaskingPolicyRequest
   ): Promise<responses.UpdateMaskingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateMaskingPolicy.");
+    const operationName = "updateMaskingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/UpdateMaskingPolicy";
     const pathParams = {
       "{maskingPolicyId}": updateMaskingPolicyRequest.maskingPolicyId
     };
@@ -14427,7 +16039,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMaskingPolicyResponse>{},
         responseHeaders: [
@@ -14462,6 +16080,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateOnPremConnectorRequest: requests.UpdateOnPremConnectorRequest
   ): Promise<responses.UpdateOnPremConnectorResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateOnPremConnector.");
+    const operationName = "updateOnPremConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/UpdateOnPremConnector";
     const pathParams = {
       "{onPremConnectorId}": updateOnPremConnectorRequest.onPremConnectorId
     };
@@ -14496,7 +16117,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOnPremConnectorResponse>{},
         responseHeaders: [
@@ -14533,6 +16160,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UpdateOnPremConnectorWalletResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#updateOnPremConnectorWallet.");
+    const operationName = "updateOnPremConnectorWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/OnPremConnector/UpdateOnPremConnectorWallet";
     const pathParams = {
       "{onPremConnectorId}": updateOnPremConnectorWalletRequest.onPremConnectorId
     };
@@ -14568,7 +16198,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOnPremConnectorWalletResponse>{},
         responseHeaders: [
@@ -14603,6 +16239,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateReportDefinitionRequest: requests.UpdateReportDefinitionRequest
   ): Promise<responses.UpdateReportDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateReportDefinition.");
+    const operationName = "updateReportDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/UpdateReportDefinition";
     const pathParams = {
       "{reportDefinitionId}": updateReportDefinitionRequest.reportDefinitionId
     };
@@ -14638,7 +16277,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateReportDefinitionResponse>{},
         responseHeaders: [
@@ -14675,6 +16320,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UpdateSecurityAssessmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#updateSecurityAssessment.");
+    const operationName = "updateSecurityAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SecurityAssessment/UpdateSecurityAssessment";
     const pathParams = {
       "{securityAssessmentId}": updateSecurityAssessmentRequest.securityAssessmentId
     };
@@ -14709,7 +16357,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSecurityAssessmentResponse>{},
         responseHeaders: [
@@ -14744,6 +16398,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateSensitiveColumnRequest: requests.UpdateSensitiveColumnRequest
   ): Promise<responses.UpdateSensitiveColumnResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSensitiveColumn.");
+    const operationName = "updateSensitiveColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveColumn/UpdateSensitiveColumn";
     const pathParams = {
       "{sensitiveDataModelId}": updateSensitiveColumnRequest.sensitiveDataModelId,
       "{sensitiveColumnKey}": updateSensitiveColumnRequest.sensitiveColumnKey
@@ -14779,7 +16436,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSensitiveColumnResponse>{},
         responseHeaders: [
@@ -14817,6 +16480,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UpdateSensitiveDataModelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#updateSensitiveDataModel.");
+    const operationName = "updateSensitiveDataModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/UpdateSensitiveDataModel";
     const pathParams = {
       "{sensitiveDataModelId}": updateSensitiveDataModelRequest.sensitiveDataModelId
     };
@@ -14851,7 +16517,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSensitiveDataModelResponse>{},
         responseHeaders: [
@@ -14886,6 +16558,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateSensitiveTypeRequest: requests.UpdateSensitiveTypeRequest
   ): Promise<responses.UpdateSensitiveTypeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateSensitiveType.");
+    const operationName = "updateSensitiveType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveType/UpdateSensitiveType";
     const pathParams = {
       "{sensitiveTypeId}": updateSensitiveTypeRequest.sensitiveTypeId
     };
@@ -14920,7 +16595,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSensitiveTypeResponse>{},
         responseHeaders: [
@@ -14956,6 +16637,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UpdateTargetAlertPolicyAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#updateTargetAlertPolicyAssociation.");
+    const operationName = "updateTargetAlertPolicyAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/UpdateTargetAlertPolicyAssociation";
     const pathParams = {
       "{targetAlertPolicyAssociationId}":
         updateTargetAlertPolicyAssociationRequest.targetAlertPolicyAssociationId
@@ -14991,7 +16675,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetAlertPolicyAssociationResponse>{},
         responseHeaders: [
@@ -15026,6 +16716,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateTargetDatabaseRequest: requests.UpdateTargetDatabaseRequest
   ): Promise<responses.UpdateTargetDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateTargetDatabase.");
+    const operationName = "updateTargetDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetDatabase/UpdateTargetDatabase";
     const pathParams = {
       "{targetDatabaseId}": updateTargetDatabaseRequest.targetDatabaseId
     };
@@ -15061,7 +16754,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetDatabaseResponse>{},
         responseHeaders: [
@@ -15097,6 +16796,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     updateUserAssessmentRequest: requests.UpdateUserAssessmentRequest
   ): Promise<responses.UpdateUserAssessmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#updateUserAssessment.");
+    const operationName = "updateUserAssessment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/UpdateUserAssessment";
     const pathParams = {
       "{userAssessmentId}": updateUserAssessmentRequest.userAssessmentId
     };
@@ -15131,7 +16833,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateUserAssessmentResponse>{},
         responseHeaders: [
@@ -15171,6 +16879,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
     uploadMaskingPolicyRequest: requests.UploadMaskingPolicyRequest
   ): Promise<responses.UploadMaskingPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataSafeClient#uploadMaskingPolicy.");
+    const operationName = "uploadMaskingPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/UploadMaskingPolicy";
     const pathParams = {
       "{maskingPolicyId}": uploadMaskingPolicyRequest.maskingPolicyId
     };
@@ -15201,7 +16912,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadMaskingPolicyResponse>{},
         responseHeaders: [
@@ -15241,6 +16958,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   ): Promise<responses.UploadSensitiveDataModelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataSafeClient#uploadSensitiveDataModel.");
+    const operationName = "uploadSensitiveDataModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveDataModel/UploadSensitiveDataModel";
     const pathParams = {
       "{sensitiveDataModelId}": uploadSensitiveDataModelRequest.sensitiveDataModelId
     };
@@ -15271,7 +16991,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadSensitiveDataModelResponse>{},
         responseHeaders: [

@@ -38,6 +38,7 @@ export class VbInstanceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "VbInstance";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class VbInstanceClient {
   ): Promise<responses.ChangeVbInstanceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VbInstanceClient#changeVbInstanceCompartment.");
+    const operationName = "changeVbInstanceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/ChangeVbInstanceCompartment";
     const pathParams = {
       "{vbInstanceId}": changeVbInstanceCompartmentRequest.vbInstanceId
     };
@@ -200,7 +204,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVbInstanceCompartmentResponse>{},
         responseHeaders: [
@@ -236,6 +246,9 @@ export class VbInstanceClient {
     createVbInstanceRequest: requests.CreateVbInstanceRequest
   ): Promise<responses.CreateVbInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#createVbInstance.");
+    const operationName = "createVbInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/CreateVbInstance";
     const pathParams = {};
 
     const queryParams = {};
@@ -268,7 +281,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVbInstanceResponse>{},
         responseHeaders: [
@@ -303,6 +322,9 @@ export class VbInstanceClient {
     deleteVbInstanceRequest: requests.DeleteVbInstanceRequest
   ): Promise<responses.DeleteVbInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#deleteVbInstance.");
+    const operationName = "deleteVbInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/DeleteVbInstance";
     const pathParams = {
       "{vbInstanceId}": deleteVbInstanceRequest.vbInstanceId
     };
@@ -332,7 +354,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVbInstanceResponse>{},
         responseHeaders: [
@@ -367,6 +395,9 @@ export class VbInstanceClient {
     getVbInstanceRequest: requests.GetVbInstanceRequest
   ): Promise<responses.GetVbInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#getVbInstance.");
+    const operationName = "getVbInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/GetVbInstance";
     const pathParams = {
       "{vbInstanceId}": getVbInstanceRequest.vbInstanceId
     };
@@ -395,7 +426,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVbInstanceResponse>{},
         body: await response.json(),
@@ -434,6 +471,9 @@ export class VbInstanceClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -462,7 +502,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -507,6 +553,9 @@ export class VbInstanceClient {
     listVbInstancesRequest: requests.ListVbInstancesRequest
   ): Promise<responses.ListVbInstancesResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listVbInstances.");
+    const operationName = "listVbInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstanceSummaryCollection/ListVbInstances";
     const pathParams = {};
 
     const queryParams = {
@@ -541,7 +590,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVbInstancesResponse>{},
         body: await response.json(),
@@ -585,6 +640,9 @@ export class VbInstanceClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequestErrorCollection/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -617,7 +675,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -661,6 +725,9 @@ export class VbInstanceClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequestLogEntryCollection/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -693,7 +760,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -738,6 +811,9 @@ export class VbInstanceClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/WorkRequestSummaryCollection/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -769,7 +845,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -814,6 +896,9 @@ export class VbInstanceClient {
   ): Promise<responses.RequestSummarizedApplicationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VbInstanceClient#requestSummarizedApplications.");
+    const operationName = "requestSummarizedApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/ApplicationSummaryCollection/RequestSummarizedApplications";
     const pathParams = {
       "{vbInstanceId}": requestSummarizedApplicationsRequest.vbInstanceId
     };
@@ -849,7 +934,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedApplicationsResponse>{},
         body: await response.json(),
@@ -890,6 +981,9 @@ export class VbInstanceClient {
     startVbInstanceRequest: requests.StartVbInstanceRequest
   ): Promise<responses.StartVbInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#startVbInstance.");
+    const operationName = "startVbInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/StartVbInstance";
     const pathParams = {
       "{vbInstanceId}": startVbInstanceRequest.vbInstanceId
     };
@@ -920,7 +1014,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartVbInstanceResponse>{},
         responseHeaders: [
@@ -957,6 +1057,9 @@ export class VbInstanceClient {
     stopVbInstanceRequest: requests.StopVbInstanceRequest
   ): Promise<responses.StopVbInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#stopVbInstance.");
+    const operationName = "stopVbInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/StopVbInstance";
     const pathParams = {
       "{vbInstanceId}": stopVbInstanceRequest.vbInstanceId
     };
@@ -987,7 +1090,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopVbInstanceResponse>{},
         responseHeaders: [
@@ -1022,6 +1131,9 @@ export class VbInstanceClient {
     updateVbInstanceRequest: requests.UpdateVbInstanceRequest
   ): Promise<responses.UpdateVbInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation VbInstanceClient#updateVbInstance.");
+    const operationName = "updateVbInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/visual-builder/20210601/VbInstance/UpdateVbInstance";
     const pathParams = {
       "{vbInstanceId}": updateVbInstanceRequest.vbInstanceId
     };
@@ -1056,7 +1168,13 @@ export class VbInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVbInstanceResponse>{},
         responseHeaders: [

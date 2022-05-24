@@ -36,6 +36,7 @@ export class AIServiceVisionClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AIServiceVision";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,9 @@ export class AIServiceVisionClient {
     analyzeDocumentRequest: requests.AnalyzeDocumentRequest
   ): Promise<responses.AnalyzeDocumentResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#analyzeDocument.");
+    const operationName = "analyzeDocument";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/AnalyzeDocumentResult/AnalyzeDocument";
     const pathParams = {};
 
     const queryParams = {};
@@ -193,7 +197,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AnalyzeDocumentResponse>{},
         body: await response.json(),
@@ -233,6 +243,9 @@ export class AIServiceVisionClient {
     analyzeImageRequest: requests.AnalyzeImageRequest
   ): Promise<responses.AnalyzeImageResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#analyzeImage.");
+    const operationName = "analyzeImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/AnalyzeImageResult/AnalyzeImage";
     const pathParams = {};
 
     const queryParams = {};
@@ -264,7 +277,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AnalyzeImageResponse>{},
         body: await response.json(),
@@ -305,6 +324,9 @@ export class AIServiceVisionClient {
   ): Promise<responses.CancelDocumentJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceVisionClient#cancelDocumentJob.");
+    const operationName = "cancelDocumentJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/DocumentJob/CancelDocumentJob";
     const pathParams = {
       "{documentJobId}": cancelDocumentJobRequest.documentJobId
     };
@@ -334,7 +356,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelDocumentJobResponse>{},
         responseHeaders: [
@@ -365,6 +393,9 @@ export class AIServiceVisionClient {
     cancelImageJobRequest: requests.CancelImageJobRequest
   ): Promise<responses.CancelImageJobResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#cancelImageJob.");
+    const operationName = "cancelImageJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ImageJob/CancelImageJob";
     const pathParams = {
       "{imageJobId}": cancelImageJobRequest.imageJobId
     };
@@ -394,7 +425,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelImageJobResponse>{},
         responseHeaders: [
@@ -425,6 +462,9 @@ export class AIServiceVisionClient {
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceVisionClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -454,7 +494,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -485,6 +531,9 @@ export class AIServiceVisionClient {
   ): Promise<responses.ChangeModelCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceVisionClient#changeModelCompartment.");
+    const operationName = "changeModelCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/ChangeModelCompartment";
     const pathParams = {
       "{modelId}": changeModelCompartmentRequest.modelId
     };
@@ -519,7 +568,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeModelCompartmentResponse>{},
         responseHeaders: [
@@ -550,6 +605,9 @@ export class AIServiceVisionClient {
   ): Promise<responses.ChangeProjectCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceVisionClient#changeProjectCompartment.");
+    const operationName = "changeProjectCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/ChangeProjectCompartment";
     const pathParams = {
       "{projectId}": changeProjectCompartmentRequest.projectId
     };
@@ -584,7 +642,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeProjectCompartmentResponse>{},
         responseHeaders: [
@@ -616,6 +680,9 @@ export class AIServiceVisionClient {
   ): Promise<responses.CreateDocumentJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceVisionClient#createDocumentJob.");
+    const operationName = "createDocumentJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/DocumentJob/CreateDocumentJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -648,7 +715,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDocumentJobResponse>{},
         body: await response.json(),
@@ -688,6 +761,9 @@ export class AIServiceVisionClient {
     createImageJobRequest: requests.CreateImageJobRequest
   ): Promise<responses.CreateImageJobResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createImageJob.");
+    const operationName = "createImageJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ImageJob/CreateImageJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -720,7 +796,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateImageJobResponse>{},
         body: await response.json(),
@@ -760,6 +842,8 @@ export class AIServiceVisionClient {
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createModel.");
+    const operationName = "createModel";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -792,7 +876,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateModelResponse>{},
         body: await response.json(),
@@ -837,6 +927,8 @@ export class AIServiceVisionClient {
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#createProject.");
+    const operationName = "createProject";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -869,7 +961,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
@@ -913,6 +1011,9 @@ export class AIServiceVisionClient {
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#deleteModel.");
+    const operationName = "deleteModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/DeleteModel";
     const pathParams = {
       "{modelId}": deleteModelRequest.modelId
     };
@@ -942,7 +1043,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteModelResponse>{},
         responseHeaders: [
@@ -977,6 +1084,9 @@ export class AIServiceVisionClient {
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#deleteProject.");
+    const operationName = "deleteProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/DeleteProject";
     const pathParams = {
       "{projectId}": deleteProjectRequest.projectId
     };
@@ -1006,7 +1116,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProjectResponse>{},
         responseHeaders: [
@@ -1042,6 +1158,9 @@ export class AIServiceVisionClient {
     getDocumentJobRequest: requests.GetDocumentJobRequest
   ): Promise<responses.GetDocumentJobResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getDocumentJob.");
+    const operationName = "getDocumentJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/DocumentJob/GetDocumentJob";
     const pathParams = {
       "{documentJobId}": getDocumentJobRequest.documentJobId
     };
@@ -1070,7 +1189,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDocumentJobResponse>{},
         body: await response.json(),
@@ -1110,6 +1235,9 @@ export class AIServiceVisionClient {
     getImageJobRequest: requests.GetImageJobRequest
   ): Promise<responses.GetImageJobResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getImageJob.");
+    const operationName = "getImageJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ImageJob/GetImageJob";
     const pathParams = {
       "{imageJobId}": getImageJobRequest.imageJobId
     };
@@ -1138,7 +1266,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetImageJobResponse>{},
         body: await response.json(),
@@ -1177,6 +1311,8 @@ export class AIServiceVisionClient {
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getModel.");
+    const operationName = "getModel";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/GetModel";
     const pathParams = {
       "{modelId}": getModelRequest.modelId
     };
@@ -1205,7 +1341,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetModelResponse>{},
         body: await response.json(),
@@ -1244,6 +1386,9 @@ export class AIServiceVisionClient {
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getProject.");
+    const operationName = "getProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/GetProject";
     const pathParams = {
       "{projectId}": getProjectRequest.projectId
     };
@@ -1272,7 +1417,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
@@ -1311,6 +1462,9 @@ export class AIServiceVisionClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1339,7 +1493,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1384,6 +1544,9 @@ export class AIServiceVisionClient {
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listModels.");
+    const operationName = "listModels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ModelCollection/ListModels";
     const pathParams = {};
 
     const queryParams = {
@@ -1420,7 +1583,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListModelsResponse>{},
         body: await response.json(),
@@ -1460,6 +1629,9 @@ export class AIServiceVisionClient {
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listProjects.");
+    const operationName = "listProjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/ProjectCollection/ListProjects";
     const pathParams = {};
 
     const queryParams = {
@@ -1495,7 +1667,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
@@ -1536,6 +1714,9 @@ export class AIServiceVisionClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceVisionClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1569,7 +1750,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1610,6 +1797,9 @@ export class AIServiceVisionClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceVisionClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1643,7 +1833,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1683,6 +1879,9 @@ export class AIServiceVisionClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1718,7 +1917,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1757,6 +1962,9 @@ export class AIServiceVisionClient {
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#updateModel.");
+    const operationName = "updateModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Model/UpdateModel";
     const pathParams = {
       "{modelId}": updateModelRequest.modelId
     };
@@ -1791,7 +1999,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateModelResponse>{},
         responseHeaders: [
@@ -1826,6 +2040,9 @@ export class AIServiceVisionClient {
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AIServiceVisionClient#updateProject.");
+    const operationName = "updateProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vision/20220125/Project/UpdateProject";
     const pathParams = {
       "{projectId}": updateProjectRequest.projectId
     };
@@ -1860,7 +2077,13 @@ export class AIServiceVisionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProjectResponse>{},
         responseHeaders: [

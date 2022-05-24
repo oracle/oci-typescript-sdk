@@ -34,6 +34,7 @@ export class CertificatesClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Certificates";
 
   protected _httpClient: common.HttpClient;
 
@@ -137,6 +138,9 @@ export class CertificatesClient {
     getCaBundleRequest: requests.GetCaBundleRequest
   ): Promise<responses.GetCaBundleResponse> {
     if (this.logger) this.logger.debug("Calling operation CertificatesClient#getCaBundle.");
+    const operationName = "getCaBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CaBundle/GetCaBundle";
     const pathParams = {
       "{caBundleId}": getCaBundleRequest.caBundleId
     };
@@ -165,7 +169,13 @@ export class CertificatesClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCaBundleResponse>{},
         body: await response.json(),
@@ -207,6 +217,9 @@ export class CertificatesClient {
   ): Promise<responses.GetCertificateAuthorityBundleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesClient#getCertificateAuthorityBundle.");
+    const operationName = "getCertificateAuthorityBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateAuthorityBundle/GetCertificateAuthorityBundle";
     const pathParams = {
       "{certificateAuthorityId}": getCertificateAuthorityBundleRequest.certificateAuthorityId
     };
@@ -240,7 +253,13 @@ export class CertificatesClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCertificateAuthorityBundleResponse>{},
         body: await response.json(),
@@ -285,6 +304,9 @@ By default, the private key is not included in the query result, and a Certifica
   ): Promise<responses.GetCertificateBundleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesClient#getCertificateBundle.");
+    const operationName = "getCertificateBundle";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateBundle/GetCertificateBundle";
     const pathParams = {
       "{certificateId}": getCertificateBundleRequest.certificateId
     };
@@ -318,7 +340,13 @@ By default, the private key is not included in the query result, and a Certifica
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCertificateBundleResponse>{},
         body: await response.json(),
@@ -360,6 +388,9 @@ By default, the private key is not included in the query result, and a Certifica
       this.logger.debug(
         "Calling operation CertificatesClient#listCertificateAuthorityBundleVersions."
       );
+    const operationName = "listCertificateAuthorityBundleVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateAuthorityBundleVersionSummary/ListCertificateAuthorityBundleVersions";
     const pathParams = {
       "{certificateAuthorityId}":
         listCertificateAuthorityBundleVersionsRequest.certificateAuthorityId
@@ -392,7 +423,13 @@ By default, the private key is not included in the query result, and a Certifica
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificateAuthorityBundleVersionsResponse>{},
         body: await response.json(),
@@ -427,6 +464,9 @@ By default, the private key is not included in the query result, and a Certifica
   ): Promise<responses.ListCertificateBundleVersionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CertificatesClient#listCertificateBundleVersions.");
+    const operationName = "listCertificateBundleVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/certificates/20210224/CertificateBundleVersionSummary/ListCertificateBundleVersions";
     const pathParams = {
       "{certificateId}": listCertificateBundleVersionsRequest.certificateId
     };
@@ -458,7 +498,13 @@ By default, the private key is not included in the query result, and a Certifica
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCertificateBundleVersionsResponse>{},
         body: await response.json(),

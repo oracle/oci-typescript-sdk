@@ -39,6 +39,7 @@ export class CloudGuardClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "CloudGuard";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class CloudGuardClient {
     addCompartmentRequest: requests.AddCompartmentRequest
   ): Promise<responses.AddCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#addCompartment.");
+    const operationName = "addCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/AddCompartment";
     const pathParams = {
       "{securityZoneId}": addCompartmentRequest.securityZoneId
     };
@@ -199,7 +203,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddCompartmentResponse>{},
         body: await response.json(),
@@ -239,6 +249,9 @@ export class CloudGuardClient {
   ): Promise<responses.ChangeDetectorRecipeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#changeDetectorRecipeCompartment.");
+    const operationName = "changeDetectorRecipeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/ChangeDetectorRecipeCompartment";
     const pathParams = {
       "{detectorRecipeId}": changeDetectorRecipeCompartmentRequest.detectorRecipeId
     };
@@ -274,7 +287,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDetectorRecipeCompartmentResponse>{},
         responseHeaders: [
@@ -305,6 +324,9 @@ export class CloudGuardClient {
   ): Promise<responses.ChangeManagedListCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#changeManagedListCompartment.");
+    const operationName = "changeManagedListCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/ChangeManagedListCompartment";
     const pathParams = {
       "{managedListId}": changeManagedListCompartmentRequest.managedListId
     };
@@ -340,7 +362,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagedListCompartmentResponse>{},
         responseHeaders: [
@@ -371,6 +399,9 @@ export class CloudGuardClient {
   ): Promise<responses.ChangeResponderRecipeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#changeResponderRecipeCompartment.");
+    const operationName = "changeResponderRecipeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/ChangeResponderRecipeCompartment";
     const pathParams = {
       "{responderRecipeId}": changeResponderRecipeCompartmentRequest.responderRecipeId
     };
@@ -406,7 +437,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeResponderRecipeCompartmentResponse>{},
         responseHeaders: [
@@ -437,6 +474,9 @@ export class CloudGuardClient {
   ): Promise<responses.ChangeSecurityRecipeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#changeSecurityRecipeCompartment.");
+    const operationName = "changeSecurityRecipeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/ChangeSecurityRecipeCompartment";
     const pathParams = {
       "{securityRecipeId}": changeSecurityRecipeCompartmentRequest.securityRecipeId
     };
@@ -472,7 +512,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSecurityRecipeCompartmentResponse>{},
         responseHeaders: [
@@ -503,6 +549,9 @@ export class CloudGuardClient {
   ): Promise<responses.ChangeSecurityZoneCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#changeSecurityZoneCompartment.");
+    const operationName = "changeSecurityZoneCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/ChangeSecurityZoneCompartment";
     const pathParams = {
       "{securityZoneId}": changeSecurityZoneCompartmentRequest.securityZoneId
     };
@@ -538,7 +587,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSecurityZoneCompartmentResponse>{},
         responseHeaders: [
@@ -569,6 +624,9 @@ export class CloudGuardClient {
     createDataMaskRuleRequest: requests.CreateDataMaskRuleRequest
   ): Promise<responses.CreateDataMaskRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createDataMaskRule.");
+    const operationName = "createDataMaskRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/CreateDataMaskRule";
     const pathParams = {};
 
     const queryParams = {};
@@ -601,7 +659,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataMaskRuleResponse>{},
         body: await response.json(),
@@ -641,6 +705,9 @@ export class CloudGuardClient {
     createDetectorRecipeRequest: requests.CreateDetectorRecipeRequest
   ): Promise<responses.CreateDetectorRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createDetectorRecipe.");
+    const operationName = "createDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/CreateDetectorRecipe";
     const pathParams = {};
 
     const queryParams = {};
@@ -673,7 +740,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDetectorRecipeResponse>{},
         body: await response.json(),
@@ -713,6 +786,9 @@ export class CloudGuardClient {
     createManagedListRequest: requests.CreateManagedListRequest
   ): Promise<responses.CreateManagedListResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createManagedList.");
+    const operationName = "createManagedList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/CreateManagedList";
     const pathParams = {};
 
     const queryParams = {};
@@ -745,7 +821,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateManagedListResponse>{},
         body: await response.json(),
@@ -785,6 +867,9 @@ export class CloudGuardClient {
     createResponderRecipeRequest: requests.CreateResponderRecipeRequest
   ): Promise<responses.CreateResponderRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createResponderRecipe.");
+    const operationName = "createResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/CreateResponderRecipe";
     const pathParams = {};
 
     const queryParams = {};
@@ -817,7 +902,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateResponderRecipeResponse>{},
         body: await response.json(),
@@ -857,6 +948,9 @@ export class CloudGuardClient {
     createSecurityRecipeRequest: requests.CreateSecurityRecipeRequest
   ): Promise<responses.CreateSecurityRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createSecurityRecipe.");
+    const operationName = "createSecurityRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/CreateSecurityRecipe";
     const pathParams = {};
 
     const queryParams = {};
@@ -889,7 +983,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSecurityRecipeResponse>{},
         body: await response.json(),
@@ -929,6 +1029,9 @@ export class CloudGuardClient {
     createSecurityZoneRequest: requests.CreateSecurityZoneRequest
   ): Promise<responses.CreateSecurityZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createSecurityZone.");
+    const operationName = "createSecurityZone";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/CreateSecurityZone";
     const pathParams = {};
 
     const queryParams = {};
@@ -961,7 +1064,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSecurityZoneResponse>{},
         body: await response.json(),
@@ -1001,6 +1110,9 @@ export class CloudGuardClient {
     createTargetRequest: requests.CreateTargetRequest
   ): Promise<responses.CreateTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createTarget.");
+    const operationName = "createTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/CreateTarget";
     const pathParams = {};
 
     const queryParams = {};
@@ -1033,7 +1145,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTargetResponse>{},
         body: await response.json(),
@@ -1074,6 +1192,9 @@ export class CloudGuardClient {
   ): Promise<responses.CreateTargetDetectorRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#createTargetDetectorRecipe.");
+    const operationName = "createTargetDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/CreateTargetDetectorRecipe";
     const pathParams = {
       "{targetId}": createTargetDetectorRecipeRequest.targetId
     };
@@ -1108,7 +1229,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTargetDetectorRecipeResponse>{},
         body: await response.json(),
@@ -1149,6 +1276,9 @@ export class CloudGuardClient {
   ): Promise<responses.CreateTargetResponderRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#createTargetResponderRecipe.");
+    const operationName = "createTargetResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/CreateTargetResponderRecipe";
     const pathParams = {
       "{targetId}": createTargetResponderRecipeRequest.targetId
     };
@@ -1183,7 +1313,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTargetResponderRecipeResponse>{},
         body: await response.json(),
@@ -1222,6 +1358,9 @@ export class CloudGuardClient {
     deleteDataMaskRuleRequest: requests.DeleteDataMaskRuleRequest
   ): Promise<responses.DeleteDataMaskRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteDataMaskRule.");
+    const operationName = "deleteDataMaskRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/DeleteDataMaskRule";
     const pathParams = {
       "{dataMaskRuleId}": deleteDataMaskRuleRequest.dataMaskRuleId
     };
@@ -1251,7 +1390,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataMaskRuleResponse>{},
         responseHeaders: [
@@ -1281,6 +1426,9 @@ export class CloudGuardClient {
     deleteDetectorRecipeRequest: requests.DeleteDetectorRecipeRequest
   ): Promise<responses.DeleteDetectorRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteDetectorRecipe.");
+    const operationName = "deleteDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/DeleteDetectorRecipe";
     const pathParams = {
       "{detectorRecipeId}": deleteDetectorRecipeRequest.detectorRecipeId
     };
@@ -1311,7 +1459,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDetectorRecipeResponse>{},
         responseHeaders: [
@@ -1341,6 +1495,9 @@ export class CloudGuardClient {
     deleteManagedListRequest: requests.DeleteManagedListRequest
   ): Promise<responses.DeleteManagedListResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteManagedList.");
+    const operationName = "deleteManagedList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/DeleteManagedList";
     const pathParams = {
       "{managedListId}": deleteManagedListRequest.managedListId
     };
@@ -1371,7 +1528,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagedListResponse>{},
         responseHeaders: [
@@ -1401,6 +1564,9 @@ export class CloudGuardClient {
     deleteResponderRecipeRequest: requests.DeleteResponderRecipeRequest
   ): Promise<responses.DeleteResponderRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteResponderRecipe.");
+    const operationName = "deleteResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/DeleteResponderRecipe";
     const pathParams = {
       "{responderRecipeId}": deleteResponderRecipeRequest.responderRecipeId
     };
@@ -1430,7 +1596,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteResponderRecipeResponse>{},
         responseHeaders: [
@@ -1460,6 +1632,9 @@ export class CloudGuardClient {
     deleteSecurityRecipeRequest: requests.DeleteSecurityRecipeRequest
   ): Promise<responses.DeleteSecurityRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteSecurityRecipe.");
+    const operationName = "deleteSecurityRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/DeleteSecurityRecipe";
     const pathParams = {
       "{securityRecipeId}": deleteSecurityRecipeRequest.securityRecipeId
     };
@@ -1489,7 +1664,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSecurityRecipeResponse>{},
         responseHeaders: [
@@ -1519,6 +1700,9 @@ export class CloudGuardClient {
     deleteSecurityZoneRequest: requests.DeleteSecurityZoneRequest
   ): Promise<responses.DeleteSecurityZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteSecurityZone.");
+    const operationName = "deleteSecurityZone";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/DeleteSecurityZone";
     const pathParams = {
       "{securityZoneId}": deleteSecurityZoneRequest.securityZoneId
     };
@@ -1548,7 +1732,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSecurityZoneResponse>{},
         responseHeaders: [
@@ -1578,6 +1768,9 @@ export class CloudGuardClient {
     deleteTargetRequest: requests.DeleteTargetRequest
   ): Promise<responses.DeleteTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteTarget.");
+    const operationName = "deleteTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/DeleteTarget";
     const pathParams = {
       "{targetId}": deleteTargetRequest.targetId
     };
@@ -1607,7 +1800,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTargetResponse>{},
         responseHeaders: [
@@ -1638,6 +1837,9 @@ export class CloudGuardClient {
   ): Promise<responses.DeleteTargetDetectorRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#deleteTargetDetectorRecipe.");
+    const operationName = "deleteTargetDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/DeleteTargetDetectorRecipe";
     const pathParams = {
       "{targetId}": deleteTargetDetectorRecipeRequest.targetId,
       "{targetDetectorRecipeId}": deleteTargetDetectorRecipeRequest.targetDetectorRecipeId
@@ -1668,7 +1870,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTargetDetectorRecipeResponse>{},
         responseHeaders: [
@@ -1699,6 +1907,9 @@ export class CloudGuardClient {
   ): Promise<responses.DeleteTargetResponderRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#deleteTargetResponderRecipe.");
+    const operationName = "deleteTargetResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/DeleteTargetResponderRecipe";
     const pathParams = {
       "{targetId}": deleteTargetResponderRecipeRequest.targetId,
       "{targetResponderRecipeId}": deleteTargetResponderRecipeRequest.targetResponderRecipeId
@@ -1729,7 +1940,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTargetResponderRecipeResponse>{},
         responseHeaders: [
@@ -1760,6 +1977,9 @@ export class CloudGuardClient {
   ): Promise<responses.ExecuteResponderExecutionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#executeResponderExecution.");
+    const operationName = "executeResponderExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/ExecuteResponderExecution";
     const pathParams = {
       "{responderExecutionId}": executeResponderExecutionRequest.responderExecutionId
     };
@@ -1797,7 +2017,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExecuteResponderExecutionResponse>{},
         responseHeaders: [
@@ -1829,6 +2055,9 @@ export class CloudGuardClient {
   ): Promise<responses.GetConditionMetadataTypeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#getConditionMetadataType.");
+    const operationName = "getConditionMetadataType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ConditionMetadataType/GetConditionMetadataType";
     const pathParams = {
       "{conditionMetadataTypeId}": getConditionMetadataTypeRequest.conditionMetadataTypeId
     };
@@ -1860,7 +2089,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConditionMetadataTypeResponse>{},
         body: await response.json(),
@@ -1899,6 +2134,9 @@ export class CloudGuardClient {
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getConfiguration.");
+    const operationName = "getConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Configuration/GetConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -1927,7 +2165,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConfigurationResponse>{},
         body: await response.json(),
@@ -1971,6 +2215,9 @@ export class CloudGuardClient {
     getDataMaskRuleRequest: requests.GetDataMaskRuleRequest
   ): Promise<responses.GetDataMaskRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDataMaskRule.");
+    const operationName = "getDataMaskRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/GetDataMaskRule";
     const pathParams = {
       "{dataMaskRuleId}": getDataMaskRuleRequest.dataMaskRuleId
     };
@@ -1999,7 +2246,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataMaskRuleResponse>{},
         body: await response.json(),
@@ -2039,6 +2292,9 @@ export class CloudGuardClient {
     getDetectorRequest: requests.GetDetectorRequest
   ): Promise<responses.GetDetectorResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDetector.");
+    const operationName = "getDetector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Detector/GetDetector";
     const pathParams = {
       "{detectorId}": getDetectorRequest.detectorId
     };
@@ -2067,7 +2323,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDetectorResponse>{},
         body: await response.json(),
@@ -2106,6 +2368,9 @@ export class CloudGuardClient {
     getDetectorRecipeRequest: requests.GetDetectorRecipeRequest
   ): Promise<responses.GetDetectorRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDetectorRecipe.");
+    const operationName = "getDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/GetDetectorRecipe";
     const pathParams = {
       "{detectorRecipeId}": getDetectorRecipeRequest.detectorRecipeId
     };
@@ -2134,7 +2399,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDetectorRecipeResponse>{},
         body: await response.json(),
@@ -2174,6 +2445,9 @@ export class CloudGuardClient {
   ): Promise<responses.GetDetectorRecipeDetectorRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#getDetectorRecipeDetectorRule.");
+    const operationName = "getDetectorRecipeDetectorRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/GetDetectorRecipeDetectorRule";
     const pathParams = {
       "{detectorRecipeId}": getDetectorRecipeDetectorRuleRequest.detectorRecipeId,
       "{detectorRuleId}": getDetectorRecipeDetectorRuleRequest.detectorRuleId
@@ -2203,7 +2477,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
@@ -2243,6 +2523,9 @@ export class CloudGuardClient {
     getDetectorRuleRequest: requests.GetDetectorRuleRequest
   ): Promise<responses.GetDetectorRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDetectorRule.");
+    const operationName = "getDetectorRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRule/GetDetectorRule";
     const pathParams = {
       "{detectorId}": getDetectorRuleRequest.detectorId,
       "{detectorRuleId}": getDetectorRuleRequest.detectorRuleId
@@ -2272,7 +2555,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDetectorRuleResponse>{},
         body: await response.json(),
@@ -2316,6 +2605,9 @@ export class CloudGuardClient {
     getManagedListRequest: requests.GetManagedListRequest
   ): Promise<responses.GetManagedListResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getManagedList.");
+    const operationName = "getManagedList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/GetManagedList";
     const pathParams = {
       "{managedListId}": getManagedListRequest.managedListId
     };
@@ -2344,7 +2636,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagedListResponse>{},
         body: await response.json(),
@@ -2383,6 +2681,9 @@ export class CloudGuardClient {
     getProblemRequest: requests.GetProblemRequest
   ): Promise<responses.GetProblemResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getProblem.");
+    const operationName = "getProblem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/GetProblem";
     const pathParams = {
       "{problemId}": getProblemRequest.problemId
     };
@@ -2411,7 +2712,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProblemResponse>{},
         body: await response.json(),
@@ -2450,6 +2757,9 @@ export class CloudGuardClient {
     getResourceProfileRequest: requests.GetResourceProfileRequest
   ): Promise<responses.GetResourceProfileResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResourceProfile.");
+    const operationName = "getResourceProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfile/GetResourceProfile";
     const pathParams = {
       "{resourceProfileId}": getResourceProfileRequest.resourceProfileId
     };
@@ -2478,7 +2788,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResourceProfileResponse>{},
         body: await response.json(),
@@ -2518,6 +2834,9 @@ export class CloudGuardClient {
     getResponderExecutionRequest: requests.GetResponderExecutionRequest
   ): Promise<responses.GetResponderExecutionResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResponderExecution.");
+    const operationName = "getResponderExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/GetResponderExecution";
     const pathParams = {
       "{responderExecutionId}": getResponderExecutionRequest.responderExecutionId
     };
@@ -2546,7 +2865,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResponderExecutionResponse>{},
         body: await response.json(),
@@ -2585,6 +2910,9 @@ export class CloudGuardClient {
     getResponderRecipeRequest: requests.GetResponderRecipeRequest
   ): Promise<responses.GetResponderRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResponderRecipe.");
+    const operationName = "getResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/GetResponderRecipe";
     const pathParams = {
       "{responderRecipeId}": getResponderRecipeRequest.responderRecipeId
     };
@@ -2613,7 +2941,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResponderRecipeResponse>{},
         body: await response.json(),
@@ -2653,6 +2987,9 @@ export class CloudGuardClient {
   ): Promise<responses.GetResponderRecipeResponderRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#getResponderRecipeResponderRule.");
+    const operationName = "getResponderRecipeResponderRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipeResponderRule/GetResponderRecipeResponderRule";
     const pathParams = {
       "{responderRecipeId}": getResponderRecipeResponderRuleRequest.responderRecipeId,
       "{responderRuleId}": getResponderRecipeResponderRuleRequest.responderRuleId
@@ -2682,7 +3019,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResponderRecipeResponderRuleResponse>{},
         body: await response.json(),
@@ -2721,6 +3064,9 @@ export class CloudGuardClient {
     getResponderRuleRequest: requests.GetResponderRuleRequest
   ): Promise<responses.GetResponderRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getResponderRule.");
+    const operationName = "getResponderRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRule/GetResponderRule";
     const pathParams = {
       "{responderRuleId}": getResponderRuleRequest.responderRuleId
     };
@@ -2749,7 +3095,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResponderRuleResponse>{},
         body: await response.json(),
@@ -2788,6 +3140,9 @@ export class CloudGuardClient {
     getSecurityPolicyRequest: requests.GetSecurityPolicyRequest
   ): Promise<responses.GetSecurityPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityPolicy.");
+    const operationName = "getSecurityPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityPolicy/GetSecurityPolicy";
     const pathParams = {
       "{securityPolicyId}": getSecurityPolicyRequest.securityPolicyId
     };
@@ -2816,7 +3171,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecurityPolicyResponse>{},
         body: await response.json(),
@@ -2855,6 +3216,9 @@ export class CloudGuardClient {
     getSecurityRecipeRequest: requests.GetSecurityRecipeRequest
   ): Promise<responses.GetSecurityRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityRecipe.");
+    const operationName = "getSecurityRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/GetSecurityRecipe";
     const pathParams = {
       "{securityRecipeId}": getSecurityRecipeRequest.securityRecipeId
     };
@@ -2883,7 +3247,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecurityRecipeResponse>{},
         body: await response.json(),
@@ -2922,6 +3292,9 @@ export class CloudGuardClient {
     getSecurityZoneRequest: requests.GetSecurityZoneRequest
   ): Promise<responses.GetSecurityZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSecurityZone.");
+    const operationName = "getSecurityZone";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/GetSecurityZone";
     const pathParams = {
       "{securityZoneId}": getSecurityZoneRequest.securityZoneId
     };
@@ -2950,7 +3323,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecurityZoneResponse>{},
         body: await response.json(),
@@ -2989,6 +3368,9 @@ export class CloudGuardClient {
     getSightingRequest: requests.GetSightingRequest
   ): Promise<responses.GetSightingResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getSighting.");
+    const operationName = "getSighting";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Sighting/GetSighting";
     const pathParams = {
       "{sightingId}": getSightingRequest.sightingId
     };
@@ -3017,7 +3399,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSightingResponse>{},
         body: await response.json(),
@@ -3056,6 +3444,9 @@ export class CloudGuardClient {
     getTargetRequest: requests.GetTargetRequest
   ): Promise<responses.GetTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getTarget.");
+    const operationName = "getTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/GetTarget";
     const pathParams = {
       "{targetId}": getTargetRequest.targetId
     };
@@ -3084,7 +3475,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTargetResponse>{},
         body: await response.json(),
@@ -3124,6 +3521,9 @@ export class CloudGuardClient {
   ): Promise<responses.GetTargetDetectorRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#getTargetDetectorRecipe.");
+    const operationName = "getTargetDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/GetTargetDetectorRecipe";
     const pathParams = {
       "{targetId}": getTargetDetectorRecipeRequest.targetId,
       "{targetDetectorRecipeId}": getTargetDetectorRecipeRequest.targetDetectorRecipeId
@@ -3153,7 +3553,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTargetDetectorRecipeResponse>{},
         body: await response.json(),
@@ -3193,6 +3599,9 @@ export class CloudGuardClient {
   ): Promise<responses.GetTargetDetectorRecipeDetectorRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#getTargetDetectorRecipeDetectorRule.");
+    const operationName = "getTargetDetectorRecipeDetectorRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipeDetectorRule/GetTargetDetectorRecipeDetectorRule";
     const pathParams = {
       "{targetId}": getTargetDetectorRecipeDetectorRuleRequest.targetId,
       "{targetDetectorRecipeId}": getTargetDetectorRecipeDetectorRuleRequest.targetDetectorRecipeId,
@@ -3224,7 +3633,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTargetDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
@@ -3264,6 +3679,9 @@ export class CloudGuardClient {
   ): Promise<responses.GetTargetResponderRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#getTargetResponderRecipe.");
+    const operationName = "getTargetResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/GetTargetResponderRecipe";
     const pathParams = {
       "{targetId}": getTargetResponderRecipeRequest.targetId,
       "{targetResponderRecipeId}": getTargetResponderRecipeRequest.targetResponderRecipeId
@@ -3293,7 +3711,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTargetResponderRecipeResponse>{},
         body: await response.json(),
@@ -3335,6 +3759,9 @@ export class CloudGuardClient {
       this.logger.debug(
         "Calling operation CloudGuardClient#getTargetResponderRecipeResponderRule."
       );
+    const operationName = "getTargetResponderRecipeResponderRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipeResponderRule/GetTargetResponderRecipeResponderRule";
     const pathParams = {
       "{targetId}": getTargetResponderRecipeResponderRuleRequest.targetId,
       "{targetResponderRecipeId}":
@@ -3367,7 +3794,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTargetResponderRecipeResponderRuleResponse>{},
         body: await response.json(),
@@ -3408,6 +3841,9 @@ export class CloudGuardClient {
   ): Promise<responses.ListConditionMetadataTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listConditionMetadataTypes.");
+    const operationName = "listConditionMetadataTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ConditionMetadataType/ListConditionMetadataTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -3441,7 +3877,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConditionMetadataTypesResponse>{},
         body: await response.json(),
@@ -3481,6 +3923,9 @@ export class CloudGuardClient {
     listDataMaskRulesRequest: requests.ListDataMaskRulesRequest
   ): Promise<responses.ListDataMaskRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDataMaskRules.");
+    const operationName = "listDataMaskRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/ListDataMaskRules";
     const pathParams = {};
 
     const queryParams = {
@@ -3520,7 +3965,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataMaskRulesResponse>{},
         body: await response.json(),
@@ -3561,6 +4012,9 @@ export class CloudGuardClient {
   ): Promise<responses.ListDetectorRecipeDetectorRulesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listDetectorRecipeDetectorRules.");
+    const operationName = "listDetectorRecipeDetectorRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/ListDetectorRecipeDetectorRules";
     const pathParams = {
       "{detectorRecipeId}": listDetectorRecipeDetectorRulesRequest.detectorRecipeId
     };
@@ -3597,7 +4051,13 @@ export class CloudGuardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDetectorRecipeDetectorRulesResponse>{},
         body: await response.json(),
@@ -3651,6 +4111,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     listDetectorRecipesRequest: requests.ListDetectorRecipesRequest
   ): Promise<responses.ListDetectorRecipesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDetectorRecipes.");
+    const operationName = "listDetectorRecipes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/ListDetectorRecipes";
     const pathParams = {};
 
     const queryParams = {
@@ -3688,7 +4151,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDetectorRecipesResponse>{},
         body: await response.json(),
@@ -3728,6 +4197,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     listDetectorRulesRequest: requests.ListDetectorRulesRequest
   ): Promise<responses.ListDetectorRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDetectorRules.");
+    const operationName = "listDetectorRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRule/ListDetectorRules";
     const pathParams = {
       "{detectorId}": listDetectorRulesRequest.detectorId
     };
@@ -3764,7 +4236,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDetectorRulesResponse>{},
         body: await response.json(),
@@ -3804,6 +4282,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     listDetectorsRequest: requests.ListDetectorsRequest
   ): Promise<responses.ListDetectorsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDetectors.");
+    const operationName = "listDetectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Detector/ListDetectors";
     const pathParams = {};
 
     const queryParams = {
@@ -3837,7 +4318,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDetectorsResponse>{},
         body: await response.json(),
@@ -3877,6 +4364,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     listImpactedResourcesRequest: requests.ListImpactedResourcesRequest
   ): Promise<responses.ListImpactedResourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listImpactedResources.");
+    const operationName = "listImpactedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ImpactedResourceSummary/ListImpactedResources";
     const pathParams = {
       "{problemId}": listImpactedResourcesRequest.problemId
     };
@@ -3910,7 +4400,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListImpactedResourcesResponse>{},
         body: await response.json(),
@@ -3949,6 +4445,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
     listManagedListTypesRequest: requests.ListManagedListTypesRequest
   ): Promise<responses.ListManagedListTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listManagedListTypes.");
+    const operationName = "listManagedListTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedListTypeSummary/ListManagedListTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -3982,7 +4481,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListDetectorReci
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagedListTypesResponse>{},
         body: await response.json(),
@@ -4035,6 +4540,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
     listManagedListsRequest: requests.ListManagedListsRequest
   ): Promise<responses.ListManagedListsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listManagedLists.");
+    const operationName = "listManagedLists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/ListManagedLists";
     const pathParams = {};
 
     const queryParams = {
@@ -4073,7 +4581,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagedListsResponse>{},
         body: await response.json(),
@@ -4113,6 +4627,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listPolicies.");
+    const operationName = "listPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/PolicySummary/ListPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -4145,7 +4662,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPoliciesResponse>{},
         body: await response.json(),
@@ -4185,6 +4708,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
     listProblemEndpointsRequest: requests.ListProblemEndpointsRequest
   ): Promise<responses.ListProblemEndpointsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblemEndpoints.");
+    const operationName = "listProblemEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ProblemEndpointSummary/ListProblemEndpoints";
     const pathParams = {
       "{problemId}": listProblemEndpointsRequest.problemId
     };
@@ -4218,7 +4744,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProblemEndpointsResponse>{},
         body: await response.json(),
@@ -4258,6 +4790,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
     listProblemHistoriesRequest: requests.ListProblemHistoriesRequest
   ): Promise<responses.ListProblemHistoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblemHistories.");
+    const operationName = "listProblemHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/ListProblemHistories";
     const pathParams = {
       "{problemId}": listProblemHistoriesRequest.problemId
     };
@@ -4292,7 +4827,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProblemHistoriesResponse>{},
         body: await response.json(),
@@ -4346,6 +4887,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     listProblemsRequest: requests.ListProblemsRequest
   ): Promise<responses.ListProblemsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblems.");
+    const operationName = "listProblems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/ListProblems";
     const pathParams = {};
 
     const queryParams = {
@@ -4400,7 +4944,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProblemsResponse>{},
         body: await response.json(),
@@ -4440,6 +4990,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
     listRecommendationsRequest: requests.ListRecommendationsRequest
   ): Promise<responses.ListRecommendationsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listRecommendations.");
+    const operationName = "listRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/RecommendationSummary/ListRecommendations";
     const pathParams = {};
 
     const queryParams = {
@@ -4477,7 +5030,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRecommendationsResponse>{},
         body: await response.json(),
@@ -4517,6 +5076,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   ): Promise<responses.ListResourceProfileEndpointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listResourceProfileEndpoints.");
+    const operationName = "listResourceProfileEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileEndpointSummary/ListResourceProfileEndpoints";
     const pathParams = {
       "{resourceProfileId}": listResourceProfileEndpointsRequest.resourceProfileId
     };
@@ -4550,7 +5112,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceProfileEndpointsResponse>{},
         body: await response.json(),
@@ -4590,6 +5158,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
   ): Promise<responses.ListResourceProfileImpactedResourcesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listResourceProfileImpactedResources.");
+    const operationName = "listResourceProfileImpactedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileImpactedResourceSummary/ListResourceProfileImpactedResources";
     const pathParams = {
       "{resourceProfileId}": listResourceProfileImpactedResourcesRequest.resourceProfileId
     };
@@ -4623,7 +5194,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListProblems on 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceProfileImpactedResourcesResponse>{},
         body: await response.json(),
@@ -4676,6 +5253,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
     listResourceProfilesRequest: requests.ListResourceProfilesRequest
   ): Promise<responses.ListResourceProfilesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResourceProfiles.");
+    const operationName = "listResourceProfiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileSummary/ListResourceProfiles";
     const pathParams = {};
 
     const queryParams = {
@@ -4723,7 +5303,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceProfilesResponse>{},
         body: await response.json(),
@@ -4763,6 +5349,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
     listResourceTypesRequest: requests.ListResourceTypesRequest
   ): Promise<responses.ListResourceTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResourceTypes.");
+    const operationName = "listResourceTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceTypeSummary/ListResourceTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -4797,7 +5386,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceTypesResponse>{},
         body: await response.json(),
@@ -4838,6 +5433,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   ): Promise<responses.ListResponderActivitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listResponderActivities.");
+    const operationName = "listResponderActivities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderActivitySummary/ListResponderActivities";
     const pathParams = {
       "{problemId}": listResponderActivitiesRequest.problemId
     };
@@ -4871,7 +5469,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResponderActivitiesResponse>{},
         body: await response.json(),
@@ -4912,6 +5516,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   ): Promise<responses.ListResponderExecutionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listResponderExecutions.");
+    const operationName = "listResponderExecutions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecutionSummary/ListResponderExecutions";
     const pathParams = {};
 
     const queryParams = {
@@ -4959,7 +5566,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResponderExecutionsResponse>{},
         body: await response.json(),
@@ -5000,6 +5613,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
   ): Promise<responses.ListResponderRecipeResponderRulesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listResponderRecipeResponderRules.");
+    const operationName = "listResponderRecipeResponderRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipeResponderRule/ListResponderRecipeResponderRules";
     const pathParams = {
       "{responderRecipeId}": listResponderRecipeResponderRulesRequest.responderRecipeId
     };
@@ -5036,7 +5652,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResourceProf
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResponderRecipeResponderRulesResponse>{},
         body: await response.json(),
@@ -5089,6 +5711,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     listResponderRecipesRequest: requests.ListResponderRecipesRequest
   ): Promise<responses.ListResponderRecipesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResponderRecipes.");
+    const operationName = "listResponderRecipes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/ListResponderRecipes";
     const pathParams = {};
 
     const queryParams = {
@@ -5126,7 +5751,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResponderRecipesResponse>{},
         body: await response.json(),
@@ -5166,6 +5797,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     listResponderRulesRequest: requests.ListResponderRulesRequest
   ): Promise<responses.ListResponderRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listResponderRules.");
+    const operationName = "listResponderRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRule/ListResponderRules";
     const pathParams = {};
 
     const queryParams = {
@@ -5200,7 +5834,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResponderRulesResponse>{},
         body: await response.json(),
@@ -5240,6 +5880,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     listSecurityPoliciesRequest: requests.ListSecurityPoliciesRequest
   ): Promise<responses.ListSecurityPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityPolicies.");
+    const operationName = "listSecurityPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityPolicyCollection/ListSecurityPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -5275,7 +5918,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecurityPoliciesResponse>{},
         body: await response.json(),
@@ -5315,6 +5964,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     listSecurityRecipesRequest: requests.ListSecurityRecipesRequest
   ): Promise<responses.ListSecurityRecipesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityRecipes.");
+    const operationName = "listSecurityRecipes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipeCollection/ListSecurityRecipes";
     const pathParams = {};
 
     const queryParams = {
@@ -5350,7 +6002,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecurityRecipesResponse>{},
         body: await response.json(),
@@ -5390,6 +6048,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     listSecurityZonesRequest: requests.ListSecurityZonesRequest
   ): Promise<responses.ListSecurityZonesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSecurityZones.");
+    const operationName = "listSecurityZones";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZoneCollection/ListSecurityZones";
     const pathParams = {};
 
     const queryParams = {
@@ -5427,7 +6088,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecurityZonesResponse>{},
         body: await response.json(),
@@ -5466,6 +6133,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
     listSightingEndpointsRequest: requests.ListSightingEndpointsRequest
   ): Promise<responses.ListSightingEndpointsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSightingEndpoints.");
+    const operationName = "listSightingEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SightingEndpointSummary/ListSightingEndpoints";
     const pathParams = {
       "{sightingId}": listSightingEndpointsRequest.sightingId
     };
@@ -5499,7 +6169,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSightingEndpointsResponse>{},
         body: await response.json(),
@@ -5539,6 +6215,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
   ): Promise<responses.ListSightingImpactedResourcesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listSightingImpactedResources.");
+    const operationName = "listSightingImpactedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SightingImpactedResourceSummary/ListSightingImpactedResources";
     const pathParams = {
       "{sightingId}": listSightingImpactedResourcesRequest.sightingId
     };
@@ -5572,7 +6251,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListResponderRec
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSightingImpactedResourcesResponse>{},
         body: await response.json(),
@@ -5624,6 +6309,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
     listSightingsRequest: requests.ListSightingsRequest
   ): Promise<responses.ListSightingsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listSightings.");
+    const operationName = "listSightings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SightingSummary/ListSightings";
     const pathParams = {};
 
     const queryParams = {
@@ -5663,7 +6351,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSightingsResponse>{},
         body: await response.json(),
@@ -5703,6 +6397,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
     listTacticsRequest: requests.ListTacticsRequest
   ): Promise<responses.ListTacticsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listTactics.");
+    const operationName = "listTactics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TacticSummary/ListTactics";
     const pathParams = {};
 
     const queryParams = {
@@ -5736,7 +6433,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTacticsResponse>{},
         body: await response.json(),
@@ -5779,6 +6482,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       this.logger.debug(
         "Calling operation CloudGuardClient#listTargetDetectorRecipeDetectorRules."
       );
+    const operationName = "listTargetDetectorRecipeDetectorRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipeDetectorRule/ListTargetDetectorRecipeDetectorRules";
     const pathParams = {
       "{targetId}": listTargetDetectorRecipeDetectorRulesRequest.targetId,
       "{targetDetectorRecipeId}":
@@ -5817,7 +6523,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTargetDetectorRecipeDetectorRulesResponse>{},
         body: await response.json(),
@@ -5857,6 +6569,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   ): Promise<responses.ListTargetDetectorRecipesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listTargetDetectorRecipes.");
+    const operationName = "listTargetDetectorRecipes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/ListTargetDetectorRecipes";
     const pathParams = {
       "{targetId}": listTargetDetectorRecipesRequest.targetId
     };
@@ -5893,7 +6608,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTargetDetectorRecipesResponse>{},
         body: await response.json(),
@@ -5936,6 +6657,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       this.logger.debug(
         "Calling operation CloudGuardClient#listTargetResponderRecipeResponderRules."
       );
+    const operationName = "listTargetResponderRecipeResponderRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipeResponderRule/ListTargetResponderRecipeResponderRules";
     const pathParams = {
       "{targetId}": listTargetResponderRecipeResponderRulesRequest.targetId,
       "{targetResponderRecipeId}":
@@ -5974,7 +6698,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTargetResponderRecipeResponderRulesResponse>{},
         body: await response.json(),
@@ -6014,6 +6744,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
   ): Promise<responses.ListTargetResponderRecipesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#listTargetResponderRecipes.");
+    const operationName = "listTargetResponderRecipes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/ListTargetResponderRecipes";
     const pathParams = {
       "{targetId}": listTargetResponderRecipesRequest.targetId
     };
@@ -6050,7 +6783,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSightings on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTargetResponderRecipesResponse>{},
         body: await response.json(),
@@ -6103,6 +6842,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     listTargetsRequest: requests.ListTargetsRequest
   ): Promise<responses.ListTargetsResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listTargets.");
+    const operationName = "listTargets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/ListTargets";
     const pathParams = {};
 
     const queryParams = {
@@ -6140,7 +6882,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTargetsResponse>{},
         body: await response.json(),
@@ -6180,6 +6928,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     listTechniquesRequest: requests.ListTechniquesRequest
   ): Promise<responses.ListTechniquesResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listTechniques.");
+    const operationName = "listTechniques";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TechniqueSummary/ListTechniques";
     const pathParams = {};
 
     const queryParams = {
@@ -6214,7 +6965,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTechniquesResponse>{},
         body: await response.json(),
@@ -6253,6 +7010,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     removeCompartmentRequest: requests.RemoveCompartmentRequest
   ): Promise<responses.RemoveCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#removeCompartment.");
+    const operationName = "removeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/RemoveCompartment";
     const pathParams = {
       "{securityZoneId}": removeCompartmentRequest.securityZoneId
     };
@@ -6288,7 +7048,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveCompartmentResponse>{},
         body: await response.json(),
@@ -6328,6 +7094,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     requestRiskScoresRequest: requests.RequestRiskScoresRequest
   ): Promise<responses.RequestRiskScoresResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#requestRiskScores.");
+    const operationName = "requestRiskScores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/RiskScoreAggregation/RequestRiskScores";
     const pathParams = {};
 
     const queryParams = {
@@ -6358,7 +7127,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestRiskScoresResponse>{},
         body: await response.json(),
@@ -6400,6 +7175,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   ): Promise<responses.RequestSecurityScoreSummarizedTrendResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSecurityScoreSummarizedTrend.");
+    const operationName = "requestSecurityScoreSummarizedTrend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreTrendAggregation/RequestSecurityScoreSummarizedTrend";
     const pathParams = {};
 
     const queryParams = {
@@ -6434,7 +7212,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSecurityScoreSummarizedTrendResponse>{},
         body: await response.json(),
@@ -6474,6 +7258,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
     requestSecurityScoresRequest: requests.RequestSecurityScoresRequest
   ): Promise<responses.RequestSecurityScoresResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#requestSecurityScores.");
+    const operationName = "requestSecurityScores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreAggregation/RequestSecurityScores";
     const pathParams = {};
 
     const queryParams = {
@@ -6504,7 +7291,13 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSecurityScoresResponse>{},
         body: await response.json(),
@@ -6559,6 +7352,9 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
   ): Promise<responses.RequestSummarizedActivityProblemsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSummarizedActivityProblems.");
+    const operationName = "requestSummarizedActivityProblems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ActivityProblemAggregation/RequestSummarizedActivityProblems";
     const pathParams = {};
 
     const queryParams = {
@@ -6592,7 +7388,13 @@ The compartmentId to be passed with `accessLevel` and `compartmentIdInSubtree` p
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedActivityProblemsResponse>{},
         body: await response.json(),
@@ -6644,6 +7446,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.RequestSummarizedProblemsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSummarizedProblems.");
+    const operationName = "requestSummarizedProblems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ProblemAggregation/RequestSummarizedProblems";
     const pathParams = {};
 
     const queryParams = {
@@ -6677,7 +7482,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedProblemsResponse>{},
         body: await response.json(),
@@ -6729,6 +7540,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.RequestSummarizedResponderExecutionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSummarizedResponderExecutions.");
+    const operationName = "requestSummarizedResponderExecutions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecutionAggregation/RequestSummarizedResponderExecutions";
     const pathParams = {};
 
     const queryParams = {
@@ -6766,7 +7580,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedResponderExecutionsResponse>{},
         body: await response.json(),
@@ -6807,6 +7627,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.RequestSummarizedRiskScoresResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSummarizedRiskScores.");
+    const operationName = "requestSummarizedRiskScores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/RiskScoreAggregation/RequestSummarizedRiskScores";
     const pathParams = {};
 
     const queryParams = {
@@ -6837,7 +7660,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedRiskScoresResponse>{},
         body: await response.json(),
@@ -6878,6 +7707,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.RequestSummarizedSecurityScoresResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSummarizedSecurityScores.");
+    const operationName = "requestSummarizedSecurityScores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreAggregation/RequestSummarizedSecurityScores";
     const pathParams = {};
 
     const queryParams = {
@@ -6908,7 +7740,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedSecurityScoresResponse>{},
         body: await response.json(),
@@ -6950,6 +7788,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       this.logger.debug(
         "Calling operation CloudGuardClient#requestSummarizedTopTrendResourceProfileRiskScores."
       );
+    const operationName = "requestSummarizedTopTrendResourceProfileRiskScores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceProfileRiskScoreAggregationSummary/RequestSummarizedTopTrendResourceProfileRiskScores";
     const pathParams = {};
 
     const queryParams = {
@@ -6989,7 +7830,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedTopTrendResourceProfileRiskScoresResponse>{},
         body: await response.json(),
@@ -7041,6 +7888,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.RequestSummarizedTrendProblemsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendProblems.");
+    const operationName = "requestSummarizedTrendProblems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ProblemTrendAggregation/RequestSummarizedTrendProblems";
     const pathParams = {};
 
     const queryParams = {
@@ -7077,7 +7927,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedTrendProblemsResponse>{},
         body: await response.json(),
@@ -7119,6 +7975,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       this.logger.debug(
         "Calling operation CloudGuardClient#requestSummarizedTrendResourceRiskScores."
       );
+    const operationName = "requestSummarizedTrendResourceRiskScores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResourceRiskScoreAggregation/RequestSummarizedTrendResourceRiskScores";
     const pathParams = {};
 
     const queryParams = {
@@ -7161,7 +8020,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedTrendResourceRiskScoresResponse>{},
         body: await response.json(),
@@ -7215,6 +8080,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       this.logger.debug(
         "Calling operation CloudGuardClient#requestSummarizedTrendResponderExecutions."
       );
+    const operationName = "requestSummarizedTrendResponderExecutions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecutionTrendAggregation/RequestSummarizedTrendResponderExecutions";
     const pathParams = {};
 
     const queryParams = {
@@ -7252,7 +8120,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedTrendResponderExecutionsResponse>{},
         body: await response.json(),
@@ -7293,6 +8167,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.RequestSummarizedTrendSecurityScoresResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#requestSummarizedTrendSecurityScores.");
+    const operationName = "requestSummarizedTrendSecurityScores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityScoreTrendAggregation/RequestSummarizedTrendSecurityScores";
     const pathParams = {};
 
     const queryParams = {
@@ -7327,7 +8204,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedTrendSecurityScoresResponse>{},
         body: await response.json(),
@@ -7369,6 +8252,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.SkipBulkResponderExecutionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#skipBulkResponderExecution.");
+    const operationName = "skipBulkResponderExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/SkipBulkResponderExecution";
     const pathParams = {};
 
     const queryParams = {};
@@ -7400,7 +8286,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SkipBulkResponderExecutionResponse>{},
         responseHeaders: [
@@ -7431,6 +8323,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.SkipResponderExecutionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#skipResponderExecution.");
+    const operationName = "skipResponderExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderExecution/SkipResponderExecution";
     const pathParams = {
       "{responderExecutionId}": skipResponderExecutionRequest.responderExecutionId
     };
@@ -7463,7 +8358,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SkipResponderExecutionResponse>{},
         responseHeaders: [
@@ -7494,6 +8395,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     triggerResponderRequest: requests.TriggerResponderRequest
   ): Promise<responses.TriggerResponderResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#triggerResponder.");
+    const operationName = "triggerResponder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/TriggerResponder";
     const pathParams = {
       "{problemId}": triggerResponderRequest.problemId
     };
@@ -7529,7 +8433,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TriggerResponderResponse>{},
         responseHeaders: [
@@ -7562,6 +8472,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.UpdateBulkProblemStatusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#updateBulkProblemStatus.");
+    const operationName = "updateBulkProblemStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/UpdateBulkProblemStatus";
     const pathParams = {};
 
     const queryParams = {};
@@ -7593,7 +8506,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBulkProblemStatusResponse>{},
         responseHeaders: [
@@ -7624,6 +8543,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateConfiguration.");
+    const operationName = "updateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Configuration/UpdateConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -7659,7 +8581,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConfigurationResponse>{},
         body: await response.json(),
@@ -7698,6 +8626,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateDataMaskRuleRequest: requests.UpdateDataMaskRuleRequest
   ): Promise<responses.UpdateDataMaskRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateDataMaskRule.");
+    const operationName = "updateDataMaskRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataMaskRule/UpdateDataMaskRule";
     const pathParams = {
       "{dataMaskRuleId}": updateDataMaskRuleRequest.dataMaskRuleId
     };
@@ -7732,7 +8663,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataMaskRuleResponse>{},
         body: await response.json(),
@@ -7771,6 +8708,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateDetectorRecipeRequest: requests.UpdateDetectorRecipeRequest
   ): Promise<responses.UpdateDetectorRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateDetectorRecipe.");
+    const operationName = "updateDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipe/UpdateDetectorRecipe";
     const pathParams = {
       "{detectorRecipeId}": updateDetectorRecipeRequest.detectorRecipeId
     };
@@ -7806,7 +8746,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDetectorRecipeResponse>{},
         body: await response.json(),
@@ -7846,6 +8792,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.UpdateDetectorRecipeDetectorRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#updateDetectorRecipeDetectorRule.");
+    const operationName = "updateDetectorRecipeDetectorRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/UpdateDetectorRecipeDetectorRule";
     const pathParams = {
       "{detectorRecipeId}": updateDetectorRecipeDetectorRuleRequest.detectorRecipeId,
       "{detectorRuleId}": updateDetectorRecipeDetectorRuleRequest.detectorRuleId
@@ -7881,7 +8830,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
@@ -7920,6 +8875,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateManagedListRequest: requests.UpdateManagedListRequest
   ): Promise<responses.UpdateManagedListResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateManagedList.");
+    const operationName = "updateManagedList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ManagedList/UpdateManagedList";
     const pathParams = {
       "{managedListId}": updateManagedListRequest.managedListId
     };
@@ -7955,7 +8913,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagedListResponse>{},
         body: await response.json(),
@@ -7995,6 +8959,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateProblemStatusRequest: requests.UpdateProblemStatusRequest
   ): Promise<responses.UpdateProblemStatusResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateProblemStatus.");
+    const operationName = "updateProblemStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/UpdateProblemStatus";
     const pathParams = {
       "{problemId}": updateProblemStatusRequest.problemId
     };
@@ -8030,7 +8997,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProblemStatusResponse>{},
         body: await response.json(),
@@ -8069,6 +9042,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateResponderRecipeRequest: requests.UpdateResponderRecipeRequest
   ): Promise<responses.UpdateResponderRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateResponderRecipe.");
+    const operationName = "updateResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipe/UpdateResponderRecipe";
     const pathParams = {
       "{responderRecipeId}": updateResponderRecipeRequest.responderRecipeId
     };
@@ -8103,7 +9079,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateResponderRecipeResponse>{},
         body: await response.json(),
@@ -8143,6 +9125,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.UpdateResponderRecipeResponderRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#updateResponderRecipeResponderRule.");
+    const operationName = "updateResponderRecipeResponderRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/ResponderRecipeResponderRule/UpdateResponderRecipeResponderRule";
     const pathParams = {
       "{responderRecipeId}": updateResponderRecipeResponderRuleRequest.responderRecipeId,
       "{responderRuleId}": updateResponderRecipeResponderRuleRequest.responderRuleId
@@ -8178,7 +9163,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateResponderRecipeResponderRuleResponse>{},
         body: await response.json(),
@@ -8217,6 +9208,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateSecurityRecipeRequest: requests.UpdateSecurityRecipeRequest
   ): Promise<responses.UpdateSecurityRecipeResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateSecurityRecipe.");
+    const operationName = "updateSecurityRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityRecipe/UpdateSecurityRecipe";
     const pathParams = {
       "{securityRecipeId}": updateSecurityRecipeRequest.securityRecipeId
     };
@@ -8251,7 +9245,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSecurityRecipeResponse>{},
         body: await response.json(),
@@ -8290,6 +9290,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateSecurityZoneRequest: requests.UpdateSecurityZoneRequest
   ): Promise<responses.UpdateSecurityZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateSecurityZone.");
+    const operationName = "updateSecurityZone";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/SecurityZone/UpdateSecurityZone";
     const pathParams = {
       "{securityZoneId}": updateSecurityZoneRequest.securityZoneId
     };
@@ -8324,7 +9327,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSecurityZoneResponse>{},
         body: await response.json(),
@@ -8363,6 +9372,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
     updateTargetRequest: requests.UpdateTargetRequest
   ): Promise<responses.UpdateTargetResponse> {
     if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateTarget.");
+    const operationName = "updateTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Target/UpdateTarget";
     const pathParams = {
       "{targetId}": updateTargetRequest.targetId
     };
@@ -8397,7 +9409,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetResponse>{},
         body: await response.json(),
@@ -8437,6 +9455,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.UpdateTargetDetectorRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#updateTargetDetectorRecipe.");
+    const operationName = "updateTargetDetectorRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipe/UpdateTargetDetectorRecipe";
     const pathParams = {
       "{targetId}": updateTargetDetectorRecipeRequest.targetId,
       "{targetDetectorRecipeId}": updateTargetDetectorRecipeRequest.targetDetectorRecipeId
@@ -8472,7 +9493,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetDetectorRecipeResponse>{},
         body: await response.json(),
@@ -8514,6 +9541,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       this.logger.debug(
         "Calling operation CloudGuardClient#updateTargetDetectorRecipeDetectorRule."
       );
+    const operationName = "updateTargetDetectorRecipeDetectorRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetDetectorRecipeDetectorRule/UpdateTargetDetectorRecipeDetectorRule";
     const pathParams = {
       "{targetId}": updateTargetDetectorRecipeDetectorRuleRequest.targetId,
       "{targetDetectorRecipeId}":
@@ -8552,7 +9582,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetDetectorRecipeDetectorRuleResponse>{},
         body: await response.json(),
@@ -8592,6 +9628,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
   ): Promise<responses.UpdateTargetResponderRecipeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation CloudGuardClient#updateTargetResponderRecipe.");
+    const operationName = "updateTargetResponderRecipe";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipe/UpdateTargetResponderRecipe";
     const pathParams = {
       "{targetId}": updateTargetResponderRecipeRequest.targetId,
       "{targetResponderRecipeId}": updateTargetResponderRecipeRequest.targetResponderRecipeId
@@ -8627,7 +9666,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetResponderRecipeResponse>{},
         body: await response.json(),
@@ -8669,6 +9714,9 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       this.logger.debug(
         "Calling operation CloudGuardClient#updateTargetResponderRecipeResponderRule."
       );
+    const operationName = "updateTargetResponderRecipeResponderRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/TargetResponderRecipeResponderRule/UpdateTargetResponderRecipeResponderRule";
     const pathParams = {
       "{targetId}": updateTargetResponderRecipeResponderRuleRequest.targetId,
       "{targetResponderRecipeId}":
@@ -8707,7 +9755,13 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTargetResponderRecipeResponderRuleResponse>{},
         body: await response.json(),

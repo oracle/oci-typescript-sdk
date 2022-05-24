@@ -82,6 +82,42 @@ export interface OdaInstance {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Should this Digital Assistant instance use role-based authorization via an identity domain (true) or use the default policy-based authorization via IAM policies (false)
+   */
+  "isRoleBasedAccess"?: boolean;
+  /**
+   * If isRoleBasedAccess is set to true, this property specifies the identity domain that is to be used to implement this type of authorzation. Digital Assistant will create an Identity Application instance and Application Roles within this identity domain. The caller may then perform and user roll mappings they like to grant access to users within the identity domain.
+   */
+  "identityDomain"?: string;
+  /**
+   * If isRoleBasedAccess is set to true, this property specifies the GUID of the Identity Application instance Digital Assistant has created inside the user-specified identity domain. This identity application instance may be used to host user roll mappings to grant access to this Digital Assistant instance for users within the identity domain.
+   */
+  "identityAppGuid"?: string;
+  /**
+   * If isRoleBasedAccess is set to true, this property specifies the URL for the administration console used to manage the Identity Application instance Digital Assistant has created inside the user-specified identity domain.
+   */
+  "identityAppConsoleUrl"?: string;
+  /**
+   * A list of package names imported into this instance (if any). Use importedPackageIds field to get the details of the imported packages.
+   */
+  "importedPackageNames"?: Array<string>;
+  /**
+   * A list of package ids imported into this instance (if any). Use GetImportedPackage to get the details of the imported packages.
+   */
+  "importedPackageIds"?: Array<string>;
+  /**
+   * A list of attachment types for this instance (if any). Use attachmentIds to get the details of the attachments.
+   */
+  "attachmentTypes"?: Array<string>;
+  /**
+   * A list of attachment identifiers for this instance (if any). Use GetOdaInstanceAttachment to get the details of the attachments.
+   */
+  "attachmentIds"?: Array<string>;
+  /**
+   * A list of restricted operations (across all attachments) for this instance (if any). Use GetOdaInstanceAttachment to get the details of the attachments.
+   */
+  "restrictedOperations"?: Array<model.RestrictedOperation>;
 }
 
 export namespace OdaInstance {
@@ -115,9 +151,13 @@ export namespace OdaInstance {
     Starting = "STARTING",
     Stopping = "STOPPING",
     ChangingCompartment = "CHANGING_COMPARTMENT",
+    ActivatingCustomerEncryptionKey = "ACTIVATING_CUSTOMER_ENCRYPTION_KEY",
+    UpdatingCustomerEncryptionKey = "UPDATING_CUSTOMER_ENCRYPTION_KEY",
+    DeactivatingCustomerEncryptionKey = "DEACTIVATING_CUSTOMER_ENCRYPTION_KEY",
     Deleting = "DELETING",
     DeletePending = "DELETE_PENDING",
     Recovering = "RECOVERING",
+    Updating = "UPDATING",
     Purging = "PURGING",
     Queued = "QUEUED",
     /**
@@ -128,12 +168,30 @@ export namespace OdaInstance {
   }
 
   export function getJsonObj(obj: OdaInstance): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "restrictedOperations": obj.restrictedOperations
+          ? obj.restrictedOperations.map(item => {
+              return model.RestrictedOperation.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OdaInstance): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "restrictedOperations": obj.restrictedOperations
+          ? obj.restrictedOperations.map(item => {
+              return model.RestrictedOperation.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

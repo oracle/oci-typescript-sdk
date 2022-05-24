@@ -38,6 +38,7 @@ export class DbManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DbManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class DbManagementClient {
     addDataFilesRequest: requests.AddDataFilesRequest
   ): Promise<responses.AddDataFilesResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#addDataFiles.");
+    const operationName = "addDataFiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/AddDataFiles";
     const pathParams = {
       "{managedDatabaseId}": addDataFilesRequest.managedDatabaseId,
       "{tablespaceName}": addDataFilesRequest.tablespaceName
@@ -200,7 +204,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddDataFilesResponse>{},
         body: await response.json(),
@@ -240,6 +250,9 @@ export class DbManagementClient {
       this.logger.debug(
         "Calling operation DbManagementClient#addManagedDatabaseToManagedDatabaseGroup."
       );
+    const operationName = "addManagedDatabaseToManagedDatabaseGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/AddManagedDatabaseToManagedDatabaseGroup";
     const pathParams = {
       "{managedDatabaseGroupId}":
         addManagedDatabaseToManagedDatabaseGroupRequest.managedDatabaseGroupId
@@ -275,7 +288,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddManagedDatabaseToManagedDatabaseGroupResponse>{},
         responseHeaders: [
@@ -319,6 +338,9 @@ export class DbManagementClient {
   ): Promise<responses.ChangeDatabaseParametersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#changeDatabaseParameters.");
+    const operationName = "changeDatabaseParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangeDatabaseParameters";
     const pathParams = {
       "{managedDatabaseId}": changeDatabaseParametersRequest.managedDatabaseId
     };
@@ -353,7 +375,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDatabaseParametersResponse>{},
         body: await response.json(),
@@ -390,6 +418,9 @@ export class DbManagementClient {
       this.logger.debug(
         "Calling operation DbManagementClient#changeDbManagementPrivateEndpointCompartment."
       );
+    const operationName = "changeDbManagementPrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/ChangeDbManagementPrivateEndpointCompartment";
     const pathParams = {
       "{dbManagementPrivateEndpointId}":
         changeDbManagementPrivateEndpointCompartmentRequest.dbManagementPrivateEndpointId
@@ -427,7 +458,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDbManagementPrivateEndpointCompartmentResponse>{},
         responseHeaders: [
@@ -459,6 +496,9 @@ export class DbManagementClient {
   ): Promise<responses.ChangeJobCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#changeJobCompartment.");
+    const operationName = "changeJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/ChangeJobCompartment";
     const pathParams = {
       "{jobId}": changeJobCompartmentRequest.jobId
     };
@@ -494,7 +534,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeJobCompartmentResponse>{},
         responseHeaders: [
@@ -530,6 +576,9 @@ export class DbManagementClient {
       this.logger.debug(
         "Calling operation DbManagementClient#changeManagedDatabaseGroupCompartment."
       );
+    const operationName = "changeManagedDatabaseGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/ChangeManagedDatabaseGroupCompartment";
     const pathParams = {
       "{managedDatabaseGroupId}":
         changeManagedDatabaseGroupCompartmentRequest.managedDatabaseGroupId
@@ -566,7 +615,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagedDatabaseGroupCompartmentResponse>{},
         responseHeaders: [
@@ -598,6 +653,9 @@ export class DbManagementClient {
   ): Promise<responses.CreateDbManagementPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#createDbManagementPrivateEndpoint.");
+    const operationName = "createDbManagementPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/CreateDbManagementPrivateEndpoint";
     const pathParams = {};
 
     const queryParams = {};
@@ -630,7 +688,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDbManagementPrivateEndpointResponse>{},
         body: await response.json(),
@@ -682,6 +746,9 @@ export class DbManagementClient {
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#createJob.");
+    const operationName = "createJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/CreateJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -714,7 +781,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobResponse>{},
         body: await response.json(),
@@ -761,6 +834,9 @@ export class DbManagementClient {
   ): Promise<responses.CreateManagedDatabaseGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#createManagedDatabaseGroup.");
+    const operationName = "createManagedDatabaseGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/CreateManagedDatabaseGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -793,7 +869,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateManagedDatabaseGroupResponse>{},
         body: await response.json(),
@@ -838,6 +920,9 @@ export class DbManagementClient {
     createTablespaceRequest: requests.CreateTablespaceRequest
   ): Promise<responses.CreateTablespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#createTablespace.");
+    const operationName = "createTablespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/CreateTablespace";
     const pathParams = {
       "{managedDatabaseId}": createTablespaceRequest.managedDatabaseId
     };
@@ -872,7 +957,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTablespaceResponse>{},
         body: await response.json(),
@@ -907,6 +998,9 @@ export class DbManagementClient {
   ): Promise<responses.DeleteDbManagementPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#deleteDbManagementPrivateEndpoint.");
+    const operationName = "deleteDbManagementPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/DeleteDbManagementPrivateEndpoint";
     const pathParams = {
       "{dbManagementPrivateEndpointId}":
         deleteDbManagementPrivateEndpointRequest.dbManagementPrivateEndpointId
@@ -937,7 +1031,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDbManagementPrivateEndpointResponse>{},
         responseHeaders: [
@@ -972,6 +1072,9 @@ export class DbManagementClient {
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#deleteJob.");
+    const operationName = "deleteJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/DeleteJob";
     const pathParams = {
       "{jobId}": deleteJobRequest.jobId
     };
@@ -1001,7 +1104,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteJobResponse>{},
         responseHeaders: [
@@ -1034,6 +1143,9 @@ export class DbManagementClient {
   ): Promise<responses.DeleteManagedDatabaseGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#deleteManagedDatabaseGroup.");
+    const operationName = "deleteManagedDatabaseGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/DeleteManagedDatabaseGroup";
     const pathParams = {
       "{managedDatabaseGroupId}": deleteManagedDatabaseGroupRequest.managedDatabaseGroupId
     };
@@ -1063,7 +1175,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagedDatabaseGroupResponse>{},
         responseHeaders: [
@@ -1094,6 +1212,9 @@ export class DbManagementClient {
     dropTablespaceRequest: requests.DropTablespaceRequest
   ): Promise<responses.DropTablespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#dropTablespace.");
+    const operationName = "dropTablespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/DropTablespace";
     const pathParams = {
       "{managedDatabaseId}": dropTablespaceRequest.managedDatabaseId,
       "{tablespaceName}": dropTablespaceRequest.tablespaceName
@@ -1130,7 +1251,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DropTablespaceResponse>{},
         body: await response.json(),
@@ -1165,6 +1292,9 @@ export class DbManagementClient {
     getAwrDbReportRequest: requests.GetAwrDbReportRequest
   ): Promise<responses.GetAwrDbReportResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getAwrDbReport.");
+    const operationName = "getAwrDbReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetAwrDbReport";
     const pathParams = {
       "{managedDatabaseId}": getAwrDbReportRequest.managedDatabaseId,
       "{awrDbId}": getAwrDbReportRequest.awrDbId
@@ -1204,7 +1334,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAwrDbReportResponse>{},
         body: await response.json(),
@@ -1239,6 +1375,9 @@ export class DbManagementClient {
     getAwrDbSqlReportRequest: requests.GetAwrDbSqlReportRequest
   ): Promise<responses.GetAwrDbSqlReportResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getAwrDbSqlReport.");
+    const operationName = "getAwrDbSqlReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetAwrDbSqlReport";
     const pathParams = {
       "{managedDatabaseId}": getAwrDbSqlReportRequest.managedDatabaseId,
       "{awrDbId}": getAwrDbSqlReportRequest.awrDbId
@@ -1278,7 +1417,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAwrDbSqlReportResponse>{},
         body: await response.json(),
@@ -1316,6 +1461,9 @@ export class DbManagementClient {
   ): Promise<responses.GetClusterCacheMetricResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#getClusterCacheMetric.");
+    const operationName = "getClusterCacheMetric";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ClusterCacheMetric/GetClusterCacheMetric";
     const pathParams = {
       "{managedDatabaseId}": getClusterCacheMetricRequest.managedDatabaseId
     };
@@ -1347,7 +1495,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetClusterCacheMetricResponse>{},
         body: await response.json(),
@@ -1384,6 +1538,9 @@ export class DbManagementClient {
   ): Promise<responses.GetDatabaseFleetHealthMetricsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#getDatabaseFleetHealthMetrics.");
+    const operationName = "getDatabaseFleetHealthMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseFleetHealthMetrics/GetDatabaseFleetHealthMetrics";
     const pathParams = {};
 
     const queryParams = {
@@ -1422,7 +1579,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseFleetHealthMetricsResponse>{},
         body: await response.json(),
@@ -1457,6 +1620,9 @@ export class DbManagementClient {
   ): Promise<responses.GetDatabaseHomeMetricsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#getDatabaseHomeMetrics.");
+    const operationName = "getDatabaseHomeMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DatabaseHomeMetrics/GetDatabaseHomeMetrics";
     const pathParams = {};
 
     const queryParams = {
@@ -1487,7 +1653,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseHomeMetricsResponse>{},
         body: await response.json(),
@@ -1522,6 +1694,9 @@ export class DbManagementClient {
   ): Promise<responses.GetDbManagementPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#getDbManagementPrivateEndpoint.");
+    const operationName = "getDbManagementPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/GetDbManagementPrivateEndpoint";
     const pathParams = {
       "{dbManagementPrivateEndpointId}":
         getDbManagementPrivateEndpointRequest.dbManagementPrivateEndpointId
@@ -1551,7 +1726,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbManagementPrivateEndpointResponse>{},
         body: await response.json(),
@@ -1589,6 +1770,9 @@ export class DbManagementClient {
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getJob.");
+    const operationName = "getJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/GetJob";
     const pathParams = {
       "{jobId}": getJobRequest.jobId
     };
@@ -1617,7 +1801,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
@@ -1662,6 +1852,9 @@ export class DbManagementClient {
     getJobExecutionRequest: requests.GetJobExecutionRequest
   ): Promise<responses.GetJobExecutionResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getJobExecution.");
+    const operationName = "getJobExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobExecution/GetJobExecution";
     const pathParams = {
       "{jobExecutionId}": getJobExecutionRequest.jobExecutionId
     };
@@ -1690,7 +1883,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobExecutionResponse>{},
         body: await response.json(),
@@ -1725,6 +1924,9 @@ export class DbManagementClient {
     getJobRunRequest: requests.GetJobRunRequest
   ): Promise<responses.GetJobRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getJobRun.");
+    const operationName = "getJobRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobRun/GetJobRun";
     const pathParams = {
       "{jobRunId}": getJobRunRequest.jobRunId
     };
@@ -1753,7 +1955,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobRunResponse>{},
         body: await response.json(),
@@ -1788,6 +1996,9 @@ export class DbManagementClient {
     getManagedDatabaseRequest: requests.GetManagedDatabaseRequest
   ): Promise<responses.GetManagedDatabaseResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getManagedDatabase.");
+    const operationName = "getManagedDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetManagedDatabase";
     const pathParams = {
       "{managedDatabaseId}": getManagedDatabaseRequest.managedDatabaseId
     };
@@ -1816,7 +2027,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagedDatabaseResponse>{},
         body: await response.json(),
@@ -1852,6 +2069,9 @@ export class DbManagementClient {
   ): Promise<responses.GetManagedDatabaseGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#getManagedDatabaseGroup.");
+    const operationName = "getManagedDatabaseGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/GetManagedDatabaseGroup";
     const pathParams = {
       "{managedDatabaseGroupId}": getManagedDatabaseGroupRequest.managedDatabaseGroupId
     };
@@ -1880,7 +2100,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagedDatabaseGroupResponse>{},
         body: await response.json(),
@@ -1923,6 +2149,9 @@ export class DbManagementClient {
     getPdbMetricsRequest: requests.GetPdbMetricsRequest
   ): Promise<responses.GetPdbMetricsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getPdbMetrics.");
+    const operationName = "getPdbMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PdbMetrics/GetPdbMetrics";
     const pathParams = {
       "{managedDatabaseId}": getPdbMetricsRequest.managedDatabaseId
     };
@@ -1957,7 +2186,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPdbMetricsResponse>{},
         body: await response.json(),
@@ -1992,6 +2227,9 @@ export class DbManagementClient {
     getTablespaceRequest: requests.GetTablespaceRequest
   ): Promise<responses.GetTablespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getTablespace.");
+    const operationName = "getTablespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/GetTablespace";
     const pathParams = {
       "{managedDatabaseId}": getTablespaceRequest.managedDatabaseId,
       "{tablespaceName}": getTablespaceRequest.tablespaceName
@@ -2021,7 +2259,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTablespaceResponse>{},
         body: await response.json(),
@@ -2056,6 +2300,9 @@ export class DbManagementClient {
     getUserRequest: requests.GetUserRequest
   ): Promise<responses.GetUserResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getUser.");
+    const operationName = "getUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetUser";
     const pathParams = {
       "{managedDatabaseId}": getUserRequest.managedDatabaseId,
       "{userName}": getUserRequest.userName
@@ -2085,7 +2332,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserResponse>{},
         body: await response.json(),
@@ -2119,6 +2372,9 @@ export class DbManagementClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2147,7 +2403,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2186,6 +2448,9 @@ export class DbManagementClient {
     listAsmPropertiesRequest: requests.ListAsmPropertiesRequest
   ): Promise<responses.ListAsmPropertiesResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAsmProperties.");
+    const operationName = "listAsmProperties";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAsmProperties";
     const pathParams = {
       "{managedDatabaseId}": listAsmPropertiesRequest.managedDatabaseId
     };
@@ -2220,7 +2485,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAsmPropertiesResponse>{},
         body: await response.json(),
@@ -2260,6 +2531,9 @@ export class DbManagementClient {
   ): Promise<responses.ListAssociatedDatabasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listAssociatedDatabases.");
+    const operationName = "listAssociatedDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/AssociatedDatabaseSummary/ListAssociatedDatabases";
     const pathParams = {
       "{dbManagementPrivateEndpointId}":
         listAssociatedDatabasesRequest.dbManagementPrivateEndpointId
@@ -2295,7 +2569,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAssociatedDatabasesResponse>{},
         body: await response.json(),
@@ -2335,6 +2615,9 @@ export class DbManagementClient {
     listAwrDbSnapshotsRequest: requests.ListAwrDbSnapshotsRequest
   ): Promise<responses.ListAwrDbSnapshotsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAwrDbSnapshots.");
+    const operationName = "listAwrDbSnapshots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAwrDbSnapshots";
     const pathParams = {
       "{managedDatabaseId}": listAwrDbSnapshotsRequest.managedDatabaseId,
       "{awrDbId}": listAwrDbSnapshotsRequest.awrDbId
@@ -2376,7 +2659,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAwrDbSnapshotsResponse>{},
         body: await response.json(),
@@ -2416,6 +2705,9 @@ export class DbManagementClient {
     listAwrDbsRequest: requests.ListAwrDbsRequest
   ): Promise<responses.ListAwrDbsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listAwrDbs.");
+    const operationName = "listAwrDbs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAwrDbs";
     const pathParams = {
       "{managedDatabaseId}": listAwrDbsRequest.managedDatabaseId
     };
@@ -2453,7 +2745,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAwrDbsResponse>{},
         body: await response.json(),
@@ -2493,6 +2791,9 @@ export class DbManagementClient {
   ): Promise<responses.ListConsumerGroupPrivilegesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listConsumerGroupPrivileges.");
+    const operationName = "listConsumerGroupPrivileges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListConsumerGroupPrivileges";
     const pathParams = {
       "{managedDatabaseId}": listConsumerGroupPrivilegesRequest.managedDatabaseId,
       "{userName}": listConsumerGroupPrivilegesRequest.userName
@@ -2528,7 +2829,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConsumerGroupPrivilegesResponse>{},
         body: await response.json(),
@@ -2568,6 +2875,9 @@ export class DbManagementClient {
   ): Promise<responses.ListDataAccessContainersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listDataAccessContainers.");
+    const operationName = "listDataAccessContainers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListDataAccessContainers";
     const pathParams = {
       "{managedDatabaseId}": listDataAccessContainersRequest.managedDatabaseId,
       "{userName}": listDataAccessContainersRequest.userName
@@ -2603,7 +2913,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataAccessContainersResponse>{},
         body: await response.json(),
@@ -2644,6 +2960,9 @@ export class DbManagementClient {
   ): Promise<responses.ListDatabaseParametersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listDatabaseParameters.");
+    const operationName = "listDatabaseParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListDatabaseParameters";
     const pathParams = {
       "{managedDatabaseId}": listDatabaseParametersRequest.managedDatabaseId
     };
@@ -2678,7 +2997,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabaseParametersResponse>{},
         body: await response.json(),
@@ -2714,6 +3039,9 @@ export class DbManagementClient {
   ): Promise<responses.ListDbManagementPrivateEndpointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listDbManagementPrivateEndpoints.");
+    const operationName = "listDbManagementPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/ListDbManagementPrivateEndpoints";
     const pathParams = {};
 
     const queryParams = {
@@ -2750,7 +3078,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbManagementPrivateEndpointsResponse>{},
         body: await response.json(),
@@ -2793,6 +3127,9 @@ export class DbManagementClient {
     listJobExecutionsRequest: requests.ListJobExecutionsRequest
   ): Promise<responses.ListJobExecutionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listJobExecutions.");
+    const operationName = "listJobExecutions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobExecution/ListJobExecutions";
     const pathParams = {};
 
     const queryParams = {
@@ -2832,7 +3169,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobExecutionsResponse>{},
         body: await response.json(),
@@ -2875,6 +3218,9 @@ export class DbManagementClient {
     listJobRunsRequest: requests.ListJobRunsRequest
   ): Promise<responses.ListJobRunsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listJobRuns.");
+    const operationName = "listJobRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobRun/ListJobRuns";
     const pathParams = {};
 
     const queryParams = {
@@ -2913,7 +3259,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobRunsResponse>{},
         body: await response.json(),
@@ -2956,6 +3308,9 @@ export class DbManagementClient {
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listJobs.");
+    const operationName = "listJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/ListJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -2993,7 +3348,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
@@ -3037,6 +3398,9 @@ export class DbManagementClient {
   ): Promise<responses.ListManagedDatabaseGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listManagedDatabaseGroups.");
+    const operationName = "listManagedDatabaseGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/ListManagedDatabaseGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -3072,7 +3436,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagedDatabaseGroupsResponse>{},
         body: await response.json(),
@@ -3118,6 +3488,9 @@ export class DbManagementClient {
   ): Promise<responses.ListManagedDatabasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listManagedDatabases.");
+    const operationName = "listManagedDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListManagedDatabases";
     const pathParams = {};
 
     const queryParams = {
@@ -3154,7 +3527,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagedDatabasesResponse>{},
         body: await response.json(),
@@ -3194,6 +3573,9 @@ export class DbManagementClient {
   ): Promise<responses.ListObjectPrivilegesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listObjectPrivileges.");
+    const operationName = "listObjectPrivileges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListObjectPrivileges";
     const pathParams = {
       "{managedDatabaseId}": listObjectPrivilegesRequest.managedDatabaseId,
       "{userName}": listObjectPrivilegesRequest.userName
@@ -3229,7 +3611,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListObjectPrivilegesResponse>{},
         body: await response.json(),
@@ -3268,6 +3656,9 @@ export class DbManagementClient {
     listProxiedForUsersRequest: requests.ListProxiedForUsersRequest
   ): Promise<responses.ListProxiedForUsersResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listProxiedForUsers.");
+    const operationName = "listProxiedForUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListProxiedForUsers";
     const pathParams = {
       "{managedDatabaseId}": listProxiedForUsersRequest.managedDatabaseId,
       "{userName}": listProxiedForUsersRequest.userName
@@ -3303,7 +3694,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProxiedForUsersResponse>{},
         body: await response.json(),
@@ -3342,6 +3739,9 @@ export class DbManagementClient {
     listProxyUsersRequest: requests.ListProxyUsersRequest
   ): Promise<responses.ListProxyUsersResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listProxyUsers.");
+    const operationName = "listProxyUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListProxyUsers";
     const pathParams = {
       "{managedDatabaseId}": listProxyUsersRequest.managedDatabaseId,
       "{userName}": listProxyUsersRequest.userName
@@ -3377,7 +3777,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProxyUsersResponse>{},
         body: await response.json(),
@@ -3416,6 +3822,9 @@ export class DbManagementClient {
     listRolesRequest: requests.ListRolesRequest
   ): Promise<responses.ListRolesResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listRoles.");
+    const operationName = "listRoles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListRoles";
     const pathParams = {
       "{managedDatabaseId}": listRolesRequest.managedDatabaseId,
       "{userName}": listRolesRequest.userName
@@ -3451,7 +3860,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRolesResponse>{},
         body: await response.json(),
@@ -3491,6 +3906,9 @@ export class DbManagementClient {
   ): Promise<responses.ListSystemPrivilegesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listSystemPrivileges.");
+    const operationName = "listSystemPrivileges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSystemPrivileges";
     const pathParams = {
       "{managedDatabaseId}": listSystemPrivilegesRequest.managedDatabaseId,
       "{userName}": listSystemPrivilegesRequest.userName
@@ -3526,7 +3944,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSystemPrivilegesResponse>{},
         body: await response.json(),
@@ -3565,6 +3989,9 @@ export class DbManagementClient {
     listTablespacesRequest: requests.ListTablespacesRequest
   ): Promise<responses.ListTablespacesResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listTablespaces.");
+    const operationName = "listTablespaces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/ListTablespaces";
     const pathParams = {
       "{managedDatabaseId}": listTablespacesRequest.managedDatabaseId
     };
@@ -3599,7 +4026,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTablespacesResponse>{},
         body: await response.json(),
@@ -3638,6 +4071,9 @@ export class DbManagementClient {
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listUsers.");
+    const operationName = "listUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListUsers";
     const pathParams = {
       "{managedDatabaseId}": listUsersRequest.managedDatabaseId
     };
@@ -3672,7 +4108,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUsersResponse>{},
         body: await response.json(),
@@ -3713,6 +4155,9 @@ export class DbManagementClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -3746,7 +4191,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -3786,6 +4237,9 @@ export class DbManagementClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -3819,7 +4273,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -3859,6 +4319,9 @@ export class DbManagementClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -3894,7 +4357,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -3934,6 +4403,9 @@ export class DbManagementClient {
     removeDataFileRequest: requests.RemoveDataFileRequest
   ): Promise<responses.RemoveDataFileResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#removeDataFile.");
+    const operationName = "removeDataFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/RemoveDataFile";
     const pathParams = {
       "{managedDatabaseId}": removeDataFileRequest.managedDatabaseId,
       "{tablespaceName}": removeDataFileRequest.tablespaceName
@@ -3970,7 +4442,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveDataFileResponse>{},
         body: await response.json(),
@@ -4011,6 +4489,9 @@ export class DbManagementClient {
       this.logger.debug(
         "Calling operation DbManagementClient#removeManagedDatabaseFromManagedDatabaseGroup."
       );
+    const operationName = "removeManagedDatabaseFromManagedDatabaseGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/RemoveManagedDatabaseFromManagedDatabaseGroup";
     const pathParams = {
       "{managedDatabaseGroupId}":
         removeManagedDatabaseFromManagedDatabaseGroupRequest.managedDatabaseGroupId
@@ -4046,7 +4527,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveManagedDatabaseFromManagedDatabaseGroupResponse>{},
         responseHeaders: [
@@ -4078,6 +4565,9 @@ export class DbManagementClient {
   ): Promise<responses.ResetDatabaseParametersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#resetDatabaseParameters.");
+    const operationName = "resetDatabaseParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ResetDatabaseParameters";
     const pathParams = {
       "{managedDatabaseId}": resetDatabaseParametersRequest.managedDatabaseId
     };
@@ -4112,7 +4602,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResetDatabaseParametersResponse>{},
         body: await response.json(),
@@ -4147,6 +4643,9 @@ export class DbManagementClient {
     resizeDataFileRequest: requests.ResizeDataFileRequest
   ): Promise<responses.ResizeDataFileResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#resizeDataFile.");
+    const operationName = "resizeDataFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/ResizeDataFile";
     const pathParams = {
       "{managedDatabaseId}": resizeDataFileRequest.managedDatabaseId,
       "{tablespaceName}": resizeDataFileRequest.tablespaceName
@@ -4183,7 +4682,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResizeDataFileResponse>{},
         body: await response.json(),
@@ -4219,6 +4724,9 @@ export class DbManagementClient {
   ): Promise<responses.SummarizeAwrDbCpuUsagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbCpuUsages.");
+    const operationName = "summarizeAwrDbCpuUsages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbCpuUsages";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbCpuUsagesRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbCpuUsagesRequest.awrDbId
@@ -4261,7 +4769,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbCpuUsagesResponse>{},
         body: await response.json(),
@@ -4302,6 +4816,9 @@ export class DbManagementClient {
   ): Promise<responses.SummarizeAwrDbMetricsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbMetrics.");
+    const operationName = "summarizeAwrDbMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbMetrics";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbMetricsRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbMetricsRequest.awrDbId
@@ -4344,7 +4861,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbMetricsResponse>{},
         body: await response.json(),
@@ -4389,6 +4912,9 @@ export class DbManagementClient {
   ): Promise<responses.SummarizeAwrDbParameterChangesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameterChanges.");
+    const operationName = "summarizeAwrDbParameterChanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbParameterChanges";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbParameterChangesRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbParameterChangesRequest.awrDbId
@@ -4432,7 +4958,13 @@ export class DbManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbParameterChangesResponse>{},
         body: await response.json(),
@@ -4483,6 +5015,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.SummarizeAwrDbParametersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbParameters.");
+    const operationName = "summarizeAwrDbParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbParameters";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbParametersRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbParametersRequest.awrDbId
@@ -4530,7 +5065,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbParametersResponse>{},
         body: await response.json(),
@@ -4571,6 +5112,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.SummarizeAwrDbSnapshotRangesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbSnapshotRanges.");
+    const operationName = "summarizeAwrDbSnapshotRanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbSnapshotRanges";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbSnapshotRangesRequest.managedDatabaseId
     };
@@ -4608,7 +5152,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbSnapshotRangesResponse>{},
         body: await response.json(),
@@ -4649,6 +5199,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.SummarizeAwrDbSysstatsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbSysstats.");
+    const operationName = "summarizeAwrDbSysstats";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbSysstats";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbSysstatsRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbSysstatsRequest.awrDbId
@@ -4691,7 +5244,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbSysstatsResponse>{},
         body: await response.json(),
@@ -4732,6 +5291,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.SummarizeAwrDbTopWaitEventsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbTopWaitEvents.");
+    const operationName = "summarizeAwrDbTopWaitEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbTopWaitEvents";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbTopWaitEventsRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbTopWaitEventsRequest.awrDbId
@@ -4774,7 +5336,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbTopWaitEventsResponse>{},
         body: await response.json(),
@@ -4815,6 +5383,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.SummarizeAwrDbWaitEventBucketsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEventBuckets.");
+    const operationName = "summarizeAwrDbWaitEventBuckets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbWaitEventBuckets";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbWaitEventBucketsRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbWaitEventBucketsRequest.awrDbId
@@ -4861,7 +5432,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbWaitEventBucketsResponse>{},
         body: await response.json(),
@@ -4902,6 +5479,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.SummarizeAwrDbWaitEventsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeAwrDbWaitEvents.");
+    const operationName = "summarizeAwrDbWaitEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAwrDbWaitEvents";
     const pathParams = {
       "{managedDatabaseId}": summarizeAwrDbWaitEventsRequest.managedDatabaseId,
       "{awrDbId}": summarizeAwrDbWaitEventsRequest.awrDbId
@@ -4946,7 +5526,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAwrDbWaitEventsResponse>{},
         body: await response.json(),
@@ -4986,6 +5572,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.SummarizeJobExecutionsStatusesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#summarizeJobExecutionsStatuses.");
+    const operationName = "summarizeJobExecutionsStatuses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/JobExecutionsStatusSummaryCollection/SummarizeJobExecutionsStatuses";
     const pathParams = {};
 
     const queryParams = {
@@ -5022,7 +5611,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeJobExecutionsStatusesResponse>{},
         body: await response.json(),
@@ -5057,6 +5652,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.UpdateDbManagementPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#updateDbManagementPrivateEndpoint.");
+    const operationName = "updateDbManagementPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/DbManagementPrivateEndpoint/UpdateDbManagementPrivateEndpoint";
     const pathParams = {
       "{dbManagementPrivateEndpointId}":
         updateDbManagementPrivateEndpointRequest.dbManagementPrivateEndpointId
@@ -5092,7 +5690,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDbManagementPrivateEndpointResponse>{},
         body: await response.json(),
@@ -5132,6 +5736,9 @@ Note that this API does not return information on the number of times each datab
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateJob.");
+    const operationName = "updateJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Job/UpdateJob";
     const pathParams = {
       "{jobId}": updateJobRequest.jobId
     };
@@ -5166,7 +5773,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
@@ -5207,6 +5820,9 @@ Note that this API does not return information on the number of times each datab
   ): Promise<responses.UpdateManagedDatabaseGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbManagementClient#updateManagedDatabaseGroup.");
+    const operationName = "updateManagedDatabaseGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabaseGroup/UpdateManagedDatabaseGroup";
     const pathParams = {
       "{managedDatabaseGroupId}": updateManagedDatabaseGroupRequest.managedDatabaseGroupId
     };
@@ -5241,7 +5857,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagedDatabaseGroupResponse>{},
         body: await response.json(),
@@ -5281,6 +5903,9 @@ Note that this API does not return information on the number of times each datab
     updateTablespaceRequest: requests.UpdateTablespaceRequest
   ): Promise<responses.UpdateTablespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateTablespace.");
+    const operationName = "updateTablespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/Tablespace/UpdateTablespace";
     const pathParams = {
       "{managedDatabaseId}": updateTablespaceRequest.managedDatabaseId,
       "{tablespaceName}": updateTablespaceRequest.tablespaceName
@@ -5315,7 +5940,13 @@ Note that this API does not return information on the number of times each datab
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTablespaceResponse>{},
         body: await response.json(),
@@ -5349,6 +5980,7 @@ export class SqlTuningClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "SqlTuning";
 
   protected _httpClient: common.HttpClient;
 
@@ -5452,6 +6084,9 @@ export class SqlTuningClient {
     cloneSqlTuningTaskRequest: requests.CloneSqlTuningTaskRequest
   ): Promise<responses.CloneSqlTuningTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation SqlTuningClient#cloneSqlTuningTask.");
+    const operationName = "cloneSqlTuningTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/CloneSqlTuningTask";
     const pathParams = {
       "{managedDatabaseId}": cloneSqlTuningTaskRequest.managedDatabaseId
     };
@@ -5486,7 +6121,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CloneSqlTuningTaskResponse>{},
         body: await response.json(),
@@ -5521,6 +6162,9 @@ export class SqlTuningClient {
     dropSqlTuningTaskRequest: requests.DropSqlTuningTaskRequest
   ): Promise<responses.DropSqlTuningTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlTuningTask.");
+    const operationName = "dropSqlTuningTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DropSqlTuningTask";
     const pathParams = {
       "{managedDatabaseId}": dropSqlTuningTaskRequest.managedDatabaseId
     };
@@ -5555,7 +6199,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DropSqlTuningTaskResponse>{},
         responseHeaders: [
@@ -5589,6 +6239,9 @@ export class SqlTuningClient {
   ): Promise<responses.GetExecutionPlanStatsComparisionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SqlTuningClient#getExecutionPlanStatsComparision.");
+    const operationName = "getExecutionPlanStatsComparision";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetExecutionPlanStatsComparision";
     const pathParams = {
       "{managedDatabaseId}": getExecutionPlanStatsComparisionRequest.managedDatabaseId,
       "{sqlTuningAdvisorTaskId}": getExecutionPlanStatsComparisionRequest.sqlTuningAdvisorTaskId
@@ -5622,7 +6275,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExecutionPlanStatsComparisionResponse>{},
         body: await response.json(),
@@ -5657,6 +6316,9 @@ export class SqlTuningClient {
     getSqlExecutionPlanRequest: requests.GetSqlExecutionPlanRequest
   ): Promise<responses.GetSqlExecutionPlanResponse> {
     if (this.logger) this.logger.debug("Calling operation SqlTuningClient#getSqlExecutionPlan.");
+    const operationName = "getSqlExecutionPlan";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlExecutionPlan";
     const pathParams = {
       "{managedDatabaseId}": getSqlExecutionPlanRequest.managedDatabaseId,
       "{sqlTuningAdvisorTaskId}": getSqlExecutionPlanRequest.sqlTuningAdvisorTaskId
@@ -5690,7 +6352,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSqlExecutionPlanResponse>{},
         body: await response.json(),
@@ -5726,6 +6394,9 @@ export class SqlTuningClient {
   ): Promise<responses.GetSqlTuningAdvisorTaskSummaryReportResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SqlTuningClient#getSqlTuningAdvisorTaskSummaryReport.");
+    const operationName = "getSqlTuningAdvisorTaskSummaryReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlTuningAdvisorTaskSummaryReport";
     const pathParams = {
       "{managedDatabaseId}": getSqlTuningAdvisorTaskSummaryReportRequest.managedDatabaseId,
       "{sqlTuningAdvisorTaskId}": getSqlTuningAdvisorTaskSummaryReportRequest.sqlTuningAdvisorTaskId
@@ -5765,7 +6436,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSqlTuningAdvisorTaskSummaryReportResponse>{},
         body: await response.json(),
@@ -5801,6 +6478,9 @@ export class SqlTuningClient {
   ): Promise<responses.ListSqlTuningAdvisorTaskFindingsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTaskFindings.");
+    const operationName = "listSqlTuningAdvisorTaskFindings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningAdvisorTaskFindings";
     const pathParams = {
       "{managedDatabaseId}": listSqlTuningAdvisorTaskFindingsRequest.managedDatabaseId,
       "{sqlTuningAdvisorTaskId}": listSqlTuningAdvisorTaskFindingsRequest.sqlTuningAdvisorTaskId
@@ -5842,7 +6522,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSqlTuningAdvisorTaskFindingsResponse>{},
         body: await response.json(),
@@ -5886,6 +6572,9 @@ export class SqlTuningClient {
       this.logger.debug(
         "Calling operation SqlTuningClient#listSqlTuningAdvisorTaskRecommendations."
       );
+    const operationName = "listSqlTuningAdvisorTaskRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningAdvisorTaskRecommendations";
     const pathParams = {
       "{managedDatabaseId}": listSqlTuningAdvisorTaskRecommendationsRequest.managedDatabaseId,
       "{sqlTuningAdvisorTaskId}":
@@ -5924,7 +6613,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSqlTuningAdvisorTaskRecommendationsResponse>{},
         body: await response.json(),
@@ -5965,6 +6660,9 @@ export class SqlTuningClient {
   ): Promise<responses.ListSqlTuningAdvisorTasksResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SqlTuningClient#listSqlTuningAdvisorTasks.");
+    const operationName = "listSqlTuningAdvisorTasks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningAdvisorTasks";
     const pathParams = {
       "{managedDatabaseId}": listSqlTuningAdvisorTasksRequest.managedDatabaseId
     };
@@ -6002,7 +6700,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSqlTuningAdvisorTasksResponse>{},
         body: await response.json(),
@@ -6042,6 +6746,9 @@ export class SqlTuningClient {
     startSqlTuningTaskRequest: requests.StartSqlTuningTaskRequest
   ): Promise<responses.StartSqlTuningTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation SqlTuningClient#startSqlTuningTask.");
+    const operationName = "startSqlTuningTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/StartSqlTuningTask";
     const pathParams = {
       "{managedDatabaseId}": startSqlTuningTaskRequest.managedDatabaseId
     };
@@ -6076,7 +6783,13 @@ export class SqlTuningClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartSqlTuningTaskResponse>{},
         body: await response.json(),

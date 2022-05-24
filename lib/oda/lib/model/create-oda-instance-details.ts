@@ -35,8 +35,7 @@ export interface CreateOdaInstanceDetails {
    */
   "shapeName": CreateOdaInstanceDetails.ShapeName;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for
-   * cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type, or scope.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
@@ -47,6 +46,14 @@ export interface CreateOdaInstanceDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Should this Digital Assistant instance use role-based authorization via an identity domain (true) or use the default policy-based authorization via IAM policies (false)
+   */
+  "isRoleBasedAccess"?: boolean;
+  /**
+   * If isRoleBasedAccess is set to true, this property specifies the identity domain that is to be used to implement this type of authorzation. Digital Assistant will create an Identity Application instance and Application Roles within this identity domain. The caller may then perform and user roll mappings they like to grant access to users within the identity domain.
+   */
+  "identityDomain"?: string;
 }
 
 export namespace CreateOdaInstanceDetails {

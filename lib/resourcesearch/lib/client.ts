@@ -34,6 +34,7 @@ export class ResourceSearchClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ResourceSearch";
 
   protected _httpClient: common.HttpClient;
 
@@ -137,6 +138,9 @@ export class ResourceSearchClient {
     getResourceTypeRequest: requests.GetResourceTypeRequest
   ): Promise<responses.GetResourceTypeResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#getResourceType.");
+    const operationName = "getResourceType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/search/20180409/ResourceType/GetResourceType";
     const pathParams = {
       "{name}": getResourceTypeRequest.name
     };
@@ -165,7 +169,13 @@ export class ResourceSearchClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResourceTypeResponse>{},
         body: await response.json(),
@@ -200,6 +210,9 @@ export class ResourceSearchClient {
     listResourceTypesRequest: requests.ListResourceTypesRequest
   ): Promise<responses.ListResourceTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#listResourceTypes.");
+    const operationName = "listResourceTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/search/20180409/ResourceType/ListResourceTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -229,7 +242,13 @@ export class ResourceSearchClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceTypesResponse>{},
         body: await response.json(),
@@ -323,6 +342,9 @@ export class ResourceSearchClient {
     searchResourcesRequest: requests.SearchResourcesRequest
   ): Promise<responses.SearchResourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceSearchClient#searchResources.");
+    const operationName = "searchResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/search/20180409/ResourceSummary/SearchResources";
     const pathParams = {};
 
     const queryParams = {
@@ -358,7 +380,13 @@ export class ResourceSearchClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchResourcesResponse>{},
         body: await response.json(),

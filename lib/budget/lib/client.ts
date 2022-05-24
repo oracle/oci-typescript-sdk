@@ -36,6 +36,7 @@ export class BudgetClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Budget";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,9 @@ export class BudgetClient {
     createAlertRuleRequest: requests.CreateAlertRuleRequest
   ): Promise<responses.CreateAlertRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#createAlertRule.");
+    const operationName = "createAlertRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/CreateAlertRule";
     const pathParams = {
       "{budgetId}": createAlertRuleRequest.budgetId
     };
@@ -196,7 +200,13 @@ export class BudgetClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAlertRuleResponse>{},
         body: await response.json(),
@@ -236,6 +246,9 @@ export class BudgetClient {
     createBudgetRequest: requests.CreateBudgetRequest
   ): Promise<responses.CreateBudgetResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#createBudget.");
+    const operationName = "createBudget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/CreateBudget";
     const pathParams = {};
 
     const queryParams = {};
@@ -268,7 +281,13 @@ export class BudgetClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBudgetResponse>{},
         body: await response.json(),
@@ -307,6 +326,9 @@ export class BudgetClient {
     deleteAlertRuleRequest: requests.DeleteAlertRuleRequest
   ): Promise<responses.DeleteAlertRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#deleteAlertRule.");
+    const operationName = "deleteAlertRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/DeleteAlertRule";
     const pathParams = {
       "{budgetId}": deleteAlertRuleRequest.budgetId,
       "{alertRuleId}": deleteAlertRuleRequest.alertRuleId
@@ -337,7 +359,13 @@ export class BudgetClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAlertRuleResponse>{},
         responseHeaders: [
@@ -367,6 +395,9 @@ export class BudgetClient {
     deleteBudgetRequest: requests.DeleteBudgetRequest
   ): Promise<responses.DeleteBudgetResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#deleteBudget.");
+    const operationName = "deleteBudget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/DeleteBudget";
     const pathParams = {
       "{budgetId}": deleteBudgetRequest.budgetId
     };
@@ -396,7 +427,13 @@ export class BudgetClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBudgetResponse>{},
         responseHeaders: [
@@ -426,6 +463,9 @@ export class BudgetClient {
     getAlertRuleRequest: requests.GetAlertRuleRequest
   ): Promise<responses.GetAlertRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#getAlertRule.");
+    const operationName = "getAlertRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/GetAlertRule";
     const pathParams = {
       "{budgetId}": getAlertRuleRequest.budgetId,
       "{alertRuleId}": getAlertRuleRequest.alertRuleId
@@ -455,7 +495,13 @@ export class BudgetClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAlertRuleResponse>{},
         body: await response.json(),
@@ -494,6 +540,9 @@ export class BudgetClient {
     getBudgetRequest: requests.GetBudgetRequest
   ): Promise<responses.GetBudgetResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#getBudget.");
+    const operationName = "getBudget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/GetBudget";
     const pathParams = {
       "{budgetId}": getBudgetRequest.budgetId
     };
@@ -522,7 +571,13 @@ export class BudgetClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBudgetResponse>{},
         body: await response.json(),
@@ -562,6 +617,9 @@ export class BudgetClient {
     listAlertRulesRequest: requests.ListAlertRulesRequest
   ): Promise<responses.ListAlertRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#listAlertRules.");
+    const operationName = "listAlertRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRuleSummary/ListAlertRules";
     const pathParams = {
       "{budgetId}": listAlertRulesRequest.budgetId
     };
@@ -597,7 +655,13 @@ export class BudgetClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlertRulesResponse>{},
         body: await response.json(),
@@ -696,6 +760,9 @@ Additional targetTypes would be available in future releases. Clients should ign
     listBudgetsRequest: requests.ListBudgetsRequest
   ): Promise<responses.ListBudgetsResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#listBudgets.");
+    const operationName = "listBudgets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/BudgetSummary/ListBudgets";
     const pathParams = {};
 
     const queryParams = {
@@ -731,7 +798,13 @@ Additional targetTypes would be available in future releases. Clients should ign
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBudgetsResponse>{},
         body: await response.json(),
@@ -822,6 +895,9 @@ Additional targetTypes would be available in future releases. Clients should ign
     updateAlertRuleRequest: requests.UpdateAlertRuleRequest
   ): Promise<responses.UpdateAlertRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#updateAlertRule.");
+    const operationName = "updateAlertRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/AlertRule/UpdateAlertRule";
     const pathParams = {
       "{budgetId}": updateAlertRuleRequest.budgetId,
       "{alertRuleId}": updateAlertRuleRequest.alertRuleId
@@ -857,7 +933,13 @@ Additional targetTypes would be available in future releases. Clients should ign
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAlertRuleResponse>{},
         body: await response.json(),
@@ -896,6 +978,9 @@ Additional targetTypes would be available in future releases. Clients should ign
     updateBudgetRequest: requests.UpdateBudgetRequest
   ): Promise<responses.UpdateBudgetResponse> {
     if (this.logger) this.logger.debug("Calling operation BudgetClient#updateBudget.");
+    const operationName = "updateBudget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/budgets/20190111/Budget/UpdateBudget";
     const pathParams = {
       "{budgetId}": updateBudgetRequest.budgetId
     };
@@ -930,7 +1015,13 @@ Additional targetTypes would be available in future releases. Clients should ign
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBudgetResponse>{},
         body: await response.json(),

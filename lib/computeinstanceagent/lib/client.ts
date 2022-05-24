@@ -38,6 +38,7 @@ export class ComputeInstanceAgentClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ComputeInstanceAgent";
 
   protected _httpClient: common.HttpClient;
 
@@ -170,6 +171,9 @@ Canceling a command is a best-effort attempt. If the command has already
   ): Promise<responses.CancelInstanceAgentCommandResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeInstanceAgentClient#cancelInstanceAgentCommand.");
+    const operationName = "cancelInstanceAgentCommand";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommand/CancelInstanceAgentCommand";
     const pathParams = {
       "{instanceAgentCommandId}": cancelInstanceAgentCommandRequest.instanceAgentCommandId
     };
@@ -199,7 +203,13 @@ Canceling a command is a best-effort attempt. If the command has already
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelInstanceAgentCommandResponse>{},
         responseHeaders: [
@@ -237,6 +247,9 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   ): Promise<responses.CreateInstanceAgentCommandResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeInstanceAgentClient#createInstanceAgentCommand.");
+    const operationName = "createInstanceAgentCommand";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommand/CreateInstanceAgentCommand";
     const pathParams = {};
 
     const queryParams = {};
@@ -269,7 +282,13 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateInstanceAgentCommandResponse>{},
         body: await response.json(),
@@ -309,6 +328,9 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   ): Promise<responses.GetInstanceAgentCommandResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeInstanceAgentClient#getInstanceAgentCommand.");
+    const operationName = "getInstanceAgentCommand";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommand/GetInstanceAgentCommand";
     const pathParams = {
       "{instanceAgentCommandId}": getInstanceAgentCommandRequest.instanceAgentCommandId
     };
@@ -337,7 +359,13 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstanceAgentCommandResponse>{},
         body: await response.json(),
@@ -379,6 +407,9 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       this.logger.debug(
         "Calling operation ComputeInstanceAgentClient#getInstanceAgentCommandExecution."
       );
+    const operationName = "getInstanceAgentCommandExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommandExecution/GetInstanceAgentCommandExecution";
     const pathParams = {
       "{instanceAgentCommandId}": getInstanceAgentCommandExecutionRequest.instanceAgentCommandId
     };
@@ -409,7 +440,13 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstanceAgentCommandExecutionResponse>{},
         body: await response.json(),
@@ -453,6 +490,9 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       this.logger.debug(
         "Calling operation ComputeInstanceAgentClient#listInstanceAgentCommandExecutions."
       );
+    const operationName = "listInstanceAgentCommandExecutions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommandExecutionSummary/ListInstanceAgentCommandExecutions";
     const pathParams = {};
 
     const queryParams = {
@@ -487,7 +527,13 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstanceAgentCommandExecutionsResponse>{},
         body: await response.json(),
@@ -580,6 +626,9 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
   ): Promise<responses.ListInstanceAgentCommandsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeInstanceAgentClient#listInstanceAgentCommands.");
+    const operationName = "listInstanceAgentCommands";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/InstanceAgentCommandSummary/ListInstanceAgentCommands";
     const pathParams = {};
 
     const queryParams = {
@@ -612,7 +661,13 @@ Commands that require administrator privileges will run only if Oracle Cloud Age
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstanceAgentCommandsResponse>{},
         body: await response.json(),
@@ -703,6 +758,7 @@ export class PluginClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Plugin";
 
   protected _httpClient: common.HttpClient;
 
@@ -805,6 +861,9 @@ export class PluginClient {
     getInstanceAgentPluginRequest: requests.GetInstanceAgentPluginRequest
   ): Promise<responses.GetInstanceAgentPluginResponse> {
     if (this.logger) this.logger.debug("Calling operation PluginClient#getInstanceAgentPlugin.");
+    const operationName = "getInstanceAgentPlugin";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/Plugin/GetInstanceAgentPlugin";
     const pathParams = {
       "{instanceagentId}": getInstanceAgentPluginRequest.instanceagentId,
       "{pluginName}": getInstanceAgentPluginRequest.pluginName
@@ -836,7 +895,13 @@ export class PluginClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstanceAgentPluginResponse>{},
         body: await response.json(),
@@ -870,6 +935,9 @@ export class PluginClient {
     listInstanceAgentPluginsRequest: requests.ListInstanceAgentPluginsRequest
   ): Promise<responses.ListInstanceAgentPluginsResponse> {
     if (this.logger) this.logger.debug("Calling operation PluginClient#listInstanceAgentPlugins.");
+    const operationName = "listInstanceAgentPlugins";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/Plugin/ListInstanceAgentPlugins";
     const pathParams = {
       "{instanceagentId}": listInstanceAgentPluginsRequest.instanceagentId
     };
@@ -906,7 +974,13 @@ export class PluginClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstanceAgentPluginsResponse>{},
         body: await response.json(),
@@ -997,6 +1071,7 @@ export class PluginconfigClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Pluginconfig";
 
   protected _httpClient: common.HttpClient;
 
@@ -1100,6 +1175,9 @@ export class PluginconfigClient {
   ): Promise<responses.ListInstanceagentAvailablePluginsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation PluginconfigClient#listInstanceagentAvailablePlugins.");
+    const operationName = "listInstanceagentAvailablePlugins";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/instanceagent/20180530/Plugin/ListInstanceagentAvailablePlugins";
     const pathParams = {};
 
     const queryParams = {
@@ -1135,7 +1213,13 @@ export class PluginconfigClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstanceagentAvailablePluginsResponse>{},
         body: await response.json(),

@@ -20,6 +20,9 @@ import { OciError } from "..";
 import { Logger } from "./log";
 import { BooleanString } from "./constants";
 
+const TROUBLESHOOT_URL =
+  "https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_troubleshooting.htm";
+
 /**
  * This class implements the retrier
  * NOTE : Retries are not supported for requests that have binary or stream bodies
@@ -125,6 +128,10 @@ export class GenericRetrier {
     this._logger = logger;
   }
 
+  public get logger(): Logger {
+    return this._logger;
+  }
+
   public get backUpBinaryBody(): boolean {
     return this.retryConfiguration.backupBinaryBody;
   }
@@ -150,16 +157,50 @@ export class GenericRetrier {
   public async makeServiceCall(
     httpClient: HttpClient,
     request: HttpRequest,
+    targetService: string,
+    operationName: string,
+    apiReferenceLink: string,
     excludeBody?: boolean
   ): Promise<Response> {
     const waitContext = new WaitContextImpl();
-    let lastKnownError!: Error | OciError;
+    let lastKnownError!: any;
     let shouldBeRetried: boolean = true;
+    const timestamp = new Date();
+    const endpoint = `${request.method} ${request.uri}`;
+    let attempt = 0;
+    const configuration: any = this.retryConfiguration;
+    let maxDelayInSeconds = undefined;
+    let maxAttempts = undefined;
+    if (configuration.delayStrategy && configuration.delayStrategy.maxDelayInSeconds) {
+      maxDelayInSeconds = configuration.delayStrategy.maxDelayInSeconds;
+    }
+    if (configuration.terminationStrategy && configuration.terminationStrategy.maxAttempts) {
+      maxAttempts = configuration.terminationStrategy.maxAttempts;
+    }
+
+    if (this.logger) {
+      this.logger.debug(
+        `Retry policy to use: MaximumNumberAttempts=${maxAttempts}, MaxSleepBetween=${maxDelayInSeconds}, ExponentialBackoffBase=2`
+      );
+    }
     while (true) {
       try {
         this.addOpcClientRetryHeader(request);
-        const response: Response = await httpClient.send(request, excludeBody);
+        const response: Response = await httpClient.send(
+          request,
+          excludeBody,
+          targetService,
+          operationName,
+          timestamp.toISOString(),
+          endpoint,
+          apiReferenceLink
+        );
         if (response.status && response.status >= 200 && response.status <= 299) {
+          const currentTime = new Date().getTime();
+          const timeElapsed = currentTime - timestamp.getTime();
+          if (this.logger) {
+            this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+          }
           return response;
         } else if ((response as any).code === "EOPENBREAKER") {
           // Circuit Breaker is in OPEN state
@@ -168,30 +209,57 @@ export class GenericRetrier {
             circuitBreakerError.code,
             "unknown code",
             circuitBreakerError.message,
-            "unknown"
+            "unknown",
+            targetService,
+            operationName,
+            timestamp.toISOString(),
+            endpoint,
+            apiReferenceLink
           );
           shouldBeRetried = this.retryConfiguration.retryCondition(errorObject); // TODO: need retryCondition to accept errorObject coming from Circuit Breaker
           lastKnownError = errorObject;
         } else {
           const errBody = await handleErrorBody(response);
-          const errorObject = handleErrorResponse(response, errBody);
+          const errorObject = handleErrorResponse(
+            response,
+            errBody,
+            targetService,
+            operationName,
+            timestamp.toISOString(),
+            endpoint,
+            apiReferenceLink
+          );
           shouldBeRetried = this.retryConfiguration.retryCondition(errorObject);
           lastKnownError = errorObject;
         }
       } catch (err) {
-        lastKnownError = new OciError(err.code, "unknown code", err.message, "unknown");
+        // These are non-service errors
+        lastKnownError = {
+          code: err.code,
+          message: err.message,
+          requestEndpoint: endpoint,
+          troubleshootingPage: `See ${TROUBLESHOOT_URL} for help troubleshooting this error, or contact support and provide this full error message.`
+        };
         shouldBeRetried = true;
       }
+      let currentTime = new Date().getTime();
+      let timeElapsed = currentTime - timestamp.getTime();
       if (!shouldBeRetried || !GenericRetrier.isRequestRetryable(request)) {
         console.warn(
           `Request cannot be retried. Not Retrying. Exception occurred : ${lastKnownError}`
         );
+        if (this.logger) {
+          this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+        }
         throw lastKnownError;
       } else if (this.retryConfiguration.terminationStrategy.shouldTerminate(waitContext)) {
         console.warn(
           `All retry attempts have exhausted. Total Attempts : ${waitContext.attemptCount +
             1}. Last exception occurred : ${lastKnownError}`
         );
+        if (this.logger) {
+          this.logger.debug(`Total Latency for this API call is: ${timeElapsed} ms`);
+        }
         throw lastKnownError;
       }
       const delayTime = this.retryConfiguration.delayStrategy.delay(waitContext);
@@ -201,6 +269,16 @@ export class GenericRetrier {
       );
       await delay(delayTime);
       GenericRetrier.refreshRequest(request);
+      attempt += 1;
+      if (this.logger) {
+        lastKnownError instanceof OciError
+          ? this.logger.debug(
+              `Http Status Code: ${lastKnownError.statusCode}, Error Code: ${lastKnownError.serviceCode}, Attempt: ${attempt}`
+            )
+          : this.logger.debug(
+              `Code: ${lastKnownError.code}, Message: ${lastKnownError.message}, Attempt: ${attempt}`
+            );
+      }
     }
   }
 

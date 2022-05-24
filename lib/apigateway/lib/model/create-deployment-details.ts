@@ -48,7 +48,7 @@ Example: `My new resource`
    *
    */
   "pathPrefix": string;
-  "specification"?: model.ApiSpecification;
+  "specification": model.ApiSpecification;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair
 * with no predefined name, type, or namespace. For more information, see

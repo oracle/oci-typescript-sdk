@@ -36,6 +36,7 @@ export class ServiceCatalogClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ServiceCatalog";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class ServiceCatalogClient {
       this.logger.debug(
         "Calling operation ServiceCatalogClient#bulkReplaceServiceCatalogAssociations."
       );
+    const operationName = "bulkReplaceServiceCatalogAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/BulkReplaceServiceCatalogAssociations";
     const pathParams = {
       "{serviceCatalogId}": bulkReplaceServiceCatalogAssociationsRequest.serviceCatalogId
     };
@@ -198,7 +202,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkReplaceServiceCatalogAssociationsResponse>{},
         responseHeaders: [
@@ -231,6 +241,9 @@ export class ServiceCatalogClient {
       this.logger.debug(
         "Calling operation ServiceCatalogClient#changePrivateApplicationCompartment."
       );
+    const operationName = "changePrivateApplicationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/ChangePrivateApplicationCompartment";
     const pathParams = {
       "{privateApplicationId}": changePrivateApplicationCompartmentRequest.privateApplicationId
     };
@@ -265,7 +278,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangePrivateApplicationCompartmentResponse>{},
         responseHeaders: [
@@ -301,6 +320,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.ChangeServiceCatalogCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#changeServiceCatalogCompartment.");
+    const operationName = "changeServiceCatalogCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/ChangeServiceCatalogCompartment";
     const pathParams = {
       "{serviceCatalogId}": changeServiceCatalogCompartmentRequest.serviceCatalogId
     };
@@ -335,7 +357,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeServiceCatalogCompartmentResponse>{},
         responseHeaders: [
@@ -366,6 +394,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.CreatePrivateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#createPrivateApplication.");
+    const operationName = "createPrivateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/CreatePrivateApplication";
     const pathParams = {};
 
     const queryParams = {};
@@ -398,7 +429,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePrivateApplicationResponse>{},
         body: await response.json(),
@@ -443,6 +480,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.CreateServiceCatalogResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#createServiceCatalog.");
+    const operationName = "createServiceCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/CreateServiceCatalog";
     const pathParams = {};
 
     const queryParams = {};
@@ -475,7 +515,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateServiceCatalogResponse>{},
         body: await response.json(),
@@ -515,6 +561,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.CreateServiceCatalogAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#createServiceCatalogAssociation.");
+    const operationName = "createServiceCatalogAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/CreateServiceCatalogAssociation";
     const pathParams = {};
 
     const queryParams = {};
@@ -547,7 +596,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateServiceCatalogAssociationResponse>{},
         body: await response.json(),
@@ -587,6 +642,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.DeletePrivateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#deletePrivateApplication.");
+    const operationName = "deletePrivateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/DeletePrivateApplication";
     const pathParams = {
       "{privateApplicationId}": deletePrivateApplicationRequest.privateApplicationId
     };
@@ -616,7 +674,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePrivateApplicationResponse>{},
         responseHeaders: [
@@ -652,6 +716,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.DeleteServiceCatalogResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#deleteServiceCatalog.");
+    const operationName = "deleteServiceCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/DeleteServiceCatalog";
     const pathParams = {
       "{serviceCatalogId}": deleteServiceCatalogRequest.serviceCatalogId
     };
@@ -681,7 +748,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteServiceCatalogResponse>{},
         responseHeaders: [
@@ -712,6 +785,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.DeleteServiceCatalogAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#deleteServiceCatalogAssociation.");
+    const operationName = "deleteServiceCatalogAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/DeleteServiceCatalogAssociation";
     const pathParams = {
       "{serviceCatalogAssociationId}":
         deleteServiceCatalogAssociationRequest.serviceCatalogAssociationId
@@ -742,7 +818,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteServiceCatalogAssociationResponse>{},
         responseHeaders: [
@@ -773,6 +855,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.GetPrivateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#getPrivateApplication.");
+    const operationName = "getPrivateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/GetPrivateApplication";
     const pathParams = {
       "{privateApplicationId}": getPrivateApplicationRequest.privateApplicationId
     };
@@ -801,7 +886,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPrivateApplicationResponse>{},
         body: await response.json(),
@@ -843,6 +934,9 @@ export class ServiceCatalogClient {
       this.logger.debug(
         "Calling operation ServiceCatalogClient#getPrivateApplicationActionDownloadLogo."
       );
+    const operationName = "getPrivateApplicationActionDownloadLogo";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/GetPrivateApplicationActionDownloadLogo";
     const pathParams = {
       "{privateApplicationId}": getPrivateApplicationActionDownloadLogoRequest.privateApplicationId
     };
@@ -871,7 +965,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPrivateApplicationActionDownloadLogoResponse>{},
 
@@ -906,6 +1006,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.GetPrivateApplicationPackageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#getPrivateApplicationPackage.");
+    const operationName = "getPrivateApplicationPackage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplicationPackage/GetPrivateApplicationPackage";
     const pathParams = {
       "{privateApplicationPackageId}":
         getPrivateApplicationPackageRequest.privateApplicationPackageId
@@ -935,7 +1038,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPrivateApplicationPackageResponse>{},
         body: await response.json(),
@@ -977,6 +1086,9 @@ export class ServiceCatalogClient {
       this.logger.debug(
         "Calling operation ServiceCatalogClient#getPrivateApplicationPackageActionDownloadConfig."
       );
+    const operationName = "getPrivateApplicationPackageActionDownloadConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplicationPackage/GetPrivateApplicationPackageActionDownloadConfig";
     const pathParams = {
       "{privateApplicationPackageId}":
         getPrivateApplicationPackageActionDownloadConfigRequest.privateApplicationPackageId
@@ -1006,7 +1118,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPrivateApplicationPackageActionDownloadConfigResponse>{},
 
@@ -1040,6 +1158,9 @@ export class ServiceCatalogClient {
     getServiceCatalogRequest: requests.GetServiceCatalogRequest
   ): Promise<responses.GetServiceCatalogResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#getServiceCatalog.");
+    const operationName = "getServiceCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/GetServiceCatalog";
     const pathParams = {
       "{serviceCatalogId}": getServiceCatalogRequest.serviceCatalogId
     };
@@ -1068,7 +1189,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetServiceCatalogResponse>{},
         body: await response.json(),
@@ -1108,6 +1235,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.GetServiceCatalogAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#getServiceCatalogAssociation.");
+    const operationName = "getServiceCatalogAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/GetServiceCatalogAssociation";
     const pathParams = {
       "{serviceCatalogAssociationId}":
         getServiceCatalogAssociationRequest.serviceCatalogAssociationId
@@ -1137,7 +1267,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetServiceCatalogAssociationResponse>{},
         body: await response.json(),
@@ -1176,6 +1312,9 @@ export class ServiceCatalogClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1204,7 +1343,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1251,6 +1396,9 @@ export class ServiceCatalogClient {
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#listApplications.");
+    const operationName = "listApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ApplicationSummary/ListApplications";
     const pathParams = {};
 
     const queryParams = {
@@ -1290,7 +1438,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
@@ -1330,6 +1484,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.ListPrivateApplicationPackagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#listPrivateApplicationPackages.");
+    const operationName = "listPrivateApplicationPackages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplicationPackage/ListPrivateApplicationPackages";
     const pathParams = {};
 
     const queryParams = {
@@ -1366,7 +1523,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPrivateApplicationPackagesResponse>{},
         body: await response.json(),
@@ -1406,6 +1569,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.ListPrivateApplicationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#listPrivateApplications.");
+    const operationName = "listPrivateApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/ListPrivateApplications";
     const pathParams = {};
 
     const queryParams = {
@@ -1440,7 +1606,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPrivateApplicationsResponse>{},
         body: await response.json(),
@@ -1480,6 +1652,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.ListServiceCatalogAssociationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#listServiceCatalogAssociations.");
+    const operationName = "listServiceCatalogAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalogAssociation/ListServiceCatalogAssociations";
     const pathParams = {};
 
     const queryParams = {
@@ -1516,7 +1691,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServiceCatalogAssociationsResponse>{},
         body: await response.json(),
@@ -1556,6 +1737,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.ListServiceCatalogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#listServiceCatalogs.");
+    const operationName = "listServiceCatalogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/ListServiceCatalogs";
     const pathParams = {};
 
     const queryParams = {
@@ -1590,7 +1774,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServiceCatalogsResponse>{},
         body: await response.json(),
@@ -1631,6 +1821,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1664,7 +1857,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1705,6 +1904,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1738,7 +1940,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1778,6 +1986,9 @@ export class ServiceCatalogClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceCatalogClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1813,7 +2024,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1853,6 +2070,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.UpdatePrivateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#updatePrivateApplication.");
+    const operationName = "updatePrivateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/PrivateApplication/UpdatePrivateApplication";
     const pathParams = {
       "{privateApplicationId}": updatePrivateApplicationRequest.privateApplicationId
     };
@@ -1887,7 +2107,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePrivateApplicationResponse>{},
         body: await response.json(),
@@ -1932,6 +2158,9 @@ export class ServiceCatalogClient {
   ): Promise<responses.UpdateServiceCatalogResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceCatalogClient#updateServiceCatalog.");
+    const operationName = "updateServiceCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/service-catalog/20210527/ServiceCatalog/UpdateServiceCatalog";
     const pathParams = {
       "{serviceCatalogId}": updateServiceCatalogRequest.serviceCatalogId
     };
@@ -1966,7 +2195,13 @@ export class ServiceCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateServiceCatalogResponse>{},
         body: await response.json(),

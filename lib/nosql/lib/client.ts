@@ -39,6 +39,7 @@ export class NosqlClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Nosql";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class NosqlClient {
     changeTableCompartmentRequest: requests.ChangeTableCompartmentRequest
   ): Promise<responses.ChangeTableCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#changeTableCompartment.");
+    const operationName = "changeTableCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/ChangeTableCompartment";
     const pathParams = {
       "{tableNameOrId}": changeTableCompartmentRequest.tableNameOrId
     };
@@ -199,7 +203,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTableCompartmentResponse>{},
         responseHeaders: [
@@ -234,6 +244,9 @@ export class NosqlClient {
     createIndexRequest: requests.CreateIndexRequest
   ): Promise<responses.CreateIndexResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#createIndex.");
+    const operationName = "createIndex";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/CreateIndex";
     const pathParams = {
       "{tableNameOrId}": createIndexRequest.tableNameOrId
     };
@@ -268,7 +281,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIndexResponse>{},
         responseHeaders: [
@@ -303,6 +322,9 @@ export class NosqlClient {
     createTableRequest: requests.CreateTableRequest
   ): Promise<responses.CreateTableResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#createTable.");
+    const operationName = "createTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/CreateTable";
     const pathParams = {};
 
     const queryParams = {};
@@ -335,7 +357,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTableResponse>{},
         responseHeaders: [
@@ -370,6 +398,9 @@ export class NosqlClient {
     deleteIndexRequest: requests.DeleteIndexRequest
   ): Promise<responses.DeleteIndexResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteIndex.");
+    const operationName = "deleteIndex";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/DeleteIndex";
     const pathParams = {
       "{tableNameOrId}": deleteIndexRequest.tableNameOrId,
       "{indexName}": deleteIndexRequest.indexName
@@ -403,7 +434,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIndexResponse>{},
         responseHeaders: [
@@ -438,6 +475,9 @@ export class NosqlClient {
     deleteRowRequest: requests.DeleteRowRequest
   ): Promise<responses.DeleteRowResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteRow.");
+    const operationName = "deleteRow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Row/DeleteRow";
     const pathParams = {
       "{tableNameOrId}": deleteRowRequest.tableNameOrId
     };
@@ -472,7 +512,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRowResponse>{},
         body: await response.json(),
@@ -506,6 +552,9 @@ export class NosqlClient {
     deleteTableRequest: requests.DeleteTableRequest
   ): Promise<responses.DeleteTableResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteTable.");
+    const operationName = "deleteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/DeleteTable";
     const pathParams = {
       "{tableNameOrId}": deleteTableRequest.tableNameOrId
     };
@@ -538,7 +587,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTableResponse>{},
         responseHeaders: [
@@ -573,6 +628,9 @@ export class NosqlClient {
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#deleteWorkRequest.");
+    const operationName = "deleteWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/DeleteWorkRequest";
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -602,7 +660,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
         responseHeaders: [
@@ -637,6 +701,9 @@ export class NosqlClient {
     getIndexRequest: requests.GetIndexRequest
   ): Promise<responses.GetIndexResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#getIndex.");
+    const operationName = "getIndex";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/GetIndex";
     const pathParams = {
       "{tableNameOrId}": getIndexRequest.tableNameOrId,
       "{indexName}": getIndexRequest.indexName
@@ -668,7 +735,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIndexResponse>{},
         body: await response.json(),
@@ -705,6 +778,9 @@ export class NosqlClient {
    */
   public async getRow(getRowRequest: requests.GetRowRequest): Promise<responses.GetRowResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#getRow.");
+    const operationName = "getRow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Row/GetRow";
     const pathParams = {
       "{tableNameOrId}": getRowRequest.tableNameOrId
     };
@@ -738,7 +814,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRowResponse>{},
         body: await response.json(),
@@ -777,6 +859,9 @@ export class NosqlClient {
     getTableRequest: requests.GetTableRequest
   ): Promise<responses.GetTableResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#getTable.");
+    const operationName = "getTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/GetTable";
     const pathParams = {
       "{tableNameOrId}": getTableRequest.tableNameOrId
     };
@@ -807,7 +892,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTableResponse>{},
         body: await response.json(),
@@ -846,6 +937,9 @@ export class NosqlClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -874,7 +968,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -918,6 +1018,9 @@ export class NosqlClient {
     listIndexesRequest: requests.ListIndexesRequest
   ): Promise<responses.ListIndexesResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#listIndexes.");
+    const operationName = "listIndexes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Index/ListIndexes";
     const pathParams = {
       "{tableNameOrId}": listIndexesRequest.tableNameOrId
     };
@@ -954,7 +1057,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIndexesResponse>{},
         body: await response.json(),
@@ -993,6 +1102,9 @@ export class NosqlClient {
     listTableUsageRequest: requests.ListTableUsageRequest
   ): Promise<responses.ListTableUsageResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#listTableUsage.");
+    const operationName = "listTableUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/ListTableUsage";
     const pathParams = {
       "{tableNameOrId}": listTableUsageRequest.tableNameOrId
     };
@@ -1027,7 +1139,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTableUsageResponse>{},
         body: await response.json(),
@@ -1066,6 +1184,9 @@ export class NosqlClient {
     listTablesRequest: requests.ListTablesRequest
   ): Promise<responses.ListTablesResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#listTables.");
+    const operationName = "listTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/ListTables";
     const pathParams = {};
 
     const queryParams = {
@@ -1100,7 +1221,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTablesResponse>{},
         body: await response.json(),
@@ -1140,6 +1267,9 @@ export class NosqlClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1171,7 +1301,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1211,6 +1347,9 @@ export class NosqlClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1242,7 +1381,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1281,6 +1426,9 @@ export class NosqlClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1311,7 +1459,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1351,6 +1505,9 @@ export class NosqlClient {
     prepareStatementRequest: requests.PrepareStatementRequest
   ): Promise<responses.PrepareStatementResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#prepareStatement.");
+    const operationName = "prepareStatement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/QueryResultCollection/PrepareStatement";
     const pathParams = {};
 
     const queryParams = {
@@ -1380,7 +1537,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PrepareStatementResponse>{},
         body: await response.json(),
@@ -1412,6 +1575,9 @@ export class NosqlClient {
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#query.");
+    const operationName = "query";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/QueryResultCollection/Query";
     const pathParams = {};
 
     const queryParams = {
@@ -1446,7 +1612,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.QueryResponse>{},
         body: await response.json(),
@@ -1486,6 +1658,9 @@ export class NosqlClient {
     summarizeStatementRequest: requests.SummarizeStatementRequest
   ): Promise<responses.SummarizeStatementResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#summarizeStatement.");
+    const operationName = "summarizeStatement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/QueryResultCollection/SummarizeStatement";
     const pathParams = {};
 
     const queryParams = {
@@ -1515,7 +1690,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeStatementResponse>{},
         body: await response.json(),
@@ -1549,6 +1730,9 @@ export class NosqlClient {
     updateRowRequest: requests.UpdateRowRequest
   ): Promise<responses.UpdateRowResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#updateRow.");
+    const operationName = "updateRow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Row/UpdateRow";
     const pathParams = {
       "{tableNameOrId}": updateRowRequest.tableNameOrId
     };
@@ -1583,7 +1767,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRowResponse>{},
         body: await response.json(),
@@ -1624,6 +1814,9 @@ export class NosqlClient {
     updateTableRequest: requests.UpdateTableRequest
   ): Promise<responses.UpdateTableResponse> {
     if (this.logger) this.logger.debug("Calling operation NosqlClient#updateTable.");
+    const operationName = "updateTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/nosql-database/20190828/Table/UpdateTable";
     const pathParams = {
       "{tableNameOrId}": updateTableRequest.tableNameOrId
     };
@@ -1658,7 +1851,13 @@ export class NosqlClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTableResponse>{},
         responseHeaders: [

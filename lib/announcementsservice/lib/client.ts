@@ -36,6 +36,7 @@ export class AnnouncementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Announcement";
 
   protected _httpClient: common.HttpClient;
 
@@ -141,6 +142,9 @@ This call is subject to an Announcements limit that applies to the total number 
     getAnnouncementRequest: requests.GetAnnouncementRequest
   ): Promise<responses.GetAnnouncementResponse> {
     if (this.logger) this.logger.debug("Calling operation AnnouncementClient#getAnnouncement.");
+    const operationName = "getAnnouncement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/Announcement/GetAnnouncement";
     const pathParams = {
       "{announcementId}": getAnnouncementRequest.announcementId
     };
@@ -169,7 +173,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnnouncementResponse>{},
         body: await response.json(),
@@ -212,6 +222,9 @@ This call is subject to an Announcements limit that applies to the total number 
   ): Promise<responses.GetAnnouncementUserStatusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnnouncementClient#getAnnouncementUserStatus.");
+    const operationName = "getAnnouncementUserStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementUserStatusDetails/GetAnnouncementUserStatus";
     const pathParams = {
       "{announcementId}": getAnnouncementUserStatusRequest.announcementId
     };
@@ -240,7 +253,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnnouncementUserStatusResponse>{},
         body: await response.json(),
@@ -282,6 +301,9 @@ This call is subject to an Announcements limit that applies to the total number 
     listAnnouncementsRequest: requests.ListAnnouncementsRequest
   ): Promise<responses.ListAnnouncementsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnnouncementClient#listAnnouncements.");
+    const operationName = "listAnnouncements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsCollection/ListAnnouncements";
     const pathParams = {};
 
     const queryParams = {
@@ -323,7 +345,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAnnouncementsResponse>{},
         body: await response.json(),
@@ -371,6 +399,9 @@ This call is subject to an Announcements limit that applies to the total number 
   ): Promise<responses.UpdateAnnouncementUserStatusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnnouncementClient#updateAnnouncementUserStatus.");
+    const operationName = "updateAnnouncementUserStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementUserStatusDetails/UpdateAnnouncementUserStatus";
     const pathParams = {
       "{announcementId}": updateAnnouncementUserStatusRequest.announcementId
     };
@@ -405,7 +436,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnnouncementUserStatusResponse>{},
         body: await response.json(),
@@ -446,6 +483,7 @@ export class AnnouncementSubscriptionClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AnnouncementSubscription";
 
   protected _httpClient: common.HttpClient;
 
@@ -578,6 +616,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementSubscriptionClient#changeAnnouncementSubscriptionCompartment."
       );
+    const operationName = "changeAnnouncementSubscriptionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/ChangeAnnouncementSubscriptionCompartment";
     const pathParams = {
       "{announcementSubscriptionId}":
         changeAnnouncementSubscriptionCompartmentRequest.announcementSubscriptionId
@@ -613,7 +654,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAnnouncementSubscriptionCompartmentResponse>{},
         responseHeaders: [
@@ -654,6 +701,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementSubscriptionClient#createAnnouncementSubscription."
       );
+    const operationName = "createAnnouncementSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/CreateAnnouncementSubscription";
     const pathParams = {};
 
     const queryParams = {};
@@ -686,7 +736,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAnnouncementSubscriptionResponse>{},
         body: await response.json(),
@@ -729,6 +785,9 @@ This call is subject to an Announcements limit that applies to the total number 
   ): Promise<responses.CreateFilterGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnnouncementSubscriptionClient#createFilterGroup.");
+    const operationName = "createFilterGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/CreateFilterGroup";
     const pathParams = {
       "{announcementSubscriptionId}": createFilterGroupRequest.announcementSubscriptionId
     };
@@ -764,7 +823,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFilterGroupResponse>{},
         body: await response.json(),
@@ -809,6 +874,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementSubscriptionClient#deleteAnnouncementSubscription."
       );
+    const operationName = "deleteAnnouncementSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/DeleteAnnouncementSubscription";
     const pathParams = {
       "{announcementSubscriptionId}":
         deleteAnnouncementSubscriptionRequest.announcementSubscriptionId
@@ -839,7 +907,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAnnouncementSubscriptionResponse>{},
         responseHeaders: [
@@ -873,6 +947,9 @@ This call is subject to an Announcements limit that applies to the total number 
   ): Promise<responses.DeleteFilterGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnnouncementSubscriptionClient#deleteFilterGroup.");
+    const operationName = "deleteFilterGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/DeleteFilterGroup";
     const pathParams = {
       "{announcementSubscriptionId}": deleteFilterGroupRequest.announcementSubscriptionId,
       "{filterGroupName}": deleteFilterGroupRequest.filterGroupName
@@ -904,7 +981,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFilterGroupResponse>{},
         responseHeaders: [
@@ -945,6 +1028,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementSubscriptionClient#getAnnouncementSubscription."
       );
+    const operationName = "getAnnouncementSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/GetAnnouncementSubscription";
     const pathParams = {
       "{announcementSubscriptionId}": getAnnouncementSubscriptionRequest.announcementSubscriptionId
     };
@@ -973,7 +1059,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnnouncementSubscriptionResponse>{},
         body: await response.json(),
@@ -1018,6 +1110,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementSubscriptionClient#listAnnouncementSubscriptions."
       );
+    const operationName = "listAnnouncementSubscriptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscriptionCollection/ListAnnouncementSubscriptions";
     const pathParams = {};
 
     const queryParams = {
@@ -1053,7 +1148,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAnnouncementSubscriptionsResponse>{},
         body: await response.json(),
@@ -1098,6 +1199,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementSubscriptionClient#updateAnnouncementSubscription."
       );
+    const operationName = "updateAnnouncementSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/UpdateAnnouncementSubscription";
     const pathParams = {
       "{announcementSubscriptionId}":
         updateAnnouncementSubscriptionRequest.announcementSubscriptionId
@@ -1133,7 +1237,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnnouncementSubscriptionResponse>{},
         body: await response.json(),
@@ -1176,6 +1286,9 @@ This call is subject to an Announcements limit that applies to the total number 
   ): Promise<responses.UpdateFilterGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnnouncementSubscriptionClient#updateFilterGroup.");
+    const operationName = "updateFilterGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementSubscription/UpdateFilterGroup";
     const pathParams = {
       "{announcementSubscriptionId}": updateFilterGroupRequest.announcementSubscriptionId,
       "{filterGroupName}": updateFilterGroupRequest.filterGroupName
@@ -1212,7 +1325,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFilterGroupResponse>{},
         body: await response.json(),
@@ -1252,6 +1371,7 @@ export class AnnouncementsPreferencesClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AnnouncementsPreferences";
 
   protected _httpClient: common.HttpClient;
 
@@ -1361,6 +1481,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementsPreferencesClient#createAnnouncementsPreference."
       );
+    const operationName = "createAnnouncementsPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferencesSummary/CreateAnnouncementsPreference";
     const pathParams = {};
 
     const queryParams = {};
@@ -1393,7 +1516,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAnnouncementsPreferenceResponse>{},
         body: await response.json(),
@@ -1438,6 +1567,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementsPreferencesClient#getAnnouncementsPreference."
       );
+    const operationName = "getAnnouncementsPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferences/GetAnnouncementsPreference";
     const pathParams = {
       "{preferenceId}": getAnnouncementsPreferenceRequest.preferenceId
     };
@@ -1466,7 +1598,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnnouncementsPreferenceResponse>{},
         body: await response.json(),
@@ -1511,6 +1649,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementsPreferencesClient#listAnnouncementsPreferences."
       );
+    const operationName = "listAnnouncementsPreferences";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferencesSummary/ListAnnouncementsPreferences";
     const pathParams = {};
 
     const queryParams = {
@@ -1541,7 +1682,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAnnouncementsPreferencesResponse>{},
         body: await response.json(),
@@ -1638,6 +1785,9 @@ This call is subject to an Announcements limit that applies to the total number 
       this.logger.debug(
         "Calling operation AnnouncementsPreferencesClient#updateAnnouncementsPreference."
       );
+    const operationName = "updateAnnouncementsPreference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/announcements/0.0.1/AnnouncementsPreferencesSummary/UpdateAnnouncementsPreference";
     const pathParams = {
       "{preferenceId}": updateAnnouncementsPreferenceRequest.preferenceId
     };
@@ -1672,7 +1822,13 @@ This call is subject to an Announcements limit that applies to the total number 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnnouncementsPreferenceResponse>{},
         body: await response.json(),

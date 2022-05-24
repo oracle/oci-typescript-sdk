@@ -36,6 +36,7 @@ export class StackMonitoringClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "StackMonitoring";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,9 @@ export class StackMonitoringClient {
   ): Promise<responses.AssociateMonitoredResourcesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#associateMonitoredResources.");
+    const operationName = "associateMonitoredResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/AssociateMonitoredResources";
     const pathParams = {};
 
     const queryParams = {};
@@ -195,7 +199,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AssociateMonitoredResourcesResponse>{},
         body: await response.json(),
@@ -237,6 +247,9 @@ export class StackMonitoringClient {
       this.logger.debug(
         "Calling operation StackMonitoringClient#changeMonitoredResourceCompartment."
       );
+    const operationName = "changeMonitoredResourceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/ChangeMonitoredResourceCompartment";
     const pathParams = {
       "{monitoredResourceId}": changeMonitoredResourceCompartmentRequest.monitoredResourceId
     };
@@ -272,7 +285,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMonitoredResourceCompartmentResponse>{},
         responseHeaders: [
@@ -309,6 +328,9 @@ export class StackMonitoringClient {
   ): Promise<responses.CreateDiscoveryJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#createDiscoveryJob.");
+    const operationName = "createDiscoveryJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJob/CreateDiscoveryJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -341,7 +363,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDiscoveryJobResponse>{},
         body: await response.json(),
@@ -382,6 +410,9 @@ export class StackMonitoringClient {
   ): Promise<responses.CreateMonitoredResourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#createMonitoredResource.");
+    const operationName = "createMonitoredResource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/CreateMonitoredResource";
     const pathParams = {};
 
     const queryParams = {};
@@ -415,7 +446,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMonitoredResourceResponse>{},
         body: await response.json(),
@@ -475,6 +512,9 @@ export class StackMonitoringClient {
   ): Promise<responses.DeleteDiscoveryJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#deleteDiscoveryJob.");
+    const operationName = "deleteDiscoveryJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJob/DeleteDiscoveryJob";
     const pathParams = {
       "{discoveryJobId}": deleteDiscoveryJobRequest.discoveryJobId
     };
@@ -504,7 +544,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDiscoveryJobResponse>{},
         responseHeaders: [
@@ -535,6 +581,9 @@ export class StackMonitoringClient {
   ): Promise<responses.DeleteMonitoredResourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#deleteMonitoredResource.");
+    const operationName = "deleteMonitoredResource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/DeleteMonitoredResource";
     const pathParams = {
       "{monitoredResourceId}": deleteMonitoredResourceRequest.monitoredResourceId
     };
@@ -564,7 +613,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMonitoredResourceResponse>{},
         responseHeaders: [
@@ -601,6 +656,9 @@ export class StackMonitoringClient {
   ): Promise<responses.DisableExternalDatabaseResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#disableExternalDatabase.");
+    const operationName = "disableExternalDatabase";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/DisableExternalDatabase";
     const pathParams = {
       "{monitoredResourceId}": disableExternalDatabaseRequest.monitoredResourceId
     };
@@ -631,7 +689,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisableExternalDatabaseResponse>{},
         responseHeaders: [
@@ -667,6 +731,9 @@ export class StackMonitoringClient {
   ): Promise<responses.DisassociateMonitoredResourcesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#disassociateMonitoredResources.");
+    const operationName = "disassociateMonitoredResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/DisassociateMonitoredResources";
     const pathParams = {};
 
     const queryParams = {};
@@ -700,7 +767,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisassociateMonitoredResourcesResponse>{},
         responseHeaders: [
@@ -731,6 +804,9 @@ export class StackMonitoringClient {
     getDiscoveryJobRequest: requests.GetDiscoveryJobRequest
   ): Promise<responses.GetDiscoveryJobResponse> {
     if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#getDiscoveryJob.");
+    const operationName = "getDiscoveryJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJob/GetDiscoveryJob";
     const pathParams = {
       "{discoveryJobId}": getDiscoveryJobRequest.discoveryJobId
     };
@@ -759,7 +835,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDiscoveryJobResponse>{},
         body: await response.json(),
@@ -799,6 +881,9 @@ export class StackMonitoringClient {
   ): Promise<responses.GetMonitoredResourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#getMonitoredResource.");
+    const operationName = "getMonitoredResource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/GetMonitoredResource";
     const pathParams = {
       "{monitoredResourceId}": getMonitoredResourceRequest.monitoredResourceId
     };
@@ -827,7 +912,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMonitoredResourceResponse>{},
         body: await response.json(),
@@ -866,6 +957,9 @@ export class StackMonitoringClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -894,7 +988,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -935,6 +1035,9 @@ export class StackMonitoringClient {
   ): Promise<responses.ListDiscoveryJobLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#listDiscoveryJobLogs.");
+    const operationName = "listDiscoveryJobLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJobLogCollection/ListDiscoveryJobLogs";
     const pathParams = {
       "{discoveryJobId}": listDiscoveryJobLogsRequest.discoveryJobId
     };
@@ -969,7 +1072,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDiscoveryJobLogsResponse>{},
         body: await response.json(),
@@ -1010,6 +1119,9 @@ export class StackMonitoringClient {
   ): Promise<responses.ListDiscoveryJobsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#listDiscoveryJobs.");
+    const operationName = "listDiscoveryJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/DiscoveryJobCollection/ListDiscoveryJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -1043,7 +1155,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDiscoveryJobsResponse>{},
         body: await response.json(),
@@ -1084,6 +1202,9 @@ export class StackMonitoringClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequestErrorCollection/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1117,7 +1238,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1158,6 +1285,9 @@ export class StackMonitoringClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequestLogEntryCollection/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1191,7 +1321,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1231,6 +1367,9 @@ export class StackMonitoringClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/WorkRequestSummaryCollection/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1266,7 +1405,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1308,6 +1453,9 @@ export class StackMonitoringClient {
       this.logger.debug(
         "Calling operation StackMonitoringClient#searchMonitoredResourceAssociations."
       );
+    const operationName = "searchMonitoredResourceAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchMonitoredResourceAssociations";
     const pathParams = {};
 
     const queryParams = {
@@ -1344,7 +1492,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchMonitoredResourceAssociationsResponse>{},
         body: await response.json(),
@@ -1389,6 +1543,9 @@ export class StackMonitoringClient {
   ): Promise<responses.SearchMonitoredResourceMembersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#searchMonitoredResourceMembers.");
+    const operationName = "searchMonitoredResourceMembers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchMonitoredResourceMembers";
     const pathParams = {
       "{monitoredResourceId}": searchMonitoredResourceMembersRequest.monitoredResourceId
     };
@@ -1429,7 +1586,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchMonitoredResourceMembersResponse>{},
         body: await response.json(),
@@ -1474,6 +1637,9 @@ export class StackMonitoringClient {
   ): Promise<responses.SearchMonitoredResourcesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#searchMonitoredResources.");
+    const operationName = "searchMonitoredResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchMonitoredResources";
     const pathParams = {};
 
     const queryParams = {
@@ -1510,7 +1676,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchMonitoredResourcesResponse>{},
         body: await response.json(),
@@ -1555,6 +1727,9 @@ export class StackMonitoringClient {
   ): Promise<responses.UpdateMonitoredResourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation StackMonitoringClient#updateMonitoredResource.");
+    const operationName = "updateMonitoredResource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/UpdateMonitoredResource";
     const pathParams = {
       "{monitoredResourceId}": updateMonitoredResourceRequest.monitoredResourceId
     };
@@ -1589,7 +1764,13 @@ export class StackMonitoringClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMonitoredResourceResponse>{},
         responseHeaders: [

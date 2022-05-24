@@ -37,6 +37,7 @@ export class DataFlowClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataFlow";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class DataFlowClient {
   ): Promise<responses.ChangeApplicationCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataFlowClient#changeApplicationCompartment.");
+    const operationName = "changeApplicationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/ChangeApplicationCompartment";
     const pathParams = {
       "{applicationId}": changeApplicationCompartmentRequest.applicationId
     };
@@ -200,7 +204,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeApplicationCompartmentResponse>{},
         responseHeaders: [
@@ -232,6 +242,9 @@ export class DataFlowClient {
   ): Promise<responses.ChangePrivateEndpointCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataFlowClient#changePrivateEndpointCompartment.");
+    const operationName = "changePrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/ChangePrivateEndpointCompartment";
     const pathParams = {
       "{privateEndpointId}": changePrivateEndpointCompartmentRequest.privateEndpointId
     };
@@ -266,7 +279,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangePrivateEndpointCompartmentResponse>{},
         responseHeaders: [
@@ -305,6 +324,9 @@ export class DataFlowClient {
     changeRunCompartmentRequest: requests.ChangeRunCompartmentRequest
   ): Promise<responses.ChangeRunCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#changeRunCompartment.");
+    const operationName = "changeRunCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/ChangeRunCompartment";
     const pathParams = {
       "{runId}": changeRunCompartmentRequest.runId
     };
@@ -340,7 +362,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRunCompartmentResponse>{},
         responseHeaders: [
@@ -371,6 +399,9 @@ export class DataFlowClient {
     createApplicationRequest: requests.CreateApplicationRequest
   ): Promise<responses.CreateApplicationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#createApplication.");
+    const operationName = "createApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/CreateApplication";
     const pathParams = {};
 
     const queryParams = {};
@@ -403,7 +434,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateApplicationResponse>{},
         body: await response.json(),
@@ -443,6 +480,8 @@ export class DataFlowClient {
     createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
   ): Promise<responses.CreatePrivateEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#createPrivateEndpoint.");
+    const operationName = "createPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -475,7 +514,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePrivateEndpointResponse>{},
         body: await response.json(),
@@ -525,6 +570,9 @@ export class DataFlowClient {
     createRunRequest: requests.CreateRunRequest
   ): Promise<responses.CreateRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#createRun.");
+    const operationName = "createRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/CreateRun";
     const pathParams = {};
 
     const queryParams = {};
@@ -557,7 +605,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRunResponse>{},
         body: await response.json(),
@@ -597,6 +651,9 @@ export class DataFlowClient {
     deleteApplicationRequest: requests.DeleteApplicationRequest
   ): Promise<responses.DeleteApplicationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteApplication.");
+    const operationName = "deleteApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/DeleteApplication";
     const pathParams = {
       "{applicationId}": deleteApplicationRequest.applicationId
     };
@@ -626,7 +683,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteApplicationResponse>{},
         responseHeaders: [
@@ -657,6 +720,9 @@ export class DataFlowClient {
     deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
   ): Promise<responses.DeletePrivateEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#deletePrivateEndpoint.");
+    const operationName = "deletePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/DeletePrivateEndpoint";
     const pathParams = {
       "{privateEndpointId}": deletePrivateEndpointRequest.privateEndpointId
     };
@@ -686,7 +752,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePrivateEndpointResponse>{},
         responseHeaders: [
@@ -723,6 +795,9 @@ export class DataFlowClient {
     deleteRunRequest: requests.DeleteRunRequest
   ): Promise<responses.DeleteRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteRun.");
+    const operationName = "deleteRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/DeleteRun";
     const pathParams = {
       "{runId}": deleteRunRequest.runId
     };
@@ -752,7 +827,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRunResponse>{},
         responseHeaders: [
@@ -783,6 +864,9 @@ export class DataFlowClient {
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#getApplication.");
+    const operationName = "getApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/GetApplication";
     const pathParams = {
       "{applicationId}": getApplicationRequest.applicationId
     };
@@ -811,7 +895,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetApplicationResponse>{},
         body: await response.json(),
@@ -851,6 +941,9 @@ export class DataFlowClient {
     getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
   ): Promise<responses.GetPrivateEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#getPrivateEndpoint.");
+    const operationName = "getPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/GetPrivateEndpoint";
     const pathParams = {
       "{privateEndpointId}": getPrivateEndpointRequest.privateEndpointId
     };
@@ -879,7 +972,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPrivateEndpointResponse>{},
         body: await response.json(),
@@ -917,6 +1016,8 @@ export class DataFlowClient {
    */
   public async getRun(getRunRequest: requests.GetRunRequest): Promise<responses.GetRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#getRun.");
+    const operationName = "getRun";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/GetRun";
     const pathParams = {
       "{runId}": getRunRequest.runId
     };
@@ -945,7 +1046,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRunResponse>{},
         body: await response.json(),
@@ -985,6 +1092,9 @@ export class DataFlowClient {
     getRunLogRequest: requests.GetRunLogRequest
   ): Promise<responses.GetRunLogResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#getRunLog.");
+    const operationName = "getRunLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/GetRunLog";
     const pathParams = {
       "{runId}": getRunLogRequest.runId,
       "{name}": getRunLogRequest.name
@@ -1014,7 +1124,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRunLogResponse>{},
 
@@ -1077,6 +1193,9 @@ export class DataFlowClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1105,7 +1224,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1140,6 +1265,9 @@ export class DataFlowClient {
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#listApplications.");
+    const operationName = "listApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/ApplicationSummary/ListApplications";
     const pathParams = {};
 
     const queryParams = {
@@ -1176,7 +1304,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
@@ -1273,6 +1407,9 @@ export class DataFlowClient {
     listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
   ): Promise<responses.ListPrivateEndpointsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#listPrivateEndpoints.");
+    const operationName = "listPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/ListPrivateEndpoints";
     const pathParams = {};
 
     const queryParams = {
@@ -1309,7 +1446,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPrivateEndpointsResponse>{},
         body: await response.json(),
@@ -1354,6 +1497,9 @@ export class DataFlowClient {
     listRunLogsRequest: requests.ListRunLogsRequest
   ): Promise<responses.ListRunLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#listRunLogs.");
+    const operationName = "listRunLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/RunLogSummary/ListRunLogs";
     const pathParams = {
       "{runId}": listRunLogsRequest.runId
     };
@@ -1385,7 +1531,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRunLogsResponse>{},
         body: await response.json(),
@@ -1482,6 +1634,9 @@ export class DataFlowClient {
     listRunsRequest: requests.ListRunsRequest
   ): Promise<responses.ListRunsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#listRuns.");
+    const operationName = "listRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/RunSummary/ListRuns";
     const pathParams = {};
 
     const queryParams = {
@@ -1520,7 +1675,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRunsResponse>{},
         body: await response.json(),
@@ -1615,6 +1776,9 @@ export class DataFlowClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1646,7 +1810,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1691,6 +1861,9 @@ export class DataFlowClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequestLog/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1722,7 +1895,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1767,6 +1946,9 @@ export class DataFlowClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1797,7 +1979,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1842,6 +2030,9 @@ export class DataFlowClient {
     updateApplicationRequest: requests.UpdateApplicationRequest
   ): Promise<responses.UpdateApplicationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateApplication.");
+    const operationName = "updateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Application/UpdateApplication";
     const pathParams = {
       "{applicationId}": updateApplicationRequest.applicationId
     };
@@ -1876,7 +2067,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateApplicationResponse>{},
         body: await response.json(),
@@ -1918,6 +2115,9 @@ export class DataFlowClient {
     updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
   ): Promise<responses.UpdatePrivateEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#updatePrivateEndpoint.");
+    const operationName = "updatePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/PrivateEndpoint/UpdatePrivateEndpoint";
     const pathParams = {
       "{privateEndpointId}": updatePrivateEndpointRequest.privateEndpointId
     };
@@ -1952,7 +2152,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePrivateEndpointResponse>{},
         responseHeaders: [
@@ -1988,6 +2194,9 @@ export class DataFlowClient {
     updateRunRequest: requests.UpdateRunRequest
   ): Promise<responses.UpdateRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateRun.");
+    const operationName = "updateRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Run/UpdateRun";
     const pathParams = {
       "{runId}": updateRunRequest.runId
     };
@@ -2022,7 +2231,13 @@ export class DataFlowClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRunResponse>{},
         body: await response.json(),

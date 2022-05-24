@@ -36,6 +36,7 @@ export class VaultsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Vaults";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class VaultsClient {
     cancelSecretDeletionRequest: requests.CancelSecretDeletionRequest
   ): Promise<responses.CancelSecretDeletionResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#cancelSecretDeletion.");
+    const operationName = "cancelSecretDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/CancelSecretDeletion";
     const pathParams = {
       "{secretId}": cancelSecretDeletionRequest.secretId
     };
@@ -193,7 +197,13 @@ export class VaultsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelSecretDeletionResponse>{},
         responseHeaders: [
@@ -229,6 +239,9 @@ export class VaultsClient {
   ): Promise<responses.CancelSecretVersionDeletionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VaultsClient#cancelSecretVersionDeletion.");
+    const operationName = "cancelSecretVersionDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersion/CancelSecretVersionDeletion";
     const pathParams = {
       "{secretId}": cancelSecretVersionDeletionRequest.secretId,
       "{secretVersionNumber}": cancelSecretVersionDeletionRequest.secretVersionNumber
@@ -259,7 +272,13 @@ export class VaultsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelSecretVersionDeletionResponse>{},
         responseHeaders: [
@@ -298,6 +317,9 @@ When provided, if-match is checked against the ETag values of the secret.
     changeSecretCompartmentRequest: requests.ChangeSecretCompartmentRequest
   ): Promise<responses.ChangeSecretCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#changeSecretCompartment.");
+    const operationName = "changeSecretCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/ChangeSecretCompartment";
     const pathParams = {
       "{secretId}": changeSecretCompartmentRequest.secretId
     };
@@ -333,7 +355,13 @@ When provided, if-match is checked against the ETag values of the secret.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSecretCompartmentResponse>{},
         responseHeaders: [
@@ -371,6 +399,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     createSecretRequest: requests.CreateSecretRequest
   ): Promise<responses.CreateSecretResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#createSecret.");
+    const operationName = "createSecret";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/CreateSecret";
     const pathParams = {};
 
     const queryParams = {};
@@ -403,7 +434,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSecretResponse>{},
         body: await response.json(),
@@ -442,6 +479,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     getSecretRequest: requests.GetSecretRequest
   ): Promise<responses.GetSecretResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#getSecret.");
+    const operationName = "getSecret";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/GetSecret";
     const pathParams = {
       "{secretId}": getSecretRequest.secretId
     };
@@ -470,7 +510,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecretResponse>{},
         body: await response.json(),
@@ -510,6 +556,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     getSecretVersionRequest: requests.GetSecretVersionRequest
   ): Promise<responses.GetSecretVersionResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#getSecretVersion.");
+    const operationName = "getSecretVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersion/GetSecretVersion";
     const pathParams = {
       "{secretId}": getSecretVersionRequest.secretId,
       "{secretVersionNumber}": getSecretVersionRequest.secretVersionNumber
@@ -539,7 +588,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecretVersionResponse>{},
         body: await response.json(),
@@ -578,6 +633,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     listSecretVersionsRequest: requests.ListSecretVersionsRequest
   ): Promise<responses.ListSecretVersionsResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#listSecretVersions.");
+    const operationName = "listSecretVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersionSummary/ListSecretVersions";
     const pathParams = {
       "{secretId}": listSecretVersionsRequest.secretId
     };
@@ -611,7 +669,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecretVersionsResponse>{},
         body: await response.json(),
@@ -702,6 +766,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     listSecretsRequest: requests.ListSecretsRequest
   ): Promise<responses.ListSecretsResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#listSecrets.");
+    const operationName = "listSecrets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretSummary/ListSecrets";
     const pathParams = {};
 
     const queryParams = {
@@ -737,7 +804,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecretsResponse>{},
         body: await response.json(),
@@ -830,6 +903,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     scheduleSecretDeletionRequest: requests.ScheduleSecretDeletionRequest
   ): Promise<responses.ScheduleSecretDeletionResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#scheduleSecretDeletion.");
+    const operationName = "scheduleSecretDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/ScheduleSecretDeletion";
     const pathParams = {
       "{secretId}": scheduleSecretDeletionRequest.secretId
     };
@@ -864,7 +940,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleSecretDeletionResponse>{},
         responseHeaders: [
@@ -902,6 +984,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
   ): Promise<responses.ScheduleSecretVersionDeletionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VaultsClient#scheduleSecretVersionDeletion.");
+    const operationName = "scheduleSecretVersionDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/SecretVersion/ScheduleSecretVersionDeletion";
     const pathParams = {
       "{secretId}": scheduleSecretVersionDeletionRequest.secretId,
       "{secretVersionNumber}": scheduleSecretVersionDeletionRequest.secretVersionNumber
@@ -937,7 +1022,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScheduleSecretVersionDeletionResponse>{},
         responseHeaders: [
@@ -978,6 +1069,9 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
     updateSecretRequest: requests.UpdateSecretRequest
   ): Promise<responses.UpdateSecretResponse> {
     if (this.logger) this.logger.debug("Calling operation VaultsClient#updateSecret.");
+    const operationName = "updateSecret";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/secretmgmt/20180608/Secret/UpdateSecret";
     const pathParams = {
       "{secretId}": updateSecretRequest.secretId
     };
@@ -1012,7 +1106,13 @@ This operation is not supported by the Oracle Cloud Infrastructure Terraform Pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSecretResponse>{},
         body: await response.json(),

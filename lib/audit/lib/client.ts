@@ -38,6 +38,7 @@ export class AuditClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Audit";
 
   protected _httpClient: common.HttpClient;
 
@@ -140,6 +141,9 @@ export class AuditClient {
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation AuditClient#getConfiguration.");
+    const operationName = "getConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/audit/20190901/Configuration/GetConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -167,7 +171,13 @@ export class AuditClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConfigurationResponse>{},
         body: await response.json(),
@@ -197,6 +207,9 @@ export class AuditClient {
     listEventsRequest: requests.ListEventsRequest
   ): Promise<responses.ListEventsResponse> {
     if (this.logger) this.logger.debug("Calling operation AuditClient#listEvents.");
+    const operationName = "listEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/audit/20190901/AuditEvent/ListEvents";
     const pathParams = {};
 
     const queryParams = {
@@ -228,7 +241,13 @@ export class AuditClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEventsResponse>{},
         body: await response.json(),
@@ -319,6 +338,9 @@ export class AuditClient {
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation AuditClient#updateConfiguration.");
+    const operationName = "updateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/audit/20190901/Configuration/UpdateConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -351,7 +373,13 @@ export class AuditClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConfigurationResponse>{},
         responseHeaders: [

@@ -39,6 +39,7 @@ export class MonitoringClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Monitoring";
 
   protected _httpClient: common.HttpClient;
 
@@ -168,6 +169,9 @@ For information about moving resources between compartments, see [Moving Resourc
   ): Promise<responses.ChangeAlarmCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MonitoringClient#changeAlarmCompartment.");
+    const operationName = "changeAlarmCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/ChangeAlarmCompartment";
     const pathParams = {
       "{alarmId}": changeAlarmCompartmentRequest.alarmId
     };
@@ -203,7 +207,13 @@ For information about moving resources between compartments, see [Moving Resourc
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAlarmCompartmentResponse>{},
         responseHeaders: [
@@ -239,6 +249,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
     createAlarmRequest: requests.CreateAlarmRequest
   ): Promise<responses.CreateAlarmResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#createAlarm.");
+    const operationName = "createAlarm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/CreateAlarm";
     const pathParams = {};
 
     const queryParams = {};
@@ -271,7 +284,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAlarmResponse>{},
         body: await response.json(),
@@ -316,6 +335,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
     deleteAlarmRequest: requests.DeleteAlarmRequest
   ): Promise<responses.DeleteAlarmResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#deleteAlarm.");
+    const operationName = "deleteAlarm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/DeleteAlarm";
     const pathParams = {
       "{alarmId}": deleteAlarmRequest.alarmId
     };
@@ -345,7 +367,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAlarmResponse>{},
         responseHeaders: [
@@ -381,6 +409,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
     getAlarmRequest: requests.GetAlarmRequest
   ): Promise<responses.GetAlarmResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarm.");
+    const operationName = "getAlarm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/GetAlarm";
     const pathParams = {
       "{alarmId}": getAlarmRequest.alarmId
     };
@@ -409,7 +440,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAlarmResponse>{},
         body: await response.json(),
@@ -454,6 +491,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
     getAlarmHistoryRequest: requests.GetAlarmHistoryRequest
   ): Promise<responses.GetAlarmHistoryResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#getAlarmHistory.");
+    const operationName = "getAlarmHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmHistoryCollection/GetAlarmHistory";
     const pathParams = {
       "{alarmId}": getAlarmHistoryRequest.alarmId
     };
@@ -488,7 +528,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAlarmHistoryResponse>{},
         body: await response.json(),
@@ -533,6 +579,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
     listAlarmsRequest: requests.ListAlarmsRequest
   ): Promise<responses.ListAlarmsResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarms.");
+    const operationName = "listAlarms";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmSummary/ListAlarms";
     const pathParams = {};
 
     const queryParams = {
@@ -568,7 +617,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlarmsResponse>{},
         body: await response.json(),
@@ -665,6 +720,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
     listAlarmsStatusRequest: requests.ListAlarmsStatusRequest
   ): Promise<responses.ListAlarmsStatusResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#listAlarmsStatus.");
+    const operationName = "listAlarmsStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmStatusSummary/ListAlarmsStatus";
     const pathParams = {};
 
     const queryParams = {
@@ -699,7 +757,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAlarmsStatusResponse>{},
         body: await response.json(),
@@ -795,6 +859,9 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
     listMetricsRequest: requests.ListMetricsRequest
   ): Promise<responses.ListMetricsResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#listMetrics.");
+    const operationName = "listMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Metric/ListMetrics";
     const pathParams = {};
 
     const queryParams = {
@@ -831,7 +898,13 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMetricsResponse>{},
         body: await response.json(),
@@ -938,6 +1011,9 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
     postMetricDataRequest: requests.PostMetricDataRequest
   ): Promise<responses.PostMetricDataResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#postMetricData.");
+    const operationName = "postMetricData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/MetricData/PostMetricData";
     const pathParams = {};
 
     const queryParams = {};
@@ -969,7 +1045,13 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PostMetricDataResponse>{},
         body: await response.json(),
@@ -1010,6 +1092,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
   ): Promise<responses.RemoveAlarmSuppressionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation MonitoringClient#removeAlarmSuppression.");
+    const operationName = "removeAlarmSuppression";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Suppression/RemoveAlarmSuppression";
     const pathParams = {
       "{alarmId}": removeAlarmSuppressionRequest.alarmId
     };
@@ -1039,7 +1124,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveAlarmSuppressionResponse>{},
         responseHeaders: [
@@ -1074,6 +1165,9 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
     summarizeMetricsDataRequest: requests.SummarizeMetricsDataRequest
   ): Promise<responses.SummarizeMetricsDataResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#summarizeMetricsData.");
+    const operationName = "summarizeMetricsData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/MetricData/SummarizeMetricsData";
     const pathParams = {};
 
     const queryParams = {
@@ -1108,7 +1202,13 @@ Transactions Per Second (TPS) per-tenancy limit for this operation: 10.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeMetricsDataResponse>{},
         body: await response.json(),
@@ -1148,6 +1248,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
     updateAlarmRequest: requests.UpdateAlarmRequest
   ): Promise<responses.UpdateAlarmResponse> {
     if (this.logger) this.logger.debug("Calling operation MonitoringClient#updateAlarm.");
+    const operationName = "updateAlarm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/Alarm/UpdateAlarm";
     const pathParams = {
       "{alarmId}": updateAlarmRequest.alarmId
     };
@@ -1182,7 +1285,13 @@ This call is subject to a Monitoring limit that applies to the total number of r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAlarmResponse>{},
         body: await response.json(),
