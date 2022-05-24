@@ -35,6 +35,7 @@ export class BlockchainPlatformClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "BlockchainPlatform";
 
   protected _httpClient: common.HttpClient;
 
@@ -163,6 +164,9 @@ export class BlockchainPlatformClient {
       this.logger.debug(
         "Calling operation BlockchainPlatformClient#changeBlockchainPlatformCompartment."
       );
+    const operationName = "changeBlockchainPlatformCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ChangeBlockchainPlatformCompartment";
     const pathParams = {
       "{blockchainPlatformId}": changeBlockchainPlatformCompartmentRequest.blockchainPlatformId
     };
@@ -198,7 +202,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBlockchainPlatformCompartmentResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.CreateBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#createBlockchainPlatform.");
+    const operationName = "createBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/CreateBlockchainPlatform";
     const pathParams = {};
 
     const queryParams = {};
@@ -267,7 +280,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBlockchainPlatformResponse>{},
         responseHeaders: [
@@ -302,6 +321,9 @@ export class BlockchainPlatformClient {
     createOsnRequest: requests.CreateOsnRequest
   ): Promise<responses.CreateOsnResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#createOsn.");
+    const operationName = "createOsn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/CreateOsn";
     const pathParams = {
       "{blockchainPlatformId}": createOsnRequest.blockchainPlatformId
     };
@@ -337,7 +359,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOsnResponse>{},
         responseHeaders: [
@@ -372,6 +400,9 @@ export class BlockchainPlatformClient {
     createPeerRequest: requests.CreatePeerRequest
   ): Promise<responses.CreatePeerResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#createPeer.");
+    const operationName = "createPeer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/CreatePeer";
     const pathParams = {
       "{blockchainPlatformId}": createPeerRequest.blockchainPlatformId
     };
@@ -406,7 +437,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePeerResponse>{},
         responseHeaders: [
@@ -442,6 +479,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.DeleteBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#deleteBlockchainPlatform.");
+    const operationName = "deleteBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/DeleteBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": deleteBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -472,7 +512,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBlockchainPlatformResponse>{},
         responseHeaders: [
@@ -507,6 +553,9 @@ export class BlockchainPlatformClient {
     deleteOsnRequest: requests.DeleteOsnRequest
   ): Promise<responses.DeleteOsnResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#deleteOsn.");
+    const operationName = "deleteOsn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/DeleteOsn";
     const pathParams = {
       "{blockchainPlatformId}": deleteOsnRequest.blockchainPlatformId,
       "{osnId}": deleteOsnRequest.osnId
@@ -537,7 +586,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOsnResponse>{},
         responseHeaders: [
@@ -572,6 +627,9 @@ export class BlockchainPlatformClient {
     deletePeerRequest: requests.DeletePeerRequest
   ): Promise<responses.DeletePeerResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#deletePeer.");
+    const operationName = "deletePeer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/DeletePeer";
     const pathParams = {
       "{blockchainPlatformId}": deletePeerRequest.blockchainPlatformId,
       "{peerId}": deletePeerRequest.peerId
@@ -603,7 +661,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePeerResponse>{},
         responseHeaders: [
@@ -639,6 +703,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.DeleteWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#deleteWorkRequest.");
+    const operationName = "deleteWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequest/DeleteWorkRequest";
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -668,7 +735,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
         responseHeaders: [
@@ -704,6 +777,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.GetBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#getBlockchainPlatform.");
+    const operationName = "getBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/GetBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": getBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -732,7 +808,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBlockchainPlatformResponse>{},
         body: await response.json(),
@@ -769,6 +851,8 @@ export class BlockchainPlatformClient {
    */
   public async getOsn(getOsnRequest: requests.GetOsnRequest): Promise<responses.GetOsnResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#getOsn.");
+    const operationName = "getOsn";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Osn/GetOsn";
     const pathParams = {
       "{blockchainPlatformId}": getOsnRequest.blockchainPlatformId,
       "{osnId}": getOsnRequest.osnId
@@ -798,7 +882,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOsnResponse>{},
         body: await response.json(),
@@ -837,6 +927,9 @@ export class BlockchainPlatformClient {
     getPeerRequest: requests.GetPeerRequest
   ): Promise<responses.GetPeerResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#getPeer.");
+    const operationName = "getPeer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Peer/GetPeer";
     const pathParams = {
       "{blockchainPlatformId}": getPeerRequest.blockchainPlatformId,
       "{peerId}": getPeerRequest.peerId
@@ -866,7 +959,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPeerResponse>{},
         body: await response.json(),
@@ -906,6 +1005,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -934,7 +1036,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -981,6 +1089,9 @@ export class BlockchainPlatformClient {
       this.logger.debug(
         "Calling operation BlockchainPlatformClient#listBlockchainPlatformPatches."
       );
+    const operationName = "listBlockchainPlatformPatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ListBlockchainPlatformPatches";
     const pathParams = {
       "{blockchainPlatformId}": listBlockchainPlatformPatchesRequest.blockchainPlatformId
     };
@@ -1012,7 +1123,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBlockchainPlatformPatchesResponse>{},
         body: await response.json(),
@@ -1052,6 +1169,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.ListBlockchainPlatformsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#listBlockchainPlatforms.");
+    const operationName = "listBlockchainPlatforms";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ListBlockchainPlatforms";
     const pathParams = {};
 
     const queryParams = {
@@ -1086,7 +1206,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBlockchainPlatformsResponse>{},
         body: await response.json(),
@@ -1125,6 +1251,9 @@ export class BlockchainPlatformClient {
     listOsnsRequest: requests.ListOsnsRequest
   ): Promise<responses.ListOsnsResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#listOsns.");
+    const operationName = "listOsns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Osn/ListOsns";
     const pathParams = {
       "{blockchainPlatformId}": listOsnsRequest.blockchainPlatformId
     };
@@ -1160,7 +1289,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOsnsResponse>{},
         body: await response.json(),
@@ -1199,6 +1334,9 @@ export class BlockchainPlatformClient {
     listPeersRequest: requests.ListPeersRequest
   ): Promise<responses.ListPeersResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#listPeers.");
+    const operationName = "listPeers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/Peer/ListPeers";
     const pathParams = {
       "{blockchainPlatformId}": listPeersRequest.blockchainPlatformId
     };
@@ -1234,7 +1372,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPeersResponse>{},
         body: await response.json(),
@@ -1275,6 +1419,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1306,7 +1453,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1347,6 +1500,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1378,7 +1534,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1419,6 +1581,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1452,7 +1617,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1494,6 +1665,9 @@ export class BlockchainPlatformClient {
       this.logger.debug(
         "Calling operation BlockchainPlatformClient#previewScaleBlockchainPlatform."
       );
+    const operationName = "previewScaleBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/PreviewScaleBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": previewScaleBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -1527,7 +1701,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PreviewScaleBlockchainPlatformResponse>{},
         body: await response.json(),
@@ -1567,6 +1747,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.ScaleBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#scaleBlockchainPlatform.");
+    const operationName = "scaleBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/ScaleBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": scaleBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -1602,7 +1785,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScaleBlockchainPlatformResponse>{},
         responseHeaders: [
@@ -1638,6 +1827,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.StartBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#startBlockchainPlatform.");
+    const operationName = "startBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/StartBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": startBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -1668,7 +1860,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartBlockchainPlatformResponse>{},
         responseHeaders: [
@@ -1704,6 +1902,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.StopBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#stopBlockchainPlatform.");
+    const operationName = "stopBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/StopBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": stopBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -1734,7 +1935,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopBlockchainPlatformResponse>{},
         responseHeaders: [
@@ -1770,6 +1977,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.UpdateBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#updateBlockchainPlatform.");
+    const operationName = "updateBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpdateBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": updateBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -1805,7 +2015,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBlockchainPlatformResponse>{},
         responseHeaders: [
@@ -1840,6 +2056,9 @@ export class BlockchainPlatformClient {
     updateOsnRequest: requests.UpdateOsnRequest
   ): Promise<responses.UpdateOsnResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#updateOsn.");
+    const operationName = "updateOsn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpdateOsn";
     const pathParams = {
       "{blockchainPlatformId}": updateOsnRequest.blockchainPlatformId,
       "{osnId}": updateOsnRequest.osnId
@@ -1876,7 +2095,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOsnResponse>{},
         responseHeaders: [
@@ -1911,6 +2136,9 @@ export class BlockchainPlatformClient {
     updatePeerRequest: requests.UpdatePeerRequest
   ): Promise<responses.UpdatePeerResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockchainPlatformClient#updatePeer.");
+    const operationName = "updatePeer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpdatePeer";
     const pathParams = {
       "{blockchainPlatformId}": updatePeerRequest.blockchainPlatformId,
       "{peerId}": updatePeerRequest.peerId
@@ -1947,7 +2175,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePeerResponse>{},
         responseHeaders: [
@@ -1983,6 +2217,9 @@ export class BlockchainPlatformClient {
   ): Promise<responses.UpgradeBlockchainPlatformResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockchainPlatformClient#upgradeBlockchainPlatform.");
+    const operationName = "upgradeBlockchainPlatform";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/blockchain/20191010/BlockchainPlatform/UpgradeBlockchainPlatform";
     const pathParams = {
       "{blockchainPlatformId}": upgradeBlockchainPlatformRequest.blockchainPlatformId
     };
@@ -2018,7 +2255,13 @@ export class BlockchainPlatformClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeBlockchainPlatformResponse>{},
         responseHeaders: [

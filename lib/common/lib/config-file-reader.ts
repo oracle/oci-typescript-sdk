@@ -5,6 +5,9 @@
 
 import { existsSync, readFileSync } from "fs";
 
+const CONFIG_FILE_AUTH_INFO =
+  "For more info about config file and how to get required information, see https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm for more info on OCI configuration files.";
+
 export class ConfigFileReader {
   /**
    * Default location of the config file.
@@ -50,7 +53,7 @@ export class ConfigFileReader {
       );
     }
     throw new Error(
-      ` Can't load the default config from ${ConfigFileReader.DEFAULT_FILE_PATH} or ${ConfigFileReader.FALLBACK_DEFAULT_FILE_PATH} because it does not exists or its not a file.`
+      ` Can't load the default config from ${ConfigFileReader.DEFAULT_FILE_PATH} or ${ConfigFileReader.FALLBACK_DEFAULT_FILE_PATH} because it does not exists or its not a file. ${CONFIG_FILE_AUTH_INFO}`
     );
   }
 
@@ -91,7 +94,7 @@ export class ConfigFileReader {
       const fileContent = readFileSync(ConfigFileReader.expandUserHome(path), "utf8");
       return ConfigFileReader.parse(fileContent, profile);
     }
-    throw Error(`File does not exists at ${path}`);
+    throw Error(`File does not exists at ${path}. ${CONFIG_FILE_AUTH_INFO}`);
   }
 
   static parse(fileContent: string, profile: string | null): ConfigFile {
@@ -105,7 +108,12 @@ export class ConfigFileReader {
       console.info("No DEFAULT profile was specified in the configuration");
     }
     if (profile !== null && !accumulator.configurationsByProfile.has(profile)) {
-      throw new Error("No profile named " + profile + " exists in the configuration file");
+      throw new Error(
+        "No profile named " +
+          profile +
+          " exists in the configuration file. " +
+          CONFIG_FILE_AUTH_INFO
+      );
     }
 
     return new ConfigFile(accumulator, profile);
@@ -164,7 +172,7 @@ export class ConfigAccumulator {
     if (trimmedLine.charAt(0) === "[" && trimmedLine.charAt(trimmedLine.length - 1) === "]") {
       this.currentProfile = trimmedLine.substring(1, trimmedLine.length - 1).trim();
       if (!this.currentProfile) {
-        throw Error("Cannot have empty profile name: " + line);
+        throw Error(`Cannot have empty profile name: ${line}. ${CONFIG_FILE_AUTH_INFO}`);
       }
       if (this.currentProfile === ConfigFileReader.DEFAULT_PROFILE_NAME) {
         this.foundDefaultProfile = true;
@@ -188,7 +196,7 @@ export class ConfigAccumulator {
 
     if (!this.currentProfile) {
       throw new Error(
-        "Config parse error, attempted to read configuration without specifying a profile: " + line
+        `Config parse error, attempted to read configuration without specifying a profile: ${line}. ${CONFIG_FILE_AUTH_INFO}`
       );
     }
     this.configurationsByProfile.get(this.currentProfile)!.set(key, value);

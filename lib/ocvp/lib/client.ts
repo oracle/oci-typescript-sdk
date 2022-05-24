@@ -39,6 +39,7 @@ export class EsxiHostClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "EsxiHost";
 
   protected _httpClient: common.HttpClient;
 
@@ -170,6 +171,9 @@ Use the {@link WorkRequest} operations to track the
     createEsxiHostRequest: requests.CreateEsxiHostRequest
   ): Promise<responses.CreateEsxiHostResponse> {
     if (this.logger) this.logger.debug("Calling operation EsxiHostClient#createEsxiHost.");
+    const operationName = "createEsxiHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/EsxiHost/CreateEsxiHost";
     const pathParams = {};
 
     const queryParams = {};
@@ -202,7 +206,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateEsxiHostResponse>{},
         responseHeaders: [
@@ -251,6 +261,9 @@ Use the {@link WorkRequest} operations to track the
     deleteEsxiHostRequest: requests.DeleteEsxiHostRequest
   ): Promise<responses.DeleteEsxiHostResponse> {
     if (this.logger) this.logger.debug("Calling operation EsxiHostClient#deleteEsxiHost.");
+    const operationName = "deleteEsxiHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/EsxiHost/DeleteEsxiHost";
     const pathParams = {
       "{esxiHostId}": deleteEsxiHostRequest.esxiHostId
     };
@@ -280,7 +293,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEsxiHostResponse>{},
         responseHeaders: [
@@ -315,6 +334,9 @@ Use the {@link WorkRequest} operations to track the
     getEsxiHostRequest: requests.GetEsxiHostRequest
   ): Promise<responses.GetEsxiHostResponse> {
     if (this.logger) this.logger.debug("Calling operation EsxiHostClient#getEsxiHost.");
+    const operationName = "getEsxiHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/EsxiHost/GetEsxiHost";
     const pathParams = {
       "{esxiHostId}": getEsxiHostRequest.esxiHostId
     };
@@ -343,7 +365,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEsxiHostResponse>{},
         body: await response.json(),
@@ -391,6 +419,9 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
     listEsxiHostsRequest: requests.ListEsxiHostsRequest
   ): Promise<responses.ListEsxiHostsResponse> {
     if (this.logger) this.logger.debug("Calling operation EsxiHostClient#listEsxiHosts.");
+    const operationName = "listEsxiHosts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/EsxiHostSummary/ListEsxiHosts";
     const pathParams = {};
 
     const queryParams = {
@@ -426,7 +457,13 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEsxiHostsResponse>{},
         body: await response.json(),
@@ -465,6 +502,9 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
     updateEsxiHostRequest: requests.UpdateEsxiHostRequest
   ): Promise<responses.UpdateEsxiHostResponse> {
     if (this.logger) this.logger.debug("Calling operation EsxiHostClient#updateEsxiHost.");
+    const operationName = "updateEsxiHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/EsxiHost/UpdateEsxiHost";
     const pathParams = {
       "{esxiHostId}": updateEsxiHostRequest.esxiHostId
     };
@@ -499,7 +539,13 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEsxiHostResponse>{},
         body: await response.json(),
@@ -539,6 +585,7 @@ export class SddcClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Sddc";
 
   protected _httpClient: common.HttpClient;
 
@@ -665,6 +712,9 @@ export class SddcClient {
     cancelDowngradeHcxRequest: requests.CancelDowngradeHcxRequest
   ): Promise<responses.CancelDowngradeHcxResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#cancelDowngradeHcx.");
+    const operationName = "cancelDowngradeHcx";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/CancelDowngradeHcx";
     const pathParams = {
       "{sddcId}": cancelDowngradeHcxRequest.sddcId
     };
@@ -695,7 +745,13 @@ export class SddcClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelDowngradeHcxResponse>{},
         responseHeaders: [
@@ -733,6 +789,9 @@ export class SddcClient {
     changeSddcCompartmentRequest: requests.ChangeSddcCompartmentRequest
   ): Promise<responses.ChangeSddcCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#changeSddcCompartment.");
+    const operationName = "changeSddcCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/ChangeSddcCompartment";
     const pathParams = {
       "{sddcId}": changeSddcCompartmentRequest.sddcId
     };
@@ -768,7 +827,13 @@ export class SddcClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSddcCompartmentResponse>{},
         responseHeaders: [
@@ -804,6 +869,9 @@ Use the {@link WorkRequest} operations to track the
     createSddcRequest: requests.CreateSddcRequest
   ): Promise<responses.CreateSddcResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#createSddc.");
+    const operationName = "createSddc";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/CreateSddc";
     const pathParams = {};
 
     const queryParams = {};
@@ -836,7 +904,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSddcResponse>{},
         responseHeaders: [
@@ -877,6 +951,9 @@ Use the {@link WorkRequest} operations to track the
     deleteSddcRequest: requests.DeleteSddcRequest
   ): Promise<responses.DeleteSddcResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#deleteSddc.");
+    const operationName = "deleteSddc";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/DeleteSddc";
     const pathParams = {
       "{sddcId}": deleteSddcRequest.sddcId
     };
@@ -906,7 +983,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSddcResponse>{},
         responseHeaders: [
@@ -945,6 +1028,9 @@ Use the {@link WorkRequest} operations to track the
     downgradeHcxRequest: requests.DowngradeHcxRequest
   ): Promise<responses.DowngradeHcxResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#downgradeHcx.");
+    const operationName = "downgradeHcx";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/DowngradeHcx";
     const pathParams = {
       "{sddcId}": downgradeHcxRequest.sddcId
     };
@@ -980,7 +1066,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DowngradeHcxResponse>{},
         responseHeaders: [
@@ -1015,6 +1107,8 @@ Use the {@link WorkRequest} operations to track the
     getSddcRequest: requests.GetSddcRequest
   ): Promise<responses.GetSddcResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#getSddc.");
+    const operationName = "getSddc";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/GetSddc";
     const pathParams = {
       "{sddcId}": getSddcRequest.sddcId
     };
@@ -1043,7 +1137,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSddcResponse>{},
         body: await response.json(),
@@ -1084,6 +1184,9 @@ Use the {@link WorkRequest} operations to track the
     listSddcsRequest: requests.ListSddcsRequest
   ): Promise<responses.ListSddcsResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#listSddcs.");
+    const operationName = "listSddcs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/SddcSummary/ListSddcs";
     const pathParams = {};
 
     const queryParams = {
@@ -1119,7 +1222,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSddcsResponse>{},
         body: await response.json(),
@@ -1159,6 +1268,9 @@ Use the {@link WorkRequest} operations to track the
     listSupportedHostShapesRequest: requests.ListSupportedHostShapesRequest
   ): Promise<responses.ListSupportedHostShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#listSupportedHostShapes.");
+    const operationName = "listSupportedHostShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/SupportedHostShapeSummary/ListSupportedHostShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -1191,7 +1303,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSupportedHostShapesResponse>{},
         body: await response.json(),
@@ -1231,6 +1349,9 @@ Use the {@link WorkRequest} operations to track the
     listSupportedSkusRequest: requests.ListSupportedSkusRequest
   ): Promise<responses.ListSupportedSkusResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#listSupportedSkus.");
+    const operationName = "listSupportedSkus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/SupportedSkuSummary/ListSupportedSkus";
     const pathParams = {};
 
     const queryParams = {
@@ -1261,7 +1382,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSupportedSkusResponse>{},
         body: await response.json(),
@@ -1303,6 +1430,9 @@ Use the {@link WorkRequest} operations to track the
   ): Promise<responses.ListSupportedVmwareSoftwareVersionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SddcClient#listSupportedVmwareSoftwareVersions.");
+    const operationName = "listSupportedVmwareSoftwareVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/SupportedVmwareSoftwareVersionSummary/ListSupportedVmwareSoftwareVersions";
     const pathParams = {};
 
     const queryParams = {
@@ -1333,7 +1463,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSupportedVmwareSoftwareVersionsResponse>{},
         body: await response.json(),
@@ -1372,6 +1508,9 @@ Use the {@link WorkRequest} operations to track the
     refreshHcxLicenseStatusRequest: requests.RefreshHcxLicenseStatusRequest
   ): Promise<responses.RefreshHcxLicenseStatusResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#refreshHcxLicenseStatus.");
+    const operationName = "refreshHcxLicenseStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/RefreshHcxLicenseStatus";
     const pathParams = {
       "{sddcId}": refreshHcxLicenseStatusRequest.sddcId
     };
@@ -1402,7 +1541,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RefreshHcxLicenseStatusResponse>{},
         responseHeaders: [
@@ -1443,6 +1588,9 @@ Use the {@link WorkRequest} operations to track the
     updateSddcRequest: requests.UpdateSddcRequest
   ): Promise<responses.UpdateSddcResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#updateSddc.");
+    const operationName = "updateSddc";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/UpdateSddc";
     const pathParams = {
       "{sddcId}": updateSddcRequest.sddcId
     };
@@ -1477,7 +1625,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSddcResponse>{},
         body: await response.json(),
@@ -1517,6 +1671,9 @@ Use the {@link WorkRequest} operations to track the
     upgradeHcxRequest: requests.UpgradeHcxRequest
   ): Promise<responses.UpgradeHcxResponse> {
     if (this.logger) this.logger.debug("Calling operation SddcClient#upgradeHcx.");
+    const operationName = "upgradeHcx";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/Sddc/UpgradeHcx";
     const pathParams = {
       "{sddcId}": upgradeHcxRequest.sddcId
     };
@@ -1547,7 +1704,13 @@ Use the {@link WorkRequest} operations to track the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeHcxResponse>{},
         responseHeaders: [
@@ -1583,6 +1746,7 @@ export class WorkRequestClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "WorkRequest";
 
   protected _httpClient: common.HttpClient;
 
@@ -1708,6 +1872,9 @@ export class WorkRequestClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1736,7 +1903,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1777,6 +1950,9 @@ export class WorkRequestClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WorkRequestClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1808,7 +1984,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1848,6 +2030,9 @@ export class WorkRequestClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1879,7 +2064,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1919,6 +2110,9 @@ export class WorkRequestClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1950,7 +2144,13 @@ export class WorkRequestClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),

@@ -45,6 +45,7 @@ export class BlockstorageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Blockstorage";
 
   protected _httpClient: common.HttpClient;
 
@@ -178,6 +179,9 @@ export class BlockstorageClient {
   ): Promise<responses.ChangeBootVolumeBackupCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#changeBootVolumeBackupCompartment.");
+    const operationName = "changeBootVolumeBackupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/ChangeBootVolumeBackupCompartment";
     const pathParams = {
       "{bootVolumeBackupId}": changeBootVolumeBackupCompartmentRequest.bootVolumeBackupId
     };
@@ -211,7 +215,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBootVolumeBackupCompartmentResponse>{},
         responseHeaders: [
@@ -250,6 +260,9 @@ export class BlockstorageClient {
   ): Promise<responses.ChangeBootVolumeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#changeBootVolumeCompartment.");
+    const operationName = "changeBootVolumeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/ChangeBootVolumeCompartment";
     const pathParams = {
       "{bootVolumeId}": changeBootVolumeCompartmentRequest.bootVolumeId
     };
@@ -283,7 +296,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBootVolumeCompartmentResponse>{},
         responseHeaders: [
@@ -322,6 +341,9 @@ export class BlockstorageClient {
   ): Promise<responses.ChangeVolumeBackupCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#changeVolumeBackupCompartment.");
+    const operationName = "changeVolumeBackupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/ChangeVolumeBackupCompartment";
     const pathParams = {
       "{volumeBackupId}": changeVolumeBackupCompartmentRequest.volumeBackupId
     };
@@ -355,7 +377,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVolumeBackupCompartmentResponse>{},
         responseHeaders: [
@@ -394,6 +422,9 @@ export class BlockstorageClient {
   ): Promise<responses.ChangeVolumeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#changeVolumeCompartment.");
+    const operationName = "changeVolumeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/ChangeVolumeCompartment";
     const pathParams = {
       "{volumeId}": changeVolumeCompartmentRequest.volumeId
     };
@@ -427,7 +458,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVolumeCompartmentResponse>{},
         responseHeaders: [
@@ -466,6 +503,9 @@ export class BlockstorageClient {
   ): Promise<responses.ChangeVolumeGroupBackupCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#changeVolumeGroupBackupCompartment.");
+    const operationName = "changeVolumeGroupBackupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/ChangeVolumeGroupBackupCompartment";
     const pathParams = {
       "{volumeGroupBackupId}": changeVolumeGroupBackupCompartmentRequest.volumeGroupBackupId
     };
@@ -499,7 +539,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVolumeGroupBackupCompartmentResponse>{},
         responseHeaders: [
@@ -538,6 +584,9 @@ export class BlockstorageClient {
   ): Promise<responses.ChangeVolumeGroupCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#changeVolumeGroupCompartment.");
+    const operationName = "changeVolumeGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/ChangeVolumeGroupCompartment";
     const pathParams = {
       "{volumeGroupId}": changeVolumeGroupCompartmentRequest.volumeGroupId
     };
@@ -571,7 +620,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVolumeGroupCompartmentResponse>{},
         responseHeaders: [
@@ -609,6 +664,9 @@ export class BlockstorageClient {
   ): Promise<responses.CopyBootVolumeBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#copyBootVolumeBackup.");
+    const operationName = "copyBootVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/CopyBootVolumeBackup";
     const pathParams = {
       "{bootVolumeBackupId}": copyBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -643,7 +701,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CopyBootVolumeBackupResponse>{},
         body: await response.json(),
@@ -699,6 +763,9 @@ export class BlockstorageClient {
     copyVolumeBackupRequest: requests.CopyVolumeBackupRequest
   ): Promise<responses.CopyVolumeBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#copyVolumeBackup.");
+    const operationName = "copyVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/CopyVolumeBackup";
     const pathParams = {
       "{volumeBackupId}": copyVolumeBackupRequest.volumeBackupId
     };
@@ -733,7 +800,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CopyVolumeBackupResponse>{},
         body: await response.json(),
@@ -790,6 +863,9 @@ export class BlockstorageClient {
   ): Promise<responses.CopyVolumeGroupBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#copyVolumeGroupBackup.");
+    const operationName = "copyVolumeGroupBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/CopyVolumeGroupBackup";
     const pathParams = {
       "{volumeGroupBackupId}": copyVolumeGroupBackupRequest.volumeGroupBackupId
     };
@@ -824,7 +900,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CopyVolumeGroupBackupResponse>{},
         body: await response.json(),
@@ -867,6 +949,9 @@ export class BlockstorageClient {
     createBootVolumeRequest: requests.CreateBootVolumeRequest
   ): Promise<responses.CreateBootVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createBootVolume.");
+    const operationName = "createBootVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/CreateBootVolume";
     const pathParams = {};
 
     const queryParams = {};
@@ -898,7 +983,13 @@ export class BlockstorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBootVolumeResponse>{},
         body: await response.json(),
@@ -944,6 +1035,9 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
   ): Promise<responses.CreateBootVolumeBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#createBootVolumeBackup.");
+    const operationName = "createBootVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/CreateBootVolumeBackup";
     const pathParams = {};
 
     const queryParams = {};
@@ -975,7 +1069,13 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBootVolumeBackupResponse>{},
         body: await response.json(),
@@ -1028,6 +1128,9 @@ You may optionally specify a *display name* for the volume, which is simply a fr
     createVolumeRequest: requests.CreateVolumeRequest
   ): Promise<responses.CreateVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolume.");
+    const operationName = "createVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/CreateVolume";
     const pathParams = {};
 
     const queryParams = {};
@@ -1059,7 +1162,13 @@ You may optionally specify a *display name* for the volume, which is simply a fr
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVolumeResponse>{},
         body: await response.json(),
@@ -1104,6 +1213,9 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
     createVolumeBackupRequest: requests.CreateVolumeBackupRequest
   ): Promise<responses.CreateVolumeBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolumeBackup.");
+    const operationName = "createVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/CreateVolumeBackup";
     const pathParams = {};
 
     const queryParams = {};
@@ -1135,7 +1247,13 @@ When the request is received, the backup object is in a REQUEST_RECEIVED state.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVolumeBackupResponse>{},
         body: await response.json(),
@@ -1179,6 +1297,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.CreateVolumeBackupPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicy.");
+    const operationName = "createVolumeBackupPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/CreateVolumeBackupPolicy";
     const pathParams = {};
 
     const queryParams = {};
@@ -1211,7 +1332,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVolumeBackupPolicyResponse>{},
         body: await response.json(),
@@ -1254,6 +1381,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.CreateVolumeBackupPolicyAssignmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#createVolumeBackupPolicyAssignment.");
+    const operationName = "createVolumeBackupPolicyAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicyAssignment/CreateVolumeBackupPolicyAssignment";
     const pathParams = {};
 
     const queryParams = {};
@@ -1284,7 +1414,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVolumeBackupPolicyAssignmentResponse>{},
         body: await response.json(),
@@ -1330,6 +1466,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     createVolumeGroupRequest: requests.CreateVolumeGroupRequest
   ): Promise<responses.CreateVolumeGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#createVolumeGroup.");
+    const operationName = "createVolumeGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/CreateVolumeGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -1361,7 +1500,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVolumeGroupResponse>{},
         body: await response.json(),
@@ -1403,6 +1548,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.CreateVolumeGroupBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#createVolumeGroupBackup.");
+    const operationName = "createVolumeGroupBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/CreateVolumeGroupBackup";
     const pathParams = {};
 
     const queryParams = {};
@@ -1434,7 +1582,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVolumeGroupBackupResponse>{},
         body: await response.json(),
@@ -1477,6 +1631,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     deleteBootVolumeRequest: requests.DeleteBootVolumeRequest
   ): Promise<responses.DeleteBootVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteBootVolume.");
+    const operationName = "deleteBootVolume";
+    const apiReferenceLink = "";
     const pathParams = {
       "{bootVolumeId}": deleteBootVolumeRequest.bootVolumeId
     };
@@ -1505,7 +1661,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBootVolumeResponse>{},
         responseHeaders: [
@@ -1536,6 +1698,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.DeleteBootVolumeBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#deleteBootVolumeBackup.");
+    const operationName = "deleteBootVolumeBackup";
+    const apiReferenceLink = "";
     const pathParams = {
       "{bootVolumeBackupId}": deleteBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -1564,7 +1728,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBootVolumeBackupResponse>{},
         responseHeaders: [
@@ -1596,6 +1766,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.DeleteBootVolumeKmsKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#deleteBootVolumeKmsKey.");
+    const operationName = "deleteBootVolumeKmsKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{bootVolumeId}": deleteBootVolumeKmsKeyRequest.bootVolumeId
     };
@@ -1624,7 +1796,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBootVolumeKmsKeyResponse>{},
         responseHeaders: [
@@ -1658,6 +1836,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     deleteVolumeRequest: requests.DeleteVolumeRequest
   ): Promise<responses.DeleteVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolume.");
+    const operationName = "deleteVolume";
+    const apiReferenceLink = "";
     const pathParams = {
       "{volumeId}": deleteVolumeRequest.volumeId
     };
@@ -1686,7 +1866,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVolumeResponse>{},
         responseHeaders: [
@@ -1716,6 +1902,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     deleteVolumeBackupRequest: requests.DeleteVolumeBackupRequest
   ): Promise<responses.DeleteVolumeBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackup.");
+    const operationName = "deleteVolumeBackup";
+    const apiReferenceLink = "";
     const pathParams = {
       "{volumeBackupId}": deleteVolumeBackupRequest.volumeBackupId
     };
@@ -1744,7 +1932,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVolumeBackupResponse>{},
         responseHeaders: [
@@ -1780,6 +1974,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.DeleteVolumeBackupPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicy.");
+    const operationName = "deleteVolumeBackupPolicy";
+    const apiReferenceLink = "";
     const pathParams = {
       "{policyId}": deleteVolumeBackupPolicyRequest.policyId
     };
@@ -1809,7 +2005,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVolumeBackupPolicyResponse>{},
         responseHeaders: [
@@ -1840,6 +2042,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.DeleteVolumeBackupPolicyAssignmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#deleteVolumeBackupPolicyAssignment.");
+    const operationName = "deleteVolumeBackupPolicyAssignment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{policyAssignmentId}": deleteVolumeBackupPolicyAssignmentRequest.policyAssignmentId
     };
@@ -1868,7 +2072,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVolumeBackupPolicyAssignmentResponse>{},
         responseHeaders: [
@@ -1900,6 +2110,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     deleteVolumeGroupRequest: requests.DeleteVolumeGroupRequest
   ): Promise<responses.DeleteVolumeGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeGroup.");
+    const operationName = "deleteVolumeGroup";
+    const apiReferenceLink = "";
     const pathParams = {
       "{volumeGroupId}": deleteVolumeGroupRequest.volumeGroupId
     };
@@ -1928,7 +2140,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVolumeGroupResponse>{},
         responseHeaders: [
@@ -1961,6 +2179,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.DeleteVolumeGroupBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#deleteVolumeGroupBackup.");
+    const operationName = "deleteVolumeGroupBackup";
+    const apiReferenceLink = "";
     const pathParams = {
       "{volumeGroupBackupId}": deleteVolumeGroupBackupRequest.volumeGroupBackupId
     };
@@ -1989,7 +2209,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVolumeGroupBackupResponse>{},
         responseHeaders: [
@@ -2020,6 +2246,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     deleteVolumeKmsKeyRequest: requests.DeleteVolumeKmsKeyRequest
   ): Promise<responses.DeleteVolumeKmsKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#deleteVolumeKmsKey.");
+    const operationName = "deleteVolumeKmsKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{volumeId}": deleteVolumeKmsKeyRequest.volumeId
     };
@@ -2048,7 +2276,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVolumeKmsKeyResponse>{},
         responseHeaders: [
@@ -2079,6 +2313,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.GetBlockVolumeReplicaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#getBlockVolumeReplica.");
+    const operationName = "getBlockVolumeReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BlockVolumeReplica/GetBlockVolumeReplica";
     const pathParams = {
       "{blockVolumeReplicaId}": getBlockVolumeReplicaRequest.blockVolumeReplicaId
     };
@@ -2106,7 +2343,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBlockVolumeReplicaResponse>{},
         body: await response.json(),
@@ -2145,6 +2388,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     getBootVolumeRequest: requests.GetBootVolumeRequest
   ): Promise<responses.GetBootVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolume.");
+    const operationName = "getBootVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/GetBootVolume";
     const pathParams = {
       "{bootVolumeId}": getBootVolumeRequest.bootVolumeId
     };
@@ -2172,7 +2418,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBootVolumeResponse>{},
         body: await response.json(),
@@ -2211,6 +2463,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     getBootVolumeBackupRequest: requests.GetBootVolumeBackupRequest
   ): Promise<responses.GetBootVolumeBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolumeBackup.");
+    const operationName = "getBootVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/GetBootVolumeBackup";
     const pathParams = {
       "{bootVolumeBackupId}": getBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -2238,7 +2493,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBootVolumeBackupResponse>{},
         body: await response.json(),
@@ -2278,6 +2539,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     getBootVolumeKmsKeyRequest: requests.GetBootVolumeKmsKeyRequest
   ): Promise<responses.GetBootVolumeKmsKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getBootVolumeKmsKey.");
+    const operationName = "getBootVolumeKmsKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeKmsKey/GetBootVolumeKmsKey";
     const pathParams = {
       "{bootVolumeId}": getBootVolumeKmsKeyRequest.bootVolumeId
     };
@@ -2306,7 +2570,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBootVolumeKmsKeyResponse>{},
         body: await response.json(),
@@ -2346,6 +2616,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.GetBootVolumeReplicaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#getBootVolumeReplica.");
+    const operationName = "getBootVolumeReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeReplica/GetBootVolumeReplica";
     const pathParams = {
       "{bootVolumeReplicaId}": getBootVolumeReplicaRequest.bootVolumeReplicaId
     };
@@ -2373,7 +2646,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBootVolumeReplicaResponse>{},
         body: await response.json(),
@@ -2412,6 +2691,8 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     getVolumeRequest: requests.GetVolumeRequest
   ): Promise<responses.GetVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolume.");
+    const operationName = "getVolume";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/GetVolume";
     const pathParams = {
       "{volumeId}": getVolumeRequest.volumeId
     };
@@ -2439,7 +2720,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeResponse>{},
         body: await response.json(),
@@ -2478,6 +2765,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     getVolumeBackupRequest: requests.GetVolumeBackupRequest
   ): Promise<responses.GetVolumeBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeBackup.");
+    const operationName = "getVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/GetVolumeBackup";
     const pathParams = {
       "{volumeBackupId}": getVolumeBackupRequest.volumeBackupId
     };
@@ -2505,7 +2795,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeBackupResponse>{},
         body: await response.json(),
@@ -2545,6 +2841,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.GetVolumeBackupPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicy.");
+    const operationName = "getVolumeBackupPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/GetVolumeBackupPolicy";
     const pathParams = {
       "{policyId}": getVolumeBackupPolicyRequest.policyId
     };
@@ -2572,7 +2871,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeBackupPolicyResponse>{},
         body: await response.json(),
@@ -2617,6 +2922,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       this.logger.debug(
         "Calling operation BlockstorageClient#getVolumeBackupPolicyAssetAssignment."
       );
+    const operationName = "getVolumeBackupPolicyAssetAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicyAssignment/GetVolumeBackupPolicyAssetAssignment";
     const pathParams = {};
 
     const queryParams = {
@@ -2646,7 +2954,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeBackupPolicyAssetAssignmentResponse>{},
         body: await response.json(),
@@ -2738,6 +3052,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.GetVolumeBackupPolicyAssignmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#getVolumeBackupPolicyAssignment.");
+    const operationName = "getVolumeBackupPolicyAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicyAssignment/GetVolumeBackupPolicyAssignment";
     const pathParams = {
       "{policyAssignmentId}": getVolumeBackupPolicyAssignmentRequest.policyAssignmentId
     };
@@ -2765,7 +3082,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeBackupPolicyAssignmentResponse>{},
         body: await response.json(),
@@ -2804,6 +3127,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     getVolumeGroupRequest: requests.GetVolumeGroupRequest
   ): Promise<responses.GetVolumeGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeGroup.");
+    const operationName = "getVolumeGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/GetVolumeGroup";
     const pathParams = {
       "{volumeGroupId}": getVolumeGroupRequest.volumeGroupId
     };
@@ -2831,7 +3157,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeGroupResponse>{},
         body: await response.json(),
@@ -2871,6 +3203,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.GetVolumeGroupBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#getVolumeGroupBackup.");
+    const operationName = "getVolumeGroupBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/GetVolumeGroupBackup";
     const pathParams = {
       "{volumeGroupBackupId}": getVolumeGroupBackupRequest.volumeGroupBackupId
     };
@@ -2898,7 +3233,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeGroupBackupResponse>{},
         body: await response.json(),
@@ -2938,6 +3279,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.GetVolumeGroupReplicaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#getVolumeGroupReplica.");
+    const operationName = "getVolumeGroupReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupReplica/GetVolumeGroupReplica";
     const pathParams = {
       "{volumeGroupReplicaId}": getVolumeGroupReplicaRequest.volumeGroupReplicaId
     };
@@ -2965,7 +3309,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeGroupReplicaResponse>{},
         body: await response.json(),
@@ -3005,6 +3355,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     getVolumeKmsKeyRequest: requests.GetVolumeKmsKeyRequest
   ): Promise<responses.GetVolumeKmsKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#getVolumeKmsKey.");
+    const operationName = "getVolumeKmsKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeKmsKey/GetVolumeKmsKey";
     const pathParams = {
       "{volumeId}": getVolumeKmsKeyRequest.volumeId
     };
@@ -3033,7 +3386,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeKmsKeyResponse>{},
         body: await response.json(),
@@ -3074,6 +3433,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.ListBlockVolumeReplicasResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#listBlockVolumeReplicas.");
+    const operationName = "listBlockVolumeReplicas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BlockVolumeReplica/ListBlockVolumeReplicas";
     const pathParams = {};
 
     const queryParams = {
@@ -3108,7 +3470,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBlockVolumeReplicasResponse>{},
         body: await response.json(),
@@ -3201,6 +3569,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.ListBootVolumeBackupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#listBootVolumeBackups.");
+    const operationName = "listBootVolumeBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/ListBootVolumeBackups";
     const pathParams = {};
 
     const queryParams = {
@@ -3236,7 +3607,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBootVolumeBackupsResponse>{},
         body: await response.json(),
@@ -3329,6 +3706,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.ListBootVolumeReplicasResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#listBootVolumeReplicas.");
+    const operationName = "listBootVolumeReplicas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeReplica/ListBootVolumeReplicas";
     const pathParams = {};
 
     const queryParams = {
@@ -3363,7 +3743,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBootVolumeReplicasResponse>{},
         body: await response.json(),
@@ -3455,6 +3841,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     listBootVolumesRequest: requests.ListBootVolumesRequest
   ): Promise<responses.ListBootVolumesResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listBootVolumes.");
+    const operationName = "listBootVolumes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/ListBootVolumes";
     const pathParams = {};
 
     const queryParams = {
@@ -3486,7 +3875,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBootVolumesResponse>{},
         body: await response.json(),
@@ -3582,6 +3977,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.ListVolumeBackupPoliciesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#listVolumeBackupPolicies.");
+    const operationName = "listVolumeBackupPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/ListVolumeBackupPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -3611,7 +4009,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVolumeBackupPoliciesResponse>{},
         body: await response.json(),
@@ -3703,6 +4107,9 @@ For more information about Oracle defined backup policies and user defined backu
     listVolumeBackupsRequest: requests.ListVolumeBackupsRequest
   ): Promise<responses.ListVolumeBackupsResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumeBackups.");
+    const operationName = "listVolumeBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/ListVolumeBackups";
     const pathParams = {};
 
     const queryParams = {
@@ -3738,7 +4145,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVolumeBackupsResponse>{},
         body: await response.json(),
@@ -3832,6 +4245,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.ListVolumeGroupBackupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#listVolumeGroupBackups.");
+    const operationName = "listVolumeGroupBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/ListVolumeGroupBackups";
     const pathParams = {};
 
     const queryParams = {
@@ -3865,7 +4281,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVolumeGroupBackupsResponse>{},
         body: await response.json(),
@@ -3959,6 +4381,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.ListVolumeGroupReplicasResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#listVolumeGroupReplicas.");
+    const operationName = "listVolumeGroupReplicas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupReplica/ListVolumeGroupReplicas";
     const pathParams = {};
 
     const queryParams = {
@@ -3993,7 +4418,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVolumeGroupReplicasResponse>{},
         body: await response.json(),
@@ -4086,6 +4517,9 @@ For more information about Oracle defined backup policies and user defined backu
     listVolumeGroupsRequest: requests.ListVolumeGroupsRequest
   ): Promise<responses.ListVolumeGroupsResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumeGroups.");
+    const operationName = "listVolumeGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/ListVolumeGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -4120,7 +4554,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVolumeGroupsResponse>{},
         body: await response.json(),
@@ -4212,6 +4652,9 @@ For more information about Oracle defined backup policies and user defined backu
     listVolumesRequest: requests.ListVolumesRequest
   ): Promise<responses.ListVolumesResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#listVolumes.");
+    const operationName = "listVolumes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/ListVolumes";
     const pathParams = {};
 
     const queryParams = {
@@ -4247,7 +4690,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVolumesResponse>{},
         body: await response.json(),
@@ -4336,6 +4785,9 @@ For more information about Oracle defined backup policies and user defined backu
     updateBootVolumeRequest: requests.UpdateBootVolumeRequest
   ): Promise<responses.UpdateBootVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateBootVolume.");
+    const operationName = "updateBootVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolume/UpdateBootVolume";
     const pathParams = {
       "{bootVolumeId}": updateBootVolumeRequest.bootVolumeId
     };
@@ -4369,7 +4821,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBootVolumeResponse>{},
         body: await response.json(),
@@ -4411,6 +4869,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.UpdateBootVolumeBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#updateBootVolumeBackup.");
+    const operationName = "updateBootVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeBackup/UpdateBootVolumeBackup";
     const pathParams = {
       "{bootVolumeBackupId}": updateBootVolumeBackupRequest.bootVolumeBackupId
     };
@@ -4444,7 +4905,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBootVolumeBackupResponse>{},
         body: await response.json(),
@@ -4480,6 +4947,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.UpdateBootVolumeKmsKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#updateBootVolumeKmsKey.");
+    const operationName = "updateBootVolumeKmsKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeKmsKey/UpdateBootVolumeKmsKey";
     const pathParams = {
       "{bootVolumeId}": updateBootVolumeKmsKeyRequest.bootVolumeId
     };
@@ -4513,7 +4983,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBootVolumeKmsKeyResponse>{},
         body: await response.json(),
@@ -4554,6 +5030,9 @@ For more information about Oracle defined backup policies and user defined backu
     updateVolumeRequest: requests.UpdateVolumeRequest
   ): Promise<responses.UpdateVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolume.");
+    const operationName = "updateVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Volume/UpdateVolume";
     const pathParams = {
       "{volumeId}": updateVolumeRequest.volumeId
     };
@@ -4587,7 +5066,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVolumeResponse>{},
         body: await response.json(),
@@ -4628,6 +5113,9 @@ For more information about Oracle defined backup policies and user defined backu
     updateVolumeBackupRequest: requests.UpdateVolumeBackupRequest
   ): Promise<responses.UpdateVolumeBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeBackup.");
+    const operationName = "updateVolumeBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackup/UpdateVolumeBackup";
     const pathParams = {
       "{volumeBackupId}": updateVolumeBackupRequest.volumeBackupId
     };
@@ -4661,7 +5149,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVolumeBackupResponse>{},
         body: await response.json(),
@@ -4701,6 +5195,9 @@ For more information about Oracle defined backup policies and user defined backu
   ): Promise<responses.UpdateVolumeBackupPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#updateVolumeBackupPolicy.");
+    const operationName = "updateVolumeBackupPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeBackupPolicy/UpdateVolumeBackupPolicy";
     const pathParams = {
       "{policyId}": updateVolumeBackupPolicyRequest.policyId
     };
@@ -4736,7 +5233,13 @@ For more information about Oracle defined backup policies and user defined backu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVolumeBackupPolicyResponse>{},
         body: await response.json(),
@@ -4781,6 +5284,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     updateVolumeGroupRequest: requests.UpdateVolumeGroupRequest
   ): Promise<responses.UpdateVolumeGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeGroup.");
+    const operationName = "updateVolumeGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroup/UpdateVolumeGroup";
     const pathParams = {
       "{volumeGroupId}": updateVolumeGroupRequest.volumeGroupId
     };
@@ -4816,7 +5322,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVolumeGroupResponse>{},
         body: await response.json(),
@@ -4856,6 +5368,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   ): Promise<responses.UpdateVolumeGroupBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BlockstorageClient#updateVolumeGroupBackup.");
+    const operationName = "updateVolumeGroupBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeGroupBackup/UpdateVolumeGroupBackup";
     const pathParams = {
       "{volumeGroupBackupId}": updateVolumeGroupBackupRequest.volumeGroupBackupId
     };
@@ -4889,7 +5404,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVolumeGroupBackupResponse>{},
         body: await response.json(),
@@ -4924,6 +5445,9 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     updateVolumeKmsKeyRequest: requests.UpdateVolumeKmsKeyRequest
   ): Promise<responses.UpdateVolumeKmsKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation BlockstorageClient#updateVolumeKmsKey.");
+    const operationName = "updateVolumeKmsKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeKmsKey/UpdateVolumeKmsKey";
     const pathParams = {
       "{volumeId}": updateVolumeKmsKeyRequest.volumeId
     };
@@ -4957,7 +5481,13 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVolumeKmsKeyResponse>{},
         body: await response.json(),
@@ -4997,6 +5527,7 @@ export class ComputeClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Compute";
 
   protected _httpClient: common.HttpClient;
 
@@ -5127,6 +5658,9 @@ export class ComputeClient {
   ): Promise<responses.AcceptShieldedIntegrityPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#acceptShieldedIntegrityPolicy.");
+    const operationName = "acceptShieldedIntegrityPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/MeasuredBootReport/AcceptShieldedIntegrityPolicy";
     const pathParams = {
       "{instanceId}": acceptShieldedIntegrityPolicyRequest.instanceId
     };
@@ -5157,7 +5691,13 @@ export class ComputeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AcceptShieldedIntegrityPolicyResponse>{},
         responseHeaders: [
@@ -5188,6 +5728,9 @@ export class ComputeClient {
   ): Promise<responses.AddImageShapeCompatibilityEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#addImageShapeCompatibilityEntry.");
+    const operationName = "addImageShapeCompatibilityEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/AddImageShapeCompatibilityEntry";
     const pathParams = {
       "{imageId}": addImageShapeCompatibilityEntryRequest.imageId,
       "{shapeName}": addImageShapeCompatibilityEntryRequest.shapeName
@@ -5221,7 +5764,13 @@ export class ComputeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddImageShapeCompatibilityEntryResponse>{},
         body: await response.json(),
@@ -5256,6 +5805,9 @@ export class ComputeClient {
     attachBootVolumeRequest: requests.AttachBootVolumeRequest
   ): Promise<responses.AttachBootVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#attachBootVolume.");
+    const operationName = "attachBootVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeAttachment/AttachBootVolume";
     const pathParams = {};
 
     const queryParams = {};
@@ -5287,7 +5839,13 @@ export class ComputeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachBootVolumeResponse>{},
         body: await response.json(),
@@ -5329,6 +5887,9 @@ export class ComputeClient {
     attachVnicRequest: requests.AttachVnicRequest
   ): Promise<responses.AttachVnicResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#attachVnic.");
+    const operationName = "attachVnic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/AttachVnic";
     const pathParams = {};
 
     const queryParams = {};
@@ -5360,7 +5921,13 @@ export class ComputeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachVnicResponse>{},
         body: await response.json(),
@@ -5400,6 +5967,9 @@ export class ComputeClient {
     attachVolumeRequest: requests.AttachVolumeRequest
   ): Promise<responses.AttachVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#attachVolume.");
+    const operationName = "attachVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/AttachVolume";
     const pathParams = {};
 
     const queryParams = {};
@@ -5431,7 +6001,13 @@ export class ComputeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachVolumeResponse>{},
         body: await response.json(),
@@ -5487,6 +6063,9 @@ The `CaptureConsoleHistory` operation works with the other console history opera
     captureConsoleHistoryRequest: requests.CaptureConsoleHistoryRequest
   ): Promise<responses.CaptureConsoleHistoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#captureConsoleHistory.");
+    const operationName = "captureConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/CaptureConsoleHistory";
     const pathParams = {};
 
     const queryParams = {};
@@ -5518,7 +6097,13 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CaptureConsoleHistoryResponse>{},
         body: await response.json(),
@@ -5563,6 +6148,9 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       this.logger.debug(
         "Calling operation ComputeClient#changeComputeCapacityReservationCompartment."
       );
+    const operationName = "changeComputeCapacityReservationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/ChangeComputeCapacityReservationCompartment";
     const pathParams = {
       "{capacityReservationId}":
         changeComputeCapacityReservationCompartmentRequest.capacityReservationId
@@ -5599,7 +6187,13 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeComputeCapacityReservationCompartmentResponse>{},
         responseHeaders: [
@@ -5640,6 +6234,9 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       this.logger.debug(
         "Calling operation ComputeClient#changeComputeImageCapabilitySchemaCompartment."
       );
+    const operationName = "changeComputeImageCapabilitySchemaCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/ChangeComputeImageCapabilitySchemaCompartment";
     const pathParams = {
       "{computeImageCapabilitySchemaId}":
         changeComputeImageCapabilitySchemaCompartmentRequest.computeImageCapabilitySchemaId
@@ -5677,7 +6274,13 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeComputeImageCapabilitySchemaCompartmentResponse>{},
         responseHeaders: [
@@ -5708,6 +6311,9 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   ): Promise<responses.ChangeDedicatedVmHostCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#changeDedicatedVmHostCompartment.");
+    const operationName = "changeDedicatedVmHostCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/ChangeDedicatedVmHostCompartment";
     const pathParams = {
       "{dedicatedVmHostId}": changeDedicatedVmHostCompartmentRequest.dedicatedVmHostId
     };
@@ -5743,7 +6349,13 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDedicatedVmHostCompartmentResponse>{},
         responseHeaders: [
@@ -5786,6 +6398,9 @@ The `CaptureConsoleHistory` operation works with the other console history opera
     changeImageCompartmentRequest: requests.ChangeImageCompartmentRequest
   ): Promise<responses.ChangeImageCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#changeImageCompartment.");
+    const operationName = "changeImageCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/ChangeImageCompartment";
     const pathParams = {
       "{imageId}": changeImageCompartmentRequest.imageId
     };
@@ -5821,7 +6436,13 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeImageCompartmentResponse>{},
         responseHeaders: [
@@ -5863,6 +6484,9 @@ When you move an instance to a different compartment, associated resources such 
   ): Promise<responses.ChangeInstanceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#changeInstanceCompartment.");
+    const operationName = "changeInstanceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/ChangeInstanceCompartment";
     const pathParams = {
       "{instanceId}": changeInstanceCompartmentRequest.instanceId
     };
@@ -5898,7 +6522,13 @@ When you move an instance to a different compartment, associated resources such 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeInstanceCompartmentResponse>{},
         responseHeaders: [
@@ -5940,6 +6570,9 @@ When you move an instance to a different compartment, associated resources such 
   ): Promise<responses.CreateAppCatalogSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#createAppCatalogSubscription.");
+    const operationName = "createAppCatalogSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogSubscription/CreateAppCatalogSubscription";
     const pathParams = {};
 
     const queryParams = {};
@@ -5971,7 +6604,13 @@ When you move an instance to a different compartment, associated resources such 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAppCatalogSubscriptionResponse>{},
         body: await response.json(),
@@ -6016,6 +6655,8 @@ When you move an instance to a different compartment, associated resources such 
   ): Promise<responses.CreateComputeCapacityReservationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#createComputeCapacityReservation.");
+    const operationName = "createComputeCapacityReservation";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -6048,7 +6689,13 @@ When you move an instance to a different compartment, associated resources such 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateComputeCapacityReservationResponse>{},
         body: await response.json(),
@@ -6099,6 +6746,9 @@ When you move an instance to a different compartment, associated resources such 
   ): Promise<responses.CreateComputeImageCapabilitySchemaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#createComputeImageCapabilitySchema.");
+    const operationName = "createComputeImageCapabilitySchema";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/CreateComputeImageCapabilitySchema";
     const pathParams = {};
 
     const queryParams = {};
@@ -6130,7 +6780,13 @@ When you move an instance to a different compartment, associated resources such 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateComputeImageCapabilitySchemaResponse>{},
         body: await response.json(),
@@ -6173,6 +6829,9 @@ When you move an instance to a different compartment, associated resources such 
     createDedicatedVmHostRequest: requests.CreateDedicatedVmHostRequest
   ): Promise<responses.CreateDedicatedVmHostResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#createDedicatedVmHost.");
+    const operationName = "createDedicatedVmHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/CreateDedicatedVmHost";
     const pathParams = {};
 
     const queryParams = {};
@@ -6205,7 +6864,13 @@ When you move an instance to a different compartment, associated resources such 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDedicatedVmHostResponse>{},
         body: await response.json(),
@@ -6272,6 +6937,9 @@ You may optionally specify a *display name* for the image, which is simply a fri
     createImageRequest: requests.CreateImageRequest
   ): Promise<responses.CreateImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#createImage.");
+    const operationName = "createImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/CreateImage";
     const pathParams = {};
 
     const queryParams = {};
@@ -6303,7 +6971,13 @@ You may optionally specify a *display name* for the image, which is simply a fri
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateImageResponse>{},
         body: await response.json(),
@@ -6353,6 +7027,9 @@ For more information about instance console connections, see [Troubleshooting In
   ): Promise<responses.CreateInstanceConsoleConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#createInstanceConsoleConnection.");
+    const operationName = "createInstanceConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/CreateInstanceConsoleConnection";
     const pathParams = {};
 
     const queryParams = {};
@@ -6384,7 +7061,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateInstanceConsoleConnectionResponse>{},
         body: await response.json(),
@@ -6424,6 +7107,8 @@ For more information about instance console connections, see [Troubleshooting In
   ): Promise<responses.DeleteAppCatalogSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#deleteAppCatalogSubscription.");
+    const operationName = "deleteAppCatalogSubscription";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -6453,7 +7138,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAppCatalogSubscriptionResponse>{},
         responseHeaders: [
@@ -6484,6 +7175,9 @@ For more information about instance console connections, see [Troubleshooting In
   ): Promise<responses.DeleteComputeCapacityReservationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#deleteComputeCapacityReservation.");
+    const operationName = "deleteComputeCapacityReservation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/DeleteComputeCapacityReservation";
     const pathParams = {
       "{capacityReservationId}": deleteComputeCapacityReservationRequest.capacityReservationId
     };
@@ -6513,7 +7207,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteComputeCapacityReservationResponse>{},
         responseHeaders: [
@@ -6550,6 +7250,9 @@ For more information about instance console connections, see [Troubleshooting In
   ): Promise<responses.DeleteComputeImageCapabilitySchemaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#deleteComputeImageCapabilitySchema.");
+    const operationName = "deleteComputeImageCapabilitySchema";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/DeleteComputeImageCapabilitySchema";
     const pathParams = {
       "{computeImageCapabilitySchemaId}":
         deleteComputeImageCapabilitySchemaRequest.computeImageCapabilitySchemaId
@@ -6579,7 +7282,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteComputeImageCapabilitySchemaResponse>{},
         responseHeaders: [
@@ -6610,6 +7319,9 @@ For more information about instance console connections, see [Troubleshooting In
     deleteConsoleHistoryRequest: requests.DeleteConsoleHistoryRequest
   ): Promise<responses.DeleteConsoleHistoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteConsoleHistory.");
+    const operationName = "deleteConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/DeleteConsoleHistory";
     const pathParams = {
       "{instanceConsoleHistoryId}": deleteConsoleHistoryRequest.instanceConsoleHistoryId
     };
@@ -6638,7 +7350,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConsoleHistoryResponse>{},
         responseHeaders: [
@@ -6672,6 +7390,9 @@ If any VM instances are assigned to the dedicated virtual machine host,
     deleteDedicatedVmHostRequest: requests.DeleteDedicatedVmHostRequest
   ): Promise<responses.DeleteDedicatedVmHostResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteDedicatedVmHost.");
+    const operationName = "deleteDedicatedVmHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/DeleteDedicatedVmHost";
     const pathParams = {
       "{dedicatedVmHostId}": deleteDedicatedVmHostRequest.dedicatedVmHostId
     };
@@ -6700,7 +7421,13 @@ If any VM instances are assigned to the dedicated virtual machine host,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDedicatedVmHostResponse>{},
         responseHeaders: [
@@ -6735,6 +7462,8 @@ If any VM instances are assigned to the dedicated virtual machine host,
     deleteImageRequest: requests.DeleteImageRequest
   ): Promise<responses.DeleteImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteImage.");
+    const operationName = "deleteImage";
+    const apiReferenceLink = "";
     const pathParams = {
       "{imageId}": deleteImageRequest.imageId
     };
@@ -6763,7 +7492,13 @@ If any VM instances are assigned to the dedicated virtual machine host,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteImageResponse>{},
         responseHeaders: [
@@ -6794,6 +7529,9 @@ If any VM instances are assigned to the dedicated virtual machine host,
   ): Promise<responses.DeleteInstanceConsoleConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#deleteInstanceConsoleConnection.");
+    const operationName = "deleteInstanceConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/DeleteInstanceConsoleConnection";
     const pathParams = {
       "{instanceConsoleConnectionId}":
         deleteInstanceConsoleConnectionRequest.instanceConsoleConnectionId
@@ -6823,7 +7561,13 @@ If any VM instances are assigned to the dedicated virtual machine host,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteInstanceConsoleConnectionResponse>{},
         responseHeaders: [
@@ -6857,6 +7601,8 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
     detachBootVolumeRequest: requests.DetachBootVolumeRequest
   ): Promise<responses.DetachBootVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#detachBootVolume.");
+    const operationName = "detachBootVolume";
+    const apiReferenceLink = "";
     const pathParams = {
       "{bootVolumeAttachmentId}": detachBootVolumeRequest.bootVolumeAttachmentId
     };
@@ -6885,7 +7631,13 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachBootVolumeResponse>{},
         responseHeaders: [
@@ -6925,6 +7677,9 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
     detachVnicRequest: requests.DetachVnicRequest
   ): Promise<responses.DetachVnicResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#detachVnic.");
+    const operationName = "detachVnic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/DetachVnic";
     const pathParams = {
       "{vnicAttachmentId}": detachVnicRequest.vnicAttachmentId
     };
@@ -6953,7 +7708,13 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachVnicResponse>{},
         responseHeaders: [
@@ -6987,6 +7748,9 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
     detachVolumeRequest: requests.DetachVolumeRequest
   ): Promise<responses.DetachVolumeResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#detachVolume.");
+    const operationName = "detachVolume";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/DetachVolume";
     const pathParams = {
       "{volumeAttachmentId}": detachVolumeRequest.volumeAttachmentId
     };
@@ -7015,7 +7779,13 @@ This is an asynchronous operation. The attachment's `lifecycleState` will change
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachVolumeResponse>{},
         responseHeaders: [
@@ -7055,6 +7825,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     exportImageRequest: requests.ExportImageRequest
   ): Promise<responses.ExportImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#exportImage.");
+    const operationName = "exportImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/ExportImage";
     const pathParams = {
       "{imageId}": exportImageRequest.imageId
     };
@@ -7089,7 +7862,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExportImageResponse>{},
         body: await response.json(),
@@ -7133,6 +7912,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getAppCatalogListingRequest: requests.GetAppCatalogListingRequest
   ): Promise<responses.GetAppCatalogListingResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getAppCatalogListing.");
+    const operationName = "getAppCatalogListing";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListing/GetAppCatalogListing";
     const pathParams = {
       "{listingId}": getAppCatalogListingRequest.listingId
     };
@@ -7160,7 +7942,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAppCatalogListingResponse>{},
         body: await response.json(),
@@ -7200,6 +7988,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetAppCatalogListingAgreementsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getAppCatalogListingAgreements.");
+    const operationName = "getAppCatalogListingAgreements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingResourceVersionAgreements/GetAppCatalogListingAgreements";
     const pathParams = {
       "{listingId}": getAppCatalogListingAgreementsRequest.listingId,
       "{resourceVersion}": getAppCatalogListingAgreementsRequest.resourceVersion
@@ -7228,7 +8019,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAppCatalogListingAgreementsResponse>{},
         body: await response.json(),
@@ -7268,6 +8065,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetAppCatalogListingResourceVersionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getAppCatalogListingResourceVersion.");
+    const operationName = "getAppCatalogListingResourceVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingResourceVersion/GetAppCatalogListingResourceVersion";
     const pathParams = {
       "{listingId}": getAppCatalogListingResourceVersionRequest.listingId,
       "{resourceVersion}": getAppCatalogListingResourceVersionRequest.resourceVersion
@@ -7296,7 +8096,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAppCatalogListingResourceVersionResponse>{},
         body: await response.json(),
@@ -7335,6 +8141,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getBootVolumeAttachmentRequest: requests.GetBootVolumeAttachmentRequest
   ): Promise<responses.GetBootVolumeAttachmentResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getBootVolumeAttachment.");
+    const operationName = "getBootVolumeAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeAttachment/GetBootVolumeAttachment";
     const pathParams = {
       "{bootVolumeAttachmentId}": getBootVolumeAttachmentRequest.bootVolumeAttachmentId
     };
@@ -7362,7 +8171,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBootVolumeAttachmentResponse>{},
         body: await response.json(),
@@ -7402,6 +8217,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetComputeCapacityReservationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getComputeCapacityReservation.");
+    const operationName = "getComputeCapacityReservation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/GetComputeCapacityReservation";
     const pathParams = {
       "{capacityReservationId}": getComputeCapacityReservationRequest.capacityReservationId
     };
@@ -7430,7 +8248,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetComputeCapacityReservationResponse>{},
         body: await response.json(),
@@ -7470,6 +8294,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetComputeGlobalImageCapabilitySchemaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getComputeGlobalImageCapabilitySchema.");
+    const operationName = "getComputeGlobalImageCapabilitySchema";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchema/GetComputeGlobalImageCapabilitySchema";
     const pathParams = {
       "{computeGlobalImageCapabilitySchemaId}":
         getComputeGlobalImageCapabilitySchemaRequest.computeGlobalImageCapabilitySchemaId
@@ -7498,7 +8325,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetComputeGlobalImageCapabilitySchemaResponse>{},
         body: await response.json(),
@@ -7540,6 +8373,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       this.logger.debug(
         "Calling operation ComputeClient#getComputeGlobalImageCapabilitySchemaVersion."
       );
+    const operationName = "getComputeGlobalImageCapabilitySchemaVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchemaVersion/GetComputeGlobalImageCapabilitySchemaVersion";
     const pathParams = {
       "{computeGlobalImageCapabilitySchemaId}":
         getComputeGlobalImageCapabilitySchemaVersionRequest.computeGlobalImageCapabilitySchemaId,
@@ -7571,7 +8407,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetComputeGlobalImageCapabilitySchemaVersionResponse>{},
         body: await response.json(),
@@ -7612,6 +8454,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetComputeImageCapabilitySchemaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getComputeImageCapabilitySchema.");
+    const operationName = "getComputeImageCapabilitySchema";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/GetComputeImageCapabilitySchema";
     const pathParams = {
       "{computeImageCapabilitySchemaId}":
         getComputeImageCapabilitySchemaRequest.computeImageCapabilitySchemaId
@@ -7642,7 +8487,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetComputeImageCapabilitySchemaResponse>{},
         body: await response.json(),
@@ -7684,6 +8535,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getConsoleHistoryRequest: requests.GetConsoleHistoryRequest
   ): Promise<responses.GetConsoleHistoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getConsoleHistory.");
+    const operationName = "getConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/GetConsoleHistory";
     const pathParams = {
       "{instanceConsoleHistoryId}": getConsoleHistoryRequest.instanceConsoleHistoryId
     };
@@ -7711,7 +8565,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConsoleHistoryResponse>{},
         body: await response.json(),
@@ -7753,6 +8613,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getConsoleHistoryContentRequest: requests.GetConsoleHistoryContentRequest
   ): Promise<responses.GetConsoleHistoryContentResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getConsoleHistoryContent.");
+    const operationName = "getConsoleHistoryContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/GetConsoleHistoryContent";
     const pathParams = {
       "{instanceConsoleHistoryId}": getConsoleHistoryContentRequest.instanceConsoleHistoryId
     };
@@ -7783,7 +8646,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConsoleHistoryContentResponse>{},
         body: await response.json(),
@@ -7822,6 +8691,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getDedicatedVmHostRequest: requests.GetDedicatedVmHostRequest
   ): Promise<responses.GetDedicatedVmHostResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getDedicatedVmHost.");
+    const operationName = "getDedicatedVmHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/GetDedicatedVmHost";
     const pathParams = {
       "{dedicatedVmHostId}": getDedicatedVmHostRequest.dedicatedVmHostId
     };
@@ -7850,7 +8722,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDedicatedVmHostResponse>{},
         body: await response.json(),
@@ -7889,6 +8767,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getImageRequest: requests.GetImageRequest
   ): Promise<responses.GetImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getImage.");
+    const operationName = "getImage";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/GetImage";
     const pathParams = {
       "{imageId}": getImageRequest.imageId
     };
@@ -7916,7 +8796,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetImageResponse>{},
         body: await response.json(),
@@ -7956,6 +8842,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetImageShapeCompatibilityEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getImageShapeCompatibilityEntry.");
+    const operationName = "getImageShapeCompatibilityEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/GetImageShapeCompatibilityEntry";
     const pathParams = {
       "{imageId}": getImageShapeCompatibilityEntryRequest.imageId,
       "{shapeName}": getImageShapeCompatibilityEntryRequest.shapeName
@@ -7985,7 +8874,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetImageShapeCompatibilityEntryResponse>{},
         body: await response.json(),
@@ -8019,6 +8914,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getInstanceRequest: requests.GetInstanceRequest
   ): Promise<responses.GetInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getInstance.");
+    const operationName = "getInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/GetInstance";
     const pathParams = {
       "{instanceId}": getInstanceRequest.instanceId
     };
@@ -8046,7 +8944,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstanceResponse>{},
         body: await response.json(),
@@ -8086,6 +8990,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetInstanceConsoleConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getInstanceConsoleConnection.");
+    const operationName = "getInstanceConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/GetInstanceConsoleConnection";
     const pathParams = {
       "{instanceConsoleConnectionId}":
         getInstanceConsoleConnectionRequest.instanceConsoleConnectionId
@@ -8114,7 +9021,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstanceConsoleConnectionResponse>{},
         body: await response.json(),
@@ -8148,6 +9061,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getMeasuredBootReportRequest: requests.GetMeasuredBootReportRequest
   ): Promise<responses.GetMeasuredBootReportResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getMeasuredBootReport.");
+    const operationName = "getMeasuredBootReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/MeasuredBootReport/GetMeasuredBootReport";
     const pathParams = {
       "{instanceId}": getMeasuredBootReportRequest.instanceId
     };
@@ -8176,7 +9092,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMeasuredBootReportResponse>{},
         body: await response.json(),
@@ -8216,6 +9138,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getVnicAttachmentRequest: requests.GetVnicAttachmentRequest
   ): Promise<responses.GetVnicAttachmentResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getVnicAttachment.");
+    const operationName = "getVnicAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/GetVnicAttachment";
     const pathParams = {
       "{vnicAttachmentId}": getVnicAttachmentRequest.vnicAttachmentId
     };
@@ -8243,7 +9168,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVnicAttachmentResponse>{},
         body: await response.json(),
@@ -8282,6 +9213,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
     getVolumeAttachmentRequest: requests.GetVolumeAttachmentRequest
   ): Promise<responses.GetVolumeAttachmentResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#getVolumeAttachment.");
+    const operationName = "getVolumeAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/GetVolumeAttachment";
     const pathParams = {
       "{volumeAttachmentId}": getVolumeAttachmentRequest.volumeAttachmentId
     };
@@ -8309,7 +9243,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVolumeAttachmentResponse>{},
         body: await response.json(),
@@ -8351,6 +9291,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   ): Promise<responses.GetWindowsInstanceInitialCredentialsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#getWindowsInstanceInitialCredentials.");
+    const operationName = "getWindowsInstanceInitialCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceCredentials/GetWindowsInstanceInitialCredentials";
     const pathParams = {
       "{instanceId}": getWindowsInstanceInitialCredentialsRequest.instanceId
     };
@@ -8378,7 +9321,13 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWindowsInstanceInitialCredentialsResponse>{},
         body: await response.json(),
@@ -8448,6 +9397,9 @@ For more information about managing instance lifecycle states, see
     instanceActionRequest: requests.InstanceActionRequest
   ): Promise<responses.InstanceActionResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#instanceAction.");
+    const operationName = "instanceAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/InstanceAction";
     const pathParams = {
       "{instanceId}": instanceActionRequest.instanceId
     };
@@ -8484,7 +9436,13 @@ For more information about managing instance lifecycle states, see
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstanceActionResponse>{},
         body: await response.json(),
@@ -8562,6 +9520,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     launchInstanceRequest: requests.LaunchInstanceRequest
   ): Promise<responses.LaunchInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#launchInstance.");
+    const operationName = "launchInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/LaunchInstance";
     const pathParams = {};
 
     const queryParams = {};
@@ -8593,7 +9554,13 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.LaunchInstanceResponse>{},
         body: await response.json(),
@@ -8638,6 +9605,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   ): Promise<responses.ListAppCatalogListingResourceVersionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listAppCatalogListingResourceVersions.");
+    const operationName = "listAppCatalogListingResourceVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingResourceVersionSummary/ListAppCatalogListingResourceVersions";
     const pathParams = {
       "{listingId}": listAppCatalogListingResourceVersionsRequest.listingId
     };
@@ -8669,7 +9639,13 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAppCatalogListingResourceVersionsResponse>{},
         body: await response.json(),
@@ -8760,6 +9736,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
     listAppCatalogListingsRequest: requests.ListAppCatalogListingsRequest
   ): Promise<responses.ListAppCatalogListingsResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listAppCatalogListings.");
+    const operationName = "listAppCatalogListings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogListingSummary/ListAppCatalogListings";
     const pathParams = {};
 
     const queryParams = {
@@ -8792,7 +9771,13 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAppCatalogListingsResponse>{},
         body: await response.json(),
@@ -8884,6 +9869,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   ): Promise<responses.ListAppCatalogSubscriptionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listAppCatalogSubscriptions.");
+    const operationName = "listAppCatalogSubscriptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AppCatalogSubscriptionSummary/ListAppCatalogSubscriptions";
     const pathParams = {};
 
     const queryParams = {
@@ -8916,7 +9904,13 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAppCatalogSubscriptionsResponse>{},
         body: await response.json(),
@@ -9010,6 +10004,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   ): Promise<responses.ListBootVolumeAttachmentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listBootVolumeAttachments.");
+    const operationName = "listBootVolumeAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/BootVolumeAttachment/ListBootVolumeAttachments";
     const pathParams = {};
 
     const queryParams = {
@@ -9042,7 +10039,13 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBootVolumeAttachmentsResponse>{},
         body: await response.json(),
@@ -9137,6 +10140,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       this.logger.debug(
         "Calling operation ComputeClient#listComputeCapacityReservationInstanceShapes."
       );
+    const operationName = "listComputeCapacityReservationInstanceShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservationInstanceShapeSummary/ListComputeCapacityReservationInstanceShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -9171,7 +10177,13 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputeCapacityReservationInstanceShapesResponse>{},
         body: await response.json(),
@@ -9268,6 +10280,9 @@ To launch an instance from a Marketplace image listing, you must provide the ima
   ): Promise<responses.ListComputeCapacityReservationInstancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listComputeCapacityReservationInstances.");
+    const operationName = "listComputeCapacityReservationInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CapacityReservationInstanceSummary/ListComputeCapacityReservationInstances";
     const pathParams = {
       "{capacityReservationId}":
         listComputeCapacityReservationInstancesRequest.capacityReservationId
@@ -9304,7 +10319,13 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputeCapacityReservationInstancesResponse>{},
         body: await response.json(),
@@ -9400,6 +10421,9 @@ You can limit the list by specifying a compute capacity reservation display name
   ): Promise<responses.ListComputeCapacityReservationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listComputeCapacityReservations.");
+    const operationName = "listComputeCapacityReservations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/ListComputeCapacityReservations";
     const pathParams = {};
 
     const queryParams = {
@@ -9435,7 +10459,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputeCapacityReservationsResponse>{},
         body: await response.json(),
@@ -9530,6 +10560,9 @@ You can limit the list by specifying a compute capacity reservation display name
       this.logger.debug(
         "Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemaVersions."
       );
+    const operationName = "listComputeGlobalImageCapabilitySchemaVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchemaVersionSummary/ListComputeGlobalImageCapabilitySchemaVersions";
     const pathParams = {
       "{computeGlobalImageCapabilitySchemaId}":
         listComputeGlobalImageCapabilitySchemaVersionsRequest.computeGlobalImageCapabilitySchemaId
@@ -9564,7 +10597,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputeGlobalImageCapabilitySchemaVersionsResponse>{},
         body: await response.json(),
@@ -9665,6 +10704,9 @@ You can limit the list by specifying a compute capacity reservation display name
   ): Promise<responses.ListComputeGlobalImageCapabilitySchemasResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listComputeGlobalImageCapabilitySchemas.");
+    const operationName = "listComputeGlobalImageCapabilitySchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeGlobalImageCapabilitySchemaSummary/ListComputeGlobalImageCapabilitySchemas";
     const pathParams = {};
 
     const queryParams = {
@@ -9697,7 +10739,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputeGlobalImageCapabilitySchemasResponse>{},
         body: await response.json(),
@@ -9790,6 +10838,9 @@ You can limit the list by specifying a compute capacity reservation display name
   ): Promise<responses.ListComputeImageCapabilitySchemasResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listComputeImageCapabilitySchemas.");
+    const operationName = "listComputeImageCapabilitySchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchemaSummary/ListComputeImageCapabilitySchemas";
     const pathParams = {};
 
     const queryParams = {
@@ -9823,7 +10874,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListComputeImageCapabilitySchemasResponse>{},
         body: await response.json(),
@@ -9915,6 +10972,9 @@ You can limit the list by specifying a compute capacity reservation display name
     listConsoleHistoriesRequest: requests.ListConsoleHistoriesRequest
   ): Promise<responses.ListConsoleHistoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listConsoleHistories.");
+    const operationName = "listConsoleHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/ListConsoleHistories";
     const pathParams = {};
 
     const queryParams = {
@@ -9949,7 +11009,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConsoleHistoriesResponse>{},
         body: await response.json(),
@@ -10043,6 +11109,9 @@ You can limit the list by specifying a compute capacity reservation display name
   ): Promise<responses.ListDedicatedVmHostInstanceShapesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstanceShapes.");
+    const operationName = "listDedicatedVmHostInstanceShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostInstanceShapeSummary/ListDedicatedVmHostInstanceShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -10075,7 +11144,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDedicatedVmHostInstanceShapesResponse>{},
         body: await response.json(),
@@ -10168,6 +11243,9 @@ You can limit the list by specifying a compute capacity reservation display name
   ): Promise<responses.ListDedicatedVmHostInstancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostInstances.");
+    const operationName = "listDedicatedVmHostInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostInstanceSummary/ListDedicatedVmHostInstances";
     const pathParams = {
       "{dedicatedVmHostId}": listDedicatedVmHostInstancesRequest.dedicatedVmHostId
     };
@@ -10203,7 +11281,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDedicatedVmHostInstancesResponse>{},
         body: await response.json(),
@@ -10296,6 +11380,9 @@ You can limit the list by specifying a compute capacity reservation display name
   ): Promise<responses.ListDedicatedVmHostShapesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listDedicatedVmHostShapes.");
+    const operationName = "listDedicatedVmHostShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostShapeSummary/ListDedicatedVmHostShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -10328,7 +11415,13 @@ You can limit the list by specifying a compute capacity reservation display name
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDedicatedVmHostShapesResponse>{},
         body: await response.json(),
@@ -10423,6 +11516,9 @@ You can limit the list by specifying a dedicated virtual machine host display na
     listDedicatedVmHostsRequest: requests.ListDedicatedVmHostsRequest
   ): Promise<responses.ListDedicatedVmHostsResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listDedicatedVmHosts.");
+    const operationName = "listDedicatedVmHosts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHostSummary/ListDedicatedVmHosts";
     const pathParams = {};
 
     const queryParams = {
@@ -10463,7 +11559,13 @@ You can limit the list by specifying a dedicated virtual machine host display na
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDedicatedVmHostsResponse>{},
         body: await response.json(),
@@ -10555,6 +11657,9 @@ You can limit the list by specifying a dedicated virtual machine host display na
   ): Promise<responses.ListImageShapeCompatibilityEntriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listImageShapeCompatibilityEntries.");
+    const operationName = "listImageShapeCompatibilityEntries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/ListImageShapeCompatibilityEntries";
     const pathParams = {
       "{imageId}": listImageShapeCompatibilityEntriesRequest.imageId
     };
@@ -10586,7 +11691,13 @@ You can limit the list by specifying a dedicated virtual machine host display na
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListImageShapeCompatibilityEntriesResponse>{},
         body: await response.json(),
@@ -10688,6 +11799,8 @@ The list of images returned is ordered to first show the recent platform images,
     listImagesRequest: requests.ListImagesRequest
   ): Promise<responses.ListImagesResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listImages.");
+    const operationName = "listImages";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/ListImages";
     const pathParams = {};
 
     const queryParams = {
@@ -10724,7 +11837,13 @@ The list of images returned is ordered to first show the recent platform images,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListImagesResponse>{},
         body: await response.json(),
@@ -10817,6 +11936,9 @@ For more information about instance console connections, see [Troubleshooting In
   ): Promise<responses.ListInstanceConsoleConnectionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#listInstanceConsoleConnections.");
+    const operationName = "listInstanceConsoleConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/ListInstanceConsoleConnections";
     const pathParams = {};
 
     const queryParams = {
@@ -10847,7 +11969,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstanceConsoleConnectionsResponse>{},
         body: await response.json(),
@@ -10938,6 +12066,9 @@ For more information about instance console connections, see [Troubleshooting In
     listInstanceDevicesRequest: requests.ListInstanceDevicesRequest
   ): Promise<responses.ListInstanceDevicesResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listInstanceDevices.");
+    const operationName = "listInstanceDevices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Device/ListInstanceDevices";
     const pathParams = {
       "{instanceId}": listInstanceDevicesRequest.instanceId
     };
@@ -10973,7 +12104,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstanceDevicesResponse>{},
         body: await response.json(),
@@ -11067,6 +12204,9 @@ For more information about instance console connections, see [Troubleshooting In
     listInstancesRequest: requests.ListInstancesRequest
   ): Promise<responses.ListInstancesResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listInstances.");
+    const operationName = "listInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/ListInstances";
     const pathParams = {};
 
     const queryParams = {
@@ -11102,7 +12242,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstancesResponse>{},
         body: await response.json(),
@@ -11195,6 +12341,8 @@ For more information about instance console connections, see [Troubleshooting In
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listShapes.");
+    const operationName = "listShapes";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Shape/ListShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -11226,7 +12374,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListShapesResponse>{},
         body: await response.json(),
@@ -11318,6 +12472,9 @@ For more information about instance console connections, see [Troubleshooting In
     listVnicAttachmentsRequest: requests.ListVnicAttachmentsRequest
   ): Promise<responses.ListVnicAttachmentsResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listVnicAttachments.");
+    const operationName = "listVnicAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VnicAttachment/ListVnicAttachments";
     const pathParams = {};
 
     const queryParams = {
@@ -11350,7 +12507,13 @@ For more information about instance console connections, see [Troubleshooting In
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVnicAttachmentsResponse>{},
         body: await response.json(),
@@ -11446,6 +12609,9 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
     listVolumeAttachmentsRequest: requests.ListVolumeAttachmentsRequest
   ): Promise<responses.ListVolumeAttachmentsResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#listVolumeAttachments.");
+    const operationName = "listVolumeAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/ListVolumeAttachments";
     const pathParams = {};
 
     const queryParams = {
@@ -11478,7 +12644,13 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVolumeAttachmentsResponse>{},
         body: await response.json(),
@@ -11570,6 +12742,9 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   ): Promise<responses.RemoveImageShapeCompatibilityEntryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#removeImageShapeCompatibilityEntry.");
+    const operationName = "removeImageShapeCompatibilityEntry";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ImageShapeCompatibilityEntry/RemoveImageShapeCompatibilityEntry";
     const pathParams = {
       "{imageId}": removeImageShapeCompatibilityEntryRequest.imageId,
       "{shapeName}": removeImageShapeCompatibilityEntryRequest.shapeName
@@ -11598,7 +12773,13 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveImageShapeCompatibilityEntryResponse>{},
         responseHeaders: [
@@ -11639,6 +12820,8 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     terminateInstanceRequest: requests.TerminateInstanceRequest
   ): Promise<responses.TerminateInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#terminateInstance.");
+    const operationName = "terminateInstance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{instanceId}": terminateInstanceRequest.instanceId
     };
@@ -11670,7 +12853,13 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TerminateInstanceResponse>{},
         responseHeaders: [
@@ -11704,6 +12893,9 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
   ): Promise<responses.UpdateComputeCapacityReservationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#updateComputeCapacityReservation.");
+    const operationName = "updateComputeCapacityReservation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReservation/UpdateComputeCapacityReservation";
     const pathParams = {
       "{capacityReservationId}": updateComputeCapacityReservationRequest.capacityReservationId
     };
@@ -11738,7 +12930,13 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateComputeCapacityReservationResponse>{},
         responseHeaders: [
@@ -11775,6 +12973,9 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
   ): Promise<responses.UpdateComputeImageCapabilitySchemaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#updateComputeImageCapabilitySchema.");
+    const operationName = "updateComputeImageCapabilitySchema";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeImageCapabilitySchema/UpdateComputeImageCapabilitySchema";
     const pathParams = {
       "{computeImageCapabilitySchemaId}":
         updateComputeImageCapabilitySchemaRequest.computeImageCapabilitySchemaId
@@ -11809,7 +13010,13 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateComputeImageCapabilitySchemaResponse>{},
         body: await response.json(),
@@ -11848,6 +13055,9 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     updateConsoleHistoryRequest: requests.UpdateConsoleHistoryRequest
   ): Promise<responses.UpdateConsoleHistoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#updateConsoleHistory.");
+    const operationName = "updateConsoleHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ConsoleHistory/UpdateConsoleHistory";
     const pathParams = {
       "{instanceConsoleHistoryId}": updateConsoleHistoryRequest.instanceConsoleHistoryId
     };
@@ -11881,7 +13091,13 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConsoleHistoryResponse>{},
         body: await response.json(),
@@ -11922,6 +13138,9 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     updateDedicatedVmHostRequest: requests.UpdateDedicatedVmHostRequest
   ): Promise<responses.UpdateDedicatedVmHostResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#updateDedicatedVmHost.");
+    const operationName = "updateDedicatedVmHost";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DedicatedVmHost/UpdateDedicatedVmHost";
     const pathParams = {
       "{dedicatedVmHostId}": updateDedicatedVmHostRequest.dedicatedVmHostId
     };
@@ -11957,7 +13176,13 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDedicatedVmHostResponse>{},
         body: await response.json(),
@@ -11997,6 +13222,9 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
     updateImageRequest: requests.UpdateImageRequest
   ): Promise<responses.UpdateImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#updateImage.");
+    const operationName = "updateImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Image/UpdateImage";
     const pathParams = {
       "{imageId}": updateImageRequest.imageId
     };
@@ -12031,7 +13259,13 @@ This is an asynchronous operation. The instance's `lifecycleState` will change t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateImageResponse>{},
         body: await response.json(),
@@ -12077,6 +13311,9 @@ The OCID of the instance remains the same.
     updateInstanceRequest: requests.UpdateInstanceRequest
   ): Promise<responses.UpdateInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#updateInstance.");
+    const operationName = "updateInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/UpdateInstance";
     const pathParams = {
       "{instanceId}": updateInstanceRequest.instanceId
     };
@@ -12111,7 +13348,13 @@ The OCID of the instance remains the same.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateInstanceResponse>{},
         body: await response.json(),
@@ -12156,6 +13399,9 @@ The OCID of the instance remains the same.
   ): Promise<responses.UpdateInstanceConsoleConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeClient#updateInstanceConsoleConnection.");
+    const operationName = "updateInstanceConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConsoleConnection/UpdateInstanceConsoleConnection";
     const pathParams = {
       "{instanceConsoleConnectionId}":
         updateInstanceConsoleConnectionRequest.instanceConsoleConnectionId
@@ -12191,7 +13437,13 @@ The OCID of the instance remains the same.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateInstanceConsoleConnectionResponse>{},
         body: await response.json(),
@@ -12230,6 +13482,9 @@ The OCID of the instance remains the same.
     updateVolumeAttachmentRequest: requests.UpdateVolumeAttachmentRequest
   ): Promise<responses.UpdateVolumeAttachmentResponse> {
     if (this.logger) this.logger.debug("Calling operation ComputeClient#updateVolumeAttachment.");
+    const operationName = "updateVolumeAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VolumeAttachment/UpdateVolumeAttachment";
     const pathParams = {
       "{volumeAttachmentId}": updateVolumeAttachmentRequest.volumeAttachmentId
     };
@@ -12264,7 +13519,13 @@ The OCID of the instance remains the same.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVolumeAttachmentResponse>{},
         body: await response.json(),
@@ -12304,6 +13565,7 @@ export class ComputeManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ComputeManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -12437,6 +13699,8 @@ export class ComputeManagementClient {
   ): Promise<responses.AttachInstancePoolInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#attachInstancePoolInstance.");
+    const operationName = "attachInstancePoolInstance";
+    const apiReferenceLink = "";
     const pathParams = {
       "{instancePoolId}": attachInstancePoolInstanceRequest.instancePoolId
     };
@@ -12470,7 +13734,13 @@ export class ComputeManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachInstancePoolInstanceResponse>{},
         body: await response.json(),
@@ -12521,6 +13791,9 @@ export class ComputeManagementClient {
   ): Promise<responses.AttachLoadBalancerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#attachLoadBalancer.");
+    const operationName = "attachLoadBalancer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/AttachLoadBalancer";
     const pathParams = {
       "{instancePoolId}": attachLoadBalancerRequest.instancePoolId
     };
@@ -12555,7 +13828,13 @@ export class ComputeManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachLoadBalancerResponse>{},
         body: await response.json(),
@@ -12603,6 +13882,9 @@ When you move a cluster network to a different compartment, associated resources
       this.logger.debug(
         "Calling operation ComputeManagementClient#changeClusterNetworkCompartment."
       );
+    const operationName = "changeClusterNetworkCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/ChangeClusterNetworkCompartment";
     const pathParams = {
       "{clusterNetworkId}": changeClusterNetworkCompartmentRequest.clusterNetworkId
     };
@@ -12638,7 +13920,13 @@ When you move a cluster network to a different compartment, associated resources
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeClusterNetworkCompartmentResponse>{},
         responseHeaders: [
@@ -12689,6 +13977,9 @@ When you move an instance configuration to a different compartment, associated r
       this.logger.debug(
         "Calling operation ComputeManagementClient#changeInstanceConfigurationCompartment."
       );
+    const operationName = "changeInstanceConfigurationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/ChangeInstanceConfigurationCompartment";
     const pathParams = {
       "{instanceConfigurationId}":
         changeInstanceConfigurationCompartmentRequest.instanceConfigurationId
@@ -12725,7 +14016,13 @@ When you move an instance configuration to a different compartment, associated r
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeInstanceConfigurationCompartmentResponse>{},
         responseHeaders: [
@@ -12767,6 +14064,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.ChangeInstancePoolCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#changeInstancePoolCompartment.");
+    const operationName = "changeInstancePoolCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/ChangeInstancePoolCompartment";
     const pathParams = {
       "{instancePoolId}": changeInstancePoolCompartmentRequest.instancePoolId
     };
@@ -12802,7 +14102,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeInstancePoolCompartmentResponse>{},
         responseHeaders: [
@@ -12840,6 +14146,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.CreateClusterNetworkResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#createClusterNetwork.");
+    const operationName = "createClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/CreateClusterNetwork";
     const pathParams = {};
 
     const queryParams = {};
@@ -12871,7 +14180,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateClusterNetworkResponse>{},
         body: await response.json(),
@@ -12918,6 +14233,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.CreateInstanceConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#createInstanceConfiguration.");
+    const operationName = "createInstanceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/CreateInstanceConfiguration";
     const pathParams = {};
 
     const queryParams = {};
@@ -12949,7 +14267,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateInstanceConfigurationResponse>{},
         body: await response.json(),
@@ -12989,6 +14313,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.CreateInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#createInstancePool.");
+    const operationName = "createInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/CreateInstancePool";
     const pathParams = {};
 
     const queryParams = {};
@@ -13020,7 +14347,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateInstancePoolResponse>{},
         body: await response.json(),
@@ -13060,6 +14393,8 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.DeleteInstanceConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#deleteInstanceConfiguration.");
+    const operationName = "deleteInstanceConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {
       "{instanceConfigurationId}": deleteInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -13088,7 +14423,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteInstanceConfigurationResponse>{},
         responseHeaders: [
@@ -13120,6 +14461,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.DetachInstancePoolInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#detachInstancePoolInstance.");
+    const operationName = "detachInstancePoolInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolInstance/DetachInstancePoolInstance";
     const pathParams = {
       "{instancePoolId}": detachInstancePoolInstanceRequest.instancePoolId
     };
@@ -13153,7 +14497,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachInstancePoolInstanceResponse>{},
         responseHeaders: [
@@ -13190,6 +14540,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.DetachLoadBalancerResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#detachLoadBalancer.");
+    const operationName = "detachLoadBalancer";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/DetachLoadBalancer";
     const pathParams = {
       "{instancePoolId}": detachLoadBalancerRequest.instancePoolId
     };
@@ -13224,7 +14577,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachLoadBalancerResponse>{},
         body: await response.json(),
@@ -13264,6 +14623,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.GetClusterNetworkResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#getClusterNetwork.");
+    const operationName = "getClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/GetClusterNetwork";
     const pathParams = {
       "{clusterNetworkId}": getClusterNetworkRequest.clusterNetworkId
     };
@@ -13291,7 +14653,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetClusterNetworkResponse>{},
         body: await response.json(),
@@ -13331,6 +14699,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.GetInstanceConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#getInstanceConfiguration.");
+    const operationName = "getInstanceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/GetInstanceConfiguration";
     const pathParams = {
       "{instanceConfigurationId}": getInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -13358,7 +14729,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstanceConfigurationResponse>{},
         body: await response.json(),
@@ -13398,6 +14775,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.GetInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#getInstancePool.");
+    const operationName = "getInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/GetInstancePool";
     const pathParams = {
       "{instancePoolId}": getInstancePoolRequest.instancePoolId
     };
@@ -13425,7 +14805,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstancePoolResponse>{},
         body: await response.json(),
@@ -13465,6 +14851,9 @@ When you move an instance pool to a different compartment, associated resources 
   ): Promise<responses.GetInstancePoolInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#getInstancePoolInstance.");
+    const operationName = "getInstancePoolInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolInstance/GetInstancePoolInstance";
     const pathParams = {
       "{instancePoolId}": getInstancePoolInstanceRequest.instancePoolId,
       "{instanceId}": getInstancePoolInstanceRequest.instanceId
@@ -13493,7 +14882,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstancePoolInstanceResponse>{},
         body: await response.json(),
@@ -13536,6 +14931,9 @@ When you move an instance pool to a different compartment, associated resources 
       this.logger.debug(
         "Calling operation ComputeManagementClient#getInstancePoolLoadBalancerAttachment."
       );
+    const operationName = "getInstancePoolLoadBalancerAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolLoadBalancerAttachment/GetInstancePoolLoadBalancerAttachment";
     const pathParams = {
       "{instancePoolId}": getInstancePoolLoadBalancerAttachmentRequest.instancePoolId,
       "{instancePoolLoadBalancerAttachmentId}":
@@ -13566,7 +14964,13 @@ When you move an instance pool to a different compartment, associated resources 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInstancePoolLoadBalancerAttachmentResponse>{},
         body: await response.json(),
@@ -13608,6 +15012,9 @@ If the instance configuration does not include all of the parameters that are
   ): Promise<responses.LaunchInstanceConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#launchInstanceConfiguration.");
+    const operationName = "launchInstanceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Instance/LaunchInstanceConfiguration";
     const pathParams = {
       "{instanceConfigurationId}": launchInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -13641,7 +15048,13 @@ If the instance configuration does not include all of the parameters that are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.LaunchInstanceConfigurationResponse>{},
         body: await response.json(),
@@ -13686,6 +15099,9 @@ If the instance configuration does not include all of the parameters that are
   ): Promise<responses.ListClusterNetworkInstancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#listClusterNetworkInstances.");
+    const operationName = "listClusterNetworkInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/ListClusterNetworkInstances";
     const pathParams = {
       "{clusterNetworkId}": listClusterNetworkInstancesRequest.clusterNetworkId
     };
@@ -13720,7 +15136,13 @@ If the instance configuration does not include all of the parameters that are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListClusterNetworkInstancesResponse>{},
         body: await response.json(),
@@ -13812,6 +15234,9 @@ If the instance configuration does not include all of the parameters that are
   ): Promise<responses.ListClusterNetworksResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#listClusterNetworks.");
+    const operationName = "listClusterNetworks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/ListClusterNetworks";
     const pathParams = {};
 
     const queryParams = {
@@ -13845,7 +15270,13 @@ If the instance configuration does not include all of the parameters that are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListClusterNetworksResponse>{},
         body: await response.json(),
@@ -13938,6 +15369,9 @@ If the instance configuration does not include all of the parameters that are
   ): Promise<responses.ListInstanceConfigurationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#listInstanceConfigurations.");
+    const operationName = "listInstanceConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfigurationSummary/ListInstanceConfigurations";
     const pathParams = {};
 
     const queryParams = {
@@ -13969,7 +15403,13 @@ If the instance configuration does not include all of the parameters that are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstanceConfigurationsResponse>{},
         body: await response.json(),
@@ -14061,6 +15501,9 @@ If the instance configuration does not include all of the parameters that are
   ): Promise<responses.ListInstancePoolInstancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#listInstancePoolInstances.");
+    const operationName = "listInstancePoolInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceSummary/ListInstancePoolInstances";
     const pathParams = {
       "{instancePoolId}": listInstancePoolInstancesRequest.instancePoolId
     };
@@ -14095,7 +15538,13 @@ If the instance configuration does not include all of the parameters that are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstancePoolInstancesResponse>{},
         body: await response.json(),
@@ -14187,6 +15636,9 @@ If the instance configuration does not include all of the parameters that are
   ): Promise<responses.ListInstancePoolsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#listInstancePools.");
+    const operationName = "listInstancePools";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePoolSummary/ListInstancePools";
     const pathParams = {};
 
     const queryParams = {
@@ -14220,7 +15672,13 @@ If the instance configuration does not include all of the parameters that are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInstancePoolsResponse>{},
         body: await response.json(),
@@ -14314,6 +15772,9 @@ If the instance configuration does not include all of the parameters that are
   ): Promise<responses.ResetInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#resetInstancePool.");
+    const operationName = "resetInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/ResetInstancePool";
     const pathParams = {
       "{instancePoolId}": resetInstancePoolRequest.instancePoolId
     };
@@ -14343,7 +15804,13 @@ If the instance configuration does not include all of the parameters that are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResetInstancePoolResponse>{},
         body: await response.json(),
@@ -14388,6 +15855,9 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
   ): Promise<responses.SoftresetInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#softresetInstancePool.");
+    const operationName = "softresetInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/SoftresetInstancePool";
     const pathParams = {
       "{instancePoolId}": softresetInstancePoolRequest.instancePoolId
     };
@@ -14417,7 +15887,13 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SoftresetInstancePoolResponse>{},
         body: await response.json(),
@@ -14459,6 +15935,9 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
   ): Promise<responses.StartInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#startInstancePool.");
+    const operationName = "startInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/StartInstancePool";
     const pathParams = {
       "{instancePoolId}": startInstancePoolRequest.instancePoolId
     };
@@ -14488,7 +15967,13 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartInstancePoolResponse>{},
         body: await response.json(),
@@ -14530,6 +16015,9 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
   ): Promise<responses.StopInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#stopInstancePool.");
+    const operationName = "stopInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/StopInstancePool";
     const pathParams = {
       "{instancePoolId}": stopInstancePoolRequest.instancePoolId
     };
@@ -14559,7 +16047,13 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopInstancePoolResponse>{},
         body: await response.json(),
@@ -14603,6 +16097,9 @@ When you delete a cluster network, all of its resources are permanently deleted,
   ): Promise<responses.TerminateClusterNetworkResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#terminateClusterNetwork.");
+    const operationName = "terminateClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/TerminateClusterNetwork";
     const pathParams = {
       "{clusterNetworkId}": terminateClusterNetworkRequest.clusterNetworkId
     };
@@ -14631,7 +16128,13 @@ When you delete a cluster network, all of its resources are permanently deleted,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TerminateClusterNetworkResponse>{},
         responseHeaders: [
@@ -14675,6 +16178,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   ): Promise<responses.TerminateInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#terminateInstancePool.");
+    const operationName = "terminateInstancePool";
+    const apiReferenceLink = "";
     const pathParams = {
       "{instancePoolId}": terminateInstancePoolRequest.instancePoolId
     };
@@ -14703,7 +16208,13 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TerminateInstancePoolResponse>{},
         responseHeaders: [
@@ -14735,6 +16246,9 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   ): Promise<responses.UpdateClusterNetworkResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#updateClusterNetwork.");
+    const operationName = "updateClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ClusterNetwork/UpdateClusterNetwork";
     const pathParams = {
       "{clusterNetworkId}": updateClusterNetworkRequest.clusterNetworkId
     };
@@ -14769,7 +16283,13 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateClusterNetworkResponse>{},
         body: await response.json(),
@@ -14809,6 +16329,9 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   ): Promise<responses.UpdateInstanceConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#updateInstanceConfiguration.");
+    const operationName = "updateInstanceConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceConfiguration/UpdateInstanceConfiguration";
     const pathParams = {
       "{instanceConfigurationId}": updateInstanceConfigurationRequest.instanceConfigurationId
     };
@@ -14843,7 +16366,13 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateInstanceConfigurationResponse>{},
         body: await response.json(),
@@ -14886,6 +16415,9 @@ The OCID of the instance pool remains the same.
   ): Promise<responses.UpdateInstancePoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ComputeManagementClient#updateInstancePool.");
+    const operationName = "updateInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/UpdateInstancePool";
     const pathParams = {
       "{instancePoolId}": updateInstancePoolRequest.instancePoolId
     };
@@ -14920,7 +16452,13 @@ The OCID of the instance pool remains the same.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateInstancePoolResponse>{},
         body: await response.json(),
@@ -14960,6 +16498,7 @@ export class VirtualNetworkClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "VirtualNetwork";
 
   protected _httpClient: common.HttpClient;
 
@@ -15093,6 +16632,9 @@ export class VirtualNetworkClient {
       this.logger.debug(
         "Calling operation VirtualNetworkClient#addDrgRouteDistributionStatements."
       );
+    const operationName = "addDrgRouteDistributionStatements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/AddDrgRouteDistributionStatements";
     const pathParams = {
       "{drgRouteDistributionId}": addDrgRouteDistributionStatementsRequest.drgRouteDistributionId
     };
@@ -15126,7 +16668,13 @@ export class VirtualNetworkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddDrgRouteDistributionStatementsResponse>{},
         body: await response.json(),
@@ -15161,6 +16709,9 @@ export class VirtualNetworkClient {
     addDrgRouteRulesRequest: requests.AddDrgRouteRulesRequest
   ): Promise<responses.AddDrgRouteRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addDrgRouteRules.");
+    const operationName = "addDrgRouteRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/AddDrgRouteRules";
     const pathParams = {
       "{drgRouteTableId}": addDrgRouteRulesRequest.drgRouteTableId
     };
@@ -15194,7 +16745,13 @@ export class VirtualNetworkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddDrgRouteRulesResponse>{},
         body: await response.json(),
@@ -15229,6 +16786,9 @@ export class VirtualNetworkClient {
     addIpv6SubnetCidrRequest: requests.AddIpv6SubnetCidrRequest
   ): Promise<responses.AddIpv6SubnetCidrResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addIpv6SubnetCidr.");
+    const operationName = "addIpv6SubnetCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/AddIpv6SubnetCidr";
     const pathParams = {
       "{subnetId}": addIpv6SubnetCidrRequest.subnetId
     };
@@ -15264,7 +16824,13 @@ export class VirtualNetworkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddIpv6SubnetCidrResponse>{},
         responseHeaders: [
@@ -15306,6 +16872,9 @@ export class VirtualNetworkClient {
     addIpv6VcnCidrRequest: requests.AddIpv6VcnCidrRequest
   ): Promise<responses.AddIpv6VcnCidrResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addIpv6VcnCidr.");
+    const operationName = "addIpv6VcnCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/AddIpv6VcnCidr";
     const pathParams = {
       "{vcnId}": addIpv6VcnCidrRequest.vcnId
     };
@@ -15341,7 +16910,13 @@ export class VirtualNetworkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddIpv6VcnCidrResponse>{},
         responseHeaders: [
@@ -15380,6 +16955,9 @@ export class VirtualNetworkClient {
       this.logger.debug(
         "Calling operation VirtualNetworkClient#addNetworkSecurityGroupSecurityRules."
       );
+    const operationName = "addNetworkSecurityGroupSecurityRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/AddNetworkSecurityGroupSecurityRules";
     const pathParams = {
       "{networkSecurityGroupId}": addNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
     };
@@ -15412,7 +16990,13 @@ export class VirtualNetworkClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddNetworkSecurityGroupSecurityRulesResponse>{},
         body: await response.json(),
@@ -15450,6 +17034,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.AddPublicIpPoolCapacityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#addPublicIpPoolCapacity.");
+    const operationName = "addPublicIpPoolCapacity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/AddPublicIpPoolCapacity";
     const pathParams = {
       "{publicIpPoolId}": addPublicIpPoolCapacityRequest.publicIpPoolId
     };
@@ -15484,7 +17071,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddPublicIpPoolCapacityResponse>{},
         body: await response.json(),
@@ -15530,6 +17123,8 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
     addVcnCidrRequest: requests.AddVcnCidrRequest
   ): Promise<responses.AddVcnCidrResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#addVcnCidr.");
+    const operationName = "addVcnCidr";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/AddVcnCidr";
     const pathParams = {
       "{vcnId}": addVcnCidrRequest.vcnId
     };
@@ -15565,7 +17160,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddVcnCidrResponse>{},
         responseHeaders: [
@@ -15603,6 +17204,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.AdvertiseByoipRangeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#advertiseByoipRange.");
+    const operationName = "advertiseByoipRange";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/AdvertiseByoipRange";
     const pathParams = {
       "{byoipRangeId}": advertiseByoipRangeRequest.byoipRangeId
     };
@@ -15631,7 +17235,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AdvertiseByoipRangeResponse>{},
         responseHeaders: [
@@ -15671,6 +17281,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
     attachServiceIdRequest: requests.AttachServiceIdRequest
   ): Promise<responses.AttachServiceIdResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#attachServiceId.");
+    const operationName = "attachServiceId";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/AttachServiceId";
     const pathParams = {
       "{serviceGatewayId}": attachServiceIdRequest.serviceGatewayId
     };
@@ -15704,7 +17317,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachServiceIdResponse>{},
         body: await response.json(),
@@ -15745,6 +17364,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       this.logger.debug(
         "Calling operation VirtualNetworkClient#bulkAddVirtualCircuitPublicPrefixes."
       );
+    const operationName = "bulkAddVirtualCircuitPublicPrefixes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/BulkAddVirtualCircuitPublicPrefixes";
     const pathParams = {
       "{virtualCircuitId}": bulkAddVirtualCircuitPublicPrefixesRequest.virtualCircuitId
     };
@@ -15777,7 +17399,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkAddVirtualCircuitPublicPrefixesResponse>{},
         responseHeaders: []
@@ -15808,6 +17436,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       this.logger.debug(
         "Calling operation VirtualNetworkClient#bulkDeleteVirtualCircuitPublicPrefixes."
       );
+    const operationName = "bulkDeleteVirtualCircuitPublicPrefixes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/BulkDeleteVirtualCircuitPublicPrefixes";
     const pathParams = {
       "{virtualCircuitId}": bulkDeleteVirtualCircuitPublicPrefixesRequest.virtualCircuitId
     };
@@ -15840,7 +17471,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkDeleteVirtualCircuitPublicPrefixesResponse>{},
         responseHeaders: []
@@ -15868,6 +17505,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeByoipRangeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeByoipRangeCompartment.");
+    const operationName = "changeByoipRangeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/ChangeByoipRangeCompartment";
     const pathParams = {
       "{byoipRangeId}": changeByoipRangeCompartmentRequest.byoipRangeId
     };
@@ -15902,7 +17542,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeByoipRangeCompartmentResponse>{},
         responseHeaders: [
@@ -15936,6 +17582,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeCaptureFilterCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeCaptureFilterCompartment.");
+    const operationName = "changeCaptureFilterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/ChangeCaptureFilterCompartment";
     const pathParams = {
       "{captureFilterId}": changeCaptureFilterCompartmentRequest.captureFilterId
     };
@@ -15971,7 +17620,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCaptureFilterCompartmentResponse>{},
         responseHeaders: [
@@ -16015,6 +17670,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeCpeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeCpeCompartment.");
+    const operationName = "changeCpeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/ChangeCpeCompartment";
     const pathParams = {
       "{cpeId}": changeCpeCompartmentRequest.cpeId
     };
@@ -16049,7 +17707,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCpeCompartmentResponse>{},
         responseHeaders: [
@@ -16088,6 +17752,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeCrossConnectCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeCrossConnectCompartment.");
+    const operationName = "changeCrossConnectCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/ChangeCrossConnectCompartment";
     const pathParams = {
       "{crossConnectId}": changeCrossConnectCompartmentRequest.crossConnectId
     };
@@ -16122,7 +17789,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCrossConnectCompartmentResponse>{},
         responseHeaders: [
@@ -16163,6 +17836,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       this.logger.debug(
         "Calling operation VirtualNetworkClient#changeCrossConnectGroupCompartment."
       );
+    const operationName = "changeCrossConnectGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/ChangeCrossConnectGroupCompartment";
     const pathParams = {
       "{crossConnectGroupId}": changeCrossConnectGroupCompartmentRequest.crossConnectGroupId
     };
@@ -16197,7 +17873,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCrossConnectGroupCompartmentResponse>{},
         responseHeaders: [
@@ -16236,6 +17918,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeDhcpOptionsCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeDhcpOptionsCompartment.");
+    const operationName = "changeDhcpOptionsCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/ChangeDhcpOptionsCompartment";
     const pathParams = {
       "{dhcpId}": changeDhcpOptionsCompartmentRequest.dhcpId
     };
@@ -16270,7 +17955,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDhcpOptionsCompartmentResponse>{},
         responseHeaders: [
@@ -16309,6 +18000,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeDrgCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeDrgCompartment.");
+    const operationName = "changeDrgCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/ChangeDrgCompartment";
     const pathParams = {
       "{drgId}": changeDrgCompartmentRequest.drgId
     };
@@ -16343,7 +18037,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDrgCompartmentResponse>{},
         responseHeaders: [
@@ -16387,6 +18087,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeIPSecConnectionCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeIPSecConnectionCompartment.");
+    const operationName = "changeIPSecConnectionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/ChangeIPSecConnectionCompartment";
     const pathParams = {
       "{ipscId}": changeIPSecConnectionCompartmentRequest.ipscId
     };
@@ -16421,7 +18124,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeIPSecConnectionCompartmentResponse>{},
         responseHeaders: [
@@ -16460,6 +18169,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeInternetGatewayCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeInternetGatewayCompartment.");
+    const operationName = "changeInternetGatewayCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/ChangeInternetGatewayCompartment";
     const pathParams = {
       "{igId}": changeInternetGatewayCompartmentRequest.igId
     };
@@ -16494,7 +18206,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeInternetGatewayCompartmentResponse>{},
         responseHeaders: [
@@ -16535,6 +18253,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       this.logger.debug(
         "Calling operation VirtualNetworkClient#changeLocalPeeringGatewayCompartment."
       );
+    const operationName = "changeLocalPeeringGatewayCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/ChangeLocalPeeringGatewayCompartment";
     const pathParams = {
       "{localPeeringGatewayId}": changeLocalPeeringGatewayCompartmentRequest.localPeeringGatewayId
     };
@@ -16569,7 +18290,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLocalPeeringGatewayCompartmentResponse>{},
         responseHeaders: [
@@ -16608,6 +18335,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
   ): Promise<responses.ChangeNatGatewayCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeNatGatewayCompartment.");
+    const operationName = "changeNatGatewayCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/ChangeNatGatewayCompartment";
     const pathParams = {
       "{natGatewayId}": changeNatGatewayCompartmentRequest.natGatewayId
     };
@@ -16642,7 +18372,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeNatGatewayCompartmentResponse>{},
         responseHeaders: [
@@ -16682,6 +18418,9 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       this.logger.debug(
         "Calling operation VirtualNetworkClient#changeNetworkSecurityGroupCompartment."
       );
+    const operationName = "changeNetworkSecurityGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/ChangeNetworkSecurityGroupCompartment";
     const pathParams = {
       "{networkSecurityGroupId}":
         changeNetworkSecurityGroupCompartmentRequest.networkSecurityGroupId
@@ -16717,7 +18456,13 @@ The CIDR block (or subrange) must not overlap with any other CIDR block already 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeNetworkSecurityGroupCompartmentResponse>{},
         responseHeaders: [
@@ -16759,6 +18504,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangePublicIpCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changePublicIpCompartment.");
+    const operationName = "changePublicIpCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/ChangePublicIpCompartment";
     const pathParams = {
       "{publicIpId}": changePublicIpCompartmentRequest.publicIpId
     };
@@ -16793,7 +18541,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangePublicIpCompartmentResponse>{},
         responseHeaders: [
@@ -16832,6 +18586,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangePublicIpPoolCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changePublicIpPoolCompartment.");
+    const operationName = "changePublicIpPoolCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/ChangePublicIpPoolCompartment";
     const pathParams = {
       "{publicIpPoolId}": changePublicIpPoolCompartmentRequest.publicIpPoolId
     };
@@ -16866,7 +18623,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangePublicIpPoolCompartmentResponse>{},
         responseHeaders: [
@@ -16902,6 +18665,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       this.logger.debug(
         "Calling operation VirtualNetworkClient#changeRemotePeeringConnectionCompartment."
       );
+    const operationName = "changeRemotePeeringConnectionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/ChangeRemotePeeringConnectionCompartment";
     const pathParams = {
       "{remotePeeringConnectionId}":
         changeRemotePeeringConnectionCompartmentRequest.remotePeeringConnectionId
@@ -16937,7 +18703,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRemotePeeringConnectionCompartmentResponse>{},
         responseHeaders: [
@@ -16976,6 +18748,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeRouteTableCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeRouteTableCompartment.");
+    const operationName = "changeRouteTableCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/ChangeRouteTableCompartment";
     const pathParams = {
       "{rtId}": changeRouteTableCompartmentRequest.rtId
     };
@@ -17010,7 +18785,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRouteTableCompartmentResponse>{},
         responseHeaders: [
@@ -17049,6 +18830,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeSecurityListCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeSecurityListCompartment.");
+    const operationName = "changeSecurityListCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/ChangeSecurityListCompartment";
     const pathParams = {
       "{securityListId}": changeSecurityListCompartmentRequest.securityListId
     };
@@ -17083,7 +18867,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSecurityListCompartmentResponse>{},
         responseHeaders: [
@@ -17122,6 +18912,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeServiceGatewayCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeServiceGatewayCompartment.");
+    const operationName = "changeServiceGatewayCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/ChangeServiceGatewayCompartment";
     const pathParams = {
       "{serviceGatewayId}": changeServiceGatewayCompartmentRequest.serviceGatewayId
     };
@@ -17156,7 +18949,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeServiceGatewayCompartmentResponse>{},
         responseHeaders: [
@@ -17195,6 +18994,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeSubnetCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeSubnetCompartment.");
+    const operationName = "changeSubnetCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/ChangeSubnetCompartment";
     const pathParams = {
       "{subnetId}": changeSubnetCompartmentRequest.subnetId
     };
@@ -17229,7 +19031,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSubnetCompartmentResponse>{},
         responseHeaders: [
@@ -17273,6 +19081,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeVcnCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeVcnCompartment.");
+    const operationName = "changeVcnCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ChangeVcnCompartment";
     const pathParams = {
       "{vcnId}": changeVcnCompartmentRequest.vcnId
     };
@@ -17307,7 +19118,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVcnCompartmentResponse>{},
         responseHeaders: [
@@ -17351,6 +19168,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeVirtualCircuitCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeVirtualCircuitCompartment.");
+    const operationName = "changeVirtualCircuitCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/ChangeVirtualCircuitCompartment";
     const pathParams = {
       "{virtualCircuitId}": changeVirtualCircuitCompartmentRequest.virtualCircuitId
     };
@@ -17385,7 +19205,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVirtualCircuitCompartmentResponse>{},
         responseHeaders: [
@@ -17424,6 +19250,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeVlanCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeVlanCompartment.");
+    const operationName = "changeVlanCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/ChangeVlanCompartment";
     const pathParams = {
       "{vlanId}": changeVlanCompartmentRequest.vlanId
     };
@@ -17459,7 +19288,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVlanCompartmentResponse>{},
         responseHeaders: [
@@ -17498,6 +19333,9 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
   ): Promise<responses.ChangeVtapCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#changeVtapCompartment.");
+    const operationName = "changeVtapCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/ChangeVtapCompartment";
     const pathParams = {
       "{vtapId}": changeVtapCompartmentRequest.vtapId
     };
@@ -17533,7 +19371,13 @@ This operation applies only to reserved public IPs. Ephemeral public IPs always 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVtapCompartmentResponse>{},
         responseHeaders: [
@@ -17582,6 +19426,9 @@ This operation must be called by the VCN administrator who is designated as
   ): Promise<responses.ConnectLocalPeeringGatewaysResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#connectLocalPeeringGateways.");
+    const operationName = "connectLocalPeeringGateways";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/ConnectLocalPeeringGateways";
     const pathParams = {
       "{localPeeringGatewayId}": connectLocalPeeringGatewaysRequest.localPeeringGatewayId
     };
@@ -17614,7 +19461,13 @@ This operation must be called by the VCN administrator who is designated as
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ConnectLocalPeeringGatewaysResponse>{},
         responseHeaders: [
@@ -17653,6 +19506,9 @@ This operation must be called by the VCN administrator who is designated as
   ): Promise<responses.ConnectRemotePeeringConnectionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#connectRemotePeeringConnections.");
+    const operationName = "connectRemotePeeringConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/ConnectRemotePeeringConnections";
     const pathParams = {
       "{remotePeeringConnectionId}":
         connectRemotePeeringConnectionsRequest.remotePeeringConnectionId
@@ -17686,7 +19542,13 @@ This operation must be called by the VCN administrator who is designated as
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ConnectRemotePeeringConnectionsResponse>{},
         responseHeaders: [
@@ -17717,6 +19579,9 @@ This operation must be called by the VCN administrator who is designated as
     createByoipRangeRequest: requests.CreateByoipRangeRequest
   ): Promise<responses.CreateByoipRangeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createByoipRange.");
+    const operationName = "createByoipRange";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/CreateByoipRange";
     const pathParams = {};
 
     const queryParams = {};
@@ -17749,7 +19614,13 @@ This operation must be called by the VCN administrator who is designated as
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateByoipRangeResponse>{},
         body: await response.json(),
@@ -17798,6 +19669,9 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   ): Promise<responses.CreateCaptureFilterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createCaptureFilter.");
+    const operationName = "createCaptureFilter";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/CreateCaptureFilter";
     const pathParams = {};
 
     const queryParams = {};
@@ -17830,7 +19704,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCaptureFilterResponse>{},
         body: await response.json(),
@@ -17884,6 +19764,8 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
     createCpeRequest: requests.CreateCpeRequest
   ): Promise<responses.CreateCpeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createCpe.");
+    const operationName = "createCpe";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/CreateCpe";
     const pathParams = {};
 
     const queryParams = {};
@@ -17915,7 +19797,13 @@ You may optionally specify a *display name* for the CPE, otherwise a default is 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCpeResponse>{},
         body: await response.json(),
@@ -17974,6 +19862,9 @@ You may optionally specify a *display name* for the cross-connect.
   ): Promise<responses.CreateCrossConnectResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createCrossConnect.");
+    const operationName = "createCrossConnect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/CreateCrossConnect";
     const pathParams = {};
 
     const queryParams = {};
@@ -18005,7 +19896,13 @@ You may optionally specify a *display name* for the cross-connect.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCrossConnectResponse>{},
         body: await response.json(),
@@ -18060,6 +19957,9 @@ You may optionally specify a *display name* for the cross-connect group.
   ): Promise<responses.CreateCrossConnectGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createCrossConnectGroup.");
+    const operationName = "createCrossConnectGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/CreateCrossConnectGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -18091,7 +19991,13 @@ You may optionally specify a *display name* for the cross-connect group.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCrossConnectGroupResponse>{},
         body: await response.json(),
@@ -18142,6 +20048,9 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
     createDhcpOptionsRequest: requests.CreateDhcpOptionsRequest
   ): Promise<responses.CreateDhcpOptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createDhcpOptions.");
+    const operationName = "createDhcpOptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/CreateDhcpOptions";
     const pathParams = {};
 
     const queryParams = {};
@@ -18173,7 +20082,13 @@ You may optionally specify a *display name* for the set of DHCP options, otherwi
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDhcpOptionsResponse>{},
         body: await response.json(),
@@ -18224,6 +20139,8 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
     createDrgRequest: requests.CreateDrgRequest
   ): Promise<responses.CreateDrgResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createDrg.");
+    const operationName = "createDrg";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/CreateDrg";
     const pathParams = {};
 
     const queryParams = {};
@@ -18255,7 +20172,13 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDrgResponse>{},
         body: await response.json(),
@@ -18306,6 +20229,9 @@ For the purposes of access control, the DRG attachment is automatically placed i
   ): Promise<responses.CreateDrgAttachmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createDrgAttachment.");
+    const operationName = "createDrgAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/CreateDrgAttachment";
     const pathParams = {};
 
     const queryParams = {};
@@ -18337,7 +20263,13 @@ For the purposes of access control, the DRG attachment is automatically placed i
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDrgAttachmentResponse>{},
         body: await response.json(),
@@ -18381,6 +20313,9 @@ For the purposes of access control, the DRG attachment is automatically placed i
   ): Promise<responses.CreateDrgRouteDistributionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createDrgRouteDistribution.");
+    const operationName = "createDrgRouteDistribution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/CreateDrgRouteDistribution";
     const pathParams = {};
 
     const queryParams = {};
@@ -18412,7 +20347,13 @@ For the purposes of access control, the DRG attachment is automatically placed i
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDrgRouteDistributionResponse>{},
         body: await response.json(),
@@ -18454,6 +20395,9 @@ For the purposes of access control, the DRG attachment is automatically placed i
   ): Promise<responses.CreateDrgRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createDrgRouteTable.");
+    const operationName = "createDrgRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/CreateDrgRouteTable";
     const pathParams = {};
 
     const queryParams = {};
@@ -18485,7 +20429,13 @@ For the purposes of access control, the DRG attachment is automatically placed i
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDrgRouteTableResponse>{},
         body: await response.json(),
@@ -18553,6 +20503,9 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
   ): Promise<responses.CreateIPSecConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createIPSecConnection.");
+    const operationName = "createIPSecConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/CreateIPSecConnection";
     const pathParams = {};
 
     const queryParams = {};
@@ -18584,7 +20537,13 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIPSecConnectionResponse>{},
         body: await response.json(),
@@ -18644,6 +20603,9 @@ You must specify whether the internet gateway is enabled when you create it. If 
   ): Promise<responses.CreateInternetGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createInternetGateway.");
+    const operationName = "createInternetGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/CreateInternetGateway";
     const pathParams = {};
 
     const queryParams = {};
@@ -18675,7 +20637,13 @@ You must specify whether the internet gateway is enabled when you create it. If 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateInternetGatewayResponse>{},
         body: await response.json(),
@@ -18715,6 +20683,8 @@ You must specify whether the internet gateway is enabled when you create it. If 
     createIpv6Request: requests.CreateIpv6Request
   ): Promise<responses.CreateIpv6Response> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createIpv6.");
+    const operationName = "createIpv6";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/CreateIpv6";
     const pathParams = {};
 
     const queryParams = {};
@@ -18747,7 +20717,13 @@ You must specify whether the internet gateway is enabled when you create it. If 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIpv6Response>{},
         body: await response.json(),
@@ -18788,6 +20764,9 @@ You must specify whether the internet gateway is enabled when you create it. If 
   ): Promise<responses.CreateLocalPeeringGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createLocalPeeringGateway.");
+    const operationName = "createLocalPeeringGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/CreateLocalPeeringGateway";
     const pathParams = {};
 
     const queryParams = {};
@@ -18819,7 +20798,13 @@ You must specify whether the internet gateway is enabled when you create it. If 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLocalPeeringGatewayResponse>{},
         body: await response.json(),
@@ -18860,6 +20845,9 @@ You must specify whether the internet gateway is enabled when you create it. If 
     createNatGatewayRequest: requests.CreateNatGatewayRequest
   ): Promise<responses.CreateNatGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createNatGateway.");
+    const operationName = "createNatGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/CreateNatGateway";
     const pathParams = {};
 
     const queryParams = {};
@@ -18891,7 +20879,13 @@ You must specify whether the internet gateway is enabled when you create it. If 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNatGatewayResponse>{},
         body: await response.json(),
@@ -18932,6 +20926,9 @@ You must specify whether the internet gateway is enabled when you create it. If 
   ): Promise<responses.CreateNetworkSecurityGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createNetworkSecurityGroup.");
+    const operationName = "createNetworkSecurityGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/CreateNetworkSecurityGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -18963,7 +20960,13 @@ You must specify whether the internet gateway is enabled when you create it. If 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNetworkSecurityGroupResponse>{},
         body: await response.json(),
@@ -19005,6 +21008,9 @@ You must specify whether the internet gateway is enabled when you create it. If 
     createPrivateIpRequest: requests.CreatePrivateIpRequest
   ): Promise<responses.CreatePrivateIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createPrivateIp.");
+    const operationName = "createPrivateIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/CreatePrivateIp";
     const pathParams = {};
 
     const queryParams = {};
@@ -19036,7 +21042,13 @@ You must specify whether the internet gateway is enabled when you create it. If 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePrivateIpResponse>{},
         body: await response.json(),
@@ -19096,6 +21108,9 @@ Also, for reserved public IPs, the optional assignment part of this operation is
     createPublicIpRequest: requests.CreatePublicIpRequest
   ): Promise<responses.CreatePublicIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createPublicIp.");
+    const operationName = "createPublicIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/CreatePublicIp";
     const pathParams = {};
 
     const queryParams = {};
@@ -19127,7 +21142,13 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePublicIpResponse>{},
         body: await response.json(),
@@ -19168,6 +21189,9 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   ): Promise<responses.CreatePublicIpPoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createPublicIpPool.");
+    const operationName = "createPublicIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/CreatePublicIpPool";
     const pathParams = {};
 
     const queryParams = {};
@@ -19200,7 +21224,13 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePublicIpPoolResponse>{},
         body: await response.json(),
@@ -19241,6 +21271,9 @@ Also, for reserved public IPs, the optional assignment part of this operation is
   ): Promise<responses.CreateRemotePeeringConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createRemotePeeringConnection.");
+    const operationName = "createRemotePeeringConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/CreateRemotePeeringConnection";
     const pathParams = {};
 
     const queryParams = {};
@@ -19272,7 +21305,13 @@ Also, for reserved public IPs, the optional assignment part of this operation is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRemotePeeringConnectionResponse>{},
         body: await response.json(),
@@ -19326,6 +21365,9 @@ You may optionally specify a *display name* for the route table, otherwise a def
     createRouteTableRequest: requests.CreateRouteTableRequest
   ): Promise<responses.CreateRouteTableResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createRouteTable.");
+    const operationName = "createRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/CreateRouteTable";
     const pathParams = {};
 
     const queryParams = {};
@@ -19357,7 +21399,13 @@ You may optionally specify a *display name* for the route table, otherwise a def
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRouteTableResponse>{},
         body: await response.json(),
@@ -19411,6 +21459,9 @@ You may optionally specify a *display name* for the security list, otherwise a d
   ): Promise<responses.CreateSecurityListResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createSecurityList.");
+    const operationName = "createSecurityList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/CreateSecurityList";
     const pathParams = {};
 
     const queryParams = {};
@@ -19442,7 +21493,13 @@ You may optionally specify a *display name* for the security list, otherwise a d
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSecurityListResponse>{},
         body: await response.json(),
@@ -19491,6 +21548,9 @@ You may optionally specify a *display name* for the service gateway, otherwise a
   ): Promise<responses.CreateServiceGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createServiceGateway.");
+    const operationName = "createServiceGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/CreateServiceGateway";
     const pathParams = {};
 
     const queryParams = {};
@@ -19522,7 +21582,13 @@ You may optionally specify a *display name* for the service gateway, otherwise a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateServiceGatewayResponse>{},
         body: await response.json(),
@@ -19587,6 +21653,9 @@ You can also add a DNS label for the subnet, which is required if you want the I
     createSubnetRequest: requests.CreateSubnetRequest
   ): Promise<responses.CreateSubnetResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createSubnet.");
+    const operationName = "createSubnet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/CreateSubnet";
     const pathParams = {};
 
     const queryParams = {};
@@ -19618,7 +21687,13 @@ You can also add a DNS label for the subnet, which is required if you want the I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSubnetResponse>{},
         body: await response.json(),
@@ -19690,6 +21765,8 @@ The VCN and subnets you create are not accessible until you attach an internet g
     createVcnRequest: requests.CreateVcnRequest
   ): Promise<responses.CreateVcnResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVcn.");
+    const operationName = "createVcn";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/CreateVcn";
     const pathParams = {};
 
     const queryParams = {};
@@ -19721,7 +21798,13 @@ The VCN and subnets you create are not accessible until you attach an internet g
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVcnResponse>{},
         body: await response.json(),
@@ -19782,6 +21865,9 @@ You may optionally specify a *display name* for the virtual circuit.
   ): Promise<responses.CreateVirtualCircuitResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#createVirtualCircuit.");
+    const operationName = "createVirtualCircuit";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/CreateVirtualCircuit";
     const pathParams = {};
 
     const queryParams = {};
@@ -19813,7 +21899,13 @@ You may optionally specify a *display name* for the virtual circuit.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVirtualCircuitResponse>{},
         body: await response.json(),
@@ -19853,6 +21945,8 @@ You may optionally specify a *display name* for the virtual circuit.
     createVlanRequest: requests.CreateVlanRequest
   ): Promise<responses.CreateVlanResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVlan.");
+    const operationName = "createVlan";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/CreateVlan";
     const pathParams = {};
 
     const queryParams = {};
@@ -19885,7 +21979,13 @@ You may optionally specify a *display name* for the virtual circuit.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVlanResponse>{},
         body: await response.json(),
@@ -19933,6 +22033,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
     createVtapRequest: requests.CreateVtapRequest
   ): Promise<responses.CreateVtapResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#createVtap.");
+    const operationName = "createVtap";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/CreateVtap";
     const pathParams = {};
 
     const queryParams = {};
@@ -19965,7 +22067,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVtapResponse>{},
         body: await response.json(),
@@ -20009,6 +22117,9 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
     deleteByoipRangeRequest: requests.DeleteByoipRangeRequest
   ): Promise<responses.DeleteByoipRangeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteByoipRange.");
+    const operationName = "deleteByoipRange";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/DeleteByoipRange";
     const pathParams = {
       "{byoipRangeId}": deleteByoipRangeRequest.byoipRangeId
     };
@@ -20038,7 +22149,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteByoipRangeResponse>{},
         responseHeaders: [
@@ -20076,6 +22193,9 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   ): Promise<responses.DeleteCaptureFilterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteCaptureFilter.");
+    const operationName = "deleteCaptureFilter";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/DeleteCaptureFilter";
     const pathParams = {
       "{captureFilterId}": deleteCaptureFilterRequest.captureFilterId
     };
@@ -20105,7 +22225,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCaptureFilterResponse>{},
         responseHeaders: [
@@ -20138,6 +22264,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
     deleteCpeRequest: requests.DeleteCpeRequest
   ): Promise<responses.DeleteCpeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteCpe.");
+    const operationName = "deleteCpe";
+    const apiReferenceLink = "";
     const pathParams = {
       "{cpeId}": deleteCpeRequest.cpeId
     };
@@ -20166,7 +22294,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCpeResponse>{},
         responseHeaders: [
@@ -20199,6 +22333,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   ): Promise<responses.DeleteCrossConnectResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnect.");
+    const operationName = "deleteCrossConnect";
+    const apiReferenceLink = "";
     const pathParams = {
       "{crossConnectId}": deleteCrossConnectRequest.crossConnectId
     };
@@ -20227,7 +22363,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCrossConnectResponse>{},
         responseHeaders: [
@@ -20261,6 +22403,8 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
   ): Promise<responses.DeleteCrossConnectGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteCrossConnectGroup.");
+    const operationName = "deleteCrossConnectGroup";
+    const apiReferenceLink = "";
     const pathParams = {
       "{crossConnectGroupId}": deleteCrossConnectGroupRequest.crossConnectGroupId
     };
@@ -20289,7 +22433,13 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCrossConnectGroupResponse>{},
         responseHeaders: [
@@ -20324,6 +22474,8 @@ This is an asynchronous operation. The state of the set of options will switch t
     deleteDhcpOptionsRequest: requests.DeleteDhcpOptionsRequest
   ): Promise<responses.DeleteDhcpOptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteDhcpOptions.");
+    const operationName = "deleteDhcpOptions";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dhcpId}": deleteDhcpOptionsRequest.dhcpId
     };
@@ -20352,7 +22504,13 @@ This is an asynchronous operation. The state of the set of options will switch t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDhcpOptionsResponse>{},
         responseHeaders: [
@@ -20386,6 +22544,8 @@ This is an asynchronous operation. The state of the set of options will switch t
     deleteDrgRequest: requests.DeleteDrgRequest
   ): Promise<responses.DeleteDrgResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteDrg.");
+    const operationName = "deleteDrg";
+    const apiReferenceLink = "";
     const pathParams = {
       "{drgId}": deleteDrgRequest.drgId
     };
@@ -20414,7 +22574,13 @@ This is an asynchronous operation. The state of the set of options will switch t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDrgResponse>{},
         responseHeaders: [
@@ -20448,6 +22614,8 @@ This is an asynchronous operation. The state of the set of options will switch t
   ): Promise<responses.DeleteDrgAttachmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgAttachment.");
+    const operationName = "deleteDrgAttachment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{drgAttachmentId}": deleteDrgAttachmentRequest.drgAttachmentId
     };
@@ -20476,7 +22644,13 @@ This is an asynchronous operation. The state of the set of options will switch t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDrgAttachmentResponse>{},
         responseHeaders: [
@@ -20510,6 +22684,9 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
   ): Promise<responses.DeleteDrgRouteDistributionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteDistribution.");
+    const operationName = "deleteDrgRouteDistribution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/DeleteDrgRouteDistribution";
     const pathParams = {
       "{drgRouteDistributionId}": deleteDrgRouteDistributionRequest.drgRouteDistributionId
     };
@@ -20538,7 +22715,13 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDrgRouteDistributionResponse>{},
         responseHeaders: [
@@ -20570,6 +22753,9 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
   ): Promise<responses.DeleteDrgRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteDrgRouteTable.");
+    const operationName = "deleteDrgRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternalPublicIp/DeleteDrgRouteTable";
     const pathParams = {
       "{drgRouteTableId}": deleteDrgRouteTableRequest.drgRouteTableId
     };
@@ -20598,7 +22784,13 @@ Remove the DRG route distribution from a DRG attachment or DRG route table by us
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDrgRouteTableResponse>{},
         responseHeaders: [
@@ -20637,6 +22829,8 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
   ): Promise<responses.DeleteIPSecConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteIPSecConnection.");
+    const operationName = "deleteIPSecConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{ipscId}": deleteIPSecConnectionRequest.ipscId
     };
@@ -20665,7 +22859,13 @@ This is an asynchronous operation. The connection's `lifecycleState` will change
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIPSecConnectionResponse>{},
         responseHeaders: [
@@ -20701,6 +22901,8 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   ): Promise<responses.DeleteInternetGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteInternetGateway.");
+    const operationName = "deleteInternetGateway";
+    const apiReferenceLink = "";
     const pathParams = {
       "{igId}": deleteInternetGatewayRequest.igId
     };
@@ -20729,7 +22931,13 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteInternetGatewayResponse>{},
         responseHeaders: [
@@ -20761,6 +22969,8 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
     deleteIpv6Request: requests.DeleteIpv6Request
   ): Promise<responses.DeleteIpv6Response> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteIpv6.");
+    const operationName = "deleteIpv6";
+    const apiReferenceLink = "";
     const pathParams = {
       "{ipv6Id}": deleteIpv6Request.ipv6Id
     };
@@ -20790,7 +23000,13 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIpv6Response>{},
         responseHeaders: [
@@ -20825,6 +23041,8 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
   ): Promise<responses.DeleteLocalPeeringGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteLocalPeeringGateway.");
+    const operationName = "deleteLocalPeeringGateway";
+    const apiReferenceLink = "";
     const pathParams = {
       "{localPeeringGatewayId}": deleteLocalPeeringGatewayRequest.localPeeringGatewayId
     };
@@ -20853,7 +23071,13 @@ This is an asynchronous operation; the local peering gateway's `lifecycleState` 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLocalPeeringGatewayResponse>{},
         responseHeaders: [
@@ -20888,6 +23112,8 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
     deleteNatGatewayRequest: requests.DeleteNatGatewayRequest
   ): Promise<responses.DeleteNatGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteNatGateway.");
+    const operationName = "deleteNatGateway";
+    const apiReferenceLink = "";
     const pathParams = {
       "{natGatewayId}": deleteNatGatewayRequest.natGatewayId
     };
@@ -20916,7 +23142,13 @@ This is an asynchronous operation. The NAT gateway's `lifecycleState` will chang
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNatGatewayResponse>{},
         responseHeaders: [
@@ -20954,6 +23186,9 @@ To get a list of the VNICs in a network security group, use
   ): Promise<responses.DeleteNetworkSecurityGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteNetworkSecurityGroup.");
+    const operationName = "deleteNetworkSecurityGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/DeleteNetworkSecurityGroup";
     const pathParams = {
       "{networkSecurityGroupId}": deleteNetworkSecurityGroupRequest.networkSecurityGroupId
     };
@@ -20982,7 +23217,13 @@ To get a list of the VNICs in a network security group, use
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNetworkSecurityGroupResponse>{},
         responseHeaders: [
@@ -21023,6 +23264,8 @@ This operation cannot be used with primary private IPs, which are
     deletePrivateIpRequest: requests.DeletePrivateIpRequest
   ): Promise<responses.DeletePrivateIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deletePrivateIp.");
+    const operationName = "deletePrivateIp";
+    const apiReferenceLink = "";
     const pathParams = {
       "{privateIpId}": deletePrivateIpRequest.privateIpId
     };
@@ -21051,7 +23294,13 @@ This operation cannot be used with primary private IPs, which are
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePrivateIpResponse>{},
         responseHeaders: [
@@ -21096,6 +23345,8 @@ If you want to simply unassign a reserved public IP and return it to your pool
     deletePublicIpRequest: requests.DeletePublicIpRequest
   ): Promise<responses.DeletePublicIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deletePublicIp.");
+    const operationName = "deletePublicIp";
+    const apiReferenceLink = "";
     const pathParams = {
       "{publicIpId}": deletePublicIpRequest.publicIpId
     };
@@ -21124,7 +23375,13 @@ If you want to simply unassign a reserved public IP and return it to your pool
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePublicIpResponse>{},
         responseHeaders: [
@@ -21158,6 +23415,9 @@ If you want to simply unassign a reserved public IP and return it to your pool
   ): Promise<responses.DeletePublicIpPoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deletePublicIpPool.");
+    const operationName = "deletePublicIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/DeletePublicIpPool";
     const pathParams = {
       "{publicIpPoolId}": deletePublicIpPoolRequest.publicIpPoolId
     };
@@ -21187,7 +23447,13 @@ If you want to simply unassign a reserved public IP and return it to your pool
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePublicIpPoolResponse>{},
         responseHeaders: [
@@ -21222,6 +23488,8 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
   ): Promise<responses.DeleteRemotePeeringConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteRemotePeeringConnection.");
+    const operationName = "deleteRemotePeeringConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{remotePeeringConnectionId}": deleteRemotePeeringConnectionRequest.remotePeeringConnectionId
     };
@@ -21250,7 +23518,13 @@ This is an asynchronous operation; the RPC's `lifecycleState` changes to TERMINA
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRemotePeeringConnectionResponse>{},
         responseHeaders: [
@@ -21285,6 +23559,8 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
     deleteRouteTableRequest: requests.DeleteRouteTableRequest
   ): Promise<responses.DeleteRouteTableResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteRouteTable.");
+    const operationName = "deleteRouteTable";
+    const apiReferenceLink = "";
     const pathParams = {
       "{rtId}": deleteRouteTableRequest.rtId
     };
@@ -21313,7 +23589,13 @@ This is an asynchronous operation. The route table's `lifecycleState` will chang
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRouteTableResponse>{},
         responseHeaders: [
@@ -21349,6 +23631,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   ): Promise<responses.DeleteSecurityListResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteSecurityList.");
+    const operationName = "deleteSecurityList";
+    const apiReferenceLink = "";
     const pathParams = {
       "{securityListId}": deleteSecurityListRequest.securityListId
     };
@@ -21377,7 +23661,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSecurityListResponse>{},
         responseHeaders: [
@@ -21410,6 +23700,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   ): Promise<responses.DeleteServiceGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteServiceGateway.");
+    const operationName = "deleteServiceGateway";
+    const apiReferenceLink = "";
     const pathParams = {
       "{serviceGatewayId}": deleteServiceGatewayRequest.serviceGatewayId
     };
@@ -21438,7 +23730,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteServiceGatewayResponse>{},
         responseHeaders: [
@@ -21471,6 +23769,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     deleteSubnetRequest: requests.DeleteSubnetRequest
   ): Promise<responses.DeleteSubnetResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteSubnet.");
+    const operationName = "deleteSubnet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{subnetId}": deleteSubnetRequest.subnetId
     };
@@ -21499,7 +23799,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSubnetResponse>{},
         responseHeaders: [
@@ -21532,6 +23838,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     deleteVcnRequest: requests.DeleteVcnRequest
   ): Promise<responses.DeleteVcnResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVcn.");
+    const operationName = "deleteVcn";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vcnId}": deleteVcnRequest.vcnId
     };
@@ -21560,7 +23868,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVcnResponse>{},
         responseHeaders: [
@@ -21596,6 +23910,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   ): Promise<responses.DeleteVirtualCircuitResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#deleteVirtualCircuit.");
+    const operationName = "deleteVirtualCircuit";
+    const apiReferenceLink = "";
     const pathParams = {
       "{virtualCircuitId}": deleteVirtualCircuitRequest.virtualCircuitId
     };
@@ -21624,7 +23940,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVirtualCircuitResponse>{},
         responseHeaders: [
@@ -21655,6 +23977,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     deleteVlanRequest: requests.DeleteVlanRequest
   ): Promise<responses.DeleteVlanResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVlan.");
+    const operationName = "deleteVlan";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/DeleteVlan";
     const pathParams = {
       "{vlanId}": deleteVlanRequest.vlanId
     };
@@ -21684,7 +24008,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVlanResponse>{},
         responseHeaders: [
@@ -21716,6 +24046,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     deleteVtapRequest: requests.DeleteVtapRequest
   ): Promise<responses.DeleteVtapResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#deleteVtap.");
+    const operationName = "deleteVtap";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/DeleteVtap";
     const pathParams = {
       "{vtapId}": deleteVtapRequest.vtapId
     };
@@ -21745,7 +24077,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVtapResponse>{},
         responseHeaders: [
@@ -21792,6 +24130,9 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     detachServiceIdRequest: requests.DetachServiceIdRequest
   ): Promise<responses.DetachServiceIdResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#detachServiceId.");
+    const operationName = "detachServiceId";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/DetachServiceId";
     const pathParams = {
       "{serviceGatewayId}": detachServiceIdRequest.serviceGatewayId
     };
@@ -21825,7 +24166,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachServiceIdResponse>{},
         body: await response.json(),
@@ -21861,6 +24208,9 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   ): Promise<responses.GetAllDrgAttachmentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getAllDrgAttachments.");
+    const operationName = "getAllDrgAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/GetAllDrgAttachments";
     const pathParams = {
       "{drgId}": getAllDrgAttachmentsRequest.drgId
     };
@@ -21894,7 +24244,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAllDrgAttachmentsResponse>{},
         body: await response.json(),
@@ -21987,6 +24343,9 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   ): Promise<responses.GetAllowedIkeIPSecParametersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getAllowedIkeIPSecParameters.");
+    const operationName = "getAllowedIkeIPSecParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/AllowedIkeIPSecParameters/GetAllowedIkeIPSecParameters";
     const pathParams = {};
 
     const queryParams = {};
@@ -22013,7 +24372,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAllowedIkeIPSecParametersResponse>{},
         body: await response.json(),
@@ -22048,6 +24413,9 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     getByoipRangeRequest: requests.GetByoipRangeRequest
   ): Promise<responses.GetByoipRangeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getByoipRange.");
+    const operationName = "getByoipRange";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/GetByoipRange";
     const pathParams = {
       "{byoipRangeId}": getByoipRangeRequest.byoipRangeId
     };
@@ -22076,7 +24444,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetByoipRangeResponse>{},
         body: await response.json(),
@@ -22115,6 +24489,9 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
     getCaptureFilterRequest: requests.GetCaptureFilterRequest
   ): Promise<responses.GetCaptureFilterResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCaptureFilter.");
+    const operationName = "getCaptureFilter";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/GetCaptureFilter";
     const pathParams = {
       "{captureFilterId}": getCaptureFilterRequest.captureFilterId
     };
@@ -22143,7 +24520,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCaptureFilterResponse>{},
         body: await response.json(),
@@ -22180,6 +24563,8 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
    */
   public async getCpe(getCpeRequest: requests.GetCpeRequest): Promise<responses.GetCpeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCpe.");
+    const operationName = "getCpe";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/GetCpe";
     const pathParams = {
       "{cpeId}": getCpeRequest.cpeId
     };
@@ -22207,7 +24592,13 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCpeResponse>{},
         body: await response.json(),
@@ -22265,6 +24656,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetCpeDeviceConfigContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceConfigContent.");
+    const operationName = "getCpeDeviceConfigContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/GetCpeDeviceConfigContent";
     const pathParams = {
       "{cpeId}": getCpeDeviceConfigContentRequest.cpeId
     };
@@ -22293,7 +24687,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCpeDeviceConfigContentResponse>{},
 
@@ -22336,6 +24736,9 @@ The operation returns configuration information for *all* of the
     getCpeDeviceShapeRequest: requests.GetCpeDeviceShapeRequest
   ): Promise<responses.GetCpeDeviceShapeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCpeDeviceShape.");
+    const operationName = "getCpeDeviceShape";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CpeDeviceShapeDetail/GetCpeDeviceShape";
     const pathParams = {
       "{cpeDeviceShapeId}": getCpeDeviceShapeRequest.cpeDeviceShapeId
     };
@@ -22364,7 +24767,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCpeDeviceShapeResponse>{},
         body: await response.json(),
@@ -22398,6 +24807,9 @@ The operation returns configuration information for *all* of the
     getCrossConnectRequest: requests.GetCrossConnectRequest
   ): Promise<responses.GetCrossConnectResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnect.");
+    const operationName = "getCrossConnect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/GetCrossConnect";
     const pathParams = {
       "{crossConnectId}": getCrossConnectRequest.crossConnectId
     };
@@ -22425,7 +24837,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCrossConnectResponse>{},
         body: await response.json(),
@@ -22465,6 +24883,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetCrossConnectGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectGroup.");
+    const operationName = "getCrossConnectGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/GetCrossConnectGroup";
     const pathParams = {
       "{crossConnectGroupId}": getCrossConnectGroupRequest.crossConnectGroupId
     };
@@ -22492,7 +24913,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCrossConnectGroupResponse>{},
         body: await response.json(),
@@ -22532,6 +24959,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetCrossConnectLetterOfAuthorityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectLetterOfAuthority.");
+    const operationName = "getCrossConnectLetterOfAuthority";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LetterOfAuthority/GetCrossConnectLetterOfAuthority";
     const pathParams = {
       "{crossConnectId}": getCrossConnectLetterOfAuthorityRequest.crossConnectId
     };
@@ -22559,7 +24989,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCrossConnectLetterOfAuthorityResponse>{},
         body: await response.json(),
@@ -22595,6 +25031,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetCrossConnectStatusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getCrossConnectStatus.");
+    const operationName = "getCrossConnectStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectStatus/GetCrossConnectStatus";
     const pathParams = {
       "{crossConnectId}": getCrossConnectStatusRequest.crossConnectId
     };
@@ -22622,7 +25061,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCrossConnectStatusResponse>{},
         body: await response.json(),
@@ -22656,6 +25101,9 @@ The operation returns configuration information for *all* of the
     getDhcpOptionsRequest: requests.GetDhcpOptionsRequest
   ): Promise<responses.GetDhcpOptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDhcpOptions.");
+    const operationName = "getDhcpOptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/GetDhcpOptions";
     const pathParams = {
       "{dhcpId}": getDhcpOptionsRequest.dhcpId
     };
@@ -22683,7 +25131,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDhcpOptionsResponse>{},
         body: await response.json(),
@@ -22720,6 +25174,8 @@ The operation returns configuration information for *all* of the
    */
   public async getDrg(getDrgRequest: requests.GetDrgRequest): Promise<responses.GetDrgResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrg.");
+    const operationName = "getDrg";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/GetDrg";
     const pathParams = {
       "{drgId}": getDrgRequest.drgId
     };
@@ -22747,7 +25203,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDrgResponse>{},
         body: await response.json(),
@@ -22786,6 +25248,9 @@ The operation returns configuration information for *all* of the
     getDrgAttachmentRequest: requests.GetDrgAttachmentRequest
   ): Promise<responses.GetDrgAttachmentResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrgAttachment.");
+    const operationName = "getDrgAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/GetDrgAttachment";
     const pathParams = {
       "{drgAttachmentId}": getDrgAttachmentRequest.drgAttachmentId
     };
@@ -22813,7 +25278,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDrgAttachmentResponse>{},
         body: await response.json(),
@@ -22855,6 +25326,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetDrgRedundancyStatusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getDrgRedundancyStatus.");
+    const operationName = "getDrgRedundancyStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRedundancyStatus/GetDrgRedundancyStatus";
     const pathParams = {
       "{drgId}": getDrgRedundancyStatusRequest.drgId
     };
@@ -22883,7 +25357,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDrgRedundancyStatusResponse>{},
         body: await response.json(),
@@ -22918,6 +25398,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetDrgRouteDistributionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getDrgRouteDistribution.");
+    const operationName = "getDrgRouteDistribution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/GetDrgRouteDistribution";
     const pathParams = {
       "{drgRouteDistributionId}": getDrgRouteDistributionRequest.drgRouteDistributionId
     };
@@ -22945,7 +25428,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDrgRouteDistributionResponse>{},
         body: await response.json(),
@@ -22984,6 +25473,9 @@ The operation returns configuration information for *all* of the
     getDrgRouteTableRequest: requests.GetDrgRouteTableRequest
   ): Promise<responses.GetDrgRouteTableResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getDrgRouteTable.");
+    const operationName = "getDrgRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/GetDrgRouteTable";
     const pathParams = {
       "{drgRouteTableId}": getDrgRouteTableRequest.drgRouteTableId
     };
@@ -23011,7 +25503,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDrgRouteTableResponse>{},
         body: await response.json(),
@@ -23053,6 +25551,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetFastConnectProviderServiceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderService.");
+    const operationName = "getFastConnectProviderService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderService/GetFastConnectProviderService";
     const pathParams = {
       "{providerServiceId}": getFastConnectProviderServiceRequest.providerServiceId
     };
@@ -23080,7 +25581,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFastConnectProviderServiceResponse>{},
         body: await response.json(),
@@ -23117,6 +25624,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetFastConnectProviderServiceKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getFastConnectProviderServiceKey.");
+    const operationName = "getFastConnectProviderServiceKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderServiceKey/GetFastConnectProviderServiceKey";
     const pathParams = {
       "{providerServiceId}": getFastConnectProviderServiceKeyRequest.providerServiceId,
       "{providerServiceKeyName}": getFastConnectProviderServiceKeyRequest.providerServiceKeyName
@@ -23146,7 +25656,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFastConnectProviderServiceKeyResponse>{},
         body: await response.json(),
@@ -23184,6 +25700,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetIPSecConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnection.");
+    const operationName = "getIPSecConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/GetIPSecConnection";
     const pathParams = {
       "{ipscId}": getIPSecConnectionRequest.ipscId
     };
@@ -23211,7 +25730,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIPSecConnectionResponse>{},
         body: await response.json(),
@@ -23255,6 +25780,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetIPSecConnectionDeviceConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceConfig.");
+    const operationName = "getIPSecConnectionDeviceConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionDeviceConfig/GetIPSecConnectionDeviceConfig";
     const pathParams = {
       "{ipscId}": getIPSecConnectionDeviceConfigRequest.ipscId
     };
@@ -23282,7 +25810,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIPSecConnectionDeviceConfigResponse>{},
         body: await response.json(),
@@ -23324,6 +25858,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetIPSecConnectionDeviceStatusResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionDeviceStatus.");
+    const operationName = "getIPSecConnectionDeviceStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionDeviceStatus/GetIPSecConnectionDeviceStatus";
     const pathParams = {
       "{ipscId}": getIPSecConnectionDeviceStatusRequest.ipscId
     };
@@ -23351,7 +25888,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIPSecConnectionDeviceStatusResponse>{},
         body: await response.json(),
@@ -23394,6 +25937,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetIPSecConnectionTunnelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnel.");
+    const operationName = "getIPSecConnectionTunnel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnel/GetIPSecConnectionTunnel";
     const pathParams = {
       "{ipscId}": getIPSecConnectionTunnelRequest.ipscId,
       "{tunnelId}": getIPSecConnectionTunnelRequest.tunnelId
@@ -23422,7 +25968,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIPSecConnectionTunnelResponse>{},
         body: await response.json(),
@@ -23463,6 +26015,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetIPSecConnectionTunnelErrorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getIPSecConnectionTunnelError.");
+    const operationName = "getIPSecConnectionTunnelError";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnelErrorDetails/GetIPSecConnectionTunnelError";
     const pathParams = {
       "{ipscId}": getIPSecConnectionTunnelErrorRequest.ipscId,
       "{tunnelId}": getIPSecConnectionTunnelErrorRequest.tunnelId
@@ -23491,7 +26046,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIPSecConnectionTunnelErrorResponse>{},
         body: await response.json(),
@@ -23530,6 +26091,9 @@ The operation returns configuration information for *all* of the
       this.logger.debug(
         "Calling operation VirtualNetworkClient#getIPSecConnectionTunnelSharedSecret."
       );
+    const operationName = "getIPSecConnectionTunnelSharedSecret";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnelSharedSecret/GetIPSecConnectionTunnelSharedSecret";
     const pathParams = {
       "{ipscId}": getIPSecConnectionTunnelSharedSecretRequest.ipscId,
       "{tunnelId}": getIPSecConnectionTunnelSharedSecretRequest.tunnelId
@@ -23558,7 +26122,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIPSecConnectionTunnelSharedSecretResponse>{},
         body: await response.json(),
@@ -23598,6 +26168,9 @@ The operation returns configuration information for *all* of the
   ): Promise<responses.GetInternetGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getInternetGateway.");
+    const operationName = "getInternetGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/GetInternetGateway";
     const pathParams = {
       "{igId}": getInternetGatewayRequest.igId
     };
@@ -23625,7 +26198,13 @@ The operation returns configuration information for *all* of the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInternetGatewayResponse>{},
         body: await response.json(),
@@ -23684,6 +26263,9 @@ The operation returns configuration information for all tunnels in the single sp
   ): Promise<responses.GetIpsecCpeDeviceConfigContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getIpsecCpeDeviceConfigContent.");
+    const operationName = "getIpsecCpeDeviceConfigContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/GetIpsecCpeDeviceConfigContent";
     const pathParams = {
       "{ipscId}": getIpsecCpeDeviceConfigContentRequest.ipscId
     };
@@ -23712,7 +26294,13 @@ The operation returns configuration information for all tunnels in the single sp
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIpsecCpeDeviceConfigContentResponse>{},
 
@@ -23750,6 +26338,8 @@ The operation returns configuration information for all tunnels in the single sp
     getIpv6Request: requests.GetIpv6Request
   ): Promise<responses.GetIpv6Response> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getIpv6.");
+    const operationName = "getIpv6";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/GetIpv6";
     const pathParams = {
       "{ipv6Id}": getIpv6Request.ipv6Id
     };
@@ -23778,7 +26368,13 @@ The operation returns configuration information for all tunnels in the single sp
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIpv6Response>{},
         body: await response.json(),
@@ -23818,6 +26414,9 @@ The operation returns configuration information for all tunnels in the single sp
   ): Promise<responses.GetLocalPeeringGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getLocalPeeringGateway.");
+    const operationName = "getLocalPeeringGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/GetLocalPeeringGateway";
     const pathParams = {
       "{localPeeringGatewayId}": getLocalPeeringGatewayRequest.localPeeringGatewayId
     };
@@ -23845,7 +26444,13 @@ The operation returns configuration information for all tunnels in the single sp
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLocalPeeringGatewayResponse>{},
         body: await response.json(),
@@ -23884,6 +26489,9 @@ The operation returns configuration information for all tunnels in the single sp
     getNatGatewayRequest: requests.GetNatGatewayRequest
   ): Promise<responses.GetNatGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getNatGateway.");
+    const operationName = "getNatGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/GetNatGateway";
     const pathParams = {
       "{natGatewayId}": getNatGatewayRequest.natGatewayId
     };
@@ -23911,7 +26519,13 @@ The operation returns configuration information for all tunnels in the single sp
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNatGatewayResponse>{},
         body: await response.json(),
@@ -23958,6 +26572,9 @@ To list the security rules in an NSG, see
   ): Promise<responses.GetNetworkSecurityGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getNetworkSecurityGroup.");
+    const operationName = "getNetworkSecurityGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/GetNetworkSecurityGroup";
     const pathParams = {
       "{networkSecurityGroupId}": getNetworkSecurityGroupRequest.networkSecurityGroupId
     };
@@ -23985,7 +26602,13 @@ To list the security rules in an NSG, see
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkSecurityGroupResponse>{},
         body: await response.json(),
@@ -24025,6 +26648,9 @@ To list the security rules in an NSG, see
   ): Promise<responses.GetNetworkingTopologyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getNetworkingTopology.");
+    const operationName = "getNetworkingTopology";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkingTopology/GetNetworkingTopology";
     const pathParams = {};
 
     const queryParams = {
@@ -24057,7 +26683,13 @@ To list the security rules in an NSG, see
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkingTopologyResponse>{},
         body: await response.json(),
@@ -24100,6 +26732,9 @@ To list the security rules in an NSG, see
     getPrivateIpRequest: requests.GetPrivateIpRequest
   ): Promise<responses.GetPrivateIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPrivateIp.");
+    const operationName = "getPrivateIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/GetPrivateIp";
     const pathParams = {
       "{privateIpId}": getPrivateIpRequest.privateIpId
     };
@@ -24127,7 +26762,13 @@ To list the security rules in an NSG, see
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPrivateIpResponse>{},
         body: await response.json(),
@@ -24177,6 +26818,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getPublicIpRequest: requests.GetPublicIpRequest
   ): Promise<responses.GetPublicIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPublicIp.");
+    const operationName = "getPublicIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIp";
     const pathParams = {
       "{publicIpId}": getPublicIpRequest.publicIpId
     };
@@ -24204,7 +26848,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPublicIpResponse>{},
         body: await response.json(),
@@ -24249,6 +26899,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   ): Promise<responses.GetPublicIpByIpAddressResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpByIpAddress.");
+    const operationName = "getPublicIpByIpAddress";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByIpAddress";
     const pathParams = {};
 
     const queryParams = {};
@@ -24279,7 +26932,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPublicIpByIpAddressResponse>{},
         body: await response.json(),
@@ -24330,6 +26989,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   ): Promise<responses.GetPublicIpByPrivateIpIdResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpByPrivateIpId.");
+    const operationName = "getPublicIpByPrivateIpId";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/GetPublicIpByPrivateIpId";
     const pathParams = {};
 
     const queryParams = {};
@@ -24360,7 +27022,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPublicIpByPrivateIpIdResponse>{},
         body: await response.json(),
@@ -24400,6 +27068,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getPublicIpPoolRequest: requests.GetPublicIpPoolRequest
   ): Promise<responses.GetPublicIpPoolResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getPublicIpPool.");
+    const operationName = "getPublicIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/GetPublicIpPool";
     const pathParams = {
       "{publicIpPoolId}": getPublicIpPoolRequest.publicIpPoolId
     };
@@ -24428,7 +27099,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPublicIpPoolResponse>{},
         body: await response.json(),
@@ -24469,6 +27146,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   ): Promise<responses.GetRemotePeeringConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getRemotePeeringConnection.");
+    const operationName = "getRemotePeeringConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/GetRemotePeeringConnection";
     const pathParams = {
       "{remotePeeringConnectionId}": getRemotePeeringConnectionRequest.remotePeeringConnectionId
     };
@@ -24496,7 +27176,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRemotePeeringConnectionResponse>{},
         body: await response.json(),
@@ -24535,6 +27221,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getRouteTableRequest: requests.GetRouteTableRequest
   ): Promise<responses.GetRouteTableResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getRouteTable.");
+    const operationName = "getRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/GetRouteTable";
     const pathParams = {
       "{rtId}": getRouteTableRequest.rtId
     };
@@ -24562,7 +27251,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRouteTableResponse>{},
         body: await response.json(),
@@ -24601,6 +27296,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getSecurityListRequest: requests.GetSecurityListRequest
   ): Promise<responses.GetSecurityListResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSecurityList.");
+    const operationName = "getSecurityList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/GetSecurityList";
     const pathParams = {
       "{securityListId}": getSecurityListRequest.securityListId
     };
@@ -24628,7 +27326,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSecurityListResponse>{},
         body: await response.json(),
@@ -24668,6 +27372,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getServiceRequest: requests.GetServiceRequest
   ): Promise<responses.GetServiceResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getService.");
+    const operationName = "getService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Service/GetService";
     const pathParams = {
       "{serviceId}": getServiceRequest.serviceId
     };
@@ -24695,7 +27402,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetServiceResponse>{},
         body: await response.json(),
@@ -24734,6 +27447,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getServiceGatewayRequest: requests.GetServiceGatewayRequest
   ): Promise<responses.GetServiceGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getServiceGateway.");
+    const operationName = "getServiceGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/GetServiceGateway";
     const pathParams = {
       "{serviceGatewayId}": getServiceGatewayRequest.serviceGatewayId
     };
@@ -24761,7 +27477,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetServiceGatewayResponse>{},
         body: await response.json(),
@@ -24800,6 +27522,8 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getSubnetRequest: requests.GetSubnetRequest
   ): Promise<responses.GetSubnetResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSubnet.");
+    const operationName = "getSubnet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/GetSubnet";
     const pathParams = {
       "{subnetId}": getSubnetRequest.subnetId
     };
@@ -24827,7 +27551,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSubnetResponse>{},
         body: await response.json(),
@@ -24866,6 +27596,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
     getSubnetTopologyRequest: requests.GetSubnetTopologyRequest
   ): Promise<responses.GetSubnetTopologyResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getSubnetTopology.");
+    const operationName = "getSubnetTopology";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SubnetTopology/GetSubnetTopology";
     const pathParams = {};
 
     const queryParams = {
@@ -24899,7 +27632,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSubnetTopologyResponse>{},
         body: await response.json(),
@@ -24944,6 +27683,9 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
   ): Promise<responses.GetTunnelCpeDeviceConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfig.");
+    const operationName = "getTunnelCpeDeviceConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelCpeDeviceConfig/GetTunnelCpeDeviceConfig";
     const pathParams = {
       "{ipscId}": getTunnelCpeDeviceConfigRequest.ipscId,
       "{tunnelId}": getTunnelCpeDeviceConfigRequest.tunnelId
@@ -24973,7 +27715,13 @@ Or you can use {@link #getPublicIpByPrivateIpId(GetPublicIpByPrivateIpIdRequest)
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTunnelCpeDeviceConfigResponse>{},
         body: await response.json(),
@@ -25031,6 +27779,9 @@ The operation returns configuration information for only the specified IPSec tun
   ): Promise<responses.GetTunnelCpeDeviceConfigContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getTunnelCpeDeviceConfigContent.");
+    const operationName = "getTunnelCpeDeviceConfigContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelCpeDeviceConfig/GetTunnelCpeDeviceConfigContent";
     const pathParams = {
       "{ipscId}": getTunnelCpeDeviceConfigContentRequest.ipscId,
       "{tunnelId}": getTunnelCpeDeviceConfigContentRequest.tunnelId
@@ -25060,7 +27811,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTunnelCpeDeviceConfigContentResponse>{},
 
@@ -25095,6 +27852,9 @@ The operation returns configuration information for only the specified IPSec tun
     getUpgradeStatusRequest: requests.GetUpgradeStatusRequest
   ): Promise<responses.GetUpgradeStatusResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getUpgradeStatus.");
+    const operationName = "getUpgradeStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/GetUpgradeStatus";
     const pathParams = {
       "{drgId}": getUpgradeStatusRequest.drgId
     };
@@ -25123,7 +27883,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUpgradeStatusResponse>{},
         body: await response.json(),
@@ -25155,6 +27921,8 @@ The operation returns configuration information for only the specified IPSec tun
    */
   public async getVcn(getVcnRequest: requests.GetVcnRequest): Promise<responses.GetVcnResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcn.");
+    const operationName = "getVcn";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/GetVcn";
     const pathParams = {
       "{vcnId}": getVcnRequest.vcnId
     };
@@ -25182,7 +27950,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVcnResponse>{},
         body: await response.json(),
@@ -25222,6 +27996,9 @@ The operation returns configuration information for only the specified IPSec tun
   ): Promise<responses.GetVcnDnsResolverAssociationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#getVcnDnsResolverAssociation.");
+    const operationName = "getVcnDnsResolverAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VcnDnsResolverAssociation/GetVcnDnsResolverAssociation";
     const pathParams = {
       "{vcnId}": getVcnDnsResolverAssociationRequest.vcnId
     };
@@ -25250,7 +28027,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVcnDnsResolverAssociationResponse>{},
         body: await response.json(),
@@ -25289,6 +28072,9 @@ The operation returns configuration information for only the specified IPSec tun
     getVcnTopologyRequest: requests.GetVcnTopologyRequest
   ): Promise<responses.GetVcnTopologyResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVcnTopology.");
+    const operationName = "getVcnTopology";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VcnTopology/GetVcnTopology";
     const pathParams = {};
 
     const queryParams = {
@@ -25322,7 +28108,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVcnTopologyResponse>{},
         body: await response.json(),
@@ -25361,6 +28153,9 @@ The operation returns configuration information for only the specified IPSec tun
     getVirtualCircuitRequest: requests.GetVirtualCircuitRequest
   ): Promise<responses.GetVirtualCircuitResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVirtualCircuit.");
+    const operationName = "getVirtualCircuit";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/GetVirtualCircuit";
     const pathParams = {
       "{virtualCircuitId}": getVirtualCircuitRequest.virtualCircuitId
     };
@@ -25388,7 +28183,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVirtualCircuitResponse>{},
         body: await response.json(),
@@ -25427,6 +28228,8 @@ The operation returns configuration information for only the specified IPSec tun
     getVlanRequest: requests.GetVlanRequest
   ): Promise<responses.GetVlanResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVlan.");
+    const operationName = "getVlan";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/GetVlan";
     const pathParams = {
       "{vlanId}": getVlanRequest.vlanId
     };
@@ -25455,7 +28258,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVlanResponse>{},
         body: await response.json(),
@@ -25498,6 +28307,8 @@ The operation returns configuration information for only the specified IPSec tun
     getVnicRequest: requests.GetVnicRequest
   ): Promise<responses.GetVnicResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVnic.");
+    const operationName = "getVnic";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vnic/GetVnic";
     const pathParams = {
       "{vnicId}": getVnicRequest.vnicId
     };
@@ -25525,7 +28336,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVnicResponse>{},
         body: await response.json(),
@@ -25564,6 +28381,8 @@ The operation returns configuration information for only the specified IPSec tun
     getVtapRequest: requests.GetVtapRequest
   ): Promise<responses.GetVtapResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#getVtap.");
+    const operationName = "getVtap";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/GetVtap";
     const pathParams = {
       "{vtapId}": getVtapRequest.vtapId
     };
@@ -25592,7 +28411,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVtapResponse>{},
         body: await response.json(),
@@ -25636,6 +28461,9 @@ The operation returns configuration information for only the specified IPSec tun
       this.logger.debug(
         "Calling operation VirtualNetworkClient#listAllowedPeerRegionsForRemotePeering."
       );
+    const operationName = "listAllowedPeerRegionsForRemotePeering";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PeerRegionForRemotePeering/ListAllowedPeerRegionsForRemotePeering";
     const pathParams = {};
 
     const queryParams = {};
@@ -25661,7 +28489,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAllowedPeerRegionsForRemotePeeringResponse>{},
         body: await response.json(),
@@ -25698,6 +28532,9 @@ The operation returns configuration information for only the specified IPSec tun
   ): Promise<responses.ListByoipAllocatedRangesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listByoipAllocatedRanges.");
+    const operationName = "listByoipAllocatedRanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipAllocatedRangeSummary/ListByoipAllocatedRanges";
     const pathParams = {
       "{byoipRangeId}": listByoipAllocatedRangesRequest.byoipRangeId
     };
@@ -25729,7 +28566,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListByoipAllocatedRangesResponse>{},
         body: await response.json(),
@@ -25770,6 +28613,9 @@ The operation returns configuration information for only the specified IPSec tun
     listByoipRangesRequest: requests.ListByoipRangesRequest
   ): Promise<responses.ListByoipRangesResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listByoipRanges.");
+    const operationName = "listByoipRanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/ListByoipRanges";
     const pathParams = {};
 
     const queryParams = {
@@ -25804,7 +28650,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListByoipRangesResponse>{},
         body: await response.json(),
@@ -25845,6 +28697,9 @@ The operation returns configuration information for only the specified IPSec tun
   ): Promise<responses.ListCaptureFiltersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listCaptureFilters.");
+    const operationName = "listCaptureFilters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/ListCaptureFilters";
     const pathParams = {};
 
     const queryParams = {
@@ -25879,7 +28734,13 @@ The operation returns configuration information for only the specified IPSec tun
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCaptureFiltersResponse>{},
         body: await response.json(),
@@ -25984,6 +28845,9 @@ For information about generating CPE configuration content, see these operations
   ): Promise<responses.ListCpeDeviceShapesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listCpeDeviceShapes.");
+    const operationName = "listCpeDeviceShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CpeDeviceShapeSummary/ListCpeDeviceShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -26013,7 +28877,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCpeDeviceShapesResponse>{},
         body: await response.json(),
@@ -26105,6 +28975,8 @@ For information about generating CPE configuration content, see these operations
     listCpesRequest: requests.ListCpesRequest
   ): Promise<responses.ListCpesResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listCpes.");
+    const operationName = "listCpes";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/ListCpes";
     const pathParams = {};
 
     const queryParams = {
@@ -26134,7 +29006,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCpesResponse>{},
         body: await response.json(),
@@ -26225,6 +29103,9 @@ For information about generating CPE configuration content, see these operations
   ): Promise<responses.ListCrossConnectGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectGroups.");
+    const operationName = "listCrossConnectGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/ListCrossConnectGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -26258,7 +29139,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCrossConnectGroupsResponse>{},
         body: await response.json(),
@@ -26352,6 +29239,9 @@ For information about generating CPE configuration content, see these operations
   ): Promise<responses.ListCrossConnectLocationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectLocations.");
+    const operationName = "listCrossConnectLocations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectLocation/ListCrossConnectLocations";
     const pathParams = {};
 
     const queryParams = {
@@ -26381,7 +29271,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCrossConnectLocationsResponse>{},
         body: await response.json(),
@@ -26475,6 +29371,9 @@ For information about generating CPE configuration content, see these operations
   ): Promise<responses.ListCrossConnectMappingsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnectMappings.");
+    const operationName = "listCrossConnectMappings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectMappingDetailsCollection/ListCrossConnectMappings";
     const pathParams = {
       "{virtualCircuitId}": listCrossConnectMappingsRequest.virtualCircuitId
     };
@@ -26503,7 +29402,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCrossConnectMappingsResponse>{},
         body: await response.json(),
@@ -26539,6 +29444,9 @@ For information about generating CPE configuration content, see these operations
     listCrossConnectsRequest: requests.ListCrossConnectsRequest
   ): Promise<responses.ListCrossConnectsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listCrossConnects.");
+    const operationName = "listCrossConnects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/ListCrossConnects";
     const pathParams = {};
 
     const queryParams = {
@@ -26573,7 +29481,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCrossConnectsResponse>{},
         body: await response.json(),
@@ -26668,6 +29582,9 @@ For information about generating CPE configuration content, see these operations
   ): Promise<responses.ListCrossconnectPortSpeedShapesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listCrossconnectPortSpeedShapes.");
+    const operationName = "listCrossconnectPortSpeedShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectPortSpeedShape/ListCrossconnectPortSpeedShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -26697,7 +29614,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCrossconnectPortSpeedShapesResponse>{},
         body: await response.json(),
@@ -26792,6 +29715,9 @@ For information about generating CPE configuration content, see these operations
     listDhcpOptionsRequest: requests.ListDhcpOptionsRequest
   ): Promise<responses.ListDhcpOptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDhcpOptions.");
+    const operationName = "listDhcpOptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/ListDhcpOptions";
     const pathParams = {};
 
     const queryParams = {
@@ -26826,7 +29752,13 @@ For information about generating CPE configuration content, see these operations
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDhcpOptionsResponse>{},
         body: await response.json(),
@@ -26924,6 +29856,9 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
   ): Promise<responses.ListDrgAttachmentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listDrgAttachments.");
+    const operationName = "listDrgAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/ListDrgAttachments";
     const pathParams = {};
 
     const queryParams = {
@@ -26962,7 +29897,13 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDrgAttachmentsResponse>{},
         body: await response.json(),
@@ -27056,6 +29997,9 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       this.logger.debug(
         "Calling operation VirtualNetworkClient#listDrgRouteDistributionStatements."
       );
+    const operationName = "listDrgRouteDistributionStatements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/ListDrgRouteDistributionStatements";
     const pathParams = {
       "{drgRouteDistributionId}": listDrgRouteDistributionStatementsRequest.drgRouteDistributionId
     };
@@ -27088,7 +30032,13 @@ The LIST API lists DRG attachments by attachment type. It will default to list V
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDrgRouteDistributionStatementsResponse>{},
         body: await response.json(),
@@ -27184,6 +30134,9 @@ To retrieve the statements in a distribution, use the
   ): Promise<responses.ListDrgRouteDistributionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteDistributions.");
+    const operationName = "listDrgRouteDistributions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/ListDrgRouteDistributions";
     const pathParams = {};
 
     const queryParams = {
@@ -27217,7 +30170,13 @@ To retrieve the statements in a distribution, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDrgRouteDistributionsResponse>{},
         body: await response.json(),
@@ -27308,6 +30267,9 @@ To retrieve the statements in a distribution, use the
     listDrgRouteRulesRequest: requests.ListDrgRouteRulesRequest
   ): Promise<responses.ListDrgRouteRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteRules.");
+    const operationName = "listDrgRouteRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/ListDrgRouteRules";
     const pathParams = {
       "{drgRouteTableId}": listDrgRouteRulesRequest.drgRouteTableId
     };
@@ -27339,7 +30301,13 @@ To retrieve the statements in a distribution, use the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDrgRouteRulesResponse>{},
         body: await response.json(),
@@ -27434,6 +30402,9 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
   ): Promise<responses.ListDrgRouteTablesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listDrgRouteTables.");
+    const operationName = "listDrgRouteTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/ListDrgRouteTables";
     const pathParams = {};
 
     const queryParams = {
@@ -27468,7 +30439,13 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDrgRouteTablesResponse>{},
         body: await response.json(),
@@ -27560,6 +30537,8 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
     listDrgsRequest: requests.ListDrgsRequest
   ): Promise<responses.ListDrgsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listDrgs.");
+    const operationName = "listDrgs";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/ListDrgs";
     const pathParams = {};
 
     const queryParams = {
@@ -27589,7 +30568,13 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDrgsResponse>{},
         body: await response.json(),
@@ -27686,6 +30671,9 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
   ): Promise<responses.ListFastConnectProviderServicesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listFastConnectProviderServices.");
+    const operationName = "listFastConnectProviderServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderService/ListFastConnectProviderServices";
     const pathParams = {};
 
     const queryParams = {
@@ -27715,7 +30703,13 @@ For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/i
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFastConnectProviderServicesResponse>{},
         body: await response.json(),
@@ -27813,6 +30807,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       this.logger.debug(
         "Calling operation VirtualNetworkClient#listFastConnectProviderVirtualCircuitBandwidthShapes."
       );
+    const operationName = "listFastConnectProviderVirtualCircuitBandwidthShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/FastConnectProviderService/ListFastConnectProviderVirtualCircuitBandwidthShapes";
     const pathParams = {
       "{providerServiceId}":
         listFastConnectProviderVirtualCircuitBandwidthShapesRequest.providerServiceId
@@ -27844,7 +30841,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFastConnectProviderVirtualCircuitBandwidthShapesResponse>{},
         body: await response.json(),
@@ -27945,6 +30948,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): Promise<responses.ListIPSecConnectionTunnelRoutesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnelRoutes.");
+    const operationName = "listIPSecConnectionTunnelRoutes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelRouteSummary/ListIPSecConnectionTunnelRoutes";
     const pathParams = {
       "{ipscId}": listIPSecConnectionTunnelRoutesRequest.ipscId,
       "{tunnelId}": listIPSecConnectionTunnelRoutesRequest.tunnelId
@@ -27977,7 +30983,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIPSecConnectionTunnelRoutesResponse>{},
         body: await response.json(),
@@ -28077,6 +31089,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       this.logger.debug(
         "Calling operation VirtualNetworkClient#listIPSecConnectionTunnelSecurityAssociations."
       );
+    const operationName = "listIPSecConnectionTunnelSecurityAssociations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelSecurityAssociationSummary/ListIPSecConnectionTunnelSecurityAssociations";
     const pathParams = {
       "{ipscId}": listIPSecConnectionTunnelSecurityAssociationsRequest.ipscId,
       "{tunnelId}": listIPSecConnectionTunnelSecurityAssociationsRequest.tunnelId
@@ -28108,7 +31123,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIPSecConnectionTunnelSecurityAssociationsResponse>{},
         body: await response.json(),
@@ -28210,6 +31231,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): Promise<responses.ListIPSecConnectionTunnelsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnectionTunnels.");
+    const operationName = "listIPSecConnectionTunnels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnel/ListIPSecConnectionTunnels";
     const pathParams = {
       "{ipscId}": listIPSecConnectionTunnelsRequest.ipscId
     };
@@ -28240,7 +31264,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIPSecConnectionTunnelsResponse>{},
         body: await response.json(),
@@ -28334,6 +31364,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): Promise<responses.ListIPSecConnectionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listIPSecConnections.");
+    const operationName = "listIPSecConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/ListIPSecConnections";
     const pathParams = {};
 
     const queryParams = {
@@ -28365,7 +31398,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIPSecConnectionsResponse>{},
         body: await response.json(),
@@ -28459,6 +31498,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): Promise<responses.ListInternetGatewaysResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listInternetGateways.");
+    const operationName = "listInternetGateways";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/ListInternetGateways";
     const pathParams = {};
 
     const queryParams = {
@@ -28493,7 +31535,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInternetGatewaysResponse>{},
         body: await response.json(),
@@ -28592,6 +31640,8 @@ For more information about virtual circuits, see [FastConnect Overview](https://
     listIpv6sRequest: requests.ListIpv6sRequest
   ): Promise<responses.ListIpv6sResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listIpv6s.");
+    const operationName = "listIpv6s";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/ListIpv6s";
     const pathParams = {};
 
     const queryParams = {
@@ -28624,7 +31674,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIpv6sResponse>{},
         body: await response.json(),
@@ -28716,6 +31772,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): Promise<responses.ListLocalPeeringGatewaysResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listLocalPeeringGateways.");
+    const operationName = "listLocalPeeringGateways";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/ListLocalPeeringGateways";
     const pathParams = {};
 
     const queryParams = {
@@ -28746,7 +31805,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLocalPeeringGatewaysResponse>{},
         body: await response.json(),
@@ -28839,6 +31904,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
     listNatGatewaysRequest: requests.ListNatGatewaysRequest
   ): Promise<responses.ListNatGatewaysResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listNatGateways.");
+    const operationName = "listNatGateways";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/ListNatGateways";
     const pathParams = {};
 
     const queryParams = {
@@ -28873,7 +31941,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNatGatewaysResponse>{},
         body: await response.json(),
@@ -28968,6 +32042,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       this.logger.debug(
         "Calling operation VirtualNetworkClient#listNetworkSecurityGroupSecurityRules."
       );
+    const operationName = "listNetworkSecurityGroupSecurityRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/ListNetworkSecurityGroupSecurityRules";
     const pathParams = {
       "{networkSecurityGroupId}":
         listNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
@@ -29002,7 +32079,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkSecurityGroupSecurityRulesResponse>{},
         body: await response.json(),
@@ -29095,6 +32178,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): Promise<responses.ListNetworkSecurityGroupVnicsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroupVnics.");
+    const operationName = "listNetworkSecurityGroupVnics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroupVnic/ListNetworkSecurityGroupVnics";
     const pathParams = {
       "{networkSecurityGroupId}": listNetworkSecurityGroupVnicsRequest.networkSecurityGroupId
     };
@@ -29127,7 +32213,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkSecurityGroupVnicsResponse>{},
         body: await response.json(),
@@ -29221,6 +32313,9 @@ For more information about virtual circuits, see [FastConnect Overview](https://
   ): Promise<responses.ListNetworkSecurityGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listNetworkSecurityGroups.");
+    const operationName = "listNetworkSecurityGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/ListNetworkSecurityGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -29256,7 +32351,13 @@ For more information about virtual circuits, see [FastConnect Overview](https://
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkSecurityGroupsResponse>{},
         body: await response.json(),
@@ -29363,6 +32464,9 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
     listPrivateIpsRequest: requests.ListPrivateIpsRequest
   ): Promise<responses.ListPrivateIpsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPrivateIps.");
+    const operationName = "listPrivateIps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/ListPrivateIps";
     const pathParams = {};
 
     const queryParams = {
@@ -29395,7 +32499,13 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPrivateIpsResponse>{},
         body: await response.json(),
@@ -29488,6 +32598,9 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
     listPublicIpPoolsRequest: requests.ListPublicIpPoolsRequest
   ): Promise<responses.ListPublicIpPoolsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPublicIpPools.");
+    const operationName = "listPublicIpPools";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/ListPublicIpPools";
     const pathParams = {};
 
     const queryParams = {
@@ -29522,7 +32635,13 @@ If you are an Oracle Cloud VMware Solution customer and have VLANs
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublicIpPoolsResponse>{},
         body: await response.json(),
@@ -29581,6 +32700,9 @@ To list the ephemeral public IPs assigned to private IPs:
     listPublicIpsRequest: requests.ListPublicIpsRequest
   ): Promise<responses.ListPublicIpsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listPublicIps.");
+    const operationName = "listPublicIps";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/ListPublicIps";
     const pathParams = {};
 
     const queryParams = {
@@ -29614,7 +32736,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublicIpsResponse>{},
         body: await response.json(),
@@ -29708,6 +32836,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.ListRemotePeeringConnectionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listRemotePeeringConnections.");
+    const operationName = "listRemotePeeringConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/ListRemotePeeringConnections";
     const pathParams = {};
 
     const queryParams = {
@@ -29738,7 +32869,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRemotePeeringConnectionsResponse>{},
         body: await response.json(),
@@ -29833,6 +32970,9 @@ To list the ephemeral public IPs assigned to private IPs:
     listRouteTablesRequest: requests.ListRouteTablesRequest
   ): Promise<responses.ListRouteTablesResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listRouteTables.");
+    const operationName = "listRouteTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/ListRouteTables";
     const pathParams = {};
 
     const queryParams = {
@@ -29867,7 +33007,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRouteTablesResponse>{},
         body: await response.json(),
@@ -29960,6 +33106,9 @@ To list the ephemeral public IPs assigned to private IPs:
     listSecurityListsRequest: requests.ListSecurityListsRequest
   ): Promise<responses.ListSecurityListsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listSecurityLists.");
+    const operationName = "listSecurityLists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/ListSecurityLists";
     const pathParams = {};
 
     const queryParams = {
@@ -29994,7 +33143,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSecurityListsResponse>{},
         body: await response.json(),
@@ -30088,6 +33243,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.ListServiceGatewaysResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listServiceGateways.");
+    const operationName = "listServiceGateways";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/ListServiceGateways";
     const pathParams = {};
 
     const queryParams = {
@@ -30121,7 +33279,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServiceGatewaysResponse>{},
         body: await response.json(),
@@ -30214,6 +33378,9 @@ To list the ephemeral public IPs assigned to private IPs:
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listServices.");
+    const operationName = "listServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Service/ListServices";
     const pathParams = {};
 
     const queryParams = {
@@ -30242,7 +33409,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServicesResponse>{},
         body: await response.json(),
@@ -30335,6 +33508,9 @@ To list the ephemeral public IPs assigned to private IPs:
     listSubnetsRequest: requests.ListSubnetsRequest
   ): Promise<responses.ListSubnetsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listSubnets.");
+    const operationName = "listSubnets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/ListSubnets";
     const pathParams = {};
 
     const queryParams = {
@@ -30369,7 +33545,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSubnetsResponse>{},
         body: await response.json(),
@@ -30459,6 +33641,8 @@ To list the ephemeral public IPs assigned to private IPs:
     listVcnsRequest: requests.ListVcnsRequest
   ): Promise<responses.ListVcnsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVcns.");
+    const operationName = "listVcns";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ListVcns";
     const pathParams = {};
 
     const queryParams = {
@@ -30492,7 +33676,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVcnsResponse>{},
         body: await response.json(),
@@ -30585,6 +33775,9 @@ To list the ephemeral public IPs assigned to private IPs:
       this.logger.debug(
         "Calling operation VirtualNetworkClient#listVirtualCircuitBandwidthShapes."
       );
+    const operationName = "listVirtualCircuitBandwidthShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitBandwidthShape/ListVirtualCircuitBandwidthShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -30614,7 +33807,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVirtualCircuitBandwidthShapesResponse>{},
         body: await response.json(),
@@ -30708,6 +33907,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.ListVirtualCircuitPublicPrefixesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuitPublicPrefixes.");
+    const operationName = "listVirtualCircuitPublicPrefixes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitPublicPrefix/ListVirtualCircuitPublicPrefixes";
     const pathParams = {
       "{virtualCircuitId}": listVirtualCircuitPublicPrefixesRequest.virtualCircuitId
     };
@@ -30737,7 +33939,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVirtualCircuitPublicPrefixesResponse>{},
         body: await response.json(),
@@ -30773,6 +33981,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.ListVirtualCircuitsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#listVirtualCircuits.");
+    const operationName = "listVirtualCircuits";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/ListVirtualCircuits";
     const pathParams = {};
 
     const queryParams = {
@@ -30806,7 +34017,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVirtualCircuitsResponse>{},
         body: await response.json(),
@@ -30898,6 +34115,8 @@ To list the ephemeral public IPs assigned to private IPs:
     listVlansRequest: requests.ListVlansRequest
   ): Promise<responses.ListVlansResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVlans.");
+    const operationName = "listVlans";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/ListVlans";
     const pathParams = {};
 
     const queryParams = {
@@ -30933,7 +34152,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVlansResponse>{},
         body: await response.json(),
@@ -31023,6 +34248,8 @@ To list the ephemeral public IPs assigned to private IPs:
     listVtapsRequest: requests.ListVtapsRequest
   ): Promise<responses.ListVtapsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#listVtaps.");
+    const operationName = "listVtaps";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vtap/ListVtaps";
     const pathParams = {};
 
     const queryParams = {
@@ -31062,7 +34289,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVtapsResponse>{},
         body: await response.json(),
@@ -31160,6 +34393,9 @@ To list the ephemeral public IPs assigned to private IPs:
     modifyVcnCidrRequest: requests.ModifyVcnCidrRequest
   ): Promise<responses.ModifyVcnCidrResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#modifyVcnCidr.");
+    const operationName = "modifyVcnCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/ModifyVcnCidr";
     const pathParams = {
       "{vcnId}": modifyVcnCidrRequest.vcnId
     };
@@ -31195,7 +34431,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ModifyVcnCidrResponse>{},
         responseHeaders: [
@@ -31234,6 +34476,9 @@ To list the ephemeral public IPs assigned to private IPs:
       this.logger.debug(
         "Calling operation VirtualNetworkClient#removeDrgRouteDistributionStatements."
       );
+    const operationName = "removeDrgRouteDistributionStatements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/RemoveDrgRouteDistributionStatements";
     const pathParams = {
       "{drgRouteDistributionId}": removeDrgRouteDistributionStatementsRequest.drgRouteDistributionId
     };
@@ -31267,7 +34512,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveDrgRouteDistributionStatementsResponse>{},
         responseHeaders: [
@@ -31299,6 +34550,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.RemoveDrgRouteRulesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#removeDrgRouteRules.");
+    const operationName = "removeDrgRouteRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/RemoveDrgRouteRules";
     const pathParams = {
       "{drgRouteTableId}": removeDrgRouteRulesRequest.drgRouteTableId
     };
@@ -31331,7 +34585,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveDrgRouteRulesResponse>{},
         responseHeaders: [
@@ -31363,6 +34623,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.RemoveExportDrgRouteDistributionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#removeExportDrgRouteDistribution.");
+    const operationName = "removeExportDrgRouteDistribution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/RemoveExportDrgRouteDistribution";
     const pathParams = {
       "{drgAttachmentId}": removeExportDrgRouteDistributionRequest.drgAttachmentId
     };
@@ -31392,7 +34655,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveExportDrgRouteDistributionResponse>{},
         body: await response.json(),
@@ -31434,6 +34703,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.RemoveImportDrgRouteDistributionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#removeImportDrgRouteDistribution.");
+    const operationName = "removeImportDrgRouteDistribution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/RemoveImportDrgRouteDistribution";
     const pathParams = {
       "{drgRouteTableId}": removeImportDrgRouteDistributionRequest.drgRouteTableId
     };
@@ -31463,7 +34735,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveImportDrgRouteDistributionResponse>{},
         body: await response.json(),
@@ -31504,6 +34782,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.RemoveIpv6SubnetCidrResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#removeIpv6SubnetCidr.");
+    const operationName = "removeIpv6SubnetCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/RemoveIpv6SubnetCidr";
     const pathParams = {
       "{subnetId}": removeIpv6SubnetCidrRequest.subnetId
     };
@@ -31539,7 +34820,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveIpv6SubnetCidrResponse>{},
         responseHeaders: [
@@ -31580,6 +34867,9 @@ To list the ephemeral public IPs assigned to private IPs:
     removeIpv6VcnCidrRequest: requests.RemoveIpv6VcnCidrRequest
   ): Promise<responses.RemoveIpv6VcnCidrResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#removeIpv6VcnCidr.");
+    const operationName = "removeIpv6VcnCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/RemoveIpv6VcnCidr";
     const pathParams = {
       "{vcnId}": removeIpv6VcnCidrRequest.vcnId
     };
@@ -31615,7 +34905,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveIpv6VcnCidrResponse>{},
         responseHeaders: [
@@ -31659,6 +34955,9 @@ To list the ephemeral public IPs assigned to private IPs:
       this.logger.debug(
         "Calling operation VirtualNetworkClient#removeNetworkSecurityGroupSecurityRules."
       );
+    const operationName = "removeNetworkSecurityGroupSecurityRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/RemoveNetworkSecurityGroupSecurityRules";
     const pathParams = {
       "{networkSecurityGroupId}":
         removeNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
@@ -31692,7 +34991,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveNetworkSecurityGroupSecurityRulesResponse>{},
         responseHeaders: [
@@ -31724,6 +35029,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.RemovePublicIpPoolCapacityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#removePublicIpPoolCapacity.");
+    const operationName = "removePublicIpPoolCapacity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/RemovePublicIpPoolCapacity";
     const pathParams = {
       "{publicIpPoolId}": removePublicIpPoolCapacityRequest.publicIpPoolId
     };
@@ -31758,7 +35066,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemovePublicIpPoolCapacityResponse>{},
         body: await response.json(),
@@ -31802,6 +35116,9 @@ To list the ephemeral public IPs assigned to private IPs:
     removeVcnCidrRequest: requests.RemoveVcnCidrRequest
   ): Promise<responses.RemoveVcnCidrResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#removeVcnCidr.");
+    const operationName = "removeVcnCidr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/RemoveVcnCidr";
     const pathParams = {
       "{vcnId}": removeVcnCidrRequest.vcnId
     };
@@ -31837,7 +35154,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveVcnCidrResponse>{},
         responseHeaders: [
@@ -31873,6 +35196,9 @@ To list the ephemeral public IPs assigned to private IPs:
     updateByoipRangeRequest: requests.UpdateByoipRangeRequest
   ): Promise<responses.UpdateByoipRangeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateByoipRange.");
+    const operationName = "updateByoipRange";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/UpdateByoipRange";
     const pathParams = {
       "{byoipRangeId}": updateByoipRangeRequest.byoipRangeId
     };
@@ -31907,7 +35233,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateByoipRangeResponse>{},
         body: await response.json(),
@@ -31948,6 +35280,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.UpdateCaptureFilterResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateCaptureFilter.");
+    const operationName = "updateCaptureFilter";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CaptureFilter/UpdateCaptureFilter";
     const pathParams = {
       "{captureFilterId}": updateCaptureFilterRequest.captureFilterId
     };
@@ -31982,7 +35317,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCaptureFilterResponse>{},
         body: await response.json(),
@@ -32023,6 +35364,8 @@ To list the ephemeral public IPs assigned to private IPs:
     updateCpeRequest: requests.UpdateCpeRequest
   ): Promise<responses.UpdateCpeResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateCpe.");
+    const operationName = "updateCpe";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Cpe/UpdateCpe";
     const pathParams = {
       "{cpeId}": updateCpeRequest.cpeId
     };
@@ -32056,7 +35399,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCpeResponse>{},
         body: await response.json(),
@@ -32096,6 +35445,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.UpdateCrossConnectResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateCrossConnect.");
+    const operationName = "updateCrossConnect";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnect/UpdateCrossConnect";
     const pathParams = {
       "{crossConnectId}": updateCrossConnectRequest.crossConnectId
     };
@@ -32129,7 +35481,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCrossConnectResponse>{},
         body: await response.json(),
@@ -32171,6 +35529,9 @@ To list the ephemeral public IPs assigned to private IPs:
   ): Promise<responses.UpdateCrossConnectGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateCrossConnectGroup.");
+    const operationName = "updateCrossConnectGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/CrossConnectGroup/UpdateCrossConnectGroup";
     const pathParams = {
       "{crossConnectGroupId}": updateCrossConnectGroupRequest.crossConnectGroupId
     };
@@ -32204,7 +35565,13 @@ To list the ephemeral public IPs assigned to private IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCrossConnectGroupResponse>{},
         body: await response.json(),
@@ -32247,6 +35614,9 @@ Note that the `options` object you provide replaces the entire existing set of o
     updateDhcpOptionsRequest: requests.UpdateDhcpOptionsRequest
   ): Promise<responses.UpdateDhcpOptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateDhcpOptions.");
+    const operationName = "updateDhcpOptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DhcpOptions/UpdateDhcpOptions";
     const pathParams = {
       "{dhcpId}": updateDhcpOptionsRequest.dhcpId
     };
@@ -32280,7 +35650,13 @@ Note that the `options` object you provide replaces the entire existing set of o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDhcpOptionsResponse>{},
         body: await response.json(),
@@ -32320,6 +35696,8 @@ Note that the `options` object you provide replaces the entire existing set of o
     updateDrgRequest: requests.UpdateDrgRequest
   ): Promise<responses.UpdateDrgResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateDrg.");
+    const operationName = "updateDrg";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/UpdateDrg";
     const pathParams = {
       "{drgId}": updateDrgRequest.drgId
     };
@@ -32353,7 +35731,13 @@ Note that the `options` object you provide replaces the entire existing set of o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDrgResponse>{},
         body: await response.json(),
@@ -32395,6 +35779,9 @@ Note that the `options` object you provide replaces the entire existing set of o
   ): Promise<responses.UpdateDrgAttachmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateDrgAttachment.");
+    const operationName = "updateDrgAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgAttachment/UpdateDrgAttachment";
     const pathParams = {
       "{drgAttachmentId}": updateDrgAttachmentRequest.drgAttachmentId
     };
@@ -32428,7 +35815,13 @@ Note that the `options` object you provide replaces the entire existing set of o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDrgAttachmentResponse>{},
         body: await response.json(),
@@ -32469,6 +35862,9 @@ Note that the `options` object you provide replaces the entire existing set of o
   ): Promise<responses.UpdateDrgRouteDistributionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteDistribution.");
+    const operationName = "updateDrgRouteDistribution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistribution/UpdateDrgRouteDistribution";
     const pathParams = {
       "{drgRouteDistributionId}": updateDrgRouteDistributionRequest.drgRouteDistributionId
     };
@@ -32502,7 +35898,13 @@ Note that the `options` object you provide replaces the entire existing set of o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDrgRouteDistributionResponse>{},
         body: await response.json(),
@@ -32545,6 +35947,9 @@ Note that the `options` object you provide replaces the entire existing set of o
       this.logger.debug(
         "Calling operation VirtualNetworkClient#updateDrgRouteDistributionStatements."
       );
+    const operationName = "updateDrgRouteDistributionStatements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteDistributionStatement/UpdateDrgRouteDistributionStatements";
     const pathParams = {
       "{drgRouteDistributionId}": updateDrgRouteDistributionStatementsRequest.drgRouteDistributionId
     };
@@ -32578,7 +35983,13 @@ Note that the `options` object you provide replaces the entire existing set of o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDrgRouteDistributionStatementsResponse>{},
         body: await response.json(),
@@ -32614,6 +36025,9 @@ Note that the `options` object you provide replaces the entire existing set of o
   ): Promise<responses.UpdateDrgRouteRulesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteRules.");
+    const operationName = "updateDrgRouteRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteRule/UpdateDrgRouteRules";
     const pathParams = {
       "{drgRouteTableId}": updateDrgRouteRulesRequest.drgRouteTableId
     };
@@ -32646,7 +36060,13 @@ Note that the `options` object you provide replaces the entire existing set of o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDrgRouteRulesResponse>{},
         body: await response.json(),
@@ -32682,6 +36102,9 @@ Note that the `options` object you provide replaces the entire existing set of o
   ): Promise<responses.UpdateDrgRouteTableResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateDrgRouteTable.");
+    const operationName = "updateDrgRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/DrgRouteTable/UpdateDrgRouteTable";
     const pathParams = {
       "{drgRouteTableId}": updateDrgRouteTableRequest.drgRouteTableId
     };
@@ -32715,7 +36138,13 @@ Note that the `options` object you provide replaces the entire existing set of o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDrgRouteTableResponse>{},
         body: await response.json(),
@@ -32759,6 +36188,9 @@ To update an individual IPSec tunnel's attributes, use
   ): Promise<responses.UpdateIPSecConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnection.");
+    const operationName = "updateIPSecConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnection/UpdateIPSecConnection";
     const pathParams = {
       "{ipscId}": updateIPSecConnectionRequest.ipscId
     };
@@ -32792,7 +36224,13 @@ To update an individual IPSec tunnel's attributes, use
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIPSecConnectionResponse>{},
         body: await response.json(),
@@ -32844,6 +36282,9 @@ To update an individual IPSec tunnel's attributes, use
   ): Promise<responses.UpdateIPSecConnectionTunnelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateIPSecConnectionTunnel.");
+    const operationName = "updateIPSecConnectionTunnel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnel/UpdateIPSecConnectionTunnel";
     const pathParams = {
       "{ipscId}": updateIPSecConnectionTunnelRequest.ipscId,
       "{tunnelId}": updateIPSecConnectionTunnelRequest.tunnelId
@@ -32879,7 +36320,13 @@ To update an individual IPSec tunnel's attributes, use
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIPSecConnectionTunnelResponse>{},
         body: await response.json(),
@@ -32924,6 +36371,9 @@ To update an individual IPSec tunnel's attributes, use
       this.logger.debug(
         "Calling operation VirtualNetworkClient#updateIPSecConnectionTunnelSharedSecret."
       );
+    const operationName = "updateIPSecConnectionTunnelSharedSecret";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/IPSecConnectionTunnelSharedSecret/UpdateIPSecConnectionTunnelSharedSecret";
     const pathParams = {
       "{ipscId}": updateIPSecConnectionTunnelSharedSecretRequest.ipscId,
       "{tunnelId}": updateIPSecConnectionTunnelSharedSecretRequest.tunnelId
@@ -32958,7 +36408,13 @@ To update an individual IPSec tunnel's attributes, use
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIPSecConnectionTunnelSharedSecretResponse>{},
         body: await response.json(),
@@ -33003,6 +36459,9 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   ): Promise<responses.UpdateInternetGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateInternetGateway.");
+    const operationName = "updateInternetGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InternetGateway/UpdateInternetGateway";
     const pathParams = {
       "{igId}": updateInternetGatewayRequest.igId
     };
@@ -33036,7 +36495,13 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateInternetGatewayResponse>{},
         body: await response.json(),
@@ -33082,6 +36547,8 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
     updateIpv6Request: requests.UpdateIpv6Request
   ): Promise<responses.UpdateIpv6Response> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateIpv6.");
+    const operationName = "updateIpv6";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Ipv6/UpdateIpv6";
     const pathParams = {
       "{ipv6Id}": updateIpv6Request.ipv6Id
     };
@@ -33116,7 +36583,13 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIpv6Response>{},
         body: await response.json(),
@@ -33157,6 +36630,9 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
   ): Promise<responses.UpdateLocalPeeringGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateLocalPeeringGateway.");
+    const operationName = "updateLocalPeeringGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/LocalPeeringGateway/UpdateLocalPeeringGateway";
     const pathParams = {
       "{localPeeringGatewayId}": updateLocalPeeringGatewayRequest.localPeeringGatewayId
     };
@@ -33190,7 +36666,13 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLocalPeeringGatewayResponse>{},
         body: await response.json(),
@@ -33230,6 +36712,9 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
     updateNatGatewayRequest: requests.UpdateNatGatewayRequest
   ): Promise<responses.UpdateNatGatewayResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateNatGateway.");
+    const operationName = "updateNatGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NatGateway/UpdateNatGateway";
     const pathParams = {
       "{natGatewayId}": updateNatGatewayRequest.natGatewayId
     };
@@ -33263,7 +36748,13 @@ If the gateway is disabled, that means no traffic will flow to/from the internet
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNatGatewayResponse>{},
         body: await response.json(),
@@ -33318,6 +36809,9 @@ To edit the contents of existing security rules in the group, use
   ): Promise<responses.UpdateNetworkSecurityGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateNetworkSecurityGroup.");
+    const operationName = "updateNetworkSecurityGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/NetworkSecurityGroup/UpdateNetworkSecurityGroup";
     const pathParams = {
       "{networkSecurityGroupId}": updateNetworkSecurityGroupRequest.networkSecurityGroupId
     };
@@ -33351,7 +36845,13 @@ To edit the contents of existing security rules in the group, use
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNetworkSecurityGroupResponse>{},
         body: await response.json(),
@@ -33394,6 +36894,9 @@ To edit the contents of existing security rules in the group, use
       this.logger.debug(
         "Calling operation VirtualNetworkClient#updateNetworkSecurityGroupSecurityRules."
       );
+    const operationName = "updateNetworkSecurityGroupSecurityRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityRule/UpdateNetworkSecurityGroupSecurityRules";
     const pathParams = {
       "{networkSecurityGroupId}":
         updateNetworkSecurityGroupSecurityRulesRequest.networkSecurityGroupId
@@ -33427,7 +36930,13 @@ To edit the contents of existing security rules in the group, use
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNetworkSecurityGroupSecurityRulesResponse>{},
         body: await response.json(),
@@ -33471,6 +36980,9 @@ This operation cannot be used with primary private IPs.
     updatePrivateIpRequest: requests.UpdatePrivateIpRequest
   ): Promise<responses.UpdatePrivateIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updatePrivateIp.");
+    const operationName = "updatePrivateIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PrivateIp/UpdatePrivateIp";
     const pathParams = {
       "{privateIpId}": updatePrivateIpRequest.privateIpId
     };
@@ -33504,7 +37016,13 @@ This operation cannot be used with primary private IPs.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePrivateIpResponse>{},
         body: await response.json(),
@@ -33582,6 +37100,9 @@ Regarding ephemeral public IPs:
     updatePublicIpRequest: requests.UpdatePublicIpRequest
   ): Promise<responses.UpdatePublicIpResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updatePublicIp.");
+    const operationName = "updatePublicIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIp/UpdatePublicIp";
     const pathParams = {
       "{publicIpId}": updatePublicIpRequest.publicIpId
     };
@@ -33615,7 +37136,13 @@ Regarding ephemeral public IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePublicIpResponse>{},
         body: await response.json(),
@@ -33656,6 +37183,9 @@ Regarding ephemeral public IPs:
   ): Promise<responses.UpdatePublicIpPoolResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updatePublicIpPool.");
+    const operationName = "updatePublicIpPool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/PublicIpPool/UpdatePublicIpPool";
     const pathParams = {
       "{publicIpPoolId}": updatePublicIpPoolRequest.publicIpPoolId
     };
@@ -33690,7 +37220,13 @@ Regarding ephemeral public IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePublicIpPoolResponse>{},
         body: await response.json(),
@@ -33731,6 +37267,9 @@ Regarding ephemeral public IPs:
   ): Promise<responses.UpdateRemotePeeringConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateRemotePeeringConnection.");
+    const operationName = "updateRemotePeeringConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RemotePeeringConnection/UpdateRemotePeeringConnection";
     const pathParams = {
       "{remotePeeringConnectionId}": updateRemotePeeringConnectionRequest.remotePeeringConnectionId
     };
@@ -33764,7 +37303,13 @@ Regarding ephemeral public IPs:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRemotePeeringConnectionResponse>{},
         body: await response.json(),
@@ -33807,6 +37352,9 @@ Note that the `routeRules` object you provide replaces the entire existing set o
     updateRouteTableRequest: requests.UpdateRouteTableRequest
   ): Promise<responses.UpdateRouteTableResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateRouteTable.");
+    const operationName = "updateRouteTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/RouteTable/UpdateRouteTable";
     const pathParams = {
       "{rtId}": updateRouteTableRequest.rtId
     };
@@ -33840,7 +37388,13 @@ Note that the `routeRules` object you provide replaces the entire existing set o
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRouteTableResponse>{},
         body: await response.json(),
@@ -33885,6 +37439,9 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   ): Promise<responses.UpdateSecurityListResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateSecurityList.");
+    const operationName = "updateSecurityList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/SecurityList/UpdateSecurityList";
     const pathParams = {
       "{securityListId}": updateSecurityListRequest.securityListId
     };
@@ -33918,7 +37475,13 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSecurityListResponse>{},
         body: await response.json(),
@@ -33960,6 +37523,9 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   ): Promise<responses.UpdateServiceGatewayResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateServiceGateway.");
+    const operationName = "updateServiceGateway";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ServiceGateway/UpdateServiceGateway";
     const pathParams = {
       "{serviceGatewayId}": updateServiceGatewayRequest.serviceGatewayId
     };
@@ -33993,7 +37559,13 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateServiceGatewayResponse>{},
         body: await response.json(),
@@ -34033,6 +37605,9 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
     updateSubnetRequest: requests.UpdateSubnetRequest
   ): Promise<responses.UpdateSubnetResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateSubnet.");
+    const operationName = "updateSubnet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Subnet/UpdateSubnet";
     const pathParams = {
       "{subnetId}": updateSubnetRequest.subnetId
     };
@@ -34066,7 +37641,13 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSubnetResponse>{},
         body: await response.json(),
@@ -34109,6 +37690,9 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
   ): Promise<responses.UpdateTunnelCpeDeviceConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateTunnelCpeDeviceConfig.");
+    const operationName = "updateTunnelCpeDeviceConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/TunnelCpeDeviceConfig/UpdateTunnelCpeDeviceConfig";
     const pathParams = {
       "{ipscId}": updateTunnelCpeDeviceConfigRequest.ipscId,
       "{tunnelId}": updateTunnelCpeDeviceConfigRequest.tunnelId
@@ -34145,7 +37729,13 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTunnelCpeDeviceConfigResponse>{},
         body: await response.json(),
@@ -34185,6 +37775,8 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
     updateVcnRequest: requests.UpdateVcnRequest
   ): Promise<responses.UpdateVcnResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVcn.");
+    const operationName = "updateVcn";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vcn/UpdateVcn";
     const pathParams = {
       "{vcnId}": updateVcnRequest.vcnId
     };
@@ -34218,7 +37810,13 @@ Note that the `egressSecurityRules` or `ingressSecurityRules` objects you provid
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVcnResponse>{},
         body: await response.json(),
@@ -34282,6 +37880,9 @@ To change the list of public IP prefixes for a public virtual circuit,
   ): Promise<responses.UpdateVirtualCircuitResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#updateVirtualCircuit.");
+    const operationName = "updateVirtualCircuit";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuit/UpdateVirtualCircuit";
     const pathParams = {
       "{virtualCircuitId}": updateVirtualCircuitRequest.virtualCircuitId
     };
@@ -34315,7 +37916,13 @@ To change the list of public IP prefixes for a public virtual circuit,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVirtualCircuitResponse>{},
         body: await response.json(),
@@ -34356,6 +37963,8 @@ To change the list of public IP prefixes for a public virtual circuit,
     updateVlanRequest: requests.UpdateVlanRequest
   ): Promise<responses.UpdateVlanResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVlan.");
+    const operationName = "updateVlan";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vlan/UpdateVlan";
     const pathParams = {
       "{vlanId}": updateVlanRequest.vlanId
     };
@@ -34390,7 +37999,13 @@ To change the list of public IP prefixes for a public virtual circuit,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVlanResponse>{},
         body: await response.json(),
@@ -34430,6 +38045,8 @@ To change the list of public IP prefixes for a public virtual circuit,
     updateVnicRequest: requests.UpdateVnicRequest
   ): Promise<responses.UpdateVnicResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVnic.");
+    const operationName = "updateVnic";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Vnic/UpdateVnic";
     const pathParams = {
       "{vnicId}": updateVnicRequest.vnicId
     };
@@ -34463,7 +38080,13 @@ To change the list of public IP prefixes for a public virtual circuit,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVnicResponse>{},
         body: await response.json(),
@@ -34503,6 +38126,8 @@ To change the list of public IP prefixes for a public virtual circuit,
     updateVtapRequest: requests.UpdateVtapRequest
   ): Promise<responses.UpdateVtapResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#updateVtap.");
+    const operationName = "updateVtap";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vtapId}": updateVtapRequest.vtapId
     };
@@ -34537,7 +38162,13 @@ To change the list of public IP prefixes for a public virtual circuit,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVtapResponse>{},
         body: await response.json(),
@@ -34583,6 +38214,8 @@ To change the list of public IP prefixes for a public virtual circuit,
     upgradeDrgRequest: requests.UpgradeDrgRequest
   ): Promise<responses.UpgradeDrgResponse> {
     if (this.logger) this.logger.debug("Calling operation VirtualNetworkClient#upgradeDrg.");
+    const operationName = "upgradeDrg";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/Drg/UpgradeDrg";
     const pathParams = {
       "{drgId}": upgradeDrgRequest.drgId
     };
@@ -34612,7 +38245,13 @@ To change the list of public IP prefixes for a public virtual circuit,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeDrgResponse>{},
         responseHeaders: [
@@ -34650,6 +38289,9 @@ To change the list of public IP prefixes for a public virtual circuit,
   ): Promise<responses.ValidateByoipRangeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#validateByoipRange.");
+    const operationName = "validateByoipRange";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/ValidateByoipRange";
     const pathParams = {
       "{byoipRangeId}": validateByoipRangeRequest.byoipRangeId
     };
@@ -34678,7 +38320,13 @@ To change the list of public IP prefixes for a public virtual circuit,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateByoipRangeResponse>{},
         responseHeaders: [
@@ -34715,6 +38363,9 @@ To change the list of public IP prefixes for a public virtual circuit,
   ): Promise<responses.WithdrawByoipRangeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation VirtualNetworkClient#withdrawByoipRange.");
+    const operationName = "withdrawByoipRange";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ByoipRange/WithdrawByoipRange";
     const pathParams = {
       "{byoipRangeId}": withdrawByoipRangeRequest.byoipRangeId
     };
@@ -34743,7 +38394,13 @@ To change the list of public IP prefixes for a public virtual circuit,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.WithdrawByoipRangeResponse>{},
         responseHeaders: [

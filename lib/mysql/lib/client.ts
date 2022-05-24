@@ -40,6 +40,7 @@ export class ChannelsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Channels";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,8 @@ export class ChannelsClient {
     createChannelRequest: requests.CreateChannelRequest
   ): Promise<responses.CreateChannelResponse> {
     if (this.logger) this.logger.debug("Calling operation ChannelsClient#createChannel.");
+    const operationName = "createChannel";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -198,7 +201,13 @@ export class ChannelsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateChannelResponse>{},
         body: await response.json(),
@@ -242,6 +251,9 @@ export class ChannelsClient {
     deleteChannelRequest: requests.DeleteChannelRequest
   ): Promise<responses.DeleteChannelResponse> {
     if (this.logger) this.logger.debug("Calling operation ChannelsClient#deleteChannel.");
+    const operationName = "deleteChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/DeleteChannel";
     const pathParams = {
       "{channelId}": deleteChannelRequest.channelId
     };
@@ -271,7 +283,13 @@ export class ChannelsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteChannelResponse>{},
         responseHeaders: [
@@ -309,6 +327,9 @@ export class ChannelsClient {
     getChannelRequest: requests.GetChannelRequest
   ): Promise<responses.GetChannelResponse> {
     if (this.logger) this.logger.debug("Calling operation ChannelsClient#getChannel.");
+    const operationName = "getChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/GetChannel";
     const pathParams = {
       "{channelId}": getChannelRequest.channelId
     };
@@ -338,7 +359,13 @@ export class ChannelsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetChannelResponse>{},
         body: await response.json(),
@@ -377,6 +404,9 @@ export class ChannelsClient {
     listChannelsRequest: requests.ListChannelsRequest
   ): Promise<responses.ListChannelsResponse> {
     if (this.logger) this.logger.debug("Calling operation ChannelsClient#listChannels.");
+    const operationName = "listChannels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ChannelSummary/ListChannels";
     const pathParams = {};
 
     const queryParams = {
@@ -414,7 +444,13 @@ export class ChannelsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListChannelsResponse>{},
         body: await response.json(),
@@ -507,6 +543,9 @@ export class ChannelsClient {
     resetChannelRequest: requests.ResetChannelRequest
   ): Promise<responses.ResetChannelResponse> {
     if (this.logger) this.logger.debug("Calling operation ChannelsClient#resetChannel.");
+    const operationName = "resetChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/ResetChannel";
     const pathParams = {
       "{channelId}": resetChannelRequest.channelId
     };
@@ -537,7 +576,13 @@ export class ChannelsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResetChannelResponse>{},
         responseHeaders: [
@@ -575,6 +620,9 @@ export class ChannelsClient {
     resumeChannelRequest: requests.ResumeChannelRequest
   ): Promise<responses.ResumeChannelResponse> {
     if (this.logger) this.logger.debug("Calling operation ChannelsClient#resumeChannel.");
+    const operationName = "resumeChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/ResumeChannel";
     const pathParams = {
       "{channelId}": resumeChannelRequest.channelId
     };
@@ -605,7 +653,13 @@ export class ChannelsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResumeChannelResponse>{},
         responseHeaders: [
@@ -644,6 +698,9 @@ export class ChannelsClient {
     updateChannelRequest: requests.UpdateChannelRequest
   ): Promise<responses.UpdateChannelResponse> {
     if (this.logger) this.logger.debug("Calling operation ChannelsClient#updateChannel.");
+    const operationName = "updateChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Channel/UpdateChannel";
     const pathParams = {
       "{channelId}": updateChannelRequest.channelId
     };
@@ -679,7 +736,13 @@ export class ChannelsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateChannelResponse>{},
         responseHeaders: [
@@ -715,6 +778,7 @@ export class DbBackupsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DbBackups";
 
   protected _httpClient: common.HttpClient;
 
@@ -843,6 +907,9 @@ export class DbBackupsClient {
   ): Promise<responses.ChangeBackupCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbBackupsClient#changeBackupCompartment.");
+    const operationName = "changeBackupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/ChangeBackupCompartment";
     const pathParams = {
       "{backupId}": changeBackupCompartmentRequest.backupId
     };
@@ -878,7 +945,13 @@ export class DbBackupsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBackupCompartmentResponse>{},
         responseHeaders: [
@@ -914,6 +987,9 @@ export class DbBackupsClient {
     createBackupRequest: requests.CreateBackupRequest
   ): Promise<responses.CreateBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation DbBackupsClient#createBackup.");
+    const operationName = "createBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/CreateBackup";
     const pathParams = {};
 
     const queryParams = {};
@@ -946,7 +1022,13 @@ export class DbBackupsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBackupResponse>{},
         body: await response.json(),
@@ -991,6 +1073,9 @@ export class DbBackupsClient {
     deleteBackupRequest: requests.DeleteBackupRequest
   ): Promise<responses.DeleteBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation DbBackupsClient#deleteBackup.");
+    const operationName = "deleteBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/DeleteBackup";
     const pathParams = {
       "{backupId}": deleteBackupRequest.backupId
     };
@@ -1020,7 +1105,13 @@ export class DbBackupsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBackupResponse>{},
         responseHeaders: [
@@ -1055,6 +1146,9 @@ export class DbBackupsClient {
     getBackupRequest: requests.GetBackupRequest
   ): Promise<responses.GetBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation DbBackupsClient#getBackup.");
+    const operationName = "getBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/GetBackup";
     const pathParams = {
       "{backupId}": getBackupRequest.backupId
     };
@@ -1084,7 +1178,13 @@ export class DbBackupsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBackupResponse>{},
         body: await response.json(),
@@ -1124,6 +1224,9 @@ export class DbBackupsClient {
     listBackupsRequest: requests.ListBackupsRequest
   ): Promise<responses.ListBackupsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbBackupsClient#listBackups.");
+    const operationName = "listBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/BackupSummary/ListBackups";
     const pathParams = {};
 
     const queryParams = {
@@ -1161,7 +1264,13 @@ export class DbBackupsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBackupsResponse>{},
         body: await response.json(),
@@ -1252,6 +1361,9 @@ export class DbBackupsClient {
     updateBackupRequest: requests.UpdateBackupRequest
   ): Promise<responses.UpdateBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation DbBackupsClient#updateBackup.");
+    const operationName = "updateBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Backup/UpdateBackup";
     const pathParams = {
       "{backupId}": updateBackupRequest.backupId
     };
@@ -1286,7 +1398,13 @@ export class DbBackupsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBackupResponse>{},
         responseHeaders: [
@@ -1317,6 +1435,7 @@ export class DbSystemClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DbSystem";
 
   protected _httpClient: common.HttpClient;
 
@@ -1444,6 +1563,9 @@ export class DbSystemClient {
     addAnalyticsClusterRequest: requests.AddAnalyticsClusterRequest
   ): Promise<responses.AddAnalyticsClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#addAnalyticsCluster.");
+    const operationName = "addAnalyticsCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/AddAnalyticsCluster";
     const pathParams = {
       "{dbSystemId}": addAnalyticsClusterRequest.dbSystemId
     };
@@ -1479,7 +1601,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddAnalyticsClusterResponse>{},
         body: await response.json(),
@@ -1524,6 +1652,9 @@ export class DbSystemClient {
     addHeatWaveClusterRequest: requests.AddHeatWaveClusterRequest
   ): Promise<responses.AddHeatWaveClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#addHeatWaveCluster.");
+    const operationName = "addHeatWaveCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/AddHeatWaveCluster";
     const pathParams = {
       "{dbSystemId}": addHeatWaveClusterRequest.dbSystemId
     };
@@ -1559,7 +1690,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddHeatWaveClusterResponse>{},
         body: await response.json(),
@@ -1604,6 +1741,8 @@ export class DbSystemClient {
     createDbSystemRequest: requests.CreateDbSystemRequest
   ): Promise<responses.CreateDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#createDbSystem.");
+    const operationName = "createDbSystem";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1636,7 +1775,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDbSystemResponse>{},
         body: await response.json(),
@@ -1688,6 +1833,9 @@ export class DbSystemClient {
     deleteAnalyticsClusterRequest: requests.DeleteAnalyticsClusterRequest
   ): Promise<responses.DeleteAnalyticsClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteAnalyticsCluster.");
+    const operationName = "deleteAnalyticsCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/DeleteAnalyticsCluster";
     const pathParams = {
       "{dbSystemId}": deleteAnalyticsClusterRequest.dbSystemId
     };
@@ -1717,7 +1865,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAnalyticsClusterResponse>{},
         responseHeaders: [
@@ -1754,6 +1908,9 @@ export class DbSystemClient {
     deleteDbSystemRequest: requests.DeleteDbSystemRequest
   ): Promise<responses.DeleteDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteDbSystem.");
+    const operationName = "deleteDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/DeleteDbSystem";
     const pathParams = {
       "{dbSystemId}": deleteDbSystemRequest.dbSystemId
     };
@@ -1783,7 +1940,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDbSystemResponse>{},
         responseHeaders: [
@@ -1820,6 +1983,9 @@ export class DbSystemClient {
     deleteHeatWaveClusterRequest: requests.DeleteHeatWaveClusterRequest
   ): Promise<responses.DeleteHeatWaveClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteHeatWaveCluster.");
+    const operationName = "deleteHeatWaveCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/DeleteHeatWaveCluster";
     const pathParams = {
       "{dbSystemId}": deleteHeatWaveClusterRequest.dbSystemId
     };
@@ -1849,7 +2015,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteHeatWaveClusterResponse>{},
         responseHeaders: [
@@ -1887,6 +2059,9 @@ export class DbSystemClient {
   ): Promise<responses.GenerateAnalyticsClusterMemoryEstimateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbSystemClient#generateAnalyticsClusterMemoryEstimate.");
+    const operationName = "generateAnalyticsClusterMemoryEstimate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsClusterMemoryEstimate/GenerateAnalyticsClusterMemoryEstimate";
     const pathParams = {
       "{dbSystemId}": generateAnalyticsClusterMemoryEstimateRequest.dbSystemId
     };
@@ -1916,7 +2091,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateAnalyticsClusterMemoryEstimateResponse>{},
         body: await response.json(),
@@ -1957,6 +2138,9 @@ export class DbSystemClient {
   ): Promise<responses.GenerateHeatWaveClusterMemoryEstimateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbSystemClient#generateHeatWaveClusterMemoryEstimate.");
+    const operationName = "generateHeatWaveClusterMemoryEstimate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveClusterMemoryEstimate/GenerateHeatWaveClusterMemoryEstimate";
     const pathParams = {
       "{dbSystemId}": generateHeatWaveClusterMemoryEstimateRequest.dbSystemId
     };
@@ -1986,7 +2170,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateHeatWaveClusterMemoryEstimateResponse>{},
         body: await response.json(),
@@ -2027,6 +2217,9 @@ export class DbSystemClient {
     getAnalyticsClusterRequest: requests.GetAnalyticsClusterRequest
   ): Promise<responses.GetAnalyticsClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#getAnalyticsCluster.");
+    const operationName = "getAnalyticsCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/GetAnalyticsCluster";
     const pathParams = {
       "{dbSystemId}": getAnalyticsClusterRequest.dbSystemId
     };
@@ -2056,7 +2249,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnalyticsClusterResponse>{},
         body: await response.json(),
@@ -2099,6 +2298,9 @@ export class DbSystemClient {
   ): Promise<responses.GetAnalyticsClusterMemoryEstimateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbSystemClient#getAnalyticsClusterMemoryEstimate.");
+    const operationName = "getAnalyticsClusterMemoryEstimate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsClusterMemoryEstimate/GetAnalyticsClusterMemoryEstimate";
     const pathParams = {
       "{dbSystemId}": getAnalyticsClusterMemoryEstimateRequest.dbSystemId
     };
@@ -2127,7 +2329,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnalyticsClusterMemoryEstimateResponse>{},
         body: await response.json(),
@@ -2161,6 +2369,9 @@ export class DbSystemClient {
     getDbSystemRequest: requests.GetDbSystemRequest
   ): Promise<responses.GetDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#getDbSystem.");
+    const operationName = "getDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/GetDbSystem";
     const pathParams = {
       "{dbSystemId}": getDbSystemRequest.dbSystemId
     };
@@ -2190,7 +2401,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDbSystemResponse>{},
         body: await response.json(),
@@ -2229,6 +2446,9 @@ export class DbSystemClient {
     getHeatWaveClusterRequest: requests.GetHeatWaveClusterRequest
   ): Promise<responses.GetHeatWaveClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#getHeatWaveCluster.");
+    const operationName = "getHeatWaveCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/GetHeatWaveCluster";
     const pathParams = {
       "{dbSystemId}": getHeatWaveClusterRequest.dbSystemId
     };
@@ -2258,7 +2478,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHeatWaveClusterResponse>{},
         body: await response.json(),
@@ -2300,6 +2526,9 @@ export class DbSystemClient {
   ): Promise<responses.GetHeatWaveClusterMemoryEstimateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DbSystemClient#getHeatWaveClusterMemoryEstimate.");
+    const operationName = "getHeatWaveClusterMemoryEstimate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveClusterMemoryEstimate/GetHeatWaveClusterMemoryEstimate";
     const pathParams = {
       "{dbSystemId}": getHeatWaveClusterMemoryEstimateRequest.dbSystemId
     };
@@ -2328,7 +2557,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetHeatWaveClusterMemoryEstimateResponse>{},
         body: await response.json(),
@@ -2364,6 +2599,9 @@ export class DbSystemClient {
     listDbSystemsRequest: requests.ListDbSystemsRequest
   ): Promise<responses.ListDbSystemsResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#listDbSystems.");
+    const operationName = "listDbSystems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystemSummary/ListDbSystems";
     const pathParams = {};
 
     const queryParams = {
@@ -2403,7 +2641,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbSystemsResponse>{},
         body: await response.json(),
@@ -2496,6 +2740,9 @@ export class DbSystemClient {
     restartAnalyticsClusterRequest: requests.RestartAnalyticsClusterRequest
   ): Promise<responses.RestartAnalyticsClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartAnalyticsCluster.");
+    const operationName = "restartAnalyticsCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/RestartAnalyticsCluster";
     const pathParams = {
       "{dbSystemId}": restartAnalyticsClusterRequest.dbSystemId
     };
@@ -2526,7 +2773,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartAnalyticsClusterResponse>{},
         responseHeaders: [
@@ -2561,6 +2814,9 @@ export class DbSystemClient {
     restartDbSystemRequest: requests.RestartDbSystemRequest
   ): Promise<responses.RestartDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartDbSystem.");
+    const operationName = "restartDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/RestartDbSystem";
     const pathParams = {
       "{dbSystemId}": restartDbSystemRequest.dbSystemId
     };
@@ -2596,7 +2852,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartDbSystemResponse>{},
         responseHeaders: [
@@ -2631,6 +2893,9 @@ export class DbSystemClient {
     restartHeatWaveClusterRequest: requests.RestartHeatWaveClusterRequest
   ): Promise<responses.RestartHeatWaveClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartHeatWaveCluster.");
+    const operationName = "restartHeatWaveCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/RestartHeatWaveCluster";
     const pathParams = {
       "{dbSystemId}": restartHeatWaveClusterRequest.dbSystemId
     };
@@ -2661,7 +2926,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartHeatWaveClusterResponse>{},
         responseHeaders: [
@@ -2698,6 +2969,9 @@ export class DbSystemClient {
     startAnalyticsClusterRequest: requests.StartAnalyticsClusterRequest
   ): Promise<responses.StartAnalyticsClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#startAnalyticsCluster.");
+    const operationName = "startAnalyticsCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/StartAnalyticsCluster";
     const pathParams = {
       "{dbSystemId}": startAnalyticsClusterRequest.dbSystemId
     };
@@ -2728,7 +3002,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartAnalyticsClusterResponse>{},
         responseHeaders: [
@@ -2763,6 +3043,9 @@ export class DbSystemClient {
     startDbSystemRequest: requests.StartDbSystemRequest
   ): Promise<responses.StartDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#startDbSystem.");
+    const operationName = "startDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/StartDbSystem";
     const pathParams = {
       "{dbSystemId}": startDbSystemRequest.dbSystemId
     };
@@ -2793,7 +3076,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartDbSystemResponse>{},
         responseHeaders: [
@@ -2828,6 +3117,9 @@ export class DbSystemClient {
     startHeatWaveClusterRequest: requests.StartHeatWaveClusterRequest
   ): Promise<responses.StartHeatWaveClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#startHeatWaveCluster.");
+    const operationName = "startHeatWaveCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/StartHeatWaveCluster";
     const pathParams = {
       "{dbSystemId}": startHeatWaveClusterRequest.dbSystemId
     };
@@ -2858,7 +3150,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartHeatWaveClusterResponse>{},
         responseHeaders: [
@@ -2895,6 +3193,9 @@ export class DbSystemClient {
     stopAnalyticsClusterRequest: requests.StopAnalyticsClusterRequest
   ): Promise<responses.StopAnalyticsClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopAnalyticsCluster.");
+    const operationName = "stopAnalyticsCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/StopAnalyticsCluster";
     const pathParams = {
       "{dbSystemId}": stopAnalyticsClusterRequest.dbSystemId
     };
@@ -2925,7 +3226,13 @@ export class DbSystemClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopAnalyticsClusterResponse>{},
         responseHeaders: [
@@ -2963,6 +3270,9 @@ A stopped DB System is not billed.
     stopDbSystemRequest: requests.StopDbSystemRequest
   ): Promise<responses.StopDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopDbSystem.");
+    const operationName = "stopDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/StopDbSystem";
     const pathParams = {
       "{dbSystemId}": stopDbSystemRequest.dbSystemId
     };
@@ -2998,7 +3308,13 @@ A stopped DB System is not billed.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopDbSystemResponse>{},
         responseHeaders: [
@@ -3033,6 +3349,9 @@ A stopped DB System is not billed.
     stopHeatWaveClusterRequest: requests.StopHeatWaveClusterRequest
   ): Promise<responses.StopHeatWaveClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopHeatWaveCluster.");
+    const operationName = "stopHeatWaveCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/StopHeatWaveCluster";
     const pathParams = {
       "{dbSystemId}": stopHeatWaveClusterRequest.dbSystemId
     };
@@ -3063,7 +3382,13 @@ A stopped DB System is not billed.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopHeatWaveClusterResponse>{},
         responseHeaders: [
@@ -3100,6 +3425,9 @@ A stopped DB System is not billed.
     updateAnalyticsClusterRequest: requests.UpdateAnalyticsClusterRequest
   ): Promise<responses.UpdateAnalyticsClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateAnalyticsCluster.");
+    const operationName = "updateAnalyticsCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/UpdateAnalyticsCluster";
     const pathParams = {
       "{dbSystemId}": updateAnalyticsClusterRequest.dbSystemId
     };
@@ -3134,7 +3462,13 @@ A stopped DB System is not billed.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnalyticsClusterResponse>{},
         responseHeaders: [
@@ -3177,6 +3511,9 @@ Updating different fields in the DB System will have different results
     updateDbSystemRequest: requests.UpdateDbSystemRequest
   ): Promise<responses.UpdateDbSystemResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateDbSystem.");
+    const operationName = "updateDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/DbSystem/UpdateDbSystem";
     const pathParams = {
       "{dbSystemId}": updateDbSystemRequest.dbSystemId
     };
@@ -3211,7 +3548,13 @@ Updating different fields in the DB System will have different results
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDbSystemResponse>{},
         responseHeaders: [
@@ -3247,6 +3590,9 @@ Updating different fields in the DB System will have different results
     updateHeatWaveClusterRequest: requests.UpdateHeatWaveClusterRequest
   ): Promise<responses.UpdateHeatWaveClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateHeatWaveCluster.");
+    const operationName = "updateHeatWaveCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/HeatWaveCluster/UpdateHeatWaveCluster";
     const pathParams = {
       "{dbSystemId}": updateHeatWaveClusterRequest.dbSystemId
     };
@@ -3281,7 +3627,13 @@ Updating different fields in the DB System will have different results
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHeatWaveClusterResponse>{},
         responseHeaders: [
@@ -3317,6 +3669,7 @@ export class MysqlaasClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Mysqlaas";
 
   protected _httpClient: common.HttpClient;
 
@@ -3442,6 +3795,8 @@ export class MysqlaasClient {
     createConfigurationRequest: requests.CreateConfigurationRequest
   ): Promise<responses.CreateConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation MysqlaasClient#createConfiguration.");
+    const operationName = "createConfiguration";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -3474,7 +3829,13 @@ export class MysqlaasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConfigurationResponse>{},
         body: await response.json(),
@@ -3525,6 +3886,9 @@ export class MysqlaasClient {
     deleteConfigurationRequest: requests.DeleteConfigurationRequest
   ): Promise<responses.DeleteConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation MysqlaasClient#deleteConfiguration.");
+    const operationName = "deleteConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Configuration/DeleteConfiguration";
     const pathParams = {
       "{configurationId}": deleteConfigurationRequest.configurationId
     };
@@ -3554,7 +3918,13 @@ export class MysqlaasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConfigurationResponse>{},
         responseHeaders: [
@@ -3585,6 +3955,9 @@ export class MysqlaasClient {
     getConfigurationRequest: requests.GetConfigurationRequest
   ): Promise<responses.GetConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation MysqlaasClient#getConfiguration.");
+    const operationName = "getConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Configuration/GetConfiguration";
     const pathParams = {
       "{configurationId}": getConfigurationRequest.configurationId
     };
@@ -3614,7 +3987,13 @@ export class MysqlaasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConfigurationResponse>{},
         body: await response.json(),
@@ -3661,6 +4040,9 @@ The default sort order is a multi-part sort by:
     listConfigurationsRequest: requests.ListConfigurationsRequest
   ): Promise<responses.ListConfigurationsResponse> {
     if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listConfigurations.");
+    const operationName = "listConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ConfigurationSummary/ListConfigurations";
     const pathParams = {};
 
     const queryParams = {
@@ -3698,7 +4080,13 @@ The default sort order is a multi-part sort by:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConfigurationsResponse>{},
         body: await response.json(),
@@ -3793,6 +4181,9 @@ The default sort order is a multi-part sort by:
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listShapes.");
+    const operationName = "listShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ShapeSummary/ListShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -3824,7 +4215,13 @@ The default sort order is a multi-part sort by:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListShapesResponse>{},
         body: await response.json(),
@@ -3861,6 +4258,9 @@ The list is sorted by version family.
     listVersionsRequest: requests.ListVersionsRequest
   ): Promise<responses.ListVersionsResponse> {
     if (this.logger) this.logger.debug("Calling operation MysqlaasClient#listVersions.");
+    const operationName = "listVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/VersionSummary/ListVersions";
     const pathParams = {};
 
     const queryParams = {
@@ -3889,7 +4289,13 @@ The list is sorted by version family.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVersionsResponse>{},
         body: await response.json(),
@@ -3923,6 +4329,9 @@ The list is sorted by version family.
     updateConfigurationRequest: requests.UpdateConfigurationRequest
   ): Promise<responses.UpdateConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation MysqlaasClient#updateConfiguration.");
+    const operationName = "updateConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Configuration/UpdateConfiguration";
     const pathParams = {
       "{configurationId}": updateConfigurationRequest.configurationId
     };
@@ -3957,7 +4366,13 @@ The list is sorted by version family.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConfigurationResponse>{},
         body: await response.json(),
@@ -3997,6 +4412,7 @@ export class WorkRequestsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "WorkRequests";
 
   protected _httpClient: common.HttpClient;
 
@@ -4122,6 +4538,9 @@ export class WorkRequestsClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -4151,7 +4570,13 @@ export class WorkRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -4197,6 +4622,9 @@ export class WorkRequestsClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -4228,7 +4656,13 @@ export class WorkRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -4320,6 +4754,9 @@ export class WorkRequestsClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -4351,7 +4788,13 @@ export class WorkRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -4443,6 +4886,9 @@ export class WorkRequestsClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation WorkRequestsClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -4475,7 +4921,13 @@ export class WorkRequestsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),

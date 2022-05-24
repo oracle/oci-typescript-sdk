@@ -37,6 +37,7 @@ export class NotificationControlPlaneClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "NotificationControlPlane";
 
   protected _httpClient: common.HttpClient;
 
@@ -146,6 +147,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.ChangeTopicCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationControlPlaneClient#changeTopicCompartment.");
+    const operationName = "changeTopicCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/ChangeTopicCompartment";
     const pathParams = {
       "{topicId}": changeTopicCompartmentRequest.topicId
     };
@@ -181,7 +185,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTopicCompartmentResponse>{},
         responseHeaders: [
@@ -226,6 +236,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.CreateTopicResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationControlPlaneClient#createTopic.");
+    const operationName = "createTopic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/CreateTopic";
     const pathParams = {};
 
     const queryParams = {};
@@ -258,7 +271,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTopicResponse>{},
         body: await response.json(),
@@ -301,6 +320,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.DeleteTopicResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationControlPlaneClient#deleteTopic.");
+    const operationName = "deleteTopic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/DeleteTopic";
     const pathParams = {
       "{topicId}": deleteTopicRequest.topicId
     };
@@ -330,7 +352,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTopicResponse>{},
         responseHeaders: [
@@ -362,6 +390,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.GetTopicResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationControlPlaneClient#getTopic.");
+    const operationName = "getTopic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/GetTopic";
     const pathParams = {
       "{topicId}": getTopicRequest.topicId
     };
@@ -390,7 +421,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTopicResponse>{},
         body: await response.json(),
@@ -433,6 +470,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
   ): Promise<responses.ListTopicsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationControlPlaneClient#listTopics.");
+    const operationName = "listTopics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/ListTopics";
     const pathParams = {};
 
     const queryParams = {
@@ -468,7 +508,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 120.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTopicsResponse>{},
         body: await response.json(),
@@ -568,6 +614,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.UpdateTopicResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationControlPlaneClient#updateTopic.");
+    const operationName = "updateTopic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/UpdateTopic";
     const pathParams = {
       "{topicId}": updateTopicRequest.topicId
     };
@@ -602,7 +651,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTopicResponse>{},
         body: await response.json(),
@@ -642,6 +697,7 @@ export class NotificationDataPlaneClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "NotificationDataPlane";
 
   protected _httpClient: common.HttpClient;
 
@@ -776,6 +832,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       this.logger.debug(
         "Calling operation NotificationDataPlaneClient#changeSubscriptionCompartment."
       );
+    const operationName = "changeSubscriptionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/ChangeSubscriptionCompartment";
     const pathParams = {
       "{subscriptionId}": changeSubscriptionCompartmentRequest.subscriptionId
     };
@@ -811,7 +870,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSubscriptionCompartmentResponse>{},
         responseHeaders: [
@@ -847,6 +912,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.CreateSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#createSubscription.");
+    const operationName = "createSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/CreateSubscription";
     const pathParams = {};
 
     const queryParams = {};
@@ -879,7 +947,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSubscriptionResponse>{},
         body: await response.json(),
@@ -922,6 +996,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.DeleteSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#deleteSubscription.");
+    const operationName = "deleteSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/DeleteSubscription";
     const pathParams = {
       "{subscriptionId}": deleteSubscriptionRequest.subscriptionId
     };
@@ -951,7 +1028,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSubscriptionResponse>{},
         responseHeaders: [
@@ -985,6 +1068,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.GetConfirmSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#getConfirmSubscription.");
+    const operationName = "getConfirmSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/GetConfirmSubscription";
     const pathParams = {
       "{id}": getConfirmSubscriptionRequest.id
     };
@@ -1016,7 +1102,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConfirmSubscriptionResponse>{},
         body: await response.json(),
@@ -1059,6 +1151,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.GetSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#getSubscription.");
+    const operationName = "getSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/GetSubscription";
     const pathParams = {
       "{subscriptionId}": getSubscriptionRequest.subscriptionId
     };
@@ -1087,7 +1182,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSubscriptionResponse>{},
         body: await response.json(),
@@ -1130,6 +1231,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.GetUnsubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#getUnsubscription.");
+    const operationName = "getUnsubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/GetUnsubscription";
     const pathParams = {
       "{id}": getUnsubscriptionRequest.id
     };
@@ -1161,7 +1265,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUnsubscriptionResponse>{},
         body: await response.json(),
@@ -1199,6 +1309,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.ListSubscriptionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#listSubscriptions.");
+    const operationName = "listSubscriptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/ListSubscriptions";
     const pathParams = {};
 
     const queryParams = {
@@ -1230,7 +1343,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSubscriptionsResponse>{},
         body: await response.json(),
@@ -1339,6 +1458,9 @@ For more information about publishing messages, see [Publishing Messages](https:
   ): Promise<responses.PublishMessageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#publishMessage.");
+    const operationName = "publishMessage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/NotificationTopic/PublishMessage";
     const pathParams = {
       "{topicId}": publishMessageRequest.topicId
     };
@@ -1373,7 +1495,13 @@ For more information about publishing messages, see [Publishing Messages](https:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PublishMessageResponse>{},
         body: await response.json(),
@@ -1413,6 +1541,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       this.logger.debug(
         "Calling operation NotificationDataPlaneClient#resendSubscriptionConfirmation."
       );
+    const operationName = "resendSubscriptionConfirmation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/ResendSubscriptionConfirmation";
     const pathParams = {
       "{id}": resendSubscriptionConfirmationRequest.id
     };
@@ -1441,7 +1572,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResendSubscriptionConfirmationResponse>{},
         body: await response.json(),
@@ -1479,6 +1616,9 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
   ): Promise<responses.UpdateSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation NotificationDataPlaneClient#updateSubscription.");
+    const operationName = "updateSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/notification/20181201/Subscription/UpdateSubscription";
     const pathParams = {
       "{subscriptionId}": updateSubscriptionRequest.subscriptionId
     };
@@ -1513,7 +1653,13 @@ Transactions Per Minute (TPM) per-tenancy limit for this operation: 60.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSubscriptionResponse>{},
         body: await response.json(),

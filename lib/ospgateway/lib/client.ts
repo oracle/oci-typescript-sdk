@@ -33,6 +33,7 @@ export class InvoiceServiceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "InvoiceService";
 
   protected _httpClient: common.HttpClient;
 
@@ -136,6 +137,8 @@ export class InvoiceServiceClient {
   ): Promise<responses.DownloadPdfContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation InvoiceServiceClient#downloadPdfContent.");
+    const operationName = "downloadPdfContent";
+    const apiReferenceLink = "";
     const pathParams = {
       "{internalInvoiceId}": downloadPdfContentRequest.internalInvoiceId
     };
@@ -167,7 +170,13 @@ export class InvoiceServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DownloadPdfContentResponse>{},
 
@@ -216,6 +225,8 @@ export class InvoiceServiceClient {
     getInvoiceRequest: requests.GetInvoiceRequest
   ): Promise<responses.GetInvoiceResponse> {
     if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#getInvoice.");
+    const operationName = "getInvoice";
+    const apiReferenceLink = "";
     const pathParams = {
       "{internalInvoiceId}": getInvoiceRequest.internalInvoiceId
     };
@@ -247,7 +258,13 @@ export class InvoiceServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetInvoiceResponse>{},
         body: await response.json(),
@@ -286,6 +303,8 @@ export class InvoiceServiceClient {
     listInvoiceLinesRequest: requests.ListInvoiceLinesRequest
   ): Promise<responses.ListInvoiceLinesResponse> {
     if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#listInvoiceLines.");
+    const operationName = "listInvoiceLines";
+    const apiReferenceLink = "";
     const pathParams = {
       "{internalInvoiceId}": listInvoiceLinesRequest.internalInvoiceId
     };
@@ -319,7 +338,13 @@ export class InvoiceServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInvoiceLinesResponse>{},
         body: await response.json(),
@@ -368,6 +393,8 @@ export class InvoiceServiceClient {
     listInvoicesRequest: requests.ListInvoicesRequest
   ): Promise<responses.ListInvoicesResponse> {
     if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#listInvoices.");
+    const operationName = "listInvoices";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -409,7 +436,13 @@ export class InvoiceServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListInvoicesResponse>{},
         body: await response.json(),
@@ -453,6 +486,8 @@ export class InvoiceServiceClient {
     payInvoiceRequest: requests.PayInvoiceRequest
   ): Promise<responses.PayInvoiceResponse> {
     if (this.logger) this.logger.debug("Calling operation InvoiceServiceClient#payInvoice.");
+    const operationName = "payInvoice";
+    const apiReferenceLink = "";
     const pathParams = {
       "{internalInvoiceId}": payInvoiceRequest.internalInvoiceId
     };
@@ -491,7 +526,13 @@ export class InvoiceServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PayInvoiceResponse>{},
         body: await response.json(),
@@ -530,6 +571,7 @@ export class SubscriptionServiceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "SubscriptionService";
 
   protected _httpClient: common.HttpClient;
 
@@ -636,6 +678,8 @@ export class SubscriptionServiceClient {
       this.logger.debug(
         "Calling operation SubscriptionServiceClient#authorizeSubscriptionPayment."
       );
+    const operationName = "authorizeSubscriptionPayment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{subscriptionId}": authorizeSubscriptionPaymentRequest.subscriptionId
     };
@@ -674,7 +718,13 @@ export class SubscriptionServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AuthorizeSubscriptionPaymentResponse>{},
         body: await response.json(),
@@ -714,6 +764,8 @@ export class SubscriptionServiceClient {
   ): Promise<responses.GetSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionServiceClient#getSubscription.");
+    const operationName = "getSubscription";
+    const apiReferenceLink = "";
     const pathParams = {
       "{subscriptionId}": getSubscriptionRequest.subscriptionId
     };
@@ -745,7 +797,13 @@ export class SubscriptionServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSubscriptionResponse>{},
         body: await response.json(),
@@ -785,6 +843,8 @@ export class SubscriptionServiceClient {
   ): Promise<responses.ListSubscriptionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionServiceClient#listSubscriptions.");
+    const operationName = "listSubscriptions";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -818,7 +878,13 @@ export class SubscriptionServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSubscriptionsResponse>{},
         body: await response.json(),
@@ -863,6 +929,8 @@ export class SubscriptionServiceClient {
   ): Promise<responses.PaySubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionServiceClient#paySubscription.");
+    const operationName = "paySubscription";
+    const apiReferenceLink = "";
     const pathParams = {
       "{subscriptionId}": paySubscriptionRequest.subscriptionId
     };
@@ -901,7 +969,13 @@ export class SubscriptionServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PaySubscriptionResponse>{},
         body: await response.json(),
@@ -941,6 +1015,8 @@ export class SubscriptionServiceClient {
   ): Promise<responses.UpdateSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation SubscriptionServiceClient#updateSubscription.");
+    const operationName = "updateSubscription";
+    const apiReferenceLink = "";
     const pathParams = {
       "{subscriptionId}": updateSubscriptionRequest.subscriptionId
     };
@@ -978,7 +1054,13 @@ export class SubscriptionServiceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSubscriptionResponse>{},
         body: await response.json(),

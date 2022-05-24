@@ -24,6 +24,9 @@ import CircuitBreaker from "../circuit-breaker";
  * passing along a temporary public key that is bounded to the the security token, and the leaf certificate.
  */
 
+const INSTANCE_PRINCIPAL_GENERIC_ERROR =
+  "Instance principals authentication can only be used on OCI compute instances. Please confirm this code is running on an OCI compute instance. See https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm for more info.";
+
 export default class X509FederationClient implements FederationClient {
   securityTokenAdapter: SecurityTokenAdapter;
   private retry = 0;
@@ -90,7 +93,9 @@ export default class X509FederationClient implements FederationClient {
         try {
           this._leafCertificateSupplier = await this._leafCertificateSupplier.refresh();
         } catch (e) {
-          throw Error(`Fail to refresh leafCertificateSupplier, error: ${e}`);
+          throw Error(
+            `Fail to refresh leafCertificateSupplier, error: ${e}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
+          );
         }
 
         // When using default purpose (ex, instance principals), the token request should always be signed with the same tenant id as the certificate.
@@ -114,7 +119,9 @@ export default class X509FederationClient implements FederationClient {
             ].refresh!();
           }
         } catch (e) {
-          throw Error("Cannot refresh the intermediate certification");
+          throw Error(
+            "Cannot refresh the intermediate certification. " + INSTANCE_PRINCIPAL_GENERIC_ERROR
+          );
         }
       }
 
@@ -204,14 +211,18 @@ export default class X509FederationClient implements FederationClient {
           this.retry += 1;
           return await this.getSecurityTokenFromServer();
         } else {
-          throw Error(`Failed to call auth service for token, error: ${response}`);
+          throw Error(
+            `Failed to call auth service for token, error: ${response}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
+          );
         }
       }
       this.retry = 0;
       const securityToken = await response.json();
       return new SecurityTokenAdapter(securityToken.token, this.sessionKeySupplier);
     } catch (e) {
-      throw Error(`Failed to call call Auth service, error: ${e}`);
+      throw Error(
+        `Failed to call call Auth service, error: ${e}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
+      );
     }
   }
 }

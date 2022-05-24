@@ -35,6 +35,7 @@ export class ServiceManagerProxyClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ServiceManagerProxy";
 
   protected _httpClient: common.HttpClient;
 
@@ -140,6 +141,9 @@ export class ServiceManagerProxyClient {
   ): Promise<responses.GetServiceEnvironmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceManagerProxyClient#getServiceEnvironment.");
+    const operationName = "getServiceEnvironment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/smp/20210914/ServiceEnvironment/GetServiceEnvironment";
     const pathParams = {
       "{serviceEnvironmentId}": getServiceEnvironmentRequest.serviceEnvironmentId
     };
@@ -170,7 +174,13 @@ export class ServiceManagerProxyClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetServiceEnvironmentResponse>{},
         body: await response.json(),
@@ -212,6 +222,9 @@ export class ServiceManagerProxyClient {
   ): Promise<responses.ListServiceEnvironmentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceManagerProxyClient#listServiceEnvironments.");
+    const operationName = "listServiceEnvironments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/smp/20210914/ServiceEnvironment/ListServiceEnvironments";
     const pathParams = {};
 
     const queryParams = {
@@ -247,7 +260,13 @@ export class ServiceManagerProxyClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServiceEnvironmentsResponse>{},
         body: await response.json(),

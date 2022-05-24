@@ -190,3 +190,4 @@ export import dataconnectivity = require("oci-dataconnectivity");
 export import stackmonitoring = require("oci-stackmonitoring");
 export import servicemesh = require("oci-servicemesh");
 export import adm = require("oci-adm");
+export import licensemanager = require("oci-licensemanager");

@@ -14,6 +14,9 @@ import { readFileSync } from "fs";
 import { Region } from "../region";
 import { Realm } from "../realm";
 
+const CONFIG_FILE_AUTH_INFO =
+  "For more info about config file and how to get required information, see https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm for more info on OCI configuration files.";
+
 export class ConfigFileAuthenticationDetailsProvider
   implements AuthenticationDetailsProvider, RegionProvider {
   private delegate: SimpleAuthenticationDetailsProvider;
@@ -70,7 +73,9 @@ export class ConfigFileAuthenticationDetailsProvider
       }
       return region;
     } catch (e) {
-      throw new Error(`Error from retrying to retrieve region from regionId: ${e}`);
+      throw new Error(
+        `Error from retrying to retrieve region from regionId: ${e}. ${CONFIG_FILE_AUTH_INFO}`
+      );
     }
   }
 
@@ -87,7 +92,8 @@ export class ConfigFileAuthenticationDetailsProvider
       region = this.retrieveRegionFromRegionId(regionId!);
     } else {
       throw Error(
-        "Region not specified in Config file or OCI_REGION env variable. Can not proceed without setting a region."
+        "Region not specified in Config file or OCI_REGION env variable. Can not proceed without setting a region. " +
+          CONFIG_FILE_AUTH_INFO
       );
     }
 
@@ -134,7 +140,7 @@ export class ConfigFileAuthenticationDetailsProvider
       const key = readFileSync(filePath, "utf8");
       return key;
     } catch (e) {
-      throw "Failed to read private key from file path.";
+      throw "Failed to read private key from file path. " + CONFIG_FILE_AUTH_INFO;
     }
   }
 

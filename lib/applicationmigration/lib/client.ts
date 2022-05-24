@@ -41,6 +41,7 @@ export class ApplicationMigrationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ApplicationMigration";
 
   protected _httpClient: common.HttpClient;
 
@@ -172,6 +173,9 @@ When you cancel a work request, the state of the work request changes to cancell
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -201,7 +205,13 @@ When you cancel a work request, the state of the work request changes to cancell
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -234,6 +244,9 @@ When you cancel a work request, the state of the work request changes to cancell
   ): Promise<responses.ChangeMigrationCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#changeMigrationCompartment.");
+    const operationName = "changeMigrationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/ChangeMigrationCompartment";
     const pathParams = {
       "{migrationId}": changeMigrationCompartmentRequest.migrationId
     };
@@ -269,7 +282,13 @@ When you cancel a work request, the state of the work request changes to cancell
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMigrationCompartmentResponse>{},
         responseHeaders: [
@@ -307,6 +326,9 @@ When you cancel a work request, the state of the work request changes to cancell
   ): Promise<responses.ChangeSourceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#changeSourceCompartment.");
+    const operationName = "changeSourceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/ChangeSourceCompartment";
     const pathParams = {
       "{sourceId}": changeSourceCompartmentRequest.sourceId
     };
@@ -342,7 +364,13 @@ When you cancel a work request, the state of the work request changes to cancell
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSourceCompartmentResponse>{},
         responseHeaders: [
@@ -399,6 +427,8 @@ To track the progress of this operation, you can monitor the status of the Creat
   ): Promise<responses.CreateMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#createMigration.");
+    const operationName = "createMigration";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -431,7 +461,13 @@ To track the progress of this operation, you can monitor the status of the Creat
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMigrationResponse>{},
         body: await response.json(),
@@ -493,6 +529,8 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
   ): Promise<responses.CreateSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#createSource.");
+    const operationName = "createSource";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -525,7 +563,13 @@ Ensure that the state of the source has changed to <code>ACTIVE</code>, before y
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSourceResponse>{},
         body: await response.json(),
@@ -575,6 +619,9 @@ If you have migrated the application or for any other reason if you no longer re
   ): Promise<responses.DeleteMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#deleteMigration.");
+    const operationName = "deleteMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/DeleteMigration";
     const pathParams = {
       "{migrationId}": deleteMigrationRequest.migrationId
     };
@@ -604,7 +651,13 @@ If you have migrated the application or for any other reason if you no longer re
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMigrationResponse>{},
         responseHeaders: [
@@ -645,6 +698,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.DeleteSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#deleteSource.");
+    const operationName = "deleteSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/DeleteSource";
     const pathParams = {
       "{sourceId}": deleteSourceRequest.sourceId
     };
@@ -674,7 +730,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSourceResponse>{},
         responseHeaders: [
@@ -710,6 +772,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.GetMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#getMigration.");
+    const operationName = "getMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/GetMigration";
     const pathParams = {
       "{migrationId}": getMigrationRequest.migrationId
     };
@@ -738,7 +803,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMigrationResponse>{},
         body: await response.json(),
@@ -778,6 +849,9 @@ Before deleting a source, you must delete all the migrations associated with the
     getSourceRequest: requests.GetSourceRequest
   ): Promise<responses.GetSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation ApplicationMigrationClient#getSource.");
+    const operationName = "getSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/GetSource";
     const pathParams = {
       "{sourceId}": getSourceRequest.sourceId
     };
@@ -806,7 +880,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSourceResponse>{},
         body: await response.json(),
@@ -846,6 +926,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -874,7 +957,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -915,6 +1004,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.ListMigrationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#listMigrations.");
+    const operationName = "listMigrations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/MigrationSummary/ListMigrations";
     const pathParams = {};
 
     const queryParams = {
@@ -950,7 +1042,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMigrationsResponse>{},
         body: await response.json(),
@@ -1045,6 +1143,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.ListSourceApplicationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#listSourceApplications.");
+    const operationName = "listSourceApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/SourceApplicationSummary/ListSourceApplications";
     const pathParams = {
       "{sourceId}": listSourceApplicationsRequest.sourceId
     };
@@ -1080,7 +1181,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourceApplicationsResponse>{},
         body: await response.json(),
@@ -1175,6 +1282,9 @@ Before deleting a source, you must delete all the migrations associated with the
     listSourcesRequest: requests.ListSourcesRequest
   ): Promise<responses.ListSourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation ApplicationMigrationClient#listSources.");
+    const operationName = "listSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/SourceSummary/ListSources";
     const pathParams = {};
 
     const queryParams = {
@@ -1210,7 +1320,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSourcesResponse>{},
         body: await response.json(),
@@ -1303,6 +1419,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1335,7 +1454,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1428,6 +1553,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1460,7 +1588,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1553,6 +1687,9 @@ Before deleting a source, you must delete all the migrations associated with the
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1584,7 +1721,13 @@ Before deleting a source, you must delete all the migrations associated with the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1687,6 +1830,9 @@ To track the progress of the operation, you can monitor the status of the Migrat
   ): Promise<responses.MigrateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#migrateApplication.");
+    const operationName = "migrateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/MigrateApplication";
     const pathParams = {
       "{migrationId}": migrateApplicationRequest.migrationId
     };
@@ -1717,7 +1863,13 @@ To track the progress of the operation, you can monitor the status of the Migrat
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.MigrateApplicationResponse>{},
         responseHeaders: [
@@ -1782,6 +1934,9 @@ When the migration has been updated, the state of the migration changes to <code
   ): Promise<responses.UpdateMigrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#updateMigration.");
+    const operationName = "updateMigration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Migration/UpdateMigration";
     const pathParams = {
       "{migrationId}": updateMigrationRequest.migrationId
     };
@@ -1817,7 +1972,13 @@ When the migration has been updated, the state of the migration changes to <code
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMigrationResponse>{},
         responseHeaders: [
@@ -1857,6 +2018,9 @@ When the migration has been updated, the state of the migration changes to <code
   ): Promise<responses.UpdateSourceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationMigrationClient#updateSource.");
+    const operationName = "updateSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/applicationmigration/20191031/Source/UpdateSource";
     const pathParams = {
       "{sourceId}": updateSourceRequest.sourceId
     };
@@ -1891,7 +2055,13 @@ When the migration has been updated, the state of the migration changes to <code
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSourceResponse>{},
         responseHeaders: [

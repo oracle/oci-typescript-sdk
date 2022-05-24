@@ -38,6 +38,7 @@ export class ApmDomainClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ApmDomain";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class ApmDomainClient {
   ): Promise<responses.ChangeApmDomainCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmDomainClient#changeApmDomainCompartment.");
+    const operationName = "changeApmDomainCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/ChangeApmDomainCompartment";
     const pathParams = {
       "{apmDomainId}": changeApmDomainCompartmentRequest.apmDomainId
     };
@@ -199,7 +203,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeApmDomainCompartmentResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class ApmDomainClient {
     createApmDomainRequest: requests.CreateApmDomainRequest
   ): Promise<responses.CreateApmDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#createApmDomain.");
+    const operationName = "createApmDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/CreateApmDomain";
     const pathParams = {};
 
     const queryParams = {};
@@ -267,7 +280,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateApmDomainResponse>{},
         responseHeaders: [
@@ -305,6 +324,9 @@ export class ApmDomainClient {
     deleteApmDomainRequest: requests.DeleteApmDomainRequest
   ): Promise<responses.DeleteApmDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#deleteApmDomain.");
+    const operationName = "deleteApmDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/DeleteApmDomain";
     const pathParams = {
       "{apmDomainId}": deleteApmDomainRequest.apmDomainId
     };
@@ -334,7 +356,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteApmDomainResponse>{},
         responseHeaders: [
@@ -371,6 +399,9 @@ export class ApmDomainClient {
     generateDataKeysRequest: requests.GenerateDataKeysRequest
   ): Promise<responses.GenerateDataKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#generateDataKeys.");
+    const operationName = "generateDataKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/DataKey/GenerateDataKeys";
     const pathParams = {
       "{apmDomainId}": generateDataKeysRequest.apmDomainId
     };
@@ -405,7 +436,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateDataKeysResponse>{},
         responseHeaders: [
@@ -440,6 +477,9 @@ export class ApmDomainClient {
     getApmDomainRequest: requests.GetApmDomainRequest
   ): Promise<responses.GetApmDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#getApmDomain.");
+    const operationName = "getApmDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/GetApmDomain";
     const pathParams = {
       "{apmDomainId}": getApmDomainRequest.apmDomainId
     };
@@ -468,7 +508,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetApmDomainResponse>{},
         body: await response.json(),
@@ -507,6 +553,9 @@ export class ApmDomainClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -535,7 +584,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -581,6 +636,9 @@ export class ApmDomainClient {
   ): Promise<responses.ListApmDomainWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmDomainClient#listApmDomainWorkRequests.");
+    const operationName = "listApmDomainWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequest/ListApmDomainWorkRequests";
     const pathParams = {
       "{apmDomainId}": listApmDomainWorkRequestsRequest.apmDomainId
     };
@@ -612,7 +670,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApmDomainWorkRequestsResponse>{},
         body: await response.json(),
@@ -704,6 +768,9 @@ export class ApmDomainClient {
     listApmDomainsRequest: requests.ListApmDomainsRequest
   ): Promise<responses.ListApmDomainsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listApmDomains.");
+    const operationName = "listApmDomains";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomainSummary/ListApmDomains";
     const pathParams = {};
 
     const queryParams = {
@@ -738,7 +805,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApmDomainsResponse>{},
         body: await response.json(),
@@ -831,6 +904,9 @@ export class ApmDomainClient {
     listDataKeysRequest: requests.ListDataKeysRequest
   ): Promise<responses.ListDataKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listDataKeys.");
+    const operationName = "listDataKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/DataKeySummary/ListDataKeys";
     const pathParams = {
       "{apmDomainId}": listDataKeysRequest.apmDomainId
     };
@@ -861,7 +937,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataKeysResponse>{},
         body: await response.json(),
@@ -896,6 +978,9 @@ export class ApmDomainClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -927,7 +1012,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1019,6 +1110,9 @@ export class ApmDomainClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1050,7 +1144,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1142,6 +1242,9 @@ export class ApmDomainClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1172,7 +1275,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1265,6 +1374,9 @@ export class ApmDomainClient {
     removeDataKeysRequest: requests.RemoveDataKeysRequest
   ): Promise<responses.RemoveDataKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#removeDataKeys.");
+    const operationName = "removeDataKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/DataKey/RemoveDataKeys";
     const pathParams = {
       "{apmDomainId}": removeDataKeysRequest.apmDomainId
     };
@@ -1299,7 +1411,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveDataKeysResponse>{},
         responseHeaders: [
@@ -1334,6 +1452,9 @@ export class ApmDomainClient {
     updateApmDomainRequest: requests.UpdateApmDomainRequest
   ): Promise<responses.UpdateApmDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmDomainClient#updateApmDomain.");
+    const operationName = "updateApmDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-control-plane/20200630/ApmDomain/UpdateApmDomain";
     const pathParams = {
       "{apmDomainId}": updateApmDomainRequest.apmDomainId
     };
@@ -1368,7 +1489,13 @@ export class ApmDomainClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateApmDomainResponse>{},
         responseHeaders: [

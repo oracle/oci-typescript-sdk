@@ -36,6 +36,7 @@ export class DataConnectivityManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataConnectivityManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#changeEndpointCompartment."
       );
+    const operationName = "changeEndpointCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{endpointId}": changeEndpointCompartmentRequest.endpointId
     };
@@ -203,7 +206,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeEndpointCompartmentResponse>{},
         responseHeaders: [
@@ -242,6 +251,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#changeRegistryCompartment."
       );
+    const operationName = "changeRegistryCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": changeRegistryCompartmentRequest.registryId
     };
@@ -277,7 +288,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRegistryCompartmentResponse>{},
         responseHeaders: [
@@ -315,6 +332,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createAttachDataAsset."
       );
+    const operationName = "createAttachDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createAttachDataAssetRequest.registryId,
       "{endpointId}": createAttachDataAssetRequest.endpointId
@@ -351,7 +370,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAttachDataAssetResponse>{},
         body: await response.json(),
@@ -386,6 +411,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createConnection.");
+    const operationName = "createConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createConnectionRequest.registryId
     };
@@ -420,7 +447,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
@@ -462,6 +495,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createConnectionValidation."
       );
+    const operationName = "createConnectionValidation";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createConnectionValidationRequest.registryId
     };
@@ -498,7 +533,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectionValidationResponse>{},
         body: await response.json(),
@@ -540,6 +581,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createConnectivityValidation."
       );
+    const operationName = "createConnectivityValidation";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createConnectivityValidationRequest.registryId
     };
@@ -576,7 +619,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectivityValidationResponse>{},
         body: await response.json(),
@@ -616,6 +665,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateDataAssetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createDataAsset.");
+    const operationName = "createDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createDataAssetRequest.registryId
     };
@@ -650,7 +701,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataAssetResponse>{},
         body: await response.json(),
@@ -690,6 +747,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateDataPreviewResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createDataPreview.");
+    const operationName = "createDataPreview";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createDataPreviewRequest.registryId
     };
@@ -727,7 +786,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataPreviewResponse>{},
         body: await response.json(),
@@ -762,6 +827,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateDataProfileResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createDataProfile.");
+    const operationName = "createDataProfile";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createDataProfileRequest.registryId
     };
@@ -799,7 +866,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataProfileResponse>{},
         body: await response.json(),
@@ -836,6 +909,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createDeReferenceArtifact."
       );
+    const operationName = "createDeReferenceArtifact";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createDeReferenceArtifactRequest.registryId,
       "{dcmsArtifactId}": createDeReferenceArtifactRequest.dcmsArtifactId
@@ -872,7 +947,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeReferenceArtifactResponse>{},
         body: await response.json(),
@@ -914,6 +995,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createDetachDataAsset."
       );
+    const operationName = "createDetachDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createDetachDataAssetRequest.registryId,
       "{endpointId}": createDetachDataAssetRequest.endpointId
@@ -950,7 +1033,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDetachDataAssetResponse>{},
         body: await response.json(),
@@ -986,6 +1075,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createEndpoint.");
+    const operationName = "createEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1020,7 +1111,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateEndpointResponse>{},
         responseHeaders: [
@@ -1056,6 +1153,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateEntityShapeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createEntityShape.");
+    const operationName = "createEntityShape";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createEntityShapeRequest.registryId,
       "{connectionKey}": createEntityShapeRequest.connectionKey,
@@ -1097,7 +1196,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateEntityShapeResponse>{},
         body: await response.json(),
@@ -1134,6 +1239,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createExecuteOperationJob."
       );
+    const operationName = "createExecuteOperationJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createExecuteOperationJobRequest.registryId,
       "{connectionKey}": createExecuteOperationJobRequest.connectionKey,
@@ -1173,7 +1280,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExecuteOperationJobResponse>{},
         body: await response.json(),
@@ -1213,6 +1326,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateFolderResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createFolder.");
+    const operationName = "createFolder";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createFolderRequest.registryId
     };
@@ -1247,7 +1362,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFolderResponse>{},
         body: await response.json(),
@@ -1289,6 +1410,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createFullPushDownTask."
       );
+    const operationName = "createFullPushDownTask";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createFullPushDownTaskRequest.registryId
     };
@@ -1326,7 +1449,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFullPushDownTaskResponse>{},
         body: await response.json(),
@@ -1368,6 +1497,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createReferenceArtifact."
       );
+    const operationName = "createReferenceArtifact";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createReferenceArtifactRequest.registryId,
       "{dcmsArtifactId}": createReferenceArtifactRequest.dcmsArtifactId
@@ -1404,7 +1535,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateReferenceArtifactResponse>{},
         body: await response.json(),
@@ -1445,6 +1582,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.CreateRegistryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#createRegistry.");
+    const operationName = "createRegistry";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1477,7 +1616,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRegistryResponse>{},
         responseHeaders: [
@@ -1515,6 +1660,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#createTestNetworkConnectivity."
       );
+    const operationName = "createTestNetworkConnectivity";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": createTestNetworkConnectivityRequest.registryId
     };
@@ -1552,7 +1699,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTestNetworkConnectivityResponse>{},
         body: await response.json(),
@@ -1592,6 +1745,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.DeleteConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#deleteConnection.");
+    const operationName = "deleteConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": deleteConnectionRequest.registryId,
       "{connectionKey}": deleteConnectionRequest.connectionKey
@@ -1622,7 +1777,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionResponse>{},
         responseHeaders: [
@@ -1655,6 +1816,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#deleteConnectionValidation."
       );
+    const operationName = "deleteConnectionValidation";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": deleteConnectionValidationRequest.registryId,
       "{connectionValidationKey}": deleteConnectionValidationRequest.connectionValidationKey
@@ -1687,7 +1850,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionValidationResponse>{},
         responseHeaders: [
@@ -1718,6 +1887,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.DeleteDataAssetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#deleteDataAsset.");
+    const operationName = "deleteDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": deleteDataAssetRequest.registryId,
       "{dataAssetKey}": deleteDataAssetRequest.dataAssetKey
@@ -1748,7 +1919,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataAssetResponse>{},
         responseHeaders: [
@@ -1779,6 +1956,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.DeleteEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#deleteEndpoint.");
+    const operationName = "deleteEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{endpointId}": deleteEndpointRequest.endpointId
     };
@@ -1811,7 +1990,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEndpointResponse>{},
         responseHeaders: [
@@ -1847,6 +2032,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.DeleteFolderResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#deleteFolder.");
+    const operationName = "deleteFolder";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": deleteFolderRequest.registryId,
       "{folderKey}": deleteFolderRequest.folderKey
@@ -1877,7 +2064,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFolderResponse>{},
         responseHeaders: [
@@ -1910,6 +2103,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#deleteNetworkConnectivityStatus."
       );
+    const operationName = "deleteNetworkConnectivityStatus";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": deleteNetworkConnectivityStatusRequest.registryId,
       "{networkValidationStatusKey}":
@@ -1941,7 +2136,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNetworkConnectivityStatusResponse>{},
         responseHeaders: [
@@ -1972,6 +2173,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.DeleteRegistryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#deleteRegistry.");
+    const operationName = "deleteRegistry";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": deleteRegistryRequest.registryId
     };
@@ -2003,7 +2206,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRegistryResponse>{},
         responseHeaders: [
@@ -2039,6 +2248,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getConnection.");
+    const operationName = "getConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getConnectionRequest.registryId,
       "{connectionKey}": getConnectionRequest.connectionKey
@@ -2068,7 +2279,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
@@ -2110,6 +2327,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#getConnectionValidation."
       );
+    const operationName = "getConnectionValidation";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getConnectionValidationRequest.registryId,
       "{connectionValidationKey}": getConnectionValidationRequest.connectionValidationKey
@@ -2141,7 +2360,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectionValidationResponse>{},
         body: await response.json(),
@@ -2181,6 +2406,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetDataAssetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getDataAsset.");
+    const operationName = "getDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getDataAssetRequest.registryId,
       "{dataAssetKey}": getDataAssetRequest.dataAssetKey
@@ -2210,7 +2437,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataAssetResponse>{},
         body: await response.json(),
@@ -2250,6 +2483,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetDataEntityResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getDataEntity.");
+    const operationName = "getDataEntity";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getDataEntityRequest.registryId,
       "{connectionKey}": getDataEntityRequest.connectionKey,
@@ -2284,7 +2519,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataEntityResponse>{},
         body: await response.json(),
@@ -2319,6 +2560,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getEndpoint.");
+    const operationName = "getEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{endpointId}": getEndpointRequest.endpointId
     };
@@ -2349,7 +2592,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEndpointResponse>{},
         body: await response.json(),
@@ -2391,6 +2640,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#getExecuteOperationJob."
       );
+    const operationName = "getExecuteOperationJob";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getExecuteOperationJobRequest.registryId,
       "{connectionKey}": getExecuteOperationJobRequest.connectionKey,
@@ -2425,7 +2676,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExecuteOperationJobResponse>{},
         body: await response.json(),
@@ -2460,6 +2717,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetFolderResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getFolder.");
+    const operationName = "getFolder";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getFolderRequest.registryId,
       "{folderKey}": getFolderRequest.folderKey
@@ -2489,7 +2748,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFolderResponse>{},
         body: await response.json(),
@@ -2531,6 +2796,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#getNetworkConnectivityStatus."
       );
+    const operationName = "getNetworkConnectivityStatus";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getNetworkConnectivityStatusRequest.registryId,
       "{dataAssetKey}": getNetworkConnectivityStatusRequest.dataAssetKey
@@ -2564,7 +2831,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkConnectivityStatusResponse>{},
         body: await response.json(),
@@ -2604,6 +2877,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetOperationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getOperation.");
+    const operationName = "getOperation";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getOperationRequest.registryId,
       "{connectionKey}": getOperationRequest.connectionKey,
@@ -2638,7 +2913,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetOperationResponse>{},
         body: await response.json(),
@@ -2673,6 +2954,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetRegistryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getRegistry.");
+    const operationName = "getRegistry";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getRegistryRequest.registryId
     };
@@ -2701,7 +2984,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRegistryResponse>{},
         body: await response.json(),
@@ -2741,6 +3030,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetSchemaResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getSchema.");
+    const operationName = "getSchema";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getSchemaRequest.registryId,
       "{connectionKey}": getSchemaRequest.connectionKey,
@@ -2773,7 +3064,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSchemaResponse>{},
         body: await response.json(),
@@ -2809,6 +3106,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetTypeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getType.");
+    const operationName = "getType";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getTypeRequest.registryId,
       "{typeKey}": getTypeRequest.typeKey
@@ -2840,7 +3139,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTypeResponse>{},
         body: await response.json(),
@@ -2880,6 +3185,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2908,7 +3215,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2955,6 +3268,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#listConnectionValidations."
       );
+    const operationName = "listConnectionValidations";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listConnectionValidationsRequest.registryId
     };
@@ -2993,7 +3308,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectionValidationsResponse>{},
         body: await response.json(),
@@ -3043,6 +3364,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListConnectionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listConnections.");
+    const operationName = "listConnections";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listConnectionsRequest.registryId
     };
@@ -3081,7 +3404,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
@@ -3132,6 +3461,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListDataAssetsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listDataAssets.");
+    const operationName = "listDataAssets";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listDataAssetsRequest.registryId
     };
@@ -3173,7 +3504,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataAssetsResponse>{},
         body: await response.json(),
@@ -3224,6 +3561,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListDataEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listDataEntities.");
+    const operationName = "listDataEntities";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listDataEntitiesRequest.registryId,
       "{connectionKey}": listDataEntitiesRequest.connectionKey,
@@ -3267,7 +3606,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataEntitiesResponse>{},
         body: await response.json(),
@@ -3318,6 +3663,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListEndpointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listEndpoints.");
+    const operationName = "listEndpoints";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3353,7 +3700,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEndpointsResponse>{},
         body: await response.json(),
@@ -3393,6 +3746,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListFoldersResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listFolders.");
+    const operationName = "listFolders";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listFoldersRequest.registryId
     };
@@ -3430,7 +3785,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFoldersResponse>{},
         body: await response.json(),
@@ -3481,6 +3842,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListOperationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listOperations.");
+    const operationName = "listOperations";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listOperationsRequest.registryId,
       "{connectionKey}": listOperationsRequest.connectionKey,
@@ -3519,7 +3882,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOperationsResponse>{},
         body: await response.json(),
@@ -3572,6 +3941,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#listReferenceArtifacts."
       );
+    const operationName = "listReferenceArtifacts";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listReferenceArtifactsRequest.registryId,
       "{dcmsArtifactId}": listReferenceArtifactsRequest.dcmsArtifactId
@@ -3612,7 +3983,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReferenceArtifactsResponse>{},
         body: await response.json(),
@@ -3663,6 +4040,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListRegistriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listRegistries.");
+    const operationName = "listRegistries";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -3696,7 +4075,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRegistriesResponse>{},
         body: await response.json(),
@@ -3736,6 +4121,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListSchemasResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listSchemas.");
+    const operationName = "listSchemas";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listSchemasRequest.registryId,
       "{connectionKey}": listSchemasRequest.connectionKey
@@ -3775,7 +4162,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSchemasResponse>{},
         body: await response.json(),
@@ -3826,6 +4219,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listTypes.");
+    const operationName = "listTypes";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": listTypesRequest.registryId
     };
@@ -3861,7 +4256,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTypesResponse>{},
         body: await response.json(),
@@ -3914,6 +4315,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#listWorkRequestErrors."
       );
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -3945,7 +4348,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -3986,6 +4395,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -4017,7 +4428,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -4058,6 +4475,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -4090,7 +4509,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -4130,6 +4555,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.UpdateConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#updateConnection.");
+    const operationName = "updateConnection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": updateConnectionRequest.registryId,
       "{connectionKey}": updateConnectionRequest.connectionKey
@@ -4165,7 +4592,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConnectionResponse>{},
         body: await response.json(),
@@ -4205,6 +4638,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.UpdateDataAssetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#updateDataAsset.");
+    const operationName = "updateDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": updateDataAssetRequest.registryId,
       "{dataAssetKey}": updateDataAssetRequest.dataAssetKey
@@ -4240,7 +4675,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataAssetResponse>{},
         body: await response.json(),
@@ -4280,6 +4721,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.UpdateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#updateEndpoint.");
+    const operationName = "updateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{endpointId}": updateEndpointRequest.endpointId
     };
@@ -4316,7 +4759,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEndpointResponse>{},
         body: await response.json(),
@@ -4361,6 +4810,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.UpdateFolderResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#updateFolder.");
+    const operationName = "updateFolder";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": updateFolderRequest.registryId,
       "{folderKey}": updateFolderRequest.folderKey
@@ -4396,7 +4847,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFolderResponse>{},
         body: await response.json(),
@@ -4436,6 +4893,8 @@ export class DataConnectivityManagementClient {
   ): Promise<responses.UpdateRegistryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataConnectivityManagementClient#updateRegistry.");
+    const operationName = "updateRegistry";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": updateRegistryRequest.registryId
     };
@@ -4470,7 +4929,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRegistryResponse>{},
         body: await response.json(),
@@ -4518,6 +4983,8 @@ export class DataConnectivityManagementClient {
       this.logger.debug(
         "Calling operation DataConnectivityManagementClient#validateDataAssetNetworkReachablity."
       );
+    const operationName = "validateDataAssetNetworkReachablity";
+    const apiReferenceLink = "";
     const pathParams = {
       "{endpointId}": validateDataAssetNetworkReachablityRequest.endpointId
     };
@@ -4550,7 +5017,13 @@ export class DataConnectivityManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateDataAssetNetworkReachablityResponse>{},
         responseHeaders: [
@@ -4586,6 +5059,7 @@ export class NetworkValidationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "NetworkValidation";
 
   protected _httpClient: common.HttpClient;
 
@@ -4691,6 +5165,8 @@ export class NetworkValidationClient {
       this.logger.debug(
         "Calling operation NetworkValidationClient#getNetworkConnectivityStatusCollection."
       );
+    const operationName = "getNetworkConnectivityStatusCollection";
+    const apiReferenceLink = "";
     const pathParams = {
       "{registryId}": getNetworkConnectivityStatusCollectionRequest.registryId,
       "{endpointKey}": getNetworkConnectivityStatusCollectionRequest.endpointKey
@@ -4726,7 +5202,13 @@ export class NetworkValidationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkConnectivityStatusCollectionResponse>{},
         body: await response.json(),

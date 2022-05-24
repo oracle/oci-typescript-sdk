@@ -43,6 +43,7 @@ export class DnsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Dns";
 
   protected _httpClient: common.HttpClient;
 
@@ -172,6 +173,9 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
     changeResolverCompartmentRequest: requests.ChangeResolverCompartmentRequest
   ): Promise<responses.ChangeResolverCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#changeResolverCompartment.");
+    const operationName = "changeResolverCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/ChangeResolverCompartment";
     const pathParams = {
       "{resolverId}": changeResolverCompartmentRequest.resolverId
     };
@@ -209,7 +213,13 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeResolverCompartmentResponse>{},
         responseHeaders: [
@@ -246,6 +256,9 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
   ): Promise<responses.ChangeSteeringPolicyCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DnsClient#changeSteeringPolicyCompartment.");
+    const operationName = "changeSteeringPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/ChangeSteeringPolicyCompartment";
     const pathParams = {
       "{steeringPolicyId}": changeSteeringPolicyCompartmentRequest.steeringPolicyId
     };
@@ -283,7 +296,13 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeSteeringPolicyCompartmentResponse>{},
         responseHeaders: [
@@ -314,6 +333,9 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
     changeTsigKeyCompartmentRequest: requests.ChangeTsigKeyCompartmentRequest
   ): Promise<responses.ChangeTsigKeyCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#changeTsigKeyCompartment.");
+    const operationName = "changeTsigKeyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/ChangeTsigKeyCompartment";
     const pathParams = {
       "{tsigKeyId}": changeTsigKeyCompartmentRequest.tsigKeyId
     };
@@ -351,7 +373,13 @@ Zones in the default view are not moved. VCN-dedicated resolvers are initially c
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTsigKeyCompartmentResponse>{},
         responseHeaders: [
@@ -384,6 +412,9 @@ To change the compartment of a protected view, change the compartment of its cor
     changeViewCompartmentRequest: requests.ChangeViewCompartmentRequest
   ): Promise<responses.ChangeViewCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#changeViewCompartment.");
+    const operationName = "changeViewCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/ChangeViewCompartment";
     const pathParams = {
       "{viewId}": changeViewCompartmentRequest.viewId
     };
@@ -421,7 +452,13 @@ To change the compartment of a protected view, change the compartment of its cor
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeViewCompartmentResponse>{},
         responseHeaders: [
@@ -464,6 +501,9 @@ Protected zones cannot have their compartment changed. When the zone name is pro
     changeZoneCompartmentRequest: requests.ChangeZoneCompartmentRequest
   ): Promise<responses.ChangeZoneCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#changeZoneCompartment.");
+    const operationName = "changeZoneCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/ChangeZoneCompartment";
     const pathParams = {
       "{zoneId}": changeZoneCompartmentRequest.zoneId
     };
@@ -501,7 +541,13 @@ Protected zones cannot have their compartment changed. When the zone name is pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeZoneCompartmentResponse>{},
         responseHeaders: [
@@ -537,6 +583,8 @@ Protected zones cannot have their compartment changed. When the zone name is pro
     createResolverEndpointRequest: requests.CreateResolverEndpointRequest
   ): Promise<responses.CreateResolverEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#createResolverEndpoint.");
+    const operationName = "createResolverEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{resolverId}": createResolverEndpointRequest.resolverId
     };
@@ -573,7 +621,13 @@ Protected zones cannot have their compartment changed. When the zone name is pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateResolverEndpointResponse>{},
         body: await response.json(),
@@ -624,6 +678,8 @@ Protected zones cannot have their compartment changed. When the zone name is pro
     createSteeringPolicyRequest: requests.CreateSteeringPolicyRequest
   ): Promise<responses.CreateSteeringPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#createSteeringPolicy.");
+    const operationName = "createSteeringPolicy";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -658,7 +714,13 @@ Protected zones cannot have their compartment changed. When the zone name is pro
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSteeringPolicyResponse>{},
         body: await response.json(),
@@ -709,6 +771,8 @@ For the purposes of access control, the attachment is automatically placed
   ): Promise<responses.CreateSteeringPolicyAttachmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DnsClient#createSteeringPolicyAttachment.");
+    const operationName = "createSteeringPolicyAttachment";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -743,7 +807,13 @@ For the purposes of access control, the attachment is automatically placed
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSteeringPolicyAttachmentResponse>{},
         body: await response.json(),
@@ -789,6 +859,8 @@ For the purposes of access control, the attachment is automatically placed
     createTsigKeyRequest: requests.CreateTsigKeyRequest
   ): Promise<responses.CreateTsigKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#createTsigKey.");
+    const operationName = "createTsigKey";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -822,7 +894,13 @@ For the purposes of access control, the attachment is automatically placed
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTsigKeyResponse>{},
         body: await response.json(),
@@ -872,6 +950,8 @@ For the purposes of access control, the attachment is automatically placed
     createViewRequest: requests.CreateViewRequest
   ): Promise<responses.CreateViewResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#createView.");
+    const operationName = "createView";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -906,7 +986,13 @@ For the purposes of access control, the attachment is automatically placed
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateViewResponse>{},
         body: await response.json(),
@@ -959,6 +1045,8 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
     createZoneRequest: requests.CreateZoneRequest
   ): Promise<responses.CreateZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#createZone.");
+    const operationName = "createZone";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -994,7 +1082,13 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateZoneResponse>{},
         body: await response.json(),
@@ -1047,6 +1141,9 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     deleteDomainRecordsRequest: requests.DeleteDomainRecordsRequest
   ): Promise<responses.DeleteDomainRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#deleteDomainRecords.");
+    const operationName = "deleteDomainRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/DeleteDomainRecords";
     const pathParams = {
       "{zoneNameOrId}": deleteDomainRecordsRequest.zoneNameOrId,
       "{domain}": deleteDomainRecordsRequest.domain
@@ -1082,7 +1179,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDomainRecordsResponse>{},
         responseHeaders: [
@@ -1116,6 +1219,8 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     deleteRRSetRequest: requests.DeleteRRSetRequest
   ): Promise<responses.DeleteRRSetResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#deleteRRSet.");
+    const operationName = "deleteRRSet";
+    const apiReferenceLink = "";
     const pathParams = {
       "{zoneNameOrId}": deleteRRSetRequest.zoneNameOrId,
       "{domain}": deleteRRSetRequest.domain,
@@ -1152,7 +1257,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRRSetResponse>{},
         responseHeaders: [
@@ -1187,6 +1298,9 @@ Note that attempting to delete a resolver endpoint in the DELETED lifecycle stat
     deleteResolverEndpointRequest: requests.DeleteResolverEndpointRequest
   ): Promise<responses.DeleteResolverEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#deleteResolverEndpoint.");
+    const operationName = "deleteResolverEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/DeleteResolverEndpoint";
     const pathParams = {
       "{resolverId}": deleteResolverEndpointRequest.resolverId,
       "{resolverEndpointName}": deleteResolverEndpointRequest.resolverEndpointName
@@ -1220,7 +1334,13 @@ Note that attempting to delete a resolver endpoint in the DELETED lifecycle stat
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteResolverEndpointResponse>{},
         responseHeaders: [
@@ -1260,6 +1380,8 @@ A `204` response indicates that the delete has been successful.
     deleteSteeringPolicyRequest: requests.DeleteSteeringPolicyRequest
   ): Promise<responses.DeleteSteeringPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#deleteSteeringPolicy.");
+    const operationName = "deleteSteeringPolicy";
+    const apiReferenceLink = "";
     const pathParams = {
       "{steeringPolicyId}": deleteSteeringPolicyRequest.steeringPolicyId
     };
@@ -1292,7 +1414,13 @@ A `204` response indicates that the delete has been successful.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSteeringPolicyResponse>{},
         responseHeaders: [
@@ -1325,6 +1453,8 @@ A `204` response indicates that the delete has been successful.
   ): Promise<responses.DeleteSteeringPolicyAttachmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DnsClient#deleteSteeringPolicyAttachment.");
+    const operationName = "deleteSteeringPolicyAttachment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{steeringPolicyAttachmentId}":
         deleteSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
@@ -1358,7 +1488,13 @@ A `204` response indicates that the delete has been successful.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSteeringPolicyAttachmentResponse>{},
         responseHeaders: [
@@ -1389,6 +1525,8 @@ A `204` response indicates that the delete has been successful.
     deleteTsigKeyRequest: requests.DeleteTsigKeyRequest
   ): Promise<responses.DeleteTsigKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#deleteTsigKey.");
+    const operationName = "deleteTsigKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{tsigKeyId}": deleteTsigKeyRequest.tsigKeyId
     };
@@ -1421,7 +1559,13 @@ A `204` response indicates that the delete has been successful.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTsigKeyResponse>{},
         responseHeaders: [
@@ -1462,6 +1606,8 @@ Note that attempting to delete a view in the DELETED lifecycleState will result 
     deleteViewRequest: requests.DeleteViewRequest
   ): Promise<responses.DeleteViewResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#deleteView.");
+    const operationName = "deleteView";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/DeleteView";
     const pathParams = {
       "{viewId}": deleteViewRequest.viewId
     };
@@ -1494,7 +1640,13 @@ Note that attempting to delete a view in the DELETED lifecycleState will result 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteViewResponse>{},
         responseHeaders: [
@@ -1534,6 +1686,8 @@ A `204` response indicates that the zone has been successfully deleted. Protecte
     deleteZoneRequest: requests.DeleteZoneRequest
   ): Promise<responses.DeleteZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#deleteZone.");
+    const operationName = "deleteZone";
+    const apiReferenceLink = "";
     const pathParams = {
       "{zoneNameOrId}": deleteZoneRequest.zoneNameOrId
     };
@@ -1568,7 +1722,13 @@ A `204` response indicates that the zone has been successfully deleted. Protecte
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteZoneResponse>{},
         responseHeaders: [
@@ -1608,6 +1768,9 @@ The results are sorted by `rtype` in alphabetical order by default. You can opti
     getDomainRecordsRequest: requests.GetDomainRecordsRequest
   ): Promise<responses.GetDomainRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getDomainRecords.");
+    const operationName = "getDomainRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/GetDomainRecords";
     const pathParams = {
       "{zoneNameOrId}": getDomainRecordsRequest.zoneNameOrId,
       "{domain}": getDomainRecordsRequest.domain
@@ -1649,7 +1812,13 @@ The results are sorted by `rtype` in alphabetical order by default. You can opti
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDomainRecordsResponse>{},
         body: await response.json(),
@@ -1776,6 +1945,8 @@ The results are sorted by `recordHash` by default. When the zone name is provide
     getRRSetRequest: requests.GetRRSetRequest
   ): Promise<responses.GetRRSetResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getRRSet.");
+    const operationName = "getRRSet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/RRSet/GetRRSet";
     const pathParams = {
       "{zoneNameOrId}": getRRSetRequest.zoneNameOrId,
       "{domain}": getRRSetRequest.domain,
@@ -1815,7 +1986,13 @@ The results are sorted by `recordHash` by default. When the zone name is provide
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRRSetResponse>{},
         body: await response.json(),
@@ -1940,6 +2117,9 @@ Note that attempting to get a resolver in the DELETED lifecycleState will result
     getResolverRequest: requests.GetResolverRequest
   ): Promise<responses.GetResolverResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getResolver.");
+    const operationName = "getResolver";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/GetResolver";
     const pathParams = {
       "{resolverId}": getResolverRequest.resolverId
     };
@@ -1972,7 +2152,13 @@ Note that attempting to get a resolver in the DELETED lifecycleState will result
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResolverResponse>{},
         body: await response.json(),
@@ -2015,6 +2201,9 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
     getResolverEndpointRequest: requests.GetResolverEndpointRequest
   ): Promise<responses.GetResolverEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getResolverEndpoint.");
+    const operationName = "getResolverEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/GetResolverEndpoint";
     const pathParams = {
       "{resolverId}": getResolverEndpointRequest.resolverId,
       "{resolverEndpointName}": getResolverEndpointRequest.resolverEndpointName
@@ -2048,7 +2237,13 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResolverEndpointResponse>{},
         body: await response.json(),
@@ -2088,6 +2283,9 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
     getSteeringPolicyRequest: requests.GetSteeringPolicyRequest
   ): Promise<responses.GetSteeringPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getSteeringPolicy.");
+    const operationName = "getSteeringPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/GetSteeringPolicy";
     const pathParams = {
       "{steeringPolicyId}": getSteeringPolicyRequest.steeringPolicyId
     };
@@ -2120,7 +2318,13 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSteeringPolicyResponse>{},
         body: await response.json(),
@@ -2160,6 +2364,9 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
     getSteeringPolicyAttachmentRequest: requests.GetSteeringPolicyAttachmentRequest
   ): Promise<responses.GetSteeringPolicyAttachmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getSteeringPolicyAttachment.");
+    const operationName = "getSteeringPolicyAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicyAttachment/GetSteeringPolicyAttachment";
     const pathParams = {
       "{steeringPolicyAttachmentId}": getSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
     };
@@ -2192,7 +2399,13 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSteeringPolicyAttachmentResponse>{},
         body: await response.json(),
@@ -2232,6 +2445,9 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
     getTsigKeyRequest: requests.GetTsigKeyRequest
   ): Promise<responses.GetTsigKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getTsigKey.");
+    const operationName = "getTsigKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/GetTsigKey";
     const pathParams = {
       "{tsigKeyId}": getTsigKeyRequest.tsigKeyId
     };
@@ -2264,7 +2480,13 @@ Note that attempting to get a resolver endpoint in the DELETED lifecycle state w
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTsigKeyResponse>{},
         body: await response.json(),
@@ -2308,6 +2530,8 @@ Note that attempting to get a
     getViewRequest: requests.GetViewRequest
   ): Promise<responses.GetViewResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getView.");
+    const operationName = "getView";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/GetView";
     const pathParams = {
       "{viewId}": getViewRequest.viewId
     };
@@ -2340,7 +2564,13 @@ Note that attempting to get a
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetViewResponse>{},
         body: await response.json(),
@@ -2383,6 +2613,8 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     getZoneRequest: requests.GetZoneRequest
   ): Promise<responses.GetZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getZone.");
+    const operationName = "getZone";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/GetZone";
     const pathParams = {
       "{zoneNameOrId}": getZoneRequest.zoneNameOrId
     };
@@ -2417,7 +2649,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetZoneResponse>{},
         body: await response.json(),
@@ -2457,6 +2695,9 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     getZoneContentRequest: requests.GetZoneContentRequest
   ): Promise<responses.GetZoneContentResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getZoneContent.");
+    const operationName = "getZoneContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/GetZoneContent";
     const pathParams = {
       "{zoneNameOrId}": getZoneContentRequest.zoneNameOrId
     };
@@ -2490,7 +2731,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetZoneContentResponse>{},
 
@@ -2535,6 +2782,9 @@ The results are sorted by `domain` in alphabetical order by default. For more in
     getZoneRecordsRequest: requests.GetZoneRecordsRequest
   ): Promise<responses.GetZoneRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#getZoneRecords.");
+    const operationName = "getZoneRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/GetZoneRecords";
     const pathParams = {
       "{zoneNameOrId}": getZoneRecordsRequest.zoneNameOrId
     };
@@ -2577,7 +2827,13 @@ The results are sorted by `domain` in alphabetical order by default. For more in
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetZoneRecordsResponse>{},
         body: await response.json(),
@@ -2704,6 +2960,9 @@ The results are sorted by `domain` in alphabetical order by default. For more in
     listResolverEndpointsRequest: requests.ListResolverEndpointsRequest
   ): Promise<responses.ListResolverEndpointsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#listResolverEndpoints.");
+    const operationName = "listResolverEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/ListResolverEndpoints";
     const pathParams = {
       "{resolverId}": listResolverEndpointsRequest.resolverId
     };
@@ -2740,7 +2999,13 @@ The results are sorted by `domain` in alphabetical order by default. For more in
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResolverEndpointsResponse>{},
         body: await response.json(),
@@ -2837,6 +3102,9 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
     listResolversRequest: requests.ListResolversRequest
   ): Promise<responses.ListResolversResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#listResolvers.");
+    const operationName = "listResolvers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/ListResolvers";
     const pathParams = {};
 
     const queryParams = {
@@ -2873,7 +3141,13 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResolversResponse>{},
         body: await response.json(),
@@ -2965,6 +3239,9 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
     listSteeringPoliciesRequest: requests.ListSteeringPoliciesRequest
   ): Promise<responses.ListSteeringPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#listSteeringPolicies.");
+    const operationName = "listSteeringPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/ListSteeringPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -3007,7 +3284,13 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSteeringPoliciesResponse>{},
         body: await response.json(),
@@ -3105,6 +3388,9 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
   ): Promise<responses.ListSteeringPolicyAttachmentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DnsClient#listSteeringPolicyAttachments.");
+    const operationName = "listSteeringPolicyAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicyAttachment/ListSteeringPolicyAttachments";
     const pathParams = {};
 
     const queryParams = {
@@ -3148,7 +3434,13 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSteeringPolicyAttachmentsResponse>{},
         body: await response.json(),
@@ -3245,6 +3537,9 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
     listTsigKeysRequest: requests.ListTsigKeysRequest
   ): Promise<responses.ListTsigKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#listTsigKeys.");
+    const operationName = "listTsigKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/ListTsigKeys";
     const pathParams = {};
 
     const queryParams = {
@@ -3281,7 +3576,13 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTsigKeysResponse>{},
         body: await response.json(),
@@ -3378,6 +3679,8 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
     listViewsRequest: requests.ListViewsRequest
   ): Promise<responses.ListViewsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#listViews.");
+    const operationName = "listViews";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/ListViews";
     const pathParams = {};
 
     const queryParams = {
@@ -3414,7 +3717,13 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListViewsResponse>{},
         body: await response.json(),
@@ -3508,6 +3817,9 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
     listZoneTransferServersRequest: requests.ListZoneTransferServersRequest
   ): Promise<responses.ListZoneTransferServersResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#listZoneTransferServers.");
+    const operationName = "listZoneTransferServers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ZoneTransferServer/ListZoneTransferServers";
     const pathParams = {};
 
     const queryParams = {
@@ -3538,7 +3850,13 @@ The collection can be filtered by display name, id, or lifecycle state. It can b
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListZoneTransferServersResponse>{},
         body: await response.json(),
@@ -3633,6 +3951,8 @@ The collection can be filtered by name, time created, scope, associated view, an
     listZonesRequest: requests.ListZonesRequest
   ): Promise<responses.ListZonesResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#listZones.");
+    const operationName = "listZones";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/ListZones";
     const pathParams = {};
 
     const queryParams = {
@@ -3674,7 +3994,13 @@ The collection can be filtered by name, time created, scope, associated view, an
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListZonesResponse>{},
         body: await response.json(),
@@ -3776,6 +4102,9 @@ You can update one record or all records for the specified zone depending on the
     patchDomainRecordsRequest: requests.PatchDomainRecordsRequest
   ): Promise<responses.PatchDomainRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#patchDomainRecords.");
+    const operationName = "patchDomainRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/PatchDomainRecords";
     const pathParams = {
       "{zoneNameOrId}": patchDomainRecordsRequest.zoneNameOrId,
       "{domain}": patchDomainRecordsRequest.domain
@@ -3816,7 +4145,13 @@ You can update one record or all records for the specified zone depending on the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchDomainRecordsResponse>{},
         body: await response.json(),
@@ -3869,6 +4204,8 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     patchRRSetRequest: requests.PatchRRSetRequest
   ): Promise<responses.PatchRRSetResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#patchRRSet.");
+    const operationName = "patchRRSet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/RRSet/PatchRRSet";
     const pathParams = {
       "{zoneNameOrId}": patchRRSetRequest.zoneNameOrId,
       "{domain}": patchRRSetRequest.domain,
@@ -3910,7 +4247,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchRRSetResponse>{},
         body: await response.json(),
@@ -3965,6 +4308,9 @@ You can update one record or all records for the specified zone depending on the
     patchZoneRecordsRequest: requests.PatchZoneRecordsRequest
   ): Promise<responses.PatchZoneRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#patchZoneRecords.");
+    const operationName = "patchZoneRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/PatchZoneRecords";
     const pathParams = {
       "{zoneNameOrId}": patchZoneRecordsRequest.zoneNameOrId
     };
@@ -4004,7 +4350,13 @@ You can update one record or all records for the specified zone depending on the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PatchZoneRecordsResponse>{},
         body: await response.json(),
@@ -4059,6 +4411,9 @@ If a specified record does not exist, it will be created. If the record exists, 
     updateDomainRecordsRequest: requests.UpdateDomainRecordsRequest
   ): Promise<responses.UpdateDomainRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateDomainRecords.");
+    const operationName = "updateDomainRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/UpdateDomainRecords";
     const pathParams = {
       "{zoneNameOrId}": updateDomainRecordsRequest.zoneNameOrId,
       "{domain}": updateDomainRecordsRequest.domain
@@ -4099,7 +4454,13 @@ If a specified record does not exist, it will be created. If the record exists, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDomainRecordsResponse>{},
         body: await response.json(),
@@ -4152,6 +4513,8 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     updateRRSetRequest: requests.UpdateRRSetRequest
   ): Promise<responses.UpdateRRSetResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateRRSet.");
+    const operationName = "updateRRSet";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/RRSet/UpdateRRSet";
     const pathParams = {
       "{zoneNameOrId}": updateRRSetRequest.zoneNameOrId,
       "{domain}": updateRRSetRequest.domain,
@@ -4193,7 +4556,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRRSetResponse>{},
         body: await response.json(),
@@ -4243,6 +4612,9 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     updateResolverRequest: requests.UpdateResolverRequest
   ): Promise<responses.UpdateResolverResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateResolver.");
+    const operationName = "updateResolver";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Resolver/UpdateResolver";
     const pathParams = {
       "{resolverId}": updateResolverRequest.resolverId
     };
@@ -4280,7 +4652,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateResolverResponse>{},
         body: await response.json(),
@@ -4325,6 +4703,9 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     updateResolverEndpointRequest: requests.UpdateResolverEndpointRequest
   ): Promise<responses.UpdateResolverEndpointResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateResolverEndpoint.");
+    const operationName = "updateResolverEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/ResolverEndpoint/UpdateResolverEndpoint";
     const pathParams = {
       "{resolverId}": updateResolverEndpointRequest.resolverId,
       "{resolverEndpointName}": updateResolverEndpointRequest.resolverEndpointName
@@ -4363,7 +4744,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateResolverEndpointResponse>{},
         body: await response.json(),
@@ -4408,6 +4795,9 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     updateSteeringPolicyRequest: requests.UpdateSteeringPolicyRequest
   ): Promise<responses.UpdateSteeringPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateSteeringPolicy.");
+    const operationName = "updateSteeringPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicy/UpdateSteeringPolicy";
     const pathParams = {
       "{steeringPolicyId}": updateSteeringPolicyRequest.steeringPolicyId
     };
@@ -4445,7 +4835,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSteeringPolicyResponse>{},
         body: await response.json(),
@@ -4486,6 +4882,9 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
   ): Promise<responses.UpdateSteeringPolicyAttachmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DnsClient#updateSteeringPolicyAttachment.");
+    const operationName = "updateSteeringPolicyAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/SteeringPolicyAttachment/UpdateSteeringPolicyAttachment";
     const pathParams = {
       "{steeringPolicyAttachmentId}":
         updateSteeringPolicyAttachmentRequest.steeringPolicyAttachmentId
@@ -4524,7 +4923,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSteeringPolicyAttachmentResponse>{},
         body: await response.json(),
@@ -4564,6 +4969,9 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     updateTsigKeyRequest: requests.UpdateTsigKeyRequest
   ): Promise<responses.UpdateTsigKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateTsigKey.");
+    const operationName = "updateTsigKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/TsigKey/UpdateTsigKey";
     const pathParams = {
       "{tsigKeyId}": updateTsigKeyRequest.tsigKeyId
     };
@@ -4601,7 +5009,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTsigKeyResponse>{},
         body: await response.json(),
@@ -4646,6 +5060,8 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
     updateViewRequest: requests.UpdateViewRequest
   ): Promise<responses.UpdateViewResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateView.");
+    const operationName = "updateView";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/View/UpdateView";
     const pathParams = {
       "{viewId}": updateViewRequest.viewId
     };
@@ -4683,7 +5099,13 @@ When the zone name is provided as a path parameter and `PRIVATE` is used for the
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateViewResponse>{},
         body: await response.json(),
@@ -4733,6 +5155,8 @@ Global secondary zones may have their external masters updated. For more informa
     updateZoneRequest: requests.UpdateZoneRequest
   ): Promise<responses.UpdateZoneResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateZone.");
+    const operationName = "updateZone";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/UpdateZone";
     const pathParams = {
       "{zoneNameOrId}": updateZoneRequest.zoneNameOrId
     };
@@ -4772,7 +5196,13 @@ Global secondary zones may have their external masters updated. For more informa
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateZoneResponse>{},
         body: await response.json(),
@@ -4823,6 +5253,9 @@ If a specified record does not exist, it will be created. If the record exists, 
     updateZoneRecordsRequest: requests.UpdateZoneRecordsRequest
   ): Promise<responses.UpdateZoneRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DnsClient#updateZoneRecords.");
+    const operationName = "updateZoneRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Records/UpdateZoneRecords";
     const pathParams = {
       "{zoneNameOrId}": updateZoneRecordsRequest.zoneNameOrId
     };
@@ -4862,7 +5295,13 @@ If a specified record does not exist, it will be created. If the record exists, 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateZoneRecordsResponse>{},
         body: await response.json(),

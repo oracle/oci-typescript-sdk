@@ -35,6 +35,7 @@ export class QueryClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Query";
 
   protected _httpClient: common.HttpClient;
 
@@ -139,6 +140,9 @@ export class QueryClient {
     listQuickPicksRequest: requests.ListQuickPicksRequest
   ): Promise<responses.ListQuickPicksResponse> {
     if (this.logger) this.logger.debug("Calling operation QueryClient#listQuickPicks.");
+    const operationName = "listQuickPicks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/QuickPickSummary/ListQuickPicks";
     const pathParams = {};
 
     const queryParams = {
@@ -169,7 +173,13 @@ export class QueryClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListQuickPicksResponse>{},
         body: await response.json(),
@@ -267,6 +277,9 @@ export class QueryClient {
    */
   public async query(queryRequest: requests.QueryRequest): Promise<responses.QueryResponse> {
     if (this.logger) this.logger.debug("Calling operation QueryClient#query.");
+    const operationName = "query";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/QueryResultResponse/Query";
     const pathParams = {};
 
     const queryParams = {
@@ -304,7 +317,13 @@ export class QueryClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.QueryResponse>{},
         body: await response.json(),
@@ -348,6 +367,7 @@ export class TraceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Trace";
 
   protected _httpClient: common.HttpClient;
 
@@ -451,6 +471,9 @@ export class TraceClient {
     getAggregatedSnapshotRequest: requests.GetAggregatedSnapshotRequest
   ): Promise<responses.GetAggregatedSnapshotResponse> {
     if (this.logger) this.logger.debug("Calling operation TraceClient#getAggregatedSnapshot.");
+    const operationName = "getAggregatedSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/AggregatedSnapshot/GetAggregatedSnapshot";
     const pathParams = {
       "{traceKey}": getAggregatedSnapshotRequest.traceKey
     };
@@ -481,7 +504,13 @@ export class TraceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAggregatedSnapshotResponse>{},
         body: await response.json(),
@@ -516,6 +545,9 @@ export class TraceClient {
     getSpanRequest: requests.GetSpanRequest
   ): Promise<responses.GetSpanResponse> {
     if (this.logger) this.logger.debug("Calling operation TraceClient#getSpan.");
+    const operationName = "getSpan";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/Span/GetSpan";
     const pathParams = {
       "{spanKey}": getSpanRequest.spanKey,
       "{traceKey}": getSpanRequest.traceKey
@@ -547,7 +579,13 @@ export class TraceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSpanResponse>{},
         body: await response.json(),
@@ -582,6 +620,9 @@ export class TraceClient {
     getTraceRequest: requests.GetTraceRequest
   ): Promise<responses.GetTraceResponse> {
     if (this.logger) this.logger.debug("Calling operation TraceClient#getTrace.");
+    const operationName = "getTrace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/Trace/GetTrace";
     const pathParams = {
       "{traceKey}": getTraceRequest.traceKey
     };
@@ -612,7 +653,13 @@ export class TraceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTraceResponse>{},
         body: await response.json(),
@@ -647,6 +694,9 @@ export class TraceClient {
     getTraceSnapshotRequest: requests.GetTraceSnapshotRequest
   ): Promise<responses.GetTraceSnapshotResponse> {
     if (this.logger) this.logger.debug("Calling operation TraceClient#getTraceSnapshot.");
+    const operationName = "getTraceSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-trace-explorer/20200630/TraceSnapshot/GetTraceSnapshot";
     const pathParams = {
       "{traceKey}": getTraceSnapshotRequest.traceKey
     };
@@ -680,7 +730,13 @@ export class TraceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTraceSnapshotResponse>{},
         body: await response.json(),

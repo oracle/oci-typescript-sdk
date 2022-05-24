@@ -15,10 +15,14 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
+import * as management_waiter from "./lib/management-waiter";
 import * as oda_waiter from "./lib/oda-waiter";
 
 export { models };
 export { requests };
 export { responses };
+export import ManagementClient = client.ManagementClient;
+export import ManagementWaiter = management_waiter.ManagementWaiter;
 export import OdaClient = client.OdaClient;
 export import OdaWaiter = oda_waiter.OdaWaiter;
+export import OdapackageClient = client.OdapackageClient;

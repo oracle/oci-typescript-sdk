@@ -39,6 +39,7 @@ export class ServiceConnectorClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ServiceConnector";
 
   protected _httpClient: common.HttpClient;
 
@@ -172,6 +173,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.ActivateServiceConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#activateServiceConnector.");
+    const operationName = "activateServiceConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/ActivateServiceConnector";
     const pathParams = {
       "{serviceConnectorId}": activateServiceConnectorRequest.serviceConnectorId
     };
@@ -202,7 +206,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateServiceConnectorResponse>{},
         responseHeaders: [
@@ -245,6 +255,9 @@ When provided, If-Match is checked against ETag values of the resource.
       this.logger.debug(
         "Calling operation ServiceConnectorClient#changeServiceConnectorCompartment."
       );
+    const operationName = "changeServiceConnectorCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/ChangeServiceConnectorCompartment";
     const pathParams = {
       "{serviceConnectorId}": changeServiceConnectorCompartmentRequest.serviceConnectorId
     };
@@ -279,7 +292,13 @@ When provided, If-Match is checked against ETag values of the resource.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeServiceConnectorCompartmentResponse>{},
         responseHeaders: [
@@ -335,6 +354,9 @@ After you send your request, the new service connector's state is temporarily
   ): Promise<responses.CreateServiceConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#createServiceConnector.");
+    const operationName = "createServiceConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/CreateServiceConnector";
     const pathParams = {};
 
     const queryParams = {};
@@ -367,7 +389,13 @@ After you send your request, the new service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateServiceConnectorResponse>{},
         responseHeaders: [
@@ -409,6 +437,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.DeactivateServiceConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#deactivateServiceConnector.");
+    const operationName = "deactivateServiceConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/DeactivateServiceConnector";
     const pathParams = {
       "{serviceConnectorId}": deactivateServiceConnectorRequest.serviceConnectorId
     };
@@ -439,7 +470,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeactivateServiceConnectorResponse>{},
         responseHeaders: [
@@ -479,6 +516,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.DeleteServiceConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#deleteServiceConnector.");
+    const operationName = "deleteServiceConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/DeleteServiceConnector";
     const pathParams = {
       "{serviceConnectorId}": deleteServiceConnectorRequest.serviceConnectorId
     };
@@ -508,7 +548,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteServiceConnectorResponse>{},
         responseHeaders: [
@@ -545,6 +591,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.GetServiceConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#getServiceConnector.");
+    const operationName = "getServiceConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/GetServiceConnector";
     const pathParams = {
       "{serviceConnectorId}": getServiceConnectorRequest.serviceConnectorId
     };
@@ -573,7 +622,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetServiceConnectorResponse>{},
         body: await response.json(),
@@ -613,6 +668,9 @@ After you send your request, the service connector's state is temporarily
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ServiceConnectorClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -641,7 +699,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -682,6 +746,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.ListServiceConnectorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#listServiceConnectors.");
+    const operationName = "listServiceConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/ListServiceConnectors";
     const pathParams = {};
 
     const queryParams = {
@@ -716,7 +783,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServiceConnectorsResponse>{},
         body: await response.json(),
@@ -762,6 +835,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -793,7 +869,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -839,6 +921,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -870,7 +955,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -916,6 +1007,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -946,7 +1040,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -996,6 +1096,9 @@ After you send your request, the service connector's state is temporarily
   ): Promise<responses.UpdateServiceConnectorResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ServiceConnectorClient#updateServiceConnector.");
+    const operationName = "updateServiceConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/serviceconnectors/20200909/ServiceConnector/UpdateServiceConnector";
     const pathParams = {
       "{serviceConnectorId}": updateServiceConnectorRequest.serviceConnectorId
     };
@@ -1030,7 +1133,13 @@ After you send your request, the service connector's state is temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateServiceConnectorResponse>{},
         responseHeaders: [

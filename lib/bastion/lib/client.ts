@@ -36,6 +36,7 @@ export class BastionClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Bastion";
 
   protected _httpClient: common.HttpClient;
 
@@ -161,6 +162,9 @@ export class BastionClient {
     changeBastionCompartmentRequest: requests.ChangeBastionCompartmentRequest
   ): Promise<responses.ChangeBastionCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#changeBastionCompartment.");
+    const operationName = "changeBastionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/ChangeBastionCompartment";
     const pathParams = {
       "{bastionId}": changeBastionCompartmentRequest.bastionId
     };
@@ -195,7 +199,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBastionCompartmentResponse>{},
         responseHeaders: [
@@ -226,6 +236,9 @@ export class BastionClient {
     createBastionRequest: requests.CreateBastionRequest
   ): Promise<responses.CreateBastionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#createBastion.");
+    const operationName = "createBastion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/CreateBastion";
     const pathParams = {};
 
     const queryParams = {};
@@ -258,7 +271,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBastionResponse>{},
         body: await response.json(),
@@ -308,6 +327,9 @@ export class BastionClient {
     createSessionRequest: requests.CreateSessionRequest
   ): Promise<responses.CreateSessionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#createSession.");
+    const operationName = "createSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/CreateSession";
     const pathParams = {};
 
     const queryParams = {};
@@ -340,7 +362,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSessionResponse>{},
         body: await response.json(),
@@ -389,6 +417,9 @@ export class BastionClient {
     deleteBastionRequest: requests.DeleteBastionRequest
   ): Promise<responses.DeleteBastionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#deleteBastion.");
+    const operationName = "deleteBastion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/DeleteBastion";
     const pathParams = {
       "{bastionId}": deleteBastionRequest.bastionId
     };
@@ -418,7 +449,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBastionResponse>{},
         responseHeaders: [
@@ -453,6 +490,9 @@ export class BastionClient {
     deleteSessionRequest: requests.DeleteSessionRequest
   ): Promise<responses.DeleteSessionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#deleteSession.");
+    const operationName = "deleteSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/DeleteSession";
     const pathParams = {
       "{sessionId}": deleteSessionRequest.sessionId
     };
@@ -482,7 +522,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSessionResponse>{},
         responseHeaders: [
@@ -517,6 +563,9 @@ export class BastionClient {
     getBastionRequest: requests.GetBastionRequest
   ): Promise<responses.GetBastionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#getBastion.");
+    const operationName = "getBastion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/GetBastion";
     const pathParams = {
       "{bastionId}": getBastionRequest.bastionId
     };
@@ -545,7 +594,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBastionResponse>{},
         body: await response.json(),
@@ -584,6 +639,9 @@ export class BastionClient {
     getSessionRequest: requests.GetSessionRequest
   ): Promise<responses.GetSessionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#getSession.");
+    const operationName = "getSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/GetSession";
     const pathParams = {
       "{sessionId}": getSessionRequest.sessionId
     };
@@ -612,7 +670,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSessionResponse>{},
         body: await response.json(),
@@ -651,6 +715,9 @@ export class BastionClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -679,7 +746,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -719,6 +792,9 @@ export class BastionClient {
     listBastionsRequest: requests.ListBastionsRequest
   ): Promise<responses.ListBastionsResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#listBastions.");
+    const operationName = "listBastions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/ListBastions";
     const pathParams = {};
 
     const queryParams = {
@@ -754,7 +830,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBastionsResponse>{},
         body: await response.json(),
@@ -846,6 +928,9 @@ export class BastionClient {
     listSessionsRequest: requests.ListSessionsRequest
   ): Promise<responses.ListSessionsResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#listSessions.");
+    const operationName = "listSessions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/ListSessions";
     const pathParams = {};
 
     const queryParams = {
@@ -881,7 +966,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSessionsResponse>{},
         body: await response.json(),
@@ -973,6 +1064,9 @@ export class BastionClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1004,7 +1098,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1096,6 +1196,9 @@ export class BastionClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1127,7 +1230,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1219,6 +1328,9 @@ export class BastionClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1249,7 +1361,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1340,6 +1458,9 @@ export class BastionClient {
     updateBastionRequest: requests.UpdateBastionRequest
   ): Promise<responses.UpdateBastionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#updateBastion.");
+    const operationName = "updateBastion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Bastion/UpdateBastion";
     const pathParams = {
       "{bastionId}": updateBastionRequest.bastionId
     };
@@ -1374,7 +1495,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBastionResponse>{},
         responseHeaders: [
@@ -1409,6 +1536,9 @@ export class BastionClient {
     updateSessionRequest: requests.UpdateSessionRequest
   ): Promise<responses.UpdateSessionResponse> {
     if (this.logger) this.logger.debug("Calling operation BastionClient#updateSession.");
+    const operationName = "updateSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bastion/20210331/Session/UpdateSession";
     const pathParams = {
       "{sessionId}": updateSessionRequest.sessionId
     };
@@ -1443,7 +1573,13 @@ export class BastionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSessionResponse>{},
         body: await response.json(),

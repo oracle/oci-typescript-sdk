@@ -37,6 +37,7 @@ export class DataScienceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataScience";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,9 @@ export class DataScienceClient {
     activateModelRequest: requests.ActivateModelRequest
   ): Promise<responses.ActivateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#activateModel.");
+    const operationName = "activateModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ActivateModel";
     const pathParams = {
       "{modelId}": activateModelRequest.modelId
     };
@@ -191,7 +195,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateModelResponse>{},
         body: await response.json(),
@@ -231,6 +241,9 @@ export class DataScienceClient {
   ): Promise<responses.ActivateModelDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#activateModelDeployment.");
+    const operationName = "activateModelDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/ActivateModelDeployment";
     const pathParams = {
       "{modelDeploymentId}": activateModelDeploymentRequest.modelDeploymentId
     };
@@ -260,7 +273,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateModelDeploymentResponse>{},
         responseHeaders: [
@@ -296,6 +315,9 @@ export class DataScienceClient {
   ): Promise<responses.ActivateNotebookSessionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#activateNotebookSession.");
+    const operationName = "activateNotebookSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/ActivateNotebookSession";
     const pathParams = {
       "{notebookSessionId}": activateNotebookSessionRequest.notebookSessionId
     };
@@ -325,7 +347,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateNotebookSessionResponse>{},
         responseHeaders: [
@@ -360,6 +388,9 @@ export class DataScienceClient {
     cancelJobRunRequest: requests.CancelJobRunRequest
   ): Promise<responses.CancelJobRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelJobRun.");
+    const operationName = "cancelJobRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/CancelJobRun";
     const pathParams = {
       "{jobRunId}": cancelJobRunRequest.jobRunId
     };
@@ -389,7 +420,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelJobRunResponse>{},
         responseHeaders: [
@@ -419,6 +456,9 @@ export class DataScienceClient {
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -448,7 +488,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -478,6 +524,9 @@ export class DataScienceClient {
     changeJobCompartmentRequest: requests.ChangeJobCompartmentRequest
   ): Promise<responses.ChangeJobCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#changeJobCompartment.");
+    const operationName = "changeJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/ChangeJobCompartment";
     const pathParams = {
       "{jobId}": changeJobCompartmentRequest.jobId
     };
@@ -512,7 +561,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeJobCompartmentResponse>{},
         responseHeaders: [
@@ -543,6 +598,9 @@ export class DataScienceClient {
   ): Promise<responses.ChangeJobRunCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#changeJobRunCompartment.");
+    const operationName = "changeJobRunCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/ChangeJobRunCompartment";
     const pathParams = {
       "{jobRunId}": changeJobRunCompartmentRequest.jobRunId
     };
@@ -577,7 +635,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeJobRunCompartmentResponse>{},
         responseHeaders: [
@@ -608,6 +672,9 @@ export class DataScienceClient {
   ): Promise<responses.ChangeModelCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#changeModelCompartment.");
+    const operationName = "changeModelCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ChangeModelCompartment";
     const pathParams = {
       "{modelId}": changeModelCompartmentRequest.modelId
     };
@@ -643,7 +710,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeModelCompartmentResponse>{},
         responseHeaders: [
@@ -674,6 +747,9 @@ export class DataScienceClient {
   ): Promise<responses.ChangeModelDeploymentCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#changeModelDeploymentCompartment.");
+    const operationName = "changeModelDeploymentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/ChangeModelDeploymentCompartment";
     const pathParams = {
       "{modelDeploymentId}": changeModelDeploymentCompartmentRequest.modelDeploymentId
     };
@@ -709,7 +785,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeModelDeploymentCompartmentResponse>{},
         responseHeaders: [
@@ -740,6 +822,9 @@ export class DataScienceClient {
   ): Promise<responses.ChangeNotebookSessionCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#changeNotebookSessionCompartment.");
+    const operationName = "changeNotebookSessionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/ChangeNotebookSessionCompartment";
     const pathParams = {
       "{notebookSessionId}": changeNotebookSessionCompartmentRequest.notebookSessionId
     };
@@ -775,7 +860,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeNotebookSessionCompartmentResponse>{},
         responseHeaders: [
@@ -806,6 +897,9 @@ export class DataScienceClient {
   ): Promise<responses.ChangeProjectCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#changeProjectCompartment.");
+    const operationName = "changeProjectCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/ChangeProjectCompartment";
     const pathParams = {
       "{projectId}": changeProjectCompartmentRequest.projectId
     };
@@ -841,7 +935,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeProjectCompartmentResponse>{},
         responseHeaders: [
@@ -871,6 +971,9 @@ export class DataScienceClient {
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJob.");
+    const operationName = "createJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/CreateJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -903,7 +1006,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobResponse>{},
         body: await response.json(),
@@ -942,6 +1051,9 @@ export class DataScienceClient {
     createJobArtifactRequest: requests.CreateJobArtifactRequest
   ): Promise<responses.CreateJobArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJobArtifact.");
+    const operationName = "createJobArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/CreateJobArtifact";
     const pathParams = {
       "{jobId}": createJobArtifactRequest.jobId
     };
@@ -974,7 +1086,14 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobArtifactResponse>{},
         responseHeaders: [
@@ -1009,6 +1128,9 @@ export class DataScienceClient {
     createJobRunRequest: requests.CreateJobRunRequest
   ): Promise<responses.CreateJobRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#createJobRun.");
+    const operationName = "createJobRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/CreateJobRun";
     const pathParams = {};
 
     const queryParams = {};
@@ -1041,7 +1163,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobRunResponse>{},
         body: await response.json(),
@@ -1080,6 +1208,9 @@ export class DataScienceClient {
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#createModel.");
+    const operationName = "createModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModel";
     const pathParams = {};
 
     const queryParams = {};
@@ -1112,7 +1243,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateModelResponse>{},
         body: await response.json(),
@@ -1151,6 +1288,9 @@ export class DataScienceClient {
     createModelArtifactRequest: requests.CreateModelArtifactRequest
   ): Promise<responses.CreateModelArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#createModelArtifact.");
+    const operationName = "createModelArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModelArtifact";
     const pathParams = {
       "{modelId}": createModelArtifactRequest.modelId
     };
@@ -1183,7 +1323,14 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateModelArtifactResponse>{},
         responseHeaders: [
@@ -1219,6 +1366,9 @@ export class DataScienceClient {
   ): Promise<responses.CreateModelDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#createModelDeployment.");
+    const operationName = "createModelDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/CreateModelDeployment";
     const pathParams = {};
 
     const queryParams = {};
@@ -1251,7 +1401,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateModelDeploymentResponse>{},
         body: await response.json(),
@@ -1301,6 +1457,9 @@ export class DataScienceClient {
   ): Promise<responses.CreateModelProvenanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#createModelProvenance.");
+    const operationName = "createModelProvenance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/CreateModelProvenance";
     const pathParams = {
       "{modelId}": createModelProvenanceRequest.modelId
     };
@@ -1335,7 +1494,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateModelProvenanceResponse>{},
         body: await response.json(),
@@ -1375,6 +1540,9 @@ export class DataScienceClient {
   ): Promise<responses.CreateNotebookSessionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#createNotebookSession.");
+    const operationName = "createNotebookSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/CreateNotebookSession";
     const pathParams = {};
 
     const queryParams = {};
@@ -1407,7 +1575,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNotebookSessionResponse>{},
         body: await response.json(),
@@ -1456,6 +1630,9 @@ export class DataScienceClient {
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#createProject.");
+    const operationName = "createProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/CreateProject";
     const pathParams = {};
 
     const queryParams = {};
@@ -1488,7 +1665,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
@@ -1527,6 +1710,9 @@ export class DataScienceClient {
     deactivateModelRequest: requests.DeactivateModelRequest
   ): Promise<responses.DeactivateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#deactivateModel.");
+    const operationName = "deactivateModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/DeactivateModel";
     const pathParams = {
       "{modelId}": deactivateModelRequest.modelId
     };
@@ -1556,7 +1742,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeactivateModelResponse>{},
         body: await response.json(),
@@ -1596,6 +1788,9 @@ export class DataScienceClient {
   ): Promise<responses.DeactivateModelDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#deactivateModelDeployment.");
+    const operationName = "deactivateModelDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/DeactivateModelDeployment";
     const pathParams = {
       "{modelDeploymentId}": deactivateModelDeploymentRequest.modelDeploymentId
     };
@@ -1625,7 +1820,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeactivateModelDeploymentResponse>{},
         responseHeaders: [
@@ -1661,6 +1862,9 @@ export class DataScienceClient {
   ): Promise<responses.DeactivateNotebookSessionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#deactivateNotebookSession.");
+    const operationName = "deactivateNotebookSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/DeactivateNotebookSession";
     const pathParams = {
       "{notebookSessionId}": deactivateNotebookSessionRequest.notebookSessionId
     };
@@ -1690,7 +1894,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeactivateNotebookSessionResponse>{},
         responseHeaders: [
@@ -1725,6 +1935,9 @@ export class DataScienceClient {
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteJob.");
+    const operationName = "deleteJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/DeleteJob";
     const pathParams = {
       "{jobId}": deleteJobRequest.jobId
     };
@@ -1756,7 +1969,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteJobResponse>{},
         responseHeaders: [
@@ -1791,6 +2010,9 @@ export class DataScienceClient {
     deleteJobRunRequest: requests.DeleteJobRunRequest
   ): Promise<responses.DeleteJobRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteJobRun.");
+    const operationName = "deleteJobRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/DeleteJobRun";
     const pathParams = {
       "{jobRunId}": deleteJobRunRequest.jobRunId
     };
@@ -1820,7 +2042,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteJobRunResponse>{},
         responseHeaders: [
@@ -1850,6 +2078,9 @@ export class DataScienceClient {
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteModel.");
+    const operationName = "deleteModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/DeleteModel";
     const pathParams = {
       "{modelId}": deleteModelRequest.modelId
     };
@@ -1879,7 +2110,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteModelResponse>{},
         responseHeaders: [
@@ -1910,6 +2147,9 @@ export class DataScienceClient {
   ): Promise<responses.DeleteModelDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#deleteModelDeployment.");
+    const operationName = "deleteModelDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/DeleteModelDeployment";
     const pathParams = {
       "{modelDeploymentId}": deleteModelDeploymentRequest.modelDeploymentId
     };
@@ -1939,7 +2179,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteModelDeploymentResponse>{},
         responseHeaders: [
@@ -1975,6 +2221,9 @@ export class DataScienceClient {
   ): Promise<responses.DeleteNotebookSessionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#deleteNotebookSession.");
+    const operationName = "deleteNotebookSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/DeleteNotebookSession";
     const pathParams = {
       "{notebookSessionId}": deleteNotebookSessionRequest.notebookSessionId
     };
@@ -2004,7 +2253,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNotebookSessionResponse>{},
         responseHeaders: [
@@ -2039,6 +2294,9 @@ export class DataScienceClient {
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#deleteProject.");
+    const operationName = "deleteProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/DeleteProject";
     const pathParams = {
       "{projectId}": deleteProjectRequest.projectId
     };
@@ -2068,7 +2326,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProjectResponse>{},
         responseHeaders: [
@@ -2101,6 +2365,9 @@ export class DataScienceClient {
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getJob.");
+    const operationName = "getJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/GetJob";
     const pathParams = {
       "{jobId}": getJobRequest.jobId
     };
@@ -2129,7 +2396,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
@@ -2169,6 +2442,9 @@ export class DataScienceClient {
   ): Promise<responses.GetJobArtifactContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#getJobArtifactContent.");
+    const operationName = "getJobArtifactContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/GetJobArtifactContent";
     const pathParams = {
       "{jobId}": getJobArtifactContentRequest.jobId
     };
@@ -2198,7 +2474,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobArtifactContentResponse>{},
 
@@ -2257,6 +2539,9 @@ export class DataScienceClient {
     getJobRunRequest: requests.GetJobRunRequest
   ): Promise<responses.GetJobRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getJobRun.");
+    const operationName = "getJobRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/GetJobRun";
     const pathParams = {
       "{jobRunId}": getJobRunRequest.jobRunId
     };
@@ -2285,7 +2570,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobRunResponse>{},
         body: await response.json(),
@@ -2324,6 +2615,9 @@ export class DataScienceClient {
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModel.");
+    const operationName = "getModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModel";
     const pathParams = {
       "{modelId}": getModelRequest.modelId
     };
@@ -2352,7 +2646,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetModelResponse>{},
         body: await response.json(),
@@ -2392,6 +2692,9 @@ export class DataScienceClient {
   ): Promise<responses.GetModelArtifactContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#getModelArtifactContent.");
+    const operationName = "getModelArtifactContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModelArtifactContent";
     const pathParams = {
       "{modelId}": getModelArtifactContentRequest.modelId
     };
@@ -2421,7 +2724,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetModelArtifactContentResponse>{},
 
@@ -2480,6 +2789,9 @@ export class DataScienceClient {
     getModelDeploymentRequest: requests.GetModelDeploymentRequest
   ): Promise<responses.GetModelDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelDeployment.");
+    const operationName = "getModelDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/GetModelDeployment";
     const pathParams = {
       "{modelDeploymentId}": getModelDeploymentRequest.modelDeploymentId
     };
@@ -2508,7 +2820,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetModelDeploymentResponse>{},
         body: await response.json(),
@@ -2547,6 +2865,9 @@ export class DataScienceClient {
     getModelProvenanceRequest: requests.GetModelProvenanceRequest
   ): Promise<responses.GetModelProvenanceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getModelProvenance.");
+    const operationName = "getModelProvenance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/GetModelProvenance";
     const pathParams = {
       "{modelId}": getModelProvenanceRequest.modelId
     };
@@ -2575,7 +2896,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetModelProvenanceResponse>{},
         body: await response.json(),
@@ -2614,6 +2941,9 @@ export class DataScienceClient {
     getNotebookSessionRequest: requests.GetNotebookSessionRequest
   ): Promise<responses.GetNotebookSessionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getNotebookSession.");
+    const operationName = "getNotebookSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/GetNotebookSession";
     const pathParams = {
       "{notebookSessionId}": getNotebookSessionRequest.notebookSessionId
     };
@@ -2642,7 +2972,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNotebookSessionResponse>{},
         body: await response.json(),
@@ -2681,6 +3017,9 @@ export class DataScienceClient {
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getProject.");
+    const operationName = "getProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/GetProject";
     const pathParams = {
       "{projectId}": getProjectRequest.projectId
     };
@@ -2709,7 +3048,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
@@ -2748,6 +3093,9 @@ export class DataScienceClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2776,7 +3124,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2820,6 +3174,9 @@ export class DataScienceClient {
     headJobArtifactRequest: requests.HeadJobArtifactRequest
   ): Promise<responses.HeadJobArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#headJobArtifact.");
+    const operationName = "headJobArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/HeadJobArtifact";
     const pathParams = {
       "{jobId}": headJobArtifactRequest.jobId
     };
@@ -2848,7 +3205,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.HeadJobArtifactResponse>{},
         responseHeaders: [
@@ -2903,6 +3266,9 @@ export class DataScienceClient {
     headModelArtifactRequest: requests.HeadModelArtifactRequest
   ): Promise<responses.HeadModelArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#headModelArtifact.");
+    const operationName = "headModelArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/HeadModelArtifact";
     const pathParams = {
       "{modelId}": headModelArtifactRequest.modelId
     };
@@ -2931,7 +3297,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.HeadModelArtifactResponse>{},
         responseHeaders: [
@@ -2987,6 +3359,9 @@ export class DataScienceClient {
   ): Promise<responses.ListFastLaunchJobConfigsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#listFastLaunchJobConfigs.");
+    const operationName = "listFastLaunchJobConfigs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/FastLaunchJobConfigSummary/ListFastLaunchJobConfigs";
     const pathParams = {};
 
     const queryParams = {
@@ -3017,7 +3392,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFastLaunchJobConfigsResponse>{},
         body: await response.json(),
@@ -3113,6 +3494,9 @@ export class DataScienceClient {
     listJobRunsRequest: requests.ListJobRunsRequest
   ): Promise<responses.ListJobRunsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobRuns.");
+    const operationName = "listJobRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRunSummary/ListJobRuns";
     const pathParams = {};
 
     const queryParams = {
@@ -3150,7 +3534,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobRunsResponse>{},
         body: await response.json(),
@@ -3246,6 +3636,9 @@ export class DataScienceClient {
     listJobShapesRequest: requests.ListJobShapesRequest
   ): Promise<responses.ListJobShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobShapes.");
+    const operationName = "listJobShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobShapeSummary/ListJobShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -3276,7 +3669,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobShapesResponse>{},
         body: await response.json(),
@@ -3372,6 +3771,9 @@ export class DataScienceClient {
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listJobs.");
+    const operationName = "listJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobSummary/ListJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -3409,7 +3811,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
@@ -3504,6 +3912,9 @@ export class DataScienceClient {
   ): Promise<responses.ListModelDeploymentShapesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#listModelDeploymentShapes.");
+    const operationName = "listModelDeploymentShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeploymentShapeSummary/ListModelDeploymentShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -3534,7 +3945,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListModelDeploymentShapesResponse>{},
         body: await response.json(),
@@ -3631,6 +4048,9 @@ export class DataScienceClient {
     listModelDeploymentsRequest: requests.ListModelDeploymentsRequest
   ): Promise<responses.ListModelDeploymentsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModelDeployments.");
+    const operationName = "listModelDeployments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeploymentSummary/ListModelDeployments";
     const pathParams = {};
 
     const queryParams = {
@@ -3668,7 +4088,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListModelDeploymentsResponse>{},
         body: await response.json(),
@@ -3764,6 +4190,9 @@ export class DataScienceClient {
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listModels.");
+    const operationName = "listModels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelSummary/ListModels";
     const pathParams = {};
 
     const queryParams = {
@@ -3801,7 +4230,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListModelsResponse>{},
         body: await response.json(),
@@ -3898,6 +4333,9 @@ export class DataScienceClient {
   ): Promise<responses.ListNotebookSessionShapesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#listNotebookSessionShapes.");
+    const operationName = "listNotebookSessionShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSessionShapeSummary/ListNotebookSessionShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -3928,7 +4366,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNotebookSessionShapesResponse>{},
         body: await response.json(),
@@ -4024,6 +4468,9 @@ export class DataScienceClient {
     listNotebookSessionsRequest: requests.ListNotebookSessionsRequest
   ): Promise<responses.ListNotebookSessionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listNotebookSessions.");
+    const operationName = "listNotebookSessions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSessionSummary/ListNotebookSessions";
     const pathParams = {};
 
     const queryParams = {
@@ -4061,7 +4508,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNotebookSessionsResponse>{},
         body: await response.json(),
@@ -4157,6 +4610,9 @@ export class DataScienceClient {
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listProjects.");
+    const operationName = "listProjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ProjectSummary/ListProjects";
     const pathParams = {};
 
     const queryParams = {
@@ -4193,7 +4649,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
@@ -4290,6 +4752,9 @@ export class DataScienceClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -4318,7 +4783,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -4352,6 +4823,9 @@ export class DataScienceClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequest/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -4380,7 +4854,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -4414,6 +4894,9 @@ export class DataScienceClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -4449,7 +4932,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -4545,6 +5034,9 @@ export class DataScienceClient {
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateJob.");
+    const operationName = "updateJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Job/UpdateJob";
     const pathParams = {
       "{jobId}": updateJobRequest.jobId
     };
@@ -4579,7 +5071,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
@@ -4618,6 +5116,9 @@ export class DataScienceClient {
     updateJobRunRequest: requests.UpdateJobRunRequest
   ): Promise<responses.UpdateJobRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateJobRun.");
+    const operationName = "updateJobRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/JobRun/UpdateJobRun";
     const pathParams = {
       "{jobRunId}": updateJobRunRequest.jobRunId
     };
@@ -4652,7 +5153,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJobRunResponse>{},
         body: await response.json(),
@@ -4691,6 +5198,9 @@ export class DataScienceClient {
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateModel.");
+    const operationName = "updateModel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/UpdateModel";
     const pathParams = {
       "{modelId}": updateModelRequest.modelId
     };
@@ -4725,7 +5235,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateModelResponse>{},
         body: await response.json(),
@@ -4769,6 +5285,9 @@ export class DataScienceClient {
   ): Promise<responses.UpdateModelDeploymentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#updateModelDeployment.");
+    const operationName = "updateModelDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/ModelDeployment/UpdateModelDeployment";
     const pathParams = {
       "{modelDeploymentId}": updateModelDeploymentRequest.modelDeploymentId
     };
@@ -4803,7 +5322,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateModelDeploymentResponse>{},
         responseHeaders: [
@@ -4839,6 +5364,9 @@ export class DataScienceClient {
   ): Promise<responses.UpdateModelProvenanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#updateModelProvenance.");
+    const operationName = "updateModelProvenance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/UpdateModelProvenance";
     const pathParams = {
       "{modelId}": updateModelProvenanceRequest.modelId
     };
@@ -4873,7 +5401,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateModelProvenanceResponse>{},
         body: await response.json(),
@@ -4916,6 +5450,9 @@ export class DataScienceClient {
   ): Promise<responses.UpdateNotebookSessionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataScienceClient#updateNotebookSession.");
+    const operationName = "updateNotebookSession";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/NotebookSession/UpdateNotebookSession";
     const pathParams = {
       "{notebookSessionId}": updateNotebookSessionRequest.notebookSessionId
     };
@@ -4950,7 +5487,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNotebookSessionResponse>{},
         body: await response.json(),
@@ -4989,6 +5532,9 @@ export class DataScienceClient {
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataScienceClient#updateProject.");
+    const operationName = "updateProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Project/UpdateProject";
     const pathParams = {
       "{projectId}": updateProjectRequest.projectId
     };
@@ -5023,7 +5569,13 @@ export class DataScienceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProjectResponse>{},
         body: await response.json(),

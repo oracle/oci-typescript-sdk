@@ -37,6 +37,7 @@ export class AnalyticsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Analytics";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class AnalyticsClient {
   ): Promise<responses.ChangeAnalyticsInstanceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#changeAnalyticsInstanceCompartment.");
+    const operationName = "changeAnalyticsInstanceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/ChangeAnalyticsInstanceCompartment";
     const pathParams = {
       "{analyticsInstanceId}": changeAnalyticsInstanceCompartmentRequest.analyticsInstanceId
     };
@@ -200,7 +204,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAnalyticsInstanceCompartmentResponse>{},
         responseHeaders: [
@@ -240,6 +250,9 @@ export class AnalyticsClient {
       this.logger.debug(
         "Calling operation AnalyticsClient#changeAnalyticsInstanceNetworkEndpoint."
       );
+    const operationName = "changeAnalyticsInstanceNetworkEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/ChangeAnalyticsInstanceNetworkEndpoint";
     const pathParams = {
       "{analyticsInstanceId}": changeAnalyticsInstanceNetworkEndpointRequest.analyticsInstanceId
     };
@@ -275,7 +288,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAnalyticsInstanceNetworkEndpointResponse>{},
         responseHeaders: [
@@ -313,6 +332,8 @@ export class AnalyticsClient {
   ): Promise<responses.CreateAnalyticsInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#createAnalyticsInstance.");
+    const operationName = "createAnalyticsInstance";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -345,7 +366,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAnalyticsInstanceResponse>{},
         body: await response.json(),
@@ -397,6 +424,9 @@ export class AnalyticsClient {
   ): Promise<responses.CreatePrivateAccessChannelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#createPrivateAccessChannel.");
+    const operationName = "createPrivateAccessChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/CreatePrivateAccessChannel";
     const pathParams = {
       "{analyticsInstanceId}": createPrivateAccessChannelRequest.analyticsInstanceId
     };
@@ -431,7 +461,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePrivateAccessChannelResponse>{},
         responseHeaders: [
@@ -468,6 +504,9 @@ export class AnalyticsClient {
     createVanityUrlRequest: requests.CreateVanityUrlRequest
   ): Promise<responses.CreateVanityUrlResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#createVanityUrl.");
+    const operationName = "createVanityUrl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/CreateVanityUrl";
     const pathParams = {
       "{analyticsInstanceId}": createVanityUrlRequest.analyticsInstanceId
     };
@@ -502,7 +541,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVanityUrlResponse>{},
         responseHeaders: [
@@ -540,6 +585,9 @@ export class AnalyticsClient {
   ): Promise<responses.DeleteAnalyticsInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#deleteAnalyticsInstance.");
+    const operationName = "deleteAnalyticsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/DeleteAnalyticsInstance";
     const pathParams = {
       "{analyticsInstanceId}": deleteAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -570,7 +618,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAnalyticsInstanceResponse>{},
         responseHeaders: [
@@ -607,6 +661,9 @@ export class AnalyticsClient {
   ): Promise<responses.DeletePrivateAccessChannelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#deletePrivateAccessChannel.");
+    const operationName = "deletePrivateAccessChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/DeletePrivateAccessChannel";
     const pathParams = {
       "{privateAccessChannelKey}": deletePrivateAccessChannelRequest.privateAccessChannelKey,
       "{analyticsInstanceId}": deletePrivateAccessChannelRequest.analyticsInstanceId
@@ -639,7 +696,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePrivateAccessChannelResponse>{},
         responseHeaders: [
@@ -675,6 +738,9 @@ export class AnalyticsClient {
     deleteVanityUrlRequest: requests.DeleteVanityUrlRequest
   ): Promise<responses.DeleteVanityUrlResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#deleteVanityUrl.");
+    const operationName = "deleteVanityUrl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/DeleteVanityUrl";
     const pathParams = {
       "{analyticsInstanceId}": deleteVanityUrlRequest.analyticsInstanceId,
       "{vanityUrlKey}": deleteVanityUrlRequest.vanityUrlKey
@@ -706,7 +772,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVanityUrlResponse>{},
         responseHeaders: [
@@ -742,6 +814,9 @@ export class AnalyticsClient {
     deleteWorkRequestRequest: requests.DeleteWorkRequestRequest
   ): Promise<responses.DeleteWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#deleteWorkRequest.");
+    const operationName = "deleteWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequest/DeleteWorkRequest";
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -771,7 +846,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
         responseHeaders: [
@@ -802,6 +883,9 @@ export class AnalyticsClient {
     getAnalyticsInstanceRequest: requests.GetAnalyticsInstanceRequest
   ): Promise<responses.GetAnalyticsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#getAnalyticsInstance.");
+    const operationName = "getAnalyticsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/GetAnalyticsInstance";
     const pathParams = {
       "{analyticsInstanceId}": getAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -830,7 +914,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnalyticsInstanceResponse>{},
         body: await response.json(),
@@ -871,6 +961,9 @@ export class AnalyticsClient {
   ): Promise<responses.GetPrivateAccessChannelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#getPrivateAccessChannel.");
+    const operationName = "getPrivateAccessChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/GetPrivateAccessChannel";
     const pathParams = {
       "{privateAccessChannelKey}": getPrivateAccessChannelRequest.privateAccessChannelKey,
       "{analyticsInstanceId}": getPrivateAccessChannelRequest.analyticsInstanceId
@@ -901,7 +994,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPrivateAccessChannelResponse>{},
         body: await response.json(),
@@ -941,6 +1040,9 @@ export class AnalyticsClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -969,7 +1071,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1014,6 +1122,9 @@ export class AnalyticsClient {
     listAnalyticsInstancesRequest: requests.ListAnalyticsInstancesRequest
   ): Promise<responses.ListAnalyticsInstancesResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listAnalyticsInstances.");
+    const operationName = "listAnalyticsInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstanceSummary/ListAnalyticsInstances";
     const pathParams = {};
 
     const queryParams = {
@@ -1050,7 +1161,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAnalyticsInstancesResponse>{},
         body: await response.json(),
@@ -1142,6 +1259,9 @@ export class AnalyticsClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1173,7 +1293,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1265,6 +1391,9 @@ export class AnalyticsClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequestLog/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1296,7 +1425,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1388,6 +1523,9 @@ export class AnalyticsClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1423,7 +1561,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1516,6 +1660,9 @@ export class AnalyticsClient {
     scaleAnalyticsInstanceRequest: requests.ScaleAnalyticsInstanceRequest
   ): Promise<responses.ScaleAnalyticsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#scaleAnalyticsInstance.");
+    const operationName = "scaleAnalyticsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/ScaleAnalyticsInstance";
     const pathParams = {
       "{analyticsInstanceId}": scaleAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -1551,7 +1698,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ScaleAnalyticsInstanceResponse>{},
         responseHeaders: [
@@ -1587,6 +1740,9 @@ export class AnalyticsClient {
     setKmsKeyRequest: requests.SetKmsKeyRequest
   ): Promise<responses.SetKmsKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#setKmsKey.");
+    const operationName = "setKmsKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/SetKmsKey";
     const pathParams = {
       "{analyticsInstanceId}": setKmsKeyRequest.analyticsInstanceId
     };
@@ -1622,7 +1778,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SetKmsKeyResponse>{},
         responseHeaders: [
@@ -1659,6 +1821,9 @@ export class AnalyticsClient {
     startAnalyticsInstanceRequest: requests.StartAnalyticsInstanceRequest
   ): Promise<responses.StartAnalyticsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#startAnalyticsInstance.");
+    const operationName = "startAnalyticsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/StartAnalyticsInstance";
     const pathParams = {
       "{analyticsInstanceId}": startAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -1689,7 +1854,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartAnalyticsInstanceResponse>{},
         responseHeaders: [
@@ -1726,6 +1897,9 @@ export class AnalyticsClient {
     stopAnalyticsInstanceRequest: requests.StopAnalyticsInstanceRequest
   ): Promise<responses.StopAnalyticsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#stopAnalyticsInstance.");
+    const operationName = "stopAnalyticsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/StopAnalyticsInstance";
     const pathParams = {
       "{analyticsInstanceId}": stopAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -1756,7 +1930,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopAnalyticsInstanceResponse>{},
         responseHeaders: [
@@ -1794,6 +1974,9 @@ export class AnalyticsClient {
   ): Promise<responses.UpdateAnalyticsInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#updateAnalyticsInstance.");
+    const operationName = "updateAnalyticsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/UpdateAnalyticsInstance";
     const pathParams = {
       "{analyticsInstanceId}": updateAnalyticsInstanceRequest.analyticsInstanceId
     };
@@ -1828,7 +2011,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnalyticsInstanceResponse>{},
         body: await response.json(),
@@ -1869,6 +2058,9 @@ export class AnalyticsClient {
   ): Promise<responses.UpdatePrivateAccessChannelResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnalyticsClient#updatePrivateAccessChannel.");
+    const operationName = "updatePrivateAccessChannel";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/UpdatePrivateAccessChannel";
     const pathParams = {
       "{privateAccessChannelKey}": updatePrivateAccessChannelRequest.privateAccessChannelKey,
       "{analyticsInstanceId}": updatePrivateAccessChannelRequest.analyticsInstanceId
@@ -1906,7 +2098,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePrivateAccessChannelResponse>{},
         responseHeaders: [
@@ -1942,6 +2140,9 @@ export class AnalyticsClient {
     updateVanityUrlRequest: requests.UpdateVanityUrlRequest
   ): Promise<responses.UpdateVanityUrlResponse> {
     if (this.logger) this.logger.debug("Calling operation AnalyticsClient#updateVanityUrl.");
+    const operationName = "updateVanityUrl";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/analytics/20190331/AnalyticsInstance/UpdateVanityUrl";
     const pathParams = {
       "{analyticsInstanceId}": updateVanityUrlRequest.analyticsInstanceId,
       "{vanityUrlKey}": updateVanityUrlRequest.vanityUrlKey
@@ -1978,7 +2179,13 @@ export class AnalyticsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVanityUrlResponse>{},
         responseHeaders: [

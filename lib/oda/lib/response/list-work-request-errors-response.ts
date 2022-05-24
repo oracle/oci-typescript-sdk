@@ -16,6 +16,12 @@ import common = require("oci-common");
 
 export interface ListWorkRequestErrorsResponse {
   /**
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
+   *
+   */
+  "opcRequestId": string;
+  /**
    * When you are paging through a list, if this header appears in the response,
    * then there might be additional items still to get. Include this value as the
    * `page` query parameter for the subsequent GET request.
@@ -23,11 +29,10 @@ export interface ListWorkRequestErrorsResponse {
    */
   "opcNextPage": string;
   /**
-   * Unique Oracle-assigned identifier for the request. If you contact Oracle
-   * about this request, provide this request ID.
+   * The total number of results that match the query.
    *
    */
-  "opcRequestId": string;
+  "opcTotalItems": number;
   /**
    * A list of WorkRequestError instances.
    */

@@ -34,6 +34,7 @@ export class ApmSyntheticClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ApmSynthetic";
 
   protected _httpClient: common.HttpClient;
 
@@ -138,6 +139,9 @@ export class ApmSyntheticClient {
   ): Promise<responses.CreateDedicatedVantagePointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#createDedicatedVantagePoint.");
+    const operationName = "createDedicatedVantagePoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/CreateDedicatedVantagePoint";
     const pathParams = {};
 
     const queryParams = {
@@ -172,7 +176,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDedicatedVantagePointResponse>{},
         body: await response.json(),
@@ -212,6 +222,9 @@ export class ApmSyntheticClient {
     createMonitorRequest: requests.CreateMonitorRequest
   ): Promise<responses.CreateMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createMonitor.");
+    const operationName = "createMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/CreateMonitor";
     const pathParams = {};
 
     const queryParams = {
@@ -246,7 +259,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMonitorResponse>{},
         body: await response.json(),
@@ -286,6 +305,9 @@ export class ApmSyntheticClient {
     createScriptRequest: requests.CreateScriptRequest
   ): Promise<responses.CreateScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#createScript.");
+    const operationName = "createScript";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/CreateScript";
     const pathParams = {};
 
     const queryParams = {
@@ -320,7 +342,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateScriptResponse>{},
         body: await response.json(),
@@ -360,6 +388,9 @@ export class ApmSyntheticClient {
   ): Promise<responses.DeleteDedicatedVantagePointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#deleteDedicatedVantagePoint.");
+    const operationName = "deleteDedicatedVantagePoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/DeleteDedicatedVantagePoint";
     const pathParams = {
       "{dedicatedVantagePointId}": deleteDedicatedVantagePointRequest.dedicatedVantagePointId
     };
@@ -391,7 +422,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDedicatedVantagePointResponse>{},
         responseHeaders: [
@@ -421,6 +458,9 @@ export class ApmSyntheticClient {
     deleteMonitorRequest: requests.DeleteMonitorRequest
   ): Promise<responses.DeleteMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteMonitor.");
+    const operationName = "deleteMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/DeleteMonitor";
     const pathParams = {
       "{monitorId}": deleteMonitorRequest.monitorId
     };
@@ -452,7 +492,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMonitorResponse>{},
         responseHeaders: [
@@ -482,6 +528,9 @@ export class ApmSyntheticClient {
     deleteScriptRequest: requests.DeleteScriptRequest
   ): Promise<responses.DeleteScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#deleteScript.");
+    const operationName = "deleteScript";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/DeleteScript";
     const pathParams = {
       "{scriptId}": deleteScriptRequest.scriptId
     };
@@ -513,7 +562,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteScriptResponse>{},
         responseHeaders: [
@@ -544,6 +599,9 @@ export class ApmSyntheticClient {
   ): Promise<responses.GetDedicatedVantagePointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#getDedicatedVantagePoint.");
+    const operationName = "getDedicatedVantagePoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/GetDedicatedVantagePoint";
     const pathParams = {
       "{dedicatedVantagePointId}": getDedicatedVantagePointRequest.dedicatedVantagePointId
     };
@@ -574,7 +632,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDedicatedVantagePointResponse>{},
         body: await response.json(),
@@ -613,6 +677,9 @@ export class ApmSyntheticClient {
     getMonitorRequest: requests.GetMonitorRequest
   ): Promise<responses.GetMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getMonitor.");
+    const operationName = "getMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/GetMonitor";
     const pathParams = {
       "{monitorId}": getMonitorRequest.monitorId
     };
@@ -643,7 +710,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMonitorResponse>{},
         body: await response.json(),
@@ -683,6 +756,9 @@ export class ApmSyntheticClient {
     getMonitorResultRequest: requests.GetMonitorResultRequest
   ): Promise<responses.GetMonitorResultResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getMonitorResult.");
+    const operationName = "getMonitorResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/MonitorResult/GetMonitorResult";
     const pathParams = {
       "{monitorId}": getMonitorResultRequest.monitorId,
       "{executionTime}": getMonitorResultRequest.executionTime
@@ -717,7 +793,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMonitorResultResponse>{},
         body: await response.json(),
@@ -751,6 +833,9 @@ export class ApmSyntheticClient {
     getScriptRequest: requests.GetScriptRequest
   ): Promise<responses.GetScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#getScript.");
+    const operationName = "getScript";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/GetScript";
     const pathParams = {
       "{scriptId}": getScriptRequest.scriptId
     };
@@ -781,7 +866,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetScriptResponse>{},
         body: await response.json(),
@@ -822,6 +913,9 @@ export class ApmSyntheticClient {
   ): Promise<responses.ListDedicatedVantagePointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#listDedicatedVantagePoints.");
+    const operationName = "listDedicatedVantagePoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePointCollection/ListDedicatedVantagePoints";
     const pathParams = {};
 
     const queryParams = {
@@ -857,7 +951,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDedicatedVantagePointsResponse>{},
         body: await response.json(),
@@ -897,6 +997,9 @@ export class ApmSyntheticClient {
     listMonitorsRequest: requests.ListMonitorsRequest
   ): Promise<responses.ListMonitorsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listMonitors.");
+    const operationName = "listMonitors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/MonitorCollection/ListMonitors";
     const pathParams = {};
 
     const queryParams = {
@@ -934,7 +1037,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMonitorsResponse>{},
         body: await response.json(),
@@ -975,6 +1084,9 @@ export class ApmSyntheticClient {
   ): Promise<responses.ListPublicVantagePointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#listPublicVantagePoints.");
+    const operationName = "listPublicVantagePoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/PublicVantagePointCollection/ListPublicVantagePoints";
     const pathParams = {};
 
     const queryParams = {
@@ -1009,7 +1121,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublicVantagePointsResponse>{},
         body: await response.json(),
@@ -1049,6 +1167,9 @@ export class ApmSyntheticClient {
     listScriptsRequest: requests.ListScriptsRequest
   ): Promise<responses.ListScriptsResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#listScripts.");
+    const operationName = "listScripts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/ScriptCollection/ListScripts";
     const pathParams = {};
 
     const queryParams = {
@@ -1083,7 +1204,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListScriptsResponse>{},
         body: await response.json(),
@@ -1123,6 +1250,9 @@ export class ApmSyntheticClient {
   ): Promise<responses.UpdateDedicatedVantagePointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApmSyntheticClient#updateDedicatedVantagePoint.");
+    const operationName = "updateDedicatedVantagePoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/DedicatedVantagePoint/UpdateDedicatedVantagePoint";
     const pathParams = {
       "{dedicatedVantagePointId}": updateDedicatedVantagePointRequest.dedicatedVantagePointId
     };
@@ -1159,7 +1289,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDedicatedVantagePointResponse>{},
         body: await response.json(),
@@ -1198,6 +1334,9 @@ export class ApmSyntheticClient {
     updateMonitorRequest: requests.UpdateMonitorRequest
   ): Promise<responses.UpdateMonitorResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateMonitor.");
+    const operationName = "updateMonitor";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Monitor/UpdateMonitor";
     const pathParams = {
       "{monitorId}": updateMonitorRequest.monitorId
     };
@@ -1234,7 +1373,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMonitorResponse>{},
         body: await response.json(),
@@ -1273,6 +1418,9 @@ export class ApmSyntheticClient {
     updateScriptRequest: requests.UpdateScriptRequest
   ): Promise<responses.UpdateScriptResponse> {
     if (this.logger) this.logger.debug("Calling operation ApmSyntheticClient#updateScript.");
+    const operationName = "updateScript";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/Script/UpdateScript";
     const pathParams = {
       "{scriptId}": updateScriptRequest.scriptId
     };
@@ -1309,7 +1457,13 @@ export class ApmSyntheticClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateScriptResponse>{},
         body: await response.json(),

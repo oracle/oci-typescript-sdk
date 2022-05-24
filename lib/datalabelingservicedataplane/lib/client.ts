@@ -36,6 +36,7 @@ export class DataLabelingClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataLabeling";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,9 @@ export class DataLabelingClient {
     createAnnotationRequest: requests.CreateAnnotationRequest
   ): Promise<responses.CreateAnnotationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#createAnnotation.");
+    const operationName = "createAnnotation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Annotation/CreateAnnotation";
     const pathParams = {};
 
     const queryParams = {};
@@ -194,7 +198,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAnnotationResponse>{},
         body: await response.json(),
@@ -234,6 +244,9 @@ export class DataLabelingClient {
     createRecordRequest: requests.CreateRecordRequest
   ): Promise<responses.CreateRecordResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#createRecord.");
+    const operationName = "createRecord";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Record/CreateRecord";
     const pathParams = {};
 
     const queryParams = {};
@@ -266,7 +279,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRecordResponse>{},
         body: await response.json(),
@@ -306,6 +325,9 @@ export class DataLabelingClient {
     deleteAnnotationRequest: requests.DeleteAnnotationRequest
   ): Promise<responses.DeleteAnnotationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#deleteAnnotation.");
+    const operationName = "deleteAnnotation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Annotation/DeleteAnnotation";
     const pathParams = {
       "{annotationId}": deleteAnnotationRequest.annotationId
     };
@@ -335,7 +357,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAnnotationResponse>{},
         responseHeaders: [
@@ -366,6 +394,9 @@ export class DataLabelingClient {
     deleteRecordRequest: requests.DeleteRecordRequest
   ): Promise<responses.DeleteRecordResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#deleteRecord.");
+    const operationName = "deleteRecord";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Record/DeleteRecord";
     const pathParams = {
       "{recordId}": deleteRecordRequest.recordId
     };
@@ -395,7 +426,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRecordResponse>{},
         responseHeaders: [
@@ -426,6 +463,9 @@ export class DataLabelingClient {
     getAnnotationRequest: requests.GetAnnotationRequest
   ): Promise<responses.GetAnnotationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#getAnnotation.");
+    const operationName = "getAnnotation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Annotation/GetAnnotation";
     const pathParams = {
       "{annotationId}": getAnnotationRequest.annotationId
     };
@@ -454,7 +494,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAnnotationResponse>{},
         body: await response.json(),
@@ -493,6 +539,9 @@ export class DataLabelingClient {
     getDatasetRequest: requests.GetDatasetRequest
   ): Promise<responses.GetDatasetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#getDataset.");
+    const operationName = "getDataset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Dataset/GetDataset";
     const pathParams = {
       "{datasetId}": getDatasetRequest.datasetId
     };
@@ -521,7 +570,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatasetResponse>{},
         body: await response.json(),
@@ -561,6 +616,9 @@ export class DataLabelingClient {
     getRecordRequest: requests.GetRecordRequest
   ): Promise<responses.GetRecordResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#getRecord.");
+    const operationName = "getRecord";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Record/GetRecord";
     const pathParams = {
       "{recordId}": getRecordRequest.recordId
     };
@@ -589,7 +647,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRecordResponse>{},
         body: await response.json(),
@@ -629,6 +693,9 @@ export class DataLabelingClient {
     getRecordContentRequest: requests.GetRecordContentRequest
   ): Promise<responses.GetRecordContentResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#getRecordContent.");
+    const operationName = "getRecordContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Record/GetRecordContent";
     const pathParams = {
       "{recordId}": getRecordContentRequest.recordId
     };
@@ -658,7 +725,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRecordContentResponse>{},
 
@@ -719,6 +792,9 @@ export class DataLabelingClient {
   ): Promise<responses.GetRecordPreviewContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingClient#getRecordPreviewContent.");
+    const operationName = "getRecordPreviewContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Record/GetRecordPreviewContent";
     const pathParams = {
       "{recordId}": getRecordPreviewContentRequest.recordId
     };
@@ -748,7 +824,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRecordPreviewContentResponse>{},
 
@@ -808,6 +890,9 @@ export class DataLabelingClient {
     listAnnotationsRequest: requests.ListAnnotationsRequest
   ): Promise<responses.ListAnnotationsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#listAnnotations.");
+    const operationName = "listAnnotations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/AnnotationCollection/ListAnnotations";
     const pathParams = {};
 
     const queryParams = {
@@ -847,7 +932,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAnnotationsResponse>{},
         body: await response.json(),
@@ -887,6 +978,9 @@ export class DataLabelingClient {
     listRecordsRequest: requests.ListRecordsRequest
   ): Promise<responses.ListRecordsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#listRecords.");
+    const operationName = "listRecords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/RecordCollection/ListRecords";
     const pathParams = {};
 
     const queryParams = {
@@ -925,7 +1019,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRecordsResponse>{},
         body: await response.json(),
@@ -966,6 +1066,9 @@ export class DataLabelingClient {
   ): Promise<responses.SummarizeAnnotationAnalyticsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingClient#summarizeAnnotationAnalytics.");
+    const operationName = "summarizeAnnotationAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/AnnotationAnalyticsAggregationCollection/SummarizeAnnotationAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -1002,7 +1105,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeAnnotationAnalyticsResponse>{},
         body: await response.json(),
@@ -1043,6 +1152,9 @@ export class DataLabelingClient {
   ): Promise<responses.SummarizeRecordAnalyticsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataLabelingClient#summarizeRecordAnalytics.");
+    const operationName = "summarizeRecordAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/RecordAnalyticsAggregationCollection/SummarizeRecordAnalytics";
     const pathParams = {};
 
     const queryParams = {
@@ -1078,7 +1190,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeRecordAnalyticsResponse>{},
         body: await response.json(),
@@ -1118,6 +1236,9 @@ export class DataLabelingClient {
     updateAnnotationRequest: requests.UpdateAnnotationRequest
   ): Promise<responses.UpdateAnnotationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#updateAnnotation.");
+    const operationName = "updateAnnotation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Annotation/UpdateAnnotation";
     const pathParams = {
       "{annotationId}": updateAnnotationRequest.annotationId
     };
@@ -1152,7 +1273,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAnnotationResponse>{},
         body: await response.json(),
@@ -1192,6 +1319,9 @@ export class DataLabelingClient {
     updateRecordRequest: requests.UpdateRecordRequest
   ): Promise<responses.UpdateRecordResponse> {
     if (this.logger) this.logger.debug("Calling operation DataLabelingClient#updateRecord.");
+    const operationName = "updateRecord";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling-dp/20211001/Record/UpdateRecord";
     const pathParams = {
       "{recordId}": updateRecordRequest.recordId
     };
@@ -1226,7 +1356,13 @@ export class DataLabelingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRecordResponse>{},
         body: await response.json(),

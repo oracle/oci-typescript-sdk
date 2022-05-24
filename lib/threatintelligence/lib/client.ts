@@ -36,6 +36,7 @@ export class ThreatintelClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Threatintel";
 
   protected _httpClient: common.HttpClient;
 
@@ -161,6 +162,9 @@ export class ThreatintelClient {
     getIndicatorRequest: requests.GetIndicatorRequest
   ): Promise<responses.GetIndicatorResponse> {
     if (this.logger) this.logger.debug("Calling operation ThreatintelClient#getIndicator.");
+    const operationName = "getIndicator";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/threat-intel/20210831/Indicator/GetIndicator";
     const pathParams = {
       "{indicatorId}": getIndicatorRequest.indicatorId
     };
@@ -191,7 +195,13 @@ export class ThreatintelClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIndicatorResponse>{},
         body: await response.json(),
@@ -225,6 +235,9 @@ export class ThreatintelClient {
     listIndicatorCountsRequest: requests.ListIndicatorCountsRequest
   ): Promise<responses.ListIndicatorCountsResponse> {
     if (this.logger) this.logger.debug("Calling operation ThreatintelClient#listIndicatorCounts.");
+    const operationName = "listIndicatorCounts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/threat-intel/20210831/IndicatorCountCollection/ListIndicatorCounts";
     const pathParams = {};
 
     const queryParams = {
@@ -254,7 +267,13 @@ export class ThreatintelClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIndicatorCountsResponse>{},
         body: await response.json(),
@@ -289,6 +308,9 @@ export class ThreatintelClient {
     listIndicatorsRequest: requests.ListIndicatorsRequest
   ): Promise<responses.ListIndicatorsResponse> {
     if (this.logger) this.logger.debug("Calling operation ThreatintelClient#listIndicators.");
+    const operationName = "listIndicators";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/threat-intel/20210831/IndicatorSummaryCollection/ListIndicators";
     const pathParams = {};
 
     const queryParams = {
@@ -326,7 +348,13 @@ export class ThreatintelClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIndicatorsResponse>{},
         body: await response.json(),
@@ -367,6 +395,9 @@ export class ThreatintelClient {
     listThreatTypesRequest: requests.ListThreatTypesRequest
   ): Promise<responses.ListThreatTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation ThreatintelClient#listThreatTypes.");
+    const operationName = "listThreatTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/threat-intel/20210831/ThreatTypesCollection/ListThreatTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -398,7 +429,13 @@ export class ThreatintelClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListThreatTypesResponse>{},
         body: await response.json(),

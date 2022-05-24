@@ -33,6 +33,7 @@ export class LogSearchClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "LogSearch";
 
   protected _httpClient: common.HttpClient;
 
@@ -138,6 +139,9 @@ See [Using the API](https://docs.cloud.oracle.com/Content/Logging/Concepts/using
     searchLogsRequest: requests.SearchLogsRequest
   ): Promise<responses.SearchLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation LogSearchClient#searchLogs.");
+    const operationName = "searchLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-search/20190909/SearchResult/SearchLogs";
     const pathParams = {};
 
     const queryParams = {
@@ -172,7 +176,13 @@ See [Using the API](https://docs.cloud.oracle.com/Content/Logging/Concepts/using
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchLogsResponse>{},
         body: await response.json(),

@@ -39,6 +39,7 @@ export class ManagementAgentClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ManagementAgent";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,9 @@ export class ManagementAgentClient {
   ): Promise<responses.CreateManagementAgentInstallKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#createManagementAgentInstallKey.");
+    const operationName = "createManagementAgentInstallKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/CreateManagementAgentInstallKey";
     const pathParams = {};
 
     const queryParams = {};
@@ -198,7 +202,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateManagementAgentInstallKeyResponse>{},
         body: await response.json(),
@@ -238,6 +248,9 @@ export class ManagementAgentClient {
   ): Promise<responses.DeleteManagementAgentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#deleteManagementAgent.");
+    const operationName = "deleteManagementAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/DeleteManagementAgent";
     const pathParams = {
       "{managementAgentId}": deleteManagementAgentRequest.managementAgentId
     };
@@ -267,7 +280,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagementAgentResponse>{},
         responseHeaders: [
@@ -298,6 +317,9 @@ export class ManagementAgentClient {
   ): Promise<responses.DeleteManagementAgentInstallKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#deleteManagementAgentInstallKey.");
+    const operationName = "deleteManagementAgentInstallKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/DeleteManagementAgentInstallKey";
     const pathParams = {
       "{managementAgentInstallKeyId}":
         deleteManagementAgentInstallKeyRequest.managementAgentInstallKeyId
@@ -328,7 +350,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagementAgentInstallKeyResponse>{},
         responseHeaders: [
@@ -359,6 +387,9 @@ export class ManagementAgentClient {
   ): Promise<responses.DeleteWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#deleteWorkRequest.");
+    const operationName = "deleteWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequest/DeleteWorkRequest";
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -388,7 +419,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
         responseHeaders: [
@@ -419,6 +456,9 @@ export class ManagementAgentClient {
     deployPluginsRequest: requests.DeployPluginsRequest
   ): Promise<responses.DeployPluginsResponse> {
     if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#deployPlugins.");
+    const operationName = "deployPlugins";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/DeployPlugins";
     const pathParams = {};
 
     const queryParams = {};
@@ -451,7 +491,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeployPluginsResponse>{},
         responseHeaders: [
@@ -489,6 +535,9 @@ export class ManagementAgentClient {
   ): Promise<responses.GetAutoUpgradableConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#getAutoUpgradableConfig.");
+    const operationName = "getAutoUpgradableConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/GetAutoUpgradableConfig";
     const pathParams = {};
 
     const queryParams = {
@@ -517,7 +566,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutoUpgradableConfigResponse>{},
         body: await response.json(),
@@ -552,6 +607,9 @@ export class ManagementAgentClient {
   ): Promise<responses.GetManagementAgentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#getManagementAgent.");
+    const operationName = "getManagementAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/GetManagementAgent";
     const pathParams = {
       "{managementAgentId}": getManagementAgentRequest.managementAgentId
     };
@@ -580,7 +638,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagementAgentResponse>{},
         body: await response.json(),
@@ -620,6 +684,9 @@ export class ManagementAgentClient {
   ): Promise<responses.GetManagementAgentInstallKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#getManagementAgentInstallKey.");
+    const operationName = "getManagementAgentInstallKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/GetManagementAgentInstallKey";
     const pathParams = {
       "{managementAgentInstallKeyId}":
         getManagementAgentInstallKeyRequest.managementAgentInstallKeyId
@@ -649,7 +716,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagementAgentInstallKeyResponse>{},
         body: await response.json(),
@@ -692,6 +765,9 @@ export class ManagementAgentClient {
       this.logger.debug(
         "Calling operation ManagementAgentClient#getManagementAgentInstallKeyContent."
       );
+    const operationName = "getManagementAgentInstallKeyContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/GetManagementAgentInstallKeyContent";
     const pathParams = {
       "{managementAgentInstallKeyId}":
         getManagementAgentInstallKeyContentRequest.managementAgentInstallKeyId
@@ -723,7 +799,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagementAgentInstallKeyContentResponse>{},
 
@@ -767,6 +849,9 @@ export class ManagementAgentClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -795,7 +880,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -840,6 +931,9 @@ export class ManagementAgentClient {
   ): Promise<responses.ListAvailabilityHistoriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#listAvailabilityHistories.");
+    const operationName = "listAvailabilityHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/ListAvailabilityHistories";
     const pathParams = {
       "{managementAgentId}": listAvailabilityHistoriesRequest.managementAgentId
     };
@@ -877,7 +971,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailabilityHistoriesResponse>{},
         body: await response.json(),
@@ -970,6 +1070,9 @@ export class ManagementAgentClient {
   ): Promise<responses.ListManagementAgentImagesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#listManagementAgentImages.");
+    const operationName = "listManagementAgentImages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentImage/ListManagementAgentImages";
     const pathParams = {};
 
     const queryParams = {
@@ -1006,7 +1109,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagementAgentImagesResponse>{},
         body: await response.json(),
@@ -1099,6 +1208,9 @@ export class ManagementAgentClient {
   ): Promise<responses.ListManagementAgentInstallKeysResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#listManagementAgentInstallKeys.");
+    const operationName = "listManagementAgentInstallKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/ListManagementAgentInstallKeys";
     const pathParams = {};
 
     const queryParams = {
@@ -1134,7 +1246,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagementAgentInstallKeysResponse>{},
         body: await response.json(),
@@ -1227,6 +1345,9 @@ export class ManagementAgentClient {
   ): Promise<responses.ListManagementAgentPluginsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#listManagementAgentPlugins.");
+    const operationName = "listManagementAgentPlugins";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentPlugin/ListManagementAgentPlugins";
     const pathParams = {};
 
     const queryParams = {
@@ -1262,7 +1383,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagementAgentPluginsResponse>{},
         body: await response.json(),
@@ -1356,6 +1483,9 @@ export class ManagementAgentClient {
   ): Promise<responses.ListManagementAgentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#listManagementAgents.");
+    const operationName = "listManagementAgents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/ListManagementAgents";
     const pathParams = {};
 
     const queryParams = {
@@ -1397,7 +1527,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagementAgentsResponse>{},
         body: await response.json(),
@@ -1490,6 +1626,9 @@ export class ManagementAgentClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1523,7 +1662,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1616,6 +1761,9 @@ export class ManagementAgentClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1649,7 +1797,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1741,6 +1895,9 @@ export class ManagementAgentClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ManagementAgentClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1776,7 +1933,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1870,6 +2033,9 @@ export class ManagementAgentClient {
   ): Promise<responses.SetAutoUpgradableConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#setAutoUpgradableConfig.");
+    const operationName = "setAutoUpgradableConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/SetAutoUpgradableConfig";
     const pathParams = {};
 
     const queryParams = {};
@@ -1902,7 +2068,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SetAutoUpgradableConfigResponse>{},
         body: await response.json(),
@@ -1939,6 +2111,9 @@ export class ManagementAgentClient {
   ): Promise<responses.SummarizeManagementAgentCountsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#summarizeManagementAgentCounts.");
+    const operationName = "summarizeManagementAgentCounts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/SummarizeManagementAgentCounts";
     const pathParams = {};
 
     const queryParams = {
@@ -1971,7 +2146,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeManagementAgentCountsResponse>{},
         body: await response.json(),
@@ -2015,6 +2196,9 @@ export class ManagementAgentClient {
       this.logger.debug(
         "Calling operation ManagementAgentClient#summarizeManagementAgentPluginCounts."
       );
+    const operationName = "summarizeManagementAgentPluginCounts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/SummarizeManagementAgentPluginCounts";
     const pathParams = {};
 
     const queryParams = {
@@ -2045,7 +2229,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SummarizeManagementAgentPluginCountsResponse>{},
         body: await response.json(),
@@ -2086,6 +2276,9 @@ export class ManagementAgentClient {
   ): Promise<responses.UpdateManagementAgentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#updateManagementAgent.");
+    const operationName = "updateManagementAgent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgent/UpdateManagementAgent";
     const pathParams = {
       "{managementAgentId}": updateManagementAgentRequest.managementAgentId
     };
@@ -2121,7 +2314,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagementAgentResponse>{},
         body: await response.json(),
@@ -2162,6 +2361,9 @@ export class ManagementAgentClient {
   ): Promise<responses.UpdateManagementAgentInstallKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ManagementAgentClient#updateManagementAgentInstallKey.");
+    const operationName = "updateManagementAgentInstallKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/management-agent/20200202/ManagementAgentInstallKey/UpdateManagementAgentInstallKey";
     const pathParams = {
       "{managementAgentInstallKeyId}":
         updateManagementAgentInstallKeyRequest.managementAgentInstallKeyId
@@ -2198,7 +2400,13 @@ export class ManagementAgentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagementAgentInstallKeyResponse>{},
         body: await response.json(),

@@ -36,6 +36,7 @@ export class LoggingManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "LoggingManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class LoggingManagementClient {
   ): Promise<responses.ChangeLogGroupCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#changeLogGroupCompartment.");
+    const operationName = "changeLogGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/ChangeLogGroupCompartment";
     const pathParams = {
       "{logGroupId}": changeLogGroupCompartmentRequest.logGroupId
     };
@@ -198,7 +202,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLogGroupCompartmentResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class LoggingManagementClient {
   ): Promise<responses.ChangeLogLogGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#changeLogLogGroup.");
+    const operationName = "changeLogLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/ChangeLogLogGroup";
     const pathParams = {
       "{logGroupId}": changeLogLogGroupRequest.logGroupId,
       "{logId}": changeLogLogGroupRequest.logId
@@ -270,7 +283,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLogLogGroupResponse>{},
         responseHeaders: [
@@ -310,6 +329,9 @@ export class LoggingManagementClient {
       this.logger.debug(
         "Calling operation LoggingManagementClient#changeLogSavedSearchCompartment."
       );
+    const operationName = "changeLogSavedSearchCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/ChangeLogSavedSearchCompartment";
     const pathParams = {
       "{logSavedSearchId}": changeLogSavedSearchCompartmentRequest.logSavedSearchId
     };
@@ -345,7 +367,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeLogSavedSearchCompartmentResponse>{},
         responseHeaders: [
@@ -380,6 +408,9 @@ export class LoggingManagementClient {
       this.logger.debug(
         "Calling operation LoggingManagementClient#changeUnifiedAgentConfigurationCompartment."
       );
+    const operationName = "changeUnifiedAgentConfigurationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/ChangeUnifiedAgentConfigurationCompartment";
     const pathParams = {
       "{unifiedAgentConfigurationId}":
         changeUnifiedAgentConfigurationCompartmentRequest.unifiedAgentConfigurationId
@@ -416,7 +447,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeUnifiedAgentConfigurationCompartmentResponse>{},
         responseHeaders: [
@@ -453,6 +490,9 @@ export class LoggingManagementClient {
     createLogRequest: requests.CreateLogRequest
   ): Promise<responses.CreateLogResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#createLog.");
+    const operationName = "createLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/CreateLog";
     const pathParams = {
       "{logGroupId}": createLogRequest.logGroupId
     };
@@ -487,7 +527,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogResponse>{},
         responseHeaders: [
@@ -524,6 +570,9 @@ export class LoggingManagementClient {
     createLogGroupRequest: requests.CreateLogGroupRequest
   ): Promise<responses.CreateLogGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#createLogGroup.");
+    const operationName = "createLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/CreateLogGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -556,7 +605,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogGroupResponse>{},
         responseHeaders: [
@@ -593,6 +648,9 @@ export class LoggingManagementClient {
   ): Promise<responses.CreateLogSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#createLogSavedSearch.");
+    const operationName = "createLogSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/CreateLogSavedSearch";
     const pathParams = {};
 
     const queryParams = {};
@@ -625,7 +683,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateLogSavedSearchResponse>{},
         body: await response.json(),
@@ -667,6 +731,9 @@ export class LoggingManagementClient {
       this.logger.debug(
         "Calling operation LoggingManagementClient#createUnifiedAgentConfiguration."
       );
+    const operationName = "createUnifiedAgentConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/CreateUnifiedAgentConfiguration";
     const pathParams = {};
 
     const queryParams = {};
@@ -699,7 +766,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateUnifiedAgentConfigurationResponse>{},
         responseHeaders: [
@@ -734,6 +807,9 @@ export class LoggingManagementClient {
     deleteLogRequest: requests.DeleteLogRequest
   ): Promise<responses.DeleteLogResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#deleteLog.");
+    const operationName = "deleteLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/DeleteLog";
     const pathParams = {
       "{logGroupId}": deleteLogRequest.logGroupId,
       "{logId}": deleteLogRequest.logId
@@ -764,7 +840,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogResponse>{},
         responseHeaders: [
@@ -799,6 +881,9 @@ export class LoggingManagementClient {
     deleteLogGroupRequest: requests.DeleteLogGroupRequest
   ): Promise<responses.DeleteLogGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#deleteLogGroup.");
+    const operationName = "deleteLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/DeleteLogGroup";
     const pathParams = {
       "{logGroupId}": deleteLogGroupRequest.logGroupId
     };
@@ -828,7 +913,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogGroupResponse>{},
         responseHeaders: [
@@ -864,6 +955,9 @@ export class LoggingManagementClient {
   ): Promise<responses.DeleteLogSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#deleteLogSavedSearch.");
+    const operationName = "deleteLogSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/DeleteLogSavedSearch";
     const pathParams = {
       "{logSavedSearchId}": deleteLogSavedSearchRequest.logSavedSearchId
     };
@@ -893,7 +987,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteLogSavedSearchResponse>{},
         responseHeaders: [
@@ -926,6 +1026,9 @@ export class LoggingManagementClient {
       this.logger.debug(
         "Calling operation LoggingManagementClient#deleteUnifiedAgentConfiguration."
       );
+    const operationName = "deleteUnifiedAgentConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/DeleteUnifiedAgentConfiguration";
     const pathParams = {
       "{unifiedAgentConfigurationId}":
         deleteUnifiedAgentConfigurationRequest.unifiedAgentConfigurationId
@@ -956,7 +1059,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUnifiedAgentConfigurationResponse>{},
         responseHeaders: [
@@ -993,6 +1102,9 @@ export class LoggingManagementClient {
   ): Promise<responses.DeleteWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#deleteWorkRequest.");
+    const operationName = "deleteWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequest/DeleteWorkRequest";
     const pathParams = {
       "{workRequestId}": deleteWorkRequestRequest.workRequestId
     };
@@ -1022,7 +1134,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
         responseHeaders: [
@@ -1056,6 +1174,9 @@ export class LoggingManagementClient {
    */
   public async getLog(getLogRequest: requests.GetLogRequest): Promise<responses.GetLogResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#getLog.");
+    const operationName = "getLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/GetLog";
     const pathParams = {
       "{logGroupId}": getLogRequest.logGroupId,
       "{logId}": getLogRequest.logId
@@ -1085,7 +1206,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogResponse>{},
         body: await response.json(),
@@ -1124,6 +1251,9 @@ export class LoggingManagementClient {
     getLogGroupRequest: requests.GetLogGroupRequest
   ): Promise<responses.GetLogGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#getLogGroup.");
+    const operationName = "getLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/GetLogGroup";
     const pathParams = {
       "{logGroupId}": getLogGroupRequest.logGroupId
     };
@@ -1152,7 +1282,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogGroupResponse>{},
         body: await response.json(),
@@ -1192,6 +1328,9 @@ export class LoggingManagementClient {
   ): Promise<responses.GetLogIncludedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#getLogIncludedSearch.");
+    const operationName = "getLogIncludedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogIncludedSearch/GetLogIncludedSearch";
     const pathParams = {
       "{logIncludedSearchId}": getLogIncludedSearchRequest.logIncludedSearchId
     };
@@ -1222,7 +1361,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogIncludedSearchResponse>{},
         body: await response.json(),
@@ -1262,6 +1407,9 @@ export class LoggingManagementClient {
   ): Promise<responses.GetLogSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#getLogSavedSearch.");
+    const operationName = "getLogSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/GetLogSavedSearch";
     const pathParams = {
       "{logSavedSearchId}": getLogSavedSearchRequest.logSavedSearchId
     };
@@ -1290,7 +1438,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetLogSavedSearchResponse>{},
         body: await response.json(),
@@ -1330,6 +1484,9 @@ export class LoggingManagementClient {
   ): Promise<responses.GetUnifiedAgentConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#getUnifiedAgentConfiguration.");
+    const operationName = "getUnifiedAgentConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/GetUnifiedAgentConfiguration";
     const pathParams = {
       "{unifiedAgentConfigurationId}":
         getUnifiedAgentConfigurationRequest.unifiedAgentConfigurationId
@@ -1359,7 +1516,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUnifiedAgentConfigurationResponse>{},
         body: await response.json(),
@@ -1398,6 +1561,9 @@ export class LoggingManagementClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1426,7 +1592,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1470,6 +1642,9 @@ export class LoggingManagementClient {
     listLogGroupsRequest: requests.ListLogGroupsRequest
   ): Promise<responses.ListLogGroupsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#listLogGroups.");
+    const operationName = "listLogGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroupSummary/ListLogGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -1504,7 +1679,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogGroupsResponse>{},
         body: await response.json(),
@@ -1602,6 +1783,9 @@ export class LoggingManagementClient {
   ): Promise<responses.ListLogIncludedSearchesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#listLogIncludedSearches.");
+    const operationName = "listLogIncludedSearches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogIncludedSearch/ListLogIncludedSearches";
     const pathParams = {};
 
     const queryParams = {
@@ -1636,7 +1820,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogIncludedSearchesResponse>{},
         body: await response.json(),
@@ -1682,6 +1872,9 @@ export class LoggingManagementClient {
   ): Promise<responses.ListLogSavedSearchesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#listLogSavedSearches.");
+    const operationName = "listLogSavedSearches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/ListLogSavedSearches";
     const pathParams = {};
 
     const queryParams = {
@@ -1716,7 +1909,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogSavedSearchesResponse>{},
         body: await response.json(),
@@ -1760,6 +1959,9 @@ export class LoggingManagementClient {
     listLogsRequest: requests.ListLogsRequest
   ): Promise<responses.ListLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#listLogs.");
+    const operationName = "listLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSummary/ListLogs";
     const pathParams = {
       "{logGroupId}": listLogsRequest.logGroupId
     };
@@ -1798,7 +2000,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLogsResponse>{},
         body: await response.json(),
@@ -1892,6 +2100,9 @@ export class LoggingManagementClient {
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#listServices.");
+    const operationName = "listServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/ServiceSummary/ListServices";
     const pathParams = {};
 
     const queryParams = {};
@@ -1918,7 +2129,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServicesResponse>{},
         body: await response.json(),
@@ -1965,6 +2182,9 @@ export class LoggingManagementClient {
       this.logger.debug(
         "Calling operation LoggingManagementClient#listUnifiedAgentConfigurations."
       );
+    const operationName = "listUnifiedAgentConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/ListUnifiedAgentConfigurations";
     const pathParams = {};
 
     const queryParams = {
@@ -2002,7 +2222,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUnifiedAgentConfigurationsResponse>{},
         body: await response.json(),
@@ -2048,6 +2274,9 @@ export class LoggingManagementClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -2079,7 +2308,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -2172,6 +2407,9 @@ export class LoggingManagementClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequestLog/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2203,7 +2441,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -2296,6 +2540,9 @@ export class LoggingManagementClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -2330,7 +2577,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -2428,6 +2681,9 @@ export class LoggingManagementClient {
     updateLogRequest: requests.UpdateLogRequest
   ): Promise<responses.UpdateLogResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#updateLog.");
+    const operationName = "updateLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/Log/UpdateLog";
     const pathParams = {
       "{logGroupId}": updateLogRequest.logGroupId,
       "{logId}": updateLogRequest.logId
@@ -2463,7 +2719,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogResponse>{},
         responseHeaders: [
@@ -2500,6 +2762,9 @@ export class LoggingManagementClient {
     updateLogGroupRequest: requests.UpdateLogGroupRequest
   ): Promise<responses.UpdateLogGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingManagementClient#updateLogGroup.");
+    const operationName = "updateLogGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogGroup/UpdateLogGroup";
     const pathParams = {
       "{logGroupId}": updateLogGroupRequest.logGroupId
     };
@@ -2534,7 +2799,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogGroupResponse>{},
         responseHeaders: [
@@ -2571,6 +2842,9 @@ export class LoggingManagementClient {
   ): Promise<responses.UpdateLogSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation LoggingManagementClient#updateLogSavedSearch.");
+    const operationName = "updateLogSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/LogSavedSearch/UpdateLogSavedSearch";
     const pathParams = {
       "{logSavedSearchId}": updateLogSavedSearchRequest.logSavedSearchId
     };
@@ -2605,7 +2879,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateLogSavedSearchResponse>{},
         body: await response.json(),
@@ -2649,6 +2929,9 @@ export class LoggingManagementClient {
       this.logger.debug(
         "Calling operation LoggingManagementClient#updateUnifiedAgentConfiguration."
       );
+    const operationName = "updateUnifiedAgentConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-management/20200531/UnifiedAgentConfiguration/UpdateUnifiedAgentConfiguration";
     const pathParams = {
       "{unifiedAgentConfigurationId}":
         updateUnifiedAgentConfigurationRequest.unifiedAgentConfigurationId
@@ -2684,7 +2967,13 @@ export class LoggingManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateUnifiedAgentConfigurationResponse>{},
         responseHeaders: [

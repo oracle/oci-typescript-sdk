@@ -37,6 +37,7 @@ export class AIServiceLanguageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AIServiceLanguage";
 
   protected _httpClient: common.HttpClient;
 
@@ -140,6 +141,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.BatchDetectDominantLanguageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectDominantLanguage.");
+    const operationName = "batchDetectDominantLanguage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/BatchDetectDominantLanguage/BatchDetectDominantLanguage";
     const pathParams = {};
 
     const queryParams = {};
@@ -171,7 +175,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BatchDetectDominantLanguageResponse>{},
         body: await response.json(),
@@ -206,6 +216,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.BatchDetectLanguageEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageEntities.");
+    const operationName = "batchDetectLanguageEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/BatchDetectLanguageEntities/BatchDetectLanguageEntities";
     const pathParams = {};
 
     const queryParams = {};
@@ -237,7 +250,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BatchDetectLanguageEntitiesResponse>{},
         body: await response.json(),
@@ -272,6 +291,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.BatchDetectLanguageKeyPhrasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageKeyPhrases.");
+    const operationName = "batchDetectLanguageKeyPhrases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/BatchDetectLanguageKeyPhrases/BatchDetectLanguageKeyPhrases";
     const pathParams = {};
 
     const queryParams = {};
@@ -303,7 +325,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BatchDetectLanguageKeyPhrasesResponse>{},
         body: await response.json(),
@@ -338,6 +366,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.BatchDetectLanguageSentimentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#batchDetectLanguageSentiments.");
+    const operationName = "batchDetectLanguageSentiments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/BatchDetectLanguageSentiments/BatchDetectLanguageSentiments";
     const pathParams = {};
 
     const queryParams = {
@@ -371,7 +402,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BatchDetectLanguageSentimentsResponse>{},
         body: await response.json(),
@@ -408,6 +445,9 @@ export class AIServiceLanguageClient {
       this.logger.debug(
         "Calling operation AIServiceLanguageClient#batchDetectLanguageTextClassification."
       );
+    const operationName = "batchDetectLanguageTextClassification";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/BatchDetectLanguageTextClassification/BatchDetectLanguageTextClassification";
     const pathParams = {};
 
     const queryParams = {};
@@ -439,7 +479,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BatchDetectLanguageTextClassificationResponse>{},
         body: await response.json(),
@@ -474,6 +520,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.DetectDominantLanguageResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#detectDominantLanguage.");
+    const operationName = "detectDominantLanguage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/DetectDominantLanguage/DetectDominantLanguage";
     const pathParams = {};
 
     const queryParams = {};
@@ -505,7 +554,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetectDominantLanguageResponse>{},
         body: await response.json(),
@@ -540,6 +595,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.DetectLanguageEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#detectLanguageEntities.");
+    const operationName = "detectLanguageEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/DetectLanguageEntities/DetectLanguageEntities";
     const pathParams = {};
 
     const queryParams = {
@@ -574,7 +632,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetectLanguageEntitiesResponse>{},
         body: await response.json(),
@@ -609,6 +673,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.DetectLanguageKeyPhrasesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#detectLanguageKeyPhrases.");
+    const operationName = "detectLanguageKeyPhrases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/DetectLanguageKeyPhrases/DetectLanguageKeyPhrases";
     const pathParams = {};
 
     const queryParams = {};
@@ -640,7 +707,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetectLanguageKeyPhrasesResponse>{},
         body: await response.json(),
@@ -675,6 +748,9 @@ export class AIServiceLanguageClient {
   ): Promise<responses.DetectLanguageSentimentsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceLanguageClient#detectLanguageSentiments.");
+    const operationName = "detectLanguageSentiments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/DetectLanguageSentiments/DetectLanguageSentiments";
     const pathParams = {};
 
     const queryParams = {};
@@ -706,7 +782,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetectLanguageSentimentsResponse>{},
         body: await response.json(),
@@ -743,6 +825,9 @@ export class AIServiceLanguageClient {
       this.logger.debug(
         "Calling operation AIServiceLanguageClient#detectLanguageTextClassification."
       );
+    const operationName = "detectLanguageTextClassification";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20210101/DetectLanguageTextClassification/DetectLanguageTextClassification";
     const pathParams = {};
 
     const queryParams = {};
@@ -774,7 +859,13 @@ export class AIServiceLanguageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetectLanguageTextClassificationResponse>{},
         body: await response.json(),

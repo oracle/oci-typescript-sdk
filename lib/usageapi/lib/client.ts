@@ -35,6 +35,7 @@ export class UsageapiClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Usageapi";
 
   protected _httpClient: common.HttpClient;
 
@@ -161,6 +162,9 @@ export class UsageapiClient {
     createCustomTableRequest: requests.CreateCustomTableRequest
   ): Promise<responses.CreateCustomTableResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#createCustomTable.");
+    const operationName = "createCustomTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/CreateCustomTable";
     const pathParams = {};
 
     const queryParams = {};
@@ -193,7 +197,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCustomTableResponse>{},
         body: await response.json(),
@@ -233,6 +243,9 @@ export class UsageapiClient {
     createQueryRequest: requests.CreateQueryRequest
   ): Promise<responses.CreateQueryResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#createQuery.");
+    const operationName = "createQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/CreateQuery";
     const pathParams = {};
 
     const queryParams = {};
@@ -265,7 +278,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateQueryResponse>{},
         body: await response.json(),
@@ -305,6 +324,9 @@ export class UsageapiClient {
     createScheduleRequest: requests.CreateScheduleRequest
   ): Promise<responses.CreateScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#createSchedule.");
+    const operationName = "createSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/CreateSchedule";
     const pathParams = {};
 
     const queryParams = {};
@@ -337,7 +359,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateScheduleResponse>{},
         body: await response.json(),
@@ -377,6 +405,9 @@ export class UsageapiClient {
     deleteCustomTableRequest: requests.DeleteCustomTableRequest
   ): Promise<responses.DeleteCustomTableResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteCustomTable.");
+    const operationName = "deleteCustomTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/DeleteCustomTable";
     const pathParams = {
       "{customTableId}": deleteCustomTableRequest.customTableId
     };
@@ -406,7 +437,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCustomTableResponse>{},
         responseHeaders: [
@@ -437,6 +474,9 @@ export class UsageapiClient {
     deleteQueryRequest: requests.DeleteQueryRequest
   ): Promise<responses.DeleteQueryResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteQuery.");
+    const operationName = "deleteQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/DeleteQuery";
     const pathParams = {
       "{queryId}": deleteQueryRequest.queryId
     };
@@ -466,7 +506,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteQueryResponse>{},
         responseHeaders: [
@@ -497,6 +543,9 @@ export class UsageapiClient {
     deleteScheduleRequest: requests.DeleteScheduleRequest
   ): Promise<responses.DeleteScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#deleteSchedule.");
+    const operationName = "deleteSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/DeleteSchedule";
     const pathParams = {
       "{scheduleId}": deleteScheduleRequest.scheduleId
     };
@@ -526,7 +575,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteScheduleResponse>{},
         responseHeaders: [
@@ -557,6 +612,9 @@ export class UsageapiClient {
     getCustomTableRequest: requests.GetCustomTableRequest
   ): Promise<responses.GetCustomTableResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#getCustomTable.");
+    const operationName = "getCustomTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/GetCustomTable";
     const pathParams = {
       "{customTableId}": getCustomTableRequest.customTableId
     };
@@ -585,7 +643,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCustomTableResponse>{},
         body: await response.json(),
@@ -625,6 +689,8 @@ export class UsageapiClient {
     getQueryRequest: requests.GetQueryRequest
   ): Promise<responses.GetQueryResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#getQuery.");
+    const operationName = "getQuery";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/GetQuery";
     const pathParams = {
       "{queryId}": getQueryRequest.queryId
     };
@@ -653,7 +719,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetQueryResponse>{},
         body: await response.json(),
@@ -693,6 +765,9 @@ export class UsageapiClient {
     getScheduleRequest: requests.GetScheduleRequest
   ): Promise<responses.GetScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#getSchedule.");
+    const operationName = "getSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/GetSchedule";
     const pathParams = {
       "{scheduleId}": getScheduleRequest.scheduleId
     };
@@ -721,7 +796,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetScheduleResponse>{},
         body: await response.json(),
@@ -761,6 +842,9 @@ export class UsageapiClient {
     getScheduledRunRequest: requests.GetScheduledRunRequest
   ): Promise<responses.GetScheduledRunResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#getScheduledRun.");
+    const operationName = "getScheduledRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/ScheduledRun/GetScheduledRun";
     const pathParams = {
       "{scheduledRunId}": getScheduledRunRequest.scheduledRunId
     };
@@ -789,7 +873,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetScheduledRunResponse>{},
         body: await response.json(),
@@ -829,6 +919,9 @@ export class UsageapiClient {
     listCustomTablesRequest: requests.ListCustomTablesRequest
   ): Promise<responses.ListCustomTablesResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#listCustomTables.");
+    const operationName = "listCustomTables";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/ListCustomTables";
     const pathParams = {};
 
     const queryParams = {
@@ -862,7 +955,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCustomTablesResponse>{},
         body: await response.json(),
@@ -902,6 +1001,9 @@ export class UsageapiClient {
     listQueriesRequest: requests.ListQueriesRequest
   ): Promise<responses.ListQueriesResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#listQueries.");
+    const operationName = "listQueries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/ListQueries";
     const pathParams = {};
 
     const queryParams = {
@@ -934,7 +1036,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListQueriesResponse>{},
         body: await response.json(),
@@ -974,6 +1082,9 @@ export class UsageapiClient {
     listScheduledRunsRequest: requests.ListScheduledRunsRequest
   ): Promise<responses.ListScheduledRunsResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#listScheduledRuns.");
+    const operationName = "listScheduledRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/ScheduledRun/ListScheduledRuns";
     const pathParams = {};
 
     const queryParams = {
@@ -1006,7 +1117,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListScheduledRunsResponse>{},
         body: await response.json(),
@@ -1046,6 +1163,9 @@ export class UsageapiClient {
     listSchedulesRequest: requests.ListSchedulesRequest
   ): Promise<responses.ListSchedulesResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#listSchedules.");
+    const operationName = "listSchedules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/ListSchedules";
     const pathParams = {};
 
     const queryParams = {
@@ -1079,7 +1199,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSchedulesResponse>{},
         body: await response.json(),
@@ -1120,6 +1246,9 @@ export class UsageapiClient {
   ): Promise<responses.RequestSummarizedConfigurationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation UsageapiClient#requestSummarizedConfigurations.");
+    const operationName = "requestSummarizedConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Configuration/RequestSummarizedConfigurations";
     const pathParams = {};
 
     const queryParams = {
@@ -1148,7 +1277,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedConfigurationsResponse>{},
         body: await response.json(),
@@ -1183,6 +1318,9 @@ export class UsageapiClient {
     requestSummarizedUsagesRequest: requests.RequestSummarizedUsagesRequest
   ): Promise<responses.RequestSummarizedUsagesResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#requestSummarizedUsages.");
+    const operationName = "requestSummarizedUsages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/UsageSummary/RequestSummarizedUsages";
     const pathParams = {};
 
     const queryParams = {
@@ -1217,7 +1355,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RequestSummarizedUsagesResponse>{},
         body: await response.json(),
@@ -1257,6 +1401,9 @@ export class UsageapiClient {
     updateCustomTableRequest: requests.UpdateCustomTableRequest
   ): Promise<responses.UpdateCustomTableResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateCustomTable.");
+    const operationName = "updateCustomTable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/CustomTable/UpdateCustomTable";
     const pathParams = {
       "{customTableId}": updateCustomTableRequest.customTableId
     };
@@ -1291,7 +1438,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCustomTableResponse>{},
         body: await response.json(),
@@ -1331,6 +1484,9 @@ export class UsageapiClient {
     updateQueryRequest: requests.UpdateQueryRequest
   ): Promise<responses.UpdateQueryResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateQuery.");
+    const operationName = "updateQuery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Query/UpdateQuery";
     const pathParams = {
       "{queryId}": updateQueryRequest.queryId
     };
@@ -1365,7 +1521,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateQueryResponse>{},
         body: await response.json(),
@@ -1405,6 +1567,9 @@ export class UsageapiClient {
     updateScheduleRequest: requests.UpdateScheduleRequest
   ): Promise<responses.UpdateScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation UsageapiClient#updateSchedule.");
+    const operationName = "updateSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage/20200107/Schedule/UpdateSchedule";
     const pathParams = {
       "{scheduleId}": updateScheduleRequest.scheduleId
     };
@@ -1439,7 +1604,13 @@ export class UsageapiClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateScheduleResponse>{},
         body: await response.json(),

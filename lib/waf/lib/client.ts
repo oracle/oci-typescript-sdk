@@ -37,6 +37,7 @@ export class WafClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Waf";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class WafClient {
   ): Promise<responses.ChangeNetworkAddressListCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WafClient#changeNetworkAddressListCompartment.");
+    const operationName = "changeNetworkAddressListCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/ChangeNetworkAddressListCompartment";
     const pathParams = {
       "{networkAddressListId}": changeNetworkAddressListCompartmentRequest.networkAddressListId
     };
@@ -199,7 +203,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeNetworkAddressListCompartmentResponse>{},
         responseHeaders: [
@@ -237,6 +247,9 @@ export class WafClient {
   ): Promise<responses.ChangeWebAppFirewallCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WafClient#changeWebAppFirewallCompartment.");
+    const operationName = "changeWebAppFirewallCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/ChangeWebAppFirewallCompartment";
     const pathParams = {
       "{webAppFirewallId}": changeWebAppFirewallCompartmentRequest.webAppFirewallId
     };
@@ -271,7 +284,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeWebAppFirewallCompartmentResponse>{},
         responseHeaders: [
@@ -309,6 +328,9 @@ export class WafClient {
   ): Promise<responses.ChangeWebAppFirewallPolicyCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WafClient#changeWebAppFirewallPolicyCompartment.");
+    const operationName = "changeWebAppFirewallPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/ChangeWebAppFirewallPolicyCompartment";
     const pathParams = {
       "{webAppFirewallPolicyId}":
         changeWebAppFirewallPolicyCompartmentRequest.webAppFirewallPolicyId
@@ -344,7 +366,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeWebAppFirewallPolicyCompartmentResponse>{},
         responseHeaders: [
@@ -380,6 +408,9 @@ export class WafClient {
     createNetworkAddressListRequest: requests.CreateNetworkAddressListRequest
   ): Promise<responses.CreateNetworkAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#createNetworkAddressList.");
+    const operationName = "createNetworkAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/CreateNetworkAddressList";
     const pathParams = {};
 
     const queryParams = {};
@@ -412,7 +443,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNetworkAddressListResponse>{},
         body: await response.json(),
@@ -467,6 +504,9 @@ export class WafClient {
     createWebAppFirewallRequest: requests.CreateWebAppFirewallRequest
   ): Promise<responses.CreateWebAppFirewallResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#createWebAppFirewall.");
+    const operationName = "createWebAppFirewall";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/CreateWebAppFirewall";
     const pathParams = {};
 
     const queryParams = {};
@@ -499,7 +539,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateWebAppFirewallResponse>{},
         body: await response.json(),
@@ -554,6 +600,9 @@ export class WafClient {
     createWebAppFirewallPolicyRequest: requests.CreateWebAppFirewallPolicyRequest
   ): Promise<responses.CreateWebAppFirewallPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#createWebAppFirewallPolicy.");
+    const operationName = "createWebAppFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/CreateWebAppFirewallPolicy";
     const pathParams = {};
 
     const queryParams = {};
@@ -586,7 +635,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateWebAppFirewallPolicyResponse>{},
         body: await response.json(),
@@ -640,6 +695,9 @@ export class WafClient {
     deleteNetworkAddressListRequest: requests.DeleteNetworkAddressListRequest
   ): Promise<responses.DeleteNetworkAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#deleteNetworkAddressList.");
+    const operationName = "deleteNetworkAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/DeleteNetworkAddressList";
     const pathParams = {
       "{networkAddressListId}": deleteNetworkAddressListRequest.networkAddressListId
     };
@@ -669,7 +727,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNetworkAddressListResponse>{},
         responseHeaders: [
@@ -704,6 +768,9 @@ export class WafClient {
     deleteWebAppFirewallRequest: requests.DeleteWebAppFirewallRequest
   ): Promise<responses.DeleteWebAppFirewallResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#deleteWebAppFirewall.");
+    const operationName = "deleteWebAppFirewall";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/DeleteWebAppFirewall";
     const pathParams = {
       "{webAppFirewallId}": deleteWebAppFirewallRequest.webAppFirewallId
     };
@@ -733,7 +800,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWebAppFirewallResponse>{},
         responseHeaders: [
@@ -768,6 +841,9 @@ export class WafClient {
     deleteWebAppFirewallPolicyRequest: requests.DeleteWebAppFirewallPolicyRequest
   ): Promise<responses.DeleteWebAppFirewallPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#deleteWebAppFirewallPolicy.");
+    const operationName = "deleteWebAppFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/DeleteWebAppFirewallPolicy";
     const pathParams = {
       "{webAppFirewallPolicyId}": deleteWebAppFirewallPolicyRequest.webAppFirewallPolicyId
     };
@@ -797,7 +873,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWebAppFirewallPolicyResponse>{},
         responseHeaders: [
@@ -832,6 +914,9 @@ export class WafClient {
     getNetworkAddressListRequest: requests.GetNetworkAddressListRequest
   ): Promise<responses.GetNetworkAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#getNetworkAddressList.");
+    const operationName = "getNetworkAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/GetNetworkAddressList";
     const pathParams = {
       "{networkAddressListId}": getNetworkAddressListRequest.networkAddressListId
     };
@@ -860,7 +945,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkAddressListResponse>{},
         body: await response.json(),
@@ -899,6 +990,9 @@ export class WafClient {
     getWebAppFirewallRequest: requests.GetWebAppFirewallRequest
   ): Promise<responses.GetWebAppFirewallResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#getWebAppFirewall.");
+    const operationName = "getWebAppFirewall";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/GetWebAppFirewall";
     const pathParams = {
       "{webAppFirewallId}": getWebAppFirewallRequest.webAppFirewallId
     };
@@ -927,7 +1021,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWebAppFirewallResponse>{},
         body: await response.json(),
@@ -966,6 +1066,9 @@ export class WafClient {
     getWebAppFirewallPolicyRequest: requests.GetWebAppFirewallPolicyRequest
   ): Promise<responses.GetWebAppFirewallPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#getWebAppFirewallPolicy.");
+    const operationName = "getWebAppFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/GetWebAppFirewallPolicy";
     const pathParams = {
       "{webAppFirewallPolicyId}": getWebAppFirewallPolicyRequest.webAppFirewallPolicyId
     };
@@ -994,7 +1097,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWebAppFirewallPolicyResponse>{},
         body: await response.json(),
@@ -1033,6 +1142,9 @@ export class WafClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1061,7 +1173,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1101,6 +1219,9 @@ export class WafClient {
     listNetworkAddressListsRequest: requests.ListNetworkAddressListsRequest
   ): Promise<responses.ListNetworkAddressListsResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#listNetworkAddressLists.");
+    const operationName = "listNetworkAddressLists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/ListNetworkAddressLists";
     const pathParams = {};
 
     const queryParams = {
@@ -1136,7 +1257,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkAddressListsResponse>{},
         body: await response.json(),
@@ -1176,6 +1303,9 @@ export class WafClient {
     listProtectionCapabilitiesRequest: requests.ListProtectionCapabilitiesRequest
   ): Promise<responses.ListProtectionCapabilitiesResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#listProtectionCapabilities.");
+    const operationName = "listProtectionCapabilities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/ProtectionCapability/ListProtectionCapabilities";
     const pathParams = {};
 
     const queryParams = {
@@ -1213,7 +1343,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProtectionCapabilitiesResponse>{},
         body: await response.json(),
@@ -1254,6 +1390,9 @@ export class WafClient {
   ): Promise<responses.ListProtectionCapabilityGroupTagsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation WafClient#listProtectionCapabilityGroupTags.");
+    const operationName = "listProtectionCapabilityGroupTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/ProtectionCapability/ListProtectionCapabilityGroupTags";
     const pathParams = {};
 
     const queryParams = {
@@ -1288,7 +1427,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProtectionCapabilityGroupTagsResponse>{},
         body: await response.json(),
@@ -1328,6 +1473,9 @@ export class WafClient {
     listWebAppFirewallPoliciesRequest: requests.ListWebAppFirewallPoliciesRequest
   ): Promise<responses.ListWebAppFirewallPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#listWebAppFirewallPolicies.");
+    const operationName = "listWebAppFirewallPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/ListWebAppFirewallPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -1363,7 +1511,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWebAppFirewallPoliciesResponse>{},
         body: await response.json(),
@@ -1403,6 +1557,9 @@ export class WafClient {
     listWebAppFirewallsRequest: requests.ListWebAppFirewallsRequest
   ): Promise<responses.ListWebAppFirewallsResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#listWebAppFirewalls.");
+    const operationName = "listWebAppFirewalls";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/ListWebAppFirewalls";
     const pathParams = {};
 
     const queryParams = {
@@ -1439,7 +1596,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWebAppFirewallsResponse>{},
         body: await response.json(),
@@ -1479,6 +1642,9 @@ export class WafClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1510,7 +1676,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1550,6 +1722,9 @@ export class WafClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1581,7 +1756,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1621,6 +1802,9 @@ export class WafClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1652,7 +1836,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1691,6 +1881,9 @@ export class WafClient {
     updateNetworkAddressListRequest: requests.UpdateNetworkAddressListRequest
   ): Promise<responses.UpdateNetworkAddressListResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#updateNetworkAddressList.");
+    const operationName = "updateNetworkAddressList";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/NetworkAddressList/UpdateNetworkAddressList";
     const pathParams = {
       "{networkAddressListId}": updateNetworkAddressListRequest.networkAddressListId
     };
@@ -1725,7 +1918,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNetworkAddressListResponse>{},
         responseHeaders: [
@@ -1760,6 +1959,9 @@ export class WafClient {
     updateWebAppFirewallRequest: requests.UpdateWebAppFirewallRequest
   ): Promise<responses.UpdateWebAppFirewallResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#updateWebAppFirewall.");
+    const operationName = "updateWebAppFirewall";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewall/UpdateWebAppFirewall";
     const pathParams = {
       "{webAppFirewallId}": updateWebAppFirewallRequest.webAppFirewallId
     };
@@ -1794,7 +1996,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWebAppFirewallResponse>{},
         responseHeaders: [
@@ -1829,6 +2037,9 @@ export class WafClient {
     updateWebAppFirewallPolicyRequest: requests.UpdateWebAppFirewallPolicyRequest
   ): Promise<responses.UpdateWebAppFirewallPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation WafClient#updateWebAppFirewallPolicy.");
+    const operationName = "updateWebAppFirewallPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/waf/20210930/WebAppFirewallPolicy/UpdateWebAppFirewallPolicy";
     const pathParams = {
       "{webAppFirewallPolicyId}": updateWebAppFirewallPolicyRequest.webAppFirewallPolicyId
     };
@@ -1863,7 +2074,13 @@ export class WafClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWebAppFirewallPolicyResponse>{},
         responseHeaders: [

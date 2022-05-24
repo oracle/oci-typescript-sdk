@@ -38,6 +38,7 @@ export class DashxApisClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DashxApis";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class DashxApisClient {
   ): Promise<responses.ChangeManagementDashboardsCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#changeManagementDashboardsCompartment.");
+    const operationName = "changeManagementDashboardsCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/ChangeManagementDashboardsCompartment";
     const pathParams = {
       "{managementDashboardId}": changeManagementDashboardsCompartmentRequest.managementDashboardId
     };
@@ -200,7 +204,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagementDashboardsCompartmentResponse>{},
         body: await response.json(),
@@ -248,6 +258,9 @@ export class DashxApisClient {
       this.logger.debug(
         "Calling operation DashxApisClient#changeManagementSavedSearchesCompartment."
       );
+    const operationName = "changeManagementSavedSearchesCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/ChangeManagementSavedSearchesCompartment";
     const pathParams = {
       "{managementSavedSearchId}":
         changeManagementSavedSearchesCompartmentRequest.managementSavedSearchId
@@ -284,7 +297,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeManagementSavedSearchesCompartmentResponse>{},
         body: await response.json(),
@@ -333,6 +352,9 @@ export class DashxApisClient {
   ): Promise<responses.CreateManagementDashboardResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#createManagementDashboard.");
+    const operationName = "createManagementDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/CreateManagementDashboard";
     const pathParams = {};
 
     const queryParams = {};
@@ -365,7 +387,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateManagementDashboardResponse>{},
         body: await response.json(),
@@ -414,6 +442,9 @@ export class DashxApisClient {
   ): Promise<responses.CreateManagementSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#createManagementSavedSearch.");
+    const operationName = "createManagementSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/CreateManagementSavedSearch";
     const pathParams = {};
 
     const queryParams = {};
@@ -446,7 +477,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateManagementSavedSearchResponse>{},
         body: await response.json(),
@@ -491,6 +528,9 @@ export class DashxApisClient {
   ): Promise<responses.DeleteManagementDashboardResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#deleteManagementDashboard.");
+    const operationName = "deleteManagementDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/DeleteManagementDashboard";
     const pathParams = {
       "{managementDashboardId}": deleteManagementDashboardRequest.managementDashboardId
     };
@@ -520,7 +560,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagementDashboardResponse>{},
         responseHeaders: [
@@ -556,6 +602,9 @@ export class DashxApisClient {
   ): Promise<responses.DeleteManagementSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#deleteManagementSavedSearch.");
+    const operationName = "deleteManagementSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/DeleteManagementSavedSearch";
     const pathParams = {
       "{managementSavedSearchId}": deleteManagementSavedSearchRequest.managementSavedSearchId
     };
@@ -585,7 +634,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteManagementSavedSearchResponse>{},
         responseHeaders: [
@@ -623,6 +678,9 @@ export class DashxApisClient {
     exportDashboardRequest: requests.ExportDashboardRequest
   ): Promise<responses.ExportDashboardResponse> {
     if (this.logger) this.logger.debug("Calling operation DashxApisClient#exportDashboard.");
+    const operationName = "exportDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboardImportDetails/ExportDashboard";
     const pathParams = {
       "{exportDashboardId}": exportDashboardRequest.exportDashboardId
     };
@@ -652,7 +710,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExportDashboardResponse>{},
         body: await response.json(),
@@ -691,6 +755,9 @@ export class DashxApisClient {
     getManagementDashboardRequest: requests.GetManagementDashboardRequest
   ): Promise<responses.GetManagementDashboardResponse> {
     if (this.logger) this.logger.debug("Calling operation DashxApisClient#getManagementDashboard.");
+    const operationName = "getManagementDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/GetManagementDashboard";
     const pathParams = {
       "{managementDashboardId}": getManagementDashboardRequest.managementDashboardId
     };
@@ -720,7 +787,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagementDashboardResponse>{},
         body: await response.json(),
@@ -765,6 +838,9 @@ export class DashxApisClient {
   ): Promise<responses.GetManagementSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#getManagementSavedSearch.");
+    const operationName = "getManagementSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/GetManagementSavedSearch";
     const pathParams = {
       "{managementSavedSearchId}": getManagementSavedSearchRequest.managementSavedSearchId
     };
@@ -794,7 +870,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetManagementSavedSearchResponse>{},
         body: await response.json(),
@@ -844,6 +926,9 @@ export class DashxApisClient {
     importDashboardRequest: requests.ImportDashboardRequest
   ): Promise<responses.ImportDashboardResponse> {
     if (this.logger) this.logger.debug("Calling operation DashxApisClient#importDashboard.");
+    const operationName = "importDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboardImportDetails/ImportDashboard";
     const pathParams = {};
 
     const queryParams = {};
@@ -877,7 +962,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportDashboardResponse>{},
         responseHeaders: [
@@ -913,6 +1004,9 @@ export class DashxApisClient {
   ): Promise<responses.ListManagementDashboardsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#listManagementDashboards.");
+    const operationName = "listManagementDashboards";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/ListManagementDashboards";
     const pathParams = {};
 
     const queryParams = {
@@ -946,7 +1040,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagementDashboardsResponse>{},
         body: await response.json(),
@@ -986,6 +1086,9 @@ export class DashxApisClient {
   ): Promise<responses.ListManagementSavedSearchesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#listManagementSavedSearches.");
+    const operationName = "listManagementSavedSearches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/ListManagementSavedSearches";
     const pathParams = {};
 
     const queryParams = {
@@ -1019,7 +1122,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListManagementSavedSearchesResponse>{},
         body: await response.json(),
@@ -1060,6 +1169,9 @@ export class DashxApisClient {
   ): Promise<responses.UpdateManagementDashboardResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#updateManagementDashboard.");
+    const operationName = "updateManagementDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementDashboard/UpdateManagementDashboard";
     const pathParams = {
       "{managementDashboardId}": updateManagementDashboardRequest.managementDashboardId
     };
@@ -1095,7 +1207,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagementDashboardResponse>{},
         body: await response.json(),
@@ -1141,6 +1259,9 @@ export class DashxApisClient {
   ): Promise<responses.UpdateManagementSavedSearchResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashxApisClient#updateManagementSavedSearch.");
+    const operationName = "updateManagementSavedSearch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/managementdashboard/20200901/ManagementSavedSearch/UpdateManagementSavedSearch";
     const pathParams = {
       "{managementSavedSearchId}": updateManagementSavedSearchRequest.managementSavedSearchId
     };
@@ -1176,7 +1297,13 @@ export class DashxApisClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateManagementSavedSearchResponse>{},
         body: await response.json(),

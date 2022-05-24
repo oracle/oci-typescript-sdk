@@ -44,6 +44,7 @@ export class ObjectStorageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ObjectStorage";
 
   protected _httpClient: common.HttpClient;
 
@@ -170,6 +171,9 @@ export class ObjectStorageClient {
   ): Promise<responses.AbortMultipartUploadResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#abortMultipartUpload.");
+    const operationName = "abortMultipartUpload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/AbortMultipartUpload";
     const pathParams = {
       "{namespaceName}": abortMultipartUploadRequest.namespaceName,
       "{bucketName}": abortMultipartUploadRequest.bucketName,
@@ -202,7 +206,13 @@ export class ObjectStorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AbortMultipartUploadResponse>{},
         responseHeaders: [
@@ -238,6 +248,9 @@ export class ObjectStorageClient {
     cancelWorkRequestRequest: requests.CancelWorkRequestRequest
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -266,7 +279,13 @@ export class ObjectStorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -303,6 +322,9 @@ export class ObjectStorageClient {
   ): Promise<responses.CommitMultipartUploadResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#commitMultipartUpload.");
+    const operationName = "commitMultipartUpload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/CommitMultipartUpload";
     const pathParams = {
       "{namespaceName}": commitMultipartUploadRequest.namespaceName,
       "{bucketName}": commitMultipartUploadRequest.bucketName,
@@ -342,7 +364,13 @@ export class ObjectStorageClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CommitMultipartUploadResponse>{},
         responseHeaders: [
@@ -401,6 +429,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     copyObjectRequest: requests.CopyObjectRequest
   ): Promise<responses.CopyObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#copyObject.");
+    const operationName = "copyObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/CopyObject";
     const pathParams = {
       "{namespaceName}": copyObjectRequest.namespaceName,
       "{bucketName}": copyObjectRequest.bucketName
@@ -442,7 +473,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CopyObjectResponse>{},
         responseHeaders: [
@@ -484,6 +521,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     createBucketRequest: requests.CreateBucketRequest
   ): Promise<responses.CreateBucketResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#createBucket.");
+    const operationName = "createBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/CreateBucket";
     const pathParams = {
       "{namespaceName}": createBucketRequest.namespaceName
     };
@@ -517,7 +557,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBucketResponse>{},
         body: await response.json(),
@@ -571,6 +617,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.CreateMultipartUploadResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#createMultipartUpload.");
+    const operationName = "createMultipartUpload";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/CreateMultipartUpload";
     const pathParams = {
       "{namespaceName}": createMultipartUploadRequest.namespaceName,
       "{bucketName}": createMultipartUploadRequest.bucketName
@@ -611,7 +660,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMultipartUploadResponse>{},
         body: await response.json(),
@@ -657,6 +712,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.CreatePreauthenticatedRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#createPreauthenticatedRequest.");
+    const operationName = "createPreauthenticatedRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/CreatePreauthenticatedRequest";
     const pathParams = {
       "{namespaceName}": createPreauthenticatedRequestRequest.namespaceName,
       "{bucketName}": createPreauthenticatedRequestRequest.bucketName
@@ -691,7 +749,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePreauthenticatedRequestResponse>{},
         body: await response.json(),
@@ -732,6 +796,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.CreateReplicationPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#createReplicationPolicy.");
+    const operationName = "createReplicationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/CreateReplicationPolicy";
     const pathParams = {
       "{namespaceName}": createReplicationPolicyRequest.namespaceName,
       "{bucketName}": createReplicationPolicyRequest.bucketName
@@ -766,7 +833,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateReplicationPolicyResponse>{},
         body: await response.json(),
@@ -808,6 +881,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.CreateRetentionRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#createRetentionRule.");
+    const operationName = "createRetentionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/CreateRetentionRule";
     const pathParams = {
       "{namespaceName}": createRetentionRuleRequest.namespaceName,
       "{bucketName}": createRetentionRuleRequest.bucketName
@@ -842,7 +918,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRetentionRuleResponse>{},
         body: await response.json(),
@@ -890,6 +972,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     deleteBucketRequest: requests.DeleteBucketRequest
   ): Promise<responses.DeleteBucketResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#deleteBucket.");
+    const operationName = "deleteBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/DeleteBucket";
     const pathParams = {
       "{namespaceName}": deleteBucketRequest.namespaceName,
       "{bucketName}": deleteBucketRequest.bucketName
@@ -920,7 +1005,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBucketResponse>{},
         responseHeaders: [
@@ -956,6 +1047,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     deleteObjectRequest: requests.DeleteObjectRequest
   ): Promise<responses.DeleteObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#deleteObject.");
+    const operationName = "deleteObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/DeleteObject";
     const pathParams = {
       "{namespaceName}": deleteObjectRequest.namespaceName,
       "{bucketName}": deleteObjectRequest.bucketName,
@@ -989,7 +1083,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteObjectResponse>{},
         responseHeaders: [
@@ -1041,6 +1141,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.DeleteObjectLifecyclePolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#deleteObjectLifecyclePolicy.");
+    const operationName = "deleteObjectLifecyclePolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/ObjectLifecyclePolicy/DeleteObjectLifecyclePolicy";
     const pathParams = {
       "{namespaceName}": deleteObjectLifecyclePolicyRequest.namespaceName,
       "{bucketName}": deleteObjectLifecyclePolicyRequest.bucketName
@@ -1071,7 +1174,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteObjectLifecyclePolicyResponse>{},
         responseHeaders: [
@@ -1107,6 +1216,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.DeletePreauthenticatedRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#deletePreauthenticatedRequest.");
+    const operationName = "deletePreauthenticatedRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/DeletePreauthenticatedRequest";
     const pathParams = {
       "{namespaceName}": deletePreauthenticatedRequestRequest.namespaceName,
       "{bucketName}": deletePreauthenticatedRequestRequest.bucketName,
@@ -1137,7 +1249,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePreauthenticatedRequestResponse>{},
         responseHeaders: [
@@ -1174,6 +1292,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.DeleteReplicationPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#deleteReplicationPolicy.");
+    const operationName = "deleteReplicationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/DeleteReplicationPolicy";
     const pathParams = {
       "{namespaceName}": deleteReplicationPolicyRequest.namespaceName,
       "{bucketName}": deleteReplicationPolicyRequest.bucketName,
@@ -1204,7 +1325,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteReplicationPolicyResponse>{},
         responseHeaders: [
@@ -1240,6 +1367,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
   ): Promise<responses.DeleteRetentionRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#deleteRetentionRule.");
+    const operationName = "deleteRetentionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/DeleteRetentionRule";
     const pathParams = {
       "{namespaceName}": deleteRetentionRuleRequest.namespaceName,
       "{bucketName}": deleteRetentionRuleRequest.bucketName,
@@ -1271,7 +1401,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRetentionRuleResponse>{},
         responseHeaders: [
@@ -1307,6 +1443,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     getBucketRequest: requests.GetBucketRequest
   ): Promise<responses.GetBucketResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getBucket.");
+    const operationName = "getBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/GetBucket";
     const pathParams = {
       "{namespaceName}": getBucketRequest.namespaceName,
       "{bucketName}": getBucketRequest.bucketName
@@ -1340,7 +1479,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBucketResponse>{},
         body: await response.json(),
@@ -1391,6 +1536,9 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
     getNamespaceRequest: requests.GetNamespaceRequest
   ): Promise<responses.GetNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getNamespace.");
+    const operationName = "getNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Namespace/GetNamespace";
     const pathParams = {};
 
     const queryParams = {
@@ -1419,7 +1567,13 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNamespaceResponse>{},
         body: await response.json(),
@@ -1455,6 +1609,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   ): Promise<responses.GetNamespaceMetadataResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#getNamespaceMetadata.");
+    const operationName = "getNamespaceMetadata";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Namespace/GetNamespaceMetadata";
     const pathParams = {
       "{namespaceName}": getNamespaceMetadataRequest.namespaceName
     };
@@ -1483,7 +1640,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNamespaceMetadataResponse>{},
         body: await response.json(),
@@ -1523,6 +1686,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     getObjectRequest: requests.GetObjectRequest
   ): Promise<responses.GetObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getObject.");
+    const operationName = "getObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/GetObject";
     const pathParams = {
       "{namespaceName}": getObjectRequest.namespaceName,
       "{bucketName}": getObjectRequest.bucketName,
@@ -1567,7 +1733,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetObjectResponse>{},
 
@@ -1696,6 +1868,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   ): Promise<responses.GetObjectLifecyclePolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#getObjectLifecyclePolicy.");
+    const operationName = "getObjectLifecyclePolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/ObjectLifecyclePolicy/GetObjectLifecyclePolicy";
     const pathParams = {
       "{namespaceName}": getObjectLifecyclePolicyRequest.namespaceName,
       "{bucketName}": getObjectLifecyclePolicyRequest.bucketName
@@ -1725,7 +1900,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetObjectLifecyclePolicyResponse>{},
         body: await response.json(),
@@ -1770,6 +1951,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   ): Promise<responses.GetPreauthenticatedRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#getPreauthenticatedRequest.");
+    const operationName = "getPreauthenticatedRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/GetPreauthenticatedRequest";
     const pathParams = {
       "{namespaceName}": getPreauthenticatedRequestRequest.namespaceName,
       "{bucketName}": getPreauthenticatedRequestRequest.bucketName,
@@ -1800,7 +1984,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPreauthenticatedRequestResponse>{},
         body: await response.json(),
@@ -1841,6 +2031,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
   ): Promise<responses.GetReplicationPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#getReplicationPolicy.");
+    const operationName = "getReplicationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/GetReplicationPolicy";
     const pathParams = {
       "{namespaceName}": getReplicationPolicyRequest.namespaceName,
       "{bucketName}": getReplicationPolicyRequest.bucketName,
@@ -1871,7 +2064,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetReplicationPolicyResponse>{},
         body: await response.json(),
@@ -1910,6 +2109,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     getRetentionRuleRequest: requests.GetRetentionRuleRequest
   ): Promise<responses.GetRetentionRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getRetentionRule.");
+    const operationName = "getRetentionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/GetRetentionRule";
     const pathParams = {
       "{namespaceName}": getRetentionRuleRequest.namespaceName,
       "{bucketName}": getRetentionRuleRequest.bucketName,
@@ -1940,7 +2142,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRetentionRuleResponse>{},
         body: await response.json(),
@@ -1989,6 +2197,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -2017,7 +2228,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -2062,6 +2279,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     headBucketRequest: requests.HeadBucketRequest
   ): Promise<responses.HeadBucketResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#headBucket.");
+    const operationName = "headBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/HeadBucket";
     const pathParams = {
       "{namespaceName}": headBucketRequest.namespaceName,
       "{bucketName}": headBucketRequest.bucketName
@@ -2093,7 +2313,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.HeadBucketResponse>{},
         responseHeaders: [
@@ -2134,6 +2360,9 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     headObjectRequest: requests.HeadObjectRequest
   ): Promise<responses.HeadObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#headObject.");
+    const operationName = "headObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/HeadObject";
     const pathParams = {
       "{namespaceName}": headObjectRequest.namespaceName,
       "{bucketName}": headObjectRequest.bucketName,
@@ -2171,7 +2400,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.HeadObjectResponse>{},
         responseHeaders: [
@@ -2293,6 +2528,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     listBucketsRequest: requests.ListBucketsRequest
   ): Promise<responses.ListBucketsResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listBuckets.");
+    const operationName = "listBuckets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/ListBuckets";
     const pathParams = {
       "{namespaceName}": listBucketsRequest.namespaceName
     };
@@ -2326,7 +2564,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBucketsResponse>{},
         body: await response.json(),
@@ -2424,6 +2668,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   ): Promise<responses.ListMultipartUploadPartsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#listMultipartUploadParts.");
+    const operationName = "listMultipartUploadParts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/ListMultipartUploadParts";
     const pathParams = {
       "{namespaceName}": listMultipartUploadPartsRequest.namespaceName,
       "{bucketName}": listMultipartUploadPartsRequest.bucketName,
@@ -2458,7 +2705,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMultipartUploadPartsResponse>{},
         body: await response.json(),
@@ -2556,6 +2809,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   ): Promise<responses.ListMultipartUploadsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#listMultipartUploads.");
+    const operationName = "listMultipartUploads";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/ListMultipartUploads";
     const pathParams = {
       "{namespaceName}": listMultipartUploadsRequest.namespaceName,
       "{bucketName}": listMultipartUploadsRequest.bucketName
@@ -2588,7 +2844,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMultipartUploadsResponse>{},
         body: await response.json(),
@@ -2692,6 +2954,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     listObjectVersionsRequest: requests.ListObjectVersionsRequest
   ): Promise<responses.ListObjectVersionsResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listObjectVersions.");
+    const operationName = "listObjectVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/ListObjectVersions";
     const pathParams = {
       "{namespaceName}": listObjectVersionsRequest.namespaceName,
       "{bucketName}": listObjectVersionsRequest.bucketName
@@ -2730,7 +2995,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListObjectVersionsResponse>{},
         body: await response.json(),
@@ -2784,6 +3055,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     listObjectsRequest: requests.ListObjectsRequest
   ): Promise<responses.ListObjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listObjects.");
+    const operationName = "listObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/ListObjects";
     const pathParams = {
       "{namespaceName}": listObjectsRequest.namespaceName,
       "{bucketName}": listObjectsRequest.bucketName
@@ -2821,7 +3095,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListObjectsResponse>{},
         body: await response.json(),
@@ -2936,6 +3216,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   ): Promise<responses.ListPreauthenticatedRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#listPreauthenticatedRequests.");
+    const operationName = "listPreauthenticatedRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/PreauthenticatedRequest/ListPreauthenticatedRequests";
     const pathParams = {
       "{namespaceName}": listPreauthenticatedRequestsRequest.namespaceName,
       "{bucketName}": listPreauthenticatedRequestsRequest.bucketName
@@ -2969,7 +3252,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPreauthenticatedRequestsResponse>{},
         body: await response.json(),
@@ -3067,6 +3356,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   ): Promise<responses.ListReplicationPoliciesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#listReplicationPolicies.");
+    const operationName = "listReplicationPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/ListReplicationPolicies";
     const pathParams = {
       "{namespaceName}": listReplicationPoliciesRequest.namespaceName,
       "{bucketName}": listReplicationPoliciesRequest.bucketName
@@ -3099,7 +3391,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReplicationPoliciesResponse>{},
         body: await response.json(),
@@ -3197,6 +3495,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   ): Promise<responses.ListReplicationSourcesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#listReplicationSources.");
+    const operationName = "listReplicationSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/ListReplicationSources";
     const pathParams = {
       "{namespaceName}": listReplicationSourcesRequest.namespaceName,
       "{bucketName}": listReplicationSourcesRequest.bucketName
@@ -3229,7 +3530,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReplicationSourcesResponse>{},
         body: await response.json(),
@@ -3327,6 +3634,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     listRetentionRulesRequest: requests.ListRetentionRulesRequest
   ): Promise<responses.ListRetentionRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listRetentionRules.");
+    const operationName = "listRetentionRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/ListRetentionRules";
     const pathParams = {
       "{namespaceName}": listRetentionRulesRequest.namespaceName,
       "{bucketName}": listRetentionRulesRequest.bucketName
@@ -3357,7 +3667,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRetentionRulesResponse>{},
         body: await response.json(),
@@ -3402,6 +3718,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -3433,7 +3752,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -3530,6 +3855,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -3561,7 +3889,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -3658,6 +3992,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -3688,7 +4025,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -3788,6 +4131,9 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     makeBucketWritableRequest: requests.MakeBucketWritableRequest
   ): Promise<responses.MakeBucketWritableResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#makeBucketWritable.");
+    const operationName = "makeBucketWritable";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Replication/MakeBucketWritable";
     const pathParams = {
       "{namespaceName}": makeBucketWritableRequest.namespaceName,
       "{bucketName}": makeBucketWritableRequest.bucketName
@@ -3817,7 +4163,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.MakeBucketWritableResponse>{},
         responseHeaders: [
@@ -3860,6 +4212,9 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
     putObjectRequest: requests.PutObjectRequest
   ): Promise<responses.PutObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#putObject.");
+    const operationName = "putObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/PutObject";
     const pathParams = {
       "{namespaceName}": putObjectRequest.namespaceName,
       "{bucketName}": putObjectRequest.bucketName,
@@ -3911,7 +4266,14 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PutObjectResponse>{},
         responseHeaders: [
@@ -3968,6 +4330,9 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
   ): Promise<responses.PutObjectLifecyclePolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#putObjectLifecyclePolicy.");
+    const operationName = "putObjectLifecyclePolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/ObjectLifecyclePolicy/PutObjectLifecyclePolicy";
     const pathParams = {
       "{namespaceName}": putObjectLifecyclePolicyRequest.namespaceName,
       "{bucketName}": putObjectLifecyclePolicyRequest.bucketName
@@ -4004,7 +4369,13 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PutObjectLifecyclePolicyResponse>{},
         body: await response.json(),
@@ -4063,6 +4434,9 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
     reencryptBucketRequest: requests.ReencryptBucketRequest
   ): Promise<responses.ReencryptBucketResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#reencryptBucket.");
+    const operationName = "reencryptBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/ReencryptBucket";
     const pathParams = {
       "{namespaceName}": reencryptBucketRequest.namespaceName,
       "{bucketName}": reencryptBucketRequest.bucketName
@@ -4092,7 +4466,13 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ReencryptBucketResponse>{},
         responseHeaders: [
@@ -4141,6 +4521,9 @@ You can alternatively employ one of these encryption strategies for an object:
     reencryptObjectRequest: requests.ReencryptObjectRequest
   ): Promise<responses.ReencryptObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#reencryptObject.");
+    const operationName = "reencryptObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/ReencryptObject";
     const pathParams = {
       "{namespaceName}": reencryptObjectRequest.namespaceName,
       "{bucketName}": reencryptObjectRequest.bucketName,
@@ -4178,7 +4561,13 @@ You can alternatively employ one of these encryption strategies for an object:
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ReencryptObjectResponse>{},
         responseHeaders: [
@@ -4217,6 +4606,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     renameObjectRequest: requests.RenameObjectRequest
   ): Promise<responses.RenameObjectResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#renameObject.");
+    const operationName = "renameObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/RenameObject";
     const pathParams = {
       "{namespaceName}": renameObjectRequest.namespaceName,
       "{bucketName}": renameObjectRequest.bucketName
@@ -4251,7 +4643,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RenameObjectResponse>{},
         responseHeaders: [
@@ -4303,6 +4701,9 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     restoreObjectsRequest: requests.RestoreObjectsRequest
   ): Promise<responses.RestoreObjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#restoreObjects.");
+    const operationName = "restoreObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/RestoreObjects";
     const pathParams = {
       "{namespaceName}": restoreObjectsRequest.namespaceName,
       "{bucketName}": restoreObjectsRequest.bucketName
@@ -4337,7 +4738,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreObjectsResponse>{},
         responseHeaders: [
@@ -4377,6 +4784,9 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
     updateBucketRequest: requests.UpdateBucketRequest
   ): Promise<responses.UpdateBucketResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#updateBucket.");
+    const operationName = "updateBucket";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Bucket/UpdateBucket";
     const pathParams = {
       "{namespaceName}": updateBucketRequest.namespaceName,
       "{bucketName}": updateBucketRequest.bucketName
@@ -4412,7 +4822,13 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBucketResponse>{},
         body: await response.json(),
@@ -4464,6 +4880,9 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   ): Promise<responses.UpdateNamespaceMetadataResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#updateNamespaceMetadata.");
+    const operationName = "updateNamespaceMetadata";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Namespace/UpdateNamespaceMetadata";
     const pathParams = {
       "{namespaceName}": updateNamespaceMetadataRequest.namespaceName
     };
@@ -4497,7 +4916,13 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNamespaceMetadataResponse>{},
         body: await response.json(),
@@ -4538,6 +4963,9 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   ): Promise<responses.UpdateObjectStorageTierResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#updateObjectStorageTier.");
+    const operationName = "updateObjectStorageTier";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/Object/UpdateObjectStorageTier";
     const pathParams = {
       "{namespaceName}": updateObjectStorageTierRequest.namespaceName,
       "{bucketName}": updateObjectStorageTierRequest.bucketName
@@ -4572,7 +5000,13 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateObjectStorageTierResponse>{},
         responseHeaders: [
@@ -4609,6 +5043,9 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
   ): Promise<responses.UpdateRetentionRuleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ObjectStorageClient#updateRetentionRule.");
+    const operationName = "updateRetentionRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/RetentionRule/UpdateRetentionRule";
     const pathParams = {
       "{namespaceName}": updateRetentionRuleRequest.namespaceName,
       "{bucketName}": updateRetentionRuleRequest.bucketName,
@@ -4645,7 +5082,13 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRetentionRuleResponse>{},
         body: await response.json(),
@@ -4690,6 +5133,9 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
     uploadPartRequest: requests.UploadPartRequest
   ): Promise<responses.UploadPartResponse> {
     if (this.logger) this.logger.debug("Calling operation ObjectStorageClient#uploadPart.");
+    const operationName = "uploadPart";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/objectstorage/20160918/MultipartUpload/UploadPart";
     const pathParams = {
       "{namespaceName}": uploadPartRequest.namespaceName,
       "{bucketName}": uploadPartRequest.bucketName,
@@ -4733,7 +5179,14 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request, true);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadPartResponse>{},
         responseHeaders: [

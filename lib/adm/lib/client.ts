@@ -35,6 +35,7 @@ export class ApplicationDependencyManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ApplicationDependencyManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#cancelWorkRequest."
       );
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -193,7 +196,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -226,6 +235,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#changeKnowledgeBaseCompartment."
       );
+    const operationName = "changeKnowledgeBaseCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{knowledgeBaseId}": changeKnowledgeBaseCompartmentRequest.knowledgeBaseId
     };
@@ -261,7 +272,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeKnowledgeBaseCompartmentResponse>{},
         responseHeaders: [
@@ -299,6 +316,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#changeVulnerabilityAuditCompartment."
       );
+    const operationName = "changeVulnerabilityAuditCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vulnerabilityAuditId}": changeVulnerabilityAuditCompartmentRequest.vulnerabilityAuditId
     };
@@ -334,7 +353,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeVulnerabilityAuditCompartmentResponse>{},
         responseHeaders: [
@@ -367,6 +392,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#createKnowledgeBase."
       );
+    const operationName = "createKnowledgeBase";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -399,7 +426,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateKnowledgeBaseResponse>{},
         responseHeaders: [
@@ -437,6 +470,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#createVulnerabilityAudit."
       );
+    const operationName = "createVulnerabilityAudit";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -470,7 +505,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateVulnerabilityAuditResponse>{},
         body: await response.json(),
@@ -517,6 +558,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#deleteKnowledgeBase."
       );
+    const operationName = "deleteKnowledgeBase";
+    const apiReferenceLink = "";
     const pathParams = {
       "{knowledgeBaseId}": deleteKnowledgeBaseRequest.knowledgeBaseId
     };
@@ -546,7 +589,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteKnowledgeBaseResponse>{},
         responseHeaders: [
@@ -584,6 +633,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#deleteVulnerabilityAudit."
       );
+    const operationName = "deleteVulnerabilityAudit";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vulnerabilityAuditId}": deleteVulnerabilityAuditRequest.vulnerabilityAuditId
     };
@@ -613,7 +664,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteVulnerabilityAuditResponse>{},
         responseHeaders: [
@@ -646,6 +703,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#getKnowledgeBase."
       );
+    const operationName = "getKnowledgeBase";
+    const apiReferenceLink = "";
     const pathParams = {
       "{knowledgeBaseId}": getKnowledgeBaseRequest.knowledgeBaseId
     };
@@ -674,7 +733,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetKnowledgeBaseResponse>{},
         body: await response.json(),
@@ -716,6 +781,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#getVulnerabilityAudit."
       );
+    const operationName = "getVulnerabilityAudit";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vulnerabilityAuditId}": getVulnerabilityAuditRequest.vulnerabilityAuditId
     };
@@ -744,7 +811,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetVulnerabilityAuditResponse>{},
         body: await response.json(),
@@ -784,6 +857,8 @@ export class ApplicationDependencyManagementClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ApplicationDependencyManagementClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -812,7 +887,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -859,6 +940,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#listApplicationDependencyVulnerabilities."
       );
+    const operationName = "listApplicationDependencyVulnerabilities";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vulnerabilityAuditId}": listApplicationDependencyVulnerabilitiesRequest.vulnerabilityAuditId
     };
@@ -898,7 +981,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApplicationDependencyVulnerabilitiesResponse>{},
         body: await response.json(),
@@ -942,6 +1031,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#listKnowledgeBases."
       );
+    const operationName = "listKnowledgeBases";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -977,7 +1068,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListKnowledgeBasesResponse>{},
         body: await response.json(),
@@ -1021,6 +1118,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#listVulnerabilityAudits."
       );
+    const operationName = "listVulnerabilityAudits";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1058,7 +1157,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListVulnerabilityAuditsResponse>{},
         body: await response.json(),
@@ -1101,6 +1206,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#listWorkRequestErrors."
       );
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1134,7 +1241,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1177,6 +1290,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#listWorkRequestLogs."
       );
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1210,7 +1325,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1253,6 +1374,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#listWorkRequests."
       );
+    const operationName = "listWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1288,7 +1411,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1330,6 +1459,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#updateKnowledgeBase."
       );
+    const operationName = "updateKnowledgeBase";
+    const apiReferenceLink = "";
     const pathParams = {
       "{knowledgeBaseId}": updateKnowledgeBaseRequest.knowledgeBaseId
     };
@@ -1364,7 +1495,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateKnowledgeBaseResponse>{},
         responseHeaders: [
@@ -1402,6 +1539,8 @@ export class ApplicationDependencyManagementClient {
       this.logger.debug(
         "Calling operation ApplicationDependencyManagementClient#updateVulnerabilityAudit."
       );
+    const operationName = "updateVulnerabilityAudit";
+    const apiReferenceLink = "";
     const pathParams = {
       "{vulnerabilityAuditId}": updateVulnerabilityAuditRequest.vulnerabilityAuditId
     };
@@ -1436,7 +1575,13 @@ export class ApplicationDependencyManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateVulnerabilityAuditResponse>{},
         body: await response.json(),

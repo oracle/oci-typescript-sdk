@@ -36,6 +36,7 @@ export class AIServiceSpeechClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AIServiceSpeech";
 
   protected _httpClient: common.HttpClient;
 
@@ -162,6 +163,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.CancelTranscriptionJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#cancelTranscriptionJob.");
+    const operationName = "cancelTranscriptionJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/CancelTranscriptionJob";
     const pathParams = {
       "{transcriptionJobId}": cancelTranscriptionJobRequest.transcriptionJobId
     };
@@ -192,7 +196,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelTranscriptionJobResponse>{},
         responseHeaders: [
@@ -223,6 +233,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.CancelTranscriptionTaskResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#cancelTranscriptionTask.");
+    const operationName = "cancelTranscriptionTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionTask/CancelTranscriptionTask";
     const pathParams = {
       "{transcriptionJobId}": cancelTranscriptionTaskRequest.transcriptionJobId,
       "{transcriptionTaskId}": cancelTranscriptionTaskRequest.transcriptionTaskId
@@ -255,7 +268,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelTranscriptionTaskResponse>{},
         responseHeaders: [
@@ -288,6 +307,9 @@ export class AIServiceSpeechClient {
       this.logger.debug(
         "Calling operation AIServiceSpeechClient#changeTranscriptionJobCompartment."
       );
+    const operationName = "changeTranscriptionJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/ChangeTranscriptionJobCompartment";
     const pathParams = {
       "{transcriptionJobId}": changeTranscriptionJobCompartmentRequest.transcriptionJobId
     };
@@ -323,7 +345,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTranscriptionJobCompartmentResponse>{},
         responseHeaders: [
@@ -355,6 +383,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.CreateTranscriptionJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#createTranscriptionJob.");
+    const operationName = "createTranscriptionJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/CreateTranscriptionJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -387,7 +418,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTranscriptionJobResponse>{},
         body: await response.json(),
@@ -427,6 +464,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.GetTranscriptionJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#getTranscriptionJob.");
+    const operationName = "getTranscriptionJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/GetTranscriptionJob";
     const pathParams = {
       "{transcriptionJobId}": getTranscriptionJobRequest.transcriptionJobId
     };
@@ -455,7 +495,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTranscriptionJobResponse>{},
         body: await response.json(),
@@ -495,6 +541,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.GetTranscriptionTaskResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#getTranscriptionTask.");
+    const operationName = "getTranscriptionTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionTask/GetTranscriptionTask";
     const pathParams = {
       "{transcriptionJobId}": getTranscriptionTaskRequest.transcriptionJobId,
       "{transcriptionTaskId}": getTranscriptionTaskRequest.transcriptionTaskId
@@ -524,7 +573,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTranscriptionTaskResponse>{},
         body: await response.json(),
@@ -565,6 +620,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.ListTranscriptionJobsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#listTranscriptionJobs.");
+    const operationName = "listTranscriptionJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/ListTranscriptionJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -600,7 +658,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTranscriptionJobsResponse>{},
         body: await response.json(),
@@ -646,6 +710,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.ListTranscriptionTasksResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#listTranscriptionTasks.");
+    const operationName = "listTranscriptionTasks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionTask/ListTranscriptionTasks";
     const pathParams = {
       "{transcriptionJobId}": listTranscriptionTasksRequest.transcriptionJobId
     };
@@ -682,7 +749,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTranscriptionTasksResponse>{},
         body: await response.json(),
@@ -727,6 +800,9 @@ export class AIServiceSpeechClient {
   ): Promise<responses.UpdateTranscriptionJobResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AIServiceSpeechClient#updateTranscriptionJob.");
+    const operationName = "updateTranscriptionJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/speech/20220101/TranscriptionJob/UpdateTranscriptionJob";
     const pathParams = {
       "{transcriptionJobId}": updateTranscriptionJobRequest.transcriptionJobId
     };
@@ -761,7 +837,13 @@ export class AIServiceSpeechClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTranscriptionJobResponse>{},
         body: await response.json(),

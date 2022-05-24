@@ -35,6 +35,7 @@ export class OrganizationSubscriptionClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "OrganizationSubscription";
 
   protected _httpClient: common.HttpClient;
 
@@ -142,6 +143,8 @@ export class OrganizationSubscriptionClient {
       this.logger.debug(
         "Calling operation OrganizationSubscriptionClient#listOrganizationSubscriptions."
       );
+    const operationName = "listOrganizationSubscriptions";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -176,7 +179,13 @@ export class OrganizationSubscriptionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOrganizationSubscriptionsResponse>{},
         body: await response.json(),

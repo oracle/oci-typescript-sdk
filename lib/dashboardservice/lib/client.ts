@@ -44,6 +44,7 @@ export class DashboardClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Dashboard";
 
   protected _httpClient: common.HttpClient;
 
@@ -175,6 +176,9 @@ export class DashboardClient {
     createDashboardRequest: requests.CreateDashboardRequest
   ): Promise<responses.CreateDashboardResponse> {
     if (this.logger) this.logger.debug("Calling operation DashboardClient#createDashboard.");
+    const operationName = "createDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/CreateDashboard";
     const pathParams = {};
 
     const queryParams = {};
@@ -208,7 +212,13 @@ export class DashboardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDashboardResponse>{},
         body: await response.json(),
@@ -247,6 +257,9 @@ export class DashboardClient {
     deleteDashboardRequest: requests.DeleteDashboardRequest
   ): Promise<responses.DeleteDashboardResponse> {
     if (this.logger) this.logger.debug("Calling operation DashboardClient#deleteDashboard.");
+    const operationName = "deleteDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/DeleteDashboard";
     const pathParams = {
       "{dashboardId}": deleteDashboardRequest.dashboardId
     };
@@ -277,7 +290,13 @@ export class DashboardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDashboardResponse>{},
         responseHeaders: [
@@ -307,6 +326,9 @@ export class DashboardClient {
     getDashboardRequest: requests.GetDashboardRequest
   ): Promise<responses.GetDashboardResponse> {
     if (this.logger) this.logger.debug("Calling operation DashboardClient#getDashboard.");
+    const operationName = "getDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/GetDashboard";
     const pathParams = {
       "{dashboardId}": getDashboardRequest.dashboardId
     };
@@ -336,7 +358,13 @@ export class DashboardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDashboardResponse>{},
         body: await response.json(),
@@ -376,6 +404,9 @@ export class DashboardClient {
     listDashboardsRequest: requests.ListDashboardsRequest
   ): Promise<responses.ListDashboardsResponse> {
     if (this.logger) this.logger.debug("Calling operation DashboardClient#listDashboards.");
+    const operationName = "listDashboards";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardCollection/ListDashboards";
     const pathParams = {};
 
     const queryParams = {
@@ -412,7 +443,13 @@ export class DashboardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDashboardsResponse>{},
         body: await response.json(),
@@ -451,6 +488,9 @@ export class DashboardClient {
     updateDashboardRequest: requests.UpdateDashboardRequest
   ): Promise<responses.UpdateDashboardResponse> {
     if (this.logger) this.logger.debug("Calling operation DashboardClient#updateDashboard.");
+    const operationName = "updateDashboard";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/UpdateDashboard";
     const pathParams = {
       "{dashboardId}": updateDashboardRequest.dashboardId
     };
@@ -486,7 +526,13 @@ export class DashboardClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDashboardResponse>{},
         body: await response.json(),
@@ -526,6 +572,7 @@ export class DashboardGroupClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DashboardGroup";
 
   protected _httpClient: common.HttpClient;
 
@@ -658,6 +705,9 @@ export class DashboardGroupClient {
   ): Promise<responses.CreateDashboardGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashboardGroupClient#createDashboardGroup.");
+    const operationName = "createDashboardGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/CreateDashboardGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -691,7 +741,13 @@ export class DashboardGroupClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDashboardGroupResponse>{},
         body: await response.json(),
@@ -731,6 +787,9 @@ export class DashboardGroupClient {
   ): Promise<responses.DeleteDashboardGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashboardGroupClient#deleteDashboardGroup.");
+    const operationName = "deleteDashboardGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/DeleteDashboardGroup";
     const pathParams = {
       "{dashboardGroupId}": deleteDashboardGroupRequest.dashboardGroupId
     };
@@ -761,7 +820,13 @@ export class DashboardGroupClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDashboardGroupResponse>{},
         responseHeaders: [
@@ -791,6 +856,9 @@ export class DashboardGroupClient {
     getDashboardGroupRequest: requests.GetDashboardGroupRequest
   ): Promise<responses.GetDashboardGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation DashboardGroupClient#getDashboardGroup.");
+    const operationName = "getDashboardGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/GetDashboardGroup";
     const pathParams = {
       "{dashboardGroupId}": getDashboardGroupRequest.dashboardGroupId
     };
@@ -820,7 +888,13 @@ export class DashboardGroupClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDashboardGroupResponse>{},
         body: await response.json(),
@@ -861,6 +935,9 @@ export class DashboardGroupClient {
   ): Promise<responses.ListDashboardGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashboardGroupClient#listDashboardGroups.");
+    const operationName = "listDashboardGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroupCollection/ListDashboardGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -897,7 +974,13 @@ export class DashboardGroupClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDashboardGroupsResponse>{},
         body: await response.json(),
@@ -937,6 +1020,9 @@ export class DashboardGroupClient {
   ): Promise<responses.UpdateDashboardGroupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DashboardGroupClient#updateDashboardGroup.");
+    const operationName = "updateDashboardGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/UpdateDashboardGroup";
     const pathParams = {
       "{dashboardGroupId}": updateDashboardGroupRequest.dashboardGroupId
     };
@@ -972,7 +1058,13 @@ export class DashboardGroupClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDashboardGroupResponse>{},
         body: await response.json(),

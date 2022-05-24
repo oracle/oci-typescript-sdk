@@ -36,6 +36,7 @@ export class IdentityClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Identity";
 
   protected _httpClient: common.HttpClient;
 
@@ -168,6 +169,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     activateDomainRequest: requests.ActivateDomainRequest
   ): Promise<responses.ActivateDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#activateDomain.");
+    const operationName = "activateDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ActivateDomain";
     const pathParams = {
       "{domainId}": activateDomainRequest.domainId
     };
@@ -198,7 +202,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateDomainResponse>{},
         responseHeaders: [
@@ -234,6 +244,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     activateMfaTotpDeviceRequest: requests.ActivateMfaTotpDeviceRequest
   ): Promise<responses.ActivateMfaTotpDeviceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#activateMfaTotpDevice.");
+    const operationName = "activateMfaTotpDevice";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDeviceSummary/ActivateMfaTotpDevice";
     const pathParams = {
       "{userId}": activateMfaTotpDeviceRequest.userId,
       "{mfaTotpDeviceId}": activateMfaTotpDeviceRequest.mfaTotpDeviceId
@@ -269,7 +282,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateMfaTotpDeviceResponse>{},
         body: await response.json(),
@@ -312,6 +331,9 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     addUserToGroupRequest: requests.AddUserToGroupRequest
   ): Promise<responses.AddUserToGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#addUserToGroup.");
+    const operationName = "addUserToGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/AddUserToGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -343,7 +365,13 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddUserToGroupResponse>{},
         body: await response.json(),
@@ -386,6 +414,9 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     assembleEffectiveTagSetRequest: requests.AssembleEffectiveTagSetRequest
   ): Promise<responses.AssembleEffectiveTagSetResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#assembleEffectiveTagSet.");
+    const operationName = "assembleEffectiveTagSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/AssembleEffectiveTagSet";
     const pathParams = {};
 
     const queryParams = {
@@ -414,7 +445,13 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AssembleEffectiveTagSetResponse>{},
         body: await response.json(),
@@ -458,6 +495,9 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     bulkDeleteResourcesRequest: requests.BulkDeleteResourcesRequest
   ): Promise<responses.BulkDeleteResourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkDeleteResources.");
+    const operationName = "bulkDeleteResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/BulkDeleteResources";
     const pathParams = {
       "{compartmentId}": bulkDeleteResourcesRequest.compartmentId
     };
@@ -492,7 +532,13 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkDeleteResourcesResponse>{},
         responseHeaders: [
@@ -548,6 +594,9 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
     bulkDeleteTagsRequest: requests.BulkDeleteTagsRequest
   ): Promise<responses.BulkDeleteTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkDeleteTags.");
+    const operationName = "bulkDeleteTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/BulkDeleteTags";
     const pathParams = {};
 
     const queryParams = {};
@@ -580,7 +629,13 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkDeleteTagsResponse>{},
         responseHeaders: [
@@ -629,6 +684,9 @@ The edits can include a combination of operations and tag sets.
     bulkEditTagsRequest: requests.BulkEditTagsRequest
   ): Promise<responses.BulkEditTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkEditTags.");
+    const operationName = "bulkEditTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/BulkEditTags";
     const pathParams = {};
 
     const queryParams = {};
@@ -661,7 +719,13 @@ The edits can include a combination of operations and tag sets.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkEditTagsResponse>{},
         responseHeaders: [
@@ -701,6 +765,9 @@ The edits can include a combination of operations and tag sets.
     bulkMoveResourcesRequest: requests.BulkMoveResourcesRequest
   ): Promise<responses.BulkMoveResourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#bulkMoveResources.");
+    const operationName = "bulkMoveResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/BulkMoveResources";
     const pathParams = {
       "{compartmentId}": bulkMoveResourcesRequest.compartmentId
     };
@@ -735,7 +802,13 @@ The edits can include a combination of operations and tag sets.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkMoveResourcesResponse>{},
         responseHeaders: [
@@ -790,6 +863,9 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
   ): Promise<responses.CascadeDeleteTagNamespaceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#cascadeDeleteTagNamespace.");
+    const operationName = "cascadeDeleteTagNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/CascadeDeleteTagNamespace";
     const pathParams = {
       "{tagNamespaceId}": cascadeDeleteTagNamespaceRequest.tagNamespaceId
     };
@@ -820,7 +896,13 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CascadeDeleteTagNamespaceResponse>{},
         responseHeaders: [
@@ -859,6 +941,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     changeDomainCompartmentRequest: requests.ChangeDomainCompartmentRequest
   ): Promise<responses.ChangeDomainCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#changeDomainCompartment.");
+    const operationName = "changeDomainCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ChangeDomainCompartment";
     const pathParams = {
       "{domainId}": changeDomainCompartmentRequest.domainId
     };
@@ -894,7 +979,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDomainCompartmentResponse>{},
         responseHeaders: [
@@ -938,6 +1029,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     changeDomainLicenseTypeRequest: requests.ChangeDomainLicenseTypeRequest
   ): Promise<responses.ChangeDomainLicenseTypeResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#changeDomainLicenseType.");
+    const operationName = "changeDomainLicenseType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ChangeDomainLicenseType";
     const pathParams = {
       "{domainId}": changeDomainLicenseTypeRequest.domainId
     };
@@ -973,7 +1067,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDomainLicenseTypeResponse>{},
         responseHeaders: [
@@ -1015,6 +1115,9 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
   ): Promise<responses.ChangeTagNamespaceCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#changeTagNamespaceCompartment.");
+    const operationName = "changeTagNamespaceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/ChangeTagNamespaceCompartment";
     const pathParams = {
       "{tagNamespaceId}": changeTagNamespaceCompartmentRequest.tagNamespaceId
     };
@@ -1048,7 +1151,13 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTagNamespaceCompartmentResponse>{},
         responseHeaders: [
@@ -1088,6 +1197,9 @@ Every user has permission to create an auth token for *their own user ID*. An ad
     createAuthTokenRequest: requests.CreateAuthTokenRequest
   ): Promise<responses.CreateAuthTokenResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createAuthToken.");
+    const operationName = "createAuthToken";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthToken/CreateAuthToken";
     const pathParams = {
       "{userId}": createAuthTokenRequest.userId
     };
@@ -1121,7 +1233,13 @@ Every user has permission to create an auth token for *their own user ID*. An ad
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAuthTokenResponse>{},
         body: await response.json(),
@@ -1177,6 +1295,9 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     createCompartmentRequest: requests.CreateCompartmentRequest
   ): Promise<responses.CreateCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createCompartment.");
+    const operationName = "createCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/CreateCompartment";
     const pathParams = {};
 
     const queryParams = {};
@@ -1208,7 +1329,13 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCompartmentResponse>{},
         body: await response.json(),
@@ -1258,6 +1385,9 @@ Every user has permission to create a secret key for *their own user ID*. An adm
     createCustomerSecretKeyRequest: requests.CreateCustomerSecretKeyRequest
   ): Promise<responses.CreateCustomerSecretKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createCustomerSecretKey.");
+    const operationName = "createCustomerSecretKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/CustomerSecretKey/CreateCustomerSecretKey";
     const pathParams = {
       "{userId}": createCustomerSecretKeyRequest.userId
     };
@@ -1291,7 +1421,13 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCustomerSecretKeyResponse>{},
         body: await response.json(),
@@ -1331,6 +1467,9 @@ Every user has permission to create a secret key for *their own user ID*. An adm
     createDbCredentialRequest: requests.CreateDbCredentialRequest
   ): Promise<responses.CreateDbCredentialResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createDbCredential.");
+    const operationName = "createDbCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/CreateDbCredential";
     const pathParams = {
       "{userId}": createDbCredentialRequest.userId
     };
@@ -1365,7 +1504,13 @@ Every user has permission to create a secret key for *their own user ID*. An adm
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDbCredentialResponse>{},
         body: await response.json(),
@@ -1412,6 +1557,9 @@ After creating an `identity domain`, first make sure its `lifecycleState` change
     createDomainRequest: requests.CreateDomainRequest
   ): Promise<responses.CreateDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createDomain.");
+    const operationName = "createDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/CreateDomain";
     const pathParams = {};
 
     const queryParams = {};
@@ -1444,7 +1592,13 @@ After creating an `identity domain`, first make sure its `lifecycleState` change
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDomainResponse>{},
         responseHeaders: [
@@ -1497,6 +1651,9 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     createDynamicGroupRequest: requests.CreateDynamicGroupRequest
   ): Promise<responses.CreateDynamicGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createDynamicGroup.");
+    const operationName = "createDynamicGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/CreateDynamicGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -1528,7 +1685,13 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDynamicGroupResponse>{},
         body: await response.json(),
@@ -1588,6 +1751,9 @@ After creating the group, you need to put users in it and write policies for it.
     createGroupRequest: requests.CreateGroupRequest
   ): Promise<responses.CreateGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createGroup.");
+    const operationName = "createGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/CreateGroup";
     const pathParams = {};
 
     const queryParams = {};
@@ -1619,7 +1785,13 @@ After creating the group, you need to put users in it and write policies for it.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateGroupResponse>{},
         body: await response.json(),
@@ -1678,6 +1850,9 @@ After you send your request, the new object's `lifecycleState` will temporarily
     createIdentityProviderRequest: requests.CreateIdentityProviderRequest
   ): Promise<responses.CreateIdentityProviderResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createIdentityProvider.");
+    const operationName = "createIdentityProvider";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/CreateIdentityProvider";
     const pathParams = {};
 
     const queryParams = {};
@@ -1709,7 +1884,13 @@ After you send your request, the new object's `lifecycleState` will temporarily
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIdentityProviderResponse>{},
         body: await response.json(),
@@ -1752,6 +1933,9 @@ Creates a single mapping between an IdP group and an IAM Service
     createIdpGroupMappingRequest: requests.CreateIdpGroupMappingRequest
   ): Promise<responses.CreateIdpGroupMappingResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createIdpGroupMapping.");
+    const operationName = "createIdpGroupMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/CreateIdpGroupMapping";
     const pathParams = {
       "{identityProviderId}": createIdpGroupMappingRequest.identityProviderId
     };
@@ -1785,7 +1969,13 @@ Creates a single mapping between an IdP group and an IAM Service
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIdpGroupMappingResponse>{},
         body: await response.json(),
@@ -1825,6 +2015,9 @@ Creates a single mapping between an IdP group and an IAM Service
     createMfaTotpDeviceRequest: requests.CreateMfaTotpDeviceRequest
   ): Promise<responses.CreateMfaTotpDeviceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createMfaTotpDevice.");
+    const operationName = "createMfaTotpDevice";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDevice/CreateMfaTotpDevice";
     const pathParams = {
       "{userId}": createMfaTotpDeviceRequest.userId
     };
@@ -1853,7 +2046,13 @@ Creates a single mapping between an IdP group and an IAM Service
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMfaTotpDeviceResponse>{},
         body: await response.json(),
@@ -1913,6 +2112,9 @@ After your network resource is created, you can use it in policy to restrict acc
     createNetworkSourceRequest: requests.CreateNetworkSourceRequest
   ): Promise<responses.CreateNetworkSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createNetworkSource.");
+    const operationName = "createNetworkSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/CreateNetworkSource";
     const pathParams = {};
 
     const queryParams = {};
@@ -1944,7 +2146,13 @@ After your network resource is created, you can use it in policy to restrict acc
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNetworkSourceResponse>{},
         body: await response.json(),
@@ -1985,6 +2193,9 @@ After your network resource is created, you can use it in policy to restrict acc
   ): Promise<responses.CreateOAuthClientCredentialResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#createOAuthClientCredential.");
+    const operationName = "createOAuthClientCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/CreateOAuthClientCredential";
     const pathParams = {
       "{userId}": createOAuthClientCredentialRequest.userId
     };
@@ -2018,7 +2229,13 @@ After your network resource is created, you can use it in policy to restrict acc
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOAuthClientCredentialResponse>{},
         body: await response.json(),
@@ -2072,6 +2289,9 @@ Use this operation after creating a new user, or if a user forgets their passwor
     createOrResetUIPasswordRequest: requests.CreateOrResetUIPasswordRequest
   ): Promise<responses.CreateOrResetUIPasswordResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createOrResetUIPassword.");
+    const operationName = "createOrResetUIPassword";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UIPassword/CreateOrResetUIPassword";
     const pathParams = {
       "{userId}": createOrResetUIPasswordRequest.userId
     };
@@ -2100,7 +2320,13 @@ Use this operation after creating a new user, or if a user forgets their passwor
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateOrResetUIPasswordResponse>{},
         body: await response.json(),
@@ -2156,6 +2382,9 @@ New policies take effect typically within 10 seconds.
     createPolicyRequest: requests.CreatePolicyRequest
   ): Promise<responses.CreatePolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createPolicy.");
+    const operationName = "createPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/CreatePolicy";
     const pathParams = {};
 
     const queryParams = {};
@@ -2187,7 +2416,13 @@ New policies take effect typically within 10 seconds.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePolicyResponse>{},
         body: await response.json(),
@@ -2228,6 +2463,9 @@ New policies take effect typically within 10 seconds.
   ): Promise<responses.CreateRegionSubscriptionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#createRegionSubscription.");
+    const operationName = "createRegionSubscription";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/RegionSubscription/CreateRegionSubscription";
     const pathParams = {
       "{tenancyId}": createRegionSubscriptionRequest.tenancyId
     };
@@ -2261,7 +2499,13 @@ New policies take effect typically within 10 seconds.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRegionSubscriptionResponse>{},
         body: await response.json(),
@@ -2299,6 +2543,9 @@ New policies take effect typically within 10 seconds.
     createSmtpCredentialRequest: requests.CreateSmtpCredentialRequest
   ): Promise<responses.CreateSmtpCredentialResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createSmtpCredential.");
+    const operationName = "createSmtpCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SmtpCredential/CreateSmtpCredential";
     const pathParams = {
       "{userId}": createSmtpCredentialRequest.userId
     };
@@ -2332,7 +2579,13 @@ New policies take effect typically within 10 seconds.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSmtpCredentialResponse>{},
         body: await response.json(),
@@ -2383,6 +2636,9 @@ Every user has permission to create a Swift password for *their own user ID*. An
     createSwiftPasswordRequest: requests.CreateSwiftPasswordRequest
   ): Promise<responses.CreateSwiftPasswordResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createSwiftPassword.");
+    const operationName = "createSwiftPassword";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SwiftPassword/CreateSwiftPassword";
     const pathParams = {
       "{userId}": createSwiftPasswordRequest.userId
     };
@@ -2416,7 +2672,13 @@ Every user has permission to create a Swift password for *their own user ID*. An
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateSwiftPasswordResponse>{},
         body: await response.json(),
@@ -2477,6 +2739,9 @@ The tag must have a value type, which is specified with a validator. Tags can us
     createTagRequest: requests.CreateTagRequest
   ): Promise<responses.CreateTagResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createTag.");
+    const operationName = "createTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/CreateTag";
     const pathParams = {
       "{tagNamespaceId}": createTagRequest.tagNamespaceId
     };
@@ -2510,7 +2775,13 @@ The tag must have a value type, which is specified with a validator. Tags can us
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTagResponse>{},
         body: await response.json(),
@@ -2557,6 +2828,9 @@ If you specify that a value is required, a value is set during resource creation
     createTagDefaultRequest: requests.CreateTagDefaultRequest
   ): Promise<responses.CreateTagDefaultResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createTagDefault.");
+    const operationName = "createTagDefault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/CreateTagDefault";
     const pathParams = {};
 
     const queryParams = {};
@@ -2589,7 +2863,13 @@ If you specify that a value is required, a value is set during resource creation
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTagDefaultResponse>{},
         body: await response.json(),
@@ -2642,6 +2922,9 @@ You must also specify a *description* for the namespace.
     createTagNamespaceRequest: requests.CreateTagNamespaceRequest
   ): Promise<responses.CreateTagNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createTagNamespace.");
+    const operationName = "createTagNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/CreateTagNamespace";
     const pathParams = {};
 
     const queryParams = {};
@@ -2673,7 +2956,13 @@ You must also specify a *description* for the namespace.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTagNamespaceResponse>{},
         body: await response.json(),
@@ -2742,6 +3031,9 @@ A new user has no permissions until you place the user in one or more groups (se
     createUserRequest: requests.CreateUserRequest
   ): Promise<responses.CreateUserResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#createUser.");
+    const operationName = "createUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/CreateUser";
     const pathParams = {};
 
     const queryParams = {};
@@ -2773,7 +3065,13 @@ A new user has no permissions until you place the user in one or more groups (se
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateUserResponse>{},
         body: await response.json(),
@@ -2821,6 +3119,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     deactivateDomainRequest: requests.DeactivateDomainRequest
   ): Promise<responses.DeactivateDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deactivateDomain.");
+    const operationName = "deactivateDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/DeactivateDomain";
     const pathParams = {
       "{domainId}": deactivateDomainRequest.domainId
     };
@@ -2851,7 +3152,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeactivateDomainResponse>{},
         responseHeaders: [
@@ -2892,6 +3199,8 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteApiKeyRequest: requests.DeleteApiKeyRequest
   ): Promise<responses.DeleteApiKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteApiKey.");
+    const operationName = "deleteApiKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{userId}": deleteApiKeyRequest.userId,
       "{fingerprint}": deleteApiKeyRequest.fingerprint
@@ -2921,7 +3230,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteApiKeyResponse>{},
         responseHeaders: [
@@ -2952,6 +3267,8 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteAuthTokenRequest: requests.DeleteAuthTokenRequest
   ): Promise<responses.DeleteAuthTokenResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteAuthToken.");
+    const operationName = "deleteAuthToken";
+    const apiReferenceLink = "";
     const pathParams = {
       "{userId}": deleteAuthTokenRequest.userId,
       "{authTokenId}": deleteAuthTokenRequest.authTokenId
@@ -2981,7 +3298,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAuthTokenResponse>{},
         responseHeaders: [
@@ -3012,6 +3335,9 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteCompartmentRequest: requests.DeleteCompartmentRequest
   ): Promise<responses.DeleteCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteCompartment.");
+    const operationName = "deleteCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/DeleteCompartment";
     const pathParams = {
       "{compartmentId}": deleteCompartmentRequest.compartmentId
     };
@@ -3040,7 +3366,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCompartmentResponse>{},
         responseHeaders: [
@@ -3076,6 +3408,8 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteCustomerSecretKeyRequest: requests.DeleteCustomerSecretKeyRequest
   ): Promise<responses.DeleteCustomerSecretKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteCustomerSecretKey.");
+    const operationName = "deleteCustomerSecretKey";
+    const apiReferenceLink = "";
     const pathParams = {
       "{userId}": deleteCustomerSecretKeyRequest.userId,
       "{customerSecretKeyId}": deleteCustomerSecretKeyRequest.customerSecretKeyId
@@ -3105,7 +3439,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCustomerSecretKeyResponse>{},
         responseHeaders: [
@@ -3136,6 +3476,9 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteDbCredentialRequest: requests.DeleteDbCredentialRequest
   ): Promise<responses.DeleteDbCredentialResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDbCredential.");
+    const operationName = "deleteDbCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/DeleteDbCredential";
     const pathParams = {
       "{userId}": deleteDbCredentialRequest.userId,
       "{dbCredentialId}": deleteDbCredentialRequest.dbCredentialId
@@ -3166,7 +3509,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDbCredentialResponse>{},
         responseHeaders: [
@@ -3203,6 +3552,9 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteDomainRequest: requests.DeleteDomainRequest
   ): Promise<responses.DeleteDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDomain.");
+    const operationName = "deleteDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/DeleteDomain";
     const pathParams = {
       "{domainId}": deleteDomainRequest.domainId
     };
@@ -3232,7 +3584,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDomainResponse>{},
         responseHeaders: [
@@ -3268,6 +3626,8 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteDynamicGroupRequest: requests.DeleteDynamicGroupRequest
   ): Promise<responses.DeleteDynamicGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteDynamicGroup.");
+    const operationName = "deleteDynamicGroup";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dynamicGroupId}": deleteDynamicGroupRequest.dynamicGroupId
     };
@@ -3296,7 +3656,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDynamicGroupResponse>{},
         responseHeaders: [
@@ -3327,6 +3693,8 @@ Every user has permission to use this operation to delete a key for *their own u
     deleteGroupRequest: requests.DeleteGroupRequest
   ): Promise<responses.DeleteGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteGroup.");
+    const operationName = "deleteGroup";
+    const apiReferenceLink = "";
     const pathParams = {
       "{groupId}": deleteGroupRequest.groupId
     };
@@ -3355,7 +3723,13 @@ Every user has permission to use this operation to delete a key for *their own u
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteGroupResponse>{},
         responseHeaders: [
@@ -3389,6 +3763,8 @@ Deletes the specified identity provider. The identity provider must not have
     deleteIdentityProviderRequest: requests.DeleteIdentityProviderRequest
   ): Promise<responses.DeleteIdentityProviderResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteIdentityProvider.");
+    const operationName = "deleteIdentityProvider";
+    const apiReferenceLink = "";
     const pathParams = {
       "{identityProviderId}": deleteIdentityProviderRequest.identityProviderId
     };
@@ -3417,7 +3793,13 @@ Deletes the specified identity provider. The identity provider must not have
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIdentityProviderResponse>{},
         responseHeaders: [
@@ -3450,6 +3832,8 @@ Deletes the specified group mapping.
     deleteIdpGroupMappingRequest: requests.DeleteIdpGroupMappingRequest
   ): Promise<responses.DeleteIdpGroupMappingResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteIdpGroupMapping.");
+    const operationName = "deleteIdpGroupMapping";
+    const apiReferenceLink = "";
     const pathParams = {
       "{identityProviderId}": deleteIdpGroupMappingRequest.identityProviderId,
       "{mappingId}": deleteIdpGroupMappingRequest.mappingId
@@ -3479,7 +3863,13 @@ Deletes the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIdpGroupMappingResponse>{},
         responseHeaders: [
@@ -3510,6 +3900,9 @@ Deletes the specified group mapping.
     deleteMfaTotpDeviceRequest: requests.DeleteMfaTotpDeviceRequest
   ): Promise<responses.DeleteMfaTotpDeviceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteMfaTotpDevice.");
+    const operationName = "deleteMfaTotpDevice";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDevice/DeleteMfaTotpDevice";
     const pathParams = {
       "{userId}": deleteMfaTotpDeviceRequest.userId,
       "{mfaTotpDeviceId}": deleteMfaTotpDeviceRequest.mfaTotpDeviceId
@@ -3539,7 +3932,13 @@ Deletes the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMfaTotpDeviceResponse>{},
         responseHeaders: [
@@ -3570,6 +3969,9 @@ Deletes the specified group mapping.
     deleteNetworkSourceRequest: requests.DeleteNetworkSourceRequest
   ): Promise<responses.DeleteNetworkSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteNetworkSource.");
+    const operationName = "deleteNetworkSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/DeleteNetworkSource";
     const pathParams = {
       "{networkSourceId}": deleteNetworkSourceRequest.networkSourceId
     };
@@ -3598,7 +4000,13 @@ Deletes the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNetworkSourceResponse>{},
         responseHeaders: [
@@ -3630,6 +4038,9 @@ Deletes the specified group mapping.
   ): Promise<responses.DeleteOAuthClientCredentialResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#deleteOAuthClientCredential.");
+    const operationName = "deleteOAuthClientCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/DeleteOAuthClientCredential";
     const pathParams = {
       "{userId}": deleteOAuthClientCredentialRequest.userId,
       "{oauth2ClientCredentialId}": deleteOAuthClientCredentialRequest.oauth2ClientCredentialId
@@ -3659,7 +4070,13 @@ Deletes the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOAuthClientCredentialResponse>{},
         responseHeaders: [
@@ -3689,6 +4106,8 @@ Deletes the specified group mapping.
     deletePolicyRequest: requests.DeletePolicyRequest
   ): Promise<responses.DeletePolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deletePolicy.");
+    const operationName = "deletePolicy";
+    const apiReferenceLink = "";
     const pathParams = {
       "{policyId}": deletePolicyRequest.policyId
     };
@@ -3717,7 +4136,13 @@ Deletes the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePolicyResponse>{},
         responseHeaders: [
@@ -3748,6 +4173,8 @@ Deletes the specified group mapping.
     deleteSmtpCredentialRequest: requests.DeleteSmtpCredentialRequest
   ): Promise<responses.DeleteSmtpCredentialResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteSmtpCredential.");
+    const operationName = "deleteSmtpCredential";
+    const apiReferenceLink = "";
     const pathParams = {
       "{userId}": deleteSmtpCredentialRequest.userId,
       "{smtpCredentialId}": deleteSmtpCredentialRequest.smtpCredentialId
@@ -3777,7 +4204,13 @@ Deletes the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSmtpCredentialResponse>{},
         responseHeaders: [
@@ -3810,6 +4243,8 @@ Deletes the specified Swift password for the specified user.
     deleteSwiftPasswordRequest: requests.DeleteSwiftPasswordRequest
   ): Promise<responses.DeleteSwiftPasswordResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteSwiftPassword.");
+    const operationName = "deleteSwiftPassword";
+    const apiReferenceLink = "";
     const pathParams = {
       "{userId}": deleteSwiftPasswordRequest.userId,
       "{swiftPasswordId}": deleteSwiftPasswordRequest.swiftPasswordId
@@ -3839,7 +4274,13 @@ Deletes the specified Swift password for the specified user.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSwiftPasswordResponse>{},
         responseHeaders: [
@@ -3890,6 +4331,9 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
     deleteTagRequest: requests.DeleteTagRequest
   ): Promise<responses.DeleteTagResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTag.");
+    const operationName = "deleteTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/DeleteTag";
     const pathParams = {
       "{tagNamespaceId}": deleteTagRequest.tagNamespaceId,
       "{tagName}": deleteTagRequest.tagName
@@ -3919,7 +4363,13 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTagResponse>{},
         responseHeaders: [
@@ -3955,6 +4405,9 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
     deleteTagDefaultRequest: requests.DeleteTagDefaultRequest
   ): Promise<responses.DeleteTagDefaultResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTagDefault.");
+    const operationName = "deleteTagDefault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/DeleteTagDefault";
     const pathParams = {
       "{tagDefaultId}": deleteTagDefaultRequest.tagDefaultId
     };
@@ -3984,7 +4437,13 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTagDefaultResponse>{},
         responseHeaders: [
@@ -4021,6 +4480,9 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
     deleteTagNamespaceRequest: requests.DeleteTagNamespaceRequest
   ): Promise<responses.DeleteTagNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteTagNamespace.");
+    const operationName = "deleteTagNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/DeleteTagNamespace";
     const pathParams = {
       "{tagNamespaceId}": deleteTagNamespaceRequest.tagNamespaceId
     };
@@ -4050,7 +4512,13 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTagNamespaceResponse>{},
         responseHeaders: [
@@ -4080,6 +4548,8 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
     deleteUserRequest: requests.DeleteUserRequest
   ): Promise<responses.DeleteUserResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#deleteUser.");
+    const operationName = "deleteUser";
+    const apiReferenceLink = "";
     const pathParams = {
       "{userId}": deleteUserRequest.userId
     };
@@ -4108,7 +4578,13 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUserResponse>{},
         responseHeaders: [
@@ -4149,6 +4625,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   ): Promise<responses.EnableReplicationToRegionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#enableReplicationToRegion.");
+    const operationName = "enableReplicationToRegion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/EnableReplicationToRegion";
     const pathParams = {
       "{domainId}": enableReplicationToRegionRequest.domainId
     };
@@ -4184,7 +4663,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableReplicationToRegionResponse>{},
         responseHeaders: [
@@ -4220,6 +4705,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     generateTotpSeedRequest: requests.GenerateTotpSeedRequest
   ): Promise<responses.GenerateTotpSeedResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#generateTotpSeed.");
+    const operationName = "generateTotpSeed";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDevice/GenerateTotpSeed";
     const pathParams = {
       "{userId}": generateTotpSeedRequest.userId,
       "{mfaTotpDeviceId}": generateTotpSeedRequest.mfaTotpDeviceId
@@ -4249,7 +4737,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateTotpSeedResponse>{},
         body: await response.json(),
@@ -4290,6 +4784,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     getAuthenticationPolicyRequest: requests.GetAuthenticationPolicyRequest
   ): Promise<responses.GetAuthenticationPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getAuthenticationPolicy.");
+    const operationName = "getAuthenticationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthenticationPolicy/GetAuthenticationPolicy";
     const pathParams = {
       "{compartmentId}": getAuthenticationPolicyRequest.compartmentId
     };
@@ -4317,7 +4814,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAuthenticationPolicyResponse>{},
         body: await response.json(),
@@ -4364,6 +4867,9 @@ This operation does not return a list of all the resources inside the compartmen
     getCompartmentRequest: requests.GetCompartmentRequest
   ): Promise<responses.GetCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getCompartment.");
+    const operationName = "getCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/GetCompartment";
     const pathParams = {
       "{compartmentId}": getCompartmentRequest.compartmentId
     };
@@ -4391,7 +4897,13 @@ This operation does not return a list of all the resources inside the compartmen
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCompartmentResponse>{},
         body: await response.json(),
@@ -4431,6 +4943,9 @@ This operation does not return a list of all the resources inside the compartmen
     getDomainRequest: requests.GetDomainRequest
   ): Promise<responses.GetDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getDomain.");
+    const operationName = "getDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/GetDomain";
     const pathParams = {
       "{domainId}": getDomainRequest.domainId
     };
@@ -4459,7 +4974,13 @@ This operation does not return a list of all the resources inside the compartmen
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDomainResponse>{},
         body: await response.json(),
@@ -4499,6 +5020,9 @@ This operation does not return a list of all the resources inside the compartmen
     getDynamicGroupRequest: requests.GetDynamicGroupRequest
   ): Promise<responses.GetDynamicGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getDynamicGroup.");
+    const operationName = "getDynamicGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/GetDynamicGroup";
     const pathParams = {
       "{dynamicGroupId}": getDynamicGroupRequest.dynamicGroupId
     };
@@ -4526,7 +5050,13 @@ This operation does not return a list of all the resources inside the compartmen
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDynamicGroupResponse>{},
         body: await response.json(),
@@ -4570,6 +5100,9 @@ This operation does not return a list of all the users in the group. To do that,
     getGroupRequest: requests.GetGroupRequest
   ): Promise<responses.GetGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getGroup.");
+    const operationName = "getGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/GetGroup";
     const pathParams = {
       "{groupId}": getGroupRequest.groupId
     };
@@ -4597,7 +5130,13 @@ This operation does not return a list of all the users in the group. To do that,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGroupResponse>{},
         body: await response.json(),
@@ -4637,6 +5176,9 @@ This operation does not return a list of all the users in the group. To do that,
     getIamWorkRequestRequest: requests.GetIamWorkRequestRequest
   ): Promise<responses.GetIamWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getIamWorkRequest.");
+    const operationName = "getIamWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequest/GetIamWorkRequest";
     const pathParams = {
       "{iamWorkRequestId}": getIamWorkRequestRequest.iamWorkRequestId
     };
@@ -4665,7 +5207,13 @@ This operation does not return a list of all the users in the group. To do that,
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIamWorkRequestResponse>{},
         body: await response.json(),
@@ -4702,6 +5250,9 @@ Gets the specified identity provider's information.
     getIdentityProviderRequest: requests.GetIdentityProviderRequest
   ): Promise<responses.GetIdentityProviderResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getIdentityProvider.");
+    const operationName = "getIdentityProvider";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/GetIdentityProvider";
     const pathParams = {
       "{identityProviderId}": getIdentityProviderRequest.identityProviderId
     };
@@ -4729,7 +5280,13 @@ Gets the specified identity provider's information.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIdentityProviderResponse>{},
         body: await response.json(),
@@ -4771,6 +5328,9 @@ Gets the specified group mapping.
     getIdpGroupMappingRequest: requests.GetIdpGroupMappingRequest
   ): Promise<responses.GetIdpGroupMappingResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getIdpGroupMapping.");
+    const operationName = "getIdpGroupMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/GetIdpGroupMapping";
     const pathParams = {
       "{identityProviderId}": getIdpGroupMappingRequest.identityProviderId,
       "{mappingId}": getIdpGroupMappingRequest.mappingId
@@ -4799,7 +5359,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIdpGroupMappingResponse>{},
         body: await response.json(),
@@ -4839,6 +5405,9 @@ Gets the specified group mapping.
     getMfaTotpDeviceRequest: requests.GetMfaTotpDeviceRequest
   ): Promise<responses.GetMfaTotpDeviceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getMfaTotpDevice.");
+    const operationName = "getMfaTotpDevice";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDeviceSummary/GetMfaTotpDevice";
     const pathParams = {
       "{userId}": getMfaTotpDeviceRequest.userId,
       "{mfaTotpDeviceId}": getMfaTotpDeviceRequest.mfaTotpDeviceId
@@ -4867,7 +5436,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMfaTotpDeviceResponse>{},
         body: await response.json(),
@@ -4907,6 +5482,9 @@ Gets the specified group mapping.
     getNetworkSourceRequest: requests.GetNetworkSourceRequest
   ): Promise<responses.GetNetworkSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getNetworkSource.");
+    const operationName = "getNetworkSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/GetNetworkSource";
     const pathParams = {
       "{networkSourceId}": getNetworkSourceRequest.networkSourceId
     };
@@ -4934,7 +5512,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNetworkSourceResponse>{},
         body: await response.json(),
@@ -4973,6 +5557,9 @@ Gets the specified group mapping.
     getPolicyRequest: requests.GetPolicyRequest
   ): Promise<responses.GetPolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getPolicy.");
+    const operationName = "getPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/GetPolicy";
     const pathParams = {
       "{policyId}": getPolicyRequest.policyId
     };
@@ -5000,7 +5587,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPolicyResponse>{},
         body: await response.json(),
@@ -5040,6 +5633,9 @@ Gets the specified group mapping.
     getStandardTagTemplateRequest: requests.GetStandardTagTemplateRequest
   ): Promise<responses.GetStandardTagTemplateResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getStandardTagTemplate.");
+    const operationName = "getStandardTagTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/StandardTagNamespaceTemplate/GetStandardTagTemplate";
     const pathParams = {
       "{standardTagNamespaceName}": getStandardTagTemplateRequest.standardTagNamespaceName
     };
@@ -5069,7 +5665,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStandardTagTemplateResponse>{},
         body: await response.json(),
@@ -5101,6 +5703,8 @@ Gets the specified group mapping.
    */
   public async getTag(getTagRequest: requests.GetTagRequest): Promise<responses.GetTagResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getTag.");
+    const operationName = "getTag";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/GetTag";
     const pathParams = {
       "{tagNamespaceId}": getTagRequest.tagNamespaceId,
       "{tagName}": getTagRequest.tagName
@@ -5129,7 +5733,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTagResponse>{},
         body: await response.json(),
@@ -5169,6 +5779,9 @@ Gets the specified group mapping.
     getTagDefaultRequest: requests.GetTagDefaultRequest
   ): Promise<responses.GetTagDefaultResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getTagDefault.");
+    const operationName = "getTagDefault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/GetTagDefault";
     const pathParams = {
       "{tagDefaultId}": getTagDefaultRequest.tagDefaultId
     };
@@ -5196,7 +5809,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTagDefaultResponse>{},
         body: await response.json(),
@@ -5236,6 +5855,9 @@ Gets the specified group mapping.
     getTagNamespaceRequest: requests.GetTagNamespaceRequest
   ): Promise<responses.GetTagNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getTagNamespace.");
+    const operationName = "getTagNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/GetTagNamespace";
     const pathParams = {
       "{tagNamespaceId}": getTagNamespaceRequest.tagNamespaceId
     };
@@ -5263,7 +5885,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTagNamespaceResponse>{},
         body: await response.json(),
@@ -5299,6 +5927,9 @@ Gets the specified group mapping.
     getTaggingWorkRequestRequest: requests.GetTaggingWorkRequestRequest
   ): Promise<responses.GetTaggingWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getTaggingWorkRequest.");
+    const operationName = "getTaggingWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequest/GetTaggingWorkRequest";
     const pathParams = {
       "{workRequestId}": getTaggingWorkRequestRequest.workRequestId
     };
@@ -5326,7 +5957,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTaggingWorkRequestResponse>{},
         body: await response.json(),
@@ -5365,6 +6002,9 @@ Gets the specified group mapping.
     getTenancyRequest: requests.GetTenancyRequest
   ): Promise<responses.GetTenancyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getTenancy.");
+    const operationName = "getTenancy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tenancy/GetTenancy";
     const pathParams = {
       "{tenancyId}": getTenancyRequest.tenancyId
     };
@@ -5392,7 +6032,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTenancyResponse>{},
         body: await response.json(),
@@ -5426,6 +6072,8 @@ Gets the specified group mapping.
     getUserRequest: requests.GetUserRequest
   ): Promise<responses.GetUserResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getUser.");
+    const operationName = "getUser";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/GetUser";
     const pathParams = {
       "{userId}": getUserRequest.userId
     };
@@ -5453,7 +6101,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserResponse>{},
         body: await response.json(),
@@ -5492,6 +6146,9 @@ Gets the specified group mapping.
     getUserGroupMembershipRequest: requests.GetUserGroupMembershipRequest
   ): Promise<responses.GetUserGroupMembershipResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getUserGroupMembership.");
+    const operationName = "getUserGroupMembership";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/GetUserGroupMembership";
     const pathParams = {
       "{userGroupMembershipId}": getUserGroupMembershipRequest.userGroupMembershipId
     };
@@ -5519,7 +6176,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserGroupMembershipResponse>{},
         body: await response.json(),
@@ -5561,6 +6224,9 @@ Gets the specified group mapping.
   ): Promise<responses.GetUserUIPasswordInformationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#getUserUIPasswordInformation.");
+    const operationName = "getUserUIPasswordInformation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UIPasswordInformation/GetUserUIPasswordInformation";
     const pathParams = {
       "{userId}": getUserUIPasswordInformationRequest.userId
     };
@@ -5588,7 +6254,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserUIPasswordInformationResponse>{},
         body: await response.json(),
@@ -5629,6 +6301,9 @@ Gets the specified group mapping.
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -5656,7 +6331,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -5697,6 +6378,9 @@ Gets the specified group mapping.
     importStandardTagsRequest: requests.ImportStandardTagsRequest
   ): Promise<responses.ImportStandardTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#importStandardTags.");
+    const operationName = "importStandardTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/ImportStandardTags";
     const pathParams = {};
 
     const queryParams = {};
@@ -5729,7 +6413,13 @@ Gets the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportStandardTagsResponse>{},
         responseHeaders: [
@@ -5770,6 +6460,9 @@ If `currentLicenseTypeName` is provided, then the request returns license types 
   ): Promise<responses.ListAllowedDomainLicenseTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listAllowedDomainLicenseTypes.");
+    const operationName = "listAllowedDomainLicenseTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/ListAllowedDomainLicenseTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -5798,7 +6491,13 @@ If `currentLicenseTypeName` is provided, then the request returns license types 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAllowedDomainLicenseTypesResponse>{},
         body: await response.json(),
@@ -5841,6 +6540,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
     listApiKeysRequest: requests.ListApiKeysRequest
   ): Promise<responses.ListApiKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listApiKeys.");
+    const operationName = "listApiKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/ApiKey/ListApiKeys";
     const pathParams = {
       "{userId}": listApiKeysRequest.userId
     };
@@ -5868,7 +6570,13 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApiKeysResponse>{},
         body: await response.json(),
@@ -5909,6 +6617,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
     listAuthTokensRequest: requests.ListAuthTokensRequest
   ): Promise<responses.ListAuthTokensResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listAuthTokens.");
+    const operationName = "listAuthTokens";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthToken/ListAuthTokens";
     const pathParams = {
       "{userId}": listAuthTokensRequest.userId
     };
@@ -5936,7 +6647,13 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAuthTokensResponse>{},
         body: await response.json(),
@@ -5980,6 +6697,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
     listAvailabilityDomainsRequest: requests.ListAvailabilityDomainsRequest
   ): Promise<responses.ListAvailabilityDomainsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listAvailabilityDomains.");
+    const operationName = "listAvailabilityDomains";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AvailabilityDomain/ListAvailabilityDomains";
     const pathParams = {};
 
     const queryParams = {
@@ -6007,7 +6727,13 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAvailabilityDomainsResponse>{},
         body: await response.json(),
@@ -6054,6 +6780,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   ): Promise<responses.ListBulkActionResourceTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listBulkActionResourceTypes.");
+    const operationName = "listBulkActionResourceTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/BulkActionResourceTypeCollection/ListBulkActionResourceTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -6083,7 +6812,13 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBulkActionResourceTypesResponse>{},
         body: await response.json(),
@@ -6124,6 +6859,9 @@ Every user has permission to use this API call for *their own user ID*.  An admi
   ): Promise<responses.ListBulkEditTagsResourceTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listBulkEditTagsResourceTypes.");
+    const operationName = "listBulkEditTagsResourceTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/BulkEditTagsResourceTypeCollection/ListBulkEditTagsResourceTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -6152,7 +6890,13 @@ Every user has permission to use this API call for *their own user ID*.  An admi
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBulkEditTagsResourceTypesResponse>{},
         body: await response.json(),
@@ -6209,6 +6953,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listCompartmentsRequest: requests.ListCompartmentsRequest
   ): Promise<responses.ListCompartmentsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listCompartments.");
+    const operationName = "listCompartments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/ListCompartments";
     const pathParams = {};
 
     const queryParams = {
@@ -6244,7 +6991,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCompartmentsResponse>{},
         body: await response.json(),
@@ -6337,6 +7090,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listCostTrackingTagsRequest: requests.ListCostTrackingTagsRequest
   ): Promise<responses.ListCostTrackingTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listCostTrackingTags.");
+    const operationName = "listCostTrackingTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/ListCostTrackingTags";
     const pathParams = {};
 
     const queryParams = {
@@ -6366,7 +7122,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCostTrackingTagsResponse>{},
         body: await response.json(),
@@ -6459,6 +7221,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listCustomerSecretKeysRequest: requests.ListCustomerSecretKeysRequest
   ): Promise<responses.ListCustomerSecretKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listCustomerSecretKeys.");
+    const operationName = "listCustomerSecretKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/CustomerSecretKeySummary/ListCustomerSecretKeys";
     const pathParams = {
       "{userId}": listCustomerSecretKeysRequest.userId
     };
@@ -6486,7 +7251,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCustomerSecretKeysResponse>{},
         body: await response.json(),
@@ -6526,6 +7297,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listDbCredentialsRequest: requests.ListDbCredentialsRequest
   ): Promise<responses.ListDbCredentialsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listDbCredentials.");
+    const operationName = "listDbCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/ListDbCredentials";
     const pathParams = {
       "{userId}": listDbCredentialsRequest.userId
     };
@@ -6561,7 +7335,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDbCredentialsResponse>{},
         body: await response.json(),
@@ -6653,6 +7433,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listDomainsRequest: requests.ListDomainsRequest
   ): Promise<responses.ListDomainsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listDomains.");
+    const operationName = "listDomains";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DomainSummary/ListDomains";
     const pathParams = {};
 
     const queryParams = {
@@ -6693,7 +7476,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDomainsResponse>{},
         body: await response.json(),
@@ -6787,6 +7576,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listDynamicGroupsRequest: requests.ListDynamicGroupsRequest
   ): Promise<responses.ListDynamicGroupsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listDynamicGroups.");
+    const operationName = "listDynamicGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/ListDynamicGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -6820,7 +7612,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDynamicGroupsResponse>{},
         body: await response.json(),
@@ -6914,6 +7712,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listFaultDomainsRequest: requests.ListFaultDomainsRequest
   ): Promise<responses.ListFaultDomainsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listFaultDomains.");
+    const operationName = "listFaultDomains";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/FaultDomain/ListFaultDomains";
     const pathParams = {};
 
     const queryParams = {
@@ -6942,7 +7743,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFaultDomainsResponse>{},
         body: await response.json(),
@@ -6979,6 +7786,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listGroupsRequest: requests.ListGroupsRequest
   ): Promise<responses.ListGroupsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listGroups.");
+    const operationName = "listGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/ListGroups";
     const pathParams = {};
 
     const queryParams = {
@@ -7012,7 +7822,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListGroupsResponse>{},
         body: await response.json(),
@@ -7103,6 +7919,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
   ): Promise<responses.ListIamWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listIamWorkRequestErrors.");
+    const operationName = "listIamWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequest/ListIamWorkRequestErrors";
     const pathParams = {
       "{iamWorkRequestId}": listIamWorkRequestErrorsRequest.iamWorkRequestId
     };
@@ -7135,7 +7954,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIamWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -7227,6 +8052,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listIamWorkRequestLogsRequest: requests.ListIamWorkRequestLogsRequest
   ): Promise<responses.ListIamWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listIamWorkRequestLogs.");
+    const operationName = "listIamWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequestLogSummary/ListIamWorkRequestLogs";
     const pathParams = {
       "{iamWorkRequestId}": listIamWorkRequestLogsRequest.iamWorkRequestId
     };
@@ -7259,7 +8087,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIamWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -7356,6 +8190,9 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
     listIamWorkRequestsRequest: requests.ListIamWorkRequestsRequest
   ): Promise<responses.ListIamWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listIamWorkRequests.");
+    const operationName = "listIamWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IamWorkRequestSummary/ListIamWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -7387,7 +8224,13 @@ See [Where to Get the Tenancy's OCID and User's OCID](https://docs.cloud.oracle.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIamWorkRequestsResponse>{},
         body: await response.json(),
@@ -7482,6 +8325,9 @@ Lists the identity provider groups.
   ): Promise<responses.ListIdentityProviderGroupsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listIdentityProviderGroups.");
+    const operationName = "listIdentityProviderGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProviderGroupSummary/ListIdentityProviderGroups";
     const pathParams = {
       "{identityProviderId}": listIdentityProviderGroupsRequest.identityProviderId
     };
@@ -7514,7 +8360,13 @@ Lists the identity provider groups.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIdentityProviderGroupsResponse>{},
         body: await response.json(),
@@ -7611,6 +8463,9 @@ Lists all the identity providers in your tenancy. You must specify the identity 
     listIdentityProvidersRequest: requests.ListIdentityProvidersRequest
   ): Promise<responses.ListIdentityProvidersResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listIdentityProviders.");
+    const operationName = "listIdentityProviders";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/ListIdentityProviders";
     const pathParams = {};
 
     const queryParams = {
@@ -7645,7 +8500,13 @@ Lists all the identity providers in your tenancy. You must specify the identity 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIdentityProvidersResponse>{},
         body: await response.json(),
@@ -7739,6 +8600,9 @@ Lists the group mappings for the specified identity provider.
     listIdpGroupMappingsRequest: requests.ListIdpGroupMappingsRequest
   ): Promise<responses.ListIdpGroupMappingsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listIdpGroupMappings.");
+    const operationName = "listIdpGroupMappings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/ListIdpGroupMappings";
     const pathParams = {
       "{identityProviderId}": listIdpGroupMappingsRequest.identityProviderId
     };
@@ -7769,7 +8633,13 @@ Lists the group mappings for the specified identity provider.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIdpGroupMappingsResponse>{},
         body: await response.json(),
@@ -7862,6 +8732,9 @@ Lists the group mappings for the specified identity provider.
     listMfaTotpDevicesRequest: requests.ListMfaTotpDevicesRequest
   ): Promise<responses.ListMfaTotpDevicesResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listMfaTotpDevices.");
+    const operationName = "listMfaTotpDevices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/MfaTotpDeviceSummary/ListMfaTotpDevices";
     const pathParams = {
       "{userId}": listMfaTotpDevicesRequest.userId
     };
@@ -7894,7 +8767,13 @@ Lists the group mappings for the specified identity provider.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMfaTotpDevicesResponse>{},
         body: await response.json(),
@@ -7988,6 +8867,9 @@ Lists the group mappings for the specified identity provider.
     listNetworkSourcesRequest: requests.ListNetworkSourcesRequest
   ): Promise<responses.ListNetworkSourcesResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listNetworkSources.");
+    const operationName = "listNetworkSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSourcesSummary/ListNetworkSources";
     const pathParams = {};
 
     const queryParams = {
@@ -8021,7 +8903,13 @@ Lists the group mappings for the specified identity provider.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNetworkSourcesResponse>{},
         body: await response.json(),
@@ -8114,6 +9002,9 @@ Lists the group mappings for the specified identity provider.
   ): Promise<responses.ListOAuthClientCredentialsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listOAuthClientCredentials.");
+    const operationName = "listOAuthClientCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/ListOAuthClientCredentials";
     const pathParams = {
       "{userId}": listOAuthClientCredentialsRequest.userId
     };
@@ -8145,7 +9036,13 @@ Lists the group mappings for the specified identity provider.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListOAuthClientCredentialsResponse>{},
         body: await response.json(),
@@ -8241,6 +9138,9 @@ To determine which policies apply to a particular group or compartment, you must
     listPoliciesRequest: requests.ListPoliciesRequest
   ): Promise<responses.ListPoliciesResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listPolicies.");
+    const operationName = "listPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/ListPolicies";
     const pathParams = {};
 
     const queryParams = {
@@ -8274,7 +9174,13 @@ To determine which policies apply to a particular group or compartment, you must
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPoliciesResponse>{},
         body: await response.json(),
@@ -8365,6 +9271,9 @@ To determine which policies apply to a particular group or compartment, you must
     listRegionSubscriptionsRequest: requests.ListRegionSubscriptionsRequest
   ): Promise<responses.ListRegionSubscriptionsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listRegionSubscriptions.");
+    const operationName = "listRegionSubscriptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/RegionSubscription/ListRegionSubscriptions";
     const pathParams = {
       "{tenancyId}": listRegionSubscriptionsRequest.tenancyId
     };
@@ -8392,7 +9301,13 @@ To determine which policies apply to a particular group or compartment, you must
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRegionSubscriptionsResponse>{},
         body: await response.json(),
@@ -8426,6 +9341,9 @@ To determine which policies apply to a particular group or compartment, you must
     listRegionsRequest: requests.ListRegionsRequest
   ): Promise<responses.ListRegionsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listRegions.");
+    const operationName = "listRegions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Region/ListRegions";
     const pathParams = {};
 
     const queryParams = {};
@@ -8451,7 +9369,13 @@ To determine which policies apply to a particular group or compartment, you must
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRegionsResponse>{},
         body: await response.json(),
@@ -8487,6 +9411,9 @@ To determine which policies apply to a particular group or compartment, you must
     listSmtpCredentialsRequest: requests.ListSmtpCredentialsRequest
   ): Promise<responses.ListSmtpCredentialsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listSmtpCredentials.");
+    const operationName = "listSmtpCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SmtpCredentialSummary/ListSmtpCredentials";
     const pathParams = {
       "{userId}": listSmtpCredentialsRequest.userId
     };
@@ -8514,7 +9441,13 @@ To determine which policies apply to a particular group or compartment, you must
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSmtpCredentialsResponse>{},
         body: await response.json(),
@@ -8555,6 +9488,9 @@ To determine which policies apply to a particular group or compartment, you must
   ): Promise<responses.ListStandardTagNamespacesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listStandardTagNamespaces.");
+    const operationName = "listStandardTagNamespaces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/StandardTagNamespaceTemplateSummary/ListStandardTagNamespaces";
     const pathParams = {};
 
     const queryParams = {
@@ -8584,7 +9520,13 @@ To determine which policies apply to a particular group or compartment, you must
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListStandardTagNamespacesResponse>{},
         body: await response.json(),
@@ -8679,6 +9621,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     listSwiftPasswordsRequest: requests.ListSwiftPasswordsRequest
   ): Promise<responses.ListSwiftPasswordsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listSwiftPasswords.");
+    const operationName = "listSwiftPasswords";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SwiftPassword/ListSwiftPasswords";
     const pathParams = {
       "{userId}": listSwiftPasswordsRequest.userId
     };
@@ -8706,7 +9651,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSwiftPasswordsResponse>{},
         body: await response.json(),
@@ -8746,6 +9697,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     listTagDefaultsRequest: requests.ListTagDefaultsRequest
   ): Promise<responses.ListTagDefaultsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listTagDefaults.");
+    const operationName = "listTagDefaults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefaultSummary/ListTagDefaults";
     const pathParams = {};
 
     const queryParams = {
@@ -8778,7 +9732,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTagDefaultsResponse>{},
         body: await response.json(),
@@ -8870,6 +9830,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     listTagNamespacesRequest: requests.ListTagNamespacesRequest
   ): Promise<responses.ListTagNamespacesResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listTagNamespaces.");
+    const operationName = "listTagNamespaces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespaceSummary/ListTagNamespaces";
     const pathParams = {};
 
     const queryParams = {
@@ -8901,7 +9864,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTagNamespacesResponse>{},
         body: await response.json(),
@@ -8994,6 +9963,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
   ): Promise<responses.ListTaggingWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequestErrors.");
+    const operationName = "listTaggingWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequestErrorSummary/ListTaggingWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listTaggingWorkRequestErrorsRequest.workRequestId
     };
@@ -9024,7 +9996,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaggingWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -9122,6 +10100,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
   ): Promise<responses.ListTaggingWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequestLogs.");
+    const operationName = "listTaggingWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequestLogSummary/ListTaggingWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listTaggingWorkRequestLogsRequest.workRequestId
     };
@@ -9152,7 +10133,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaggingWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -9249,6 +10236,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     listTaggingWorkRequestsRequest: requests.ListTaggingWorkRequestsRequest
   ): Promise<responses.ListTaggingWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listTaggingWorkRequests.");
+    const operationName = "listTaggingWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TaggingWorkRequestSummary/ListTaggingWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -9279,7 +10269,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaggingWorkRequestsResponse>{},
         body: await response.json(),
@@ -9371,6 +10367,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     listTagsRequest: requests.ListTagsRequest
   ): Promise<responses.ListTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listTags.");
+    const operationName = "listTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagSummary/ListTags";
     const pathParams = {
       "{tagNamespaceId}": listTagsRequest.tagNamespaceId
     };
@@ -9402,7 +10401,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTagsResponse>{},
         body: await response.json(),
@@ -9502,6 +10507,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
   ): Promise<responses.ListUserGroupMembershipsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#listUserGroupMemberships.");
+    const operationName = "listUserGroupMemberships";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/ListUserGroupMemberships";
     const pathParams = {};
 
     const queryParams = {
@@ -9533,7 +10541,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUserGroupMembershipsResponse>{},
         body: await response.json(),
@@ -9627,6 +10641,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     listUsersRequest: requests.ListUsersRequest
   ): Promise<responses.ListUsersResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listUsers.");
+    const operationName = "listUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/ListUsers";
     const pathParams = {};
 
     const queryParams = {
@@ -9662,7 +10679,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUsersResponse>{},
         body: await response.json(),
@@ -9752,6 +10775,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -9782,7 +10808,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -9881,6 +10913,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     moveCompartmentRequest: requests.MoveCompartmentRequest
   ): Promise<responses.MoveCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#moveCompartment.");
+    const operationName = "moveCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/MoveCompartment";
     const pathParams = {
       "{compartmentId}": moveCompartmentRequest.compartmentId
     };
@@ -9916,7 +10951,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.MoveCompartmentResponse>{},
         responseHeaders: [
@@ -9952,6 +10993,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     recoverCompartmentRequest: requests.RecoverCompartmentRequest
   ): Promise<responses.RecoverCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#recoverCompartment.");
+    const operationName = "recoverCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/RecoverCompartment";
     const pathParams = {
       "{compartmentId}": recoverCompartmentRequest.compartmentId
     };
@@ -9981,7 +11025,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RecoverCompartmentResponse>{},
         body: await response.json(),
@@ -10020,6 +11070,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     removeUserFromGroupRequest: requests.RemoveUserFromGroupRequest
   ): Promise<responses.RemoveUserFromGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#removeUserFromGroup.");
+    const operationName = "removeUserFromGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/UserGroupMembership/RemoveUserFromGroup";
     const pathParams = {
       "{userGroupMembershipId}": removeUserFromGroupRequest.userGroupMembershipId
     };
@@ -10048,7 +11101,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveUserFromGroupResponse>{},
         responseHeaders: [
@@ -10079,6 +11138,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     resetIdpScimClientRequest: requests.ResetIdpScimClientRequest
   ): Promise<responses.ResetIdpScimClientResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#resetIdpScimClient.");
+    const operationName = "resetIdpScimClient";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/ScimClientCredentials/ResetIdpScimClient";
     const pathParams = {
       "{identityProviderId}": resetIdpScimClientRequest.identityProviderId
     };
@@ -10106,7 +11168,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ResetIdpScimClientResponse>{},
         body: await response.json(),
@@ -10141,6 +11209,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     updateAuthTokenRequest: requests.UpdateAuthTokenRequest
   ): Promise<responses.UpdateAuthTokenResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateAuthToken.");
+    const operationName = "updateAuthToken";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthToken/UpdateAuthToken";
     const pathParams = {
       "{userId}": updateAuthTokenRequest.userId,
       "{authTokenId}": updateAuthTokenRequest.authTokenId
@@ -10175,7 +11246,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAuthTokenResponse>{},
         body: await response.json(),
@@ -10216,6 +11293,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
   ): Promise<responses.UpdateAuthenticationPolicyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#updateAuthenticationPolicy.");
+    const operationName = "updateAuthenticationPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/AuthenticationPolicy/UpdateAuthenticationPolicy";
     const pathParams = {
       "{compartmentId}": updateAuthenticationPolicyRequest.compartmentId
     };
@@ -10249,7 +11329,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAuthenticationPolicyResponse>{},
         body: await response.json(),
@@ -10288,6 +11374,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     updateCompartmentRequest: requests.UpdateCompartmentRequest
   ): Promise<responses.UpdateCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateCompartment.");
+    const operationName = "updateCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Compartment/UpdateCompartment";
     const pathParams = {
       "{compartmentId}": updateCompartmentRequest.compartmentId
     };
@@ -10321,7 +11410,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCompartmentResponse>{},
         body: await response.json(),
@@ -10361,6 +11456,9 @@ Lists the Swift passwords for the specified user. The returned object contains t
     updateCustomerSecretKeyRequest: requests.UpdateCustomerSecretKeyRequest
   ): Promise<responses.UpdateCustomerSecretKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateCustomerSecretKey.");
+    const operationName = "updateCustomerSecretKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/CustomerSecretKeySummary/UpdateCustomerSecretKey";
     const pathParams = {
       "{userId}": updateCustomerSecretKeyRequest.userId,
       "{customerSecretKeyId}": updateCustomerSecretKeyRequest.customerSecretKeyId
@@ -10395,7 +11493,13 @@ Lists the Swift passwords for the specified user. The returned object contains t
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCustomerSecretKeyResponse>{},
         body: await response.json(),
@@ -10438,6 +11542,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     updateDomainRequest: requests.UpdateDomainRequest
   ): Promise<responses.UpdateDomainResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateDomain.");
+    const operationName = "updateDomain";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Domain/UpdateDomain";
     const pathParams = {
       "{domainId}": updateDomainRequest.domainId
     };
@@ -10472,7 +11579,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDomainResponse>{},
         responseHeaders: [
@@ -10507,6 +11620,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     updateDynamicGroupRequest: requests.UpdateDynamicGroupRequest
   ): Promise<responses.UpdateDynamicGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateDynamicGroup.");
+    const operationName = "updateDynamicGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/DynamicGroup/UpdateDynamicGroup";
     const pathParams = {
       "{dynamicGroupId}": updateDynamicGroupRequest.dynamicGroupId
     };
@@ -10540,7 +11656,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDynamicGroupResponse>{},
         body: await response.json(),
@@ -10579,6 +11701,9 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
     updateGroupRequest: requests.UpdateGroupRequest
   ): Promise<responses.UpdateGroupResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateGroup.");
+    const operationName = "updateGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Group/UpdateGroup";
     const pathParams = {
       "{groupId}": updateGroupRequest.groupId
     };
@@ -10612,7 +11737,13 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateGroupResponse>{},
         body: await response.json(),
@@ -10654,6 +11785,9 @@ Updates the specified identity provider.
     updateIdentityProviderRequest: requests.UpdateIdentityProviderRequest
   ): Promise<responses.UpdateIdentityProviderResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateIdentityProvider.");
+    const operationName = "updateIdentityProvider";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdentityProvider/UpdateIdentityProvider";
     const pathParams = {
       "{identityProviderId}": updateIdentityProviderRequest.identityProviderId
     };
@@ -10687,7 +11821,13 @@ Updates the specified identity provider.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIdentityProviderResponse>{},
         body: await response.json(),
@@ -10729,6 +11869,9 @@ Updates the specified group mapping.
     updateIdpGroupMappingRequest: requests.UpdateIdpGroupMappingRequest
   ): Promise<responses.UpdateIdpGroupMappingResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateIdpGroupMapping.");
+    const operationName = "updateIdpGroupMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/IdpGroupMapping/UpdateIdpGroupMapping";
     const pathParams = {
       "{identityProviderId}": updateIdpGroupMappingRequest.identityProviderId,
       "{mappingId}": updateIdpGroupMappingRequest.mappingId
@@ -10763,7 +11906,13 @@ Updates the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIdpGroupMappingResponse>{},
         body: await response.json(),
@@ -10803,6 +11952,9 @@ Updates the specified group mapping.
     updateNetworkSourceRequest: requests.UpdateNetworkSourceRequest
   ): Promise<responses.UpdateNetworkSourceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateNetworkSource.");
+    const operationName = "updateNetworkSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/NetworkSources/UpdateNetworkSource";
     const pathParams = {
       "{networkSourceId}": updateNetworkSourceRequest.networkSourceId
     };
@@ -10836,7 +11988,13 @@ Updates the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNetworkSourceResponse>{},
         body: await response.json(),
@@ -10877,6 +12035,9 @@ Updates the specified group mapping.
   ): Promise<responses.UpdateOAuthClientCredentialResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IdentityClient#updateOAuthClientCredential.");
+    const operationName = "updateOAuthClientCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateOAuthClientCredential";
     const pathParams = {
       "{userId}": updateOAuthClientCredentialRequest.userId,
       "{oauth2ClientCredentialId}": updateOAuthClientCredentialRequest.oauth2ClientCredentialId
@@ -10911,7 +12072,13 @@ Updates the specified group mapping.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOAuthClientCredentialResponse>{},
         body: await response.json(),
@@ -10953,6 +12120,9 @@ Policy changes take effect typically within 10 seconds.
     updatePolicyRequest: requests.UpdatePolicyRequest
   ): Promise<responses.UpdatePolicyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updatePolicy.");
+    const operationName = "updatePolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Policy/UpdatePolicy";
     const pathParams = {
       "{policyId}": updatePolicyRequest.policyId
     };
@@ -10986,7 +12156,13 @@ Policy changes take effect typically within 10 seconds.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePolicyResponse>{},
         body: await response.json(),
@@ -11026,6 +12202,9 @@ Policy changes take effect typically within 10 seconds.
     updateSmtpCredentialRequest: requests.UpdateSmtpCredentialRequest
   ): Promise<responses.UpdateSmtpCredentialResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateSmtpCredential.");
+    const operationName = "updateSmtpCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SmtpCredentialSummary/UpdateSmtpCredential";
     const pathParams = {
       "{userId}": updateSmtpCredentialRequest.userId,
       "{smtpCredentialId}": updateSmtpCredentialRequest.smtpCredentialId
@@ -11060,7 +12239,13 @@ Policy changes take effect typically within 10 seconds.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSmtpCredentialResponse>{},
         body: await response.json(),
@@ -11102,6 +12287,9 @@ Updates the specified Swift password's description.
     updateSwiftPasswordRequest: requests.UpdateSwiftPasswordRequest
   ): Promise<responses.UpdateSwiftPasswordResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateSwiftPassword.");
+    const operationName = "updateSwiftPassword";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/SwiftPassword/UpdateSwiftPassword";
     const pathParams = {
       "{userId}": updateSwiftPasswordRequest.userId,
       "{swiftPasswordId}": updateSwiftPasswordRequest.swiftPasswordId
@@ -11136,7 +12324,13 @@ Updates the specified Swift password's description.
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateSwiftPasswordResponse>{},
         body: await response.json(),
@@ -11185,6 +12379,9 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
     updateTagRequest: requests.UpdateTagRequest
   ): Promise<responses.UpdateTagResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTag.");
+    const operationName = "updateTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/UpdateTag";
     const pathParams = {
       "{tagNamespaceId}": updateTagRequest.tagNamespaceId,
       "{tagName}": updateTagRequest.tagName
@@ -11219,7 +12416,13 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTagResponse>{},
         body: await response.json(),
@@ -11264,6 +12467,9 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
     updateTagDefaultRequest: requests.UpdateTagDefaultRequest
   ): Promise<responses.UpdateTagDefaultResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTagDefault.");
+    const operationName = "updateTagDefault";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/UpdateTagDefault";
     const pathParams = {
       "{tagDefaultId}": updateTagDefaultRequest.tagDefaultId
     };
@@ -11298,7 +12504,13 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTagDefaultResponse>{},
         body: await response.json(),
@@ -11346,6 +12558,9 @@ You can't add a namespace with the same name as a retired namespace in the same 
     updateTagNamespaceRequest: requests.UpdateTagNamespaceRequest
   ): Promise<responses.UpdateTagNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateTagNamespace.");
+    const operationName = "updateTagNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/UpdateTagNamespace";
     const pathParams = {
       "{tagNamespaceId}": updateTagNamespaceRequest.tagNamespaceId
     };
@@ -11378,7 +12593,13 @@ You can't add a namespace with the same name as a retired namespace in the same 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTagNamespaceResponse>{},
         body: await response.json(),
@@ -11412,6 +12633,9 @@ You can't add a namespace with the same name as a retired namespace in the same 
     updateUserRequest: requests.UpdateUserRequest
   ): Promise<responses.UpdateUserResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUser.");
+    const operationName = "updateUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateUser";
     const pathParams = {
       "{userId}": updateUserRequest.userId
     };
@@ -11445,7 +12669,13 @@ You can't add a namespace with the same name as a retired namespace in the same 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateUserResponse>{},
         body: await response.json(),
@@ -11485,6 +12715,9 @@ You can't add a namespace with the same name as a retired namespace in the same 
     updateUserCapabilitiesRequest: requests.UpdateUserCapabilitiesRequest
   ): Promise<responses.UpdateUserCapabilitiesResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUserCapabilities.");
+    const operationName = "updateUserCapabilities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateUserCapabilities";
     const pathParams = {
       "{userId}": updateUserCapabilitiesRequest.userId
     };
@@ -11518,7 +12751,13 @@ You can't add a namespace with the same name as a retired namespace in the same 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateUserCapabilitiesResponse>{},
         body: await response.json(),
@@ -11558,6 +12797,9 @@ You can't add a namespace with the same name as a retired namespace in the same 
     updateUserStateRequest: requests.UpdateUserStateRequest
   ): Promise<responses.UpdateUserStateResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#updateUserState.");
+    const operationName = "updateUserState";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/User/UpdateUserState";
     const pathParams = {
       "{userId}": updateUserStateRequest.userId
     };
@@ -11591,7 +12833,13 @@ You can't add a namespace with the same name as a retired namespace in the same 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateUserStateResponse>{},
         body: await response.json(),
@@ -11645,6 +12893,9 @@ After you send your request, the new object's `lifecycleState` will temporarily 
     uploadApiKeyRequest: requests.UploadApiKeyRequest
   ): Promise<responses.UploadApiKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation IdentityClient#uploadApiKey.");
+    const operationName = "uploadApiKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/ApiKey/UploadApiKey";
     const pathParams = {
       "{userId}": uploadApiKeyRequest.userId
     };
@@ -11678,7 +12929,13 @@ After you send your request, the new object's `lifecycleState` will temporarily 
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadApiKeyResponse>{},
         body: await response.json(),

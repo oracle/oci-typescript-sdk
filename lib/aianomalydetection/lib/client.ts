@@ -39,6 +39,7 @@ export class AnomalyDetectionClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "AnomalyDetection";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.CancelWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -194,7 +197,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelWorkRequestResponse>{},
         responseHeaders: [
@@ -227,6 +236,8 @@ export class AnomalyDetectionClient {
       this.logger.debug(
         "Calling operation AnomalyDetectionClient#changeAiPrivateEndpointCompartment."
       );
+    const operationName = "changeAiPrivateEndpointCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{aiPrivateEndpointId}": changeAiPrivateEndpointCompartmentRequest.aiPrivateEndpointId
     };
@@ -262,7 +273,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeAiPrivateEndpointCompartmentResponse>{},
         responseHeaders: [
@@ -298,6 +315,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ChangeDataAssetCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#changeDataAssetCompartment.");
+    const operationName = "changeDataAssetCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dataAssetId}": changeDataAssetCompartmentRequest.dataAssetId
     };
@@ -333,7 +352,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDataAssetCompartmentResponse>{},
         body: await response.json(),
@@ -373,6 +398,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ChangeModelCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#changeModelCompartment.");
+    const operationName = "changeModelCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{modelId}": changeModelCompartmentRequest.modelId
     };
@@ -408,7 +435,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeModelCompartmentResponse>{},
         responseHeaders: [
@@ -439,6 +472,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ChangeProjectCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#changeProjectCompartment.");
+    const operationName = "changeProjectCompartment";
+    const apiReferenceLink = "";
     const pathParams = {
       "{projectId}": changeProjectCompartmentRequest.projectId
     };
@@ -474,7 +509,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeProjectCompartmentResponse>{},
         responseHeaders: [
@@ -505,6 +546,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.CreateAiPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#createAiPrivateEndpoint.");
+    const operationName = "createAiPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -537,7 +580,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAiPrivateEndpointResponse>{},
         responseHeaders: [
@@ -573,6 +622,8 @@ export class AnomalyDetectionClient {
     createDataAssetRequest: requests.CreateDataAssetRequest
   ): Promise<responses.CreateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createDataAsset.");
+    const operationName = "createDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -605,7 +656,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataAssetResponse>{},
         body: await response.json(),
@@ -645,6 +702,8 @@ export class AnomalyDetectionClient {
     createModelRequest: requests.CreateModelRequest
   ): Promise<responses.CreateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createModel.");
+    const operationName = "createModel";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -677,7 +736,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateModelResponse>{},
         body: await response.json(),
@@ -727,6 +792,8 @@ export class AnomalyDetectionClient {
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createProject.");
+    const operationName = "createProject";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -759,7 +826,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
@@ -799,6 +872,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.DeleteAiPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#deleteAiPrivateEndpoint.");
+    const operationName = "deleteAiPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{aiPrivateEndpointId}": deleteAiPrivateEndpointRequest.aiPrivateEndpointId
     };
@@ -828,7 +903,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAiPrivateEndpointResponse>{},
         responseHeaders: [
@@ -863,6 +944,8 @@ export class AnomalyDetectionClient {
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
   ): Promise<responses.DeleteDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteDataAsset.");
+    const operationName = "deleteDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dataAssetId}": deleteDataAssetRequest.dataAssetId
     };
@@ -892,7 +975,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataAssetResponse>{},
         responseHeaders: [
@@ -922,6 +1011,8 @@ export class AnomalyDetectionClient {
     deleteModelRequest: requests.DeleteModelRequest
   ): Promise<responses.DeleteModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteModel.");
+    const operationName = "deleteModel";
+    const apiReferenceLink = "";
     const pathParams = {
       "{modelId}": deleteModelRequest.modelId
     };
@@ -951,7 +1042,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteModelResponse>{},
         responseHeaders: [
@@ -986,6 +1083,8 @@ export class AnomalyDetectionClient {
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteProject.");
+    const operationName = "deleteProject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{projectId}": deleteProjectRequest.projectId
     };
@@ -1015,7 +1114,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProjectResponse>{},
         responseHeaders: [
@@ -1050,6 +1155,8 @@ export class AnomalyDetectionClient {
     detectAnomaliesRequest: requests.DetectAnomaliesRequest
   ): Promise<responses.DetectAnomaliesResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#detectAnomalies.");
+    const operationName = "detectAnomalies";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -1083,7 +1190,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetectAnomaliesResponse>{},
         body: await response.json(),
@@ -1118,6 +1231,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.GetAiPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#getAiPrivateEndpoint.");
+    const operationName = "getAiPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{aiPrivateEndpointId}": getAiPrivateEndpointRequest.aiPrivateEndpointId
     };
@@ -1146,7 +1261,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAiPrivateEndpointResponse>{},
         body: await response.json(),
@@ -1185,6 +1306,8 @@ export class AnomalyDetectionClient {
     getDataAssetRequest: requests.GetDataAssetRequest
   ): Promise<responses.GetDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getDataAsset.");
+    const operationName = "getDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dataAssetId}": getDataAssetRequest.dataAssetId
     };
@@ -1213,7 +1336,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataAssetResponse>{},
         body: await response.json(),
@@ -1252,6 +1381,8 @@ export class AnomalyDetectionClient {
     getModelRequest: requests.GetModelRequest
   ): Promise<responses.GetModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getModel.");
+    const operationName = "getModel";
+    const apiReferenceLink = "";
     const pathParams = {
       "{modelId}": getModelRequest.modelId
     };
@@ -1280,7 +1411,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetModelResponse>{},
         body: await response.json(),
@@ -1319,6 +1456,8 @@ export class AnomalyDetectionClient {
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getProject.");
+    const operationName = "getProject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{projectId}": getProjectRequest.projectId
     };
@@ -1347,7 +1486,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
@@ -1386,6 +1531,8 @@ export class AnomalyDetectionClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1414,7 +1561,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1460,6 +1613,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ListAiPrivateEndpointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listAiPrivateEndpoints.");
+    const operationName = "listAiPrivateEndpoints";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1495,7 +1650,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAiPrivateEndpointsResponse>{},
         body: await response.json(),
@@ -1535,6 +1696,8 @@ export class AnomalyDetectionClient {
     listDataAssetsRequest: requests.ListDataAssetsRequest
   ): Promise<responses.ListDataAssetsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listDataAssets.");
+    const operationName = "listDataAssets";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1570,7 +1733,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataAssetsResponse>{},
         body: await response.json(),
@@ -1610,6 +1779,8 @@ export class AnomalyDetectionClient {
     listModelsRequest: requests.ListModelsRequest
   ): Promise<responses.ListModelsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listModels.");
+    const operationName = "listModels";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1645,7 +1816,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListModelsResponse>{},
         body: await response.json(),
@@ -1685,6 +1862,8 @@ export class AnomalyDetectionClient {
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listProjects.");
+    const operationName = "listProjects";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1719,7 +1898,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
@@ -1760,6 +1945,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1791,7 +1978,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1832,6 +2025,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink = "";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1863,7 +2058,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1904,6 +2105,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {
@@ -1935,7 +2138,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1975,6 +2184,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.UpdateAiPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#updateAiPrivateEndpoint.");
+    const operationName = "updateAiPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {
       "{aiPrivateEndpointId}": updateAiPrivateEndpointRequest.aiPrivateEndpointId
     };
@@ -2009,7 +2220,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAiPrivateEndpointResponse>{},
         responseHeaders: [
@@ -2044,6 +2261,8 @@ export class AnomalyDetectionClient {
     updateDataAssetRequest: requests.UpdateDataAssetRequest
   ): Promise<responses.UpdateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateDataAsset.");
+    const operationName = "updateDataAsset";
+    const apiReferenceLink = "";
     const pathParams = {
       "{dataAssetId}": updateDataAssetRequest.dataAssetId
     };
@@ -2078,7 +2297,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataAssetResponse>{},
         body: await response.json(),
@@ -2117,6 +2342,8 @@ export class AnomalyDetectionClient {
     updateModelRequest: requests.UpdateModelRequest
   ): Promise<responses.UpdateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateModel.");
+    const operationName = "updateModel";
+    const apiReferenceLink = "";
     const pathParams = {
       "{modelId}": updateModelRequest.modelId
     };
@@ -2151,7 +2378,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateModelResponse>{},
         responseHeaders: [
@@ -2186,6 +2419,8 @@ export class AnomalyDetectionClient {
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateProject.");
+    const operationName = "updateProject";
+    const apiReferenceLink = "";
     const pathParams = {
       "{projectId}": updateProjectRequest.projectId
     };
@@ -2220,7 +2455,13 @@ export class AnomalyDetectionClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProjectResponse>{},
         body: await response.json(),

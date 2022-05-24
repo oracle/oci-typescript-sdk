@@ -36,6 +36,7 @@ export class IntegrationInstanceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "IntegrationInstance";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,9 @@ export class IntegrationInstanceClient {
       this.logger.debug(
         "Calling operation IntegrationInstanceClient#changeIntegrationInstanceCompartment."
       );
+    const operationName = "changeIntegrationInstanceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ChangeIntegrationInstanceCompartment";
     const pathParams = {
       "{integrationInstanceId}": changeIntegrationInstanceCompartmentRequest.integrationInstanceId
     };
@@ -201,7 +205,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeIntegrationInstanceCompartmentResponse>{},
         responseHeaders: [
@@ -241,6 +251,9 @@ export class IntegrationInstanceClient {
       this.logger.debug(
         "Calling operation IntegrationInstanceClient#changeIntegrationInstanceNetworkEndpoint."
       );
+    const operationName = "changeIntegrationInstanceNetworkEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ChangeIntegrationInstanceNetworkEndpoint";
     const pathParams = {
       "{integrationInstanceId}":
         changeIntegrationInstanceNetworkEndpointRequest.integrationInstanceId
@@ -277,7 +290,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeIntegrationInstanceNetworkEndpointResponse>{},
         responseHeaders: [
@@ -314,6 +333,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.CreateIntegrationInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#createIntegrationInstance.");
+    const operationName = "createIntegrationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/CreateIntegrationInstance";
     const pathParams = {};
 
     const queryParams = {};
@@ -346,7 +368,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -382,6 +410,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.DeleteIntegrationInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#deleteIntegrationInstance.");
+    const operationName = "deleteIntegrationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/DeleteIntegrationInstance";
     const pathParams = {
       "{integrationInstanceId}": deleteIntegrationInstanceRequest.integrationInstanceId
     };
@@ -411,7 +442,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -447,6 +484,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.GetIntegrationInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#getIntegrationInstance.");
+    const operationName = "getIntegrationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/GetIntegrationInstance";
     const pathParams = {
       "{integrationInstanceId}": getIntegrationInstanceRequest.integrationInstanceId
     };
@@ -475,7 +515,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIntegrationInstanceResponse>{},
         body: await response.json(),
@@ -515,6 +561,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -543,7 +592,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -589,6 +644,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.ListIntegrationInstancesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#listIntegrationInstances.");
+    const operationName = "listIntegrationInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstanceSummary/ListIntegrationInstances";
     const pathParams = {};
 
     const queryParams = {
@@ -623,7 +681,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIntegrationInstancesResponse>{},
         body: await response.json(),
@@ -720,6 +784,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -752,7 +819,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -849,6 +922,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -881,7 +957,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -979,6 +1061,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/WorkRequestSummary/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1010,7 +1095,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1108,6 +1199,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.StartIntegrationInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#startIntegrationInstance.");
+    const operationName = "startIntegrationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/StartIntegrationInstance";
     const pathParams = {
       "{integrationInstanceId}": startIntegrationInstanceRequest.integrationInstanceId
     };
@@ -1138,7 +1232,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -1175,6 +1275,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.StopIntegrationInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#stopIntegrationInstance.");
+    const operationName = "stopIntegrationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/StopIntegrationInstance";
     const pathParams = {
       "{integrationInstanceId}": stopIntegrationInstanceRequest.integrationInstanceId
     };
@@ -1205,7 +1308,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopIntegrationInstanceResponse>{},
         responseHeaders: [
@@ -1241,6 +1350,9 @@ export class IntegrationInstanceClient {
   ): Promise<responses.UpdateIntegrationInstanceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IntegrationInstanceClient#updateIntegrationInstance.");
+    const operationName = "updateIntegrationInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/UpdateIntegrationInstance";
     const pathParams = {
       "{integrationInstanceId}": updateIntegrationInstanceRequest.integrationInstanceId
     };
@@ -1275,7 +1387,13 @@ export class IntegrationInstanceClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIntegrationInstanceResponse>{},
         responseHeaders: [

@@ -38,6 +38,7 @@ export class DataCatalogClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataCatalog";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class DataCatalogClient {
   ): Promise<responses.AddDataSelectorPatternsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#addDataSelectorPatterns.");
+    const operationName = "addDataSelectorPatterns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/AddDataSelectorPatterns";
     const pathParams = {
       "{catalogId}": addDataSelectorPatternsRequest.catalogId,
       "{dataAssetKey}": addDataSelectorPatternsRequest.dataAssetKey
@@ -200,7 +204,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddDataSelectorPatternsResponse>{},
         body: await response.json(),
@@ -240,6 +250,9 @@ export class DataCatalogClient {
   ): Promise<responses.AssociateCustomPropertyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#associateCustomProperty.");
+    const operationName = "associateCustomProperty";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Type/AssociateCustomProperty";
     const pathParams = {
       "{catalogId}": associateCustomPropertyRequest.catalogId,
       "{typeKey}": associateCustomPropertyRequest.typeKey
@@ -276,7 +289,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AssociateCustomPropertyResponse>{},
         body: await response.json(),
@@ -316,6 +335,9 @@ export class DataCatalogClient {
   ): Promise<responses.AttachCatalogPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#attachCatalogPrivateEndpoint.");
+    const operationName = "attachCatalogPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/AttachCatalogPrivateEndpoint";
     const pathParams = {
       "{catalogId}": attachCatalogPrivateEndpointRequest.catalogId
     };
@@ -351,7 +373,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AttachCatalogPrivateEndpointResponse>{},
         responseHeaders: [
@@ -387,6 +415,9 @@ export class DataCatalogClient {
   ): Promise<responses.ChangeCatalogCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#changeCatalogCompartment.");
+    const operationName = "changeCatalogCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/ChangeCatalogCompartment";
     const pathParams = {
       "{catalogId}": changeCatalogCompartmentRequest.catalogId
     };
@@ -421,7 +452,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCatalogCompartmentResponse>{},
         responseHeaders: [
@@ -459,6 +496,9 @@ export class DataCatalogClient {
       this.logger.debug(
         "Calling operation DataCatalogClient#changeCatalogPrivateEndpointCompartment."
       );
+    const operationName = "changeCatalogPrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/ChangeCatalogPrivateEndpointCompartment";
     const pathParams = {
       "{catalogPrivateEndpointId}":
         changeCatalogPrivateEndpointCompartmentRequest.catalogPrivateEndpointId
@@ -494,7 +534,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCatalogPrivateEndpointCompartmentResponse>{},
         responseHeaders: [
@@ -530,6 +576,9 @@ export class DataCatalogClient {
   ): Promise<responses.ChangeMetastoreCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#changeMetastoreCompartment.");
+    const operationName = "changeMetastoreCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/ChangeMetastoreCompartment";
     const pathParams = {
       "{metastoreId}": changeMetastoreCompartmentRequest.metastoreId
     };
@@ -564,7 +613,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMetastoreCompartmentResponse>{},
         responseHeaders: [
@@ -599,6 +654,9 @@ export class DataCatalogClient {
     createAttributeRequest: requests.CreateAttributeRequest
   ): Promise<responses.CreateAttributeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createAttribute.");
+    const operationName = "createAttribute";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/CreateAttribute";
     const pathParams = {
       "{catalogId}": createAttributeRequest.catalogId,
       "{dataAssetKey}": createAttributeRequest.dataAssetKey,
@@ -635,7 +693,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAttributeResponse>{},
         body: await response.json(),
@@ -674,6 +738,9 @@ export class DataCatalogClient {
     createAttributeTagRequest: requests.CreateAttributeTagRequest
   ): Promise<responses.CreateAttributeTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createAttributeTag.");
+    const operationName = "createAttributeTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTag/CreateAttributeTag";
     const pathParams = {
       "{catalogId}": createAttributeTagRequest.catalogId,
       "{dataAssetKey}": createAttributeTagRequest.dataAssetKey,
@@ -712,7 +779,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateAttributeTagResponse>{},
         body: await response.json(),
@@ -753,6 +826,9 @@ export class DataCatalogClient {
     createCatalogRequest: requests.CreateCatalogRequest
   ): Promise<responses.CreateCatalogResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createCatalog.");
+    const operationName = "createCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/CreateCatalog";
     const pathParams = {};
 
     const queryParams = {};
@@ -785,7 +861,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCatalogResponse>{},
         responseHeaders: [
@@ -821,6 +903,9 @@ export class DataCatalogClient {
   ): Promise<responses.CreateCatalogPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#createCatalogPrivateEndpoint.");
+    const operationName = "createCatalogPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/CreateCatalogPrivateEndpoint";
     const pathParams = {};
 
     const queryParams = {};
@@ -853,7 +938,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCatalogPrivateEndpointResponse>{},
         responseHeaders: [
@@ -888,6 +979,9 @@ export class DataCatalogClient {
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createConnection.");
+    const operationName = "createConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/CreateConnection";
     const pathParams = {
       "{catalogId}": createConnectionRequest.catalogId,
       "{dataAssetKey}": createConnectionRequest.dataAssetKey
@@ -923,7 +1017,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
@@ -962,6 +1062,9 @@ export class DataCatalogClient {
     createCustomPropertyRequest: requests.CreateCustomPropertyRequest
   ): Promise<responses.CreateCustomPropertyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createCustomProperty.");
+    const operationName = "createCustomProperty";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/CreateCustomProperty";
     const pathParams = {
       "{catalogId}": createCustomPropertyRequest.catalogId,
       "{namespaceId}": createCustomPropertyRequest.namespaceId
@@ -997,7 +1100,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateCustomPropertyResponse>{},
         body: await response.json(),
@@ -1036,6 +1145,9 @@ export class DataCatalogClient {
     createDataAssetRequest: requests.CreateDataAssetRequest
   ): Promise<responses.CreateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createDataAsset.");
+    const operationName = "createDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/CreateDataAsset";
     const pathParams = {
       "{catalogId}": createDataAssetRequest.catalogId
     };
@@ -1070,7 +1182,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataAssetResponse>{},
         body: await response.json(),
@@ -1109,6 +1227,9 @@ export class DataCatalogClient {
     createDataAssetTagRequest: requests.CreateDataAssetTagRequest
   ): Promise<responses.CreateDataAssetTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createDataAssetTag.");
+    const operationName = "createDataAssetTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTag/CreateDataAssetTag";
     const pathParams = {
       "{catalogId}": createDataAssetTagRequest.catalogId,
       "{dataAssetKey}": createDataAssetTagRequest.dataAssetKey
@@ -1144,7 +1265,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataAssetTagResponse>{},
         body: await response.json(),
@@ -1183,6 +1310,9 @@ export class DataCatalogClient {
     createEntityRequest: requests.CreateEntityRequest
   ): Promise<responses.CreateEntityResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createEntity.");
+    const operationName = "createEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/CreateEntity";
     const pathParams = {
       "{catalogId}": createEntityRequest.catalogId,
       "{dataAssetKey}": createEntityRequest.dataAssetKey
@@ -1218,7 +1348,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateEntityResponse>{},
         body: await response.json(),
@@ -1257,6 +1393,9 @@ export class DataCatalogClient {
     createEntityTagRequest: requests.CreateEntityTagRequest
   ): Promise<responses.CreateEntityTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createEntityTag.");
+    const operationName = "createEntityTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTag/CreateEntityTag";
     const pathParams = {
       "{catalogId}": createEntityTagRequest.catalogId,
       "{dataAssetKey}": createEntityTagRequest.dataAssetKey,
@@ -1293,7 +1432,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateEntityTagResponse>{},
         body: await response.json(),
@@ -1332,6 +1477,9 @@ export class DataCatalogClient {
     createFolderRequest: requests.CreateFolderRequest
   ): Promise<responses.CreateFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createFolder.");
+    const operationName = "createFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/CreateFolder";
     const pathParams = {
       "{catalogId}": createFolderRequest.catalogId,
       "{dataAssetKey}": createFolderRequest.dataAssetKey
@@ -1367,7 +1515,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFolderResponse>{},
         body: await response.json(),
@@ -1406,6 +1560,9 @@ export class DataCatalogClient {
     createFolderTagRequest: requests.CreateFolderTagRequest
   ): Promise<responses.CreateFolderTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createFolderTag.");
+    const operationName = "createFolderTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTag/CreateFolderTag";
     const pathParams = {
       "{catalogId}": createFolderTagRequest.catalogId,
       "{dataAssetKey}": createFolderTagRequest.dataAssetKey,
@@ -1442,7 +1599,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFolderTagResponse>{},
         body: await response.json(),
@@ -1481,6 +1644,9 @@ export class DataCatalogClient {
     createGlossaryRequest: requests.CreateGlossaryRequest
   ): Promise<responses.CreateGlossaryResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createGlossary.");
+    const operationName = "createGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/CreateGlossary";
     const pathParams = {
       "{catalogId}": createGlossaryRequest.catalogId
     };
@@ -1515,7 +1681,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateGlossaryResponse>{},
         body: await response.json(),
@@ -1554,6 +1726,9 @@ export class DataCatalogClient {
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJob.");
+    const operationName = "createJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/CreateJob";
     const pathParams = {
       "{catalogId}": createJobRequest.catalogId
     };
@@ -1588,7 +1763,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobResponse>{},
         body: await response.json(),
@@ -1627,6 +1808,9 @@ export class DataCatalogClient {
     createJobDefinitionRequest: requests.CreateJobDefinitionRequest
   ): Promise<responses.CreateJobDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJobDefinition.");
+    const operationName = "createJobDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/CreateJobDefinition";
     const pathParams = {
       "{catalogId}": createJobDefinitionRequest.catalogId
     };
@@ -1661,7 +1845,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobDefinitionResponse>{},
         body: await response.json(),
@@ -1700,6 +1890,9 @@ export class DataCatalogClient {
     createJobExecutionRequest: requests.CreateJobExecutionRequest
   ): Promise<responses.CreateJobExecutionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createJobExecution.");
+    const operationName = "createJobExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobExecution/CreateJobExecution";
     const pathParams = {
       "{catalogId}": createJobExecutionRequest.catalogId,
       "{jobKey}": createJobExecutionRequest.jobKey
@@ -1735,7 +1928,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobExecutionResponse>{},
         body: await response.json(),
@@ -1775,6 +1974,9 @@ export class DataCatalogClient {
     createMetastoreRequest: requests.CreateMetastoreRequest
   ): Promise<responses.CreateMetastoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createMetastore.");
+    const operationName = "createMetastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/CreateMetastore";
     const pathParams = {};
 
     const queryParams = {};
@@ -1807,7 +2009,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateMetastoreResponse>{},
         responseHeaders: [
@@ -1842,6 +2050,9 @@ export class DataCatalogClient {
     createNamespaceRequest: requests.CreateNamespaceRequest
   ): Promise<responses.CreateNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createNamespace.");
+    const operationName = "createNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/CreateNamespace";
     const pathParams = {
       "{catalogId}": createNamespaceRequest.catalogId
     };
@@ -1876,7 +2087,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateNamespaceResponse>{},
         body: await response.json(),
@@ -1915,6 +2132,9 @@ export class DataCatalogClient {
     createPatternRequest: requests.CreatePatternRequest
   ): Promise<responses.CreatePatternResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createPattern.");
+    const operationName = "createPattern";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/CreatePattern";
     const pathParams = {
       "{catalogId}": createPatternRequest.catalogId
     };
@@ -1949,7 +2169,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePatternResponse>{},
         body: await response.json(),
@@ -1988,6 +2214,9 @@ export class DataCatalogClient {
     createTermRequest: requests.CreateTermRequest
   ): Promise<responses.CreateTermResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#createTerm.");
+    const operationName = "createTerm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/CreateTerm";
     const pathParams = {
       "{catalogId}": createTermRequest.catalogId,
       "{glossaryKey}": createTermRequest.glossaryKey
@@ -2023,7 +2252,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTermResponse>{},
         body: await response.json(),
@@ -2063,6 +2298,9 @@ export class DataCatalogClient {
   ): Promise<responses.CreateTermRelationshipResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#createTermRelationship.");
+    const operationName = "createTermRelationship";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/CreateTermRelationship";
     const pathParams = {
       "{catalogId}": createTermRelationshipRequest.catalogId,
       "{glossaryKey}": createTermRelationshipRequest.glossaryKey,
@@ -2099,7 +2337,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTermRelationshipResponse>{},
         body: await response.json(),
@@ -2138,6 +2382,9 @@ export class DataCatalogClient {
     deleteAttributeRequest: requests.DeleteAttributeRequest
   ): Promise<responses.DeleteAttributeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteAttribute.");
+    const operationName = "deleteAttribute";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/DeleteAttribute";
     const pathParams = {
       "{catalogId}": deleteAttributeRequest.catalogId,
       "{dataAssetKey}": deleteAttributeRequest.dataAssetKey,
@@ -2171,7 +2418,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAttributeResponse>{},
         responseHeaders: [
@@ -2201,6 +2454,9 @@ export class DataCatalogClient {
     deleteAttributeTagRequest: requests.DeleteAttributeTagRequest
   ): Promise<responses.DeleteAttributeTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteAttributeTag.");
+    const operationName = "deleteAttributeTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTag/DeleteAttributeTag";
     const pathParams = {
       "{catalogId}": deleteAttributeTagRequest.catalogId,
       "{dataAssetKey}": deleteAttributeTagRequest.dataAssetKey,
@@ -2235,7 +2491,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteAttributeTagResponse>{},
         responseHeaders: [
@@ -2265,6 +2527,9 @@ export class DataCatalogClient {
     deleteCatalogRequest: requests.DeleteCatalogRequest
   ): Promise<responses.DeleteCatalogResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteCatalog.");
+    const operationName = "deleteCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/DeleteCatalog";
     const pathParams = {
       "{catalogId}": deleteCatalogRequest.catalogId
     };
@@ -2294,7 +2559,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCatalogResponse>{},
         responseHeaders: [
@@ -2330,6 +2601,9 @@ export class DataCatalogClient {
   ): Promise<responses.DeleteCatalogPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#deleteCatalogPrivateEndpoint.");
+    const operationName = "deleteCatalogPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/DeleteCatalogPrivateEndpoint";
     const pathParams = {
       "{catalogPrivateEndpointId}": deleteCatalogPrivateEndpointRequest.catalogPrivateEndpointId
     };
@@ -2359,7 +2633,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCatalogPrivateEndpointResponse>{},
         responseHeaders: [
@@ -2394,6 +2674,9 @@ export class DataCatalogClient {
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteConnection.");
+    const operationName = "deleteConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/DeleteConnection";
     const pathParams = {
       "{catalogId}": deleteConnectionRequest.catalogId,
       "{dataAssetKey}": deleteConnectionRequest.dataAssetKey,
@@ -2425,7 +2708,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionResponse>{},
         responseHeaders: [
@@ -2455,6 +2744,9 @@ export class DataCatalogClient {
     deleteCustomPropertyRequest: requests.DeleteCustomPropertyRequest
   ): Promise<responses.DeleteCustomPropertyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteCustomProperty.");
+    const operationName = "deleteCustomProperty";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/DeleteCustomProperty";
     const pathParams = {
       "{catalogId}": deleteCustomPropertyRequest.catalogId,
       "{namespaceId}": deleteCustomPropertyRequest.namespaceId,
@@ -2486,7 +2778,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteCustomPropertyResponse>{},
         responseHeaders: [
@@ -2516,6 +2814,9 @@ export class DataCatalogClient {
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
   ): Promise<responses.DeleteDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteDataAsset.");
+    const operationName = "deleteDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/DeleteDataAsset";
     const pathParams = {
       "{catalogId}": deleteDataAssetRequest.catalogId,
       "{dataAssetKey}": deleteDataAssetRequest.dataAssetKey
@@ -2546,7 +2847,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataAssetResponse>{},
         responseHeaders: [
@@ -2576,6 +2883,9 @@ export class DataCatalogClient {
     deleteDataAssetTagRequest: requests.DeleteDataAssetTagRequest
   ): Promise<responses.DeleteDataAssetTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteDataAssetTag.");
+    const operationName = "deleteDataAssetTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTag/DeleteDataAssetTag";
     const pathParams = {
       "{catalogId}": deleteDataAssetTagRequest.catalogId,
       "{dataAssetKey}": deleteDataAssetTagRequest.dataAssetKey,
@@ -2607,7 +2917,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataAssetTagResponse>{},
         responseHeaders: [
@@ -2637,6 +2953,9 @@ export class DataCatalogClient {
     deleteEntityRequest: requests.DeleteEntityRequest
   ): Promise<responses.DeleteEntityResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteEntity.");
+    const operationName = "deleteEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/DeleteEntity";
     const pathParams = {
       "{catalogId}": deleteEntityRequest.catalogId,
       "{dataAssetKey}": deleteEntityRequest.dataAssetKey,
@@ -2668,7 +2987,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEntityResponse>{},
         responseHeaders: [
@@ -2698,6 +3023,9 @@ export class DataCatalogClient {
     deleteEntityTagRequest: requests.DeleteEntityTagRequest
   ): Promise<responses.DeleteEntityTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteEntityTag.");
+    const operationName = "deleteEntityTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTag/DeleteEntityTag";
     const pathParams = {
       "{catalogId}": deleteEntityTagRequest.catalogId,
       "{dataAssetKey}": deleteEntityTagRequest.dataAssetKey,
@@ -2730,7 +3058,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteEntityTagResponse>{},
         responseHeaders: [
@@ -2760,6 +3094,9 @@ export class DataCatalogClient {
     deleteFolderRequest: requests.DeleteFolderRequest
   ): Promise<responses.DeleteFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteFolder.");
+    const operationName = "deleteFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/DeleteFolder";
     const pathParams = {
       "{catalogId}": deleteFolderRequest.catalogId,
       "{dataAssetKey}": deleteFolderRequest.dataAssetKey,
@@ -2791,7 +3128,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFolderResponse>{},
         responseHeaders: [
@@ -2821,6 +3164,9 @@ export class DataCatalogClient {
     deleteFolderTagRequest: requests.DeleteFolderTagRequest
   ): Promise<responses.DeleteFolderTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteFolderTag.");
+    const operationName = "deleteFolderTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTag/DeleteFolderTag";
     const pathParams = {
       "{catalogId}": deleteFolderTagRequest.catalogId,
       "{dataAssetKey}": deleteFolderTagRequest.dataAssetKey,
@@ -2853,7 +3199,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFolderTagResponse>{},
         responseHeaders: [
@@ -2883,6 +3235,9 @@ export class DataCatalogClient {
     deleteGlossaryRequest: requests.DeleteGlossaryRequest
   ): Promise<responses.DeleteGlossaryResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteGlossary.");
+    const operationName = "deleteGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/DeleteGlossary";
     const pathParams = {
       "{catalogId}": deleteGlossaryRequest.catalogId,
       "{glossaryKey}": deleteGlossaryRequest.glossaryKey
@@ -2913,7 +3268,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteGlossaryResponse>{},
         responseHeaders: [
@@ -2943,6 +3304,9 @@ export class DataCatalogClient {
     deleteJobRequest: requests.DeleteJobRequest
   ): Promise<responses.DeleteJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteJob.");
+    const operationName = "deleteJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/DeleteJob";
     const pathParams = {
       "{catalogId}": deleteJobRequest.catalogId,
       "{jobKey}": deleteJobRequest.jobKey
@@ -2973,7 +3337,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteJobResponse>{},
         responseHeaders: [
@@ -3003,6 +3373,9 @@ export class DataCatalogClient {
     deleteJobDefinitionRequest: requests.DeleteJobDefinitionRequest
   ): Promise<responses.DeleteJobDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteJobDefinition.");
+    const operationName = "deleteJobDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/DeleteJobDefinition";
     const pathParams = {
       "{catalogId}": deleteJobDefinitionRequest.catalogId,
       "{jobDefinitionKey}": deleteJobDefinitionRequest.jobDefinitionKey
@@ -3033,7 +3406,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteJobDefinitionResponse>{},
         responseHeaders: [
@@ -3063,6 +3442,9 @@ export class DataCatalogClient {
     deleteMetastoreRequest: requests.DeleteMetastoreRequest
   ): Promise<responses.DeleteMetastoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteMetastore.");
+    const operationName = "deleteMetastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/DeleteMetastore";
     const pathParams = {
       "{metastoreId}": deleteMetastoreRequest.metastoreId
     };
@@ -3092,7 +3474,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMetastoreResponse>{},
         responseHeaders: [
@@ -3127,6 +3515,9 @@ export class DataCatalogClient {
     deleteNamespaceRequest: requests.DeleteNamespaceRequest
   ): Promise<responses.DeleteNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteNamespace.");
+    const operationName = "deleteNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/DeleteNamespace";
     const pathParams = {
       "{catalogId}": deleteNamespaceRequest.catalogId,
       "{namespaceId}": deleteNamespaceRequest.namespaceId
@@ -3157,7 +3548,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteNamespaceResponse>{},
         responseHeaders: [
@@ -3187,6 +3584,9 @@ export class DataCatalogClient {
     deletePatternRequest: requests.DeletePatternRequest
   ): Promise<responses.DeletePatternResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deletePattern.");
+    const operationName = "deletePattern";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/DeletePattern";
     const pathParams = {
       "{catalogId}": deletePatternRequest.catalogId,
       "{patternKey}": deletePatternRequest.patternKey
@@ -3217,7 +3617,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePatternResponse>{},
         responseHeaders: [
@@ -3247,6 +3653,9 @@ export class DataCatalogClient {
     deleteTermRequest: requests.DeleteTermRequest
   ): Promise<responses.DeleteTermResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#deleteTerm.");
+    const operationName = "deleteTerm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/DeleteTerm";
     const pathParams = {
       "{catalogId}": deleteTermRequest.catalogId,
       "{glossaryKey}": deleteTermRequest.glossaryKey,
@@ -3278,7 +3687,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTermResponse>{},
         responseHeaders: [
@@ -3309,6 +3724,9 @@ export class DataCatalogClient {
   ): Promise<responses.DeleteTermRelationshipResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#deleteTermRelationship.");
+    const operationName = "deleteTermRelationship";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/DeleteTermRelationship";
     const pathParams = {
       "{catalogId}": deleteTermRelationshipRequest.catalogId,
       "{glossaryKey}": deleteTermRelationshipRequest.glossaryKey,
@@ -3342,7 +3760,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTermRelationshipResponse>{},
         responseHeaders: [
@@ -3373,6 +3797,9 @@ export class DataCatalogClient {
   ): Promise<responses.DetachCatalogPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#detachCatalogPrivateEndpoint.");
+    const operationName = "detachCatalogPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/DetachCatalogPrivateEndpoint";
     const pathParams = {
       "{catalogId}": detachCatalogPrivateEndpointRequest.catalogId
     };
@@ -3407,7 +3834,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetachCatalogPrivateEndpointResponse>{},
         responseHeaders: [
@@ -3443,6 +3876,9 @@ export class DataCatalogClient {
   ): Promise<responses.DisassociateCustomPropertyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#disassociateCustomProperty.");
+    const operationName = "disassociateCustomProperty";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Type/DisassociateCustomProperty";
     const pathParams = {
       "{catalogId}": disassociateCustomPropertyRequest.catalogId,
       "{typeKey}": disassociateCustomPropertyRequest.typeKey
@@ -3479,7 +3915,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DisassociateCustomPropertyResponse>{},
         body: await response.json(),
@@ -3519,6 +3961,9 @@ export class DataCatalogClient {
   ): Promise<responses.ExpandTreeForGlossaryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#expandTreeForGlossary.");
+    const operationName = "expandTreeForGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ExpandTreeForGlossary";
     const pathParams = {
       "{catalogId}": expandTreeForGlossaryRequest.catalogId,
       "{glossaryKey}": expandTreeForGlossaryRequest.glossaryKey
@@ -3549,7 +3994,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExpandTreeForGlossaryResponse>{},
         body: await response.json(),
@@ -3588,6 +4039,9 @@ export class DataCatalogClient {
     exportGlossaryRequest: requests.ExportGlossaryRequest
   ): Promise<responses.ExportGlossaryResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#exportGlossary.");
+    const operationName = "exportGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ExportGlossary";
     const pathParams = {
       "{catalogId}": exportGlossaryRequest.catalogId,
       "{glossaryKey}": exportGlossaryRequest.glossaryKey
@@ -3620,7 +4074,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ExportGlossaryResponse>{},
         body: await response.json(),
@@ -3659,6 +4119,9 @@ export class DataCatalogClient {
     getAttributeRequest: requests.GetAttributeRequest
   ): Promise<responses.GetAttributeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getAttribute.");
+    const operationName = "getAttribute";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/GetAttribute";
     const pathParams = {
       "{catalogId}": getAttributeRequest.catalogId,
       "{dataAssetKey}": getAttributeRequest.dataAssetKey,
@@ -3694,7 +4157,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAttributeResponse>{},
         body: await response.json(),
@@ -3733,6 +4202,9 @@ export class DataCatalogClient {
     getAttributeTagRequest: requests.GetAttributeTagRequest
   ): Promise<responses.GetAttributeTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getAttributeTag.");
+    const operationName = "getAttributeTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTag/GetAttributeTag";
     const pathParams = {
       "{catalogId}": getAttributeTagRequest.catalogId,
       "{dataAssetKey}": getAttributeTagRequest.dataAssetKey,
@@ -3768,7 +4240,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAttributeTagResponse>{},
         body: await response.json(),
@@ -3807,6 +4285,9 @@ export class DataCatalogClient {
     getCatalogRequest: requests.GetCatalogRequest
   ): Promise<responses.GetCatalogResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getCatalog.");
+    const operationName = "getCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/GetCatalog";
     const pathParams = {
       "{catalogId}": getCatalogRequest.catalogId
     };
@@ -3835,7 +4316,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCatalogResponse>{},
         body: await response.json(),
@@ -3875,6 +4362,9 @@ export class DataCatalogClient {
   ): Promise<responses.GetCatalogPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#getCatalogPrivateEndpoint.");
+    const operationName = "getCatalogPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/GetCatalogPrivateEndpoint";
     const pathParams = {
       "{catalogPrivateEndpointId}": getCatalogPrivateEndpointRequest.catalogPrivateEndpointId
     };
@@ -3903,7 +4393,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCatalogPrivateEndpointResponse>{},
         body: await response.json(),
@@ -3942,6 +4438,9 @@ export class DataCatalogClient {
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getConnection.");
+    const operationName = "getConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/GetConnection";
     const pathParams = {
       "{catalogId}": getConnectionRequest.catalogId,
       "{dataAssetKey}": getConnectionRequest.dataAssetKey,
@@ -3974,7 +4473,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
@@ -4013,6 +4518,9 @@ export class DataCatalogClient {
     getCustomPropertyRequest: requests.GetCustomPropertyRequest
   ): Promise<responses.GetCustomPropertyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getCustomProperty.");
+    const operationName = "getCustomProperty";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/GetCustomProperty";
     const pathParams = {
       "{catalogId}": getCustomPropertyRequest.catalogId,
       "{namespaceId}": getCustomPropertyRequest.namespaceId,
@@ -4045,7 +4553,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCustomPropertyResponse>{},
         body: await response.json(),
@@ -4084,6 +4598,9 @@ export class DataCatalogClient {
     getDataAssetRequest: requests.GetDataAssetRequest
   ): Promise<responses.GetDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getDataAsset.");
+    const operationName = "getDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/GetDataAsset";
     const pathParams = {
       "{catalogId}": getDataAssetRequest.catalogId,
       "{dataAssetKey}": getDataAssetRequest.dataAssetKey
@@ -4115,7 +4632,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataAssetResponse>{},
         body: await response.json(),
@@ -4154,6 +4677,9 @@ export class DataCatalogClient {
     getDataAssetTagRequest: requests.GetDataAssetTagRequest
   ): Promise<responses.GetDataAssetTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getDataAssetTag.");
+    const operationName = "getDataAssetTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTag/GetDataAssetTag";
     const pathParams = {
       "{catalogId}": getDataAssetTagRequest.catalogId,
       "{dataAssetKey}": getDataAssetTagRequest.dataAssetKey,
@@ -4186,7 +4712,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataAssetTagResponse>{},
         body: await response.json(),
@@ -4225,6 +4757,9 @@ export class DataCatalogClient {
     getEntityRequest: requests.GetEntityRequest
   ): Promise<responses.GetEntityResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getEntity.");
+    const operationName = "getEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/GetEntity";
     const pathParams = {
       "{catalogId}": getEntityRequest.catalogId,
       "{dataAssetKey}": getEntityRequest.dataAssetKey,
@@ -4258,7 +4793,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEntityResponse>{},
         body: await response.json(),
@@ -4297,6 +4838,9 @@ export class DataCatalogClient {
     getEntityTagRequest: requests.GetEntityTagRequest
   ): Promise<responses.GetEntityTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getEntityTag.");
+    const operationName = "getEntityTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTag/GetEntityTag";
     const pathParams = {
       "{catalogId}": getEntityTagRequest.catalogId,
       "{dataAssetKey}": getEntityTagRequest.dataAssetKey,
@@ -4330,7 +4874,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEntityTagResponse>{},
         body: await response.json(),
@@ -4369,6 +4919,9 @@ export class DataCatalogClient {
     getFolderRequest: requests.GetFolderRequest
   ): Promise<responses.GetFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getFolder.");
+    const operationName = "getFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/GetFolder";
     const pathParams = {
       "{catalogId}": getFolderRequest.catalogId,
       "{dataAssetKey}": getFolderRequest.dataAssetKey,
@@ -4402,7 +4955,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFolderResponse>{},
         body: await response.json(),
@@ -4441,6 +5000,9 @@ export class DataCatalogClient {
     getFolderTagRequest: requests.GetFolderTagRequest
   ): Promise<responses.GetFolderTagResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getFolderTag.");
+    const operationName = "getFolderTag";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTag/GetFolderTag";
     const pathParams = {
       "{catalogId}": getFolderTagRequest.catalogId,
       "{dataAssetKey}": getFolderTagRequest.dataAssetKey,
@@ -4474,7 +5036,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFolderTagResponse>{},
         body: await response.json(),
@@ -4513,6 +5081,9 @@ export class DataCatalogClient {
     getGlossaryRequest: requests.GetGlossaryRequest
   ): Promise<responses.GetGlossaryResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getGlossary.");
+    const operationName = "getGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/GetGlossary";
     const pathParams = {
       "{catalogId}": getGlossaryRequest.catalogId,
       "{glossaryKey}": getGlossaryRequest.glossaryKey
@@ -4544,7 +5115,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGlossaryResponse>{},
         body: await response.json(),
@@ -4581,6 +5158,9 @@ export class DataCatalogClient {
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJob.");
+    const operationName = "getJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/GetJob";
     const pathParams = {
       "{catalogId}": getJobRequest.catalogId,
       "{jobKey}": getJobRequest.jobKey
@@ -4612,7 +5192,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
@@ -4651,6 +5237,9 @@ export class DataCatalogClient {
     getJobDefinitionRequest: requests.GetJobDefinitionRequest
   ): Promise<responses.GetJobDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobDefinition.");
+    const operationName = "getJobDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/GetJobDefinition";
     const pathParams = {
       "{catalogId}": getJobDefinitionRequest.catalogId,
       "{jobDefinitionKey}": getJobDefinitionRequest.jobDefinitionKey
@@ -4682,7 +5271,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobDefinitionResponse>{},
         body: await response.json(),
@@ -4721,6 +5316,9 @@ export class DataCatalogClient {
     getJobExecutionRequest: requests.GetJobExecutionRequest
   ): Promise<responses.GetJobExecutionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobExecution.");
+    const operationName = "getJobExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobExecution/GetJobExecution";
     const pathParams = {
       "{catalogId}": getJobExecutionRequest.catalogId,
       "{jobKey}": getJobExecutionRequest.jobKey,
@@ -4753,7 +5351,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobExecutionResponse>{},
         body: await response.json(),
@@ -4792,6 +5396,9 @@ export class DataCatalogClient {
     getJobLogRequest: requests.GetJobLogRequest
   ): Promise<responses.GetJobLogResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobLog.");
+    const operationName = "getJobLog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobLog/GetJobLog";
     const pathParams = {
       "{catalogId}": getJobLogRequest.catalogId,
       "{jobKey}": getJobLogRequest.jobKey,
@@ -4825,7 +5432,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobLogResponse>{},
         body: await response.json(),
@@ -4864,6 +5477,9 @@ export class DataCatalogClient {
     getJobMetricsRequest: requests.GetJobMetricsRequest
   ): Promise<responses.GetJobMetricsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getJobMetrics.");
+    const operationName = "getJobMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobMetric/GetJobMetrics";
     const pathParams = {
       "{catalogId}": getJobMetricsRequest.catalogId,
       "{jobKey}": getJobMetricsRequest.jobKey,
@@ -4898,7 +5514,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobMetricsResponse>{},
         body: await response.json(),
@@ -4937,6 +5559,9 @@ export class DataCatalogClient {
     getMetastoreRequest: requests.GetMetastoreRequest
   ): Promise<responses.GetMetastoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getMetastore.");
+    const operationName = "getMetastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/GetMetastore";
     const pathParams = {
       "{metastoreId}": getMetastoreRequest.metastoreId
     };
@@ -4965,7 +5590,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetMetastoreResponse>{},
         body: await response.json(),
@@ -5004,6 +5635,9 @@ export class DataCatalogClient {
     getNamespaceRequest: requests.GetNamespaceRequest
   ): Promise<responses.GetNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getNamespace.");
+    const operationName = "getNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/GetNamespace";
     const pathParams = {
       "{catalogId}": getNamespaceRequest.catalogId,
       "{namespaceId}": getNamespaceRequest.namespaceId
@@ -5035,7 +5669,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetNamespaceResponse>{},
         body: await response.json(),
@@ -5074,6 +5714,9 @@ export class DataCatalogClient {
     getPatternRequest: requests.GetPatternRequest
   ): Promise<responses.GetPatternResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getPattern.");
+    const operationName = "getPattern";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/GetPattern";
     const pathParams = {
       "{catalogId}": getPatternRequest.catalogId,
       "{patternKey}": getPatternRequest.patternKey
@@ -5105,7 +5748,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPatternResponse>{},
         body: await response.json(),
@@ -5144,6 +5793,9 @@ export class DataCatalogClient {
     getTermRequest: requests.GetTermRequest
   ): Promise<responses.GetTermResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getTerm.");
+    const operationName = "getTerm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/GetTerm";
     const pathParams = {
       "{catalogId}": getTermRequest.catalogId,
       "{glossaryKey}": getTermRequest.glossaryKey,
@@ -5176,7 +5828,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTermResponse>{},
         body: await response.json(),
@@ -5215,6 +5873,9 @@ export class DataCatalogClient {
     getTermRelationshipRequest: requests.GetTermRelationshipRequest
   ): Promise<responses.GetTermRelationshipResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getTermRelationship.");
+    const operationName = "getTermRelationship";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/GetTermRelationship";
     const pathParams = {
       "{catalogId}": getTermRelationshipRequest.catalogId,
       "{glossaryKey}": getTermRelationshipRequest.glossaryKey,
@@ -5249,7 +5910,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTermRelationshipResponse>{},
         body: await response.json(),
@@ -5288,6 +5955,9 @@ export class DataCatalogClient {
     getTypeRequest: requests.GetTypeRequest
   ): Promise<responses.GetTypeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getType.");
+    const operationName = "getType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Type/GetType";
     const pathParams = {
       "{catalogId}": getTypeRequest.catalogId,
       "{typeKey}": getTypeRequest.typeKey
@@ -5319,7 +5989,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTypeResponse>{},
         body: await response.json(),
@@ -5358,6 +6034,9 @@ export class DataCatalogClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -5386,7 +6065,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -5430,6 +6115,9 @@ export class DataCatalogClient {
     importConnectionRequest: requests.ImportConnectionRequest
   ): Promise<responses.ImportConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importConnection.");
+    const operationName = "importConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ImportConnection";
     const pathParams = {
       "{catalogId}": importConnectionRequest.catalogId,
       "{dataAssetKey}": importConnectionRequest.dataAssetKey
@@ -5466,7 +6154,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportConnectionResponse>{},
         body: await response.json(),
@@ -5505,6 +6199,9 @@ export class DataCatalogClient {
     importDataAssetRequest: requests.ImportDataAssetRequest
   ): Promise<responses.ImportDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importDataAsset.");
+    const operationName = "importDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ImportDataAsset";
     const pathParams = {
       "{catalogId}": importDataAssetRequest.catalogId,
       "{dataAssetKey}": importDataAssetRequest.dataAssetKey
@@ -5543,7 +6240,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportDataAssetResponse>{},
         body: await response.json(),
@@ -5577,6 +6280,9 @@ export class DataCatalogClient {
     importGlossaryRequest: requests.ImportGlossaryRequest
   ): Promise<responses.ImportGlossaryResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#importGlossary.");
+    const operationName = "importGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ImportGlossary";
     const pathParams = {
       "{catalogId}": importGlossaryRequest.catalogId,
       "{glossaryKey}": importGlossaryRequest.glossaryKey
@@ -5614,7 +6320,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ImportGlossaryResponse>{},
         responseHeaders: [
@@ -5650,6 +6362,9 @@ export class DataCatalogClient {
   ): Promise<responses.ListAggregatedPhysicalEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#listAggregatedPhysicalEntities.");
+    const operationName = "listAggregatedPhysicalEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/ListAggregatedPhysicalEntities";
     const pathParams = {
       "{catalogId}": listAggregatedPhysicalEntitiesRequest.catalogId,
       "{dataAssetKey}": listAggregatedPhysicalEntitiesRequest.dataAssetKey,
@@ -5689,7 +6404,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAggregatedPhysicalEntitiesResponse>{},
         body: await response.json(),
@@ -5723,6 +6444,9 @@ export class DataCatalogClient {
     listAttributeTagsRequest: requests.ListAttributeTagsRequest
   ): Promise<responses.ListAttributeTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listAttributeTags.");
+    const operationName = "listAttributeTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeTagCollection/ListAttributeTags";
     const pathParams = {
       "{catalogId}": listAttributeTagsRequest.catalogId,
       "{dataAssetKey}": listAttributeTagsRequest.dataAssetKey,
@@ -5767,7 +6491,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAttributeTagsResponse>{},
         body: await response.json(),
@@ -5806,6 +6536,9 @@ export class DataCatalogClient {
     listAttributesRequest: requests.ListAttributesRequest
   ): Promise<responses.ListAttributesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listAttributes.");
+    const operationName = "listAttributes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/AttributeCollection/ListAttributes";
     const pathParams = {
       "{catalogId}": listAttributesRequest.catalogId,
       "{dataAssetKey}": listAttributesRequest.dataAssetKey,
@@ -5860,7 +6593,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAttributesResponse>{},
         body: await response.json(),
@@ -5901,6 +6640,9 @@ export class DataCatalogClient {
   ): Promise<responses.ListCatalogPrivateEndpointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#listCatalogPrivateEndpoints.");
+    const operationName = "listCatalogPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpointSummary/ListCatalogPrivateEndpoints";
     const pathParams = {};
 
     const queryParams = {
@@ -5935,7 +6677,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCatalogPrivateEndpointsResponse>{},
         body: await response.json(),
@@ -6027,6 +6775,9 @@ export class DataCatalogClient {
     listCatalogsRequest: requests.ListCatalogsRequest
   ): Promise<responses.ListCatalogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listCatalogs.");
+    const operationName = "listCatalogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogSummary/ListCatalogs";
     const pathParams = {};
 
     const queryParams = {
@@ -6061,7 +6812,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCatalogsResponse>{},
         body: await response.json(),
@@ -6152,6 +6909,9 @@ export class DataCatalogClient {
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listConnections.");
+    const operationName = "listConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/ConnectionCollection/ListConnections";
     const pathParams = {
       "{catalogId}": listConnectionsRequest.catalogId,
       "{dataAssetKey}": listConnectionsRequest.dataAssetKey
@@ -6197,7 +6957,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
@@ -6236,6 +7002,9 @@ export class DataCatalogClient {
     listCustomPropertiesRequest: requests.ListCustomPropertiesRequest
   ): Promise<responses.ListCustomPropertiesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listCustomProperties.");
+    const operationName = "listCustomProperties";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/ListCustomProperties";
     const pathParams = {
       "{catalogId}": listCustomPropertiesRequest.catalogId,
       "{namespaceId}": listCustomPropertiesRequest.namespaceId
@@ -6280,7 +7049,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCustomPropertiesResponse>{},
         body: await response.json(),
@@ -6319,6 +7094,9 @@ export class DataCatalogClient {
     listDataAssetTagsRequest: requests.ListDataAssetTagsRequest
   ): Promise<responses.ListDataAssetTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listDataAssetTags.");
+    const operationName = "listDataAssetTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetTagCollection/ListDataAssetTags";
     const pathParams = {
       "{catalogId}": listDataAssetTagsRequest.catalogId,
       "{dataAssetKey}": listDataAssetTagsRequest.dataAssetKey
@@ -6360,7 +7138,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataAssetTagsResponse>{},
         body: await response.json(),
@@ -6399,6 +7183,9 @@ export class DataCatalogClient {
     listDataAssetsRequest: requests.ListDataAssetsRequest
   ): Promise<responses.ListDataAssetsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listDataAssets.");
+    const operationName = "listDataAssets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAssetCollection/ListDataAssets";
     const pathParams = {
       "{catalogId}": listDataAssetsRequest.catalogId
     };
@@ -6442,7 +7229,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataAssetsResponse>{},
         body: await response.json(),
@@ -6482,6 +7275,9 @@ export class DataCatalogClient {
   ): Promise<responses.ListDerivedLogicalEntitiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#listDerivedLogicalEntities.");
+    const operationName = "listDerivedLogicalEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/ListDerivedLogicalEntities";
     const pathParams = {
       "{catalogId}": listDerivedLogicalEntitiesRequest.catalogId,
       "{patternKey}": listDerivedLogicalEntitiesRequest.patternKey
@@ -6519,7 +7315,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDerivedLogicalEntitiesResponse>{},
         body: await response.json(),
@@ -6553,6 +7355,9 @@ export class DataCatalogClient {
     listEntitiesRequest: requests.ListEntitiesRequest
   ): Promise<responses.ListEntitiesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listEntities.");
+    const operationName = "listEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/ListEntities";
     const pathParams = {
       "{catalogId}": listEntitiesRequest.catalogId,
       "{dataAssetKey}": listEntitiesRequest.dataAssetKey
@@ -6608,7 +7413,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEntitiesResponse>{},
         body: await response.json(),
@@ -6647,6 +7458,9 @@ export class DataCatalogClient {
     listEntityTagsRequest: requests.ListEntityTagsRequest
   ): Promise<responses.ListEntityTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listEntityTags.");
+    const operationName = "listEntityTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/EntityTagCollection/ListEntityTags";
     const pathParams = {
       "{catalogId}": listEntityTagsRequest.catalogId,
       "{dataAssetKey}": listEntityTagsRequest.dataAssetKey,
@@ -6689,7 +7503,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEntityTagsResponse>{},
         body: await response.json(),
@@ -6728,6 +7548,9 @@ export class DataCatalogClient {
     listFolderTagsRequest: requests.ListFolderTagsRequest
   ): Promise<responses.ListFolderTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listFolderTags.");
+    const operationName = "listFolderTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderTagCollection/ListFolderTags";
     const pathParams = {
       "{catalogId}": listFolderTagsRequest.catalogId,
       "{dataAssetKey}": listFolderTagsRequest.dataAssetKey,
@@ -6770,7 +7593,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFolderTagsResponse>{},
         body: await response.json(),
@@ -6809,6 +7638,9 @@ export class DataCatalogClient {
     listFoldersRequest: requests.ListFoldersRequest
   ): Promise<responses.ListFoldersResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listFolders.");
+    const operationName = "listFolders";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/FolderCollection/ListFolders";
     const pathParams = {
       "{catalogId}": listFoldersRequest.catalogId,
       "{dataAssetKey}": listFoldersRequest.dataAssetKey
@@ -6858,7 +7690,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFoldersResponse>{},
         body: await response.json(),
@@ -6897,6 +7735,9 @@ export class DataCatalogClient {
     listGlossariesRequest: requests.ListGlossariesRequest
   ): Promise<responses.ListGlossariesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listGlossaries.");
+    const operationName = "listGlossaries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/ListGlossaries";
     const pathParams = {
       "{catalogId}": listGlossariesRequest.catalogId
     };
@@ -6938,7 +7779,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListGlossariesResponse>{},
         body: await response.json(),
@@ -6977,6 +7824,9 @@ export class DataCatalogClient {
     listJobDefinitionsRequest: requests.ListJobDefinitionsRequest
   ): Promise<responses.ListJobDefinitionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobDefinitions.");
+    const operationName = "listJobDefinitions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinitionCollection/ListJobDefinitions";
     const pathParams = {
       "{catalogId}": listJobDefinitionsRequest.catalogId
     };
@@ -7024,7 +7874,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobDefinitionsResponse>{},
         body: await response.json(),
@@ -7063,6 +7919,9 @@ export class DataCatalogClient {
     listJobExecutionsRequest: requests.ListJobExecutionsRequest
   ): Promise<responses.ListJobExecutionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobExecutions.");
+    const operationName = "listJobExecutions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobExecutionCollection/ListJobExecutions";
     const pathParams = {
       "{catalogId}": listJobExecutionsRequest.catalogId,
       "{jobKey}": listJobExecutionsRequest.jobKey
@@ -7114,7 +7973,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobExecutionsResponse>{},
         body: await response.json(),
@@ -7153,6 +8018,9 @@ export class DataCatalogClient {
     listJobLogsRequest: requests.ListJobLogsRequest
   ): Promise<responses.ListJobLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobLogs.");
+    const operationName = "listJobLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobLogCollection/ListJobLogs";
     const pathParams = {
       "{catalogId}": listJobLogsRequest.catalogId,
       "{jobKey}": listJobLogsRequest.jobKey,
@@ -7195,7 +8063,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobLogsResponse>{},
         body: await response.json(),
@@ -7234,6 +8108,9 @@ export class DataCatalogClient {
     listJobMetricsRequest: requests.ListJobMetricsRequest
   ): Promise<responses.ListJobMetricsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobMetrics.");
+    const operationName = "listJobMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobMetricCollection/ListJobMetrics";
     const pathParams = {
       "{catalogId}": listJobMetricsRequest.catalogId,
       "{jobKey}": listJobMetricsRequest.jobKey,
@@ -7282,7 +8159,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobMetricsResponse>{},
         body: await response.json(),
@@ -7321,6 +8204,9 @@ export class DataCatalogClient {
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listJobs.");
+    const operationName = "listJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobCollection/ListJobs";
     const pathParams = {
       "{catalogId}": listJobsRequest.catalogId
     };
@@ -7372,7 +8258,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
@@ -7412,6 +8304,9 @@ export class DataCatalogClient {
     listMetastoresRequest: requests.ListMetastoresRequest
   ): Promise<responses.ListMetastoresResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listMetastores.");
+    const operationName = "listMetastores";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/MetastoreSummary/ListMetastores";
     const pathParams = {};
 
     const queryParams = {
@@ -7446,7 +8341,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListMetastoresResponse>{},
         body: await response.json(),
@@ -7537,6 +8438,9 @@ export class DataCatalogClient {
     listNamespacesRequest: requests.ListNamespacesRequest
   ): Promise<responses.ListNamespacesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listNamespaces.");
+    const operationName = "listNamespaces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/ListNamespaces";
     const pathParams = {
       "{catalogId}": listNamespacesRequest.catalogId
     };
@@ -7578,7 +8482,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListNamespacesResponse>{},
         body: await response.json(),
@@ -7617,6 +8527,9 @@ export class DataCatalogClient {
     listPatternsRequest: requests.ListPatternsRequest
   ): Promise<responses.ListPatternsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listPatterns.");
+    const operationName = "listPatterns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/ListPatterns";
     const pathParams = {
       "{catalogId}": listPatternsRequest.catalogId
     };
@@ -7658,7 +8571,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPatternsResponse>{},
         body: await response.json(),
@@ -7697,6 +8616,9 @@ export class DataCatalogClient {
     listRulesRequest: requests.ListRulesRequest
   ): Promise<responses.ListRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listRules.");
+    const operationName = "listRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/RuleSummary/ListRules";
     const pathParams = {
       "{catalogId}": listRulesRequest.catalogId,
       "{dataAssetKey}": listRulesRequest.dataAssetKey,
@@ -7743,7 +8665,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRulesResponse>{},
         body: await response.json(),
@@ -7782,6 +8710,9 @@ export class DataCatalogClient {
     listTagsRequest: requests.ListTagsRequest
   ): Promise<responses.ListTagsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTags.");
+    const operationName = "listTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/ListTags";
     const pathParams = {
       "{catalogId}": listTagsRequest.catalogId
     };
@@ -7819,7 +8750,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTagsResponse>{},
         body: await response.json(),
@@ -7859,6 +8796,9 @@ export class DataCatalogClient {
   ): Promise<responses.ListTermRelationshipsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#listTermRelationships.");
+    const operationName = "listTermRelationships";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/ListTermRelationships";
     const pathParams = {
       "{catalogId}": listTermRelationshipsRequest.catalogId,
       "{glossaryKey}": listTermRelationshipsRequest.glossaryKey,
@@ -7898,7 +8838,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTermRelationshipsResponse>{},
         body: await response.json(),
@@ -7937,6 +8883,9 @@ export class DataCatalogClient {
     listTermsRequest: requests.ListTermsRequest
   ): Promise<responses.ListTermsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTerms.");
+    const operationName = "listTerms";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/ListTerms";
     const pathParams = {
       "{catalogId}": listTermsRequest.catalogId,
       "{glossaryKey}": listTermsRequest.glossaryKey
@@ -7979,7 +8928,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTermsResponse>{},
         body: await response.json(),
@@ -8018,6 +8973,9 @@ export class DataCatalogClient {
     listTypesRequest: requests.ListTypesRequest
   ): Promise<responses.ListTypesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listTypes.");
+    const operationName = "listTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TypeCollection/ListTypes";
     const pathParams = {
       "{catalogId}": listTypesRequest.catalogId
     };
@@ -8059,7 +9017,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTypesResponse>{},
         body: await response.json(),
@@ -8100,6 +9064,9 @@ export class DataCatalogClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -8133,7 +9100,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -8225,6 +9198,9 @@ export class DataCatalogClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequestLog/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -8258,7 +9234,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -8350,6 +9332,9 @@ export class DataCatalogClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -8380,7 +9365,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -8471,6 +9462,9 @@ export class DataCatalogClient {
     objectStatsRequest: requests.ObjectStatsRequest
   ): Promise<responses.ObjectStatsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#objectStats.");
+    const operationName = "objectStats";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/ObjectStats";
     const pathParams = {
       "{catalogId}": objectStatsRequest.catalogId
     };
@@ -8504,7 +9498,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ObjectStatsResponse>{},
         body: await response.json(),
@@ -8543,6 +9543,9 @@ export class DataCatalogClient {
     parseConnectionRequest: requests.ParseConnectionRequest
   ): Promise<responses.ParseConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#parseConnection.");
+    const operationName = "parseConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ParseConnection";
     const pathParams = {
       "{catalogId}": parseConnectionRequest.catalogId,
       "{dataAssetKey}": parseConnectionRequest.dataAssetKey
@@ -8580,7 +9583,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ParseConnectionResponse>{},
         body: await response.json(),
@@ -8622,6 +9631,9 @@ export class DataCatalogClient {
   ): Promise<responses.ProcessRecommendationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#processRecommendation.");
+    const operationName = "processRecommendation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/ProcessRecommendation";
     const pathParams = {
       "{catalogId}": processRecommendationRequest.catalogId
     };
@@ -8656,7 +9668,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ProcessRecommendationResponse>{},
         body: await response.json(),
@@ -8698,6 +9716,9 @@ export class DataCatalogClient {
     recommendationsRequest: requests.RecommendationsRequest
   ): Promise<responses.RecommendationsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#recommendations.");
+    const operationName = "recommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/Recommendations";
     const pathParams = {
       "{catalogId}": recommendationsRequest.catalogId
     };
@@ -8731,7 +9752,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RecommendationsResponse>{},
         body: await response.json(),
@@ -8766,6 +9793,9 @@ export class DataCatalogClient {
   ): Promise<responses.RemoveDataSelectorPatternsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#removeDataSelectorPatterns.");
+    const operationName = "removeDataSelectorPatterns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/RemoveDataSelectorPatterns";
     const pathParams = {
       "{catalogId}": removeDataSelectorPatternsRequest.catalogId,
       "{dataAssetKey}": removeDataSelectorPatternsRequest.dataAssetKey
@@ -8802,7 +9832,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveDataSelectorPatternsResponse>{},
         body: await response.json(),
@@ -8841,6 +9877,9 @@ export class DataCatalogClient {
     searchCriteriaRequest: requests.SearchCriteriaRequest
   ): Promise<responses.SearchCriteriaResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#searchCriteria.");
+    const operationName = "searchCriteria";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/SearchResult/SearchCriteria";
     const pathParams = {
       "{catalogId}": searchCriteriaRequest.catalogId
     };
@@ -8883,7 +9922,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SearchCriteriaResponse>{},
         body: await response.json(),
@@ -8922,6 +9967,9 @@ export class DataCatalogClient {
     suggestMatchesRequest: requests.SuggestMatchesRequest
   ): Promise<responses.SuggestMatchesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#suggestMatches.");
+    const operationName = "suggestMatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/SuggestResults/SuggestMatches";
     const pathParams = {
       "{catalogId}": suggestMatchesRequest.catalogId
     };
@@ -8954,7 +10002,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SuggestMatchesResponse>{},
         body: await response.json(),
@@ -8989,6 +10043,9 @@ export class DataCatalogClient {
   ): Promise<responses.SynchronousExportDataAssetResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#synchronousExportDataAsset.");
+    const operationName = "synchronousExportDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/SynchronousExportDataAsset";
     const pathParams = {
       "{catalogId}": synchronousExportDataAssetRequest.catalogId,
       "{dataAssetKey}": synchronousExportDataAssetRequest.dataAssetKey
@@ -9026,7 +10083,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.SynchronousExportDataAssetResponse>{},
 
@@ -9060,6 +10123,9 @@ export class DataCatalogClient {
     testConnectionRequest: requests.TestConnectionRequest
   ): Promise<responses.TestConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#testConnection.");
+    const operationName = "testConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/TestConnection";
     const pathParams = {
       "{catalogId}": testConnectionRequest.catalogId,
       "{dataAssetKey}": testConnectionRequest.dataAssetKey,
@@ -9092,7 +10158,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TestConnectionResponse>{},
         body: await response.json(),
@@ -9131,6 +10203,9 @@ export class DataCatalogClient {
     updateAttributeRequest: requests.UpdateAttributeRequest
   ): Promise<responses.UpdateAttributeResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateAttribute.");
+    const operationName = "updateAttribute";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Attribute/UpdateAttribute";
     const pathParams = {
       "{catalogId}": updateAttributeRequest.catalogId,
       "{dataAssetKey}": updateAttributeRequest.dataAssetKey,
@@ -9169,7 +10244,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAttributeResponse>{},
         body: await response.json(),
@@ -9208,6 +10289,9 @@ export class DataCatalogClient {
     updateCatalogRequest: requests.UpdateCatalogRequest
   ): Promise<responses.UpdateCatalogResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateCatalog.");
+    const operationName = "updateCatalog";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/UpdateCatalog";
     const pathParams = {
       "{catalogId}": updateCatalogRequest.catalogId
     };
@@ -9242,7 +10326,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCatalogResponse>{},
         body: await response.json(),
@@ -9282,6 +10372,9 @@ export class DataCatalogClient {
   ): Promise<responses.UpdateCatalogPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#updateCatalogPrivateEndpoint.");
+    const operationName = "updateCatalogPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CatalogPrivateEndpoint/UpdateCatalogPrivateEndpoint";
     const pathParams = {
       "{catalogPrivateEndpointId}": updateCatalogPrivateEndpointRequest.catalogPrivateEndpointId
     };
@@ -9316,7 +10409,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCatalogPrivateEndpointResponse>{},
         responseHeaders: [
@@ -9351,6 +10450,9 @@ export class DataCatalogClient {
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateConnection.");
+    const operationName = "updateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/UpdateConnection";
     const pathParams = {
       "{catalogId}": updateConnectionRequest.catalogId,
       "{dataAssetKey}": updateConnectionRequest.dataAssetKey,
@@ -9387,7 +10489,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConnectionResponse>{},
         body: await response.json(),
@@ -9426,6 +10534,9 @@ export class DataCatalogClient {
     updateCustomPropertyRequest: requests.UpdateCustomPropertyRequest
   ): Promise<responses.UpdateCustomPropertyResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateCustomProperty.");
+    const operationName = "updateCustomProperty";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/CustomProperty/UpdateCustomProperty";
     const pathParams = {
       "{catalogId}": updateCustomPropertyRequest.catalogId,
       "{namespaceId}": updateCustomPropertyRequest.namespaceId,
@@ -9462,7 +10573,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateCustomPropertyResponse>{},
         body: await response.json(),
@@ -9501,6 +10618,9 @@ export class DataCatalogClient {
     updateDataAssetRequest: requests.UpdateDataAssetRequest
   ): Promise<responses.UpdateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateDataAsset.");
+    const operationName = "updateDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/UpdateDataAsset";
     const pathParams = {
       "{catalogId}": updateDataAssetRequest.catalogId,
       "{dataAssetKey}": updateDataAssetRequest.dataAssetKey
@@ -9536,7 +10656,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataAssetResponse>{},
         body: await response.json(),
@@ -9575,6 +10701,9 @@ export class DataCatalogClient {
     updateEntityRequest: requests.UpdateEntityRequest
   ): Promise<responses.UpdateEntityResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateEntity.");
+    const operationName = "updateEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/UpdateEntity";
     const pathParams = {
       "{catalogId}": updateEntityRequest.catalogId,
       "{dataAssetKey}": updateEntityRequest.dataAssetKey,
@@ -9611,7 +10740,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEntityResponse>{},
         body: await response.json(),
@@ -9650,6 +10785,9 @@ export class DataCatalogClient {
     updateFolderRequest: requests.UpdateFolderRequest
   ): Promise<responses.UpdateFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateFolder.");
+    const operationName = "updateFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Folder/UpdateFolder";
     const pathParams = {
       "{catalogId}": updateFolderRequest.catalogId,
       "{dataAssetKey}": updateFolderRequest.dataAssetKey,
@@ -9686,7 +10824,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFolderResponse>{},
         body: await response.json(),
@@ -9725,6 +10869,9 @@ export class DataCatalogClient {
     updateGlossaryRequest: requests.UpdateGlossaryRequest
   ): Promise<responses.UpdateGlossaryResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateGlossary.");
+    const operationName = "updateGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/UpdateGlossary";
     const pathParams = {
       "{catalogId}": updateGlossaryRequest.catalogId,
       "{glossaryKey}": updateGlossaryRequest.glossaryKey
@@ -9760,7 +10907,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateGlossaryResponse>{},
         body: await response.json(),
@@ -9799,6 +10952,9 @@ export class DataCatalogClient {
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateJob.");
+    const operationName = "updateJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Job/UpdateJob";
     const pathParams = {
       "{catalogId}": updateJobRequest.catalogId,
       "{jobKey}": updateJobRequest.jobKey
@@ -9834,7 +10990,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
@@ -9873,6 +11035,9 @@ export class DataCatalogClient {
     updateJobDefinitionRequest: requests.UpdateJobDefinitionRequest
   ): Promise<responses.UpdateJobDefinitionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateJobDefinition.");
+    const operationName = "updateJobDefinition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/JobDefinition/UpdateJobDefinition";
     const pathParams = {
       "{catalogId}": updateJobDefinitionRequest.catalogId,
       "{jobDefinitionKey}": updateJobDefinitionRequest.jobDefinitionKey
@@ -9908,7 +11073,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJobDefinitionResponse>{},
         body: await response.json(),
@@ -9947,6 +11118,9 @@ export class DataCatalogClient {
     updateMetastoreRequest: requests.UpdateMetastoreRequest
   ): Promise<responses.UpdateMetastoreResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateMetastore.");
+    const operationName = "updateMetastore";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Metastore/UpdateMetastore";
     const pathParams = {
       "{metastoreId}": updateMetastoreRequest.metastoreId
     };
@@ -9981,7 +11155,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateMetastoreResponse>{},
         body: await response.json(),
@@ -10020,6 +11200,9 @@ export class DataCatalogClient {
     updateNamespaceRequest: requests.UpdateNamespaceRequest
   ): Promise<responses.UpdateNamespaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateNamespace.");
+    const operationName = "updateNamespace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Namespace/UpdateNamespace";
     const pathParams = {
       "{catalogId}": updateNamespaceRequest.catalogId,
       "{namespaceId}": updateNamespaceRequest.namespaceId
@@ -10055,7 +11238,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNamespaceResponse>{},
         body: await response.json(),
@@ -10094,6 +11283,9 @@ export class DataCatalogClient {
     updatePatternRequest: requests.UpdatePatternRequest
   ): Promise<responses.UpdatePatternResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updatePattern.");
+    const operationName = "updatePattern";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/UpdatePattern";
     const pathParams = {
       "{catalogId}": updatePatternRequest.catalogId,
       "{patternKey}": updatePatternRequest.patternKey
@@ -10129,7 +11321,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePatternResponse>{},
         body: await response.json(),
@@ -10168,6 +11366,9 @@ export class DataCatalogClient {
     updateTermRequest: requests.UpdateTermRequest
   ): Promise<responses.UpdateTermResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#updateTerm.");
+    const operationName = "updateTerm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Term/UpdateTerm";
     const pathParams = {
       "{catalogId}": updateTermRequest.catalogId,
       "{glossaryKey}": updateTermRequest.glossaryKey,
@@ -10204,7 +11405,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTermResponse>{},
         body: await response.json(),
@@ -10244,6 +11451,9 @@ export class DataCatalogClient {
   ): Promise<responses.UpdateTermRelationshipResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataCatalogClient#updateTermRelationship.");
+    const operationName = "updateTermRelationship";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/TermRelationship/UpdateTermRelationship";
     const pathParams = {
       "{catalogId}": updateTermRelationshipRequest.catalogId,
       "{glossaryKey}": updateTermRelationshipRequest.glossaryKey,
@@ -10282,7 +11492,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTermRelationshipResponse>{},
         body: await response.json(),
@@ -10321,6 +11537,9 @@ export class DataCatalogClient {
     uploadCredentialsRequest: requests.UploadCredentialsRequest
   ): Promise<responses.UploadCredentialsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#uploadCredentials.");
+    const operationName = "uploadCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Connection/UploadCredentials";
     const pathParams = {
       "{catalogId}": uploadCredentialsRequest.catalogId,
       "{dataAssetKey}": uploadCredentialsRequest.dataAssetKey,
@@ -10359,7 +11578,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UploadCredentialsResponse>{},
         body: await response.json(),
@@ -10396,6 +11621,9 @@ export class DataCatalogClient {
    */
   public async users(usersRequest: requests.UsersRequest): Promise<responses.UsersResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#users.");
+    const operationName = "users";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Catalog/Users";
     const pathParams = {
       "{catalogId}": usersRequest.catalogId
     };
@@ -10429,7 +11657,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UsersResponse>{},
         body: await response.json(),
@@ -10468,6 +11702,9 @@ export class DataCatalogClient {
     validateConnectionRequest: requests.ValidateConnectionRequest
   ): Promise<responses.ValidateConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#validateConnection.");
+    const operationName = "validateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/DataAsset/ValidateConnection";
     const pathParams = {
       "{catalogId}": validateConnectionRequest.catalogId,
       "{dataAssetKey}": validateConnectionRequest.dataAssetKey
@@ -10503,7 +11740,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateConnectionResponse>{},
         body: await response.json(),
@@ -10542,6 +11785,9 @@ export class DataCatalogClient {
     validatePatternRequest: requests.ValidatePatternRequest
   ): Promise<responses.ValidatePatternResponse> {
     if (this.logger) this.logger.debug("Calling operation DataCatalogClient#validatePattern.");
+    const operationName = "validatePattern";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Pattern/ValidatePattern";
     const pathParams = {
       "{catalogId}": validatePatternRequest.catalogId,
       "{patternKey}": validatePatternRequest.patternKey
@@ -10577,7 +11823,13 @@ export class DataCatalogClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidatePatternResponse>{},
         body: await response.json(),

@@ -40,6 +40,7 @@ export class ResourceManagerClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "ResourceManager";
 
   protected _httpClient: common.HttpClient;
 
@@ -171,6 +172,9 @@ export class ResourceManagerClient {
     cancelJobRequest: requests.CancelJobRequest
   ): Promise<responses.CancelJobResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#cancelJob.");
+    const operationName = "cancelJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/CancelJob";
     const pathParams = {
       "{jobId}": cancelJobRequest.jobId
     };
@@ -202,7 +206,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelJobResponse>{},
         responseHeaders: [
@@ -238,6 +248,9 @@ export class ResourceManagerClient {
       this.logger.debug(
         "Calling operation ResourceManagerClient#changeConfigurationSourceProviderCompartment."
       );
+    const operationName = "changeConfigurationSourceProviderCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/ChangeConfigurationSourceProviderCompartment";
     const pathParams = {
       "{configurationSourceProviderId}":
         changeConfigurationSourceProviderCompartmentRequest.configurationSourceProviderId
@@ -275,7 +288,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeConfigurationSourceProviderCompartmentResponse>{},
         responseHeaders: [
@@ -306,6 +325,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ChangeStackCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#changeStackCompartment.");
+    const operationName = "changeStackCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/ChangeStackCompartment";
     const pathParams = {
       "{stackId}": changeStackCompartmentRequest.stackId
     };
@@ -341,7 +363,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeStackCompartmentResponse>{},
         responseHeaders: [
@@ -380,6 +408,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ChangeTemplateCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#changeTemplateCompartment.");
+    const operationName = "changeTemplateCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/ChangeTemplateCompartment";
     const pathParams = {
       "{templateId}": changeTemplateCompartmentRequest.templateId
     };
@@ -415,7 +446,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeTemplateCompartmentResponse>{},
         responseHeaders: [
@@ -451,6 +488,9 @@ export class ResourceManagerClient {
       this.logger.debug(
         "Calling operation ResourceManagerClient#createConfigurationSourceProvider."
       );
+    const operationName = "createConfigurationSourceProvider";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/CreateConfigurationSourceProvider";
     const pathParams = {};
 
     const queryParams = {};
@@ -483,7 +523,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConfigurationSourceProviderResponse>{},
         body: await response.json(),
@@ -522,6 +568,9 @@ export class ResourceManagerClient {
     createJobRequest: requests.CreateJobRequest
   ): Promise<responses.CreateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createJob.");
+    const operationName = "createJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/CreateJob";
     const pathParams = {};
 
     const queryParams = {};
@@ -554,7 +603,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateJobResponse>{},
         body: await response.json(),
@@ -600,6 +655,9 @@ export class ResourceManagerClient {
     createStackRequest: requests.CreateStackRequest
   ): Promise<responses.CreateStackResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createStack.");
+    const operationName = "createStack";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/CreateStack";
     const pathParams = {};
 
     const queryParams = {};
@@ -632,7 +690,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateStackResponse>{},
         body: await response.json(),
@@ -677,6 +741,9 @@ export class ResourceManagerClient {
     createTemplateRequest: requests.CreateTemplateRequest
   ): Promise<responses.CreateTemplateResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#createTemplate.");
+    const operationName = "createTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/CreateTemplate";
     const pathParams = {};
 
     const queryParams = {};
@@ -709,7 +776,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTemplateResponse>{},
         body: await response.json(),
@@ -751,6 +824,9 @@ export class ResourceManagerClient {
       this.logger.debug(
         "Calling operation ResourceManagerClient#deleteConfigurationSourceProvider."
       );
+    const operationName = "deleteConfigurationSourceProvider";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/DeleteConfigurationSourceProvider";
     const pathParams = {
       "{configurationSourceProviderId}":
         deleteConfigurationSourceProviderRequest.configurationSourceProviderId
@@ -781,7 +857,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConfigurationSourceProviderResponse>{},
         responseHeaders: [
@@ -811,6 +893,9 @@ export class ResourceManagerClient {
     deleteStackRequest: requests.DeleteStackRequest
   ): Promise<responses.DeleteStackResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#deleteStack.");
+    const operationName = "deleteStack";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/DeleteStack";
     const pathParams = {
       "{stackId}": deleteStackRequest.stackId
     };
@@ -840,7 +925,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteStackResponse>{},
         responseHeaders: [
@@ -870,6 +961,9 @@ export class ResourceManagerClient {
     deleteTemplateRequest: requests.DeleteTemplateRequest
   ): Promise<responses.DeleteTemplateResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#deleteTemplate.");
+    const operationName = "deleteTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/DeleteTemplate";
     const pathParams = {
       "{templateId}": deleteTemplateRequest.templateId
     };
@@ -899,7 +993,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTemplateResponse>{},
         responseHeaders: [
@@ -929,6 +1029,9 @@ export class ResourceManagerClient {
     detectStackDriftRequest: requests.DetectStackDriftRequest
   ): Promise<responses.DetectStackDriftResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#detectStackDrift.");
+    const operationName = "detectStackDrift";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/DetectStackDrift";
     const pathParams = {
       "{stackId}": detectStackDriftRequest.stackId
     };
@@ -964,7 +1067,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DetectStackDriftResponse>{},
         responseHeaders: [
@@ -1000,6 +1109,9 @@ export class ResourceManagerClient {
   ): Promise<responses.GetConfigurationSourceProviderResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#getConfigurationSourceProvider.");
+    const operationName = "getConfigurationSourceProvider";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/GetConfigurationSourceProvider";
     const pathParams = {
       "{configurationSourceProviderId}":
         getConfigurationSourceProviderRequest.configurationSourceProviderId
@@ -1029,7 +1141,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConfigurationSourceProviderResponse>{},
         body: await response.json(),
@@ -1066,6 +1184,9 @@ export class ResourceManagerClient {
    */
   public async getJob(getJobRequest: requests.GetJobRequest): Promise<responses.GetJobResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJob.");
+    const operationName = "getJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJob";
     const pathParams = {
       "{jobId}": getJobRequest.jobId
     };
@@ -1094,7 +1215,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobResponse>{},
         body: await response.json(),
@@ -1135,6 +1262,9 @@ export class ResourceManagerClient {
   ): Promise<responses.GetJobDetailedLogContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#getJobDetailedLogContent.");
+    const operationName = "getJobDetailedLogContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobDetailedLogContent";
     const pathParams = {
       "{jobId}": getJobDetailedLogContentRequest.jobId
     };
@@ -1163,7 +1293,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobDetailedLogContentResponse>{},
 
@@ -1198,6 +1334,9 @@ export class ResourceManagerClient {
     getJobLogsRequest: requests.GetJobLogsRequest
   ): Promise<responses.GetJobLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobLogs.");
+    const operationName = "getJobLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobLogs";
     const pathParams = {
       "{jobId}": getJobLogsRequest.jobId
     };
@@ -1234,7 +1373,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobLogsResponse>{},
         body: await response.json(),
@@ -1325,6 +1470,9 @@ export class ResourceManagerClient {
   ): Promise<responses.GetJobLogsContentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#getJobLogsContent.");
+    const operationName = "getJobLogsContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobLogsContent";
     const pathParams = {
       "{jobId}": getJobLogsContentRequest.jobId
     };
@@ -1353,7 +1501,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobLogsContentResponse>{},
 
@@ -1389,6 +1543,9 @@ export class ResourceManagerClient {
     getJobTfConfigRequest: requests.GetJobTfConfigRequest
   ): Promise<responses.GetJobTfConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfConfig.");
+    const operationName = "getJobTfConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobTfConfig";
     const pathParams = {
       "{jobId}": getJobTfConfigRequest.jobId
     };
@@ -1417,7 +1574,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobTfConfigResponse>{},
 
@@ -1451,6 +1614,9 @@ export class ResourceManagerClient {
     getJobTfStateRequest: requests.GetJobTfStateRequest
   ): Promise<responses.GetJobTfStateResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfState.");
+    const operationName = "getJobTfState";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobTfState";
     const pathParams = {
       "{jobId}": getJobTfStateRequest.jobId
     };
@@ -1479,7 +1645,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetJobTfStateResponse>{},
 
@@ -1513,6 +1685,9 @@ export class ResourceManagerClient {
     getStackRequest: requests.GetStackRequest
   ): Promise<responses.GetStackResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStack.");
+    const operationName = "getStack";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/GetStack";
     const pathParams = {
       "{stackId}": getStackRequest.stackId
     };
@@ -1541,7 +1716,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStackResponse>{},
         body: await response.json(),
@@ -1582,6 +1763,9 @@ export class ResourceManagerClient {
     getStackTfConfigRequest: requests.GetStackTfConfigRequest
   ): Promise<responses.GetStackTfConfigResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStackTfConfig.");
+    const operationName = "getStackTfConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/GetStackTfConfig";
     const pathParams = {
       "{stackId}": getStackTfConfigRequest.stackId
     };
@@ -1610,7 +1794,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStackTfConfigResponse>{},
 
@@ -1644,6 +1834,9 @@ export class ResourceManagerClient {
     getStackTfStateRequest: requests.GetStackTfStateRequest
   ): Promise<responses.GetStackTfStateResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getStackTfState.");
+    const operationName = "getStackTfState";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/GetStackTfState";
     const pathParams = {
       "{stackId}": getStackTfStateRequest.stackId
     };
@@ -1672,7 +1865,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStackTfStateResponse>{},
 
@@ -1706,6 +1905,9 @@ export class ResourceManagerClient {
     getTemplateRequest: requests.GetTemplateRequest
   ): Promise<responses.GetTemplateResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getTemplate.");
+    const operationName = "getTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/GetTemplate";
     const pathParams = {
       "{templateId}": getTemplateRequest.templateId
     };
@@ -1734,7 +1936,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTemplateResponse>{},
         body: await response.json(),
@@ -1775,6 +1983,9 @@ export class ResourceManagerClient {
     getTemplateLogoRequest: requests.GetTemplateLogoRequest
   ): Promise<responses.GetTemplateLogoResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getTemplateLogo.");
+    const operationName = "getTemplateLogo";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/GetTemplateLogo";
     const pathParams = {
       "{templateId}": getTemplateLogoRequest.templateId
     };
@@ -1803,7 +2014,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTemplateLogoResponse>{},
 
@@ -1840,6 +2057,9 @@ export class ResourceManagerClient {
   ): Promise<responses.GetTemplateTfConfigResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#getTemplateTfConfig.");
+    const operationName = "getTemplateTfConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/GetTemplateTfConfig";
     const pathParams = {
       "{templateId}": getTemplateTfConfigRequest.templateId
     };
@@ -1868,7 +2088,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTemplateTfConfigResponse>{},
 
@@ -1902,6 +2128,9 @@ export class ResourceManagerClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1930,7 +2159,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1970,6 +2205,9 @@ export class ResourceManagerClient {
       this.logger.debug(
         "Calling operation ResourceManagerClient#listConfigurationSourceProviders."
       );
+    const operationName = "listConfigurationSourceProviders";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProviderSummary/ListConfigurationSourceProviders";
     const pathParams = {};
 
     const queryParams = {
@@ -2006,7 +2244,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConfigurationSourceProvidersResponse>{},
         body: await response.json(),
@@ -2050,6 +2294,9 @@ export class ResourceManagerClient {
     listJobsRequest: requests.ListJobsRequest
   ): Promise<responses.ListJobsResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listJobs.");
+    const operationName = "listJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/JobSummary/ListJobs";
     const pathParams = {};
 
     const queryParams = {
@@ -2086,7 +2333,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListJobsResponse>{},
         body: await response.json(),
@@ -2177,6 +2430,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ListResourceDiscoveryServicesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#listResourceDiscoveryServices.");
+    const operationName = "listResourceDiscoveryServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/ListResourceDiscoveryServices";
     const pathParams = {};
 
     const queryParams = {
@@ -2205,7 +2461,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceDiscoveryServicesResponse>{},
         body: await response.json(),
@@ -2245,6 +2507,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ListStackResourceDriftDetailsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#listStackResourceDriftDetails.");
+    const operationName = "listStackResourceDriftDetails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/StackResourceDriftSummary/ListStackResourceDriftDetails";
     const pathParams = {
       "{stackId}": listStackResourceDriftDetailsRequest.stackId
     };
@@ -2278,7 +2543,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListStackResourceDriftDetailsResponse>{},
         body: await response.json(),
@@ -2320,6 +2591,9 @@ export class ResourceManagerClient {
     listStacksRequest: requests.ListStacksRequest
   ): Promise<responses.ListStacksResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listStacks.");
+    const operationName = "listStacks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/StackSummary/ListStacks";
     const pathParams = {};
 
     const queryParams = {
@@ -2355,7 +2629,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListStacksResponse>{},
         body: await response.json(),
@@ -2448,6 +2728,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ListTemplateCategoriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#listTemplateCategories.");
+    const operationName = "listTemplateCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/TemplateCategorySummary/ListTemplateCategories";
     const pathParams = {};
 
     const queryParams = {};
@@ -2474,7 +2757,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTemplateCategoriesResponse>{},
         body: await response.json(),
@@ -2510,6 +2799,9 @@ export class ResourceManagerClient {
     listTemplatesRequest: requests.ListTemplatesRequest
   ): Promise<responses.ListTemplatesResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listTemplates.");
+    const operationName = "listTemplates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/ListTemplates";
     const pathParams = {};
 
     const queryParams = {
@@ -2545,7 +2837,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTemplatesResponse>{},
         body: await response.json(),
@@ -2586,6 +2884,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ListTerraformVersionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#listTerraformVersions.");
+    const operationName = "listTerraformVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/ListTerraformVersions";
     const pathParams = {};
 
     const queryParams = {
@@ -2614,7 +2915,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTerraformVersionsResponse>{},
         body: await response.json(),
@@ -2650,6 +2957,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -2683,7 +2993,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -2776,6 +3092,9 @@ export class ResourceManagerClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ResourceManagerClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2809,7 +3128,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -2901,6 +3226,9 @@ export class ResourceManagerClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -2932,7 +3260,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -3029,6 +3363,9 @@ export class ResourceManagerClient {
       this.logger.debug(
         "Calling operation ResourceManagerClient#updateConfigurationSourceProvider."
       );
+    const operationName = "updateConfigurationSourceProvider";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ConfigurationSourceProvider/UpdateConfigurationSourceProvider";
     const pathParams = {
       "{configurationSourceProviderId}":
         updateConfigurationSourceProviderRequest.configurationSourceProviderId
@@ -3064,7 +3401,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConfigurationSourceProviderResponse>{},
         body: await response.json(),
@@ -3103,6 +3446,9 @@ export class ResourceManagerClient {
     updateJobRequest: requests.UpdateJobRequest
   ): Promise<responses.UpdateJobResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateJob.");
+    const operationName = "updateJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/UpdateJob";
     const pathParams = {
       "{jobId}": updateJobRequest.jobId
     };
@@ -3137,7 +3483,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateJobResponse>{},
         body: await response.json(),
@@ -3182,6 +3534,9 @@ export class ResourceManagerClient {
     updateStackRequest: requests.UpdateStackRequest
   ): Promise<responses.UpdateStackResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateStack.");
+    const operationName = "updateStack";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Stack/UpdateStack";
     const pathParams = {
       "{stackId}": updateStackRequest.stackId
     };
@@ -3216,7 +3571,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateStackResponse>{},
         body: await response.json(),
@@ -3256,6 +3617,9 @@ export class ResourceManagerClient {
     updateTemplateRequest: requests.UpdateTemplateRequest
   ): Promise<responses.UpdateTemplateResponse> {
     if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#updateTemplate.");
+    const operationName = "updateTemplate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Template/UpdateTemplate";
     const pathParams = {
       "{templateId}": updateTemplateRequest.templateId
     };
@@ -3290,7 +3654,13 @@ export class ResourceManagerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTemplateResponse>{},
         body: await response.json(),

@@ -36,6 +36,7 @@ export class FunctionsInvokeClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "FunctionsInvoke";
 
   protected _httpClient: common.HttpClient;
 
@@ -99,6 +100,9 @@ export class FunctionsInvokeClient {
     invokeFunctionRequest: requests.InvokeFunctionRequest
   ): Promise<responses.InvokeFunctionResponse> {
     if (this.logger) this.logger.debug("Calling operation FunctionsInvokeClient#invokeFunction.");
+    const operationName = "invokeFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/InvokeFunction";
     const pathParams = {
       "{functionId}": invokeFunctionRequest.functionId
     };
@@ -130,7 +134,13 @@ export class FunctionsInvokeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InvokeFunctionResponse>{},
 
@@ -165,6 +175,7 @@ export class FunctionsManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "FunctionsManagement";
 
   protected _httpClient: common.HttpClient;
 
@@ -296,6 +307,9 @@ export class FunctionsManagementClient {
       this.logger.debug(
         "Calling operation FunctionsManagementClient#changeApplicationCompartment."
       );
+    const operationName = "changeApplicationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/ChangeApplicationCompartment";
     const pathParams = {
       "{applicationId}": changeApplicationCompartmentRequest.applicationId
     };
@@ -330,7 +344,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeApplicationCompartmentResponse>{},
         responseHeaders: [
@@ -361,6 +381,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.CreateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#createApplication.");
+    const operationName = "createApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/CreateApplication";
     const pathParams = {};
 
     const queryParams = {};
@@ -392,7 +415,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateApplicationResponse>{},
         body: await response.json(),
@@ -432,6 +461,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.CreateFunctionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#createFunction.");
+    const operationName = "createFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/CreateFunction";
     const pathParams = {};
 
     const queryParams = {};
@@ -463,7 +495,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFunctionResponse>{},
         body: await response.json(),
@@ -503,6 +541,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.DeleteApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#deleteApplication.");
+    const operationName = "deleteApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/DeleteApplication";
     const pathParams = {
       "{applicationId}": deleteApplicationRequest.applicationId
     };
@@ -532,7 +573,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteApplicationResponse>{},
         responseHeaders: [
@@ -563,6 +610,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.DeleteFunctionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#deleteFunction.");
+    const operationName = "deleteFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/DeleteFunction";
     const pathParams = {
       "{functionId}": deleteFunctionRequest.functionId
     };
@@ -592,7 +642,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFunctionResponse>{},
         responseHeaders: [
@@ -623,6 +679,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.GetApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#getApplication.");
+    const operationName = "getApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/GetApplication";
     const pathParams = {
       "{applicationId}": getApplicationRequest.applicationId
     };
@@ -651,7 +710,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetApplicationResponse>{},
         body: await response.json(),
@@ -690,6 +755,9 @@ export class FunctionsManagementClient {
     getFunctionRequest: requests.GetFunctionRequest
   ): Promise<responses.GetFunctionResponse> {
     if (this.logger) this.logger.debug("Calling operation FunctionsManagementClient#getFunction.");
+    const operationName = "getFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/GetFunction";
     const pathParams = {
       "{functionId}": getFunctionRequest.functionId
     };
@@ -718,7 +786,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFunctionResponse>{},
         body: await response.json(),
@@ -758,6 +832,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.ListApplicationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#listApplications.");
+    const operationName = "listApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/ApplicationSummary/ListApplications";
     const pathParams = {};
 
     const queryParams = {
@@ -793,7 +870,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
@@ -885,6 +968,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.ListFunctionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#listFunctions.");
+    const operationName = "listFunctions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/FunctionSummary/ListFunctions";
     const pathParams = {};
 
     const queryParams = {
@@ -920,7 +1006,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFunctionsResponse>{},
         body: await response.json(),
@@ -1012,6 +1104,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.UpdateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#updateApplication.");
+    const operationName = "updateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Application/UpdateApplication";
     const pathParams = {
       "{applicationId}": updateApplicationRequest.applicationId
     };
@@ -1046,7 +1141,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateApplicationResponse>{},
         body: await response.json(),
@@ -1086,6 +1187,9 @@ export class FunctionsManagementClient {
   ): Promise<responses.UpdateFunctionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation FunctionsManagementClient#updateFunction.");
+    const operationName = "updateFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/Function/UpdateFunction";
     const pathParams = {
       "{functionId}": updateFunctionRequest.functionId
     };
@@ -1120,7 +1224,13 @@ export class FunctionsManagementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFunctionResponse>{},
         body: await response.json(),

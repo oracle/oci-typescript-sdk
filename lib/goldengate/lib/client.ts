@@ -37,6 +37,7 @@ export class GoldenGateClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "GoldenGate";
 
   protected _httpClient: common.HttpClient;
 
@@ -163,6 +164,9 @@ export class GoldenGateClient {
   ): Promise<responses.CancelDeploymentBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#cancelDeploymentBackup.");
+    const operationName = "cancelDeploymentBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/CancelDeploymentBackup";
     const pathParams = {
       "{deploymentBackupId}": cancelDeploymentBackupRequest.deploymentBackupId
     };
@@ -198,7 +202,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CancelDeploymentBackupResponse>{},
         responseHeaders: [
@@ -237,6 +247,9 @@ export class GoldenGateClient {
       this.logger.debug(
         "Calling operation GoldenGateClient#changeDatabaseRegistrationCompartment."
       );
+    const operationName = "changeDatabaseRegistrationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/ChangeDatabaseRegistrationCompartment";
     const pathParams = {
       "{databaseRegistrationId}":
         changeDatabaseRegistrationCompartmentRequest.databaseRegistrationId
@@ -273,7 +286,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDatabaseRegistrationCompartmentResponse>{},
         responseHeaders: [
@@ -310,6 +329,9 @@ export class GoldenGateClient {
   ): Promise<responses.ChangeDeploymentBackupCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#changeDeploymentBackupCompartment.");
+    const operationName = "changeDeploymentBackupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/ChangeDeploymentBackupCompartment";
     const pathParams = {
       "{deploymentBackupId}": changeDeploymentBackupCompartmentRequest.deploymentBackupId
     };
@@ -345,7 +367,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDeploymentBackupCompartmentResponse>{},
         responseHeaders: [
@@ -377,6 +405,9 @@ export class GoldenGateClient {
   ): Promise<responses.ChangeDeploymentCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#changeDeploymentCompartment.");
+    const operationName = "changeDeploymentCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ChangeDeploymentCompartment";
     const pathParams = {
       "{deploymentId}": changeDeploymentCompartmentRequest.deploymentId
     };
@@ -412,7 +443,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDeploymentCompartmentResponse>{},
         responseHeaders: [
@@ -449,6 +486,9 @@ export class GoldenGateClient {
   ): Promise<responses.CreateDatabaseRegistrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#createDatabaseRegistration.");
+    const operationName = "createDatabaseRegistration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/CreateDatabaseRegistration";
     const pathParams = {};
 
     const queryParams = {};
@@ -481,7 +521,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDatabaseRegistrationResponse>{},
         body: await response.json(),
@@ -526,6 +572,9 @@ export class GoldenGateClient {
     createDeploymentRequest: requests.CreateDeploymentRequest
   ): Promise<responses.CreateDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#createDeployment.");
+    const operationName = "createDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/CreateDeployment";
     const pathParams = {};
 
     const queryParams = {};
@@ -558,7 +607,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeploymentResponse>{},
         body: await response.json(),
@@ -603,6 +658,9 @@ export class GoldenGateClient {
   ): Promise<responses.CreateDeploymentBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#createDeploymentBackup.");
+    const operationName = "createDeploymentBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/CreateDeploymentBackup";
     const pathParams = {};
 
     const queryParams = {};
@@ -635,7 +693,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDeploymentBackupResponse>{},
         responseHeaders: [
@@ -672,6 +736,9 @@ export class GoldenGateClient {
   ): Promise<responses.DeleteDatabaseRegistrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#deleteDatabaseRegistration.");
+    const operationName = "deleteDatabaseRegistration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/DeleteDatabaseRegistration";
     const pathParams = {
       "{databaseRegistrationId}": deleteDatabaseRegistrationRequest.databaseRegistrationId
     };
@@ -701,7 +768,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseRegistrationResponse>{},
         responseHeaders: [
@@ -737,6 +810,9 @@ export class GoldenGateClient {
     deleteDeploymentRequest: requests.DeleteDeploymentRequest
   ): Promise<responses.DeleteDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#deleteDeployment.");
+    const operationName = "deleteDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/DeleteDeployment";
     const pathParams = {
       "{deploymentId}": deleteDeploymentRequest.deploymentId
     };
@@ -766,7 +842,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeploymentResponse>{},
         responseHeaders: [
@@ -803,6 +885,9 @@ export class GoldenGateClient {
   ): Promise<responses.DeleteDeploymentBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#deleteDeploymentBackup.");
+    const operationName = "deleteDeploymentBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/DeleteDeploymentBackup";
     const pathParams = {
       "{deploymentBackupId}": deleteDeploymentBackupRequest.deploymentBackupId
     };
@@ -832,7 +917,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDeploymentBackupResponse>{},
         responseHeaders: [
@@ -869,6 +960,9 @@ export class GoldenGateClient {
   ): Promise<responses.GetDatabaseRegistrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#getDatabaseRegistration.");
+    const operationName = "getDatabaseRegistration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/GetDatabaseRegistration";
     const pathParams = {
       "{databaseRegistrationId}": getDatabaseRegistrationRequest.databaseRegistrationId
     };
@@ -897,7 +991,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseRegistrationResponse>{},
         body: await response.json(),
@@ -937,6 +1037,9 @@ export class GoldenGateClient {
     getDeploymentRequest: requests.GetDeploymentRequest
   ): Promise<responses.GetDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getDeployment.");
+    const operationName = "getDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/GetDeployment";
     const pathParams = {
       "{deploymentId}": getDeploymentRequest.deploymentId
     };
@@ -965,7 +1068,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeploymentResponse>{},
         body: await response.json(),
@@ -1005,6 +1114,9 @@ export class GoldenGateClient {
     getDeploymentBackupRequest: requests.GetDeploymentBackupRequest
   ): Promise<responses.GetDeploymentBackupResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getDeploymentBackup.");
+    const operationName = "getDeploymentBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/GetDeploymentBackup";
     const pathParams = {
       "{deploymentBackupId}": getDeploymentBackupRequest.deploymentBackupId
     };
@@ -1033,7 +1145,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeploymentBackupResponse>{},
         body: await response.json(),
@@ -1073,6 +1191,9 @@ export class GoldenGateClient {
     getDeploymentUpgradeRequest: requests.GetDeploymentUpgradeRequest
   ): Promise<responses.GetDeploymentUpgradeResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getDeploymentUpgrade.");
+    const operationName = "getDeploymentUpgrade";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/GetDeploymentUpgrade";
     const pathParams = {
       "{deploymentUpgradeId}": getDeploymentUpgradeRequest.deploymentUpgradeId
     };
@@ -1101,7 +1222,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDeploymentUpgradeResponse>{},
         body: await response.json(),
@@ -1141,6 +1268,9 @@ export class GoldenGateClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1169,7 +1299,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1210,6 +1346,9 @@ export class GoldenGateClient {
   ): Promise<responses.ListDatabaseRegistrationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#listDatabaseRegistrations.");
+    const operationName = "listDatabaseRegistrations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/ListDatabaseRegistrations";
     const pathParams = {};
 
     const queryParams = {
@@ -1244,7 +1383,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabaseRegistrationsResponse>{},
         body: await response.json(),
@@ -1284,6 +1429,9 @@ export class GoldenGateClient {
     listDeploymentBackupsRequest: requests.ListDeploymentBackupsRequest
   ): Promise<responses.ListDeploymentBackupsResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listDeploymentBackups.");
+    const operationName = "listDeploymentBackups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/ListDeploymentBackups";
     const pathParams = {};
 
     const queryParams = {
@@ -1319,7 +1467,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeploymentBackupsResponse>{},
         body: await response.json(),
@@ -1360,6 +1514,9 @@ export class GoldenGateClient {
   ): Promise<responses.ListDeploymentUpgradesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#listDeploymentUpgrades.");
+    const operationName = "listDeploymentUpgrades";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/ListDeploymentUpgrades";
     const pathParams = {};
 
     const queryParams = {
@@ -1395,7 +1552,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeploymentUpgradesResponse>{},
         body: await response.json(),
@@ -1435,6 +1598,9 @@ export class GoldenGateClient {
     listDeploymentsRequest: requests.ListDeploymentsRequest
   ): Promise<responses.ListDeploymentsResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listDeployments.");
+    const operationName = "listDeployments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ListDeployments";
     const pathParams = {};
 
     const queryParams = {
@@ -1471,7 +1637,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDeploymentsResponse>{},
         body: await response.json(),
@@ -1511,6 +1683,9 @@ export class GoldenGateClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1542,7 +1717,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1634,6 +1815,9 @@ export class GoldenGateClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1665,7 +1849,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1757,6 +1947,9 @@ export class GoldenGateClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1788,7 +1981,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1879,6 +2078,9 @@ export class GoldenGateClient {
     restoreDeploymentRequest: requests.RestoreDeploymentRequest
   ): Promise<responses.RestoreDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#restoreDeployment.");
+    const operationName = "restoreDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/RestoreDeployment";
     const pathParams = {
       "{deploymentBackupId}": restoreDeploymentRequest.deploymentBackupId
     };
@@ -1914,7 +2116,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreDeploymentResponse>{},
         responseHeaders: [
@@ -1950,6 +2158,9 @@ export class GoldenGateClient {
     startDeploymentRequest: requests.StartDeploymentRequest
   ): Promise<responses.StartDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#startDeployment.");
+    const operationName = "startDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/StartDeployment";
     const pathParams = {
       "{deploymentId}": startDeploymentRequest.deploymentId
     };
@@ -1985,7 +2196,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartDeploymentResponse>{},
         responseHeaders: [
@@ -2021,6 +2238,9 @@ export class GoldenGateClient {
     stopDeploymentRequest: requests.StopDeploymentRequest
   ): Promise<responses.StopDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#stopDeployment.");
+    const operationName = "stopDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/StopDeployment";
     const pathParams = {
       "{deploymentId}": stopDeploymentRequest.deploymentId
     };
@@ -2056,7 +2276,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopDeploymentResponse>{},
         responseHeaders: [
@@ -2093,6 +2319,9 @@ export class GoldenGateClient {
   ): Promise<responses.UpdateDatabaseRegistrationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#updateDatabaseRegistration.");
+    const operationName = "updateDatabaseRegistration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DatabaseRegistration/UpdateDatabaseRegistration";
     const pathParams = {
       "{databaseRegistrationId}": updateDatabaseRegistrationRequest.databaseRegistrationId
     };
@@ -2127,7 +2356,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDatabaseRegistrationResponse>{},
         responseHeaders: [
@@ -2163,6 +2398,9 @@ export class GoldenGateClient {
     updateDeploymentRequest: requests.UpdateDeploymentRequest
   ): Promise<responses.UpdateDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#updateDeployment.");
+    const operationName = "updateDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/UpdateDeployment";
     const pathParams = {
       "{deploymentId}": updateDeploymentRequest.deploymentId
     };
@@ -2197,7 +2435,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeploymentResponse>{},
         responseHeaders: [
@@ -2234,6 +2478,9 @@ export class GoldenGateClient {
   ): Promise<responses.UpdateDeploymentBackupResponse> {
     if (this.logger)
       this.logger.debug("Calling operation GoldenGateClient#updateDeploymentBackup.");
+    const operationName = "updateDeploymentBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentBackup/UpdateDeploymentBackup";
     const pathParams = {
       "{deploymentBackupId}": updateDeploymentBackupRequest.deploymentBackupId
     };
@@ -2268,7 +2515,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDeploymentBackupResponse>{},
         body: await response.json(),
@@ -2308,6 +2561,9 @@ export class GoldenGateClient {
     upgradeDeploymentRequest: requests.UpgradeDeploymentRequest
   ): Promise<responses.UpgradeDeploymentResponse> {
     if (this.logger) this.logger.debug("Calling operation GoldenGateClient#upgradeDeployment.");
+    const operationName = "upgradeDeployment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/UpgradeDeployment";
     const pathParams = {
       "{deploymentId}": upgradeDeploymentRequest.deploymentId
     };
@@ -2343,7 +2599,13 @@ export class GoldenGateClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeDeploymentResponse>{},
         responseHeaders: [

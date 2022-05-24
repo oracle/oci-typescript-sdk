@@ -21,6 +21,8 @@ import * as client from "./lib/client";
 import * as apigateway_waiter from "./lib/apigateway-waiter";
 import * as deployment_waiter from "./lib/deployment-waiter";
 import * as gateway_waiter from "./lib/gateway-waiter";
+import * as subscribers_waiter from "./lib/subscribers-waiter";
+import * as usageplans_waiter from "./lib/usageplans-waiter";
 import * as workrequests_waiter from "./lib/workrequests-waiter";
 
 export { models };
@@ -32,5 +34,9 @@ export import DeploymentClient = client.DeploymentClient;
 export import DeploymentWaiter = deployment_waiter.DeploymentWaiter;
 export import GatewayClient = client.GatewayClient;
 export import GatewayWaiter = gateway_waiter.GatewayWaiter;
+export import SubscribersClient = client.SubscribersClient;
+export import SubscribersWaiter = subscribers_waiter.SubscribersWaiter;
+export import UsagePlansClient = client.UsagePlansClient;
+export import UsagePlansWaiter = usageplans_waiter.UsagePlansWaiter;
 export import WorkRequestsClient = client.WorkRequestsClient;
 export import WorkRequestsWaiter = workrequests_waiter.WorkRequestsWaiter;

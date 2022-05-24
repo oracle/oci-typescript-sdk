@@ -35,6 +35,7 @@ export class IncidentClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Incident";
 
   protected _httpClient: common.HttpClient;
 
@@ -137,6 +138,9 @@ export class IncidentClient {
     createIncidentRequest: requests.CreateIncidentRequest
   ): Promise<responses.CreateIncidentResponse> {
     if (this.logger) this.logger.debug("Calling operation IncidentClient#createIncident.");
+    const operationName = "createIncident";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Incident/CreateIncident";
     const pathParams = {};
 
     const queryParams = {};
@@ -170,7 +174,13 @@ export class IncidentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateIncidentResponse>{},
         body: await response.json(),
@@ -204,6 +214,9 @@ export class IncidentClient {
     getIncidentRequest: requests.GetIncidentRequest
   ): Promise<responses.GetIncidentResponse> {
     if (this.logger) this.logger.debug("Calling operation IncidentClient#getIncident.");
+    const operationName = "getIncident";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Incident/GetIncident";
     const pathParams = {
       "{incidentKey}": getIncidentRequest.incidentKey
     };
@@ -236,7 +249,13 @@ export class IncidentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetIncidentResponse>{},
         body: await response.json(),
@@ -270,6 +289,9 @@ export class IncidentClient {
     getStatusRequest: requests.GetStatusRequest
   ): Promise<responses.GetStatusResponse> {
     if (this.logger) this.logger.debug("Calling operation IncidentClient#getStatus.");
+    const operationName = "getStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Status/GetStatus";
     const pathParams = {
       "{source}": getStatusRequest.source
     };
@@ -300,7 +322,13 @@ export class IncidentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetStatusResponse>{},
         body: await response.json(),
@@ -335,6 +363,9 @@ export class IncidentClient {
   ): Promise<responses.ListIncidentResourceTypesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation IncidentClient#listIncidentResourceTypes.");
+    const operationName = "listIncidentResourceTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/IncidentResourceType/ListIncidentResourceTypes";
     const pathParams = {};
 
     const queryParams = {
@@ -372,7 +403,13 @@ export class IncidentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIncidentResourceTypesResponse>{},
         body: await response.json(),
@@ -463,6 +500,9 @@ export class IncidentClient {
     listIncidentsRequest: requests.ListIncidentsRequest
   ): Promise<responses.ListIncidentsResponse> {
     if (this.logger) this.logger.debug("Calling operation IncidentClient#listIncidents.");
+    const operationName = "listIncidents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/IncidentSummary/ListIncidents";
     const pathParams = {};
 
     const queryParams = {
@@ -500,7 +540,13 @@ export class IncidentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListIncidentsResponse>{},
         body: await response.json(),
@@ -591,6 +637,9 @@ export class IncidentClient {
     updateIncidentRequest: requests.UpdateIncidentRequest
   ): Promise<responses.UpdateIncidentResponse> {
     if (this.logger) this.logger.debug("Calling operation IncidentClient#updateIncident.");
+    const operationName = "updateIncident";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/UpdateIncident/UpdateIncident";
     const pathParams = {
       "{incidentKey}": updateIncidentRequest.incidentKey
     };
@@ -628,7 +677,13 @@ export class IncidentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateIncidentResponse>{},
         body: await response.json(),
@@ -662,6 +717,9 @@ export class IncidentClient {
     validateUserRequest: requests.ValidateUserRequest
   ): Promise<responses.ValidateUserResponse> {
     if (this.logger) this.logger.debug("Calling operation IncidentClient#validateUser.");
+    const operationName = "validateUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/ValidationResponse/ValidateUser";
     const pathParams = {};
 
     const queryParams = {
@@ -693,7 +751,13 @@ export class IncidentClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateUserResponse>{},
         body: await response.json(),
@@ -728,6 +792,7 @@ export class UserClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "User";
 
   protected _httpClient: common.HttpClient;
 
@@ -830,6 +895,9 @@ export class UserClient {
     createUserRequest: requests.CreateUserRequest
   ): Promise<responses.CreateUserResponse> {
     if (this.logger) this.logger.debug("Calling operation UserClient#createUser.");
+    const operationName = "createUser";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/User/CreateUser";
     const pathParams = {};
 
     const queryParams = {};
@@ -863,7 +931,13 @@ export class UserClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateUserResponse>{},
         body: await response.json(),

@@ -37,6 +37,7 @@ export class ArtifactsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Artifacts";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,9 @@ export class ArtifactsClient {
   ): Promise<responses.ChangeContainerRepositoryCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#changeContainerRepositoryCompartment.");
+    const operationName = "changeContainerRepositoryCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/ChangeContainerRepositoryCompartment";
     const pathParams = {
       "{repositoryId}": changeContainerRepositoryCompartmentRequest.repositoryId
     };
@@ -201,7 +205,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeContainerRepositoryCompartmentResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class ArtifactsClient {
   ): Promise<responses.ChangeRepositoryCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#changeRepositoryCompartment.");
+    const operationName = "changeRepositoryCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/ChangeRepositoryCompartment";
     const pathParams = {
       "{repositoryId}": changeRepositoryCompartmentRequest.repositoryId
     };
@@ -270,7 +283,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRepositoryCompartmentResponse>{},
         responseHeaders: [
@@ -301,6 +320,9 @@ export class ArtifactsClient {
   ): Promise<responses.CreateContainerImageSignatureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#createContainerImageSignature.");
+    const operationName = "createContainerImageSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/CreateContainerImageSignature";
     const pathParams = {};
 
     const queryParams = {};
@@ -334,7 +356,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateContainerImageSignatureResponse>{},
         body: await response.json(),
@@ -374,6 +402,9 @@ export class ArtifactsClient {
   ): Promise<responses.CreateContainerRepositoryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#createContainerRepository.");
+    const operationName = "createContainerRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/CreateContainerRepository";
     const pathParams = {};
 
     const queryParams = {};
@@ -406,7 +437,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateContainerRepositoryResponse>{},
         body: await response.json(),
@@ -445,6 +482,9 @@ export class ArtifactsClient {
     createRepositoryRequest: requests.CreateRepositoryRequest
   ): Promise<responses.CreateRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#createRepository.");
+    const operationName = "createRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/CreateRepository";
     const pathParams = {};
 
     const queryParams = {};
@@ -477,7 +517,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRepositoryResponse>{},
         body: await response.json(),
@@ -516,6 +562,9 @@ export class ArtifactsClient {
     deleteContainerImageRequest: requests.DeleteContainerImageRequest
   ): Promise<responses.DeleteContainerImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteContainerImage.");
+    const operationName = "deleteContainerImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/DeleteContainerImage";
     const pathParams = {
       "{imageId}": deleteContainerImageRequest.imageId
     };
@@ -545,7 +594,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteContainerImageResponse>{},
         responseHeaders: [
@@ -576,6 +631,9 @@ export class ArtifactsClient {
   ): Promise<responses.DeleteContainerImageSignatureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#deleteContainerImageSignature.");
+    const operationName = "deleteContainerImageSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/DeleteContainerImageSignature";
     const pathParams = {
       "{imageSignatureId}": deleteContainerImageSignatureRequest.imageSignatureId
     };
@@ -605,7 +663,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteContainerImageSignatureResponse>{},
         responseHeaders: [
@@ -636,6 +700,9 @@ export class ArtifactsClient {
   ): Promise<responses.DeleteContainerRepositoryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#deleteContainerRepository.");
+    const operationName = "deleteContainerRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/DeleteContainerRepository";
     const pathParams = {
       "{repositoryId}": deleteContainerRepositoryRequest.repositoryId
     };
@@ -665,7 +732,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteContainerRepositoryResponse>{},
         responseHeaders: [
@@ -695,6 +768,9 @@ export class ArtifactsClient {
     deleteGenericArtifactRequest: requests.DeleteGenericArtifactRequest
   ): Promise<responses.DeleteGenericArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteGenericArtifact.");
+    const operationName = "deleteGenericArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/DeleteGenericArtifact";
     const pathParams = {
       "{artifactId}": deleteGenericArtifactRequest.artifactId
     };
@@ -724,7 +800,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteGenericArtifactResponse>{},
         responseHeaders: [
@@ -755,6 +837,9 @@ export class ArtifactsClient {
   ): Promise<responses.DeleteGenericArtifactByPathResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#deleteGenericArtifactByPath.");
+    const operationName = "deleteGenericArtifactByPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/DeleteGenericArtifactByPath";
     const pathParams = {
       "{repositoryId}": deleteGenericArtifactByPathRequest.repositoryId,
       "{artifactPath}": deleteGenericArtifactByPathRequest.artifactPath,
@@ -786,7 +871,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteGenericArtifactByPathResponse>{},
         responseHeaders: [
@@ -816,6 +907,9 @@ export class ArtifactsClient {
     deleteRepositoryRequest: requests.DeleteRepositoryRequest
   ): Promise<responses.DeleteRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#deleteRepository.");
+    const operationName = "deleteRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/DeleteRepository";
     const pathParams = {
       "{repositoryId}": deleteRepositoryRequest.repositoryId
     };
@@ -845,7 +939,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRepositoryResponse>{},
         responseHeaders: [
@@ -876,6 +976,9 @@ export class ArtifactsClient {
   ): Promise<responses.GetContainerConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#getContainerConfiguration.");
+    const operationName = "getContainerConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerConfiguration/GetContainerConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -904,7 +1007,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetContainerConfigurationResponse>{},
         body: await response.json(),
@@ -943,6 +1052,9 @@ export class ArtifactsClient {
     getContainerImageRequest: requests.GetContainerImageRequest
   ): Promise<responses.GetContainerImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getContainerImage.");
+    const operationName = "getContainerImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/GetContainerImage";
     const pathParams = {
       "{imageId}": getContainerImageRequest.imageId
     };
@@ -971,7 +1083,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetContainerImageResponse>{},
         body: await response.json(),
@@ -1011,6 +1129,9 @@ export class ArtifactsClient {
   ): Promise<responses.GetContainerImageSignatureResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#getContainerImageSignature.");
+    const operationName = "getContainerImageSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/GetContainerImageSignature";
     const pathParams = {
       "{imageSignatureId}": getContainerImageSignatureRequest.imageSignatureId
     };
@@ -1039,7 +1160,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetContainerImageSignatureResponse>{},
         body: await response.json(),
@@ -1078,6 +1205,9 @@ export class ArtifactsClient {
     getContainerRepositoryRequest: requests.GetContainerRepositoryRequest
   ): Promise<responses.GetContainerRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getContainerRepository.");
+    const operationName = "getContainerRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/GetContainerRepository";
     const pathParams = {
       "{repositoryId}": getContainerRepositoryRequest.repositoryId
     };
@@ -1106,7 +1236,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetContainerRepositoryResponse>{},
         body: await response.json(),
@@ -1145,6 +1281,9 @@ export class ArtifactsClient {
     getGenericArtifactRequest: requests.GetGenericArtifactRequest
   ): Promise<responses.GetGenericArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getGenericArtifact.");
+    const operationName = "getGenericArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/GetGenericArtifact";
     const pathParams = {
       "{artifactId}": getGenericArtifactRequest.artifactId
     };
@@ -1173,7 +1312,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGenericArtifactResponse>{},
         body: await response.json(),
@@ -1213,6 +1358,9 @@ export class ArtifactsClient {
   ): Promise<responses.GetGenericArtifactByPathResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#getGenericArtifactByPath.");
+    const operationName = "getGenericArtifactByPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/GetGenericArtifactByPath";
     const pathParams = {
       "{repositoryId}": getGenericArtifactByPathRequest.repositoryId,
       "{artifactPath}": getGenericArtifactByPathRequest.artifactPath,
@@ -1243,7 +1391,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetGenericArtifactByPathResponse>{},
         body: await response.json(),
@@ -1282,6 +1436,9 @@ export class ArtifactsClient {
     getRepositoryRequest: requests.GetRepositoryRequest
   ): Promise<responses.GetRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#getRepository.");
+    const operationName = "getRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/GetRepository";
     const pathParams = {
       "{repositoryId}": getRepositoryRequest.repositoryId
     };
@@ -1310,7 +1467,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRepositoryResponse>{},
         body: await response.json(),
@@ -1350,6 +1513,9 @@ export class ArtifactsClient {
   ): Promise<responses.ListContainerImageSignaturesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#listContainerImageSignatures.");
+    const operationName = "listContainerImageSignatures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignatureSummary/ListContainerImageSignatures";
     const pathParams = {};
 
     const queryParams = {
@@ -1391,7 +1557,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListContainerImageSignaturesResponse>{},
         body: await response.json(),
@@ -1430,6 +1602,9 @@ export class ArtifactsClient {
     listContainerImagesRequest: requests.ListContainerImagesRequest
   ): Promise<responses.ListContainerImagesResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listContainerImages.");
+    const operationName = "listContainerImages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSummary/ListContainerImages";
     const pathParams = {};
 
     const queryParams = {
@@ -1470,7 +1645,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListContainerImagesResponse>{},
         body: await response.json(),
@@ -1510,6 +1691,9 @@ export class ArtifactsClient {
   ): Promise<responses.ListContainerRepositoriesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#listContainerRepositories.");
+    const operationName = "listContainerRepositories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/ListContainerRepositories";
     const pathParams = {};
 
     const queryParams = {
@@ -1547,7 +1731,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListContainerRepositoriesResponse>{},
         body: await response.json(),
@@ -1586,6 +1776,9 @@ export class ArtifactsClient {
     listGenericArtifactsRequest: requests.ListGenericArtifactsRequest
   ): Promise<responses.ListGenericArtifactsResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listGenericArtifacts.");
+    const operationName = "listGenericArtifacts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/ListGenericArtifacts";
     const pathParams = {};
 
     const queryParams = {
@@ -1625,7 +1818,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListGenericArtifactsResponse>{},
         body: await response.json(),
@@ -1664,6 +1863,9 @@ export class ArtifactsClient {
     listRepositoriesRequest: requests.ListRepositoriesRequest
   ): Promise<responses.ListRepositoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#listRepositories.");
+    const operationName = "listRepositories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/ListRepositories";
     const pathParams = {};
 
     const queryParams = {
@@ -1700,7 +1902,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRepositoriesResponse>{},
         body: await response.json(),
@@ -1739,6 +1947,9 @@ export class ArtifactsClient {
     removeContainerVersionRequest: requests.RemoveContainerVersionRequest
   ): Promise<responses.RemoveContainerVersionResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#removeContainerVersion.");
+    const operationName = "removeContainerVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/RemoveContainerVersion";
     const pathParams = {
       "{imageId}": removeContainerVersionRequest.imageId
     };
@@ -1774,7 +1985,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveContainerVersionResponse>{},
         body: await response.json(),
@@ -1813,6 +2030,9 @@ export class ArtifactsClient {
     restoreContainerImageRequest: requests.RestoreContainerImageRequest
   ): Promise<responses.RestoreContainerImageResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#restoreContainerImage.");
+    const operationName = "restoreContainerImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/RestoreContainerImage";
     const pathParams = {
       "{imageId}": restoreContainerImageRequest.imageId
     };
@@ -1848,7 +2068,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestoreContainerImageResponse>{},
         body: await response.json(),
@@ -1888,6 +2114,9 @@ export class ArtifactsClient {
   ): Promise<responses.UpdateContainerConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#updateContainerConfiguration.");
+    const operationName = "updateContainerConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerConfiguration/UpdateContainerConfiguration";
     const pathParams = {};
 
     const queryParams = {
@@ -1922,7 +2151,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateContainerConfigurationResponse>{},
         body: await response.json(),
@@ -1962,6 +2197,9 @@ export class ArtifactsClient {
   ): Promise<responses.UpdateContainerRepositoryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#updateContainerRepository.");
+    const operationName = "updateContainerRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerRepository/UpdateContainerRepository";
     const pathParams = {
       "{repositoryId}": updateContainerRepositoryRequest.repositoryId
     };
@@ -1996,7 +2234,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateContainerRepositoryResponse>{},
         body: await response.json(),
@@ -2035,6 +2279,9 @@ export class ArtifactsClient {
     updateGenericArtifactRequest: requests.UpdateGenericArtifactRequest
   ): Promise<responses.UpdateGenericArtifactResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateGenericArtifact.");
+    const operationName = "updateGenericArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/UpdateGenericArtifact";
     const pathParams = {
       "{artifactId}": updateGenericArtifactRequest.artifactId
     };
@@ -2069,7 +2316,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateGenericArtifactResponse>{},
         body: await response.json(),
@@ -2109,6 +2362,9 @@ export class ArtifactsClient {
   ): Promise<responses.UpdateGenericArtifactByPathResponse> {
     if (this.logger)
       this.logger.debug("Calling operation ArtifactsClient#updateGenericArtifactByPath.");
+    const operationName = "updateGenericArtifactByPath";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/GenericArtifact/UpdateGenericArtifactByPath";
     const pathParams = {
       "{repositoryId}": updateGenericArtifactByPathRequest.repositoryId,
       "{artifactPath}": updateGenericArtifactByPathRequest.artifactPath,
@@ -2145,7 +2401,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateGenericArtifactByPathResponse>{},
         body: await response.json(),
@@ -2184,6 +2446,9 @@ export class ArtifactsClient {
     updateRepositoryRequest: requests.UpdateRepositoryRequest
   ): Promise<responses.UpdateRepositoryResponse> {
     if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateRepository.");
+    const operationName = "updateRepository";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/Repository/UpdateRepository";
     const pathParams = {
       "{repositoryId}": updateRepositoryRequest.repositoryId
     };
@@ -2218,7 +2483,13 @@ export class ArtifactsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRepositoryResponse>{},
         body: await response.json(),

@@ -38,6 +38,7 @@ export class EventsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Events";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class EventsClient {
     changeRuleCompartmentRequest: requests.ChangeRuleCompartmentRequest
   ): Promise<responses.ChangeRuleCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation EventsClient#changeRuleCompartment.");
+    const operationName = "changeRuleCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/ChangeRuleCompartment";
     const pathParams = {
       "{ruleId}": changeRuleCompartmentRequest.ruleId
     };
@@ -200,7 +204,13 @@ export class EventsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRuleCompartmentResponse>{},
         responseHeaders: [
@@ -231,6 +241,9 @@ export class EventsClient {
     createRuleRequest: requests.CreateRuleRequest
   ): Promise<responses.CreateRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation EventsClient#createRule.");
+    const operationName = "createRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/CreateRule";
     const pathParams = {};
 
     const queryParams = {};
@@ -263,7 +276,13 @@ export class EventsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRuleResponse>{},
         body: await response.json(),
@@ -302,6 +321,9 @@ export class EventsClient {
     deleteRuleRequest: requests.DeleteRuleRequest
   ): Promise<responses.DeleteRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation EventsClient#deleteRule.");
+    const operationName = "deleteRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/DeleteRule";
     const pathParams = {
       "{ruleId}": deleteRuleRequest.ruleId
     };
@@ -331,7 +353,13 @@ export class EventsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRuleResponse>{},
         responseHeaders: [
@@ -361,6 +389,8 @@ export class EventsClient {
     getRuleRequest: requests.GetRuleRequest
   ): Promise<responses.GetRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation EventsClient#getRule.");
+    const operationName = "getRule";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/GetRule";
     const pathParams = {
       "{ruleId}": getRuleRequest.ruleId
     };
@@ -389,7 +419,13 @@ export class EventsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRuleResponse>{},
         body: await response.json(),
@@ -429,6 +465,9 @@ export class EventsClient {
     listRulesRequest: requests.ListRulesRequest
   ): Promise<responses.ListRulesResponse> {
     if (this.logger) this.logger.debug("Calling operation EventsClient#listRules.");
+    const operationName = "listRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/events/20181201/RuleSummary/ListRules";
     const pathParams = {};
 
     const queryParams = {
@@ -463,7 +502,13 @@ export class EventsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRulesResponse>{},
         body: await response.json(),
@@ -555,6 +600,9 @@ export class EventsClient {
     updateRuleRequest: requests.UpdateRuleRequest
   ): Promise<responses.UpdateRuleResponse> {
     if (this.logger) this.logger.debug("Calling operation EventsClient#updateRule.");
+    const operationName = "updateRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/events/20181201/Rule/UpdateRule";
     const pathParams = {
       "{ruleId}": updateRuleRequest.ruleId
     };
@@ -589,7 +637,13 @@ export class EventsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRuleResponse>{},
         body: await response.json(),

@@ -38,6 +38,7 @@ export class OptimizerClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Optimizer";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class OptimizerClient {
   ): Promise<responses.BulkApplyRecommendationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OptimizerClient#bulkApplyRecommendations.");
+    const operationName = "bulkApplyRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Recommendation/BulkApplyRecommendations";
     const pathParams = {
       "{recommendationId}": bulkApplyRecommendationsRequest.recommendationId
     };
@@ -199,7 +203,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.BulkApplyRecommendationsResponse>{},
         responseHeaders: [
@@ -235,6 +245,9 @@ export class OptimizerClient {
     createProfileRequest: requests.CreateProfileRequest
   ): Promise<responses.CreateProfileResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#createProfile.");
+    const operationName = "createProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/CreateProfile";
     const pathParams = {};
 
     const queryParams = {};
@@ -267,7 +280,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateProfileResponse>{},
         body: await response.json(),
@@ -307,6 +326,9 @@ export class OptimizerClient {
     deleteProfileRequest: requests.DeleteProfileRequest
   ): Promise<responses.DeleteProfileResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#deleteProfile.");
+    const operationName = "deleteProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/DeleteProfile";
     const pathParams = {
       "{profileId}": deleteProfileRequest.profileId
     };
@@ -336,7 +358,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProfileResponse>{},
         responseHeaders: [
@@ -367,6 +395,9 @@ export class OptimizerClient {
     filterResourceActionsRequest: requests.FilterResourceActionsRequest
   ): Promise<responses.FilterResourceActionsResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#filterResourceActions.");
+    const operationName = "filterResourceActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceActionSummary/FilterResourceActions";
     const pathParams = {};
 
     const queryParams = {
@@ -404,7 +435,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.FilterResourceActionsResponse>{},
         body: await response.json(),
@@ -449,6 +486,9 @@ export class OptimizerClient {
     getCategoryRequest: requests.GetCategoryRequest
   ): Promise<responses.GetCategoryResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#getCategory.");
+    const operationName = "getCategory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Category/GetCategory";
     const pathParams = {
       "{categoryId}": getCategoryRequest.categoryId
     };
@@ -477,7 +517,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCategoryResponse>{},
         body: await response.json(),
@@ -512,6 +558,9 @@ export class OptimizerClient {
     getEnrollmentStatusRequest: requests.GetEnrollmentStatusRequest
   ): Promise<responses.GetEnrollmentStatusResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#getEnrollmentStatus.");
+    const operationName = "getEnrollmentStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/EnrollmentStatus/GetEnrollmentStatus";
     const pathParams = {
       "{enrollmentStatusId}": getEnrollmentStatusRequest.enrollmentStatusId
     };
@@ -540,7 +589,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetEnrollmentStatusResponse>{},
         body: await response.json(),
@@ -580,6 +635,9 @@ export class OptimizerClient {
     getProfileRequest: requests.GetProfileRequest
   ): Promise<responses.GetProfileResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#getProfile.");
+    const operationName = "getProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/GetProfile";
     const pathParams = {
       "{profileId}": getProfileRequest.profileId
     };
@@ -608,7 +666,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProfileResponse>{},
         body: await response.json(),
@@ -648,6 +712,9 @@ export class OptimizerClient {
     getRecommendationRequest: requests.GetRecommendationRequest
   ): Promise<responses.GetRecommendationResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#getRecommendation.");
+    const operationName = "getRecommendation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Recommendation/GetRecommendation";
     const pathParams = {
       "{recommendationId}": getRecommendationRequest.recommendationId
     };
@@ -676,7 +743,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRecommendationResponse>{},
         body: await response.json(),
@@ -716,6 +789,9 @@ export class OptimizerClient {
     getResourceActionRequest: requests.GetResourceActionRequest
   ): Promise<responses.GetResourceActionResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#getResourceAction.");
+    const operationName = "getResourceAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceAction/GetResourceAction";
     const pathParams = {
       "{resourceActionId}": getResourceActionRequest.resourceActionId
     };
@@ -744,7 +820,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResourceActionResponse>{},
         body: await response.json(),
@@ -783,6 +865,9 @@ export class OptimizerClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -811,7 +896,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -851,6 +942,9 @@ export class OptimizerClient {
     listCategoriesRequest: requests.ListCategoriesRequest
   ): Promise<responses.ListCategoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listCategories.");
+    const operationName = "listCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/CategorySummary/ListCategories";
     const pathParams = {};
 
     const queryParams = {
@@ -886,7 +980,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListCategoriesResponse>{},
         body: await response.json(),
@@ -931,6 +1031,9 @@ export class OptimizerClient {
     listEnrollmentStatusesRequest: requests.ListEnrollmentStatusesRequest
   ): Promise<responses.ListEnrollmentStatusesResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listEnrollmentStatuses.");
+    const operationName = "listEnrollmentStatuses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/EnrollmentStatusSummary/ListEnrollmentStatuses";
     const pathParams = {};
 
     const queryParams = {
@@ -965,7 +1068,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListEnrollmentStatusesResponse>{},
         body: await response.json(),
@@ -1011,6 +1120,9 @@ export class OptimizerClient {
     listHistoriesRequest: requests.ListHistoriesRequest
   ): Promise<responses.ListHistoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listHistories.");
+    const operationName = "listHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/HistorySummary/ListHistories";
     const pathParams = {};
 
     const queryParams = {
@@ -1050,7 +1162,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListHistoriesResponse>{},
         body: await response.json(),
@@ -1095,6 +1213,9 @@ export class OptimizerClient {
     listProfileLevelsRequest: requests.ListProfileLevelsRequest
   ): Promise<responses.ListProfileLevelsResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listProfileLevels.");
+    const operationName = "listProfileLevels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ProfileLevelSummary/ListProfileLevels";
     const pathParams = {};
 
     const queryParams = {
@@ -1130,7 +1251,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProfileLevelsResponse>{},
         body: await response.json(),
@@ -1175,6 +1302,9 @@ export class OptimizerClient {
     listProfilesRequest: requests.ListProfilesRequest
   ): Promise<responses.ListProfilesResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listProfiles.");
+    const operationName = "listProfiles";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ProfileSummary/ListProfiles";
     const pathParams = {};
 
     const queryParams = {
@@ -1209,7 +1339,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProfilesResponse>{},
         body: await response.json(),
@@ -1255,6 +1391,9 @@ export class OptimizerClient {
   ): Promise<responses.ListRecommendationStrategiesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OptimizerClient#listRecommendationStrategies.");
+    const operationName = "listRecommendationStrategies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/RecommendationStrategySummary/ListRecommendationStrategies";
     const pathParams = {};
 
     const queryParams = {
@@ -1290,7 +1429,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRecommendationStrategiesResponse>{},
         body: await response.json(),
@@ -1335,6 +1480,9 @@ export class OptimizerClient {
     listRecommendationsRequest: requests.ListRecommendationsRequest
   ): Promise<responses.ListRecommendationsResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listRecommendations.");
+    const operationName = "listRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/RecommendationSummary/ListRecommendations";
     const pathParams = {};
 
     const queryParams = {
@@ -1372,7 +1520,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRecommendationsResponse>{},
         body: await response.json(),
@@ -1418,6 +1572,9 @@ export class OptimizerClient {
   ): Promise<responses.ListResourceActionQueryableFieldsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation OptimizerClient#listResourceActionQueryableFields.");
+    const operationName = "listResourceActionQueryableFields";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/QueryableFieldSummary/ListResourceActionQueryableFields";
     const pathParams = {};
 
     const queryParams = {
@@ -1449,7 +1606,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceActionQueryableFieldsResponse>{},
         body: await response.json(),
@@ -1494,6 +1657,9 @@ export class OptimizerClient {
     listResourceActionsRequest: requests.ListResourceActionsRequest
   ): Promise<responses.ListResourceActionsResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listResourceActions.");
+    const operationName = "listResourceActions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceActionSummary/ListResourceActions";
     const pathParams = {};
 
     const queryParams = {
@@ -1532,7 +1698,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListResourceActionsResponse>{},
         body: await response.json(),
@@ -1577,6 +1749,9 @@ export class OptimizerClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1608,7 +1783,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1648,6 +1829,9 @@ export class OptimizerClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1679,7 +1863,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1719,6 +1909,9 @@ export class OptimizerClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1749,7 +1942,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1789,6 +1988,9 @@ export class OptimizerClient {
     updateEnrollmentStatusRequest: requests.UpdateEnrollmentStatusRequest
   ): Promise<responses.UpdateEnrollmentStatusResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateEnrollmentStatus.");
+    const operationName = "updateEnrollmentStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/EnrollmentStatus/UpdateEnrollmentStatus";
     const pathParams = {
       "{enrollmentStatusId}": updateEnrollmentStatusRequest.enrollmentStatusId
     };
@@ -1823,7 +2025,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateEnrollmentStatusResponse>{},
         body: await response.json(),
@@ -1863,6 +2071,9 @@ export class OptimizerClient {
     updateProfileRequest: requests.UpdateProfileRequest
   ): Promise<responses.UpdateProfileResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateProfile.");
+    const operationName = "updateProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Profile/UpdateProfile";
     const pathParams = {
       "{profileId}": updateProfileRequest.profileId
     };
@@ -1897,7 +2108,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProfileResponse>{},
         body: await response.json(),
@@ -1942,6 +2159,9 @@ export class OptimizerClient {
     updateRecommendationRequest: requests.UpdateRecommendationRequest
   ): Promise<responses.UpdateRecommendationResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateRecommendation.");
+    const operationName = "updateRecommendation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/Recommendation/UpdateRecommendation";
     const pathParams = {
       "{recommendationId}": updateRecommendationRequest.recommendationId
     };
@@ -1976,7 +2196,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRecommendationResponse>{},
         body: await response.json(),
@@ -2021,6 +2247,9 @@ export class OptimizerClient {
     updateResourceActionRequest: requests.UpdateResourceActionRequest
   ): Promise<responses.UpdateResourceActionResponse> {
     if (this.logger) this.logger.debug("Calling operation OptimizerClient#updateResourceAction.");
+    const operationName = "updateResourceAction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/advisor/20200606/ResourceAction/UpdateResourceAction";
     const pathParams = {
       "{resourceActionId}": updateResourceActionRequest.resourceActionId
     };
@@ -2055,7 +2284,13 @@ export class OptimizerClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateResourceActionResponse>{},
         body: await response.json(),

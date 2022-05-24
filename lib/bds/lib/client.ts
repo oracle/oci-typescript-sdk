@@ -38,6 +38,7 @@ export class BdsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Bds";
 
   protected _httpClient: common.HttpClient;
 
@@ -165,6 +166,9 @@ export class BdsClient {
   ): Promise<responses.ActivateBdsMetastoreConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#activateBdsMetastoreConfiguration.");
+    const operationName = "activateBdsMetastoreConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/ActivateBdsMetastoreConfiguration";
     const pathParams = {
       "{bdsInstanceId}": activateBdsMetastoreConfigurationRequest.bdsInstanceId,
       "{metastoreConfigId}": activateBdsMetastoreConfigurationRequest.metastoreConfigId
@@ -201,7 +205,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ActivateBdsMetastoreConfigurationResponse>{},
         responseHeaders: [
@@ -237,6 +247,9 @@ export class BdsClient {
     addAutoScalingConfigurationRequest: requests.AddAutoScalingConfigurationRequest
   ): Promise<responses.AddAutoScalingConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#addAutoScalingConfiguration.");
+    const operationName = "addAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddAutoScalingConfiguration";
     const pathParams = {
       "{bdsInstanceId}": addAutoScalingConfigurationRequest.bdsInstanceId
     };
@@ -272,7 +285,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddAutoScalingConfigurationResponse>{},
         responseHeaders: [
@@ -308,6 +327,9 @@ export class BdsClient {
     addBlockStorageRequest: requests.AddBlockStorageRequest
   ): Promise<responses.AddBlockStorageResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#addBlockStorage.");
+    const operationName = "addBlockStorage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddBlockStorage";
     const pathParams = {
       "{bdsInstanceId}": addBlockStorageRequest.bdsInstanceId
     };
@@ -343,7 +365,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddBlockStorageResponse>{},
         responseHeaders: [
@@ -379,6 +407,9 @@ export class BdsClient {
     addCloudSqlRequest: requests.AddCloudSqlRequest
   ): Promise<responses.AddCloudSqlResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#addCloudSql.");
+    const operationName = "addCloudSql";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddCloudSql";
     const pathParams = {
       "{bdsInstanceId}": addCloudSqlRequest.bdsInstanceId
     };
@@ -414,7 +445,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddCloudSqlResponse>{},
         responseHeaders: [
@@ -450,6 +487,9 @@ export class BdsClient {
     addWorkerNodesRequest: requests.AddWorkerNodesRequest
   ): Promise<responses.AddWorkerNodesResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#addWorkerNodes.");
+    const operationName = "addWorkerNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddWorkerNodes";
     const pathParams = {
       "{bdsInstanceId}": addWorkerNodesRequest.bdsInstanceId
     };
@@ -485,7 +525,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddWorkerNodesResponse>{},
         responseHeaders: [
@@ -521,6 +567,9 @@ export class BdsClient {
     changeBdsInstanceCompartmentRequest: requests.ChangeBdsInstanceCompartmentRequest
   ): Promise<responses.ChangeBdsInstanceCompartmentResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#changeBdsInstanceCompartment.");
+    const operationName = "changeBdsInstanceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ChangeBdsInstanceCompartment";
     const pathParams = {
       "{bdsInstanceId}": changeBdsInstanceCompartmentRequest.bdsInstanceId
     };
@@ -556,7 +605,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeBdsInstanceCompartmentResponse>{},
         responseHeaders: [
@@ -592,6 +647,9 @@ export class BdsClient {
     changeShapeRequest: requests.ChangeShapeRequest
   ): Promise<responses.ChangeShapeResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#changeShape.");
+    const operationName = "changeShape";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ChangeShape";
     const pathParams = {
       "{bdsInstanceId}": changeShapeRequest.bdsInstanceId
     };
@@ -627,7 +685,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeShapeResponse>{},
         responseHeaders: [
@@ -663,6 +727,9 @@ export class BdsClient {
     createBdsApiKeyRequest: requests.CreateBdsApiKeyRequest
   ): Promise<responses.CreateBdsApiKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsApiKey.");
+    const operationName = "createBdsApiKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/CreateBdsApiKey";
     const pathParams = {
       "{bdsInstanceId}": createBdsApiKeyRequest.bdsInstanceId
     };
@@ -697,7 +764,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBdsApiKeyResponse>{},
         responseHeaders: [
@@ -733,6 +806,9 @@ export class BdsClient {
     createBdsInstanceRequest: requests.CreateBdsInstanceRequest
   ): Promise<responses.CreateBdsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#createBdsInstance.");
+    const operationName = "createBdsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/CreateBdsInstance";
     const pathParams = {};
 
     const queryParams = {};
@@ -765,7 +841,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBdsInstanceResponse>{},
         responseHeaders: [
@@ -802,6 +884,9 @@ export class BdsClient {
   ): Promise<responses.CreateBdsMetastoreConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#createBdsMetastoreConfiguration.");
+    const operationName = "createBdsMetastoreConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/CreateBdsMetastoreConfiguration";
     const pathParams = {
       "{bdsInstanceId}": createBdsMetastoreConfigurationRequest.bdsInstanceId
     };
@@ -836,7 +921,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateBdsMetastoreConfigurationResponse>{},
         responseHeaders: [
@@ -871,6 +962,9 @@ export class BdsClient {
     deleteBdsApiKeyRequest: requests.DeleteBdsApiKeyRequest
   ): Promise<responses.DeleteBdsApiKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#deleteBdsApiKey.");
+    const operationName = "deleteBdsApiKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/DeleteBdsApiKey";
     const pathParams = {
       "{bdsInstanceId}": deleteBdsApiKeyRequest.bdsInstanceId,
       "{apiKeyId}": deleteBdsApiKeyRequest.apiKeyId
@@ -901,7 +995,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBdsApiKeyResponse>{},
         responseHeaders: [
@@ -936,6 +1036,9 @@ export class BdsClient {
     deleteBdsInstanceRequest: requests.DeleteBdsInstanceRequest
   ): Promise<responses.DeleteBdsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#deleteBdsInstance.");
+    const operationName = "deleteBdsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/DeleteBdsInstance";
     const pathParams = {
       "{bdsInstanceId}": deleteBdsInstanceRequest.bdsInstanceId
     };
@@ -965,7 +1068,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBdsInstanceResponse>{},
         responseHeaders: [
@@ -1001,6 +1110,9 @@ export class BdsClient {
   ): Promise<responses.DeleteBdsMetastoreConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#deleteBdsMetastoreConfiguration.");
+    const operationName = "deleteBdsMetastoreConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/DeleteBdsMetastoreConfiguration";
     const pathParams = {
       "{bdsInstanceId}": deleteBdsMetastoreConfigurationRequest.bdsInstanceId,
       "{metastoreConfigId}": deleteBdsMetastoreConfigurationRequest.metastoreConfigId
@@ -1031,7 +1143,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteBdsMetastoreConfigurationResponse>{},
         responseHeaders: [
@@ -1067,6 +1185,9 @@ export class BdsClient {
     getAutoScalingConfigurationRequest: requests.GetAutoScalingConfigurationRequest
   ): Promise<responses.GetAutoScalingConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#getAutoScalingConfiguration.");
+    const operationName = "getAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetAutoScalingConfiguration";
     const pathParams = {
       "{bdsInstanceId}": getAutoScalingConfigurationRequest.bdsInstanceId,
       "{autoScalingConfigurationId}": getAutoScalingConfigurationRequest.autoScalingConfigurationId
@@ -1096,7 +1217,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetAutoScalingConfigurationResponse>{},
         body: await response.json(),
@@ -1135,6 +1262,9 @@ export class BdsClient {
     getBdsApiKeyRequest: requests.GetBdsApiKeyRequest
   ): Promise<responses.GetBdsApiKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsApiKey.");
+    const operationName = "getBdsApiKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/GetBdsApiKey";
     const pathParams = {
       "{bdsInstanceId}": getBdsApiKeyRequest.bdsInstanceId,
       "{apiKeyId}": getBdsApiKeyRequest.apiKeyId
@@ -1164,7 +1294,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBdsApiKeyResponse>{},
         body: await response.json(),
@@ -1203,6 +1339,9 @@ export class BdsClient {
     getBdsInstanceRequest: requests.GetBdsInstanceRequest
   ): Promise<responses.GetBdsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsInstance.");
+    const operationName = "getBdsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetBdsInstance";
     const pathParams = {
       "{bdsInstanceId}": getBdsInstanceRequest.bdsInstanceId
     };
@@ -1231,7 +1370,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBdsInstanceResponse>{},
         body: await response.json(),
@@ -1270,6 +1415,9 @@ export class BdsClient {
     getBdsMetastoreConfigurationRequest: requests.GetBdsMetastoreConfigurationRequest
   ): Promise<responses.GetBdsMetastoreConfigurationResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#getBdsMetastoreConfiguration.");
+    const operationName = "getBdsMetastoreConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/GetBdsMetastoreConfiguration";
     const pathParams = {
       "{bdsInstanceId}": getBdsMetastoreConfigurationRequest.bdsInstanceId,
       "{metastoreConfigId}": getBdsMetastoreConfigurationRequest.metastoreConfigId
@@ -1299,7 +1447,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetBdsMetastoreConfigurationResponse>{},
         body: await response.json(),
@@ -1338,6 +1492,9 @@ export class BdsClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1366,7 +1523,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -1406,6 +1569,9 @@ export class BdsClient {
     installPatchRequest: requests.InstallPatchRequest
   ): Promise<responses.InstallPatchResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#installPatch.");
+    const operationName = "installPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/InstallPatch";
     const pathParams = {
       "{bdsInstanceId}": installPatchRequest.bdsInstanceId
     };
@@ -1441,7 +1607,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.InstallPatchResponse>{},
         responseHeaders: [
@@ -1478,6 +1650,9 @@ export class BdsClient {
   ): Promise<responses.ListAutoScalingConfigurationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#listAutoScalingConfigurations.");
+    const operationName = "listAutoScalingConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListAutoScalingConfigurations";
     const pathParams = {
       "{bdsInstanceId}": listAutoScalingConfigurationsRequest.bdsInstanceId
     };
@@ -1514,7 +1689,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListAutoScalingConfigurationsResponse>{},
         body: await response.json(),
@@ -1606,6 +1787,9 @@ export class BdsClient {
     listBdsApiKeysRequest: requests.ListBdsApiKeysRequest
   ): Promise<responses.ListBdsApiKeysResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsApiKeys.");
+    const operationName = "listBdsApiKeys";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/ListBdsApiKeys";
     const pathParams = {
       "{bdsInstanceId}": listBdsApiKeysRequest.bdsInstanceId
     };
@@ -1642,7 +1826,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBdsApiKeysResponse>{},
         body: await response.json(),
@@ -1734,6 +1924,9 @@ export class BdsClient {
     listBdsInstancesRequest: requests.ListBdsInstancesRequest
   ): Promise<responses.ListBdsInstancesResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#listBdsInstances.");
+    const operationName = "listBdsInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstanceSummary/ListBdsInstances";
     const pathParams = {};
 
     const queryParams = {
@@ -1768,7 +1961,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBdsInstancesResponse>{},
         body: await response.json(),
@@ -1861,6 +2060,9 @@ export class BdsClient {
   ): Promise<responses.ListBdsMetastoreConfigurationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#listBdsMetastoreConfigurations.");
+    const operationName = "listBdsMetastoreConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/ListBdsMetastoreConfigurations";
     const pathParams = {
       "{bdsInstanceId}": listBdsMetastoreConfigurationsRequest.bdsInstanceId
     };
@@ -1899,7 +2101,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListBdsMetastoreConfigurationsResponse>{},
         body: await response.json(),
@@ -1991,6 +2199,9 @@ export class BdsClient {
     listPatchHistoriesRequest: requests.ListPatchHistoriesRequest
   ): Promise<responses.ListPatchHistoriesResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#listPatchHistories.");
+    const operationName = "listPatchHistories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListPatchHistories";
     const pathParams = {
       "{bdsInstanceId}": listPatchHistoriesRequest.bdsInstanceId
     };
@@ -2026,7 +2237,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPatchHistoriesResponse>{},
         body: await response.json(),
@@ -2118,6 +2335,9 @@ export class BdsClient {
     listPatchesRequest: requests.ListPatchesRequest
   ): Promise<responses.ListPatchesResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#listPatches.");
+    const operationName = "listPatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListPatches";
     const pathParams = {
       "{bdsInstanceId}": listPatchesRequest.bdsInstanceId
     };
@@ -2149,7 +2369,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPatchesResponse>{},
         body: await response.json(),
@@ -2241,6 +2467,9 @@ export class BdsClient {
     listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -2274,7 +2503,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -2366,6 +2601,9 @@ export class BdsClient {
     listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2399,7 +2637,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -2491,6 +2735,9 @@ export class BdsClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -2524,7 +2771,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -2617,6 +2870,9 @@ export class BdsClient {
   ): Promise<responses.RemoveAutoScalingConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#removeAutoScalingConfiguration.");
+    const operationName = "removeAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveAutoScalingConfiguration";
     const pathParams = {
       "{bdsInstanceId}": removeAutoScalingConfigurationRequest.bdsInstanceId,
       "{autoScalingConfigurationId}":
@@ -2655,7 +2911,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveAutoScalingConfigurationResponse>{},
         responseHeaders: [
@@ -2691,6 +2953,9 @@ export class BdsClient {
     removeCloudSqlRequest: requests.RemoveCloudSqlRequest
   ): Promise<responses.RemoveCloudSqlResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#removeCloudSql.");
+    const operationName = "removeCloudSql";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveCloudSql";
     const pathParams = {
       "{bdsInstanceId}": removeCloudSqlRequest.bdsInstanceId
     };
@@ -2726,7 +2991,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveCloudSqlResponse>{},
         responseHeaders: [
@@ -2762,6 +3033,9 @@ export class BdsClient {
     removeNodeRequest: requests.RemoveNodeRequest
   ): Promise<responses.RemoveNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#removeNode.");
+    const operationName = "removeNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveNode";
     const pathParams = {
       "{bdsInstanceId}": removeNodeRequest.bdsInstanceId
     };
@@ -2796,7 +3070,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveNodeResponse>{},
         responseHeaders: [
@@ -2832,6 +3112,9 @@ export class BdsClient {
     restartNodeRequest: requests.RestartNodeRequest
   ): Promise<responses.RestartNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#restartNode.");
+    const operationName = "restartNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RestartNode";
     const pathParams = {
       "{bdsInstanceId}": restartNodeRequest.bdsInstanceId
     };
@@ -2867,7 +3150,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartNodeResponse>{},
         responseHeaders: [
@@ -2904,6 +3193,9 @@ export class BdsClient {
   ): Promise<responses.TestBdsMetastoreConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#testBdsMetastoreConfiguration.");
+    const operationName = "testBdsMetastoreConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/TestBdsMetastoreConfiguration";
     const pathParams = {
       "{bdsInstanceId}": testBdsMetastoreConfigurationRequest.bdsInstanceId,
       "{metastoreConfigId}": testBdsMetastoreConfigurationRequest.metastoreConfigId
@@ -2939,7 +3231,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TestBdsMetastoreConfigurationResponse>{},
         responseHeaders: [
@@ -2975,6 +3273,9 @@ export class BdsClient {
   ): Promise<responses.TestBdsObjectStorageConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#testBdsObjectStorageConnection.");
+    const operationName = "testBdsObjectStorageConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsApiKey/TestBdsObjectStorageConnection";
     const pathParams = {
       "{bdsInstanceId}": testBdsObjectStorageConnectionRequest.bdsInstanceId,
       "{apiKeyId}": testBdsObjectStorageConnectionRequest.apiKeyId
@@ -3009,7 +3310,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.TestBdsObjectStorageConnectionResponse>{},
         responseHeaders: [
@@ -3046,6 +3353,9 @@ export class BdsClient {
   ): Promise<responses.UpdateAutoScalingConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#updateAutoScalingConfiguration.");
+    const operationName = "updateAutoScalingConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/UpdateAutoScalingConfiguration";
     const pathParams = {
       "{bdsInstanceId}": updateAutoScalingConfigurationRequest.bdsInstanceId,
       "{autoScalingConfigurationId}":
@@ -3083,7 +3393,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateAutoScalingConfigurationResponse>{},
         responseHeaders: [
@@ -3118,6 +3434,9 @@ export class BdsClient {
     updateBdsInstanceRequest: requests.UpdateBdsInstanceRequest
   ): Promise<responses.UpdateBdsInstanceResponse> {
     if (this.logger) this.logger.debug("Calling operation BdsClient#updateBdsInstance.");
+    const operationName = "updateBdsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/UpdateBdsInstance";
     const pathParams = {
       "{bdsInstanceId}": updateBdsInstanceRequest.bdsInstanceId
     };
@@ -3152,7 +3471,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBdsInstanceResponse>{},
         responseHeaders: [
@@ -3188,6 +3513,9 @@ export class BdsClient {
   ): Promise<responses.UpdateBdsMetastoreConfigurationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation BdsClient#updateBdsMetastoreConfiguration.");
+    const operationName = "updateBdsMetastoreConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsMetastoreConfiguration/UpdateBdsMetastoreConfiguration";
     const pathParams = {
       "{bdsInstanceId}": updateBdsMetastoreConfigurationRequest.bdsInstanceId,
       "{metastoreConfigId}": updateBdsMetastoreConfigurationRequest.metastoreConfigId
@@ -3223,7 +3551,13 @@ export class BdsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBdsMetastoreConfigurationResponse>{},
         responseHeaders: [

@@ -37,6 +37,7 @@ export class DataIntegrationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DataIntegration";
 
   protected _httpClient: common.HttpClient;
 
@@ -164,6 +165,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ChangeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#changeCompartment.");
+    const operationName = "changeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/ChangeCompartment";
     const pathParams = {
       "{workspaceId}": changeCompartmentRequest.workspaceId
     };
@@ -199,7 +203,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeCompartmentResponse>{},
         responseHeaders: [
@@ -236,6 +246,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ChangeDisApplicationCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#changeDisApplicationCompartment.");
+    const operationName = "changeDisApplicationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/ChangeDisApplicationCompartment";
     const pathParams = {
       "{workspaceId}": changeDisApplicationCompartmentRequest.workspaceId,
       "{disApplicationId}": changeDisApplicationCompartmentRequest.disApplicationId
@@ -273,7 +286,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDisApplicationCompartmentResponse>{},
         responseHeaders: [
@@ -310,6 +329,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createApplication.");
+    const operationName = "createApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/CreateApplication";
     const pathParams = {
       "{workspaceId}": createApplicationRequest.workspaceId
     };
@@ -344,7 +366,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateApplicationResponse>{},
         body: await response.json(),
@@ -383,6 +411,9 @@ export class DataIntegrationClient {
     createConnectionRequest: requests.CreateConnectionRequest
   ): Promise<responses.CreateConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createConnection.");
+    const operationName = "createConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/CreateConnection";
     const pathParams = {
       "{workspaceId}": createConnectionRequest.workspaceId
     };
@@ -417,7 +448,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectionResponse>{},
         body: await response.json(),
@@ -457,6 +494,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateConnectionValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createConnectionValidation.");
+    const operationName = "createConnectionValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/CreateConnectionValidation";
     const pathParams = {
       "{workspaceId}": createConnectionValidationRequest.workspaceId
     };
@@ -491,7 +531,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateConnectionValidationResponse>{},
         body: await response.json(),
@@ -530,6 +576,9 @@ export class DataIntegrationClient {
     createDataAssetRequest: requests.CreateDataAssetRequest
   ): Promise<responses.CreateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createDataAsset.");
+    const operationName = "createDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/CreateDataAsset";
     const pathParams = {
       "{workspaceId}": createDataAssetRequest.workspaceId
     };
@@ -564,7 +613,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataAssetResponse>{},
         body: await response.json(),
@@ -604,6 +659,9 @@ export class DataIntegrationClient {
     createDataFlowRequest: requests.CreateDataFlowRequest
   ): Promise<responses.CreateDataFlowResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createDataFlow.");
+    const operationName = "createDataFlow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/CreateDataFlow";
     const pathParams = {
       "{workspaceId}": createDataFlowRequest.workspaceId
     };
@@ -638,7 +696,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataFlowResponse>{},
         body: await response.json(),
@@ -679,6 +743,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateDataFlowValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createDataFlowValidation.");
+    const operationName = "createDataFlowValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/CreateDataFlowValidation";
     const pathParams = {
       "{workspaceId}": createDataFlowValidationRequest.workspaceId
     };
@@ -713,7 +780,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDataFlowValidationResponse>{},
         body: await response.json(),
@@ -754,6 +827,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateDisApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createDisApplication.");
+    const operationName = "createDisApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/CreateDisApplication";
     const pathParams = {
       "{workspaceId}": createDisApplicationRequest.workspaceId
     };
@@ -788,7 +864,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDisApplicationResponse>{},
         body: await response.json(),
@@ -828,6 +910,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateEntityShapeResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createEntityShape.");
+    const operationName = "createEntityShape";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataEntity/CreateEntityShape";
     const pathParams = {
       "{workspaceId}": createEntityShapeRequest.workspaceId,
       "{connectionKey}": createEntityShapeRequest.connectionKey,
@@ -866,7 +951,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateEntityShapeResponse>{},
         body: await response.json(),
@@ -901,6 +992,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateExternalPublicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createExternalPublication.");
+    const operationName = "createExternalPublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/CreateExternalPublication";
     const pathParams = {
       "{workspaceId}": createExternalPublicationRequest.workspaceId,
       "{taskKey}": createExternalPublicationRequest.taskKey
@@ -936,7 +1030,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExternalPublicationResponse>{},
         body: await response.json(),
@@ -978,6 +1078,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#createExternalPublicationValidation."
       );
+    const operationName = "createExternalPublicationValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/CreateExternalPublicationValidation";
     const pathParams = {
       "{workspaceId}": createExternalPublicationValidationRequest.workspaceId,
       "{taskKey}": createExternalPublicationValidationRequest.taskKey
@@ -1013,7 +1116,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateExternalPublicationValidationResponse>{},
         body: await response.json(),
@@ -1054,6 +1163,9 @@ export class DataIntegrationClient {
     createFolderRequest: requests.CreateFolderRequest
   ): Promise<responses.CreateFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createFolder.");
+    const operationName = "createFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/CreateFolder";
     const pathParams = {
       "{workspaceId}": createFolderRequest.workspaceId
     };
@@ -1088,7 +1200,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFolderResponse>{},
         body: await response.json(),
@@ -1130,6 +1248,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateFunctionLibraryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createFunctionLibrary.");
+    const operationName = "createFunctionLibrary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/CreateFunctionLibrary";
     const pathParams = {
       "{workspaceId}": createFunctionLibraryRequest.workspaceId
     };
@@ -1164,7 +1285,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateFunctionLibraryResponse>{},
         body: await response.json(),
@@ -1203,6 +1330,9 @@ export class DataIntegrationClient {
     createPatchRequest: requests.CreatePatchRequest
   ): Promise<responses.CreatePatchResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createPatch.");
+    const operationName = "createPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/CreatePatch";
     const pathParams = {
       "{workspaceId}": createPatchRequest.workspaceId,
       "{applicationKey}": createPatchRequest.applicationKey
@@ -1238,7 +1368,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePatchResponse>{},
         body: await response.json(),
@@ -1278,6 +1414,9 @@ export class DataIntegrationClient {
     createPipelineRequest: requests.CreatePipelineRequest
   ): Promise<responses.CreatePipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createPipeline.");
+    const operationName = "createPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/CreatePipeline";
     const pathParams = {
       "{workspaceId}": createPipelineRequest.workspaceId
     };
@@ -1312,7 +1451,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePipelineResponse>{},
         body: await response.json(),
@@ -1353,6 +1498,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreatePipelineValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createPipelineValidation.");
+    const operationName = "createPipelineValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/CreatePipelineValidation";
     const pathParams = {
       "{workspaceId}": createPipelineValidationRequest.workspaceId
     };
@@ -1387,7 +1535,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreatePipelineValidationResponse>{},
         body: await response.json(),
@@ -1427,6 +1581,9 @@ export class DataIntegrationClient {
     createProjectRequest: requests.CreateProjectRequest
   ): Promise<responses.CreateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createProject.");
+    const operationName = "createProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/CreateProject";
     const pathParams = {
       "{workspaceId}": createProjectRequest.workspaceId
     };
@@ -1461,7 +1618,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateProjectResponse>{},
         body: await response.json(),
@@ -1500,6 +1663,9 @@ export class DataIntegrationClient {
     createScheduleRequest: requests.CreateScheduleRequest
   ): Promise<responses.CreateScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createSchedule.");
+    const operationName = "createSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/CreateSchedule";
     const pathParams = {
       "{workspaceId}": createScheduleRequest.workspaceId,
       "{applicationKey}": createScheduleRequest.applicationKey
@@ -1535,7 +1701,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateScheduleResponse>{},
         body: await response.json(),
@@ -1575,6 +1747,9 @@ export class DataIntegrationClient {
     createTaskRequest: requests.CreateTaskRequest
   ): Promise<responses.CreateTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createTask.");
+    const operationName = "createTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/CreateTask";
     const pathParams = {
       "{workspaceId}": createTaskRequest.workspaceId
     };
@@ -1609,7 +1784,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTaskResponse>{},
         body: await response.json(),
@@ -1648,6 +1829,9 @@ export class DataIntegrationClient {
     createTaskRunRequest: requests.CreateTaskRunRequest
   ): Promise<responses.CreateTaskRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createTaskRun.");
+    const operationName = "createTaskRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/CreateTaskRun";
     const pathParams = {
       "{workspaceId}": createTaskRunRequest.workspaceId,
       "{applicationKey}": createTaskRunRequest.applicationKey
@@ -1683,7 +1867,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTaskRunResponse>{},
         body: await response.json(),
@@ -1723,6 +1913,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateTaskScheduleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createTaskSchedule.");
+    const operationName = "createTaskSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/CreateTaskSchedule";
     const pathParams = {
       "{workspaceId}": createTaskScheduleRequest.workspaceId,
       "{applicationKey}": createTaskScheduleRequest.applicationKey
@@ -1758,7 +1951,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTaskScheduleResponse>{},
         body: await response.json(),
@@ -1798,6 +1997,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateTaskValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createTaskValidation.");
+    const operationName = "createTaskValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/CreateTaskValidation";
     const pathParams = {
       "{workspaceId}": createTaskValidationRequest.workspaceId
     };
@@ -1832,7 +2034,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateTaskValidationResponse>{},
         body: await response.json(),
@@ -1873,6 +2081,9 @@ export class DataIntegrationClient {
   ): Promise<responses.CreateUserDefinedFunctionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#createUserDefinedFunction.");
+    const operationName = "createUserDefinedFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/CreateUserDefinedFunction";
     const pathParams = {
       "{workspaceId}": createUserDefinedFunctionRequest.workspaceId
     };
@@ -1907,7 +2118,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateUserDefinedFunctionResponse>{},
         body: await response.json(),
@@ -1950,6 +2167,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#createUserDefinedFunctionValidation."
       );
+    const operationName = "createUserDefinedFunctionValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/CreateUserDefinedFunctionValidation";
     const pathParams = {
       "{workspaceId}": createUserDefinedFunctionValidationRequest.workspaceId
     };
@@ -1984,7 +2204,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateUserDefinedFunctionValidationResponse>{},
         body: await response.json(),
@@ -2024,6 +2250,9 @@ export class DataIntegrationClient {
     createWorkspaceRequest: requests.CreateWorkspaceRequest
   ): Promise<responses.CreateWorkspaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#createWorkspace.");
+    const operationName = "createWorkspace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/CreateWorkspace";
     const pathParams = {};
 
     const queryParams = {};
@@ -2056,7 +2285,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateWorkspaceResponse>{},
         responseHeaders: [
@@ -2092,6 +2327,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteApplication.");
+    const operationName = "deleteApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/DeleteApplication";
     const pathParams = {
       "{workspaceId}": deleteApplicationRequest.workspaceId,
       "{applicationKey}": deleteApplicationRequest.applicationKey
@@ -2122,7 +2360,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteApplicationResponse>{},
         responseHeaders: [
@@ -2152,6 +2396,9 @@ export class DataIntegrationClient {
     deleteConnectionRequest: requests.DeleteConnectionRequest
   ): Promise<responses.DeleteConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteConnection.");
+    const operationName = "deleteConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/DeleteConnection";
     const pathParams = {
       "{workspaceId}": deleteConnectionRequest.workspaceId,
       "{connectionKey}": deleteConnectionRequest.connectionKey
@@ -2182,7 +2429,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionResponse>{},
         responseHeaders: [
@@ -2213,6 +2466,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteConnectionValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteConnectionValidation.");
+    const operationName = "deleteConnectionValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/DeleteConnectionValidation";
     const pathParams = {
       "{workspaceId}": deleteConnectionValidationRequest.workspaceId,
       "{connectionValidationKey}": deleteConnectionValidationRequest.connectionValidationKey
@@ -2243,7 +2499,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConnectionValidationResponse>{},
         responseHeaders: [
@@ -2273,6 +2535,9 @@ export class DataIntegrationClient {
     deleteDataAssetRequest: requests.DeleteDataAssetRequest
   ): Promise<responses.DeleteDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteDataAsset.");
+    const operationName = "deleteDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/DeleteDataAsset";
     const pathParams = {
       "{workspaceId}": deleteDataAssetRequest.workspaceId,
       "{dataAssetKey}": deleteDataAssetRequest.dataAssetKey
@@ -2303,7 +2568,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataAssetResponse>{},
         responseHeaders: [
@@ -2333,6 +2604,9 @@ export class DataIntegrationClient {
     deleteDataFlowRequest: requests.DeleteDataFlowRequest
   ): Promise<responses.DeleteDataFlowResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteDataFlow.");
+    const operationName = "deleteDataFlow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/DeleteDataFlow";
     const pathParams = {
       "{workspaceId}": deleteDataFlowRequest.workspaceId,
       "{dataFlowKey}": deleteDataFlowRequest.dataFlowKey
@@ -2363,7 +2637,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataFlowResponse>{},
         responseHeaders: [
@@ -2394,6 +2674,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteDataFlowValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteDataFlowValidation.");
+    const operationName = "deleteDataFlowValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/DeleteDataFlowValidation";
     const pathParams = {
       "{workspaceId}": deleteDataFlowValidationRequest.workspaceId,
       "{dataFlowValidationKey}": deleteDataFlowValidationRequest.dataFlowValidationKey
@@ -2424,7 +2707,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDataFlowValidationResponse>{},
         responseHeaders: [
@@ -2455,6 +2744,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteDisApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteDisApplication.");
+    const operationName = "deleteDisApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/DeleteDisApplication";
     const pathParams = {
       "{workspaceId}": deleteDisApplicationRequest.workspaceId,
       "{disApplicationId}": deleteDisApplicationRequest.disApplicationId
@@ -2485,7 +2777,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDisApplicationResponse>{},
         responseHeaders: [
@@ -2516,6 +2814,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteExternalPublicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteExternalPublication.");
+    const operationName = "deleteExternalPublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/DeleteExternalPublication";
     const pathParams = {
       "{workspaceId}": deleteExternalPublicationRequest.workspaceId,
       "{taskKey}": deleteExternalPublicationRequest.taskKey,
@@ -2548,7 +2849,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalPublicationResponse>{},
         responseHeaders: [
@@ -2582,6 +2889,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#deleteExternalPublicationValidation."
       );
+    const operationName = "deleteExternalPublicationValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/DeleteExternalPublicationValidation";
     const pathParams = {
       "{workspaceId}": deleteExternalPublicationValidationRequest.workspaceId,
       "{taskKey}": deleteExternalPublicationValidationRequest.taskKey,
@@ -2615,7 +2925,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteExternalPublicationValidationResponse>{},
         responseHeaders: [
@@ -2645,6 +2961,9 @@ export class DataIntegrationClient {
     deleteFolderRequest: requests.DeleteFolderRequest
   ): Promise<responses.DeleteFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteFolder.");
+    const operationName = "deleteFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/DeleteFolder";
     const pathParams = {
       "{workspaceId}": deleteFolderRequest.workspaceId,
       "{folderKey}": deleteFolderRequest.folderKey
@@ -2675,7 +2994,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFolderResponse>{},
         responseHeaders: [
@@ -2706,6 +3031,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteFunctionLibraryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteFunctionLibrary.");
+    const operationName = "deleteFunctionLibrary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/DeleteFunctionLibrary";
     const pathParams = {
       "{workspaceId}": deleteFunctionLibraryRequest.workspaceId,
       "{functionLibraryKey}": deleteFunctionLibraryRequest.functionLibraryKey
@@ -2736,7 +3064,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFunctionLibraryResponse>{},
         responseHeaders: [
@@ -2766,6 +3100,9 @@ export class DataIntegrationClient {
     deletePatchRequest: requests.DeletePatchRequest
   ): Promise<responses.DeletePatchResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deletePatch.");
+    const operationName = "deletePatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/DeletePatch";
     const pathParams = {
       "{workspaceId}": deletePatchRequest.workspaceId,
       "{applicationKey}": deletePatchRequest.applicationKey,
@@ -2797,7 +3134,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePatchResponse>{},
         responseHeaders: [
@@ -2827,6 +3170,9 @@ export class DataIntegrationClient {
     deletePipelineRequest: requests.DeletePipelineRequest
   ): Promise<responses.DeletePipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deletePipeline.");
+    const operationName = "deletePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/DeletePipeline";
     const pathParams = {
       "{workspaceId}": deletePipelineRequest.workspaceId,
       "{pipelineKey}": deletePipelineRequest.pipelineKey
@@ -2857,7 +3203,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePipelineResponse>{},
         responseHeaders: [
@@ -2888,6 +3240,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeletePipelineValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deletePipelineValidation.");
+    const operationName = "deletePipelineValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/DeletePipelineValidation";
     const pathParams = {
       "{workspaceId}": deletePipelineValidationRequest.workspaceId,
       "{pipelineValidationKey}": deletePipelineValidationRequest.pipelineValidationKey
@@ -2918,7 +3273,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeletePipelineValidationResponse>{},
         responseHeaders: [
@@ -2948,6 +3309,9 @@ export class DataIntegrationClient {
     deleteProjectRequest: requests.DeleteProjectRequest
   ): Promise<responses.DeleteProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteProject.");
+    const operationName = "deleteProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/DeleteProject";
     const pathParams = {
       "{workspaceId}": deleteProjectRequest.workspaceId,
       "{projectKey}": deleteProjectRequest.projectKey
@@ -2978,7 +3342,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteProjectResponse>{},
         responseHeaders: [
@@ -3008,6 +3378,9 @@ export class DataIntegrationClient {
     deleteScheduleRequest: requests.DeleteScheduleRequest
   ): Promise<responses.DeleteScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteSchedule.");
+    const operationName = "deleteSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/DeleteSchedule";
     const pathParams = {
       "{workspaceId}": deleteScheduleRequest.workspaceId,
       "{applicationKey}": deleteScheduleRequest.applicationKey,
@@ -3039,7 +3412,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteScheduleResponse>{},
         responseHeaders: [
@@ -3069,6 +3448,9 @@ export class DataIntegrationClient {
     deleteTaskRequest: requests.DeleteTaskRequest
   ): Promise<responses.DeleteTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteTask.");
+    const operationName = "deleteTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/DeleteTask";
     const pathParams = {
       "{workspaceId}": deleteTaskRequest.workspaceId,
       "{taskKey}": deleteTaskRequest.taskKey
@@ -3099,7 +3481,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTaskResponse>{},
         responseHeaders: [
@@ -3129,6 +3517,9 @@ export class DataIntegrationClient {
     deleteTaskRunRequest: requests.DeleteTaskRunRequest
   ): Promise<responses.DeleteTaskRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteTaskRun.");
+    const operationName = "deleteTaskRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/DeleteTaskRun";
     const pathParams = {
       "{workspaceId}": deleteTaskRunRequest.workspaceId,
       "{applicationKey}": deleteTaskRunRequest.applicationKey,
@@ -3160,7 +3551,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTaskRunResponse>{},
         responseHeaders: [
@@ -3191,6 +3588,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteTaskScheduleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteTaskSchedule.");
+    const operationName = "deleteTaskSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/DeleteTaskSchedule";
     const pathParams = {
       "{workspaceId}": deleteTaskScheduleRequest.workspaceId,
       "{applicationKey}": deleteTaskScheduleRequest.applicationKey,
@@ -3223,7 +3623,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTaskScheduleResponse>{},
         responseHeaders: [
@@ -3255,6 +3661,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteTaskValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteTaskValidation.");
+    const operationName = "deleteTaskValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/DeleteTaskValidation";
     const pathParams = {
       "{workspaceId}": deleteTaskValidationRequest.workspaceId,
       "{taskValidationKey}": deleteTaskValidationRequest.taskValidationKey
@@ -3285,7 +3694,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteTaskValidationResponse>{},
         responseHeaders: [
@@ -3316,6 +3731,9 @@ export class DataIntegrationClient {
   ): Promise<responses.DeleteUserDefinedFunctionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#deleteUserDefinedFunction.");
+    const operationName = "deleteUserDefinedFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/DeleteUserDefinedFunction";
     const pathParams = {
       "{workspaceId}": deleteUserDefinedFunctionRequest.workspaceId,
       "{userDefinedFunctionKey}": deleteUserDefinedFunctionRequest.userDefinedFunctionKey
@@ -3346,7 +3764,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUserDefinedFunctionResponse>{},
         responseHeaders: [
@@ -3379,6 +3803,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#deleteUserDefinedFunctionValidation."
       );
+    const operationName = "deleteUserDefinedFunctionValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/DeleteUserDefinedFunctionValidation";
     const pathParams = {
       "{workspaceId}": deleteUserDefinedFunctionValidationRequest.workspaceId,
       "{userDefinedFunctionValidationKey}":
@@ -3411,7 +3838,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteUserDefinedFunctionValidationResponse>{},
         responseHeaders: [
@@ -3441,6 +3874,9 @@ export class DataIntegrationClient {
     deleteWorkspaceRequest: requests.DeleteWorkspaceRequest
   ): Promise<responses.DeleteWorkspaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#deleteWorkspace.");
+    const operationName = "deleteWorkspace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/DeleteWorkspace";
     const pathParams = {
       "{workspaceId}": deleteWorkspaceRequest.workspaceId
     };
@@ -3473,7 +3909,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkspaceResponse>{},
         responseHeaders: [
@@ -3508,6 +3950,9 @@ export class DataIntegrationClient {
     getApplicationRequest: requests.GetApplicationRequest
   ): Promise<responses.GetApplicationResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getApplication.");
+    const operationName = "getApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetApplication";
     const pathParams = {
       "{workspaceId}": getApplicationRequest.workspaceId,
       "{applicationKey}": getApplicationRequest.applicationKey
@@ -3537,7 +3982,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetApplicationResponse>{},
         body: await response.json(),
@@ -3576,6 +4027,9 @@ export class DataIntegrationClient {
     getConnectionRequest: requests.GetConnectionRequest
   ): Promise<responses.GetConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getConnection.");
+    const operationName = "getConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/GetConnection";
     const pathParams = {
       "{workspaceId}": getConnectionRequest.workspaceId,
       "{connectionKey}": getConnectionRequest.connectionKey
@@ -3605,7 +4059,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectionResponse>{},
         body: await response.json(),
@@ -3645,6 +4105,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetConnectionValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getConnectionValidation.");
+    const operationName = "getConnectionValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/GetConnectionValidation";
     const pathParams = {
       "{workspaceId}": getConnectionValidationRequest.workspaceId,
       "{connectionValidationKey}": getConnectionValidationRequest.connectionValidationKey
@@ -3674,7 +4137,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetConnectionValidationResponse>{},
         body: await response.json(),
@@ -3716,6 +4185,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetCountStatisticResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getCountStatistic.");
+    const operationName = "getCountStatistic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/GetCountStatistic";
     const pathParams = {
       "{workspaceId}": getCountStatisticRequest.workspaceId,
       "{countStatisticKey}": getCountStatisticRequest.countStatisticKey
@@ -3745,7 +4217,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetCountStatisticResponse>{},
         body: await response.json(),
@@ -3784,6 +4262,9 @@ export class DataIntegrationClient {
     getDataAssetRequest: requests.GetDataAssetRequest
   ): Promise<responses.GetDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getDataAsset.");
+    const operationName = "getDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/GetDataAsset";
     const pathParams = {
       "{workspaceId}": getDataAssetRequest.workspaceId,
       "{dataAssetKey}": getDataAssetRequest.dataAssetKey
@@ -3813,7 +4294,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataAssetResponse>{},
         body: await response.json(),
@@ -3852,6 +4339,9 @@ export class DataIntegrationClient {
     getDataEntityRequest: requests.GetDataEntityRequest
   ): Promise<responses.GetDataEntityResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getDataEntity.");
+    const operationName = "getDataEntity";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataEntity/GetDataEntity";
     const pathParams = {
       "{workspaceId}": getDataEntityRequest.workspaceId,
       "{connectionKey}": getDataEntityRequest.connectionKey,
@@ -3884,7 +4374,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataEntityResponse>{},
         body: await response.json(),
@@ -3918,6 +4414,9 @@ export class DataIntegrationClient {
     getDataFlowRequest: requests.GetDataFlowRequest
   ): Promise<responses.GetDataFlowResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getDataFlow.");
+    const operationName = "getDataFlow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/GetDataFlow";
     const pathParams = {
       "{workspaceId}": getDataFlowRequest.workspaceId,
       "{dataFlowKey}": getDataFlowRequest.dataFlowKey
@@ -3949,7 +4448,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataFlowResponse>{},
         body: await response.json(),
@@ -3989,6 +4494,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetDataFlowValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getDataFlowValidation.");
+    const operationName = "getDataFlowValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/GetDataFlowValidation";
     const pathParams = {
       "{workspaceId}": getDataFlowValidationRequest.workspaceId,
       "{dataFlowValidationKey}": getDataFlowValidationRequest.dataFlowValidationKey
@@ -4018,7 +4526,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDataFlowValidationResponse>{},
         body: await response.json(),
@@ -4058,6 +4572,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetDependentObjectResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getDependentObject.");
+    const operationName = "getDependentObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetDependentObject";
     const pathParams = {
       "{workspaceId}": getDependentObjectRequest.workspaceId,
       "{applicationKey}": getDependentObjectRequest.applicationKey,
@@ -4089,7 +4606,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDependentObjectResponse>{},
         body: await response.json(),
@@ -4129,6 +4652,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetDisApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getDisApplication.");
+    const operationName = "getDisApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/GetDisApplication";
     const pathParams = {
       "{workspaceId}": getDisApplicationRequest.workspaceId,
       "{disApplicationId}": getDisApplicationRequest.disApplicationId
@@ -4158,7 +4684,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDisApplicationResponse>{},
         body: await response.json(),
@@ -4198,6 +4730,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetExternalPublicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getExternalPublication.");
+    const operationName = "getExternalPublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/GetExternalPublication";
     const pathParams = {
       "{workspaceId}": getExternalPublicationRequest.workspaceId,
       "{taskKey}": getExternalPublicationRequest.taskKey,
@@ -4229,7 +4764,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExternalPublicationResponse>{},
         body: await response.json(),
@@ -4271,6 +4812,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#getExternalPublicationValidation."
       );
+    const operationName = "getExternalPublicationValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/GetExternalPublicationValidation";
     const pathParams = {
       "{workspaceId}": getExternalPublicationValidationRequest.workspaceId,
       "{taskKey}": getExternalPublicationValidationRequest.taskKey,
@@ -4303,7 +4847,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetExternalPublicationValidationResponse>{},
         body: await response.json(),
@@ -4342,6 +4892,9 @@ export class DataIntegrationClient {
     getFolderRequest: requests.GetFolderRequest
   ): Promise<responses.GetFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getFolder.");
+    const operationName = "getFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/GetFolder";
     const pathParams = {
       "{workspaceId}": getFolderRequest.workspaceId,
       "{folderKey}": getFolderRequest.folderKey
@@ -4373,7 +4926,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFolderResponse>{},
         body: await response.json(),
@@ -4413,6 +4972,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetFunctionLibraryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getFunctionLibrary.");
+    const operationName = "getFunctionLibrary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/GetFunctionLibrary";
     const pathParams = {
       "{workspaceId}": getFunctionLibraryRequest.workspaceId,
       "{functionLibraryKey}": getFunctionLibraryRequest.functionLibraryKey
@@ -4444,7 +5006,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetFunctionLibraryResponse>{},
         body: await response.json(),
@@ -4483,6 +5051,9 @@ export class DataIntegrationClient {
     getPatchRequest: requests.GetPatchRequest
   ): Promise<responses.GetPatchResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getPatch.");
+    const operationName = "getPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetPatch";
     const pathParams = {
       "{workspaceId}": getPatchRequest.workspaceId,
       "{applicationKey}": getPatchRequest.applicationKey,
@@ -4513,7 +5084,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPatchResponse>{},
         body: await response.json(),
@@ -4552,6 +5129,9 @@ export class DataIntegrationClient {
     getPipelineRequest: requests.GetPipelineRequest
   ): Promise<responses.GetPipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getPipeline.");
+    const operationName = "getPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/GetPipeline";
     const pathParams = {
       "{workspaceId}": getPipelineRequest.workspaceId,
       "{pipelineKey}": getPipelineRequest.pipelineKey
@@ -4583,7 +5163,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPipelineResponse>{},
         body: await response.json(),
@@ -4623,6 +5209,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetPipelineValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getPipelineValidation.");
+    const operationName = "getPipelineValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/GetPipelineValidation";
     const pathParams = {
       "{workspaceId}": getPipelineValidationRequest.workspaceId,
       "{pipelineValidationKey}": getPipelineValidationRequest.pipelineValidationKey
@@ -4652,7 +5241,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPipelineValidationResponse>{},
         body: await response.json(),
@@ -4691,6 +5286,9 @@ export class DataIntegrationClient {
     getProjectRequest: requests.GetProjectRequest
   ): Promise<responses.GetProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getProject.");
+    const operationName = "getProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/GetProject";
     const pathParams = {
       "{workspaceId}": getProjectRequest.workspaceId,
       "{projectKey}": getProjectRequest.projectKey
@@ -4722,7 +5320,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetProjectResponse>{},
         body: await response.json(),
@@ -4762,6 +5366,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetPublishedObjectResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getPublishedObject.");
+    const operationName = "getPublishedObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/GetPublishedObject";
     const pathParams = {
       "{workspaceId}": getPublishedObjectRequest.workspaceId,
       "{applicationKey}": getPublishedObjectRequest.applicationKey,
@@ -4795,7 +5402,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetPublishedObjectResponse>{},
         body: await response.json(),
@@ -4834,6 +5447,9 @@ export class DataIntegrationClient {
     getReferenceRequest: requests.GetReferenceRequest
   ): Promise<responses.GetReferenceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getReference.");
+    const operationName = "getReference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Reference/GetReference";
     const pathParams = {
       "{workspaceId}": getReferenceRequest.workspaceId,
       "{applicationKey}": getReferenceRequest.applicationKey,
@@ -4864,7 +5480,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetReferenceResponse>{},
         body: await response.json(),
@@ -4903,6 +5525,9 @@ export class DataIntegrationClient {
     getScheduleRequest: requests.GetScheduleRequest
   ): Promise<responses.GetScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getSchedule.");
+    const operationName = "getSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/GetSchedule";
     const pathParams = {
       "{workspaceId}": getScheduleRequest.workspaceId,
       "{applicationKey}": getScheduleRequest.applicationKey,
@@ -4933,7 +5558,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetScheduleResponse>{},
         body: await response.json(),
@@ -4972,6 +5603,9 @@ export class DataIntegrationClient {
     getSchemaRequest: requests.GetSchemaRequest
   ): Promise<responses.GetSchemaResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getSchema.");
+    const operationName = "getSchema";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schema/GetSchema";
     const pathParams = {
       "{workspaceId}": getSchemaRequest.workspaceId,
       "{connectionKey}": getSchemaRequest.connectionKey,
@@ -5002,7 +5636,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetSchemaResponse>{},
         body: await response.json(),
@@ -5036,6 +5676,9 @@ export class DataIntegrationClient {
     getTaskRequest: requests.GetTaskRequest
   ): Promise<responses.GetTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTask.");
+    const operationName = "getTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/GetTask";
     const pathParams = {
       "{workspaceId}": getTaskRequest.workspaceId,
       "{taskKey}": getTaskRequest.taskKey
@@ -5067,7 +5710,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTaskResponse>{},
         body: await response.json(),
@@ -5106,6 +5755,9 @@ export class DataIntegrationClient {
     getTaskRunRequest: requests.GetTaskRunRequest
   ): Promise<responses.GetTaskRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTaskRun.");
+    const operationName = "getTaskRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/GetTaskRun";
     const pathParams = {
       "{workspaceId}": getTaskRunRequest.workspaceId,
       "{applicationKey}": getTaskRunRequest.applicationKey,
@@ -5136,7 +5788,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTaskRunResponse>{},
         body: await response.json(),
@@ -5175,6 +5833,9 @@ export class DataIntegrationClient {
     getTaskScheduleRequest: requests.GetTaskScheduleRequest
   ): Promise<responses.GetTaskScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getTaskSchedule.");
+    const operationName = "getTaskSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/GetTaskSchedule";
     const pathParams = {
       "{workspaceId}": getTaskScheduleRequest.workspaceId,
       "{applicationKey}": getTaskScheduleRequest.applicationKey,
@@ -5206,7 +5867,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTaskScheduleResponse>{},
         body: await response.json(),
@@ -5247,6 +5914,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetTaskValidationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getTaskValidation.");
+    const operationName = "getTaskValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/GetTaskValidation";
     const pathParams = {
       "{workspaceId}": getTaskValidationRequest.workspaceId,
       "{taskValidationKey}": getTaskValidationRequest.taskValidationKey
@@ -5276,7 +5946,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetTaskValidationResponse>{},
         body: await response.json(),
@@ -5316,6 +5992,9 @@ export class DataIntegrationClient {
   ): Promise<responses.GetUserDefinedFunctionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#getUserDefinedFunction.");
+    const operationName = "getUserDefinedFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/GetUserDefinedFunction";
     const pathParams = {
       "{workspaceId}": getUserDefinedFunctionRequest.workspaceId,
       "{userDefinedFunctionKey}": getUserDefinedFunctionRequest.userDefinedFunctionKey
@@ -5345,7 +6024,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserDefinedFunctionResponse>{},
         body: await response.json(),
@@ -5387,6 +6072,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#getUserDefinedFunctionValidation."
       );
+    const operationName = "getUserDefinedFunctionValidation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/GetUserDefinedFunctionValidation";
     const pathParams = {
       "{workspaceId}": getUserDefinedFunctionValidationRequest.workspaceId,
       "{userDefinedFunctionValidationKey}":
@@ -5418,7 +6106,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetUserDefinedFunctionValidationResponse>{},
         body: await response.json(),
@@ -5457,6 +6151,9 @@ export class DataIntegrationClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -5485,7 +6182,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -5529,6 +6232,9 @@ export class DataIntegrationClient {
     getWorkspaceRequest: requests.GetWorkspaceRequest
   ): Promise<responses.GetWorkspaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getWorkspace.");
+    const operationName = "getWorkspace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/GetWorkspace";
     const pathParams = {
       "{workspaceId}": getWorkspaceRequest.workspaceId
     };
@@ -5557,7 +6263,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkspaceResponse>{},
         body: await response.json(),
@@ -5596,6 +6308,9 @@ export class DataIntegrationClient {
     listApplicationsRequest: requests.ListApplicationsRequest
   ): Promise<responses.ListApplicationsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listApplications.");
+    const operationName = "listApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListApplications";
     const pathParams = {
       "{workspaceId}": listApplicationsRequest.workspaceId
     };
@@ -5633,7 +6348,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListApplicationsResponse>{},
         body: await response.json(),
@@ -5683,6 +6404,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListConnectionValidationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listConnectionValidations.");
+    const operationName = "listConnectionValidations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ConnectionValidation/ListConnectionValidations";
     const pathParams = {
       "{workspaceId}": listConnectionValidationsRequest.workspaceId
     };
@@ -5720,7 +6444,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectionValidationsResponse>{},
         body: await response.json(),
@@ -5769,6 +6499,9 @@ export class DataIntegrationClient {
     listConnectionsRequest: requests.ListConnectionsRequest
   ): Promise<responses.ListConnectionsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listConnections.");
+    const operationName = "listConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/ListConnections";
     const pathParams = {
       "{workspaceId}": listConnectionsRequest.workspaceId
     };
@@ -5806,7 +6539,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListConnectionsResponse>{},
         body: await response.json(),
@@ -5856,6 +6595,9 @@ export class DataIntegrationClient {
     listDataAssetsRequest: requests.ListDataAssetsRequest
   ): Promise<responses.ListDataAssetsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listDataAssets.");
+    const operationName = "listDataAssets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/ListDataAssets";
     const pathParams = {
       "{workspaceId}": listDataAssetsRequest.workspaceId
     };
@@ -5892,7 +6634,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataAssetsResponse>{},
         body: await response.json(),
@@ -5942,6 +6690,9 @@ export class DataIntegrationClient {
     listDataEntitiesRequest: requests.ListDataEntitiesRequest
   ): Promise<responses.ListDataEntitiesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listDataEntities.");
+    const operationName = "listDataEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataEntity/ListDataEntities";
     const pathParams = {
       "{workspaceId}": listDataEntitiesRequest.workspaceId,
       "{connectionKey}": listDataEntitiesRequest.connectionKey,
@@ -5983,7 +6734,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataEntitiesResponse>{},
         body: await response.json(),
@@ -6033,6 +6790,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListDataFlowValidationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listDataFlowValidations.");
+    const operationName = "listDataFlowValidations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlowValidation/ListDataFlowValidations";
     const pathParams = {
       "{workspaceId}": listDataFlowValidationsRequest.workspaceId
     };
@@ -6070,7 +6830,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataFlowValidationsResponse>{},
         body: await response.json(),
@@ -6120,6 +6886,9 @@ export class DataIntegrationClient {
     listDataFlowsRequest: requests.ListDataFlowsRequest
   ): Promise<responses.ListDataFlowsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listDataFlows.");
+    const operationName = "listDataFlows";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/ListDataFlows";
     const pathParams = {
       "{workspaceId}": listDataFlowsRequest.workspaceId
     };
@@ -6157,7 +6926,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDataFlowsResponse>{},
         body: await response.json(),
@@ -6207,6 +6982,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListDependentObjectsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listDependentObjects.");
+    const operationName = "listDependentObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListDependentObjects";
     const pathParams = {
       "{workspaceId}": listDependentObjectsRequest.workspaceId,
       "{applicationKey}": listDependentObjectsRequest.applicationKey
@@ -6247,7 +7025,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDependentObjectsResponse>{},
         body: await response.json(),
@@ -6297,6 +7081,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListDisApplicationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listDisApplications.");
+    const operationName = "listDisApplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/ListDisApplications";
     const pathParams = {
       "{workspaceId}": listDisApplicationsRequest.workspaceId
     };
@@ -6335,7 +7122,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDisApplicationsResponse>{},
         body: await response.json(),
@@ -6388,6 +7181,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#listExternalPublicationValidations."
       );
+    const operationName = "listExternalPublicationValidations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublicationValidation/ListExternalPublicationValidations";
     const pathParams = {
       "{workspaceId}": listExternalPublicationValidationsRequest.workspaceId,
       "{taskKey}": listExternalPublicationValidationsRequest.taskKey
@@ -6425,7 +7221,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExternalPublicationValidationsResponse>{},
         body: await response.json(),
@@ -6475,6 +7277,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListExternalPublicationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listExternalPublications.");
+    const operationName = "listExternalPublications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/ListExternalPublications";
     const pathParams = {
       "{workspaceId}": listExternalPublicationsRequest.workspaceId,
       "{taskKey}": listExternalPublicationsRequest.taskKey
@@ -6511,7 +7316,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListExternalPublicationsResponse>{},
         body: await response.json(),
@@ -6561,6 +7372,9 @@ export class DataIntegrationClient {
     listFoldersRequest: requests.ListFoldersRequest
   ): Promise<responses.ListFoldersResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listFolders.");
+    const operationName = "listFolders";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/ListFolders";
     const pathParams = {
       "{workspaceId}": listFoldersRequest.workspaceId
     };
@@ -6599,7 +7413,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFoldersResponse>{},
         body: await response.json(),
@@ -6650,6 +7470,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListFunctionLibrariesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listFunctionLibraries.");
+    const operationName = "listFunctionLibraries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/ListFunctionLibraries";
     const pathParams = {
       "{workspaceId}": listFunctionLibrariesRequest.workspaceId
     };
@@ -6687,7 +7510,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListFunctionLibrariesResponse>{},
         body: await response.json(),
@@ -6736,6 +7565,9 @@ export class DataIntegrationClient {
     listPatchChangesRequest: requests.ListPatchChangesRequest
   ): Promise<responses.ListPatchChangesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPatchChanges.");
+    const operationName = "listPatchChanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListPatchChanges";
     const pathParams = {
       "{workspaceId}": listPatchChangesRequest.workspaceId,
       "{applicationKey}": listPatchChangesRequest.applicationKey
@@ -6773,7 +7605,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPatchChangesResponse>{},
         body: await response.json(),
@@ -6822,6 +7660,9 @@ export class DataIntegrationClient {
     listPatchesRequest: requests.ListPatchesRequest
   ): Promise<responses.ListPatchesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPatches.");
+    const operationName = "listPatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListPatches";
     const pathParams = {
       "{workspaceId}": listPatchesRequest.workspaceId,
       "{applicationKey}": listPatchesRequest.applicationKey
@@ -6859,7 +7700,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPatchesResponse>{},
         body: await response.json(),
@@ -6909,6 +7756,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListPipelineValidationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listPipelineValidations.");
+    const operationName = "listPipelineValidations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/PipelineValidation/ListPipelineValidations";
     const pathParams = {
       "{workspaceId}": listPipelineValidationsRequest.workspaceId
     };
@@ -6946,7 +7796,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPipelineValidationsResponse>{},
         body: await response.json(),
@@ -6996,6 +7852,9 @@ export class DataIntegrationClient {
     listPipelinesRequest: requests.ListPipelinesRequest
   ): Promise<responses.ListPipelinesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listPipelines.");
+    const operationName = "listPipelines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/ListPipelines";
     const pathParams = {
       "{workspaceId}": listPipelinesRequest.workspaceId
     };
@@ -7033,7 +7892,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPipelinesResponse>{},
         body: await response.json(),
@@ -7083,6 +7948,9 @@ export class DataIntegrationClient {
     listProjectsRequest: requests.ListProjectsRequest
   ): Promise<responses.ListProjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listProjects.");
+    const operationName = "listProjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/ListProjects";
     const pathParams = {
       "{workspaceId}": listProjectsRequest.workspaceId
     };
@@ -7120,7 +7988,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListProjectsResponse>{},
         body: await response.json(),
@@ -7170,6 +8044,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListPublishedObjectsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listPublishedObjects.");
+    const operationName = "listPublishedObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/ListPublishedObjects";
     const pathParams = {
       "{workspaceId}": listPublishedObjectsRequest.workspaceId,
       "{applicationKey}": listPublishedObjectsRequest.applicationKey
@@ -7211,7 +8088,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListPublishedObjectsResponse>{},
         body: await response.json(),
@@ -7260,6 +8143,9 @@ export class DataIntegrationClient {
     listReferencesRequest: requests.ListReferencesRequest
   ): Promise<responses.ListReferencesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listReferences.");
+    const operationName = "listReferences";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Reference/ListReferences";
     const pathParams = {
       "{workspaceId}": listReferencesRequest.workspaceId,
       "{applicationKey}": listReferencesRequest.applicationKey
@@ -7295,7 +8181,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListReferencesResponse>{},
         body: await response.json(),
@@ -7350,6 +8242,9 @@ export class DataIntegrationClient {
     listSchedulesRequest: requests.ListSchedulesRequest
   ): Promise<responses.ListSchedulesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listSchedules.");
+    const operationName = "listSchedules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/ListSchedules";
     const pathParams = {
       "{workspaceId}": listSchedulesRequest.workspaceId,
       "{applicationKey}": listSchedulesRequest.applicationKey
@@ -7388,7 +8283,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSchedulesResponse>{},
         body: await response.json(),
@@ -7437,6 +8338,9 @@ export class DataIntegrationClient {
     listSchemasRequest: requests.ListSchemasRequest
   ): Promise<responses.ListSchemasResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listSchemas.");
+    const operationName = "listSchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schema/ListSchemas";
     const pathParams = {
       "{workspaceId}": listSchemasRequest.workspaceId,
       "{connectionKey}": listSchemasRequest.connectionKey
@@ -7475,7 +8379,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListSchemasResponse>{},
         body: await response.json(),
@@ -7524,6 +8434,9 @@ export class DataIntegrationClient {
     listTaskRunLogsRequest: requests.ListTaskRunLogsRequest
   ): Promise<responses.ListTaskRunLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listTaskRunLogs.");
+    const operationName = "listTaskRunLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRunLogSummary/ListTaskRunLogs";
     const pathParams = {
       "{workspaceId}": listTaskRunLogsRequest.workspaceId,
       "{applicationKey}": listTaskRunLogsRequest.applicationKey,
@@ -7559,7 +8472,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaskRunLogsResponse>{},
         body: await response.json(),
@@ -7660,6 +8579,9 @@ export class DataIntegrationClient {
     listTaskRunsRequest: requests.ListTaskRunsRequest
   ): Promise<responses.ListTaskRunsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listTaskRuns.");
+    const operationName = "listTaskRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/ListTaskRuns";
     const pathParams = {
       "{workspaceId}": listTaskRunsRequest.workspaceId,
       "{applicationKey}": listTaskRunsRequest.applicationKey
@@ -7701,7 +8623,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaskRunsResponse>{},
         body: await response.json(),
@@ -7752,6 +8680,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListTaskSchedulesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listTaskSchedules.");
+    const operationName = "listTaskSchedules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/ListTaskSchedules";
     const pathParams = {
       "{workspaceId}": listTaskSchedulesRequest.workspaceId,
       "{applicationKey}": listTaskSchedulesRequest.applicationKey
@@ -7791,7 +8722,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaskSchedulesResponse>{},
         body: await response.json(),
@@ -7842,6 +8779,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListTaskValidationsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listTaskValidations.");
+    const operationName = "listTaskValidations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskValidation/ListTaskValidations";
     const pathParams = {
       "{workspaceId}": listTaskValidationsRequest.workspaceId
     };
@@ -7879,7 +8819,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTaskValidationsResponse>{},
         body: await response.json(),
@@ -7929,6 +8875,9 @@ export class DataIntegrationClient {
     listTasksRequest: requests.ListTasksRequest
   ): Promise<responses.ListTasksResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listTasks.");
+    const operationName = "listTasks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/ListTasks";
     const pathParams = {
       "{workspaceId}": listTasksRequest.workspaceId
     };
@@ -7968,7 +8917,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListTasksResponse>{},
         body: await response.json(),
@@ -8020,6 +8975,9 @@ export class DataIntegrationClient {
       this.logger.debug(
         "Calling operation DataIntegrationClient#listUserDefinedFunctionValidations."
       );
+    const operationName = "listUserDefinedFunctionValidations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunctionValidation/ListUserDefinedFunctionValidations";
     const pathParams = {
       "{workspaceId}": listUserDefinedFunctionValidationsRequest.workspaceId
     };
@@ -8057,7 +9015,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUserDefinedFunctionValidationsResponse>{},
         body: await response.json(),
@@ -8108,6 +9072,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListUserDefinedFunctionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listUserDefinedFunctions.");
+    const operationName = "listUserDefinedFunctions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/ListUserDefinedFunctions";
     const pathParams = {
       "{workspaceId}": listUserDefinedFunctionsRequest.workspaceId
     };
@@ -8145,7 +9112,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListUserDefinedFunctionsResponse>{},
         body: await response.json(),
@@ -8196,6 +9169,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -8229,7 +9205,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -8322,6 +9304,9 @@ export class DataIntegrationClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -8355,7 +9340,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -8447,6 +9438,9 @@ export class DataIntegrationClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -8481,7 +9475,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -8573,6 +9573,9 @@ export class DataIntegrationClient {
     listWorkspacesRequest: requests.ListWorkspacesRequest
   ): Promise<responses.ListWorkspacesResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#listWorkspaces.");
+    const operationName = "listWorkspaces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/ListWorkspaces";
     const pathParams = {};
 
     const queryParams = {
@@ -8607,7 +9610,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkspacesResponse>{},
         body: await response.json(),
@@ -8699,6 +9708,9 @@ export class DataIntegrationClient {
     startWorkspaceRequest: requests.StartWorkspaceRequest
   ): Promise<responses.StartWorkspaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#startWorkspace.");
+    const operationName = "startWorkspace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/StartWorkspace";
     const pathParams = {
       "{workspaceId}": startWorkspaceRequest.workspaceId
     };
@@ -8729,7 +9741,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StartWorkspaceResponse>{},
         responseHeaders: [
@@ -8765,6 +9783,9 @@ export class DataIntegrationClient {
     stopWorkspaceRequest: requests.StopWorkspaceRequest
   ): Promise<responses.StopWorkspaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#stopWorkspace.");
+    const operationName = "stopWorkspace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/StopWorkspace";
     const pathParams = {
       "{workspaceId}": stopWorkspaceRequest.workspaceId
     };
@@ -8798,7 +9819,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopWorkspaceResponse>{},
         responseHeaders: [
@@ -8834,6 +9861,9 @@ export class DataIntegrationClient {
   ): Promise<responses.UpdateApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#updateApplication.");
+    const operationName = "updateApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Application/UpdateApplication";
     const pathParams = {
       "{workspaceId}": updateApplicationRequest.workspaceId,
       "{applicationKey}": updateApplicationRequest.applicationKey
@@ -8869,7 +9899,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateApplicationResponse>{},
         body: await response.json(),
@@ -8908,6 +9944,9 @@ export class DataIntegrationClient {
     updateConnectionRequest: requests.UpdateConnectionRequest
   ): Promise<responses.UpdateConnectionResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateConnection.");
+    const operationName = "updateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Connection/UpdateConnection";
     const pathParams = {
       "{workspaceId}": updateConnectionRequest.workspaceId,
       "{connectionKey}": updateConnectionRequest.connectionKey
@@ -8943,7 +9982,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateConnectionResponse>{},
         body: await response.json(),
@@ -8982,6 +10027,9 @@ export class DataIntegrationClient {
     updateDataAssetRequest: requests.UpdateDataAssetRequest
   ): Promise<responses.UpdateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateDataAsset.");
+    const operationName = "updateDataAsset";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataAsset/UpdateDataAsset";
     const pathParams = {
       "{workspaceId}": updateDataAssetRequest.workspaceId,
       "{dataAssetKey}": updateDataAssetRequest.dataAssetKey
@@ -9017,7 +10065,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataAssetResponse>{},
         body: await response.json(),
@@ -9056,6 +10110,9 @@ export class DataIntegrationClient {
     updateDataFlowRequest: requests.UpdateDataFlowRequest
   ): Promise<responses.UpdateDataFlowResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateDataFlow.");
+    const operationName = "updateDataFlow";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DataFlow/UpdateDataFlow";
     const pathParams = {
       "{workspaceId}": updateDataFlowRequest.workspaceId,
       "{dataFlowKey}": updateDataFlowRequest.dataFlowKey
@@ -9091,7 +10148,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDataFlowResponse>{},
         body: await response.json(),
@@ -9131,6 +10194,9 @@ export class DataIntegrationClient {
   ): Promise<responses.UpdateDisApplicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#updateDisApplication.");
+    const operationName = "updateDisApplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/DisApplication/UpdateDisApplication";
     const pathParams = {
       "{workspaceId}": updateDisApplicationRequest.workspaceId,
       "{disApplicationId}": updateDisApplicationRequest.disApplicationId
@@ -9166,7 +10232,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDisApplicationResponse>{},
         body: await response.json(),
@@ -9206,6 +10278,9 @@ export class DataIntegrationClient {
   ): Promise<responses.UpdateExternalPublicationResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#updateExternalPublication.");
+    const operationName = "updateExternalPublication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExternalPublication/UpdateExternalPublication";
     const pathParams = {
       "{workspaceId}": updateExternalPublicationRequest.workspaceId,
       "{taskKey}": updateExternalPublicationRequest.taskKey,
@@ -9243,7 +10318,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateExternalPublicationResponse>{},
         body: await response.json(),
@@ -9282,6 +10363,9 @@ export class DataIntegrationClient {
     updateFolderRequest: requests.UpdateFolderRequest
   ): Promise<responses.UpdateFolderResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateFolder.");
+    const operationName = "updateFolder";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Folder/UpdateFolder";
     const pathParams = {
       "{workspaceId}": updateFolderRequest.workspaceId,
       "{folderKey}": updateFolderRequest.folderKey
@@ -9317,7 +10401,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFolderResponse>{},
         body: await response.json(),
@@ -9357,6 +10447,9 @@ export class DataIntegrationClient {
   ): Promise<responses.UpdateFunctionLibraryResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#updateFunctionLibrary.");
+    const operationName = "updateFunctionLibrary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/FunctionLibrary/UpdateFunctionLibrary";
     const pathParams = {
       "{workspaceId}": updateFunctionLibraryRequest.workspaceId,
       "{functionLibraryKey}": updateFunctionLibraryRequest.functionLibraryKey
@@ -9392,7 +10485,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateFunctionLibraryResponse>{},
         body: await response.json(),
@@ -9431,6 +10530,9 @@ export class DataIntegrationClient {
     updatePipelineRequest: requests.UpdatePipelineRequest
   ): Promise<responses.UpdatePipelineResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updatePipeline.");
+    const operationName = "updatePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Pipeline/UpdatePipeline";
     const pathParams = {
       "{workspaceId}": updatePipelineRequest.workspaceId,
       "{pipelineKey}": updatePipelineRequest.pipelineKey
@@ -9466,7 +10568,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdatePipelineResponse>{},
         body: await response.json(),
@@ -9505,6 +10613,9 @@ export class DataIntegrationClient {
     updateProjectRequest: requests.UpdateProjectRequest
   ): Promise<responses.UpdateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateProject.");
+    const operationName = "updateProject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Project/UpdateProject";
     const pathParams = {
       "{workspaceId}": updateProjectRequest.workspaceId,
       "{projectKey}": updateProjectRequest.projectKey
@@ -9540,7 +10651,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateProjectResponse>{},
         body: await response.json(),
@@ -9579,6 +10696,9 @@ export class DataIntegrationClient {
     updateReferenceRequest: requests.UpdateReferenceRequest
   ): Promise<responses.UpdateReferenceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateReference.");
+    const operationName = "updateReference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Reference/UpdateReference";
     const pathParams = {
       "{workspaceId}": updateReferenceRequest.workspaceId,
       "{applicationKey}": updateReferenceRequest.applicationKey,
@@ -9616,7 +10736,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateReferenceResponse>{},
         body: await response.json(),
@@ -9655,6 +10781,9 @@ export class DataIntegrationClient {
     updateScheduleRequest: requests.UpdateScheduleRequest
   ): Promise<responses.UpdateScheduleResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateSchedule.");
+    const operationName = "updateSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Schedule/UpdateSchedule";
     const pathParams = {
       "{workspaceId}": updateScheduleRequest.workspaceId,
       "{applicationKey}": updateScheduleRequest.applicationKey,
@@ -9691,7 +10820,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateScheduleResponse>{},
         body: await response.json(),
@@ -9730,6 +10865,9 @@ export class DataIntegrationClient {
     updateTaskRequest: requests.UpdateTaskRequest
   ): Promise<responses.UpdateTaskResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateTask.");
+    const operationName = "updateTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Task/UpdateTask";
     const pathParams = {
       "{workspaceId}": updateTaskRequest.workspaceId,
       "{taskKey}": updateTaskRequest.taskKey
@@ -9765,7 +10903,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTaskResponse>{},
         body: await response.json(),
@@ -9804,6 +10948,9 @@ export class DataIntegrationClient {
     updateTaskRunRequest: requests.UpdateTaskRunRequest
   ): Promise<responses.UpdateTaskRunResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateTaskRun.");
+    const operationName = "updateTaskRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRun/UpdateTaskRun";
     const pathParams = {
       "{workspaceId}": updateTaskRunRequest.workspaceId,
       "{applicationKey}": updateTaskRunRequest.applicationKey,
@@ -9840,7 +10987,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTaskRunResponse>{},
         body: await response.json(),
@@ -9880,6 +11033,9 @@ export class DataIntegrationClient {
   ): Promise<responses.UpdateTaskScheduleResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#updateTaskSchedule.");
+    const operationName = "updateTaskSchedule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskSchedule/UpdateTaskSchedule";
     const pathParams = {
       "{workspaceId}": updateTaskScheduleRequest.workspaceId,
       "{applicationKey}": updateTaskScheduleRequest.applicationKey,
@@ -9917,7 +11073,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateTaskScheduleResponse>{},
         body: await response.json(),
@@ -9957,6 +11119,9 @@ export class DataIntegrationClient {
   ): Promise<responses.UpdateUserDefinedFunctionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DataIntegrationClient#updateUserDefinedFunction.");
+    const operationName = "updateUserDefinedFunction";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/UserDefinedFunction/UpdateUserDefinedFunction";
     const pathParams = {
       "{workspaceId}": updateUserDefinedFunctionRequest.workspaceId,
       "{userDefinedFunctionKey}": updateUserDefinedFunctionRequest.userDefinedFunctionKey
@@ -9992,7 +11157,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateUserDefinedFunctionResponse>{},
         body: await response.json(),
@@ -10031,6 +11202,9 @@ export class DataIntegrationClient {
     updateWorkspaceRequest: requests.UpdateWorkspaceRequest
   ): Promise<responses.UpdateWorkspaceResponse> {
     if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#updateWorkspace.");
+    const operationName = "updateWorkspace";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/UpdateWorkspace";
     const pathParams = {
       "{workspaceId}": updateWorkspaceRequest.workspaceId
     };
@@ -10065,7 +11239,13 @@ export class DataIntegrationClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateWorkspaceResponse>{},
         body: await response.json(),

@@ -34,6 +34,7 @@ export class LoggingClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Logging";
 
   protected _httpClient: common.HttpClient;
 
@@ -138,6 +139,9 @@ export class LoggingClient {
     putLogsRequest: requests.PutLogsRequest
   ): Promise<responses.PutLogsResponse> {
     if (this.logger) this.logger.debug("Calling operation LoggingClient#putLogs.");
+    const operationName = "putLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logging-dataplane/20200831/LogEntry/PutLogs";
     const pathParams = {
       "{logId}": putLogsRequest.logId
     };
@@ -173,7 +177,13 @@ export class LoggingClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.PutLogsResponse>{},
         responseHeaders: [

@@ -35,6 +35,7 @@ export class DatabaseToolsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "DatabaseTools";
 
   protected _httpClient: common.HttpClient;
 
@@ -166,6 +167,9 @@ export class DatabaseToolsClient {
       this.logger.debug(
         "Calling operation DatabaseToolsClient#changeDatabaseToolsConnectionCompartment."
       );
+    const operationName = "changeDatabaseToolsConnectionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ChangeDatabaseToolsConnectionCompartment";
     const pathParams = {
       "{databaseToolsConnectionId}":
         changeDatabaseToolsConnectionCompartmentRequest.databaseToolsConnectionId
@@ -202,7 +206,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDatabaseToolsConnectionCompartmentResponse>{},
         responseHeaders: [
@@ -243,6 +253,9 @@ export class DatabaseToolsClient {
       this.logger.debug(
         "Calling operation DatabaseToolsClient#changeDatabaseToolsPrivateEndpointCompartment."
       );
+    const operationName = "changeDatabaseToolsPrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/ChangeDatabaseToolsPrivateEndpointCompartment";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         changeDatabaseToolsPrivateEndpointCompartmentRequest.databaseToolsPrivateEndpointId
@@ -280,7 +293,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeDatabaseToolsPrivateEndpointCompartmentResponse>{},
         responseHeaders: [
@@ -317,6 +336,8 @@ export class DatabaseToolsClient {
   ): Promise<responses.CreateDatabaseToolsConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#createDatabaseToolsConnection.");
+    const operationName = "createDatabaseToolsConnection";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -349,7 +370,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDatabaseToolsConnectionResponse>{},
         body: await response.json(),
@@ -402,6 +429,8 @@ export class DatabaseToolsClient {
       this.logger.debug(
         "Calling operation DatabaseToolsClient#createDatabaseToolsPrivateEndpoint."
       );
+    const operationName = "createDatabaseToolsPrivateEndpoint";
+    const apiReferenceLink = "";
     const pathParams = {};
 
     const queryParams = {};
@@ -434,7 +463,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateDatabaseToolsPrivateEndpointResponse>{},
         body: await response.json(),
@@ -484,6 +519,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.DeleteDatabaseToolsConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#deleteDatabaseToolsConnection.");
+    const operationName = "deleteDatabaseToolsConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/DeleteDatabaseToolsConnection";
     const pathParams = {
       "{databaseToolsConnectionId}": deleteDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
@@ -513,7 +551,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseToolsConnectionResponse>{},
         responseHeaders: [
@@ -551,6 +595,9 @@ export class DatabaseToolsClient {
       this.logger.debug(
         "Calling operation DatabaseToolsClient#deleteDatabaseToolsPrivateEndpoint."
       );
+    const operationName = "deleteDatabaseToolsPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/DeleteDatabaseToolsPrivateEndpoint";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         deleteDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
@@ -581,7 +628,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDatabaseToolsPrivateEndpointResponse>{},
         responseHeaders: [
@@ -617,6 +670,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.GetDatabaseToolsConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsConnection.");
+    const operationName = "getDatabaseToolsConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/GetDatabaseToolsConnection";
     const pathParams = {
       "{databaseToolsConnectionId}": getDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
@@ -645,7 +701,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseToolsConnectionResponse>{},
         body: await response.json(),
@@ -685,6 +747,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.GetDatabaseToolsEndpointServiceResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsEndpointService.");
+    const operationName = "getDatabaseToolsEndpointService";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsEndpointService/GetDatabaseToolsEndpointService";
     const pathParams = {
       "{databaseToolsEndpointServiceId}":
         getDatabaseToolsEndpointServiceRequest.databaseToolsEndpointServiceId
@@ -714,7 +779,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseToolsEndpointServiceResponse>{},
         body: await response.json(),
@@ -754,6 +825,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.GetDatabaseToolsPrivateEndpointResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#getDatabaseToolsPrivateEndpoint.");
+    const operationName = "getDatabaseToolsPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/GetDatabaseToolsPrivateEndpoint";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         getDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
@@ -783,7 +857,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetDatabaseToolsPrivateEndpointResponse>{},
         body: await response.json(),
@@ -822,6 +902,9 @@ export class DatabaseToolsClient {
     getWorkRequestRequest: requests.GetWorkRequestRequest
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseToolsClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -850,7 +933,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetWorkRequestResponse>{},
         body: await response.json(),
@@ -891,6 +980,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.ListDatabaseToolsConnectionsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsConnections.");
+    const operationName = "listDatabaseToolsConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ListDatabaseToolsConnections";
     const pathParams = {};
 
     const queryParams = {
@@ -926,7 +1018,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabaseToolsConnectionsResponse>{},
         body: await response.json(),
@@ -967,6 +1065,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.ListDatabaseToolsEndpointServicesResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsEndpointServices.");
+    const operationName = "listDatabaseToolsEndpointServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsEndpointService/ListDatabaseToolsEndpointServices";
     const pathParams = {};
 
     const queryParams = {
@@ -1002,7 +1103,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabaseToolsEndpointServicesResponse>{},
         body: await response.json(),
@@ -1043,6 +1150,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.ListDatabaseToolsPrivateEndpointsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listDatabaseToolsPrivateEndpoints.");
+    const operationName = "listDatabaseToolsPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/ListDatabaseToolsPrivateEndpoints";
     const pathParams = {};
 
     const queryParams = {
@@ -1079,7 +1189,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListDatabaseToolsPrivateEndpointsResponse>{},
         body: await response.json(),
@@ -1120,6 +1236,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.ListWorkRequestErrorsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1153,7 +1272,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestErrorsResponse>{},
         body: await response.json(),
@@ -1194,6 +1319,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.ListWorkRequestLogsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -1227,7 +1355,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestLogsResponse>{},
         body: await response.json(),
@@ -1267,6 +1401,9 @@ export class DatabaseToolsClient {
     listWorkRequestsRequest: requests.ListWorkRequestsRequest
   ): Promise<responses.ListWorkRequestsResponse> {
     if (this.logger) this.logger.debug("Calling operation DatabaseToolsClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -1300,7 +1437,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListWorkRequestsResponse>{},
         body: await response.json(),
@@ -1340,6 +1483,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.UpdateDatabaseToolsConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#updateDatabaseToolsConnection.");
+    const operationName = "updateDatabaseToolsConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/UpdateDatabaseToolsConnection";
     const pathParams = {
       "{databaseToolsConnectionId}": updateDatabaseToolsConnectionRequest.databaseToolsConnectionId
     };
@@ -1374,7 +1520,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDatabaseToolsConnectionResponse>{},
         responseHeaders: [
@@ -1412,6 +1564,9 @@ export class DatabaseToolsClient {
       this.logger.debug(
         "Calling operation DatabaseToolsClient#updateDatabaseToolsPrivateEndpoint."
       );
+    const operationName = "updateDatabaseToolsPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsPrivateEndpoint/UpdateDatabaseToolsPrivateEndpoint";
     const pathParams = {
       "{databaseToolsPrivateEndpointId}":
         updateDatabaseToolsPrivateEndpointRequest.databaseToolsPrivateEndpointId
@@ -1447,7 +1602,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateDatabaseToolsPrivateEndpointResponse>{},
         responseHeaders: [
@@ -1484,6 +1645,9 @@ export class DatabaseToolsClient {
   ): Promise<responses.ValidateDatabaseToolsConnectionResponse> {
     if (this.logger)
       this.logger.debug("Calling operation DatabaseToolsClient#validateDatabaseToolsConnection.");
+    const operationName = "validateDatabaseToolsConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-tools/20201005/DatabaseToolsConnection/ValidateDatabaseToolsConnection";
     const pathParams = {
       "{databaseToolsConnectionId}":
         validateDatabaseToolsConnectionRequest.databaseToolsConnectionId
@@ -1519,7 +1683,13 @@ export class DatabaseToolsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ValidateDatabaseToolsConnectionResponse>{},
         body: await response.json(),

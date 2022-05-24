@@ -78,6 +78,14 @@ export interface WorkRequest {
    * The Operating System type of the managed instance.
    */
   "osFamily"?: model.OsFamilies;
+  /**
+   * The parent of this work request, if one exists.
+   */
+  "parentId"?: string;
+  /**
+   * A list of the IDs of any children of this work request
+   */
+  "childrenIds"?: Array<string>;
 }
 
 export namespace WorkRequest {

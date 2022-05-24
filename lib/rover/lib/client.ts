@@ -37,6 +37,7 @@ export class RoverClusterClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "RoverCluster";
 
   protected _httpClient: common.HttpClient;
 
@@ -163,6 +164,9 @@ export class RoverClusterClient {
   ): Promise<responses.ChangeRoverClusterCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverClusterClient#changeRoverClusterCompartment.");
+    const operationName = "changeRoverClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/ChangeRoverClusterCompartment";
     const pathParams = {
       "{roverClusterId}": changeRoverClusterCompartmentRequest.roverClusterId
     };
@@ -198,7 +202,13 @@ export class RoverClusterClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRoverClusterCompartmentResponse>{},
         responseHeaders: [
@@ -229,6 +239,9 @@ export class RoverClusterClient {
     createRoverClusterRequest: requests.CreateRoverClusterRequest
   ): Promise<responses.CreateRoverClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverClusterClient#createRoverCluster.");
+    const operationName = "createRoverCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/CreateRoverCluster";
     const pathParams = {};
 
     const queryParams = {};
@@ -261,7 +274,13 @@ export class RoverClusterClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRoverClusterResponse>{},
         body: await response.json(),
@@ -300,6 +319,9 @@ export class RoverClusterClient {
     deleteRoverClusterRequest: requests.DeleteRoverClusterRequest
   ): Promise<responses.DeleteRoverClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverClusterClient#deleteRoverCluster.");
+    const operationName = "deleteRoverCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/DeleteRoverCluster";
     const pathParams = {
       "{roverClusterId}": deleteRoverClusterRequest.roverClusterId
     };
@@ -330,7 +352,13 @@ export class RoverClusterClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRoverClusterResponse>{},
         responseHeaders: [
@@ -360,6 +388,9 @@ export class RoverClusterClient {
     getRoverClusterRequest: requests.GetRoverClusterRequest
   ): Promise<responses.GetRoverClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverClusterClient#getRoverCluster.");
+    const operationName = "getRoverCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/GetRoverCluster";
     const pathParams = {
       "{roverClusterId}": getRoverClusterRequest.roverClusterId
     };
@@ -388,7 +419,13 @@ export class RoverClusterClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoverClusterResponse>{},
         body: await response.json(),
@@ -428,6 +465,9 @@ export class RoverClusterClient {
   ): Promise<responses.GetRoverClusterCertificateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverClusterClient#getRoverClusterCertificate.");
+    const operationName = "getRoverClusterCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverClusterCertificate/GetRoverClusterCertificate";
     const pathParams = {
       "{roverClusterId}": getRoverClusterCertificateRequest.roverClusterId
     };
@@ -456,7 +496,13 @@ export class RoverClusterClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoverClusterCertificateResponse>{},
         body: await response.json(),
@@ -496,6 +542,9 @@ export class RoverClusterClient {
     listRoverClustersRequest: requests.ListRoverClustersRequest
   ): Promise<responses.ListRoverClustersResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverClusterClient#listRoverClusters.");
+    const operationName = "listRoverClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/ListRoverClusters";
     const pathParams = {};
 
     const queryParams = {
@@ -531,7 +580,13 @@ export class RoverClusterClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRoverClustersResponse>{},
         body: await response.json(),
@@ -575,6 +630,9 @@ export class RoverClusterClient {
     updateRoverClusterRequest: requests.UpdateRoverClusterRequest
   ): Promise<responses.UpdateRoverClusterResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverClusterClient#updateRoverCluster.");
+    const operationName = "updateRoverCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverCluster/UpdateRoverCluster";
     const pathParams = {
       "{roverClusterId}": updateRoverClusterRequest.roverClusterId
     };
@@ -609,7 +667,13 @@ export class RoverClusterClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRoverClusterResponse>{},
         body: await response.json(),
@@ -649,6 +713,7 @@ export class RoverEntitlementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "RoverEntitlement";
 
   protected _httpClient: common.HttpClient;
 
@@ -777,6 +842,9 @@ export class RoverEntitlementClient {
       this.logger.debug(
         "Calling operation RoverEntitlementClient#changeRoverEntitlementCompartment."
       );
+    const operationName = "changeRoverEntitlementCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/ChangeRoverEntitlementCompartment";
     const pathParams = {
       "{roverEntitlementId}": changeRoverEntitlementCompartmentRequest.roverEntitlementId
     };
@@ -812,7 +880,13 @@ export class RoverEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRoverEntitlementCompartmentResponse>{},
         responseHeaders: [
@@ -843,6 +917,9 @@ export class RoverEntitlementClient {
   ): Promise<responses.CreateRoverEntitlementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverEntitlementClient#createRoverEntitlement.");
+    const operationName = "createRoverEntitlement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/CreateRoverEntitlement";
     const pathParams = {};
 
     const queryParams = {};
@@ -875,7 +952,13 @@ export class RoverEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRoverEntitlementResponse>{},
         body: await response.json(),
@@ -915,6 +998,9 @@ export class RoverEntitlementClient {
   ): Promise<responses.DeleteRoverEntitlementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverEntitlementClient#deleteRoverEntitlement.");
+    const operationName = "deleteRoverEntitlement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/DeleteRoverEntitlement";
     const pathParams = {
       "{roverEntitlementId}": deleteRoverEntitlementRequest.roverEntitlementId
     };
@@ -945,7 +1031,13 @@ export class RoverEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRoverEntitlementResponse>{},
         responseHeaders: [
@@ -976,6 +1068,9 @@ export class RoverEntitlementClient {
   ): Promise<responses.GetRoverEntitlementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverEntitlementClient#getRoverEntitlement.");
+    const operationName = "getRoverEntitlement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/GetRoverEntitlement";
     const pathParams = {
       "{roverEntitlementId}": getRoverEntitlementRequest.roverEntitlementId
     };
@@ -1007,7 +1102,13 @@ export class RoverEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoverEntitlementResponse>{},
         body: await response.json(),
@@ -1047,6 +1148,9 @@ export class RoverEntitlementClient {
   ): Promise<responses.ListRoverEntitlementsResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverEntitlementClient#listRoverEntitlements.");
+    const operationName = "listRoverEntitlements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/ListRoverEntitlements";
     const pathParams = {};
 
     const queryParams = {
@@ -1082,7 +1186,13 @@ export class RoverEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRoverEntitlementsResponse>{},
         body: await response.json(),
@@ -1127,6 +1237,9 @@ export class RoverEntitlementClient {
   ): Promise<responses.UpdateRoverEntitlementResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverEntitlementClient#updateRoverEntitlement.");
+    const operationName = "updateRoverEntitlement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverEntitlement/UpdateRoverEntitlement";
     const pathParams = {
       "{roverEntitlementId}": updateRoverEntitlementRequest.roverEntitlementId
     };
@@ -1161,7 +1274,13 @@ export class RoverEntitlementClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRoverEntitlementResponse>{},
         body: await response.json(),
@@ -1201,6 +1320,7 @@ export class RoverNodeClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "RoverNode";
 
   protected _httpClient: common.HttpClient;
 
@@ -1327,6 +1447,9 @@ export class RoverNodeClient {
   ): Promise<responses.ChangeRoverNodeCompartmentResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverNodeClient#changeRoverNodeCompartment.");
+    const operationName = "changeRoverNodeCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/ChangeRoverNodeCompartment";
     const pathParams = {
       "{roverNodeId}": changeRoverNodeCompartmentRequest.roverNodeId
     };
@@ -1362,7 +1485,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeRoverNodeCompartmentResponse>{},
         responseHeaders: [
@@ -1393,6 +1522,9 @@ export class RoverNodeClient {
     createRoverNodeRequest: requests.CreateRoverNodeRequest
   ): Promise<responses.CreateRoverNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverNodeClient#createRoverNode.");
+    const operationName = "createRoverNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/CreateRoverNode";
     const pathParams = {};
 
     const queryParams = {};
@@ -1425,7 +1557,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateRoverNodeResponse>{},
         body: await response.json(),
@@ -1464,6 +1602,9 @@ export class RoverNodeClient {
     deleteRoverNodeRequest: requests.DeleteRoverNodeRequest
   ): Promise<responses.DeleteRoverNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverNodeClient#deleteRoverNode.");
+    const operationName = "deleteRoverNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/DeleteRoverNode";
     const pathParams = {
       "{roverNodeId}": deleteRoverNodeRequest.roverNodeId
     };
@@ -1494,7 +1635,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRoverNodeResponse>{},
         responseHeaders: [
@@ -1524,6 +1671,9 @@ export class RoverNodeClient {
     getRoverNodeRequest: requests.GetRoverNodeRequest
   ): Promise<responses.GetRoverNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverNodeClient#getRoverNode.");
+    const operationName = "getRoverNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/GetRoverNode";
     const pathParams = {
       "{roverNodeId}": getRoverNodeRequest.roverNodeId
     };
@@ -1552,7 +1702,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoverNodeResponse>{},
         body: await response.json(),
@@ -1592,6 +1748,9 @@ export class RoverNodeClient {
   ): Promise<responses.GetRoverNodeCertificateResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverNodeClient#getRoverNodeCertificate.");
+    const operationName = "getRoverNodeCertificate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeCertificate/GetRoverNodeCertificate";
     const pathParams = {
       "{roverNodeId}": getRoverNodeCertificateRequest.roverNodeId
     };
@@ -1620,7 +1779,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoverNodeCertificateResponse>{},
         body: await response.json(),
@@ -1660,6 +1825,9 @@ export class RoverNodeClient {
   ): Promise<responses.GetRoverNodeEncryptionKeyResponse> {
     if (this.logger)
       this.logger.debug("Calling operation RoverNodeClient#getRoverNodeEncryptionKey.");
+    const operationName = "getRoverNodeEncryptionKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeEncryptionKey/GetRoverNodeEncryptionKey";
     const pathParams = {
       "{roverNodeId}": getRoverNodeEncryptionKeyRequest.roverNodeId
     };
@@ -1688,7 +1856,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoverNodeEncryptionKeyResponse>{},
         body: await response.json(),
@@ -1727,6 +1901,9 @@ export class RoverNodeClient {
     getRoverNodeGetRptRequest: requests.GetRoverNodeGetRptRequest
   ): Promise<responses.GetRoverNodeGetRptResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverNodeClient#getRoverNodeGetRpt.");
+    const operationName = "getRoverNodeGetRpt";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeGetRpt/GetRoverNodeGetRpt";
     const pathParams = {
       "{roverNodeId}": getRoverNodeGetRptRequest.roverNodeId
     };
@@ -1756,7 +1933,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetRoverNodeGetRptResponse>{},
         body: await response.json(),
@@ -1796,6 +1979,9 @@ export class RoverNodeClient {
     listRoverNodesRequest: requests.ListRoverNodesRequest
   ): Promise<responses.ListRoverNodesResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverNodeClient#listRoverNodes.");
+    const operationName = "listRoverNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/ListRoverNodes";
     const pathParams = {};
 
     const queryParams = {
@@ -1832,7 +2018,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListRoverNodesResponse>{},
         body: await response.json(),
@@ -1876,6 +2068,9 @@ export class RoverNodeClient {
     roverNodeActionSetKeyRequest: requests.RoverNodeActionSetKeyRequest
   ): Promise<responses.RoverNodeActionSetKeyResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverNodeClient#roverNodeActionSetKey.");
+    const operationName = "roverNodeActionSetKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNodeSetKey/RoverNodeActionSetKey";
     const pathParams = {
       "{roverNodeId}": roverNodeActionSetKeyRequest.roverNodeId
     };
@@ -1912,7 +2107,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.RoverNodeActionSetKeyResponse>{},
         body: await response.json(),
@@ -1951,6 +2152,9 @@ export class RoverNodeClient {
     updateRoverNodeRequest: requests.UpdateRoverNodeRequest
   ): Promise<responses.UpdateRoverNodeResponse> {
     if (this.logger) this.logger.debug("Calling operation RoverNodeClient#updateRoverNode.");
+    const operationName = "updateRoverNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/RoverNode/UpdateRoverNode";
     const pathParams = {
       "{roverNodeId}": updateRoverNodeRequest.roverNodeId
     };
@@ -1985,7 +2189,13 @@ export class RoverNodeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateRoverNodeResponse>{},
         body: await response.json(),
@@ -2024,6 +2234,7 @@ export class ShapeClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Shape";
 
   protected _httpClient: common.HttpClient;
 
@@ -2127,6 +2338,9 @@ export class ShapeClient {
     listShapesRequest: requests.ListShapesRequest
   ): Promise<responses.ListShapesResponse> {
     if (this.logger) this.logger.debug("Calling operation ShapeClient#listShapes.");
+    const operationName = "listShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/rover/20201210/ShapeSummary/ListShapes";
     const pathParams = {};
 
     const queryParams = {
@@ -2159,7 +2373,13 @@ export class ShapeClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListShapesResponse>{},
         body: await response.json(),

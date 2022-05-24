@@ -35,6 +35,7 @@ export class LimitsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Limits";
 
   protected _httpClient: common.HttpClient;
 
@@ -140,6 +141,9 @@ export class LimitsClient {
     getResourceAvailabilityRequest: requests.GetResourceAvailabilityRequest
   ): Promise<responses.GetResourceAvailabilityResponse> {
     if (this.logger) this.logger.debug("Calling operation LimitsClient#getResourceAvailability.");
+    const operationName = "getResourceAvailability";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/ResourceAvailability/GetResourceAvailability";
     const pathParams = {
       "{serviceName}": getResourceAvailabilityRequest.serviceName,
       "{limitName}": getResourceAvailabilityRequest.limitName
@@ -172,7 +176,13 @@ export class LimitsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetResourceAvailabilityResponse>{},
         body: await response.json(),
@@ -209,6 +219,9 @@ export class LimitsClient {
     listLimitDefinitionsRequest: requests.ListLimitDefinitionsRequest
   ): Promise<responses.ListLimitDefinitionsResponse> {
     if (this.logger) this.logger.debug("Calling operation LimitsClient#listLimitDefinitions.");
+    const operationName = "listLimitDefinitions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/LimitDefinitionSummary/ListLimitDefinitions";
     const pathParams = {};
 
     const queryParams = {
@@ -243,7 +256,13 @@ export class LimitsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLimitDefinitionsResponse>{},
         body: await response.json(),
@@ -335,6 +354,9 @@ export class LimitsClient {
     listLimitValuesRequest: requests.ListLimitValuesRequest
   ): Promise<responses.ListLimitValuesResponse> {
     if (this.logger) this.logger.debug("Calling operation LimitsClient#listLimitValues.");
+    const operationName = "listLimitValues";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/LimitValueSummary/ListLimitValues";
     const pathParams = {};
 
     const queryParams = {
@@ -371,7 +393,13 @@ export class LimitsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListLimitValuesResponse>{},
         body: await response.json(),
@@ -464,6 +492,9 @@ export class LimitsClient {
     listServicesRequest: requests.ListServicesRequest
   ): Promise<responses.ListServicesResponse> {
     if (this.logger) this.logger.debug("Calling operation LimitsClient#listServices.");
+    const operationName = "listServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/ServiceSummary/ListServices";
     const pathParams = {};
 
     const queryParams = {
@@ -496,7 +527,13 @@ export class LimitsClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListServicesResponse>{},
         body: await response.json(),
@@ -588,6 +625,7 @@ export class QuotasClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  public targetService = "Quotas";
 
   protected _httpClient: common.HttpClient;
 
@@ -712,6 +750,9 @@ export class QuotasClient {
     createQuotaRequest: requests.CreateQuotaRequest
   ): Promise<responses.CreateQuotaResponse> {
     if (this.logger) this.logger.debug("Calling operation QuotasClient#createQuota.");
+    const operationName = "createQuota";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/CreateQuota";
     const pathParams = {};
 
     const queryParams = {};
@@ -744,7 +785,13 @@ export class QuotasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.CreateQuotaResponse>{},
         body: await response.json(),
@@ -783,6 +830,9 @@ export class QuotasClient {
     deleteQuotaRequest: requests.DeleteQuotaRequest
   ): Promise<responses.DeleteQuotaResponse> {
     if (this.logger) this.logger.debug("Calling operation QuotasClient#deleteQuota.");
+    const operationName = "deleteQuota";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/DeleteQuota";
     const pathParams = {
       "{quotaId}": deleteQuotaRequest.quotaId
     };
@@ -812,7 +862,13 @@ export class QuotasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteQuotaResponse>{},
         responseHeaders: [
@@ -842,6 +898,8 @@ export class QuotasClient {
     getQuotaRequest: requests.GetQuotaRequest
   ): Promise<responses.GetQuotaResponse> {
     if (this.logger) this.logger.debug("Calling operation QuotasClient#getQuota.");
+    const operationName = "getQuota";
+    const apiReferenceLink = "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/GetQuota";
     const pathParams = {
       "{quotaId}": getQuotaRequest.quotaId
     };
@@ -870,7 +928,13 @@ export class QuotasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.GetQuotaResponse>{},
         body: await response.json(),
@@ -909,6 +973,9 @@ export class QuotasClient {
     listQuotasRequest: requests.ListQuotasRequest
   ): Promise<responses.ListQuotasResponse> {
     if (this.logger) this.logger.debug("Calling operation QuotasClient#listQuotas.");
+    const operationName = "listQuotas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/QuotaSummary/ListQuotas";
     const pathParams = {};
 
     const queryParams = {
@@ -943,7 +1010,13 @@ export class QuotasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.ListQuotasResponse>{},
         body: await response.json(),
@@ -1034,6 +1107,9 @@ export class QuotasClient {
     updateQuotaRequest: requests.UpdateQuotaRequest
   ): Promise<responses.UpdateQuotaResponse> {
     if (this.logger) this.logger.debug("Calling operation QuotasClient#updateQuota.");
+    const operationName = "updateQuota";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/UpdateQuota";
     const pathParams = {
       "{quotaId}": updateQuotaRequest.quotaId
     };
@@ -1068,7 +1144,13 @@ export class QuotasClient {
       queryParams: queryParams
     });
     try {
-      const response = await retrier.makeServiceCall(this._httpClient, request);
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateQuotaResponse>{},
         body: await response.json(),

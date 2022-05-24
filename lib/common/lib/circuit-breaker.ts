@@ -8,7 +8,15 @@ import { DefaultRetryCondition } from "./retrier";
 
 const Breaker = require("opossum");
 
-async function FetchWrapper(req: RequestInfo, options?: RequestInit) {
+async function FetchWrapper(
+  req: RequestInfo,
+  options: RequestInit | undefined,
+  targetService: string,
+  operationName: string,
+  timestamp: string,
+  endpoint: string,
+  apiReferenceLink: string
+) {
   return new Promise(async (resolve, reject) => {
     try {
       const response = await fetch(req, options);
@@ -17,7 +25,15 @@ async function FetchWrapper(req: RequestInfo, options?: RequestInit) {
       } else {
         const responseClone = response.clone();
         const errBody = await handleErrorBody(responseClone);
-        const errorObject = handleErrorResponse(responseClone, errBody);
+        const errorObject = handleErrorResponse(
+          responseClone,
+          errBody,
+          targetService,
+          operationName,
+          timestamp,
+          endpoint,
+          apiReferenceLink
+        );
         reject({
           response,
           errorObject
