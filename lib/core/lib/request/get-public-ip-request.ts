@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetPublicIpRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the public IP.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the public IP.
    */
   "publicIpId": string;
 }

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The response containing the metric collection for a specific database.
+ * The response containing the metric collection for a specific Managed Database.
  */
 export interface DatabaseHomeMetrics {
   "databaseHomeMetrics": model.DatabaseHomeMetricDefinition;

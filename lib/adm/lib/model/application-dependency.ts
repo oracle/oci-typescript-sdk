@@ -1,6 +1,6 @@
 /**
- * ADM API
- * Use the ADM API to create ADM knowledge base and vulnerability audits.  For more information, see [ADM](/Content/adm/using/home.htm).
+ * Application Dependency Management API
+ * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](/Content/application-dependency-management/home.htm).
  * OpenAPI spec version: 20220421
  *
  *
@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ApplicationDependency {
   /**
-   * Unique Group Artifact Version (GAV) identifier (Group:Artifact:Version).
+   * Unique Group Artifact Version (GAV) identifier (Group:Artifact:Version), e.g. org.graalvm.nativeimage:svm:21.1.0.
    */
   "gav": string;
   /**
-   * Unique identifier of an Application Dependency node.
+   * Unique identifier of an Application Dependency node, e.g. nodeId1.
    */
   "nodeId": string;
   /**

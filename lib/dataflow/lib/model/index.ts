@@ -52,6 +52,8 @@ import * as RunLogSummary from "./run-log-summary";
 export import RunLogSummary = RunLogSummary.RunLogSummary;
 import * as RunSummary from "./run-summary";
 export import RunSummary = RunSummary.RunSummary;
+import * as ShapeConfig from "./shape-config";
+export import ShapeConfig = ShapeConfig.ShapeConfig;
 import * as UpdateApplicationDetails from "./update-application-details";
 export import UpdateApplicationDetails = UpdateApplicationDetails.UpdateApplicationDetails;
 import * as UpdatePrivateEndpointDetails from "./update-private-endpoint-details";

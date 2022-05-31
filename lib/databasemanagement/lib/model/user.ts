@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The summary of a specific User.
+ * The summary of a specific user resource.
  */
 export interface User {
   /**
@@ -30,7 +30,7 @@ export interface User {
    */
   "status": User.Status;
   /**
-   * The date the account was locked if account status was LOCKED.
+   * The date the account was locked, if the status of the account is LOCKED.
    */
   "timeLocked"?: Date;
   /**
@@ -54,7 +54,7 @@ export interface User {
    */
   "timeCreated": Date;
   /**
-   * The User resource profile name.
+   * The profile name of the user.
    */
   "profile": string;
   /**

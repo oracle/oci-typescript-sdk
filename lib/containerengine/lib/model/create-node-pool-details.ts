@@ -36,7 +36,7 @@ export interface CreateNodePoolDetails {
   /**
    * The version of Kubernetes to install on the nodes in the node pool.
    */
-  "kubernetesVersion": string;
+  "kubernetesVersion"?: string;
   /**
    * A list of key/value pairs to add to each underlying OCI instance in the node pool on launch.
    */

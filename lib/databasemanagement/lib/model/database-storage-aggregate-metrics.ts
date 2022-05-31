@@ -24,7 +24,7 @@ export interface DatabaseStorageAggregateMetrics {
   "storageAllocated"?: model.MetricDataPoint;
   "storageUsed"?: model.MetricDataPoint;
   /**
-   * A list of the storage metrics grouped by TableSpace for a specific database.
+   * A list of the storage metrics grouped by TableSpace for a specific Managed Database.
    */
   "storageUsedByTableSpace"?: Array<model.MetricDataPoint>;
 }

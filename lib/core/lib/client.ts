@@ -850,7 +850,7 @@ export class BlockstorageClient {
 
   /**
    * Creates a volume group backup copy in specified region. For general information about volume group backups,
-   * see [Overview of Block Volume Service Backups](https://docs.cloud.oracle.com/Content/Block/Concepts/blockvolumebackups.htm)
+   * see [Overview of Block Volume Backups](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumebackups.htm).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CopyVolumeGroupBackupRequest
@@ -19741,7 +19741,7 @@ You may optionally specify a *display name* for the VTAP, otherwise a default is
      * Creates a new virtual customer-premises equipment (CPE) object in the specified compartment. For
 * more information, see [Site-to-Site VPN Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/overviewIPsec.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want
 * the CPE to reside. Notice that the CPE doesn't have to be in the same compartment as the IPSec
 * connection or other Networking Service components. If you're not sure which compartment to
 * use, put the CPE in the same compartment as the DRG. For more information about
@@ -19839,7 +19839,7 @@ After creating the `CrossConnect` object, you need to go the FastConnect locatio
 * and request to have the physical cable installed. For more information, see
 * [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
 * compartment where you want the cross-connect to reside. If you're
 * not sure which compartment to use, put the cross-connect in the
 * same compartment with your VCN. For more information about
@@ -19934,7 +19934,7 @@ You may optionally specify a *display name* for the cross-connect.
 * FastConnect. For more information, see
 * [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
 * compartment where you want the cross-connect group to reside. If you're
 * not sure which compartment to use, put the cross-connect group in the
 * same compartment with your VCN. For more information about
@@ -20028,7 +20028,7 @@ You may optionally specify a *display name* for the cross-connect group.
      * Creates a new set of DHCP options for the specified VCN. For more information, see
 * {@link DhcpOptions}.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want the set of
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the set of
 * DHCP options to reside. Notice that the set of options doesn't have to be in the same compartment as the VCN,
 * subnets, or other Networking Service components. If you're not sure which compartment to use, put the set
 * of DHCP options in the same compartment as the VCN. For more information about compartments and access control, see
@@ -20208,7 +20208,7 @@ You may optionally specify a *display name* for the DRG, otherwise a default is 
   /**
      * Attaches the specified DRG to the specified network resource. A VCN can be attached to only one DRG
 * at a time, but a DRG can be attached to more than one VCN. The response includes a `DrgAttachment`
-* object with its own [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). For more information about DRGs, see
+* object with its own [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). For more information about DRGs, see
 * [Dynamic Routing Gateways (DRGs)](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingDRGs.htm).
 * <p>
 You may optionally specify a *display name* for the attachment, otherwise a default is provided.
@@ -20472,7 +20472,7 @@ If you configure at least one tunnel to use static routing, then in the request 
 * the static routes. For more information, see the important note in
 * {@link IPSecConnection}.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want the
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the
 * IPSec connection to reside. Notice that the IPSec connection doesn't have to be in the same compartment
 * as the DRG, CPE, or other Networking Service components. If you're not sure which compartment to
 * use, put the IPSec connection in the same compartment as the DRG. For more information about
@@ -20574,7 +20574,7 @@ For each tunnel, you need the IP address of Oracle's VPN headend and the shared 
      * Creates a new internet gateway for the specified VCN. For more information, see
 * [Access to the Internet](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIGs.htm).
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where you want the Internet
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment where you want the Internet
 * Gateway to reside. Notice that the internet gateway doesn't have to be in the same compartment as the VCN or
 * other Networking Service components. If you're not sure which compartment to use, put the Internet
 * Gateway in the same compartment with the VCN. For more information about compartments and access control, see
@@ -21727,7 +21727,7 @@ You can also add a DNS label for the subnet, which is required if you want the I
 For the VCN, you specify a list of one or more IPv4 CIDR blocks that meet the following criteria:
 * <p>
 - The CIDR blocks must be valid.
-* - They must not overlap with each other or with the on-premises network CIDR block. 
+* - They must not overlap with each other or with the on-premises network CIDR block.
 * - The number of CIDR blocks does not exceed the limit of CIDR blocks allowed per VCN.
 * <p>
 For a CIDR block, Oracle recommends that you use one of the private IP address ranges specified in [RFC 1918](https://tools.ietf.org/html/rfc1918) (10.0.0.0/8, 172.16/12, and 192.168/16). Example:
@@ -22015,7 +22015,7 @@ You may optionally specify a *display name* for the virtual circuit.
   /**
      * Creates a virtual test access point (VTAP) in the specified compartment.
 * <p>
-For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment that contains the VTAP.
+For the purposes of access control, you must provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the VTAP.
 * For more information about compartments and access control, see
 * [Overview of the IAM Service](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/overview.htm).
 * For information about OCIDs, see [Resource Identifiers](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
@@ -22956,7 +22956,7 @@ This is an asynchronous operation. The gateway's `lifecycleState` will change to
   }
 
   /**
-   * Unassigns and deletes the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Unassigns and deletes the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * The IPv6 address is returned to the subnet's pool of available addresses.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -26323,7 +26323,7 @@ The operation returns configuration information for all tunnels in the single sp
   }
 
   /**
-   * Gets the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Gets the specified IPv6. You must specify the object's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    * Alternatively, you can get the object by using
    * {@link #listIpv6s(ListIpv6sRequest) listIpv6s}
    * with the IPv6 address (for example, 2001:0db8:0123:1111:98fe:dcba:9876:4321) and subnet [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
@@ -28826,7 +28826,7 @@ The operation returns configuration information for only the specified IPSec tun
 * <p>
 If you want to generate CPE configuration content for one of the returned CPE device types,
 * ensure that the {@link Cpe} object's `cpeDeviceShapeId` attribute is set
-* to the CPE device type's [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) (returned by this operation).
+* to the CPE device type's [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) (returned by this operation).
 * <p>
 For information about generating CPE configuration content, see these operations:
 * <p>
@@ -29432,7 +29432,7 @@ For information about generating CPE configuration content, see these operations
 
   /**
    * Lists the cross-connects in the specified compartment. You can filter the list
-   * by specifying the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a cross-connect group.
+   * by specifying the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a cross-connect group.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCrossConnectsRequest
@@ -29843,7 +29843,7 @@ For information about generating CPE configuration content, see these operations
 * VCN route table.
 * <p>
 The LIST API lists DRG attachments by attachment type. It will default to list VCN attachments,
-* but you may request to list ALL attachments of ALL types. 
+* but you may request to list ALL attachments of ALL types.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListDrgAttachmentsRequest
@@ -30656,7 +30656,7 @@ Use the `ListDrgRouteRules` operation to retrieve the route rules in a table.
 * information so you can specify your desired provider and service
 * offering when you create a virtual circuit.
 * <p>
-For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
+For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
 * <p>
 For more information, see [FastConnect Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm).
 * 

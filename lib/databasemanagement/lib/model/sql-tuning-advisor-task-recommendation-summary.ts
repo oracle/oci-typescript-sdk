@@ -59,6 +59,10 @@ export interface SqlTuningAdvisorTaskRecommendationSummary {
    * Action sql to be implemented based on the recommendation result.
    */
   "implementActionSql"?: string;
+  /**
+   * Indicates whether a SQL Profile recommendation uses parallel execution.
+   */
+  "isParallelExecution"?: boolean;
 }
 
 export namespace SqlTuningAdvisorTaskRecommendationSummary {

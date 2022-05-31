@@ -31,6 +31,11 @@ export interface AttachIScsiVolumeDetails extends model.AttachVolumeDetails {
    *
    */
   "encryptionInTransitType"?: model.EncryptionInTransitType;
+  /**
+   * Whether to enable Oracle Cloud Agent to perform the iSCSI login and logout commands after the volume attach or detach operations for non multipath-enabled iSCSI attachments.
+   *
+   */
+  "isAgentAutoIscsiLoginEnabled"?: boolean;
 
   "type": string;
 }

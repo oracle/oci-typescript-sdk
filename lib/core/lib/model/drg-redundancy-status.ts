@@ -26,7 +26,7 @@ import common = require("oci-common");
  */
 export interface DrgRedundancyStatus {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG.
    */
   "id"?: string;
   /**

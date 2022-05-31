@@ -46,7 +46,11 @@ export interface UserSummary {
    */
   "timeCreated": Date;
   /**
-   * The User resource profile name.
+   * The date the account was locked, if the status of the account is LOCKED.
+   */
+  "timeLocked"?: Date;
+  /**
+   * The profile name of the user.
    */
   "profile": string;
 }

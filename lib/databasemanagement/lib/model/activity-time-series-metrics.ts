@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The response object representing activityMetric details for a specific database at a particular time.
+ * The response object representing activityMetric details for a specific Managed Database at a particular time.
  */
 export interface ActivityTimeSeriesMetrics {
   /**

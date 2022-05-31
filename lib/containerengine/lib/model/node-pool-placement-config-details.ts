@@ -35,6 +35,11 @@ export interface NodePoolPlacementConfigDetails {
    * The OCID of the compute capacity reservation in which to place the compute instance.
    */
   "capacityReservationId"?: string;
+  /**
+   * A list of fault domains in which to place nodes.
+   *
+   */
+  "faultDomains"?: Array<string>;
 }
 
 export namespace NodePoolPlacementConfigDetails {

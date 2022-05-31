@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of ASM properties for a specific database.
+ * A collection of ASM properties for a specific Managed Database.
  */
 export interface AsmPropertyCollection {
   /**
