@@ -50,7 +50,7 @@ Allowed values:
     */
   "destinationType": DrgRouteRule.DestinationType;
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the next hop DRG attachment responsible
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the next hop DRG attachment responsible
 * for reaching the network destination.
 * <p>
 A value of `BLACKHOLE` means traffic for this route is discarded without notification.

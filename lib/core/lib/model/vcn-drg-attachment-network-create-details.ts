@@ -25,7 +25,7 @@ import common = require("oci-common");
 export interface VcnDrgAttachmentNetworkCreateDetails
   extends model.DrgAttachmentNetworkCreateDetails {
   /**
-    * This is the [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the route table that is used to route the traffic as it enters a VCN through this attachment.
+    * This is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table that is used to route the traffic as it enters a VCN through this attachment.
 * <p>
 For information about why you would associate a route table with a DRG attachment, see
 * [Advanced Scenario: Transit Routing](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm).

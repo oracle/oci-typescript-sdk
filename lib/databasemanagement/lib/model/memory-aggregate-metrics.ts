@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface MemoryAggregateMetrics {
   /**
-   * A list of the memory usage metrics grouped by memorypool for a specific database.
+   * The Memory Usage metrics grouped by memorypool for a specific Managed Database.
    */
   "memoryUsage"?: Array<model.MetricDataPoint>;
 }

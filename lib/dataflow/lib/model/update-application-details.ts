@@ -89,6 +89,7 @@ export interface UpdateApplicationDetails {
    *
    */
   "driverShape"?: string;
+  "driverShapeConfig"?: model.ShapeConfig;
   /**
    * The input used for spark-submit command. For more details see https://spark.apache.org/docs/latest/submitting-applications.html#launching-applications-with-spark-submit.
    * Supported options include ``--class``, ``--file``, ``--jars``, ``--conf``, ``--py-files``, and main application file with arguments.
@@ -103,6 +104,7 @@ export interface UpdateApplicationDetails {
    *
    */
   "executorShape"?: string;
+  "executorShapeConfig"?: model.ShapeConfig;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -153,6 +155,14 @@ export namespace UpdateApplicationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "driverShapeConfig": obj.driverShapeConfig
+          ? model.ShapeConfig.getJsonObj(obj.driverShapeConfig)
+          : undefined,
+
+        "executorShapeConfig": obj.executorShapeConfig
+          ? model.ShapeConfig.getJsonObj(obj.executorShapeConfig)
+          : undefined,
+
         "parameters": obj.parameters
           ? obj.parameters.map(item => {
               return model.ApplicationParameter.getJsonObj(item);
@@ -167,6 +177,14 @@ export namespace UpdateApplicationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "driverShapeConfig": obj.driverShapeConfig
+          ? model.ShapeConfig.getDeserializedJsonObj(obj.driverShapeConfig)
+          : undefined,
+
+        "executorShapeConfig": obj.executorShapeConfig
+          ? model.ShapeConfig.getDeserializedJsonObj(obj.executorShapeConfig)
+          : undefined,
+
         "parameters": obj.parameters
           ? obj.parameters.map(item => {
               return model.ApplicationParameter.getDeserializedJsonObj(item);

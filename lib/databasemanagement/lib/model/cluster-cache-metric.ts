@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface ClusterCacheMetric {
   /**
-   * A list of cluster cache metrics for a specific database.
+   * A list of cluster cache metrics for a specific Managed Database.
    */
   "clusterCacheMetrics": Array<model.TimeSeriesMetricDefinition>;
 }

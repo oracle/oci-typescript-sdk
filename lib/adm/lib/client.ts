@@ -1,6 +1,6 @@
 /**
- * ADM API
- * Use the ADM API to create ADM knowledge base and vulnerability audits.  For more information, see [ADM](/Content/adm/using/home.htm).
+ * Application Dependency Management API
+ * Use the Application Dependency Management API to create knowledge bases and vulnerability audits.  For more information, see [ADM](/Content/application-dependency-management/home.htm).
  * OpenAPI spec version: 20220421
  *
  *
@@ -152,7 +152,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Cancel work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -179,7 +179,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelWorkRequestRequest.retryConfiguration,
@@ -222,7 +222,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Moves a Knowledge Base from one compartment to another.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeKnowledgeBaseCompartmentRequest
    * @return ChangeKnowledgeBaseCompartmentResponse
    * @throws OciError when an error occurs
@@ -250,7 +250,7 @@ export class ApplicationDependencyManagementClient {
       "opc-retry-token": changeKnowledgeBaseCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeKnowledgeBaseCompartmentRequest.retryConfiguration,
@@ -303,7 +303,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Moves a Vulnerability Audit from one compartment to another.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeVulnerabilityAuditCompartmentRequest
    * @return ChangeVulnerabilityAuditCompartmentResponse
    * @throws OciError when an error occurs
@@ -331,7 +331,7 @@ export class ApplicationDependencyManagementClient {
       "opc-retry-token": changeVulnerabilityAuditCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeVulnerabilityAuditCompartmentRequest.retryConfiguration,
@@ -379,7 +379,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Creates a new Knowledge Base.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateKnowledgeBaseRequest
    * @return CreateKnowledgeBaseResponse
    * @throws OciError when an error occurs
@@ -404,7 +404,7 @@ export class ApplicationDependencyManagementClient {
       "opc-retry-token": createKnowledgeBaseRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createKnowledgeBaseRequest.retryConfiguration,
@@ -457,7 +457,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Creates a new Vulnerability Audit by providing a tree of Application Dependencies.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateVulnerabilityAuditRequest
    * @return CreateVulnerabilityAuditResponse
    * @throws OciError when an error occurs
@@ -483,7 +483,7 @@ export class ApplicationDependencyManagementClient {
       "if-match": createVulnerabilityAuditRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createVulnerabilityAuditRequest.retryConfiguration,
@@ -545,7 +545,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Deletes the specified Knowledge Base.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteKnowledgeBaseRequest
    * @return DeleteKnowledgeBaseResponse
    * @throws OciError when an error occurs
@@ -572,7 +572,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": deleteKnowledgeBaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteKnowledgeBaseRequest.retryConfiguration,
@@ -620,7 +620,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Deletes the specified Vulnerability Audit.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteVulnerabilityAuditRequest
    * @return DeleteVulnerabilityAuditResponse
    * @throws OciError when an error occurs
@@ -647,7 +647,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": deleteVulnerabilityAuditRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteVulnerabilityAuditRequest.retryConfiguration,
@@ -690,7 +690,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Returns the details of the specified Knowledge Base.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetKnowledgeBaseRequest
    * @return GetKnowledgeBaseResponse
    * @throws OciError when an error occurs
@@ -716,7 +716,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": getKnowledgeBaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getKnowledgeBaseRequest.retryConfiguration,
@@ -768,7 +768,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Returns the details of the specified Vulnerability Audit.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetVulnerabilityAuditRequest
    * @return GetVulnerabilityAuditResponse
    * @throws OciError when an error occurs
@@ -794,7 +794,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": getVulnerabilityAuditRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getVulnerabilityAuditRequest.retryConfiguration,
@@ -846,7 +846,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -870,7 +870,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -927,7 +927,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Returns a list of Application Dependencies with their associated vulnerabilities.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApplicationDependencyVulnerabilitiesRequest
    * @return ListApplicationDependencyVulnerabilitiesResponse
    * @throws OciError when an error occurs
@@ -964,7 +964,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": listApplicationDependencyVulnerabilitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listApplicationDependencyVulnerabilitiesRequest.retryConfiguration,
@@ -1018,7 +1018,7 @@ export class ApplicationDependencyManagementClient {
    * Returns a list of KnowledgeBases based on the specified query parameters.
    * At least id or compartmentId query parameter must be provided.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListKnowledgeBasesRequest
    * @return ListKnowledgeBasesResponse
    * @throws OciError when an error occurs
@@ -1051,7 +1051,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": listKnowledgeBasesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listKnowledgeBasesRequest.retryConfiguration,
@@ -1105,7 +1105,7 @@ export class ApplicationDependencyManagementClient {
    * Returns a list of Vulnerability Audits based on the specified query parameters.
    * At least one of id, compartmentId or knowledgeBaseId query parameter must be provided.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListVulnerabilityAuditsRequest
    * @return ListVulnerabilityAuditsResponse
    * @throws OciError when an error occurs
@@ -1140,7 +1140,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": listVulnerabilityAuditsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listVulnerabilityAuditsRequest.retryConfiguration,
@@ -1193,7 +1193,7 @@ export class ApplicationDependencyManagementClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1224,7 +1224,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1277,7 +1277,7 @@ export class ApplicationDependencyManagementClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1308,7 +1308,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1361,7 +1361,7 @@ export class ApplicationDependencyManagementClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1394,7 +1394,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1446,7 +1446,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Updates one or more attributes of the specified Knowledge Base.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateKnowledgeBaseRequest
    * @return UpdateKnowledgeBaseResponse
    * @throws OciError when an error occurs
@@ -1473,7 +1473,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": updateKnowledgeBaseRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateKnowledgeBaseRequest.retryConfiguration,
@@ -1526,7 +1526,7 @@ export class ApplicationDependencyManagementClient {
 
   /**
    * Updates one or more attributes of the specified Vulnerability Audit.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateVulnerabilityAuditRequest
    * @return UpdateVulnerabilityAuditResponse
    * @throws OciError when an error occurs
@@ -1553,7 +1553,7 @@ export class ApplicationDependencyManagementClient {
       "opc-request-id": updateVulnerabilityAuditRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateVulnerabilityAuditRequest.retryConfiguration,

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateLocalPeeringGatewayRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the local peering gateway.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the local peering gateway.
    */
   "localPeeringGatewayId": string;
   /**

@@ -45,6 +45,7 @@ export namespace GetSqlExecutionPlanRequest {
     Original = "ORIGINAL",
     OriginalWithAdjustedCost = "ORIGINAL_WITH_ADJUSTED_COST",
     UsingSqlProfile = "USING_SQL_PROFILE",
-    UsingNewIndices = "USING_NEW_INDICES"
+    UsingNewIndices = "USING_NEW_INDICES",
+    UsingParallelExecution = "USING_PARALLEL_EXECUTION"
   }
 }

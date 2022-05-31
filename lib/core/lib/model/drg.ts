@@ -22,9 +22,9 @@ import common = require("oci-common");
 /**
 * A dynamic routing gateway (DRG) is a virtual router that provides a path for private
 * network traffic between networks. You use it with other Networking
-* Service components to create a connection to your on-premises network using [Site-to-Site VPN](https://docs.cloud.oracle.com/Content/Network/Tasks/managingIPsec.htm) or a connection that uses
-* [FastConnect](https://docs.cloud.oracle.com/Content/Network/Concepts/fastconnect.htm). For more information, see
-* [Overview of the Networking Service](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
+* Service components to create a connection to your on-premises network using [Site-to-Site VPN](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPsec.htm) or a connection that uses
+* [FastConnect](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/fastconnect.htm). For more information, see
+* [Networking Overview](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/overview.htm).
 * <p>
 To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
@@ -33,7 +33,7 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface Drg {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the DRG.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the DRG.
    */
   "compartmentId": string;
   /**
@@ -59,7 +59,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The DRG's Oracle ID ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+   * The DRG's Oracle ID ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)).
    */
   "id": string;
   /**
@@ -75,7 +75,7 @@ Example: `2016-08-25T21:10:29.600Z`
   "timeCreated"?: Date;
   "defaultDrgRouteTables"?: model.DefaultDrgRouteTables;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of this DRG's default export route distribution for the DRG attachments.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this DRG's default export route distribution for the DRG attachments.
    *
    */
   "defaultExportDrgRouteDistributionId"?: string;

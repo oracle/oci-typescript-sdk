@@ -22,6 +22,7 @@ import common = require("oci-common");
  */
 export interface CpuUtilizationAggregateMetrics {
   "cpuUtilization"?: model.MetricDataPoint;
+  "cpuStatistics"?: model.MetricStatisticsDefinition;
 }
 
 export namespace CpuUtilizationAggregateMetrics {
@@ -31,6 +32,9 @@ export namespace CpuUtilizationAggregateMetrics {
       ...{
         "cpuUtilization": obj.cpuUtilization
           ? model.MetricDataPoint.getJsonObj(obj.cpuUtilization)
+          : undefined,
+        "cpuStatistics": obj.cpuStatistics
+          ? model.MetricStatisticsDefinition.getJsonObj(obj.cpuStatistics)
           : undefined
       }
     };
@@ -43,6 +47,9 @@ export namespace CpuUtilizationAggregateMetrics {
       ...{
         "cpuUtilization": obj.cpuUtilization
           ? model.MetricDataPoint.getDeserializedJsonObj(obj.cpuUtilization)
+          : undefined,
+        "cpuStatistics": obj.cpuStatistics
+          ? model.MetricStatisticsDefinition.getDeserializedJsonObj(obj.cpuStatistics)
           : undefined
       }
     };

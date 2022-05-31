@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeRouteTableCompartmentRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the route table.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table.
    */
   "rtId": string;
   /**

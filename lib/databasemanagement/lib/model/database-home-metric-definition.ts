@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The response containing the CPU, Storage, Wait, DB Time, and Memory metrics for a specific database.
+ * The response containing the CPU, Storage, Wait, DB Time, and Memory metrics for a specific Managed Database.
  */
 export interface DatabaseHomeMetricDefinition {
   /**
-   * A list of the active session metrics for CPU and Wait time for a specific database.
+   * A list of the active session metrics for CPU and Wait time for a specific Managed Database.
    */
   "activityTimeSeriesMetrics": Array<model.ActivityTimeSeriesMetrics>;
   "dbTimeAggregateMetrics": model.DatabaseTimeAggregateMetrics;

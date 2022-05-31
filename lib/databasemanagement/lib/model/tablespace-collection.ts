@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of tablespaces for a specific database.
+ * A collection of tablespaces for a specific Managed Database.
  */
 export interface TablespaceCollection {
   /**

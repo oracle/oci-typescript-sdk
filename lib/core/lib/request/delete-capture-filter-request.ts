@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DeleteCaptureFilterRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the capture filter.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the capture filter.
    */
   "captureFilterId": string;
   /**

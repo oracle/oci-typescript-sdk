@@ -70,6 +70,11 @@ Example: `3260`
    *
    */
   "encryptionInTransitType"?: model.EncryptionInTransitType;
+  /**
+   * Whether Oracle Cloud Agent is enabled perform the iSCSI login and logout commands after the volume attach or detach operations for non multipath-enabled iSCSI attachments.
+   *
+   */
+  "isAgentAutoIscsiLoginEnabled"?: boolean;
 
   "attachmentType": string;
 }

@@ -41,7 +41,7 @@ Example: `50`
    */
   "ipAddress"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the subnet.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet.
    */
   "subnetId"?: string;
   /**
