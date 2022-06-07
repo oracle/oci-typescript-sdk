@@ -42,6 +42,8 @@ export namespace FailureDetails {
     TerraformObjectStorageConfigSourceEmptyBucket = "TERRAFORM_OBJECT_STORAGE_CONFIG_SOURCE_EMPTY_BUCKET",
     TerraformObjectStorageConfigSourceNoTfFilePresent = "TERRAFORM_OBJECT_STORAGE_CONFIG_SOURCE_NO_TF_FILE_PRESENT",
     TerraformObjectStorageConfigSourceUnsupportedObjectSize = "TERRAFORM_OBJECT_STORAGE_CONFIG_SOURCE_UNSUPPORTED_OBJECT_SIZE",
+    CustomTerraformProviderBucketNotFound = "CUSTOM_TERRAFORM_PROVIDER_BUCKET_NOT_FOUND",
+    CustomTerraformProviderUnsupportedObjectSize = "CUSTOM_TERRAFORM_PROVIDER_UNSUPPORTED_OBJECT_SIZE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -74,6 +74,9 @@ export namespace WorkRequest {
     ChangeStackCompartment = "CHANGE_STACK_COMPARTMENT",
     CreateStackFromCompartment = "CREATE_STACK_FROM_COMPARTMENT",
     DriftDetection = "DRIFT_DETECTION",
+    CreatePrivateEndpoint = "CREATE_PRIVATE_ENDPOINT",
+    UpdatePrivateEndpoint = "UPDATE_PRIVATE_ENDPOINT",
+    DeletePrivateEndpoint = "DELETE_PRIVATE_ENDPOINT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

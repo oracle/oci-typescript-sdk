@@ -3391,6 +3391,80 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets details of an OPSI data object.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOpsiDataObjectRequest
+   * @return GetOpsiDataObjectResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOpsiDataObject.ts.html |here} to see how to use GetOpsiDataObject API.
+   */
+  public async getOpsiDataObject(
+    getOpsiDataObjectRequest: requests.GetOpsiDataObjectRequest
+  ): Promise<responses.GetOpsiDataObjectResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getOpsiDataObject.");
+    const operationName = "getOpsiDataObject";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/GetOpsiDataObject";
+    const pathParams = {
+      "{opsiDataObjectIdentifier}": getOpsiDataObjectRequest.opsiDataObjectIdentifier
+    };
+
+    const queryParams = {
+      "compartmentId": getOpsiDataObjectRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOpsiDataObjectRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOpsiDataObjectRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiDataObjects/{opsiDataObjectIdentifier}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOpsiDataObjectResponse>{},
+        body: await response.json(),
+        bodyKey: "opsiDataObject",
+        bodyModel: model.OpsiDataObject,
+        type: "model.OpsiDataObject",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the status of the work request with the given ID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
@@ -5194,7 +5268,7 @@ export class OperationsInsightsClient {
       );
     const operationName = "listOperationsInsightsPrivateEndpoints";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpointCollection/ListOperationsInsightsPrivateEndpoints";
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OperationsInsightsPrivateEndpoint/ListOperationsInsightsPrivateEndpoints";
     const pathParams = {};
 
     const queryParams = {
@@ -5423,6 +5497,90 @@ export class OperationsInsightsClient {
         bodyKey: "operationsInsightsWarehouseSummaryCollection",
         bodyModel: model.OperationsInsightsWarehouseSummaryCollection,
         type: "model.OperationsInsightsWarehouseSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of OPSI data objects based on the query parameters specified. CompartmentId id query parameter must be specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOpsiDataObjectsRequest
+   * @return ListOpsiDataObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOpsiDataObjects.ts.html |here} to see how to use ListOpsiDataObjects API.
+   */
+  public async listOpsiDataObjects(
+    listOpsiDataObjectsRequest: requests.ListOpsiDataObjectsRequest
+  ): Promise<responses.ListOpsiDataObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listOpsiDataObjects.");
+    const operationName = "listOpsiDataObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/ListOpsiDataObjects";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOpsiDataObjectsRequest.compartmentId,
+      "dataObjectType": listOpsiDataObjectsRequest.dataObjectType,
+      "displayName": listOpsiDataObjectsRequest.displayName,
+      "limit": listOpsiDataObjectsRequest.limit,
+      "page": listOpsiDataObjectsRequest.page,
+      "sortOrder": listOpsiDataObjectsRequest.sortOrder,
+      "sortBy": listOpsiDataObjectsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOpsiDataObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOpsiDataObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiDataObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOpsiDataObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "opsiDataObjectsCollection",
+        bodyModel: model.OpsiDataObjectsCollection,
+        type: "model.OpsiDataObjectsCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -5933,6 +6091,92 @@ export class OperationsInsightsClient {
         bodyKey: "workRequestCollection",
         bodyModel: model.WorkRequestCollection,
         type: "model.WorkRequestCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Queries an OPSI data object with the inputs provided and sends the result set back. Either analysisTimeInterval
+   * or timeIntervalStart and timeIntervalEnd parameters need to be passed as well.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param QueryOpsiDataObjectDataRequest
+   * @return QueryOpsiDataObjectDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/QueryOpsiDataObjectData.ts.html |here} to see how to use QueryOpsiDataObjectData API.
+   */
+  public async queryOpsiDataObjectData(
+    queryOpsiDataObjectDataRequest: requests.QueryOpsiDataObjectDataRequest
+  ): Promise<responses.QueryOpsiDataObjectDataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#queryOpsiDataObjectData.");
+    const operationName = "queryOpsiDataObjectData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiDataObjects/QueryOpsiDataObjectData";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": queryOpsiDataObjectDataRequest.compartmentId,
+      "limit": queryOpsiDataObjectDataRequest.limit,
+      "page": queryOpsiDataObjectDataRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": queryOpsiDataObjectDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      queryOpsiDataObjectDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiDataObjects/actions/queryData",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        queryOpsiDataObjectDataRequest.queryOpsiDataObjectDataDetails,
+        "QueryOpsiDataObjectDataDetails",
+        model.QueryOpsiDataObjectDataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.QueryOpsiDataObjectDataResponse>{},
+        body: await response.json(),
+        bodyKey: "queryDataObjectResultSetRowsCollection",
+        bodyModel: model.QueryDataObjectResultSetRowsCollection,
+        type: "model.QueryDataObjectResultSetRowsCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

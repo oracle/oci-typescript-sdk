@@ -37,6 +37,7 @@ export interface CreateConfigurationSourceProviderDetails {
    * Description of the configuration source provider. Avoid entering confidential information.
    */
   "description"?: string;
+  "privateServerConfigDetails"?: model.PrivateServerConfigDetails;
   /**
    * Free-form tags associated with the resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -57,7 +58,14 @@ export interface CreateConfigurationSourceProviderDetails {
 
 export namespace CreateConfigurationSourceProviderDetails {
   export function getJsonObj(obj: CreateConfigurationSourceProviderDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "privateServerConfigDetails": obj.privateServerConfigDetails
+          ? model.PrivateServerConfigDetails.getJsonObj(obj.privateServerConfigDetails)
+          : undefined
+      }
+    };
 
     if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
@@ -78,7 +86,14 @@ export namespace CreateConfigurationSourceProviderDetails {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateConfigurationSourceProviderDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "privateServerConfigDetails": obj.privateServerConfigDetails
+          ? model.PrivateServerConfigDetails.getDeserializedJsonObj(obj.privateServerConfigDetails)
+          : undefined
+      }
+    };
 
     if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
