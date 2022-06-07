@@ -92,6 +92,8 @@ import * as GetOperationsInsightsWarehouseResponse from "./get-operations-insigh
 export import GetOperationsInsightsWarehouseResponse = GetOperationsInsightsWarehouseResponse.GetOperationsInsightsWarehouseResponse;
 import * as GetOperationsInsightsWarehouseUserResponse from "./get-operations-insights-warehouse-user-response";
 export import GetOperationsInsightsWarehouseUserResponse = GetOperationsInsightsWarehouseUserResponse.GetOperationsInsightsWarehouseUserResponse;
+import * as GetOpsiDataObjectResponse from "./get-opsi-data-object-response";
+export import GetOpsiDataObjectResponse = GetOpsiDataObjectResponse.GetOpsiDataObjectResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as IngestDatabaseConfigurationResponse from "./ingest-database-configuration-response";
@@ -138,6 +140,8 @@ import * as ListOperationsInsightsWarehouseUsersResponse from "./list-operations
 export import ListOperationsInsightsWarehouseUsersResponse = ListOperationsInsightsWarehouseUsersResponse.ListOperationsInsightsWarehouseUsersResponse;
 import * as ListOperationsInsightsWarehousesResponse from "./list-operations-insights-warehouses-response";
 export import ListOperationsInsightsWarehousesResponse = ListOperationsInsightsWarehousesResponse.ListOperationsInsightsWarehousesResponse;
+import * as ListOpsiDataObjectsResponse from "./list-opsi-data-objects-response";
+export import ListOpsiDataObjectsResponse = ListOpsiDataObjectsResponse.ListOpsiDataObjectsResponse;
 import * as ListSqlPlansResponse from "./list-sql-plans-response";
 export import ListSqlPlansResponse = ListSqlPlansResponse.ListSqlPlansResponse;
 import * as ListSqlSearchesResponse from "./list-sql-searches-response";
@@ -150,6 +154,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as QueryOpsiDataObjectDataResponse from "./query-opsi-data-object-data-response";
+export import QueryOpsiDataObjectDataResponse = QueryOpsiDataObjectDataResponse.QueryOpsiDataObjectDataResponse;
 import * as RotateOperationsInsightsWarehouseWalletResponse from "./rotate-operations-insights-warehouse-wallet-response";
 export import RotateOperationsInsightsWarehouseWalletResponse = RotateOperationsInsightsWarehouseWalletResponse.RotateOperationsInsightsWarehouseWalletResponse;
 import * as SummarizeAwrSourcesSummariesResponse from "./summarize-awr-sources-summaries-response";

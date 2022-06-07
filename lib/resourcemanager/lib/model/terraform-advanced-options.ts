@@ -40,7 +40,6 @@ export interface TerraformAdvancedOptions {
   "parallelism"?: number;
   /**
    * Enables detailed logs at the specified verbosity for running the job (operation).
-   * Used with the following operations: `PLAN`, `APPLY`, `DESTROY`.
    *
    */
   "detailedLogLevel"?: TerraformAdvancedOptions.DetailedLogLevel;

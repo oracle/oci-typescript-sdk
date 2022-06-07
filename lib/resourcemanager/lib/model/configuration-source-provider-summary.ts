@@ -56,6 +56,7 @@ Allowable values:
 * 
     */
   "lifecycleState"?: string;
+  "privateServerConfigDetails"?: model.PrivateServerConfigDetails;
   /**
    * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
@@ -76,7 +77,14 @@ Allowable values:
 
 export namespace ConfigurationSourceProviderSummary {
   export function getJsonObj(obj: ConfigurationSourceProviderSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "privateServerConfigDetails": obj.privateServerConfigDetails
+          ? model.PrivateServerConfigDetails.getJsonObj(obj.privateServerConfigDetails)
+          : undefined
+      }
+    };
 
     if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
@@ -97,7 +105,14 @@ export namespace ConfigurationSourceProviderSummary {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ConfigurationSourceProviderSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "privateServerConfigDetails": obj.privateServerConfigDetails
+          ? model.PrivateServerConfigDetails.getDeserializedJsonObj(obj.privateServerConfigDetails)
+          : undefined
+      }
+    };
 
     if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {

@@ -313,6 +313,86 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Moves a private endpoint to a different compartment within the same tenancy.
+   * For information about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangePrivateEndpointCompartmentRequest
+   * @return ChangePrivateEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ChangePrivateEndpointCompartment.ts.html |here} to see how to use ChangePrivateEndpointCompartment API.
+   */
+  public async changePrivateEndpointCompartment(
+    changePrivateEndpointCompartmentRequest: requests.ChangePrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangePrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation ResourceManagerClient#changePrivateEndpointCompartment."
+      );
+    const operationName = "changePrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/ChangePrivateEndpointCompartment";
+    const pathParams = {
+      "{privateEndpointId}": changePrivateEndpointCompartmentRequest.privateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changePrivateEndpointCompartmentRequest.ifMatch,
+      "opc-request-id": changePrivateEndpointCompartmentRequest.opcRequestId,
+      "opc-retry-token": changePrivateEndpointCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints/{privateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePrivateEndpointCompartmentRequest.changePrivateEndpointCompartmentDetails,
+        "ChangePrivateEndpointCompartmentDetails",
+        model.ChangePrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a Stack and it's associated Jobs into a different compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeStackCompartmentRequest
@@ -637,6 +717,88 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Creates a a private endpoint in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePrivateEndpointRequest
+   * @return CreatePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/CreatePrivateEndpoint.ts.html |here} to see how to use CreatePrivateEndpoint API.
+   */
+  public async createPrivateEndpoint(
+    createPrivateEndpointRequest: requests.CreatePrivateEndpointRequest
+  ): Promise<responses.CreatePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#createPrivateEndpoint.");
+    const operationName = "createPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/CreatePrivateEndpoint";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createPrivateEndpointRequest.opcRequestId,
+      "opc-retry-token": createPrivateEndpointRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPrivateEndpointRequest.createPrivateEndpointDetails,
+        "CreatePrivateEndpointDetails",
+        model.CreatePrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "privateEndpoint",
+        bodyModel: model.PrivateEndpoint,
+        type: "model.PrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a stack in the specified compartment.
    * You can create a stack from a Terraform configuration.
    * The Terraform configuration can be directly uploaded or referenced from a source code control system.
@@ -866,6 +1028,75 @@ export class ResourceManagerClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteConfigurationSourceProviderResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified private endpoint.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePrivateEndpointRequest
+   * @return DeletePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/DeletePrivateEndpoint.ts.html |here} to see how to use DeletePrivateEndpoint API.
+   */
+  public async deletePrivateEndpoint(
+    deletePrivateEndpointRequest: requests.DeletePrivateEndpointRequest
+  ): Promise<responses.DeletePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#deletePrivateEndpoint.");
+    const operationName = "deletePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/DeletePrivateEndpoint";
+    const pathParams = {
+      "{privateEndpointId}": deletePrivateEndpointRequest.privateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deletePrivateEndpointRequest.opcRequestId,
+      "if-match": deletePrivateEndpointRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints/{privateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePrivateEndpointResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1603,6 +1834,82 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Returns the output of the specified Terraform plan job in binary or JSON format.
+   * For information about running Terraform plan jobs, see
+   * [To run a plan job](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/managingstacksandjobs.htm#PlanJobRun).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetJobTfPlanRequest
+   * @return GetJobTfPlanResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetJobTfPlan.ts.html |here} to see how to use GetJobTfPlan API.
+   */
+  public async getJobTfPlan(
+    getJobTfPlanRequest: requests.GetJobTfPlanRequest
+  ): Promise<responses.GetJobTfPlanResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getJobTfPlan.");
+    const operationName = "getJobTfPlan";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/Job/GetJobTfPlan";
+    const pathParams = {
+      "{jobId}": getJobTfPlanRequest.jobId
+    };
+
+    const queryParams = {
+      "tfPlanFormat": getJobTfPlanRequest.tfPlanFormat
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJobTfPlanRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJobTfPlanRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/tfPlan",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJobTfPlanResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the Terraform state for the specified job.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobTfStateRequest
@@ -1658,6 +1965,158 @@ export class ResourceManagerClient {
         body: response.body!,
         bodyKey: "value",
         bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified private endpoint.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPrivateEndpointRequest
+   * @return GetPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetPrivateEndpoint.ts.html |here} to see how to use GetPrivateEndpoint API.
+   */
+  public async getPrivateEndpoint(
+    getPrivateEndpointRequest: requests.GetPrivateEndpointRequest
+  ): Promise<responses.GetPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#getPrivateEndpoint.");
+    const operationName = "getPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/GetPrivateEndpoint";
+    const pathParams = {
+      "{privateEndpointId}": getPrivateEndpointRequest.privateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints/{privateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "privateEndpoint",
+        bodyModel: model.PrivateEndpoint,
+        type: "model.PrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the alternative IP address of the private resource. This IP will be used by Resource Manager Service to connect to the private resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetReachableIpRequest
+   * @return GetReachableIpResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/GetReachableIp.ts.html |here} to see how to use GetReachableIp API.
+   */
+  public async getReachableIp(
+    getReachableIpRequest: requests.GetReachableIpRequest
+  ): Promise<responses.GetReachableIpResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#getReachableIp.");
+    const operationName = "getReachableIp";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/ReachableIp/GetReachableIp";
+    const pathParams = {
+      "{privateEndpointId}": getReachableIpRequest.privateEndpointId
+    };
+
+    const queryParams = {
+      "privateIp": getReachableIpRequest.privateIp
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReachableIpRequest.opcRequestId,
+      "opc-retry-token": getReachableIpRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReachableIpRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints/{privateEndpointId}/reachableIp",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReachableIpResponse>{},
+        body: await response.json(),
+        bodyKey: "reachableIp",
+        bodyModel: model.ReachableIp,
+        type: "model.ReachableIp",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2414,6 +2873,93 @@ export class ResourceManagerClient {
     request: requests.ListJobsRequest
   ): AsyncIterableIterator<responses.ListJobsResponse> {
     return paginateResponses(request, req => this.listJobs(req));
+  }
+
+  /**
+   * Lists private endpoints according to the specified filter.
+   * - For `compartmentId`, lists all private endpoint in the matching compartment.
+   * - For `privateEndpointId`, lists the matching private endpoint.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPrivateEndpointsRequest
+   * @return ListPrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListPrivateEndpoints.ts.html |here} to see how to use ListPrivateEndpoints API.
+   */
+  public async listPrivateEndpoints(
+    listPrivateEndpointsRequest: requests.ListPrivateEndpointsRequest
+  ): Promise<responses.ListPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listPrivateEndpoints.");
+    const operationName = "listPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpointSummary/ListPrivateEndpoints";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPrivateEndpointsRequest.compartmentId,
+      "privateEndpointId": listPrivateEndpointsRequest.privateEndpointId,
+      "displayName": listPrivateEndpointsRequest.displayName,
+      "vcnId": listPrivateEndpointsRequest.vcnId,
+      "sortBy": listPrivateEndpointsRequest.sortBy,
+      "sortOrder": listPrivateEndpointsRequest.sortOrder,
+      "limit": listPrivateEndpointsRequest.limit,
+      "page": listPrivateEndpointsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPrivateEndpointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "privateEndpointCollection",
+        bodyModel: model.PrivateEndpointCollection,
+        type: "model.PrivateEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -3496,6 +4042,89 @@ export class ResourceManagerClient {
         bodyKey: "job",
         bodyModel: model.Job,
         type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified private endpoint.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdatePrivateEndpointRequest
+   * @return UpdatePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/UpdatePrivateEndpoint.ts.html |here} to see how to use UpdatePrivateEndpoint API.
+   */
+  public async updatePrivateEndpoint(
+    updatePrivateEndpointRequest: requests.UpdatePrivateEndpointRequest
+  ): Promise<responses.UpdatePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#updatePrivateEndpoint.");
+    const operationName = "updatePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/PrivateEndpoint/UpdatePrivateEndpoint";
+    const pathParams = {
+      "{privateEndpointId}": updatePrivateEndpointRequest.privateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updatePrivateEndpointRequest.opcRequestId,
+      "if-match": updatePrivateEndpointRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/privateEndpoints/{privateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePrivateEndpointRequest.updatePrivateEndpointDetails,
+        "UpdatePrivateEndpointDetails",
+        model.UpdatePrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "privateEndpoint",
+        bodyModel: model.PrivateEndpoint,
+        type: "model.PrivateEndpoint",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

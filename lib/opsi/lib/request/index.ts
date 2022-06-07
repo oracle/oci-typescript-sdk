@@ -92,6 +92,8 @@ import * as GetOperationsInsightsWarehouseRequest from "./get-operations-insight
 export import GetOperationsInsightsWarehouseRequest = GetOperationsInsightsWarehouseRequest.GetOperationsInsightsWarehouseRequest;
 import * as GetOperationsInsightsWarehouseUserRequest from "./get-operations-insights-warehouse-user-request";
 export import GetOperationsInsightsWarehouseUserRequest = GetOperationsInsightsWarehouseUserRequest.GetOperationsInsightsWarehouseUserRequest;
+import * as GetOpsiDataObjectRequest from "./get-opsi-data-object-request";
+export import GetOpsiDataObjectRequest = GetOpsiDataObjectRequest.GetOpsiDataObjectRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as IngestDatabaseConfigurationRequest from "./ingest-database-configuration-request";
@@ -138,6 +140,8 @@ import * as ListOperationsInsightsWarehouseUsersRequest from "./list-operations-
 export import ListOperationsInsightsWarehouseUsersRequest = ListOperationsInsightsWarehouseUsersRequest.ListOperationsInsightsWarehouseUsersRequest;
 import * as ListOperationsInsightsWarehousesRequest from "./list-operations-insights-warehouses-request";
 export import ListOperationsInsightsWarehousesRequest = ListOperationsInsightsWarehousesRequest.ListOperationsInsightsWarehousesRequest;
+import * as ListOpsiDataObjectsRequest from "./list-opsi-data-objects-request";
+export import ListOpsiDataObjectsRequest = ListOpsiDataObjectsRequest.ListOpsiDataObjectsRequest;
 import * as ListSqlPlansRequest from "./list-sql-plans-request";
 export import ListSqlPlansRequest = ListSqlPlansRequest.ListSqlPlansRequest;
 import * as ListSqlSearchesRequest from "./list-sql-searches-request";
@@ -150,6 +154,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as QueryOpsiDataObjectDataRequest from "./query-opsi-data-object-data-request";
+export import QueryOpsiDataObjectDataRequest = QueryOpsiDataObjectDataRequest.QueryOpsiDataObjectDataRequest;
 import * as RotateOperationsInsightsWarehouseWalletRequest from "./rotate-operations-insights-warehouse-wallet-request";
 export import RotateOperationsInsightsWarehouseWalletRequest = RotateOperationsInsightsWarehouseWalletRequest.RotateOperationsInsightsWarehouseWalletRequest;
 import * as SummarizeAwrSourcesSummariesRequest from "./summarize-awr-sources-summaries-request";
