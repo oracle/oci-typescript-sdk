@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of DatabaseToolsConnection.
+ * Description of the Database Tools connection.
  */
 export interface DatabaseToolsConnection {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsConnection.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Tools connection.
    */
   "id": string;
   /**
@@ -27,23 +27,23 @@ export interface DatabaseToolsConnection {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the containing Compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools connection.
    */
   "compartmentId": string;
   /**
-   * The current state of the DatabaseToolsConnection.
+   * The current state of the Database Tools connection.
    */
   "lifecycleState": model.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * A message describing the current state in more detail. For example, this message can be used to provide actionable information for a resource in the Failed state.
    */
   "lifecycleDetails"?: string;
   /**
-   * The time the DatabaseToolsConnection was created. An RFC3339 formatted datetime string
+   * The time the Database Tools connection was created. An RFC3339 formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The time the DatabaseToolsConnection was updated. An RFC3339 formatted datetime string
+   * The time the DatabaseToolsConnection was updated. An RFC3339 formatted datetime string.
    */
   "timeUpdated": Date;
   /**
@@ -79,6 +79,11 @@ export namespace DatabaseToolsConnection {
             <model.DatabaseToolsConnectionOracleDatabase>(<object>jsonObj),
             true
           );
+        case "MYSQL":
+          return model.DatabaseToolsConnectionMySql.getJsonObj(
+            <model.DatabaseToolsConnectionMySql>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.type);
       }
@@ -93,6 +98,11 @@ export namespace DatabaseToolsConnection {
         case "ORACLE_DATABASE":
           return model.DatabaseToolsConnectionOracleDatabase.getDeserializedJsonObj(
             <model.DatabaseToolsConnectionOracleDatabase>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.DatabaseToolsConnectionMySql.getDeserializedJsonObj(
+            <model.DatabaseToolsConnectionMySql>(<object>jsonObj),
             true
           );
         default:

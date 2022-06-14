@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new DatabaseToolsConnection.
+ * Details for the new Database Tools connection.
  */
 export interface CreateDatabaseToolsConnectionDetails {
   /**
@@ -23,7 +23,7 @@ export interface CreateDatabaseToolsConnectionDetails {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the containing Compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools connection.
    */
   "compartmentId": string;
   /**
@@ -48,6 +48,11 @@ export namespace CreateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "MYSQL":
+          return model.CreateDatabaseToolsConnectionMySqlDetails.getJsonObj(
+            <model.CreateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.CreateDatabaseToolsConnectionOracleDatabaseDetails.getJsonObj(
             <model.CreateDatabaseToolsConnectionOracleDatabaseDetails>(<object>jsonObj),
@@ -64,6 +69,11 @@ export namespace CreateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "MYSQL":
+          return model.CreateDatabaseToolsConnectionMySqlDetails.getDeserializedJsonObj(
+            <model.CreateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.CreateDatabaseToolsConnectionOracleDatabaseDetails.getDeserializedJsonObj(
             <model.CreateDatabaseToolsConnectionOracleDatabaseDetails>(<object>jsonObj),

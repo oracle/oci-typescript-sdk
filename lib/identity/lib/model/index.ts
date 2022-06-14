@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddLockDetails from "./add-lock-details";
+export import AddLockDetails = AddLockDetails.AddLockDetails;
 import * as AddUserToGroupDetails from "./add-user-to-group-details";
 export import AddUserToGroupDetails = AddUserToGroupDetails.AddUserToGroupDetails;
 import * as AllowedDomainLicenseTypeSummary from "./allowed-domain-license-type-summary";
@@ -169,8 +171,12 @@ import * as Region from "./region";
 export import Region = Region.Region;
 import * as RegionSubscription from "./region-subscription";
 export import RegionSubscription = RegionSubscription.RegionSubscription;
+import * as RemoveLockDetails from "./remove-lock-details";
+export import RemoveLockDetails = RemoveLockDetails.RemoveLockDetails;
 import * as ReplicatedRegionDetails from "./replicated-region-details";
 export import ReplicatedRegionDetails = ReplicatedRegionDetails.ReplicatedRegionDetails;
+import * as ResourceLock from "./resource-lock";
+export import ResourceLock = ResourceLock.ResourceLock;
 import * as ScimClientCredentials from "./scim-client-credentials";
 export import ScimClientCredentials = ScimClientCredentials.ScimClientCredentials;
 import * as SmtpCredential from "./smtp-credential";

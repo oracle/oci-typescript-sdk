@@ -58,6 +58,11 @@ export namespace UpdateConfigDetails {
             <model.UpdateSpanFilterDetails>(<object>jsonObj),
             true
           );
+        case "OPTIONS":
+          return model.UpdateOptionsDetails.getJsonObj(
+            <model.UpdateOptionsDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.configType);
       }
@@ -82,6 +87,11 @@ export namespace UpdateConfigDetails {
         case "SPAN_FILTER":
           return model.UpdateSpanFilterDetails.getDeserializedJsonObj(
             <model.UpdateSpanFilterDetails>(<object>jsonObj),
+            true
+          );
+        case "OPTIONS":
+          return model.UpdateOptionsDetails.getDeserializedJsonObj(
+            <model.UpdateOptionsDetails>(<object>jsonObj),
             true
           );
         default:

@@ -76,6 +76,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "timeUpdated"?: Date;
   /**
+   * The time zone of the Cloud Autonomous VM Cluster.
+   */
+  "clusterTimeZone"?: string;
+  /**
    * Additional information about the current lifecycle state.
    */
   "lifecycleDetails"?: string;

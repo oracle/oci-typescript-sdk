@@ -35,4 +35,8 @@ export interface DeleteTagRequest extends common.BaseRequest {
    *
    */
   "ifMatch"?: string;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

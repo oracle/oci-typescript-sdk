@@ -23,6 +23,7 @@ export enum ConfigTypes {
   SpanFilter = "SPAN_FILTER",
   MetricGroup = "METRIC_GROUP",
   Apdex = "APDEX",
+  Options = "OPTIONS",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

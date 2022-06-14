@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ValidateDatabaseToolsConnectionResult {
   /**
-   * A short code that defines the result of the validation, meant for programmatic parsing.
+   * A short code that defines the result of the validation, meant for programmatic parsing. The value OK indicates that the validation was successful.
    */
   "code": string;
   /**
@@ -49,6 +49,11 @@ export namespace ValidateDatabaseToolsConnectionResult {
             <model.ValidateDatabaseToolsConnectionOracleDatabaseResult>(<object>jsonObj),
             true
           );
+        case "MYSQL":
+          return model.ValidateDatabaseToolsConnectionMySqlResult.getJsonObj(
+            <model.ValidateDatabaseToolsConnectionMySqlResult>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.type);
       }
@@ -63,6 +68,11 @@ export namespace ValidateDatabaseToolsConnectionResult {
         case "ORACLE_DATABASE":
           return model.ValidateDatabaseToolsConnectionOracleDatabaseResult.getDeserializedJsonObj(
             <model.ValidateDatabaseToolsConnectionOracleDatabaseResult>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.ValidateDatabaseToolsConnectionMySqlResult.getDeserializedJsonObj(
+            <model.ValidateDatabaseToolsConnectionMySqlResult>(<object>jsonObj),
             true
           );
         default:

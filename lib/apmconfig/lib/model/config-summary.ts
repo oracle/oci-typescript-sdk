@@ -78,6 +78,8 @@ export namespace ConfigSummary {
             <model.SpanFilterSummary>(<object>jsonObj),
             true
           );
+        case "OPTIONS":
+          return model.OptionsSummary.getJsonObj(<model.OptionsSummary>(<object>jsonObj), true);
         default:
           throw Error("Unknown value for: " + obj.configType);
       }
@@ -102,6 +104,11 @@ export namespace ConfigSummary {
         case "SPAN_FILTER":
           return model.SpanFilterSummary.getDeserializedJsonObj(
             <model.SpanFilterSummary>(<object>jsonObj),
+            true
+          );
+        case "OPTIONS":
+          return model.OptionsSummary.getDeserializedJsonObj(
+            <model.OptionsSummary>(<object>jsonObj),
             true
           );
         default:

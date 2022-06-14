@@ -191,3 +191,5 @@ export import stackmonitoring = require("oci-stackmonitoring");
 export import servicemesh = require("oci-servicemesh");
 export import adm = require("oci-adm");
 export import licensemanager = require("oci-licensemanager");
+export import governancerulescontrolplane = require("oci-governancerulescontrolplane");
+export import onesubscription = require("oci-onesubscription");

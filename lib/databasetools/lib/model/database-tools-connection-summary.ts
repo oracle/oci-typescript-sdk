@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the DatabaseToolsConnection.
+ * Summary of the Database Tools connection.
  */
 export interface DatabaseToolsConnectionSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsConnection.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `DatabaseToolsConnection`.
    */
   "id": string;
   /**
@@ -27,11 +27,11 @@ export interface DatabaseToolsConnectionSummary {
    */
   "displayName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the containing Compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the Database Tools connection.
    */
   "compartmentId": string;
   /**
-   * The current state of the DatabaseToolsConnection.
+   * The current state of the Database Tools connection.
    */
   "lifecycleState": model.LifecycleState;
   /**
@@ -39,11 +39,11 @@ export interface DatabaseToolsConnectionSummary {
    */
   "lifecycleDetails"?: string;
   /**
-   * The time the DatabaseToolsConnection was created. An RFC3339 formatted datetime string
+   * The time the Database Tools connection was created. An RFC3339 formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The time the DatabaseToolsConnection was updated. An RFC3339 formatted datetime string
+   * The time the Database Tools connection was updated. An RFC3339 formatted datetime string.
    */
   "timeUpdated": Date;
   /**
@@ -79,6 +79,11 @@ export namespace DatabaseToolsConnectionSummary {
             <model.DatabaseToolsConnectionOracleDatabaseSummary>(<object>jsonObj),
             true
           );
+        case "MYSQL":
+          return model.DatabaseToolsConnectionMySqlSummary.getJsonObj(
+            <model.DatabaseToolsConnectionMySqlSummary>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.type);
       }
@@ -93,6 +98,11 @@ export namespace DatabaseToolsConnectionSummary {
         case "ORACLE_DATABASE":
           return model.DatabaseToolsConnectionOracleDatabaseSummary.getDeserializedJsonObj(
             <model.DatabaseToolsConnectionOracleDatabaseSummary>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.DatabaseToolsConnectionMySqlSummary.getDeserializedJsonObj(
+            <model.DatabaseToolsConnectionMySqlSummary>(<object>jsonObj),
             true
           );
         default:

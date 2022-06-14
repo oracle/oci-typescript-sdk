@@ -38,6 +38,10 @@ export interface CreateQuotaDetails {
    */
   "statements": Array<string>;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.AddLockDetails>;
+  /**
    * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`
@@ -55,12 +59,30 @@ export interface CreateQuotaDetails {
 
 export namespace CreateQuotaDetails {
   export function getJsonObj(obj: CreateQuotaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddLockDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateQuotaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.AddLockDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

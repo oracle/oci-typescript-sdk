@@ -23,15 +23,15 @@ export interface ListDatabaseToolsConnectionsRequest extends common.BaseRequest 
    */
   "compartmentId": string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources their `lifecycleState` matches the specified `lifecycleState`.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A filter to return only resources that match the entire display name given.
+   * A filter to return only resources that match the entire specified display name.
    */
   "displayName"?: string;
   /**
-   * A filter to return only resources their endpointServiceId matches the given endpointServiceId.
+   * A filter to return only resources their type matches the specified type.
    */
   "type"?: Array<model.ConnectionType>;
   /**

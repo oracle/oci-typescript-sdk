@@ -19,13 +19,15 @@ import common = require("oci-common");
  */
 export interface UpdateDatabaseToolsConnectionRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a DatabaseToolsConnection.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a Database Tools connection.
    */
   "databaseToolsConnectionId": string;
   /**
    * The information to be updated.
    */
-  "updateDatabaseToolsConnectionDetails": model.UpdateDatabaseToolsConnectionOracleDatabaseDetails;
+  "updateDatabaseToolsConnectionDetails":
+    | model.UpdateDatabaseToolsConnectionMySqlDetails
+    | model.UpdateDatabaseToolsConnectionOracleDatabaseDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the `if-match` parameter to the value of the

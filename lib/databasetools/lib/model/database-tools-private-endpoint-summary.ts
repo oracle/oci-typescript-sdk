@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the DatabaseToolsPrivateEndpoint.
+ * Summary of the Database Tools private endpoint.
  */
 export interface DatabaseToolsPrivateEndpointSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the containing Compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment containing the private endpoint.
    */
   "compartmentId": string;
   /**
@@ -45,23 +45,23 @@ export interface DatabaseToolsPrivateEndpointSummary {
    */
   "displayName"?: string;
   /**
-   * A description of the DatabaseToolsPrivateEndpoint.
+   * A description of the Database Tools private endpoint.
    */
   "description"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsPrivateEndpoint.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsEndpointService.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Tools Endpoint Service.
    */
   "endpointServiceId": string;
   /**
-   * The time the DatabaseToolsPrivateEndpoint was created. An RFC3339 formatted datetime string
+   * The time the Database Tools private endpoint was created. An RFC3339 formatted datetime string.
    */
   "timeCreated": Date;
   /**
-   * The time the DatabaseToolsPrivateEndpoint was updated. An RFC3339 formatted datetime string
+   * The time the Database Tools private endpoint was updated. An RFC3339 formatted datetime string.
    */
   "timeUpdated": Date;
   /**
@@ -89,7 +89,7 @@ export interface DatabaseToolsPrivateEndpointSummary {
    */
   "additionalFqdns"?: Array<string>;
   /**
-   * The current state of the DatabaseToolsPrivateEndpoint.
+   * The current state of the Database Tools private endpoint.
    */
   "lifecycleState": model.LifecycleState;
   /**

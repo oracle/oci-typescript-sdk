@@ -23,7 +23,7 @@ import common = require("oci-common");
 export interface ApdexRulesSummary extends model.ConfigSummary {
   "rules"?: Array<model.Apdex>;
   /**
-   * The name by which the rule set is displayed to the end user.
+   * The name by which a configuration entity is displayed to the end user.
    */
   "displayName"?: string;
 

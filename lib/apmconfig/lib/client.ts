@@ -381,7 +381,12 @@ export class ConfigClient {
       "limit": listConfigsRequest.limit,
       "page": listConfigsRequest.page,
       "sortOrder": listConfigsRequest.sortOrder,
-      "sortBy": listConfigsRequest.sortBy
+      "sortBy": listConfigsRequest.sortBy,
+      "optionsGroup": listConfigsRequest.optionsGroup,
+      "definedTagEquals": listConfigsRequest.definedTagEquals,
+      "freeformTagEquals": listConfigsRequest.freeformTagEquals,
+      "definedTagExists": listConfigsRequest.definedTagExists,
+      "freeformTagExists": listConfigsRequest.freeformTagExists
     };
 
     let headerParams = {
@@ -428,6 +433,163 @@ export class ConfigClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns all metrics associated with the specified namespace.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RetrieveNamespaceMetricsRequest
+   * @return RetrieveNamespaceMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/RetrieveNamespaceMetrics.ts.html |here} to see how to use RetrieveNamespaceMetrics API.
+   */
+  public async retrieveNamespaceMetrics(
+    retrieveNamespaceMetricsRequest: requests.RetrieveNamespaceMetricsRequest
+  ): Promise<responses.RetrieveNamespaceMetricsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#retrieveNamespaceMetrics.");
+    const operationName = "retrieveNamespaceMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/MetricGroup/RetrieveNamespaceMetrics";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": retrieveNamespaceMetricsRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": retrieveNamespaceMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveNamespaceMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/retrieveNamespaceMetrics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        retrieveNamespaceMetricsRequest.retrieveNamespaceMetricsDetails,
+        "RetrieveNamespaceMetricsDetails",
+        model.RetrieveNamespaceMetricsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveNamespaceMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "namespaceMetricCollection",
+        bodyModel: model.NamespaceMetricCollection,
+        type: "model.NamespaceMetricCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns all namespaces available in APM.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RetrieveNamespacesRequest
+   * @return RetrieveNamespacesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/RetrieveNamespaces.ts.html |here} to see how to use RetrieveNamespaces API.
+   */
+  public async retrieveNamespaces(
+    retrieveNamespacesRequest: requests.RetrieveNamespacesRequest
+  ): Promise<responses.RetrieveNamespacesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#retrieveNamespaces.");
+    const operationName = "retrieveNamespaces";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/MetricGroup/RetrieveNamespaces";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": retrieveNamespacesRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": retrieveNamespacesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveNamespacesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/retrieveNamespaces",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveNamespacesResponse>{},
+        body: await response.json(),
+        bodyKey: "namespaceCollection",
+        bodyModel: model.NamespaceCollection,
+        type: "model.NamespaceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -510,6 +672,80 @@ export class ConfigClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validates the Span Filter pattern (filterText) for syntactic correctness.
+   * Returns 204 on success, 422 when validation fails.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateSpanFilterPatternRequest
+   * @return ValidateSpanFilterPatternResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmconfig/ValidateSpanFilterPattern.ts.html |here} to see how to use ValidateSpanFilterPattern API.
+   */
+  public async validateSpanFilterPattern(
+    validateSpanFilterPatternRequest: requests.ValidateSpanFilterPatternRequest
+  ): Promise<responses.ValidateSpanFilterPatternResponse> {
+    if (this.logger) this.logger.debug("Calling operation ConfigClient#validateSpanFilterPattern.");
+    const operationName = "validateSpanFilterPattern";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-config/20210201/SpanFilter/ValidateSpanFilterPattern";
+    const pathParams = {};
+
+    const queryParams = {
+      "apmDomainId": validateSpanFilterPatternRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateSpanFilterPatternRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateSpanFilterPatternRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/validateSpanFilterPattern",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateSpanFilterPatternRequest.validateSpanFilterPatternDetails,
+        "ValidateSpanFilterPatternDetails",
+        model.ValidateSpanFilterPatternDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateSpanFilterPatternResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

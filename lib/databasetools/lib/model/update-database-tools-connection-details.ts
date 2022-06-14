@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -44,6 +44,11 @@ export namespace UpdateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "MYSQL":
+          return model.UpdateDatabaseToolsConnectionMySqlDetails.getJsonObj(
+            <model.UpdateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.UpdateDatabaseToolsConnectionOracleDatabaseDetails.getJsonObj(
             <model.UpdateDatabaseToolsConnectionOracleDatabaseDetails>(<object>jsonObj),
@@ -60,6 +65,11 @@ export namespace UpdateDatabaseToolsConnectionDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "MYSQL":
+          return model.UpdateDatabaseToolsConnectionMySqlDetails.getDeserializedJsonObj(
+            <model.UpdateDatabaseToolsConnectionMySqlDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATABASE":
           return model.UpdateDatabaseToolsConnectionOracleDatabaseDetails.getDeserializedJsonObj(
             <model.UpdateDatabaseToolsConnectionOracleDatabaseDetails>(<object>jsonObj),

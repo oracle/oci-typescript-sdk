@@ -44,6 +44,10 @@ export interface Quota {
    */
   "statements": Array<string>;
   /**
+   * Locks associated with this resource.
+   */
+  "locks"?: Array<model.ResourceLock>;
+  /**
    * The description you assign to the quota.
    */
   "description": string;
@@ -86,12 +90,30 @@ export namespace Quota {
   }
 
   export function getJsonObj(obj: Quota): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Quota): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "locks": obj.locks
+          ? obj.locks.map(item => {
+              return model.ResourceLock.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

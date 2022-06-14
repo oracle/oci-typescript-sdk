@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -35,7 +35,7 @@ export interface WorkRequestResource {
    */
   "identifier": string;
   /**
-   * The URI path that the user can do a GET on to access the resource metadata
+   * The URI path that the user can use for a GET operation to access the resource metadata.
    */
   "entityUri"?: string;
 }
