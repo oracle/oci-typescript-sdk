@@ -21,6 +21,15 @@ export interface UpdateBackupResponse {
    *
    */
   "opcRequestId": string;
+  /**
+   * For optimistic concurrency control. See `if-match`.
+   *
+   */
+  "etag": string;
+  /**
+   * The returned model.Backup instance, or null if {@link #isNotModified()} is true.
+   */
+  "backup": model.Backup;
 
   /**
    * Flag to indicate whether or not the object was modified.  If this is true,

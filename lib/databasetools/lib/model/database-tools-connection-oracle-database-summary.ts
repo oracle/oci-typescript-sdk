@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -21,16 +21,16 @@ export interface DatabaseToolsConnectionOracleDatabaseSummary
   extends model.DatabaseToolsConnectionSummary {
   "relatedResource"?: model.DatabaseToolsRelatedResource;
   /**
-   * Connect descriptor or Easy Connect Naming method to connect to the database.
+   * The connect descriptor or Easy Connect Naming method used to connect to the database.
    */
   "connectionString"?: string;
   /**
-   * Database user name.
+   * The database user name.
    */
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdSummary;
   /**
-   * Advanced connection properties key-value pair (e.g., oracle.net.ssl_server_dn_match).
+   * The advanced connection properties key-value pair (e.g., `oracle.net.ssl_server_dn_match`).
    */
   "advancedProperties"?: { [key: string]: string };
   /**
@@ -40,7 +40,7 @@ export interface DatabaseToolsConnectionOracleDatabaseSummary
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStoreSummary>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsPrivateEndpoint used to access the database in the Customer VCN.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the `DatabaseToolsPrivateEndpoint` used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
 

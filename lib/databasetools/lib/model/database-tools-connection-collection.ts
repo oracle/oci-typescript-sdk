@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of DatabaseToolsConnectionSummary items.
+ * List of `DatabaseToolsConnectionSummary` items.
  */
 export interface DatabaseToolsConnectionCollection {
   /**
-   * Array of DatabaseToolsConnectionSummary.
+   * Array of `DatabaseToolsConnectionSummary` items.
    */
   "items": Array<model.DatabaseToolsConnectionSummary>;
 }

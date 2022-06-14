@@ -23,7 +23,7 @@ import common = require("oci-common");
  */
 export interface UpdateMetricGroupDetails extends model.UpdateConfigDetails {
   /**
-   * The name of the metric group.
+   * The name by which a configuration entity is displayed to the end user.
    */
   "displayName"?: string;
   /**

@@ -19,9 +19,11 @@ import common = require("oci-common");
  */
 export interface CreateDatabaseToolsConnectionRequest extends common.BaseRequest {
   /**
-   * Details for the new DatabaseToolsConnection.
+   * Details for the new `DatabaseToolsConnection`.
    */
-  "createDatabaseToolsConnectionDetails": model.CreateDatabaseToolsConnectionOracleDatabaseDetails;
+  "createDatabaseToolsConnectionDetails":
+    | model.CreateDatabaseToolsConnectionMySqlDetails
+    | model.CreateDatabaseToolsConnectionOracleDatabaseDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24

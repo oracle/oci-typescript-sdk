@@ -27,4 +27,8 @@ export interface UpdateTagNamespaceRequest extends common.BaseRequest {
    * Request object for updating a namespace.
    */
   "updateTagNamespaceDetails": model.UpdateTagNamespaceDetails;
+  /**
+   * Whether to override locks (if any exist).
+   */
+  "isLockOverride"?: boolean;
 }

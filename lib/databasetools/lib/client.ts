@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -150,7 +150,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Moves a DatabaseToolsConnection into a different compartment within the same tenancy.
+   * Moves the specified Database Tools connection to a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
@@ -236,7 +236,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Moves a DatabaseToolsPrivateEndpoint into a different compartment within the same tenancy.
+   * Moves a Database Tools private endpoint into a different compartment in the same tenancy.
    * For information about moving resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
@@ -323,7 +323,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Creates a new DatabaseToolsConnection.
+   * Creates a new Database Tools connection.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDatabaseToolsConnectionRequest
@@ -414,7 +414,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Creates a new DatabaseToolsPrivateEndpoint.
+   * Creates a new Database Tools private endpoint.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDatabaseToolsPrivateEndpointRequest
@@ -507,7 +507,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Deletes a DatabaseToolsConnection resource by identifier
+   * Deletes the specified Database Tools connection resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseToolsConnectionRequest
    * @return DeleteDatabaseToolsConnectionResponse
@@ -581,7 +581,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Deletes a DatabaseToolsPrivateEndpoint resource by identifier
+   * Deletes the specified Database Tools private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDatabaseToolsPrivateEndpointRequest
    * @return DeleteDatabaseToolsPrivateEndpointResponse
@@ -658,8 +658,8 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Gets a DatabaseToolsConnection by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Gets details of the specified Database Tools connection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseToolsConnectionRequest
    * @return GetDatabaseToolsConnectionResponse
    * @throws OciError when an error occurs
@@ -684,7 +684,7 @@ export class DatabaseToolsClient {
       "opc-request-id": getDatabaseToolsConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDatabaseToolsConnectionRequest.retryConfiguration,
@@ -735,8 +735,8 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Gets a DatabaseToolsEndpointService by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Gets details for the specified Database Tools endpoint service.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseToolsEndpointServiceRequest
    * @return GetDatabaseToolsEndpointServiceResponse
    * @throws OciError when an error occurs
@@ -762,7 +762,7 @@ export class DatabaseToolsClient {
       "opc-request-id": getDatabaseToolsEndpointServiceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDatabaseToolsEndpointServiceRequest.retryConfiguration,
@@ -813,8 +813,8 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Gets a DatabaseToolsPrivateEndpoint by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Gets details of a specified Database Tools private endpoint.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDatabaseToolsPrivateEndpointRequest
    * @return GetDatabaseToolsPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -840,7 +840,7 @@ export class DatabaseToolsClient {
       "opc-request-id": getDatabaseToolsPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDatabaseToolsPrivateEndpointRequest.retryConfiguration,
@@ -891,8 +891,8 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Gets the status of the specified work request.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -916,7 +916,7 @@ export class DatabaseToolsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -967,9 +967,9 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Returns a list of DatabaseToolsConnections.
+   * Returns a list of Database Tools connections.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDatabaseToolsConnectionsRequest
    * @return ListDatabaseToolsConnectionsResponse
    * @throws OciError when an error occurs
@@ -1001,7 +1001,7 @@ export class DatabaseToolsClient {
       "opc-request-id": listDatabaseToolsConnectionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDatabaseToolsConnectionsRequest.retryConfiguration,
@@ -1052,9 +1052,9 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Returns a list of DatabaseToolsEndpointServices.
+   * Returns a list of Database Tools endpoint services.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDatabaseToolsEndpointServicesRequest
    * @return ListDatabaseToolsEndpointServicesResponse
    * @throws OciError when an error occurs
@@ -1086,7 +1086,7 @@ export class DatabaseToolsClient {
       "opc-request-id": listDatabaseToolsEndpointServicesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDatabaseToolsEndpointServicesRequest.retryConfiguration,
@@ -1137,9 +1137,9 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Returns a list of DatabaseToolsPrivateEndpoints.
+   * Returns a list of Database Tools private endpoints.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDatabaseToolsPrivateEndpointsRequest
    * @return ListDatabaseToolsPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -1172,7 +1172,7 @@ export class DatabaseToolsClient {
       "opc-request-id": listDatabaseToolsPrivateEndpointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDatabaseToolsPrivateEndpointsRequest.retryConfiguration,
@@ -1223,9 +1223,9 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Returns a paginated list of errors for the specified work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1255,7 +1255,7 @@ export class DatabaseToolsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1306,9 +1306,9 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Return a (paginated) list of logs for a given work request.
+   * Returns a paginated list of logs for the specified work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1338,7 +1338,7 @@ export class DatabaseToolsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1391,7 +1391,7 @@ export class DatabaseToolsClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1420,7 +1420,7 @@ export class DatabaseToolsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1471,7 +1471,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Updates the DatabaseToolsConnection
+   * Updates the specified Database Tools connection.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseToolsConnectionRequest
    * @return UpdateDatabaseToolsConnectionResponse
@@ -1550,7 +1550,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Updates the DatabaseToolsPrivateEndpoint
+   * Updates the specified Database Tools private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDatabaseToolsPrivateEndpointRequest
    * @return UpdateDatabaseToolsPrivateEndpointResponse
@@ -1632,7 +1632,7 @@ export class DatabaseToolsClient {
   }
 
   /**
-   * Validate the DatabaseToolsConnection information details by establishing a connection to the database.
+   * Validates the Database Tools connection details by establishing a connection to the database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateDatabaseToolsConnectionRequest

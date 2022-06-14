@@ -54,6 +54,11 @@ export namespace CreateConfigDetails {
             <model.CreateMetricGroupDetails>(<object>jsonObj),
             true
           );
+        case "OPTIONS":
+          return model.CreateOptionsDetails.getJsonObj(
+            <model.CreateOptionsDetails>(<object>jsonObj),
+            true
+          );
         case "APDEX":
           return model.CreateApdexRulesDetails.getJsonObj(
             <model.CreateApdexRulesDetails>(<object>jsonObj),
@@ -78,6 +83,11 @@ export namespace CreateConfigDetails {
         case "METRIC_GROUP":
           return model.CreateMetricGroupDetails.getDeserializedJsonObj(
             <model.CreateMetricGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "OPTIONS":
+          return model.CreateOptionsDetails.getDeserializedJsonObj(
+            <model.CreateOptionsDetails>(<object>jsonObj),
             true
           );
         case "APDEX":

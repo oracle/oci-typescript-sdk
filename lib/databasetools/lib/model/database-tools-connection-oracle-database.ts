@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -15,31 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DatabaseToolsConnection of an Oracle Database.
+ * Database Tools connection of an Oracle Database.
  */
 export interface DatabaseToolsConnectionOracleDatabase extends model.DatabaseToolsConnection {
   "relatedResource"?: model.DatabaseToolsRelatedResource;
   /**
-   * Connect descriptor or Easy Connect Naming method to connect to the database.
+   * The connect descriptor or Easy Connect Naming method used to connect to the database.
    */
   "connectionString"?: string;
   /**
-   * Database user name.
+   * The database user name.
    */
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretId;
   /**
-   * Advanced connection properties key-value pair (e.g., oracle.net.ssl_server_dn_match).
+   * The advanced connection properties key-value pair (for example, `oracle.net.ssl_server_dn_match`).
    */
   "advancedProperties"?: { [key: string]: string };
   /**
-   * Oracle wallet or Java Keystores containing trusted certificates for authenticating the server's public certificate and
+   * The Oracle wallet or Java Keystores containing trusted certificates for authenticating the server's public certificate and
    * the client private key and associated certificates required for client authentication.
    *
    */
   "keyStores"?: Array<model.DatabaseToolsKeyStore>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DatabaseToolsPrivateEndpoint used to access the database in the Customer VCN.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Database Tools private endpoint used to access the database in the customer VCN.
    */
   "privateEndpointId"?: string;
 

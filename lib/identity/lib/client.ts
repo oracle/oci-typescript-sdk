@@ -316,6 +316,174 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   }
 
   /**
+   * Add a resource lock to a tag default.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddTagDefaultLockRequest
+   * @return AddTagDefaultLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/AddTagDefaultLock.ts.html |here} to see how to use AddTagDefaultLock API.
+   */
+  public async addTagDefaultLock(
+    addTagDefaultLockRequest: requests.AddTagDefaultLockRequest
+  ): Promise<responses.AddTagDefaultLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#addTagDefaultLock.");
+    const operationName = "addTagDefaultLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/AddTagDefaultLock";
+    const pathParams = {
+      "{tagDefaultId}": addTagDefaultLockRequest.tagDefaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addTagDefaultLockRequest.ifMatch,
+      "opc-request-id": addTagDefaultLockRequest.opcRequestId,
+      "opc-retry-token": addTagDefaultLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addTagDefaultLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tagDefaults/{tagDefaultId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addTagDefaultLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddTagDefaultLockResponse>{},
+        body: await response.json(),
+        bodyKey: "tagDefault",
+        bodyModel: model.TagDefault,
+        type: "model.TagDefault",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add a resource lock to a tag namespace.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddTagNamespaceLockRequest
+   * @return AddTagNamespaceLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/AddTagNamespaceLock.ts.html |here} to see how to use AddTagNamespaceLock API.
+   */
+  public async addTagNamespaceLock(
+    addTagNamespaceLockRequest: requests.AddTagNamespaceLockRequest
+  ): Promise<responses.AddTagNamespaceLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#addTagNamespaceLock.");
+    const operationName = "addTagNamespaceLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/AddTagNamespaceLock";
+    const pathParams = {
+      "{tagNamespaceId}": addTagNamespaceLockRequest.tagNamespaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addTagNamespaceLockRequest.ifMatch,
+      "opc-request-id": addTagNamespaceLockRequest.opcRequestId,
+      "opc-retry-token": addTagNamespaceLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addTagNamespaceLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tagNamespaces/{tagNamespaceId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addTagNamespaceLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddTagNamespaceLockResponse>{},
+        body: await response.json(),
+        bodyKey: "tagNamespace",
+        bodyModel: model.TagNamespace,
+        type: "model.TagNamespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Adds the specified user to the specified group and returns a `UserGroupMembership` object with its own OCID.
 * <p>
 After you send your request, the new object's `lifecycleState` will temporarily be CREATING. Before using the
@@ -599,7 +767,9 @@ In order to delete tags, you must first retire the tags. Use {@link #updateTag(U
       "https://docs.oracle.com/iaas/api/#/en/identity/20160918/Tag/BulkDeleteTags";
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": bulkDeleteTagsRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -870,7 +1040,9 @@ To delete a tag namespace, you must first retire it. Use {@link #updateTagNamesp
       "{tagNamespaceId}": cascadeDeleteTagNamespaceRequest.tagNamespaceId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": cascadeDeleteTagNamespaceRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1122,7 +1294,9 @@ Moving a tag namespace moves all the tag key definitions contained in the tag na
       "{tagNamespaceId}": changeTagNamespaceCompartmentRequest.tagNamespaceId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": changeTagNamespaceCompartmentRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -2746,7 +2920,9 @@ The tag must have a value type, which is specified with a validator. Tags can us
       "{tagNamespaceId}": createTagRequest.tagNamespaceId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": createTagRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4303,7 +4479,6 @@ Deletes the specified Swift password for the specified user.
 * tag from all resources in your tenancy.
 * <p>
 These things happen immediately:
-* \u00A0
 *   * If the tag was a cost-tracking tag, it no longer counts against your 10 cost-tracking
 *   tags limit, whether you first disabled it or not.
 *   * If the tag was used with dynamic groups, none of the rules that contain the tag will
@@ -4339,7 +4514,9 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       "{tagName}": deleteTagRequest.tagName
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteTagRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4412,7 +4589,9 @@ To delete a tag, you must first retire it. Use {@link #updateTag(UpdateTagReques
       "{tagDefaultId}": deleteTagDefaultRequest.tagDefaultId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteTagDefaultRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4487,7 +4666,9 @@ Use {@link #deleteTag(DeleteTagRequest) deleteTag} to delete a tag definition.
       "{tagNamespaceId}": deleteTagNamespaceRequest.tagNamespaceId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteTagNamespaceRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -11059,6 +11240,174 @@ Lists the Swift passwords for the specified user. The returned object contains t
   }
 
   /**
+   * Remove a resource lock from a tag default.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveTagDefaultLockRequest
+   * @return RemoveTagDefaultLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/RemoveTagDefaultLock.ts.html |here} to see how to use RemoveTagDefaultLock API.
+   */
+  public async removeTagDefaultLock(
+    removeTagDefaultLockRequest: requests.RemoveTagDefaultLockRequest
+  ): Promise<responses.RemoveTagDefaultLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#removeTagDefaultLock.");
+    const operationName = "removeTagDefaultLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagDefault/RemoveTagDefaultLock";
+    const pathParams = {
+      "{tagDefaultId}": removeTagDefaultLockRequest.tagDefaultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeTagDefaultLockRequest.ifMatch,
+      "opc-request-id": removeTagDefaultLockRequest.opcRequestId,
+      "opc-retry-token": removeTagDefaultLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeTagDefaultLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tagDefaults/{tagDefaultId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeTagDefaultLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveTagDefaultLockResponse>{},
+        body: await response.json(),
+        bodyKey: "tagDefault",
+        bodyModel: model.TagDefault,
+        type: "model.TagDefault",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove a resource lock from a tag namespace.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveTagNamespaceLockRequest
+   * @return RemoveTagNamespaceLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identity/RemoveTagNamespaceLock.ts.html |here} to see how to use RemoveTagNamespaceLock API.
+   */
+  public async removeTagNamespaceLock(
+    removeTagNamespaceLockRequest: requests.RemoveTagNamespaceLockRequest
+  ): Promise<responses.RemoveTagNamespaceLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation IdentityClient#removeTagNamespaceLock.");
+    const operationName = "removeTagNamespaceLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity/20160918/TagNamespace/RemoveTagNamespaceLock";
+    const pathParams = {
+      "{tagNamespaceId}": removeTagNamespaceLockRequest.tagNamespaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeTagNamespaceLockRequest.ifMatch,
+      "opc-request-id": removeTagNamespaceLockRequest.opcRequestId,
+      "opc-retry-token": removeTagNamespaceLockRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeTagNamespaceLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/tagNamespaces/{tagNamespaceId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeTagNamespaceLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveTagNamespaceLockResponse>{},
+        body: await response.json(),
+        bodyKey: "tagNamespace",
+        bodyModel: model.TagNamespace,
+        type: "model.TagNamespace",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a user from a group by deleting the corresponding `UserGroupMembership`.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveUserFromGroupRequest
@@ -12387,7 +12736,9 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       "{tagName}": updateTagRequest.tagName
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateTagRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -12474,7 +12825,9 @@ You cannot remove list values that appear in a TagDefault. To remove a list valu
       "{tagDefaultId}": updateTagDefaultRequest.tagDefaultId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateTagDefaultRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -12565,7 +12918,9 @@ You can't add a namespace with the same name as a retired namespace in the same 
       "{tagNamespaceId}": updateTagNamespaceRequest.tagNamespaceId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateTagNamespaceRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON

@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -35,7 +35,7 @@ export interface UpdateDatabaseToolsPrivateEndpointDetails {
    */
   "displayName"?: string;
   /**
-   * A description of the DatabaseToolsPrivateEndpoint.
+   * A description of the Database Tools private endpoint.
    */
   "description"?: string;
   /**

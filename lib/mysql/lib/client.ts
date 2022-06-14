@@ -1407,10 +1407,19 @@ export class DbBackupsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "backup",
+        bodyModel: model.Backup,
+        type: "model.Backup",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

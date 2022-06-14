@@ -1,6 +1,6 @@
 /**
  * Database Tools
- * Database Tools APIs to manage Connections and Private Endpoints.
+ * Use the Database Tools API to manage connections, private endpoints, and work requests in the Database Tools service.
  * OpenAPI spec version: 20201005
  *
  *
@@ -15,22 +15,22 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new DatabaseToolsConnection for an Oracle Database.
+ * The update details for a Database Tools Oracle Database connection.
  */
 export interface UpdateDatabaseToolsConnectionOracleDatabaseDetails
   extends model.UpdateDatabaseToolsConnectionDetails {
   "relatedResource"?: model.UpdateDatabaseToolsRelatedResourceDetails;
   /**
-   * Connect descriptor or Easy Connect Naming method to connect to the database.
+   * The connect descriptor or Easy Connect Naming method used to connect to the database.
    */
   "connectionString"?: string;
   /**
-   * Database user name.
+   * The database user name.
    */
   "userName"?: string;
   "userPassword"?: model.DatabaseToolsUserPasswordSecretIdDetails;
   /**
-   * Advanced connection properties key-value pair (e.g., oracle.net.ssl_server_dn_match).
+   * The advanced connection properties key-value pair (e.g., `oracle.net.ssl_server_dn_match`).
    */
   "advancedProperties"?: { [key: string]: string };
   /**

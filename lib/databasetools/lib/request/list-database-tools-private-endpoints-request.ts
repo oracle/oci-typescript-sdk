@@ -23,7 +23,7 @@ export interface ListDatabaseToolsPrivateEndpointsRequest extends common.BaseReq
    */
   "compartmentId": string;
   /**
-   * A filter to return only resources their subnetId matches the given subnetId.
+   * A filter to return only resources their `subnetId` matches the specified `subnetId`.
    */
   "subnetId"?: string;
   /**
@@ -48,15 +48,15 @@ export interface ListDatabaseToolsPrivateEndpointsRequest extends common.BaseReq
    */
   "opcRequestId"?: string;
   /**
-   * A filter to return only resources their type matches the given type.
+   * A filter to return only resources their `endpointServiceId` matches the specified `endpointServiceId`.
    */
   "endpointServiceId"?: string;
   /**
-   * A filter to return only resources their lifecycleState matches the given lifecycleState.
+   * A filter to return only resources their `lifecycleState` matches the specified `lifecycleState`.
    */
   "lifecycleState"?: model.LifecycleState;
   /**
-   * A filter to return only resources that match the entire display name given.
+   * A filter to return only resources that match the entire specified display name.
    */
   "displayName"?: string;
 }

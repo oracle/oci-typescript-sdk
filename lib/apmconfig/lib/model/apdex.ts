@@ -74,7 +74,7 @@ export interface Apdex {
    */
   "isApplyToErrorSpans"?: boolean;
   /**
-   * A user-friendly name that provides a short description of this rule.
+   * The name by which a configuration entity is displayed to the end user.
    */
   "displayName"?: string;
 }

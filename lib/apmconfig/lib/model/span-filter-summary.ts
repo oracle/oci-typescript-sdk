@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface SpanFilterSummary extends model.ConfigSummary {
   /**
-   * The name by which the span filter is displayed in the UI.
+   * The name by which a configuration entity is displayed to the end user.
    */
   "displayName"?: string;
   /**

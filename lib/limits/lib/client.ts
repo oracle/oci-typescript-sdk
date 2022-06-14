@@ -739,6 +739,88 @@ export class QuotasClient {
   }
 
   /**
+   * Adds a lock to a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddQuotaLockRequest
+   * @return AddQuotaLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/AddQuotaLock.ts.html |here} to see how to use AddQuotaLock API.
+   */
+  public async addQuotaLock(
+    addQuotaLockRequest: requests.AddQuotaLockRequest
+  ): Promise<responses.AddQuotaLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation QuotasClient#addQuotaLock.");
+    const operationName = "addQuotaLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/AddQuotaLock";
+    const pathParams = {
+      "{quotaId}": addQuotaLockRequest.quotaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addQuotaLockRequest.opcRequestId,
+      "if-match": addQuotaLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addQuotaLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20181025/quotas/{quotaId}/actions/addLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addQuotaLockRequest.addLockDetails,
+        "AddLockDetails",
+        model.AddLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddQuotaLockResponse>{},
+        body: await response.json(),
+        bodyKey: "quota",
+        bodyModel: model.Quota,
+        type: "model.Quota",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new quota with the details supplied.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateQuotaRequest
@@ -837,7 +919,9 @@ export class QuotasClient {
       "{quotaId}": deleteQuotaRequest.quotaId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": deleteQuotaRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1096,6 +1180,88 @@ export class QuotasClient {
   }
 
   /**
+   * Remove a lock from a resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveQuotaLockRequest
+   * @return RemoveQuotaLockResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/limits/RemoveQuotaLock.ts.html |here} to see how to use RemoveQuotaLock API.
+   */
+  public async removeQuotaLock(
+    removeQuotaLockRequest: requests.RemoveQuotaLockRequest
+  ): Promise<responses.RemoveQuotaLockResponse> {
+    if (this.logger) this.logger.debug("Calling operation QuotasClient#removeQuotaLock.");
+    const operationName = "removeQuotaLock";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/limits/20181025/Quota/RemoveQuotaLock";
+    const pathParams = {
+      "{quotaId}": removeQuotaLockRequest.quotaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeQuotaLockRequest.opcRequestId,
+      "if-match": removeQuotaLockRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeQuotaLockRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/20181025/quotas/{quotaId}/actions/removeLock",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeQuotaLockRequest.removeLockDetails,
+        "RemoveLockDetails",
+        model.RemoveLockDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveQuotaLockResponse>{},
+        body: await response.json(),
+        bodyKey: "quota",
+        bodyModel: model.Quota,
+        type: "model.Quota",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the quota corresponding to given OCID with the details supplied.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateQuotaRequest
@@ -1114,7 +1280,9 @@ export class QuotasClient {
       "{quotaId}": updateQuotaRequest.quotaId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isLockOverride": updateQuotaRequest.isLockOverride
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

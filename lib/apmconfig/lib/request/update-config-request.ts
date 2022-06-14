@@ -34,7 +34,8 @@ export interface UpdateConfigRequest extends common.BaseRequest {
   "updateConfigDetails":
     | model.UpdateMetricGroupDetails
     | model.UpdateApdexRulesDetails
-    | model.UpdateSpanFilterDetails;
+    | model.UpdateSpanFilterDetails
+    | model.UpdateOptionsDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the `if-match` parameter to the value of the

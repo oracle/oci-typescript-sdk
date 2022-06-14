@@ -64,6 +64,8 @@ export namespace Config {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "OPTIONS":
+          return model.Options.getJsonObj(<model.Options>(<object>jsonObj), true);
         case "METRIC_GROUP":
           return model.MetricGroup.getJsonObj(<model.MetricGroup>(<object>jsonObj), true);
         case "APDEX":
@@ -81,6 +83,8 @@ export namespace Config {
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
+        case "OPTIONS":
+          return model.Options.getDeserializedJsonObj(<model.Options>(<object>jsonObj), true);
         case "METRIC_GROUP":
           return model.MetricGroup.getDeserializedJsonObj(
             <model.MetricGroup>(<object>jsonObj),
