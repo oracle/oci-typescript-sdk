@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Allows the user to specify that the dataset is comprised of document files (e.g. PDFs, DOCs, etc.).  It is open for further configurability.
+ * It indicates the dataset is comprised of document files.  It is open for further configurability.
  */
 export interface DocumentDatasetFormatDetails extends model.DatasetFormatDetails {
   "formatType": string;

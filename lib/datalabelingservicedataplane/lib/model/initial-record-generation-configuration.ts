@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The initial generate records configuration It generates records from the dataset's source.
+ * The initial generate records configuration. It generates records from the dataset's source.
  */
 export interface InitialRecordGenerationConfiguration {
   /**

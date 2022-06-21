@@ -313,6 +313,91 @@ export class DbManagementClient {
   }
 
   /**
+   * Lists the metadata for each ADDM task who's end snapshot time falls within the provided start and end time. Details include
+   * the name of the ADDM task, description, user, status and creation date time.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddmTasksRequest
+   * @return AddmTasksResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/AddmTasks.ts.html |here} to see how to use AddmTasks API.
+   */
+  public async addmTasks(
+    addmTasksRequest: requests.AddmTasksRequest
+  ): Promise<responses.AddmTasksResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#addmTasks.");
+    const operationName = "addmTasks";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/AddmTasksCollection/AddmTasks";
+    const pathParams = {
+      "{managedDatabaseId}": addmTasksRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "timeStart": addmTasksRequest.timeStart,
+      "timeEnd": addmTasksRequest.timeEnd,
+      "page": addmTasksRequest.page,
+      "limit": addmTasksRequest.limit,
+      "sortBy": addmTasksRequest.sortBy,
+      "sortOrder": addmTasksRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addmTasksRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addmTasksRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/addmTasks",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddmTasksResponse>{},
+        body: await response.json(),
+        bodyKey: "addmTasksCollection",
+        bodyModel: model.AddmTasksCollection,
+        type: "model.AddmTasksCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Changes database parameter values. There are two kinds of database
 * parameters:
 * <p>
@@ -1264,6 +1349,79 @@ export class DbManagementClient {
         bodyKey: "tablespaceAdminStatus",
         bodyModel: model.TablespaceAdminStatus,
         type: "model.TablespaceAdminStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an AWR snapshot for the target database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateAwrSnapshotRequest
+   * @return GenerateAwrSnapshotResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GenerateAwrSnapshot.ts.html |here} to see how to use GenerateAwrSnapshot API.
+   */
+  public async generateAwrSnapshot(
+    generateAwrSnapshotRequest: requests.GenerateAwrSnapshotRequest
+  ): Promise<responses.GenerateAwrSnapshotResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#generateAwrSnapshot.");
+    const operationName = "generateAwrSnapshot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SnapshotDetails/GenerateAwrSnapshot";
+    const pathParams = {
+      "{managedDatabaseId}": generateAwrSnapshotRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": generateAwrSnapshotRequest.opcRetryToken,
+      "opc-request-id": generateAwrSnapshotRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateAwrSnapshotRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/generateAwrSnapshot",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateAwrSnapshotResponse>{},
+        body: await response.json(),
+        bodyKey: "snapshotDetails",
+        bodyModel: model.SnapshotDetails,
+        type: "model.SnapshotDetails",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4711,6 +4869,85 @@ export class DbManagementClient {
   }
 
   /**
+   * Creates and executes a historic ADDM task using the specified AWR snapshot IDs. If an existing ADDM task
+   * uses the provided awr snapshot IDs, the existing task will be returned.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RunHistoricAddmRequest
+   * @return RunHistoricAddmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/RunHistoricAddm.ts.html |here} to see how to use RunHistoricAddm API.
+   */
+  public async runHistoricAddm(
+    runHistoricAddmRequest: requests.RunHistoricAddmRequest
+  ): Promise<responses.RunHistoricAddmResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#runHistoricAddm.");
+    const operationName = "runHistoricAddm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/HistoricAddmResult/RunHistoricAddm";
+    const pathParams = {
+      "{managedDatabaseId}": runHistoricAddmRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": runHistoricAddmRequest.opcRetryToken,
+      "opc-request-id": runHistoricAddmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      runHistoricAddmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/runHistoricAddm",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        runHistoricAddmRequest.runHistoricAddmDetails,
+        "RunHistoricAddmDetails",
+        model.RunHistoricAddmDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RunHistoricAddmResponse>{},
+        body: await response.json(),
+        bodyKey: "historicAddmResult",
+        bodyModel: model.HistoricAddmResult,
+        type: "model.HistoricAddmResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Summarizes the AWR CPU resource limits and metrics for the specified database in AWR.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5968,6 +6205,461 @@ Note that this API does not return information on the number of times each datab
     }
   }
 }
+export enum DiagnosabilityApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class DiagnosabilityClient {
+  protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
+  public targetService = "Diagnosability";
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20201101";
+    if (this.logger) this.logger.info(`DiagnosabilityClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      DiagnosabilityClient.serviceEndpointTemplate,
+      region,
+      DiagnosabilityClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      DiagnosabilityClient.serviceEndpointTemplate,
+      regionId,
+      DiagnosabilityClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Lists the alert logs for the specified Managed Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAlertLogsRequest
+   * @return ListAlertLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAlertLogs.ts.html |here} to see how to use ListAlertLogs API.
+   */
+  public async listAlertLogs(
+    listAlertLogsRequest: requests.ListAlertLogsRequest
+  ): Promise<responses.ListAlertLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DiagnosabilityClient#listAlertLogs.");
+    const operationName = "listAlertLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAlertLogs";
+    const pathParams = {
+      "{managedDatabaseId}": listAlertLogsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "timeGreaterThanOrEqualTo": listAlertLogsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listAlertLogsRequest.timeLessThanOrEqualTo,
+      "levelFilter": listAlertLogsRequest.levelFilter,
+      "typeFilter": listAlertLogsRequest.typeFilter,
+      "logSearchText": listAlertLogsRequest.logSearchText,
+      "isRegularExpression": listAlertLogsRequest.isRegularExpression,
+      "sortBy": listAlertLogsRequest.sortBy,
+      "sortOrder": listAlertLogsRequest.sortOrder,
+      "page": listAlertLogsRequest.page,
+      "limit": listAlertLogsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAlertLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAlertLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/alertLogs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAlertLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "alertLogCollection",
+        bodyModel: model.AlertLogCollection,
+        type: "model.AlertLogCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the attention logs for the specified Managed Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAttentionLogsRequest
+   * @return ListAttentionLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListAttentionLogs.ts.html |here} to see how to use ListAttentionLogs API.
+   */
+  public async listAttentionLogs(
+    listAttentionLogsRequest: requests.ListAttentionLogsRequest
+  ): Promise<responses.ListAttentionLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DiagnosabilityClient#listAttentionLogs.");
+    const operationName = "listAttentionLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListAttentionLogs";
+    const pathParams = {
+      "{managedDatabaseId}": listAttentionLogsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "timeGreaterThanOrEqualTo": listAttentionLogsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listAttentionLogsRequest.timeLessThanOrEqualTo,
+      "urgencyFilter": listAttentionLogsRequest.urgencyFilter,
+      "typeFilter": listAttentionLogsRequest.typeFilter,
+      "logSearchText": listAttentionLogsRequest.logSearchText,
+      "isRegularExpression": listAttentionLogsRequest.isRegularExpression,
+      "sortBy": listAttentionLogsRequest.sortBy,
+      "sortOrder": listAttentionLogsRequest.sortOrder,
+      "page": listAttentionLogsRequest.page,
+      "limit": listAttentionLogsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAttentionLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAttentionLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/attentionLogs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAttentionLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "attentionLogCollection",
+        bodyModel: model.AttentionLogCollection,
+        type: "model.AttentionLogCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the counts of alert logs for the specified Managed Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeAlertLogCountsRequest
+   * @return SummarizeAlertLogCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAlertLogCounts.ts.html |here} to see how to use SummarizeAlertLogCounts API.
+   */
+  public async summarizeAlertLogCounts(
+    summarizeAlertLogCountsRequest: requests.SummarizeAlertLogCountsRequest
+  ): Promise<responses.SummarizeAlertLogCountsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DiagnosabilityClient#summarizeAlertLogCounts.");
+    const operationName = "summarizeAlertLogCounts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAlertLogCounts";
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAlertLogCountsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "timeGreaterThanOrEqualTo": summarizeAlertLogCountsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAlertLogCountsRequest.timeLessThanOrEqualTo,
+      "levelFilter": summarizeAlertLogCountsRequest.levelFilter,
+      "groupBy": summarizeAlertLogCountsRequest.groupBy,
+      "typeFilter": summarizeAlertLogCountsRequest.typeFilter,
+      "logSearchText": summarizeAlertLogCountsRequest.logSearchText,
+      "isRegularExpression": summarizeAlertLogCountsRequest.isRegularExpression,
+      "page": summarizeAlertLogCountsRequest.page,
+      "limit": summarizeAlertLogCountsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAlertLogCountsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAlertLogCountsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/alertLogCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAlertLogCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "alertLogCountsCollection",
+        bodyModel: model.AlertLogCountsCollection,
+        type: "model.AlertLogCountsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the counts of attention logs for the specified Managed Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param SummarizeAttentionLogCountsRequest
+   * @return SummarizeAttentionLogCountsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeAttentionLogCounts.ts.html |here} to see how to use SummarizeAttentionLogCounts API.
+   */
+  public async summarizeAttentionLogCounts(
+    summarizeAttentionLogCountsRequest: requests.SummarizeAttentionLogCountsRequest
+  ): Promise<responses.SummarizeAttentionLogCountsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DiagnosabilityClient#summarizeAttentionLogCounts.");
+    const operationName = "summarizeAttentionLogCounts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeAttentionLogCounts";
+    const pathParams = {
+      "{managedDatabaseId}": summarizeAttentionLogCountsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "timeGreaterThanOrEqualTo": summarizeAttentionLogCountsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAttentionLogCountsRequest.timeLessThanOrEqualTo,
+      "urgencyFilter": summarizeAttentionLogCountsRequest.urgencyFilter,
+      "groupBy": summarizeAttentionLogCountsRequest.groupBy,
+      "typeFilter": summarizeAttentionLogCountsRequest.typeFilter,
+      "logSearchText": summarizeAttentionLogCountsRequest.logSearchText,
+      "isRegularExpression": summarizeAttentionLogCountsRequest.isRegularExpression,
+      "page": summarizeAttentionLogCountsRequest.page,
+      "limit": summarizeAttentionLogCountsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAttentionLogCountsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAttentionLogCountsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/attentionLogCounts",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAttentionLogCountsResponse>{},
+        body: await response.json(),
+        bodyKey: "attentionLogCountsCollection",
+        bodyModel: model.AttentionLogCountsCollection,
+        type: "model.AttentionLogCountsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
 export enum SqlTuningApiKeys {}
 /**
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
@@ -6713,6 +7405,90 @@ export class SqlTuningClient {
         bodyKey: "sqlTuningAdvisorTaskCollection",
         bodyModel: model.SqlTuningAdvisorTaskCollection,
         type: "model.SqlTuningAdvisorTaskCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the SQL tuning sets for the specified Managed Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListSqlTuningSetsRequest
+   * @return ListSqlTuningSetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlTuningSets.ts.html |here} to see how to use ListSqlTuningSets API.
+   */
+  public async listSqlTuningSets(
+    listSqlTuningSetsRequest: requests.ListSqlTuningSetsRequest
+  ): Promise<responses.ListSqlTuningSetsResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#listSqlTuningSets.");
+    const operationName = "listSqlTuningSets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlTuningSets";
+    const pathParams = {
+      "{managedDatabaseId}": listSqlTuningSetsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "owner": listSqlTuningSetsRequest.owner,
+      "nameContains": listSqlTuningSetsRequest.nameContains,
+      "sortBy": listSqlTuningSetsRequest.sortBy,
+      "sortOrder": listSqlTuningSetsRequest.sortOrder,
+      "page": listSqlTuningSetsRequest.page,
+      "limit": listSqlTuningSetsRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlTuningSetsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlTuningSetsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningSets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlTuningSetsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetCollection",
+        bodyModel: model.SqlTuningSetCollection,
+        type: "model.SqlTuningSetCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies how to process the data. Supported formats include DOCUMENT, IMAGE and TEXT.
+ * It specifies how to process the data. Supported formats include DOCUMENT, IMAGE, and TEXT.
  */
 export interface DatasetFormatDetails {
   "formatType": string;

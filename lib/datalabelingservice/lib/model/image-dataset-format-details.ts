@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Indicates the dataset is comprised of images.
+ * It indicates the dataset is comprised of images.
  */
 export interface ImageDatasetFormatDetails extends model.DatasetFormatDetails {
   "formatType": string;

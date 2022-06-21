@@ -36,7 +36,8 @@ export namespace ExportFormat {
     Spacy = "SPACY",
     Coco = "COCO",
     Yolo = "YOLO",
-    PascalVoc = "PASCAL_VOC"
+    PascalVoc = "PASCAL_VOC",
+    JsonlCompactPlusContent = "JSONL_COMPACT_PLUS_CONTENT"
   }
 
   export enum Version {

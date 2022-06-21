@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An ordered collection of Labels that are unique by name.
+ * An ordered collection of labels that are unique by name.
  *
  */
 export interface LabelSet {
   /**
-   * An ordered collection of Labels that are unique by name.
+   * An ordered collection of labels that are unique by name.
    */
   "items"?: Array<model.Label>;
 }

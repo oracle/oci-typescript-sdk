@@ -18,6 +18,8 @@ import common = require("oci-common");
  * It indicates the dataset is comprised of TXT files.
  */
 export interface TextDatasetFormatDetails extends model.DatasetFormatDetails {
+  "textFileTypeMetadata"?: model.DelimitedFileTypeMetadata;
+
   "formatType": string;
 }
 
@@ -27,7 +29,11 @@ export namespace TextDatasetFormatDetails {
       ...(isParentJsonObj
         ? obj
         : (model.DatasetFormatDetails.getJsonObj(obj) as TextDatasetFormatDetails)),
-      ...{}
+      ...{
+        "textFileTypeMetadata": obj.textFileTypeMetadata
+          ? model.TextFileTypeMetadata.getJsonObj(obj.textFileTypeMetadata)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -41,7 +47,11 @@ export namespace TextDatasetFormatDetails {
       ...(isParentJsonObj
         ? obj
         : (model.DatasetFormatDetails.getDeserializedJsonObj(obj) as TextDatasetFormatDetails)),
-      ...{}
+      ...{
+        "textFileTypeMetadata": obj.textFileTypeMetadata
+          ? model.TextFileTypeMetadata.getDeserializedJsonObj(obj.textFileTypeMetadata)
+          : undefined
+      }
     };
 
     return jsonObj;
