@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The credential to connect to the managed database in order to get optimizer statistics gathering & advisor task details.
+ * The credential used to connect to the Managed Database and obtain the details of the optimizer statistics tasks.
  */
 export interface ManagedDatabaseCredential {
   /**
-   * The user to connect to the database.
+   * The user name used to connect to the database.
    */
   "username": string;
   /**

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Represents a label.
+ * It represents a label.
  */
 export interface Label {
   /**

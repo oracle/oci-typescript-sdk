@@ -59,6 +59,8 @@ import * as SnapshotExportDetails from "./snapshot-export-details";
 export import SnapshotExportDetails = SnapshotExportDetails.SnapshotExportDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
+import * as TextFileTypeMetadata from "./text-file-type-metadata";
+export import TextFileTypeMetadata = TextFileTypeMetadata.TextFileTypeMetadata;
 import * as UpdateDatasetDetails from "./update-dataset-details";
 export import UpdateDatasetDetails = UpdateDatasetDetails.UpdateDatasetDetails;
 import * as WorkRequest from "./work-request";
@@ -80,6 +82,8 @@ export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 import * as WorkRequestSummaryCollection from "./work-request-summary-collection";
 export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRequestSummaryCollection;
 
+import * as DelimitedFileTypeMetadata from "./delimited-file-type-metadata";
+export import DelimitedFileTypeMetadata = DelimitedFileTypeMetadata.DelimitedFileTypeMetadata;
 import * as DocumentDatasetFormatDetails from "./document-dataset-format-details";
 export import DocumentDatasetFormatDetails = DocumentDatasetFormatDetails.DocumentDatasetFormatDetails;
 import * as ImageDatasetFormatDetails from "./image-dataset-format-details";

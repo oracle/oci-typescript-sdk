@@ -153,7 +153,7 @@ export class DataLabelingClient {
   /**
    * Creates an annotation.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAnnotationRequest
    * @return CreateAnnotationResponse
    * @throws OciError when an error occurs
@@ -176,7 +176,7 @@ export class DataLabelingClient {
       "opc-request-id": createAnnotationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAnnotationRequest.retryConfiguration,

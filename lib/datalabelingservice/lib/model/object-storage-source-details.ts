@@ -20,15 +20,15 @@ import common = require("oci-common");
  */
 export interface ObjectStorageSourceDetails extends model.DatasetSourceDetails {
   /**
-   * Namespace of the bucket that contains the dataset data source
+   * The namespace of the bucket that contains the dataset data source.
    */
   "namespace": string;
   /**
-   * The object storage bucket that contains the dataset data source
+   * The object storage bucket that contains the dataset data source.
    */
   "bucket": string;
   /**
-   * A common path prefix shared by the objects that make up the dataset. Records will not be generated for objects whose name match exactly with prefix.
+   * A common path prefix shared by the objects that make up the dataset. Except for the CSV file type, records are not generated for the objects whose names exactly match with the prefix.
    */
   "prefix"?: string;
 

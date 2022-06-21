@@ -67,6 +67,8 @@ import * as SortOrders from "./sort-orders";
 export import SortOrders = SortOrders.SortOrders;
 import * as SourceDetails from "./source-details";
 export import SourceDetails = SourceDetails.SourceDetails;
+import * as TextFileTypeMetadata from "./text-file-type-metadata";
+export import TextFileTypeMetadata = TextFileTypeMetadata.TextFileTypeMetadata;
 import * as TextSpan from "./text-span";
 export import TextSpan = TextSpan.TextSpan;
 import * as UpdateAnnotationDetails from "./update-annotation-details";
@@ -76,6 +78,8 @@ export import UpdateRecordDetails = UpdateRecordDetails.UpdateRecordDetails;
 
 import * as CreateObjectStorageSourceDetails from "./create-object-storage-source-details";
 export import CreateObjectStorageSourceDetails = CreateObjectStorageSourceDetails.CreateObjectStorageSourceDetails;
+import * as DelimitedFileTypeMetadata from "./delimited-file-type-metadata";
+export import DelimitedFileTypeMetadata = DelimitedFileTypeMetadata.DelimitedFileTypeMetadata;
 import * as DocumentDatasetFormatDetails from "./document-dataset-format-details";
 export import DocumentDatasetFormatDetails = DocumentDatasetFormatDetails.DocumentDatasetFormatDetails;
 import * as DocumentMetadata from "./document-metadata";

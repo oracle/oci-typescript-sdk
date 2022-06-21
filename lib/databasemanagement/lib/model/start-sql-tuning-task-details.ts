@@ -49,18 +49,22 @@ export interface StartSqlTuningTaskDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "statementTimeLimitInMinutes"?: number;
+  "sqlTuningSet"?: model.SqlTuningSetInput;
   /**
-   * The array of the details of SQL statement on which tuning is performed.
+   * The details of the SQL statement on which tuning is performed.
+   * To obtain the details of the SQL statement, you must provide either the sqlTuningSet
+   * or the tuple of sqlDetails/timeStarted/timeEnded.
+   *
    */
-  "sqlDetails": Array<model.SqlTuningTaskSqlDetail>;
+  "sqlDetails"?: Array<model.SqlTuningTaskSqlDetail>;
   /**
    * The start time of the period in which SQL statements are running.
    */
-  "timeStarted": Date;
+  "timeStarted"?: Date;
   /**
    * The end time of the period in which SQL statements are running.
    */
-  "timeEnded": Date;
+  "timeEnded"?: Date;
 }
 
 export namespace StartSqlTuningTaskDetails {
@@ -77,6 +81,9 @@ export namespace StartSqlTuningTaskDetails {
           ? model.SqlTuningTaskCredentialDetails.getJsonObj(obj.credentialDetails)
           : undefined,
 
+        "sqlTuningSet": obj.sqlTuningSet
+          ? model.SqlTuningSetInput.getJsonObj(obj.sqlTuningSet)
+          : undefined,
         "sqlDetails": obj.sqlDetails
           ? obj.sqlDetails.map(item => {
               return model.SqlTuningTaskSqlDetail.getJsonObj(item);
@@ -95,6 +102,9 @@ export namespace StartSqlTuningTaskDetails {
           ? model.SqlTuningTaskCredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
           : undefined,
 
+        "sqlTuningSet": obj.sqlTuningSet
+          ? model.SqlTuningSetInput.getDeserializedJsonObj(obj.sqlTuningSet)
+          : undefined,
         "sqlDetails": obj.sqlDetails
           ? obj.sqlDetails.map(item => {
               return model.SqlTuningTaskSqlDetail.getDeserializedJsonObj(item);
