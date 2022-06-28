@@ -151,6 +151,7 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "dataCollectionOptions"?: model.DataCollectionOptions;
 }
 
 export namespace CreateCloudVmClusterDetails {
@@ -160,12 +161,26 @@ export namespace CreateCloudVmClusterDetails {
   }
 
   export function getJsonObj(obj: CreateCloudVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateCloudVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

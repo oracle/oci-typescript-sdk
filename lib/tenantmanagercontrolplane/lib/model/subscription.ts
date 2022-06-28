@@ -55,6 +55,38 @@ export interface Subscription {
    */
   "skus"?: Array<model.SubscriptionSku>;
   /**
+   * Denotes any program that is associated with the subscription.
+   */
+  "programType"?: string;
+  /**
+   * The country code for the customer associated with the subscription.
+   */
+  "customerCountryCode"?: string;
+  /**
+   * The currency code for the customer associated with the subscription.
+   */
+  "cloudAmountCurrency"?: string;
+  /**
+   * Customer service identifier for the customer associated with the subscription.
+   */
+  "csiNumber"?: string;
+  /**
+   * Tier for the subscription, such as if it is a free promotion subscription or a paid subscription.
+   */
+  "subscriptionTier"?: string;
+  /**
+   * Denotes if the subscription is a government subscription or not.
+   */
+  "isGovernmentSubscription"?: boolean;
+  /**
+   * List of promotions related to the subscription.
+   */
+  "promotion"?: Array<model.Promotion>;
+  /**
+   * Purchase entitlement id associated with the subscription.
+   */
+  "purchaseEntitlementId"?: string;
+  /**
    * Subscription start time.
    */
   "startDate"?: Date;
@@ -81,6 +113,12 @@ export namespace Subscription {
           ? obj.skus.map(item => {
               return model.SubscriptionSku.getJsonObj(item);
             })
+          : undefined,
+
+        "promotion": obj.promotion
+          ? obj.promotion.map(item => {
+              return model.Promotion.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -94,6 +132,12 @@ export namespace Subscription {
         "skus": obj.skus
           ? obj.skus.map(item => {
               return model.SubscriptionSku.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "promotion": obj.promotion
+          ? obj.promotion.map(item => {
+              return model.Promotion.getDeserializedJsonObj(item);
             })
           : undefined
       }

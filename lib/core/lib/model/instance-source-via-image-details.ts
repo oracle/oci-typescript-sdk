@@ -33,6 +33,23 @@ export interface InstanceSourceViaImageDetails extends model.InstanceSourceDetai
    * The OCID of the Key Management key to assign as the master encryption key for the boot volume.
    */
   "kmsKeyId"?: string;
+  /**
+    * The number of volume performance units (VPUs) that will be applied to this volume per GB,
+* representing the Block Volume service's elastic performance options.
+* See [Block Volume Performance Levels](https://docs.cloud.oracle.com/iaas/Content/Block/Concepts/blockvolumeperformance.htm#perf_levels) for more information.
+* <p>
+Allowed values:
+* <p>
+  * `10`: Represents Balanced option.
+* <p>
+  * `20`: Represents Higher Performance option.
+* <p>
+  * `30`-`120`: Represents the Ultra High Performance option.
+* <p>
+For volumes with the auto-tuned performance feature enabled, this is set to the default (minimum) VPUs/GB.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "bootVolumeVpusPerGB"?: number;
 
   "sourceType": string;
 }

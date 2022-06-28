@@ -24,6 +24,8 @@ import * as CreateNodePoolRequest from "./create-node-pool-request";
 export import CreateNodePoolRequest = CreateNodePoolRequest.CreateNodePoolRequest;
 import * as DeleteClusterRequest from "./delete-cluster-request";
 export import DeleteClusterRequest = DeleteClusterRequest.DeleteClusterRequest;
+import * as DeleteNodeRequest from "./delete-node-request";
+export import DeleteNodeRequest = DeleteNodeRequest.DeleteNodeRequest;
 import * as DeleteNodePoolRequest from "./delete-node-pool-request";
 export import DeleteNodePoolRequest = DeleteNodePoolRequest.DeleteNodePoolRequest;
 import * as DeleteWorkRequestRequest from "./delete-work-request-request";

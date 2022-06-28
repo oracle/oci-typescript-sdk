@@ -57,6 +57,10 @@ export interface ListNodePoolsRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A list of nodepool lifecycle states on which to filter on, matching any of the list items (OR logic). eg. [ACTIVE, DELETING]
+   */
+  "lifecycleState"?: Array<model.NodePoolLifecycleState>;
 }
 
 export namespace ListNodePoolsRequest {

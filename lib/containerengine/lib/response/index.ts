@@ -24,6 +24,8 @@ import * as CreateNodePoolResponse from "./create-node-pool-response";
 export import CreateNodePoolResponse = CreateNodePoolResponse.CreateNodePoolResponse;
 import * as DeleteClusterResponse from "./delete-cluster-response";
 export import DeleteClusterResponse = DeleteClusterResponse.DeleteClusterResponse;
+import * as DeleteNodeResponse from "./delete-node-response";
+export import DeleteNodeResponse = DeleteNodeResponse.DeleteNodeResponse;
 import * as DeleteNodePoolResponse from "./delete-node-pool-response";
 export import DeleteNodePoolResponse = DeleteNodePoolResponse.DeleteNodePoolResponse;
 import * as DeleteWorkRequestResponse from "./delete-work-request-response";

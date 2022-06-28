@@ -198,6 +198,8 @@ import * as ClusterNetworkPlacementConfigurationDetails from "./cluster-network-
 export import ClusterNetworkPlacementConfigurationDetails = ClusterNetworkPlacementConfigurationDetails.ClusterNetworkPlacementConfigurationDetails;
 import * as ClusterNetworkSummary from "./cluster-network-summary";
 export import ClusterNetworkSummary = ClusterNetworkSummary.ClusterNetworkSummary;
+import * as CompartmentInternal from "./compartment-internal";
+export import CompartmentInternal = CompartmentInternal.CompartmentInternal;
 import * as ComputeCapacityReservation from "./compute-capacity-reservation";
 export import ComputeCapacityReservation = ComputeCapacityReservation.ComputeCapacityReservation;
 import * as ComputeCapacityReservationInstanceShapeSummary from "./compute-capacity-reservation-instance-shape-summary";

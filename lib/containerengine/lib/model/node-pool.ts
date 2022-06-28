@@ -26,6 +26,14 @@ export interface NodePool {
    */
   "id"?: string;
   /**
+   * The state of the nodepool.
+   */
+  "lifecycleState"?: model.NodePoolLifecycleState;
+  /**
+   * Details about the state of the nodepool.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * The OCID of the compartment in which the node pool exists.
    */
   "compartmentId"?: string;
@@ -115,6 +123,7 @@ export interface NodePool {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  "nodeEvictionNodePoolSettings"?: model.NodeEvictionNodePoolSettings;
 }
 
 export namespace NodePool {
@@ -145,6 +154,10 @@ export namespace NodePool {
           : undefined,
         "nodeConfigDetails": obj.nodeConfigDetails
           ? model.NodePoolNodeConfigDetails.getJsonObj(obj.nodeConfigDetails)
+          : undefined,
+
+        "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
+          ? model.NodeEvictionNodePoolSettings.getJsonObj(obj.nodeEvictionNodePoolSettings)
           : undefined
       }
     };
@@ -178,6 +191,12 @@ export namespace NodePool {
           : undefined,
         "nodeConfigDetails": obj.nodeConfigDetails
           ? model.NodePoolNodeConfigDetails.getDeserializedJsonObj(obj.nodeConfigDetails)
+          : undefined,
+
+        "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
+          ? model.NodeEvictionNodePoolSettings.getDeserializedJsonObj(
+              obj.nodeEvictionNodePoolSettings
+            )
           : undefined
       }
     };

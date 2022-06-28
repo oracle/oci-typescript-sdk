@@ -535,6 +535,85 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Delete node.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteNodeRequest
+   * @return DeleteNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteNode.ts.html |here} to see how to use DeleteNode API.
+   */
+  public async deleteNode(
+    deleteNodeRequest: requests.DeleteNodeRequest
+  ): Promise<responses.DeleteNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#deleteNode.");
+    const operationName = "deleteNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/NodePool/DeleteNode";
+    const pathParams = {
+      "{nodePoolId}": deleteNodeRequest.nodePoolId,
+      "{nodeId}": deleteNodeRequest.nodeId
+    };
+
+    const queryParams = {
+      "isDecrementSize": deleteNodeRequest.isDecrementSize,
+      "overrideEvictionGraceDuration": deleteNodeRequest.overrideEvictionGraceDuration,
+      "isForceDeletionAfterOverrideGraceDuration":
+        deleteNodeRequest.isForceDeletionAfterOverrideGraceDuration
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteNodeRequest.ifMatch,
+      "opc-request-id": deleteNodeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/nodePools/{nodePoolId}/node/{nodeId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a node pool.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteNodePoolRequest
@@ -553,7 +632,11 @@ export class ContainerEngineClient {
       "{nodePoolId}": deleteNodePoolRequest.nodePoolId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "overrideEvictionGraceDuration": deleteNodePoolRequest.overrideEvictionGraceDuration,
+      "isForceDeletionAfterOverrideGraceDuration":
+        deleteNodePoolRequest.isForceDeletionAfterOverrideGraceDuration
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1294,7 +1377,8 @@ export class ContainerEngineClient {
       "limit": listNodePoolsRequest.limit,
       "page": listNodePoolsRequest.page,
       "sortOrder": listNodePoolsRequest.sortOrder,
-      "sortBy": listNodePoolsRequest.sortBy
+      "sortBy": listNodePoolsRequest.sortBy,
+      "lifecycleState": listNodePoolsRequest.lifecycleState
     };
 
     let headerParams = {
@@ -1864,7 +1948,11 @@ export class ContainerEngineClient {
       "{nodePoolId}": updateNodePoolRequest.nodePoolId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "overrideEvictionGraceDuration": updateNodePoolRequest.overrideEvictionGraceDuration,
+      "isForceDeletionAfterOverrideGraceDuration":
+        updateNodePoolRequest.isForceDeletionAfterOverrideGraceDuration
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,

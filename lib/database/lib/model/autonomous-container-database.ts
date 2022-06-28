@@ -146,7 +146,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
-   * Sum of OCPUs available on the Autonomous VM Cluster + Sum of Fractional OCPUs available in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Sum of OCPUs available on the Autonomous VM Cluster + Sum of fractional OCPUs available in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCpus"?: number;
   /**
@@ -154,7 +154,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "totalCpus"?: number;
   /**
-   * CPU cores that are not released to available pool after an Autonomous Database is terminated (Requires Autonomous Container Database restart). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * CPU cores that continue to be included in the count of OCPUs available to the Autonomous Container Database even after one of its Autonomous Database is terminated or scaled down. You can release them to the available OCPUs at its parent AVMC level by restarting the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "reclaimableCpus"?: number;
   /**

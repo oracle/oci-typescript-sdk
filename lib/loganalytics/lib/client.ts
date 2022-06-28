@@ -153,7 +153,7 @@ export class LogAnalyticsClient {
 
   /**
    * Adds association between input source log analytics entity and one or more existing destination entities.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddEntityAssociationRequest
    * @return AddEntityAssociationResponse
    * @throws OciError when an error occurs
@@ -181,7 +181,7 @@ export class LogAnalyticsClient {
       "if-match": addEntityAssociationRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addEntityAssociationRequest.retryConfiguration,
@@ -231,7 +231,7 @@ export class LogAnalyticsClient {
   /**
    * Add one or more event types to a source. An event type and version can be enabled only on one source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddSourceEventTypesRequest
    * @return AddSourceEventTypesResponse
    * @throws OciError when an error occurs
@@ -257,7 +257,7 @@ export class LogAnalyticsClient {
       "opc-request-id": addSourceEventTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addSourceEventTypesRequest.retryConfiguration,
@@ -306,7 +306,7 @@ export class LogAnalyticsClient {
   /**
    * Appends data to the lookup content. The csv file containing the content to be appended is passed in as binary data in the request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AppendLookupDataRequest
    * @return AppendLookupDataResponse
    * @throws OciError when an error occurs
@@ -336,7 +336,7 @@ export class LogAnalyticsClient {
       "expect": appendLookupDataRequest.expect
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       appendLookupDataRequest.retryConfiguration,
@@ -387,7 +387,7 @@ export class LogAnalyticsClient {
   /**
    * Lists basic information about a specified set of labels in batch.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param BatchGetBasicInfoRequest
    * @return BatchGetBasicInfoResponse
    * @throws OciError when an error occurs
@@ -417,7 +417,7 @@ export class LogAnalyticsClient {
       "opc-request-id": batchGetBasicInfoRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       batchGetBasicInfoRequest.retryConfiguration,
@@ -479,7 +479,7 @@ export class LogAnalyticsClient {
 
   /**
    * Cancel/Remove query job work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelQueryWorkRequestRequest
    * @return CancelQueryWorkRequestResponse
    * @throws OciError when an error occurs
@@ -506,7 +506,7 @@ export class LogAnalyticsClient {
       "if-match": cancelQueryWorkRequestRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelQueryWorkRequestRequest.retryConfiguration,
@@ -549,7 +549,7 @@ export class LogAnalyticsClient {
 
   /**
    * Update the compartment of the log analytics enterprise manager bridge with the given id.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeLogAnalyticsEmBridgeCompartmentRequest
    * @return ChangeLogAnalyticsEmBridgeCompartmentResponse
    * @throws OciError when an error occurs
@@ -580,7 +580,7 @@ export class LogAnalyticsClient {
       "opc-retry-token": changeLogAnalyticsEmBridgeCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeLogAnalyticsEmBridgeCompartmentRequest.retryConfiguration,
@@ -629,7 +629,7 @@ export class LogAnalyticsClient {
 
   /**
    * Update the compartment of the log analytics entity with the given id.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeLogAnalyticsEntityCompartmentRequest
    * @return ChangeLogAnalyticsEntityCompartmentResponse
    * @throws OciError when an error occurs
@@ -659,7 +659,7 @@ export class LogAnalyticsClient {
       "opc-retry-token": changeLogAnalyticsEntityCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeLogAnalyticsEntityCompartmentRequest.retryConfiguration,
@@ -709,7 +709,7 @@ export class LogAnalyticsClient {
   /**
    * Moves the specified log group to a different compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeLogAnalyticsLogGroupCompartmentRequest
    * @return ChangeLogAnalyticsLogGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -740,7 +740,7 @@ export class LogAnalyticsClient {
       "opc-retry-token": changeLogAnalyticsLogGroupCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeLogAnalyticsLogGroupCompartmentRequest.retryConfiguration,
@@ -948,7 +948,7 @@ export class LogAnalyticsClient {
    * Clean accumulated acceleration data stored for the accelerated saved search.
    * The ScheduledTask taskType must be ACCELERATION.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CleanRequest
    * @return CleanResponse
    * @throws OciError when an error occurs
@@ -975,7 +975,7 @@ export class LogAnalyticsClient {
       "opc-retry-token": cleanRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cleanRequest.retryConfiguration,
@@ -1019,7 +1019,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the difference between the two input payloads, including intraline differences.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CompareContentRequest
    * @return CompareContentResponse
    * @throws OciError when an error occurs
@@ -1043,7 +1043,7 @@ export class LogAnalyticsClient {
       "opc-request-id": compareContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       compareContentRequest.retryConfiguration,
@@ -1095,7 +1095,7 @@ export class LogAnalyticsClient {
 
   /**
    * Add configuration for enterprise manager bridge. Enterprise manager bridge is used to automatically add selected entities from enterprise manager cloud control. A corresponding OCI bridge configuration is required in enterprise manager.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateLogAnalyticsEmBridgeRequest
    * @return CreateLogAnalyticsEmBridgeResponse
    * @throws OciError when an error occurs
@@ -1121,7 +1121,7 @@ export class LogAnalyticsClient {
       "opc-request-id": createLogAnalyticsEmBridgeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createLogAnalyticsEmBridgeRequest.retryConfiguration,
@@ -1178,7 +1178,7 @@ export class LogAnalyticsClient {
 
   /**
    * Create a new log analytics entity.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateLogAnalyticsEntityRequest
    * @return CreateLogAnalyticsEntityResponse
    * @throws OciError when an error occurs
@@ -1204,7 +1204,7 @@ export class LogAnalyticsClient {
       "opc-request-id": createLogAnalyticsEntityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createLogAnalyticsEntityRequest.retryConfiguration,
@@ -1261,7 +1261,7 @@ export class LogAnalyticsClient {
 
   /**
    * Add custom log analytics entity type.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateLogAnalyticsEntityTypeRequest
    * @return CreateLogAnalyticsEntityTypeResponse
    * @throws OciError when an error occurs
@@ -1287,7 +1287,7 @@ export class LogAnalyticsClient {
       "opc-retry-token": createLogAnalyticsEntityTypeRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createLogAnalyticsEntityTypeRequest.retryConfiguration,
@@ -1336,7 +1336,7 @@ export class LogAnalyticsClient {
   /**
    * Creates a new log group in the specified compartment with the input display name. You may also specify optional information such as description, defined tags, and free-form tags.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateLogAnalyticsLogGroupRequest
    * @return CreateLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -1362,7 +1362,7 @@ export class LogAnalyticsClient {
       "opc-request-id": createLogAnalyticsLogGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createLogAnalyticsLogGroupRequest.retryConfiguration,
@@ -1586,7 +1586,7 @@ export class LogAnalyticsClient {
   /**
    * Deletes the associations between the sources and entities specified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAssociationsRequest
    * @return DeleteAssociationsResponse
    * @throws OciError when an error occurs
@@ -1611,7 +1611,7 @@ export class LogAnalyticsClient {
       "opc-request-id": deleteAssociationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAssociationsRequest.retryConfiguration,
@@ -1665,7 +1665,7 @@ export class LogAnalyticsClient {
   /**
    * Deletes field with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFieldRequest
    * @return DeleteFieldResponse
    * @throws OciError when an error occurs
@@ -1692,7 +1692,7 @@ export class LogAnalyticsClient {
       "if-match": deleteFieldRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteFieldRequest.retryConfiguration,
@@ -1736,7 +1736,7 @@ export class LogAnalyticsClient {
   /**
    * Deletes label with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteLabelRequest
    * @return DeleteLabelResponse
    * @throws OciError when an error occurs
@@ -1763,7 +1763,7 @@ export class LogAnalyticsClient {
       "if-match": deleteLabelRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteLabelRequest.retryConfiguration,
@@ -2017,7 +2017,7 @@ export class LogAnalyticsClient {
   /**
    * Deletes the specified log group. The log group cannot be part of an active association or have an active upload.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteLogAnalyticsLogGroupRequest
    * @return DeleteLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -2044,7 +2044,7 @@ export class LogAnalyticsClient {
       "opc-request-id": deleteLogAnalyticsLogGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteLogAnalyticsLogGroupRequest.retryConfiguration,
@@ -2164,7 +2164,7 @@ export class LogAnalyticsClient {
   /**
    * Deletes lookup with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteLookupRequest
    * @return DeleteLookupResponse
    * @throws OciError when an error occurs
@@ -2193,7 +2193,7 @@ export class LogAnalyticsClient {
       "if-match": deleteLookupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteLookupRequest.retryConfiguration,
@@ -2242,7 +2242,7 @@ export class LogAnalyticsClient {
   /**
    * Deletes parser with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteParserRequest
    * @return DeleteParserResponse
    * @throws OciError when an error occurs
@@ -2269,7 +2269,7 @@ export class LogAnalyticsClient {
       "if-match": deleteParserRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteParserRequest.retryConfiguration,
@@ -2312,7 +2312,7 @@ export class LogAnalyticsClient {
 
   /**
    * Delete the scheduled task.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteScheduledTaskRequest
    * @return DeleteScheduledTaskResponse
    * @throws OciError when an error occurs
@@ -2338,7 +2338,7 @@ export class LogAnalyticsClient {
       "if-match": deleteScheduledTaskRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteScheduledTaskRequest.retryConfiguration,
@@ -2382,7 +2382,7 @@ export class LogAnalyticsClient {
   /**
    * Deletes source with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSourceRequest
    * @return DeleteSourceResponse
    * @throws OciError when an error occurs
@@ -2409,7 +2409,7 @@ export class LogAnalyticsClient {
       "if-match": deleteSourceRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSourceRequest.retryConfiguration,
@@ -2685,7 +2685,7 @@ export class LogAnalyticsClient {
   /**
    * This API disables archiving.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableArchivingRequest
    * @return DisableArchivingResponse
    * @throws OciError when an error occurs
@@ -2710,7 +2710,7 @@ export class LogAnalyticsClient {
       "if-match": disableArchivingRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       disableArchivingRequest.retryConfiguration,
@@ -2765,7 +2765,7 @@ export class LogAnalyticsClient {
    * associated with any entity that becomes eligible for association. In addition, you may also optionally
    * remove all existing associations for this log source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableAutoAssociationRequest
    * @return DisableAutoAssociationResponse
    * @throws OciError when an error occurs
@@ -2792,7 +2792,7 @@ export class LogAnalyticsClient {
       "opc-request-id": disableAutoAssociationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       disableAutoAssociationRequest.retryConfiguration,
@@ -2846,7 +2846,7 @@ export class LogAnalyticsClient {
   /**
    * Disable one or more event types in a source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableSourceEventTypesRequest
    * @return DisableSourceEventTypesResponse
    * @throws OciError when an error occurs
@@ -2873,7 +2873,7 @@ export class LogAnalyticsClient {
       "opc-request-id": disableSourceEventTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       disableSourceEventTypesRequest.retryConfiguration,
@@ -2922,7 +2922,7 @@ export class LogAnalyticsClient {
   /**
    * THis API enables archiving.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableArchivingRequest
    * @return EnableArchivingResponse
    * @throws OciError when an error occurs
@@ -2947,7 +2947,7 @@ export class LogAnalyticsClient {
       "if-match": enableArchivingRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableArchivingRequest.retryConfiguration,
@@ -3002,7 +3002,7 @@ export class LogAnalyticsClient {
    * to any eligible entities it is not already associated with, and would also ensure the log source gets
    * associated with entities that are added or become eligible in the future.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableAutoAssociationRequest
    * @return EnableAutoAssociationResponse
    * @throws OciError when an error occurs
@@ -3029,7 +3029,7 @@ export class LogAnalyticsClient {
       "opc-request-id": enableAutoAssociationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableAutoAssociationRequest.retryConfiguration,
@@ -3083,7 +3083,7 @@ export class LogAnalyticsClient {
   /**
    * Enable one or more event types in a source. An event type and version can be enabled only in one source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EnableSourceEventTypesRequest
    * @return EnableSourceEventTypesResponse
    * @throws OciError when an error occurs
@@ -3110,7 +3110,7 @@ export class LogAnalyticsClient {
       "opc-request-id": enableSourceEventTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       enableSourceEventTypesRequest.retryConfiguration,
@@ -3159,7 +3159,7 @@ export class LogAnalyticsClient {
   /**
    * This API estimates the size of data to be purged based based on time interval, purge query etc.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EstimatePurgeDataSizeRequest
    * @return EstimatePurgeDataSizeResponse
    * @throws OciError when an error occurs
@@ -3186,7 +3186,7 @@ export class LogAnalyticsClient {
       "if-match": estimatePurgeDataSizeRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       estimatePurgeDataSizeRequest.retryConfiguration,
@@ -3244,7 +3244,7 @@ export class LogAnalyticsClient {
   /**
    * This API gives an active storage usage estimate for archived data to be recalled and the time range of such data.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EstimateRecallDataSizeRequest
    * @return EstimateRecallDataSizeResponse
    * @throws OciError when an error occurs
@@ -3269,7 +3269,7 @@ export class LogAnalyticsClient {
       "opc-request-id": estimateRecallDataSizeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       estimateRecallDataSizeRequest.retryConfiguration,
@@ -3322,7 +3322,7 @@ export class LogAnalyticsClient {
   /**
    * This API gives an active storage usage estimate for recalled data to be released and the time range of such data.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EstimateReleaseDataSizeRequest
    * @return EstimateReleaseDataSizeResponse
    * @throws OciError when an error occurs
@@ -3347,7 +3347,7 @@ export class LogAnalyticsClient {
       "opc-request-id": estimateReleaseDataSizeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       estimateReleaseDataSizeRequest.retryConfiguration,
@@ -3400,7 +3400,7 @@ export class LogAnalyticsClient {
   /**
    * Exports all custom details of the specified sources, parsers, fields and labels, in zip format.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExportCustomContentRequest
    * @return ExportCustomContentResponse
    * @throws OciError when an error occurs
@@ -3424,7 +3424,7 @@ export class LogAnalyticsClient {
       "opc-request-id": exportCustomContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       exportCustomContentRequest.retryConfiguration,
@@ -3476,7 +3476,7 @@ export class LogAnalyticsClient {
 
   /**
    * Export data based on query. Endpoint returns a stream of data. Endpoint is synchronous. Queries must deliver first result within 60 seconds or calls are subject to timeout.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExportQueryResultRequest
    * @return ExportQueryResultResponse
    * @throws OciError when an error occurs
@@ -3500,7 +3500,7 @@ export class LogAnalyticsClient {
       "opc-request-id": exportQueryResultRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       exportQueryResultRequest.retryConfiguration,
@@ -3553,7 +3553,7 @@ export class LogAnalyticsClient {
   /**
    * Extracts the field paths from the example json or xml content.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExtractStructuredLogFieldPathsRequest
    * @return ExtractStructuredLogFieldPathsResponse
    * @throws OciError when an error occurs
@@ -3581,7 +3581,7 @@ export class LogAnalyticsClient {
       "opc-request-id": extractStructuredLogFieldPathsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       extractStructuredLogFieldPathsRequest.retryConfiguration,
@@ -3634,7 +3634,7 @@ export class LogAnalyticsClient {
   /**
    * Extracts the header paths from the example json or xml content.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExtractStructuredLogHeaderPathsRequest
    * @return ExtractStructuredLogHeaderPathsResponse
    * @throws OciError when an error occurs
@@ -3662,7 +3662,7 @@ export class LogAnalyticsClient {
       "opc-request-id": extractStructuredLogHeaderPathsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       extractStructuredLogHeaderPathsRequest.retryConfiguration,
@@ -3714,7 +3714,7 @@ export class LogAnalyticsClient {
 
   /**
    * Each filter specifies an operator, a field and one or more values to be inserted into the provided query as criteria.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param FilterRequest
    * @return FilterResponse
    * @throws OciError when an error occurs
@@ -3736,7 +3736,7 @@ export class LogAnalyticsClient {
       "opc-request-id": filterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       filterRequest.retryConfiguration,
@@ -3789,7 +3789,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the count of source associations for entities in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAssociationSummaryRequest
    * @return GetAssociationSummaryResponse
    * @throws OciError when an error occurs
@@ -3816,7 +3816,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getAssociationSummaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAssociationSummaryRequest.retryConfiguration,
@@ -3864,7 +3864,7 @@ export class LogAnalyticsClient {
   /**
    * Gets detailed information about the category with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCategoryRequest
    * @return GetCategoryResponse
    * @throws OciError when an error occurs
@@ -3889,7 +3889,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getCategoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getCategoryRequest.retryConfiguration,
@@ -3937,7 +3937,7 @@ export class LogAnalyticsClient {
   /**
    * Extracts column names from the input SQL query.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetColumnNamesRequest
    * @return GetColumnNamesResponse
    * @throws OciError when an error occurs
@@ -3964,7 +3964,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getColumnNamesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getColumnNamesRequest.retryConfiguration,
@@ -4012,7 +4012,7 @@ export class LogAnalyticsClient {
   /**
    * Returns detailed information about the configuration work request with the specified id.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConfigWorkRequestRequest
    * @return GetConfigWorkRequestResponse
    * @throws OciError when an error occurs
@@ -4038,7 +4038,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getConfigWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getConfigWorkRequestRequest.retryConfiguration,
@@ -4086,7 +4086,7 @@ export class LogAnalyticsClient {
   /**
    * Gets detailed information about the field with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFieldRequest
    * @return GetFieldResponse
    * @throws OciError when an error occurs
@@ -4111,7 +4111,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getFieldRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFieldRequest.retryConfiguration,
@@ -4164,7 +4164,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the count of fields. You may optionally specify isShowDetail=true to view a summary of each field data type.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFieldsSummaryRequest
    * @return GetFieldsSummaryResponse
    * @throws OciError when an error occurs
@@ -4190,7 +4190,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getFieldsSummaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFieldsSummaryRequest.retryConfiguration,
@@ -4238,7 +4238,7 @@ export class LogAnalyticsClient {
   /**
    * Gets detailed information about the label with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLabelRequest
    * @return GetLabelResponse
    * @throws OciError when an error occurs
@@ -4263,7 +4263,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLabelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLabelRequest.retryConfiguration,
@@ -4316,7 +4316,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the count of labels.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLabelSummaryRequest
    * @return GetLabelSummaryResponse
    * @throws OciError when an error occurs
@@ -4340,7 +4340,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLabelSummaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLabelSummaryRequest.retryConfiguration,
@@ -4770,7 +4770,7 @@ export class LogAnalyticsClient {
   /**
    * Gets detailed information about the specified log group such as display name, description, defined tags, and free-form tags.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLogAnalyticsLogGroupRequest
    * @return GetLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -4796,7 +4796,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLogAnalyticsLogGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLogAnalyticsLogGroupRequest.retryConfiguration,
@@ -4849,7 +4849,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the count of log groups in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLogAnalyticsLogGroupsSummaryRequest
    * @return GetLogAnalyticsLogGroupsSummaryResponse
    * @throws OciError when an error occurs
@@ -4876,7 +4876,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLogAnalyticsLogGroupsSummaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLogAnalyticsLogGroupsSummaryRequest.retryConfiguration,
@@ -4923,7 +4923,7 @@ export class LogAnalyticsClient {
 
   /**
    * Gets a configured object storage based collection rule by given id
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLogAnalyticsObjectCollectionRuleRequest
    * @return GetLogAnalyticsObjectCollectionRuleResponse
    * @throws OciError when an error occurs
@@ -4952,7 +4952,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLogAnalyticsObjectCollectionRuleRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLogAnalyticsObjectCollectionRuleRequest.retryConfiguration,
@@ -5006,7 +5006,7 @@ export class LogAnalyticsClient {
   /**
    * This API returns the count of distinct log sets.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLogSetsCountRequest
    * @return GetLogSetsCountResponse
    * @throws OciError when an error occurs
@@ -5030,7 +5030,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLogSetsCountRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLogSetsCountRequest.retryConfiguration,
@@ -5078,7 +5078,7 @@ export class LogAnalyticsClient {
   /**
    * Gets detailed information about the lookup with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLookupRequest
    * @return GetLookupResponse
    * @throws OciError when an error occurs
@@ -5103,7 +5103,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLookupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLookupRequest.retryConfiguration,
@@ -5155,7 +5155,7 @@ export class LogAnalyticsClient {
 
   /**
    * Returns the count of user created and oracle defined lookups.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetLookupSummaryRequest
    * @return GetLookupSummaryResponse
    * @throws OciError when an error occurs
@@ -5179,7 +5179,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getLookupSummaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getLookupSummaryRequest.retryConfiguration,
@@ -5227,7 +5227,7 @@ export class LogAnalyticsClient {
   /**
    * This API gets the namespace details of a tenancy already onboarded in Logging Analytics Application
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNamespaceRequest
    * @return GetNamespaceResponse
    * @throws OciError when an error occurs
@@ -5251,7 +5251,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getNamespaceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNamespaceRequest.retryConfiguration,
@@ -5304,7 +5304,7 @@ export class LogAnalyticsClient {
   /**
    * Gets detailed information about the parser with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetParserRequest
    * @return GetParserResponse
    * @throws OciError when an error occurs
@@ -5329,7 +5329,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getParserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getParserRequest.retryConfiguration,
@@ -5382,7 +5382,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the count of parsers.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetParserSummaryRequest
    * @return GetParserSummaryResponse
    * @throws OciError when an error occurs
@@ -5406,7 +5406,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getParserSummaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getParserSummaryRequest.retryConfiguration,
@@ -5454,7 +5454,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the preferences of the tenant. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPreferencesRequest
    * @return GetPreferencesResponse
    * @throws OciError when an error occurs
@@ -5483,7 +5483,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getPreferencesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getPreferencesRequest.retryConfiguration,
@@ -5542,7 +5542,7 @@ export class LogAnalyticsClient {
    * Returns the intermediate results for a query that was specified to run asynchronously if the query has not completed,
    * otherwise the final query results identified by a queryWorkRequestId returned when submitting the query execute asynchronously.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetQueryResultRequest
    * @return GetQueryResultResponse
    * @throws OciError when an error occurs
@@ -5573,7 +5573,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getQueryResultRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getQueryResultRequest.retryConfiguration,
@@ -5635,7 +5635,7 @@ export class LogAnalyticsClient {
 
   /**
    * Retrieve work request details by workRequestId. This endpoint can be polled for status tracking of work request. Clients should poll using the interval returned in the retry-after header.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetQueryWorkRequestRequest
    * @return GetQueryWorkRequestResponse
    * @throws OciError when an error occurs
@@ -5660,7 +5660,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getQueryWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getQueryWorkRequestRequest.retryConfiguration,
@@ -5717,7 +5717,7 @@ export class LogAnalyticsClient {
 
   /**
    * Get the scheduled task for the specified task identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetScheduledTaskRequest
    * @return GetScheduledTaskResponse
    * @throws OciError when an error occurs
@@ -5742,7 +5742,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getScheduledTaskRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getScheduledTaskRequest.retryConfiguration,
@@ -5795,7 +5795,7 @@ export class LogAnalyticsClient {
   /**
    * Gets detailed information about the source with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSourceRequest
    * @return GetSourceResponse
    * @throws OciError when an error occurs
@@ -5822,7 +5822,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getSourceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSourceRequest.retryConfiguration,
@@ -5875,7 +5875,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the count of sources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSourceSummaryRequest
    * @return GetSourceSummaryResponse
    * @throws OciError when an error occurs
@@ -5899,7 +5899,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getSourceSummaryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSourceSummaryRequest.retryConfiguration,
@@ -5947,7 +5947,7 @@ export class LogAnalyticsClient {
   /**
    * This API gets the storage configuration of a tenancy
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStorageRequest
    * @return GetStorageResponse
    * @throws OciError when an error occurs
@@ -5971,7 +5971,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getStorageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getStorageRequest.retryConfiguration,
@@ -6025,7 +6025,7 @@ export class LogAnalyticsClient {
    * This API gets storage usage information of a tenancy.  Storage usage information includes active, archived or recalled
    * data.  The unit of return data is in bytes.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStorageUsageRequest
    * @return GetStorageUsageResponse
    * @throws OciError when an error occurs
@@ -6049,7 +6049,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getStorageUsageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getStorageUsageRequest.retryConfiguration,
@@ -6098,7 +6098,7 @@ export class LogAnalyticsClient {
    * This API returns work request details specified by {workRequestId}. This API can be polled for status tracking of
    * work request.  Clients should poll using the interval returned in retry-after header.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStorageWorkRequestRequest
    * @return GetStorageWorkRequestResponse
    * @throws OciError when an error occurs
@@ -6124,7 +6124,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getStorageWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getStorageWorkRequestRequest.retryConfiguration,
@@ -6182,7 +6182,7 @@ export class LogAnalyticsClient {
   /**
    * This API retrieves details of the configured bucket that stores unprocessed payloads.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUnprocessedDataBucketRequest
    * @return GetUnprocessedDataBucketResponse
    * @throws OciError when an error occurs
@@ -6207,7 +6207,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getUnprocessedDataBucketRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getUnprocessedDataBucketRequest.retryConfiguration,
@@ -6254,7 +6254,7 @@ export class LogAnalyticsClient {
 
   /**
    * Gets an On-Demand Upload info by reference.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetUploadRequest
    * @return GetUploadResponse
    * @throws OciError when an error occurs
@@ -6279,7 +6279,7 @@ export class LogAnalyticsClient {
       "opc-request-id": getUploadRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getUploadRequest.retryConfiguration,
@@ -6409,7 +6409,7 @@ export class LogAnalyticsClient {
   /**
    * Imports the specified custom content from the input in zip format.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ImportCustomContentRequest
    * @return ImportCustomContentResponse
    * @throws OciError when an error occurs
@@ -6436,7 +6436,7 @@ export class LogAnalyticsClient {
       "expect": importCustomContentRequest.expect
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       importCustomContentRequest.retryConfiguration,
@@ -6486,7 +6486,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the entities in the specified compartment which are (in)eligible for association with this source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAssociableEntitiesRequest
    * @return ListAssociableEntitiesResponse
    * @throws OciError when an error occurs
@@ -6520,7 +6520,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listAssociableEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAssociableEntitiesRequest.retryConfiguration,
@@ -6578,7 +6578,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the association details of entities in the specified compartment that are associated with at least one source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAssociatedEntitiesRequest
    * @return ListAssociatedEntitiesResponse
    * @throws OciError when an error occurs
@@ -6612,7 +6612,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listAssociatedEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAssociatedEntitiesRequest.retryConfiguration,
@@ -6670,7 +6670,7 @@ export class LogAnalyticsClient {
   /**
    * Gets information related to auto association for the source with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAutoAssociationsRequest
    * @return ListAutoAssociationsResponse
    * @throws OciError when an error occurs
@@ -6701,7 +6701,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listAutoAssociationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAutoAssociationsRequest.retryConfiguration,
@@ -6759,7 +6759,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of categories, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as category name or description.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCategoriesRequest
    * @return ListCategoriesResponse
    * @throws OciError when an error occurs
@@ -6791,7 +6791,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listCategoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listCategoriesRequest.retryConfiguration,
@@ -6849,7 +6849,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the list of configuration work requests such as association or lookup operations, containing detailed information about them. You may paginate or limit the number of results.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListConfigWorkRequestsRequest
    * @return ListConfigWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -6879,7 +6879,7 @@ export class LogAnalyticsClient {
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listConfigWorkRequestsRequest.retryConfiguration,
@@ -7022,7 +7022,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the list of source associations for the specified entity.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListEntitySourceAssociationsRequest
    * @return ListEntitySourceAssociationsResponse
    * @throws OciError when an error occurs
@@ -7058,7 +7058,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listEntitySourceAssociationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listEntitySourceAssociationsRequest.retryConfiguration,
@@ -7116,7 +7116,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of log fields, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by specifying various options including parser and source names.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFieldsRequest
    * @return ListFieldsResponse
    * @throws OciError when an error occurs
@@ -7153,7 +7153,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listFieldsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFieldsRequest.retryConfiguration,
@@ -7211,7 +7211,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the available problem priorities that could be associated with a label.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLabelPrioritiesRequest
    * @return ListLabelPrioritiesResponse
    * @throws OciError when an error occurs
@@ -7238,7 +7238,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listLabelPrioritiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLabelPrioritiesRequest.retryConfiguration,
@@ -7296,7 +7296,7 @@ export class LogAnalyticsClient {
   /**
    * Lists sources using the label, along with configuration details like base field, operator and condition.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLabelSourceDetailsRequest
    * @return ListLabelSourceDetailsResponse
    * @throws OciError when an error occurs
@@ -7327,7 +7327,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listLabelSourceDetailsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLabelSourceDetailsRequest.retryConfiguration,
@@ -7385,7 +7385,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of labels, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as label name, display name, description and priority.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLabelsRequest
    * @return ListLabelsResponse
    * @throws OciError when an error occurs
@@ -7420,7 +7420,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listLabelsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLabelsRequest.retryConfiguration,
@@ -7831,7 +7831,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of log groups in a compartment. You may limit the number of log groups, provide sorting options, and filter the results by specifying a display name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLogAnalyticsLogGroupsRequest
    * @return ListLogAnalyticsLogGroupsResponse
    * @throws OciError when an error occurs
@@ -7863,7 +7863,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listLogAnalyticsLogGroupsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLogAnalyticsLogGroupsRequest.retryConfiguration,
@@ -7920,7 +7920,7 @@ export class LogAnalyticsClient {
 
   /**
    * Gets list of collection rules.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLogAnalyticsObjectCollectionRulesRequest
    * @return ListLogAnalyticsObjectCollectionRulesResponse
    * @throws OciError when an error occurs
@@ -7955,7 +7955,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listLogAnalyticsObjectCollectionRulesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLogAnalyticsObjectCollectionRulesRequest.retryConfiguration,
@@ -8008,7 +8008,7 @@ export class LogAnalyticsClient {
   /**
    * This API returns a list of log sets.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLogSetsRequest
    * @return ListLogSetsResponse
    * @throws OciError when an error occurs
@@ -8037,7 +8037,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listLogSetsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLogSetsRequest.retryConfiguration,
@@ -8090,7 +8090,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of lookups, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as lookup name, description and type.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLookupsRequest
    * @return ListLookupsResponse
    * @throws OciError when an error occurs
@@ -8125,7 +8125,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listLookupsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLookupsRequest.retryConfiguration,
@@ -8183,7 +8183,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the types of log sources supported.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMetaSourceTypesRequest
    * @return ListMetaSourceTypesResponse
    * @throws OciError when an error occurs
@@ -8212,7 +8212,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listMetaSourceTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMetaSourceTypesRequest.retryConfiguration,
@@ -8271,7 +8271,7 @@ export class LogAnalyticsClient {
    * Given a tenancy OCID, this API returns the namespace of the tenancy if it is valid and subscribed to the region.  The
    * result also indicates if the tenancy is onboarded with Logging Analytics.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListNamespacesRequest
    * @return ListNamespacesResponse
    * @throws OciError when an error occurs
@@ -8295,7 +8295,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listNamespacesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listNamespacesRequest.retryConfiguration,
@@ -8343,7 +8343,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the parser functions defined for the specified parser.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListParserFunctionsRequest
    * @return ListParserFunctionsResponse
    * @throws OciError when an error occurs
@@ -8373,7 +8373,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listParserFunctionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listParserFunctionsRequest.retryConfiguration,
@@ -8431,7 +8431,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the parser meta plugins available for defining parser functions.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListParserMetaPluginsRequest
    * @return ListParserMetaPluginsResponse
    * @throws OciError when an error occurs
@@ -8461,7 +8461,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listParserMetaPluginsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listParserMetaPluginsRequest.retryConfiguration,
@@ -8519,7 +8519,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of parsers, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as parser name, type, display name and description.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListParsersRequest
    * @return ListParsersResponse
    * @throws OciError when an error occurs
@@ -8555,7 +8555,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listParsersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listParsersRequest.retryConfiguration,
@@ -8612,7 +8612,7 @@ export class LogAnalyticsClient {
 
   /**
    * List active asynchronous queries.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListQueryWorkRequestsRequest
    * @return ListQueryWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -8644,7 +8644,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listQueryWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listQueryWorkRequestsRequest.retryConfiguration,
@@ -8702,7 +8702,7 @@ export class LogAnalyticsClient {
   /**
    * This API returns the list of recalled data of a tenancy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRecalledDataRequest
    * @return ListRecalledDataResponse
    * @throws OciError when an error occurs
@@ -8734,7 +8734,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listRecalledDataRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRecalledDataRequest.retryConfiguration,
@@ -8793,7 +8793,7 @@ export class LogAnalyticsClient {
    * Returns a list of resources and their category assignments.
    * You may limit the number of results, provide sorting order, and filter by information such as resource type.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListResourceCategoriesRequest
    * @return ListResourceCategoriesResponse
    * @throws OciError when an error occurs
@@ -8826,7 +8826,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listResourceCategoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listResourceCategoriesRequest.retryConfiguration,
@@ -8883,7 +8883,7 @@ export class LogAnalyticsClient {
 
   /**
    * Lists scheduled tasks.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListScheduledTasksRequest
    * @return ListScheduledTasksResponse
    * @throws OciError when an error occurs
@@ -8917,7 +8917,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listScheduledTasksRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listScheduledTasksRequest.retryConfiguration,
@@ -8975,7 +8975,7 @@ export class LogAnalyticsClient {
   /**
    * Returns the list of entity associations in the input compartment for the specified source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSourceAssociationsRequest
    * @return ListSourceAssociationsResponse
    * @throws OciError when an error occurs
@@ -9010,7 +9010,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSourceAssociationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSourceAssociationsRequest.retryConfiguration,
@@ -9068,7 +9068,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the event types mapped to the source with the specified name. The event type string could be the fully qualified name or a prefix that matches the event type.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSourceEventTypesRequest
    * @return ListSourceEventTypesResponse
    * @throws OciError when an error occurs
@@ -9102,7 +9102,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSourceEventTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSourceEventTypesRequest.retryConfiguration,
@@ -9160,7 +9160,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the extended field definitions for the source with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSourceExtendedFieldDefinitionsRequest
    * @return ListSourceExtendedFieldDefinitionsResponse
    * @throws OciError when an error occurs
@@ -9191,7 +9191,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSourceExtendedFieldDefinitionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSourceExtendedFieldDefinitionsRequest.retryConfiguration,
@@ -9249,7 +9249,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the supported conditional operators that could be used for matching log field values to generate a label. You may use patterns to specify a condition. If a log entry matches that condition, it is tagged with the corresponding label.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSourceLabelOperatorsRequest
    * @return ListSourceLabelOperatorsResponse
    * @throws OciError when an error occurs
@@ -9279,7 +9279,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSourceLabelOperatorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSourceLabelOperatorsRequest.retryConfiguration,
@@ -9337,7 +9337,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the functions that could be used to enrich log entries based on meaningful information extracted from the log fields.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSourceMetaFunctionsRequest
    * @return ListSourceMetaFunctionsResponse
    * @throws OciError when an error occurs
@@ -9367,7 +9367,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSourceMetaFunctionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSourceMetaFunctionsRequest.retryConfiguration,
@@ -9425,7 +9425,7 @@ export class LogAnalyticsClient {
   /**
    * Lists the source patterns for the source with the specified name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSourcePatternsRequest
    * @return ListSourcePatternsResponse
    * @throws OciError when an error occurs
@@ -9456,7 +9456,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSourcePatternsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSourcePatternsRequest.retryConfiguration,
@@ -9514,7 +9514,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of sources, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as display name, description and entity type.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSourcesRequest
    * @return ListSourcesResponse
    * @throws OciError when an error occurs
@@ -9551,7 +9551,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSourcesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSourcesRequest.retryConfiguration,
@@ -9608,7 +9608,7 @@ export class LogAnalyticsClient {
 
   /**
    * This API returns the list of work request errors if any.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListStorageWorkRequestErrorsRequest
    * @return ListStorageWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -9640,7 +9640,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listStorageWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listStorageWorkRequestErrorsRequest.retryConfiguration,
@@ -9698,7 +9698,7 @@ export class LogAnalyticsClient {
   /**
    * This API lists storage work requests.  Use query parameters to narrow down or sort the result list.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListStorageWorkRequestsRequest
    * @return ListStorageWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -9735,7 +9735,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listStorageWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listStorageWorkRequestsRequest.retryConfiguration,
@@ -9792,7 +9792,7 @@ export class LogAnalyticsClient {
 
   /**
    * Gets list of character encodings which are supported by on-demand upload.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSupportedCharEncodingsRequest
    * @return ListSupportedCharEncodingsResponse
    * @throws OciError when an error occurs
@@ -9820,7 +9820,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSupportedCharEncodingsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSupportedCharEncodingsRequest.retryConfiguration,
@@ -9877,7 +9877,7 @@ export class LogAnalyticsClient {
 
   /**
    * Gets list of timezones which are supported by on-demand upload.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSupportedTimezonesRequest
    * @return ListSupportedTimezonesResponse
    * @throws OciError when an error occurs
@@ -9905,7 +9905,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listSupportedTimezonesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSupportedTimezonesRequest.retryConfiguration,
@@ -9962,7 +9962,7 @@ export class LogAnalyticsClient {
 
   /**
    * Gets list of files in an upload along with its processing state.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListUploadFilesRequest
    * @return ListUploadFilesResponse
    * @throws OciError when an error occurs
@@ -9994,7 +9994,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listUploadFilesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUploadFilesRequest.retryConfiguration,
@@ -10046,7 +10046,7 @@ export class LogAnalyticsClient {
 
   /**
    * Gets list of warnings in an upload caused by incorrect configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListUploadWarningsRequest
    * @return ListUploadWarningsResponse
    * @throws OciError when an error occurs
@@ -10074,7 +10074,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listUploadWarningsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUploadWarningsRequest.retryConfiguration,
@@ -10128,7 +10128,7 @@ export class LogAnalyticsClient {
    * Gets a list of all On-demand uploads.
    * To use this and other API operations, you must be authorized in an IAM policy.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListUploadsRequest
    * @return ListUploadsResponse
    * @throws OciError when an error occurs
@@ -10160,7 +10160,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listUploadsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listUploadsRequest.retryConfiguration,
@@ -10218,7 +10218,7 @@ export class LogAnalyticsClient {
   /**
    * Returns a list of collection warnings, containing detailed information about them. You may limit the number of results, provide sorting order, and filter by information such as start time, end time, warning type, warning state, source name, source pattern and entity name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWarningsRequest
    * @return ListWarningsResponse
    * @throws OciError when an error occurs
@@ -10258,7 +10258,7 @@ export class LogAnalyticsClient {
       "opc-request-id": listWarningsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWarningsRequest.retryConfiguration,
@@ -10706,7 +10706,7 @@ export class LogAnalyticsClient {
 
   /**
    * Describe query
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ParseQueryRequest
    * @return ParseQueryResponse
    * @throws OciError when an error occurs
@@ -10730,7 +10730,7 @@ export class LogAnalyticsClient {
       "opc-request-id": parseQueryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       parseQueryRequest.retryConfiguration,
@@ -10783,7 +10783,7 @@ export class LogAnalyticsClient {
   /**
    * Pause the scheduled task specified by {scheduledTaskId}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PauseScheduledTaskRequest
    * @return PauseScheduledTaskResponse
    * @throws OciError when an error occurs
@@ -10809,7 +10809,7 @@ export class LogAnalyticsClient {
       "opc-request-id": pauseScheduledTaskRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       pauseScheduledTaskRequest.retryConfiguration,
@@ -11027,7 +11027,7 @@ export class LogAnalyticsClient {
   /**
    * Performs a log analytics search, if shouldRunAsync is false returns the query results once they become available subject to 60 second timeout. If a query is subject to exceed that time then it should be run asynchronously. Asynchronous query submissions return the queryWorkRequestId to use for execution tracking, query submission lifecycle actions and to poll for query results.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param QueryRequest
    * @return QueryResponse
    * @throws OciError when an error occurs
@@ -11052,7 +11052,7 @@ export class LogAnalyticsClient {
       "opc-request-id": queryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       queryRequest.retryConfiguration,
@@ -11210,7 +11210,7 @@ export class LogAnalyticsClient {
   /**
    * Creates a lookup with the specified name, type and description. The csv file containing the lookup content is passed in as binary data in the request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RegisterLookupRequest
    * @return RegisterLookupResponse
    * @throws OciError when an error occurs
@@ -11241,7 +11241,7 @@ export class LogAnalyticsClient {
       "expect": registerLookupRequest.expect
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       registerLookupRequest.retryConfiguration,
@@ -11380,7 +11380,7 @@ export class LogAnalyticsClient {
 
   /**
    * Delete association between input source log analytics entity and destination entities.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveEntityAssociationsRequest
    * @return RemoveEntityAssociationsResponse
    * @throws OciError when an error occurs
@@ -11408,7 +11408,7 @@ export class LogAnalyticsClient {
       "opc-retry-token": removeEntityAssociationsRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removeEntityAssociationsRequest.retryConfiguration,
@@ -11458,7 +11458,7 @@ export class LogAnalyticsClient {
   /**
    * Removes the tenant preferences. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemovePreferencesRequest
    * @return RemovePreferencesResponse
    * @throws OciError when an error occurs
@@ -11483,7 +11483,7 @@ export class LogAnalyticsClient {
       "opc-request-id": removePreferencesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removePreferencesRequest.retryConfiguration,
@@ -11532,7 +11532,7 @@ export class LogAnalyticsClient {
   /**
    * Removes the category assignments of DASHBOARD and SAVEDSEARCH resources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveResourceCategoriesRequest
    * @return RemoveResourceCategoriesResponse
    * @throws OciError when an error occurs
@@ -11557,7 +11557,7 @@ export class LogAnalyticsClient {
       "opc-request-id": removeResourceCategoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removeResourceCategoriesRequest.retryConfiguration,
@@ -11606,7 +11606,7 @@ export class LogAnalyticsClient {
   /**
    * Remove one or more event types from a source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveSourceEventTypesRequest
    * @return RemoveSourceEventTypesResponse
    * @throws OciError when an error occurs
@@ -11633,7 +11633,7 @@ export class LogAnalyticsClient {
       "opc-request-id": removeSourceEventTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removeSourceEventTypesRequest.retryConfiguration,
@@ -11682,7 +11682,7 @@ export class LogAnalyticsClient {
   /**
    * Resume the scheduled task specified by {scheduledTaskId}.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeScheduledTaskRequest
    * @return ResumeScheduledTaskResponse
    * @throws OciError when an error occurs
@@ -11708,7 +11708,7 @@ export class LogAnalyticsClient {
       "opc-request-id": resumeScheduledTaskRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resumeScheduledTaskRequest.retryConfiguration,
@@ -11911,7 +11911,7 @@ export class LogAnalyticsClient {
 
   /**
    * Returns a context specific list of either commands, fields, or values to append to the end of the specified query string if applicable.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SuggestRequest
    * @return SuggestResponse
    * @throws OciError when an error occurs
@@ -11935,7 +11935,7 @@ export class LogAnalyticsClient {
       "opc-request-id": suggestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       suggestRequest.retryConfiguration,
@@ -11988,7 +11988,7 @@ export class LogAnalyticsClient {
   /**
    * Supresses a list of warnings. Any unsuppressed warnings in the input list would be suppressed. Warnings in the input list which are already suppressed will not be modified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SuppressWarningRequest
    * @return SuppressWarningResponse
    * @throws OciError when an error occurs
@@ -12015,7 +12015,7 @@ export class LogAnalyticsClient {
       "opc-request-id": suppressWarningRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       suppressWarningRequest.retryConfiguration,
@@ -12064,7 +12064,7 @@ export class LogAnalyticsClient {
   /**
    * Tests the parser definition against the specified example content to ensure fields are successfully extracted.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param TestParserRequest
    * @return TestParserResponse
    * @throws OciError when an error occurs
@@ -12092,7 +12092,7 @@ export class LogAnalyticsClient {
       "opc-request-id": testParserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       testParserRequest.retryConfiguration,
@@ -12145,7 +12145,7 @@ export class LogAnalyticsClient {
   /**
    * Unsupresses a list of warnings. Any suppressed warnings in the input list would be unsuppressed. Warnings in the input list which are already unsuppressed will not be modified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UnsuppressWarningRequest
    * @return UnsuppressWarningResponse
    * @throws OciError when an error occurs
@@ -12172,7 +12172,7 @@ export class LogAnalyticsClient {
       "opc-request-id": unsuppressWarningRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       unsuppressWarningRequest.retryConfiguration,
@@ -12464,7 +12464,7 @@ export class LogAnalyticsClient {
   /**
    * Updates the specified log group's display name, description, defined tags, and free-form tags.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLogAnalyticsLogGroupRequest
    * @return UpdateLogAnalyticsLogGroupResponse
    * @throws OciError when an error occurs
@@ -12491,7 +12491,7 @@ export class LogAnalyticsClient {
       "opc-request-id": updateLogAnalyticsLogGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateLogAnalyticsLogGroupRequest.retryConfiguration,
@@ -12637,7 +12637,7 @@ export class LogAnalyticsClient {
   /**
    * Updates the metadata of the specified lookup, such as the lookup description.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLookupRequest
    * @return UpdateLookupResponse
    * @throws OciError when an error occurs
@@ -12664,7 +12664,7 @@ export class LogAnalyticsClient {
       "if-match": updateLookupRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateLookupRequest.retryConfiguration,
@@ -12722,7 +12722,7 @@ export class LogAnalyticsClient {
   /**
    * Updates the lookup content. The csv file containing the content to be updated is passed in as binary data in the request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateLookupDataRequest
    * @return UpdateLookupDataResponse
    * @throws OciError when an error occurs
@@ -12752,7 +12752,7 @@ export class LogAnalyticsClient {
       "expect": updateLookupDataRequest.expect
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateLookupDataRequest.retryConfiguration,
@@ -12803,7 +12803,7 @@ export class LogAnalyticsClient {
   /**
    * Updates the tenant preferences. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdatePreferencesRequest
    * @return UpdatePreferencesResponse
    * @throws OciError when an error occurs
@@ -12828,7 +12828,7 @@ export class LogAnalyticsClient {
       "opc-request-id": updatePreferencesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updatePreferencesRequest.retryConfiguration,
@@ -12877,7 +12877,7 @@ export class LogAnalyticsClient {
   /**
    * Updates the category assignments of DASHBOARD and SAVEDSEARCH resources.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateResourceCategoriesRequest
    * @return UpdateResourceCategoriesResponse
    * @throws OciError when an error occurs
@@ -12902,7 +12902,7 @@ export class LogAnalyticsClient {
       "opc-request-id": updateResourceCategoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateResourceCategoriesRequest.retryConfiguration,
@@ -12950,7 +12950,7 @@ export class LogAnalyticsClient {
 
   /**
    * Update the scheduled task. Schedules may be updated only for taskType SAVED_SEARCH and PURGE.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateScheduledTaskRequest
    * @return UpdateScheduledTaskResponse
    * @throws OciError when an error occurs
@@ -12976,7 +12976,7 @@ export class LogAnalyticsClient {
       "if-match": updateScheduledTaskRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateScheduledTaskRequest.retryConfiguration,
@@ -13034,7 +13034,7 @@ export class LogAnalyticsClient {
   /**
    * This API updates the archiving configuration
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateStorageRequest
    * @return UpdateStorageResponse
    * @throws OciError when an error occurs
@@ -13059,7 +13059,7 @@ export class LogAnalyticsClient {
       "if-match": updateStorageRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateStorageRequest.retryConfiguration,
@@ -13117,7 +13117,7 @@ export class LogAnalyticsClient {
   /**
    * Accepts log events for processing by Logging Analytics.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadLogEventsFileRequest
    * @return UploadLogEventsFileResponse
    * @throws OciError when an error occurs
@@ -13147,7 +13147,7 @@ export class LogAnalyticsClient {
       "expect": uploadLogEventsFileRequest.expect
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       uploadLogEventsFileRequest.retryConfiguration,
@@ -13204,7 +13204,7 @@ export class LogAnalyticsClient {
   /**
    * Accepts log data for processing by Logging Analytics.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UploadLogFileRequest
    * @return UploadLogFileResponse
    * @throws OciError when an error occurs
@@ -13243,7 +13243,7 @@ export class LogAnalyticsClient {
       "expect": uploadLogFileRequest.expect
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       uploadLogFileRequest.retryConfiguration,
@@ -13304,7 +13304,7 @@ export class LogAnalyticsClient {
   /**
    * Creates or updates associations between sources and entities. All entities should belong to the specified input compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpsertAssociationsRequest
    * @return UpsertAssociationsResponse
    * @throws OciError when an error occurs
@@ -13331,7 +13331,7 @@ export class LogAnalyticsClient {
       "opc-request-id": upsertAssociationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       upsertAssociationsRequest.retryConfiguration,
@@ -13385,7 +13385,7 @@ export class LogAnalyticsClient {
   /**
    * Creates or updates a field that could be used in parser expressions to extract and assign value. To create a field, specify its display name. A name would be generated for the field. For subsequent calls to update the field, include the name attribute.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpsertFieldRequest
    * @return UpsertFieldResponse
    * @throws OciError when an error occurs
@@ -13411,7 +13411,7 @@ export class LogAnalyticsClient {
       "if-match": upsertFieldRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       upsertFieldRequest.retryConfiguration,
@@ -13469,7 +13469,7 @@ export class LogAnalyticsClient {
   /**
    * Creates or updates a label that could be used to tag a log entry. You may optionally designate the label as a problem, and assign it a priority. You may also provide its related terms (aliases). To create a label, specify its display name. A name would be generated for the label. For subsequent calls to update the label, include the name attribute.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpsertLabelRequest
    * @return UpsertLabelResponse
    * @throws OciError when an error occurs
@@ -13495,7 +13495,7 @@ export class LogAnalyticsClient {
       "if-match": upsertLabelRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       upsertLabelRequest.retryConfiguration,
@@ -13553,7 +13553,7 @@ export class LogAnalyticsClient {
   /**
    * Creates or updates a parser, which defines how fields are extracted from a log entry.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpsertParserRequest
    * @return UpsertParserResponse
    * @throws OciError when an error occurs
@@ -13579,7 +13579,7 @@ export class LogAnalyticsClient {
       "if-match": upsertParserRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       upsertParserRequest.retryConfiguration,
@@ -13637,7 +13637,7 @@ export class LogAnalyticsClient {
   /**
    * Creates or updates a log source. You may also specify parsers, labels, extended fields etc., for the source.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpsertSourceRequest
    * @return UpsertSourceResponse
    * @throws OciError when an error occurs
@@ -13667,7 +13667,7 @@ export class LogAnalyticsClient {
       "if-match": upsertSourceRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       upsertSourceRequest.retryConfiguration,
@@ -13725,7 +13725,7 @@ export class LogAnalyticsClient {
   /**
    * Checks if the passed in entities could be associated with the specified sources. The validation is performed to ensure that the entities have the relevant property values that are used in the corresponding source patterns.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateAssociationParametersRequest
    * @return ValidateAssociationParametersResponse
    * @throws OciError when an error occurs
@@ -13756,7 +13756,7 @@ export class LogAnalyticsClient {
       "opc-request-id": validateAssociationParametersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       validateAssociationParametersRequest.retryConfiguration,
@@ -13813,7 +13813,7 @@ export class LogAnalyticsClient {
 
   /**
    * Validates a log file to check whether it is eligible to be uploaded or not.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateFileRequest
    * @return ValidateFileResponse
    * @throws OciError when an error occurs
@@ -13840,7 +13840,7 @@ export class LogAnalyticsClient {
       "opc-request-id": validateFileRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       validateFileRequest.retryConfiguration,
@@ -13888,7 +13888,7 @@ export class LogAnalyticsClient {
   /**
    * Checks if the specified input is a valid log source definition.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateSourceRequest
    * @return ValidateSourceResponse
    * @throws OciError when an error occurs
@@ -13917,7 +13917,7 @@ export class LogAnalyticsClient {
       "opc-request-id": validateSourceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       validateSourceRequest.retryConfiguration,
@@ -13970,7 +13970,7 @@ export class LogAnalyticsClient {
   /**
    * Checks if the specified input contains valid extended field definitions against the provided example content.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateSourceExtendedFieldDetailsRequest
    * @return ValidateSourceExtendedFieldDetailsResponse
    * @throws OciError when an error occurs
@@ -13996,7 +13996,7 @@ export class LogAnalyticsClient {
       "opc-request-id": validateSourceExtendedFieldDetailsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       validateSourceExtendedFieldDetailsRequest.retryConfiguration,
@@ -14048,7 +14048,7 @@ export class LogAnalyticsClient {
 
   /**
    * Validates the source mapping for a given file and provides match status and the parsed representation of log data.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateSourceMappingRequest
    * @return ValidateSourceMappingResponse
    * @throws OciError when an error occurs
@@ -14077,7 +14077,7 @@ export class LogAnalyticsClient {
       "opc-request-id": validateSourceMappingRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       validateSourceMappingRequest.retryConfiguration,
@@ -14128,7 +14128,7 @@ export class LogAnalyticsClient {
    * Optionally specify whether to return accelerated search results; the default is false.
    * The ScheduledTask taskType must be ACCELERATION.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param VerifyRequest
    * @return VerifyResponse
    * @throws OciError when an error occurs
@@ -14154,7 +14154,7 @@ export class LogAnalyticsClient {
       "opc-retry-token": verifyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       verifyRequest.retryConfiguration,
