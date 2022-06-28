@@ -77,6 +77,8 @@ import * as OrganizationTenancyRole from "./organization-tenancy-role";
 export import OrganizationTenancyRole = OrganizationTenancyRole.OrganizationTenancyRole;
 import * as OrganizationTenancySummary from "./organization-tenancy-summary";
 export import OrganizationTenancySummary = OrganizationTenancySummary.OrganizationTenancySummary;
+import * as Promotion from "./promotion";
+export import Promotion = Promotion.Promotion;
 import * as RecipientInvitation from "./recipient-invitation";
 export import RecipientInvitation = RecipientInvitation.RecipientInvitation;
 import * as RecipientInvitationCollection from "./recipient-invitation-collection";

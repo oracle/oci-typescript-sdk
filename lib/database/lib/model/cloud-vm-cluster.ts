@@ -226,6 +226,7 @@ Example: `{\"Department\": \"Finance\"}`
    * The TCPS Single Client Access Name (SCAN) port. The default port is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "scanListenerPortTcpSsl"?: number;
+  "dataCollectionOptions"?: model.DataCollectionOptions;
 }
 
 export namespace CloudVmCluster {
@@ -270,6 +271,10 @@ export namespace CloudVmCluster {
       ...{
         "iormConfigCache": obj.iormConfigCache
           ? model.ExadataIormConfig.getJsonObj(obj.iormConfigCache)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };
@@ -282,6 +287,10 @@ export namespace CloudVmCluster {
       ...{
         "iormConfigCache": obj.iormConfigCache
           ? model.ExadataIormConfig.getDeserializedJsonObj(obj.iormConfigCache)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };

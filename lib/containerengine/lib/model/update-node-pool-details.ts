@@ -93,6 +93,7 @@ export interface UpdateNodePoolDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "nodeEvictionNodePoolSettings"?: model.NodeEvictionNodePoolSettings;
 }
 
 export namespace UpdateNodePoolDetails {
@@ -116,6 +117,10 @@ export namespace UpdateNodePoolDetails {
 
         "nodeShapeConfig": obj.nodeShapeConfig
           ? model.UpdateNodeShapeConfigDetails.getJsonObj(obj.nodeShapeConfig)
+          : undefined,
+
+        "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
+          ? model.NodeEvictionNodePoolSettings.getJsonObj(obj.nodeEvictionNodePoolSettings)
           : undefined
       }
     };
@@ -142,6 +147,12 @@ export namespace UpdateNodePoolDetails {
 
         "nodeShapeConfig": obj.nodeShapeConfig
           ? model.UpdateNodeShapeConfigDetails.getDeserializedJsonObj(obj.nodeShapeConfig)
+          : undefined,
+
+        "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
+          ? model.NodeEvictionNodePoolSettings.getDeserializedJsonObj(
+              obj.nodeEvictionNodePoolSettings
+            )
           : undefined
       }
     };

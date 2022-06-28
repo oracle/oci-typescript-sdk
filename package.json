@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.32.0",
+  "version": "2.33.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -129,7 +129,9 @@
     "oci-licensemanager": "file:lib/licensemanager",
     "oci-governancerulescontrolplane": "file:lib/governancerulescontrolplane",
     "oci-onesubscription": "file:lib/onesubscription",
-    "oci-networkfirewall": "file:lib/networkfirewall"
+    "oci-networkfirewall": "file:lib/networkfirewall",
+    "oci-emwarehouse": "file:lib/emwarehouse",
+    "oci-vnmonitoring": "file:lib/vnmonitoring"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

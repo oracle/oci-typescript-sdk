@@ -194,3 +194,5 @@ export import licensemanager = require("oci-licensemanager");
 export import governancerulescontrolplane = require("oci-governancerulescontrolplane");
 export import onesubscription = require("oci-onesubscription");
 export import networkfirewall = require("oci-networkfirewall");
+export import emwarehouse = require("oci-emwarehouse");
+export import vnmonitoring = require("oci-vnmonitoring");

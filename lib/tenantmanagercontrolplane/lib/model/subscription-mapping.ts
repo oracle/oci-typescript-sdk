@@ -35,7 +35,7 @@ export interface SubscriptionMapping {
    */
   "isExplicitlyAssigned": boolean;
   /**
-   * Lifecycle state of the subscription mapping.
+   * Lifecycle state of the subscriptionMapping.
    */
   "lifecycleState": SubscriptionMapping.LifecycleState;
   /**

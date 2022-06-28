@@ -103,6 +103,7 @@ export interface CreateNodePoolDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "nodeEvictionNodePoolSettings"?: model.NodeEvictionNodePoolSettings;
 }
 
 export namespace CreateNodePoolDetails {
@@ -125,6 +126,10 @@ export namespace CreateNodePoolDetails {
 
         "nodeConfigDetails": obj.nodeConfigDetails
           ? model.CreateNodePoolNodeConfigDetails.getJsonObj(obj.nodeConfigDetails)
+          : undefined,
+
+        "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
+          ? model.NodeEvictionNodePoolSettings.getJsonObj(obj.nodeEvictionNodePoolSettings)
           : undefined
       }
     };
@@ -150,6 +155,12 @@ export namespace CreateNodePoolDetails {
 
         "nodeConfigDetails": obj.nodeConfigDetails
           ? model.CreateNodePoolNodeConfigDetails.getDeserializedJsonObj(obj.nodeConfigDetails)
+          : undefined,
+
+        "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
+          ? model.NodeEvictionNodePoolSettings.getDeserializedJsonObj(
+              obj.nodeEvictionNodePoolSettings
+            )
           : undefined
       }
     };

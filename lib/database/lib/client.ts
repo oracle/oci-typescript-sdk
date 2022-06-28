@@ -13038,7 +13038,10 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseCharacterSets/ListAutonomousDatabaseCharacterSets";
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "isShared": listAutonomousDatabaseCharacterSetsRequest.isShared,
+      "characterSetType": listAutonomousDatabaseCharacterSetsRequest.characterSetType
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
