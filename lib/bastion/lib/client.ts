@@ -1,6 +1,6 @@
 /**
  * Bastion API
- * Oracle Cloud Infrastructure Bastion provides restricted and time-limited access to target resources that don't have public endpoints. Through the configuration of a bastion, you can let authorized users connect from specific IP addresses to target resources by way of Secure Shell (SSH) sessions hosted on the bastion.
+ * Use the Bastion API to provide restricted and time-limited access to target resources that don't have public endpoints. Bastions let authorized users connect from specific IP addresses to target resources using Secure Shell (SSH) sessions. For more information, see [the Bastion documentation](/iaas/Content/Bastion/home.htm).
  * OpenAPI spec version: 20210331
  *
  *
@@ -553,7 +553,7 @@ export class BastionClient {
 
   /**
    * Retrieves a bastion identified by the bastion ID. A bastion provides secured, public access to target resources in the cloud that you cannot otherwise reach from the internet.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBastionRequest
    * @return GetBastionResponse
    * @throws OciError when an error occurs
@@ -577,7 +577,7 @@ export class BastionClient {
       "opc-request-id": getBastionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getBastionRequest.retryConfiguration,
@@ -629,7 +629,7 @@ export class BastionClient {
 
   /**
    * Retrieves a session identified by the session ID. A bastion session lets authorized users connect to a target resource for a predetermined amount of time.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSessionRequest
    * @return GetSessionResponse
    * @throws OciError when an error occurs
@@ -653,7 +653,7 @@ export class BastionClient {
       "opc-request-id": getSessionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSessionRequest.retryConfiguration,
@@ -1448,7 +1448,7 @@ export class BastionClient {
 
   /**
    * Updates the bastion identified by the bastion ID. A bastion provides secured, public access to target resources in the cloud that you cannot otherwise reach from the internet.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateBastionRequest
    * @return UpdateBastionResponse
    * @throws OciError when an error occurs
@@ -1473,7 +1473,7 @@ export class BastionClient {
       "opc-request-id": updateBastionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateBastionRequest.retryConfiguration,
@@ -1526,7 +1526,7 @@ export class BastionClient {
 
   /**
    * Updates the session identified by the session ID. A bastion session lets authorized users connect to a target resource for a predetermined amount of time.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSessionRequest
    * @return UpdateSessionResponse
    * @throws OciError when an error occurs
@@ -1551,7 +1551,7 @@ export class BastionClient {
       "opc-request-id": updateSessionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSessionRequest.retryConfiguration,

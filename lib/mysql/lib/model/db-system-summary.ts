@@ -110,6 +110,16 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "backupPolicy"?: model.BackupPolicy;
+  /**
+   * The shape of the primary instances of the DB System. The shape
+   * determines resources allocated to a DB System - CPU cores
+   * and memory for VM shapes; CPU cores, memory and storage for non-VM
+   * (or bare metal) shapes. To get a list of shapes, use (the
+   * {@link #listShapes(ListShapesRequest) listShapes} operation.
+   *
+   */
+  "shapeName"?: string;
   /**
    * Whether to run the DB System with InnoDB Redo Logs and the Double Write Buffer enabled or disabled,
    * and whether to enable or disable syncing of the Binary Logs.
@@ -143,6 +153,10 @@ export namespace DbSystemSummary {
 
         "deletionPolicy": obj.deletionPolicy
           ? model.DeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "backupPolicy": obj.backupPolicy
+          ? model.BackupPolicy.getJsonObj(obj.backupPolicy)
           : undefined
       }
     };
@@ -173,6 +187,10 @@ export namespace DbSystemSummary {
 
         "deletionPolicy": obj.deletionPolicy
           ? model.DeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "backupPolicy": obj.backupPolicy
+          ? model.BackupPolicy.getDeserializedJsonObj(obj.backupPolicy)
           : undefined
       }
     };
