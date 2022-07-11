@@ -6,6 +6,7 @@ import { renameSync } from "fs";
 import { expect } from "chai";
 import { ConfigFileReader, ConfigFile } from "../lib/config-file-reader";
 import common = require("oci-common");
+import { Region } from "../lib/region";
 
 describe("Config File reader Test", () => {
   // Commenting this as this test does not work on TC
@@ -149,6 +150,17 @@ describe("Config File reader Test", () => {
       process.env.OCI_CONFIG_FILE = revert
         ? envVarConfigValue
         : "./lib/common/tests/resources/unit-test-environment-config";
+    }
+  });
+
+  it("should use changed region using setRegion", () => {
+    // If things go wrong, we want to at least put this in a try/catch block and revert back the file renaming on catch block
+    try {
+      const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
+      provider.setRegion("us-sanjose-1");
+      expect(provider.getRegion()).equals(Region.US_SANJOSE_1);
+    } catch (e) {
+      console.log(`Failed to run this unit test due to: ${e}`);
     }
   });
 });

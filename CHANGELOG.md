@@ -3,6 +3,601 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.34.0 - 2022-07-05
+### Added
+- Support for backup policies returned as part of the database system list operation in the MySQL Database service
+ 
+### Breaking Changes
+- Default retry enable for operations of the Bastion service
+
+## 2.33.0 - 2022-06-27
+### Added
+- Support for the Network Monitoring service
+- Support for specifying application scan settings when creating or updating host scan recipes in the Vulnerability Scanning service
+- Support for moving data into an autonomous data warehouse in the Operations Insights service
+- Support for shared infrastructure autonomous database character sets in the Database service
+- Support for data collection logging events on Exadata instances in the Database service
+- Support for specifying boot volume VPUs when launching instances from images in the Compute service
+- Support for safe-deleting nodes in the Container Engine for Kubernetes service
+
+### Breaking Changes
+- Support for retries by default on operations of the Logging Analytics service
+
+## 2.32.0 - 2022-06-21
+### Added
+- Support for the Network Firewall service
+- Support for smaller and larger HeatWave cluster nodes in the MySQL Database service
+- Support for CSV file type datasets for text labeling and JSONL in the Data Labeling service
+- Support for diagnostics in the Database Management service
+ 
+### Breaking Changes
+- Support for retries by default on operations of the Network Firewall service
+- Support for retries by default on the createAnnotation operation of the Data Labeling service
+
+## 2.31.0 - 2022-06-14
+### Added
+- Support for the Web Application Acceleration (WAA) service
+- Support for the Governance Rules service
+- Support for the OneSubscription service
+- Support for resource locking in the Identity service
+- Support for quota resource locking in the Limits service
+- Support for returning the backup with the requested changes in the MySQL Database service
+- Support for time zone in Cloud Autonomous VM (CAVM) clusters in the Database service
+- Support for configuration options in the Application Performance Monitoring service
+- Support for MySQL connections in the Database Tools service
+
+### Breaking Changes
+- Support for retries by default on operations in the Database Tools service
+- Model `DatabaseToolsAllowedNetworkSources` removed in Database Tools service
+- Model `DatabaseToolsVirtualSource` removed in Database Tools service
+- Model `ServiceCapability` removed in Database Tools service
+
+## 2.30.0 - 2022-06-07
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the eu-paris-1 region
+- Support for private endpoints in Resource Manager service
+- Support downloading generated Terraform plan output in JSON or binary format in Resource Manager service
+- Support for querying OPSI Data Objects in the Operations Insights service
+
+### Changed
+- Network security groups (NSGs) are now optional for autonomous databases on private endpoints in the Database service
+
+## 2.29.0 - 2022-05-31
+### Added
+- Support for in-depth monitoring, diagnostics capabilities, and advanced management functionality for on-premise Oracle databases in the Database Management service
+- Support for using Oracle Cloud Agent to perform iSCSI login and logout for non-multipath-enabled iSCSI attachments in the Container Engine for Kubernetes service
+- Support for Fault Domain placement in the Container Engine for Kubernetes service
+- Support for worker node images in the Container Engine for Kubernetes service
+- Support for flexible shapes using the driverShapeConfig and executorShapeConfig properties in the Data Flow service
+
+### Breaking Changes
+- Support for retries by default on operations in the Application Dependency Management service
+
+## 2.28.0 - 2022-05-24
+### Added
+- Support for the License Manager service
+- Support for usage plans in the API Gateway service
+- Support for packaged skill and instance metadata management, role-based access options on instance creation, and assigned ownership in the Digital Assistant service
+- Support for compute capacity reservations in the VMWare Solution service
+- Support for Oracle Linux 8 application streams in the OS Management service
+ 
+### Breaking Changes
+- Support for retries by default on operations in the API Gateway service
+- Property `specification` is changed from optional to required from model `Deployment` and `CreateDeploymentDetails` in the API Gateway service.
+
+## 2.27.0 - 2022-05-17
+### Added
+- Support for information requests in the Operator Access Control service
+- Support for Helm charts and repositories on deployments in the DevOps service
+- Support for Application Dependency Management service scan results on builds in the DevOps service
+- Support for build resources to use Bitbucket Cloud repositories for source code in the DevOps service
+- Support for character set selection on autonomous dedicated databases in the Database service
+- Support for listing autonomous dedicated database supported character sets in the Database service
+- Support for AMD E4 flex shapes on virtual machine database systems in the Database service
+- Support for terraform and improvements for cross-region ADGs in the Database service
+ 
+### Breaking Changes
+- Support for retries by default on GET and LIST operations in the Visual Builder service
+
+## 2.26.0 - 2022-05-10
+### Added
+- Support for getting usage information for autonomous databases and Cloud at Customer autonomous databases in the Database service
+- Support for the `standby` lifecycle state on autonomous databases in the Database service
+- Support for BIP connections and dataflow operators in the Data Integration service
+ 
+### Breaking Changes
+- Support for retries by default on WAF Edge Policy GET, LIST operations in the Web Application Acceleration and Security service
+- Support for retries by default on some operations in the Stack Monitoring service
+- Support for retries by default on some resource discovery and monitoring operations in the Application Management service
+- Support for retries by default on some operations in the MySQL Database service
+- The property `outputPorts` in `operater` model was changed from Array of `OutputPort` to Array of `TypedObject` in the Data Integration service
+
+## 2.25.0 - 2022-05-03
+### Added
+- Support for the Application Dependency Management service
+- Support for platform configuration options on some bare metal shapes in the Compute service
+- Support for shielded instances for BM.Standard.E4.128 and BM.Standard3.64 shapes in the Compute service
+- Support for E4 dense VMs on launch and update instance operations in the Compute service
+- Support for reboot migration on DenseIO shapes in the Compute service
+- Support for an increased database name maximum length, from 14 to 30 characters, in the Database service
+- Support for provisioned concurrency in the Functions service
+ 
+### Breaking Changes
+- Support for retries by default on operations in the Vault service
+- Support for retries by default on operations in the DNS service
+- Support for retries by default on operations in the Content Management service
+- Support for retries by default on operations in the Console Dashboard service
+- Support for retries by default on Web Application Firewall operations in the Web Application Acceleration and Security service
+- Support for retries by default on operations in the Data Science service
+
+## 2.24.0 - 2022-04-26
+### Added
+- Support for the Service Mesh service
+- Support for security zones in the Cloud Guard service
+- Support for virtual test access points (VTAPs) in the Networking service
+- Support for monitoring as a source in the Service Connector Hub service
+- Support for creating budgets that target subscriptions and child tenancies in the Budgets service
+- Support for listing shapes and specifying a shape during creation of a node in the Roving Edge Infrastructure service
+- Support for bringing your own key in the Roving Edge Infrastructure service
+- Support for enabling inspection of HTTP request bodies in the Web Application Acceleration and Security
+- Support for cost management schedules in the Usage service
+- Support for TCPS on external containers as well as non-container and pluggable databases in the Database service
+- Support for autoscaling on Open Data Hub (ODH) clusters in the Big Data service
+- Support for creating Open Data Hub (ODH) 0.9 clusters in the Big Data service
+- Support for Open Data Hub (ODH) patch management in the Big Data service
+- Support for customizable Kerberos realm names in the Big Data service
+- Support for dedicated vantage points in the Application Performance Monitoring service
+- Support for reactivating child tenancies in the Organizations service
+- Support for punctuation and the SRT transcription format in the AI Speech service
+
+### Breaking Changes
+- Support for default retries on some operations in the Networking service
+- Support for default retries on all operations in the Data Safe service
+- Support for default retries on some additional operations in the Application Performance Monitoring service
+- Property `riskScore` is removed from model `Sighting` in the Cloud Guard service
+- Property `subscriptionId` is changed from optional to required from model `ListSubscriptionMappingsRequest` in the Tenant Manager Control Plane service
+- Property `nodeType` is a required parameter for the model `AddWorkerNodesRequest` and `AddWorkerNodesDetails` in the Big Data Service
+
+## 2.23.0 - 2022-04-19
+### Added
+- Support for the Stack Monitoring service
+- Support for stack monitoring on external databases in the Database service
+- Support for upgrading VM database systems in place in the Database service
+- Support for viewing supported VMWare software versions when listing host shapes in the VMWare Solution service
+- Support for choosing compute shapes when creating SDDCs and ESXi hosts in the VMWare Solution service
+- Support for work requests on delete operations in the Vulnerability Scanning service
+- Support for additional scan metadata in reports, including CVE descriptions, in the Vulnerability Scanning service
+- Support for redemption codes in the Usage service
+ 
+### Breaking Changes
+- Removed field `etag` from `ListRedeemableUsersResponse` model from Usage service
+
+## 2.22.0 - 2022-04-12
+### Added
+- Support for bringing your own IPv6 addresses in the Networking service
+- Support for specifying database edition and maximum CPU core count when creating or updating an autonomous database in the Database service
+- Support for enabling and disabling data collection options when creating or updating Exadata Cloud at Customer VM clusters in the Database service
+ 
+### Breaking Changes
+- Support for retries by default on operations in the Identity service
+- Support for retries by default on operations in the Operations Insights service
+
+## 2.21.0 - 2022-04-05
+### Added
+- Fixed the lifecycle state values for target databases in the Data Safe service
+- Support for content length and content type response headers when downloading PDFs in the Account Management service
+- Support for creating Enterprise Manager-based zLinux host targets, creating alarms, and viewing top process analytics in the Operations Insights service
+- Support for diagnostic reboots on VM instances in the Compute service
+
+### Breaking Changes
+- The data type of property `lifecycleState` in `ListTargetDatabasesRequest` was changed from `model.LifecycleState` to `model.TargetDatabaseLifecycleState` in the Data Safe service
+- The data type of property `lifecycleState` in `TargetDatabase` was changed from `model.LifecycleState` to `model.TargetDatabaseLifecycleState` in the Data Safe service
+- The data type of property `lifecycleState` in `TargetDatabaseSummary` was changed from `model.LifecycleState` to `model.TargetDatabaseLifecycleState` in the Data Safe service
+
+## 2.20.0 - 2022-03-29
+### Added
+- Support for returning the number of network ports as part of listing shapes in the Compute service
+- Support for Java runtime removal and custom logs in the Java Management service
+- Support for new parameters for BGP admin state and enabling/disabling BFD in the Networking service
+- Support for private OKE clusters and blue-green deployments in the DevOps service
+- Support for international customers to consume and launch third-party paid listings in the Marketplace service
+- Support for additional fields on entities, attributes, and folders in the Data Catalog service
+ 
+### Breaking Changes
+- Support for retries by default on operations in the Marketplace service
+
+## 2.19.0 - 2022-03-22
+### Added
+- Support for getting the storage utilization of a deployment on deployment list and get operations in the GoldenGate service
+- Support for virtual machines, bare metal machines, and Exadata databases with private endpoints in the Operations Insights service
+- Support for setting deletion policies on database systems in the MySQL Database service
+ 
+### Breaking Changes
+- Support for retries by default on operations in the Data Labeling service (data plane and control plane)
+
+## 2.18.0 - 2022-03-15
+### Added
+- Support for Ubuntu platforms and unlimited installation keys in the Management Agent Cloud service
+- Support for shielded instances in the VMWare Solution service
+- Support for application resources in the Data Integration service
+- Support for multi-AVM on Exadata Cloud at Customer infrastructure in the Database service
+- Support for heterogeneous (VM and AVM) clusters on Exadata Cloud at Customer infrastructure in the Database service
+- Support for custom maintenance schedules for AVM clusters on Exadata Cloud at Customer infrastructure in the Database service
+- Support for listing vulnerabilities, vulnerability-impacted containers, and vulnerability-impacted hosts in the Vulnerability Scanning service
+- Support for specifying an image count when creating or updating container scan recipes in the Vulnerability Scanning service
+
+### Breaking Changes
+- `supportedPlatformTypes` data type was changed from an Array of `model.PlatformTypes` to an Array of `ManagementAgentPlugin.SupportedPlatformTypes` in management-agent-plugin in the Management Agent Cloud service
+
+## 2.17.0 - 2022-03-08
+### Added
+- Support for the Sales Accelerator license option in the Content Management service
+- Support for VCN hostname cluster endpoints in the Container Engine for Kubernetes service
+- Support for optionally specifying an admin username and password when creating a database system during a restore operation in the MySQL Database service
+- Support for automatic tablespace creation on non-autonomous and autonomous database dedicated targets in the Database Migration service
+- Support for reporting excluded objects based on static exclusion rules and dynamic exclusion settings in the Database Migration service
+- Support for removing, listing, and adding database objects reported by the Cloud Premigration Advisor Tool (CPAT) in the Database Migration service
+- Support for migrating Oracle databases from the AWS RDS service to OCI as autonomous databases, using the AWS S3 service and DBLINK for data transfer, in the Database Migration service
+- Support for querying additional fields of a resource using return clauses in the Search service
+- Support for clusters and station clusters in the Roving Edge Infrastructure service
+- Support for creating database systems and database homes using customer-managed keys in the Database service
+ 
+### Breaking Changes
+- Support for retries enabled by default on operations in the Container Engine for Kubernetes service
+- Support for retries enabled by default on operations in the Resource Manager service
+- Support for retries enabled by default on operations in the Search service
+- The type of Property LifecycleState was changed from `LifecycleStateEnum` to `LifecycleState` in the ListOceInstancesRequest model in Content Management service
+- The property `LifecycleState` was replaced by `LifecycleDetails` in the OceInstanceSummary and OceInstance model in Content Management service
+- The type of the parameter targetStates was changed from `OceInstance.LifecycleStateEnum[]` to `LifecycleState[]` in OceInstanceWaiters call for ForOceInstance in Content Management service
+
+## 2.16.0 - 2022-03-01
+### Added
+- Support for DRG route distribution statements to be specified with a new match type 'MATCH_ALL' for matching criteria in the Networking service
+- Support for VCN route types on DRG attachments for deciding whether to import VCN CIDRs or subnet CIDRs into route rules in the Networking service
+- Support for CPS offline reports in the Database service
+- Support for infrastructure patching v2 features in the Database service
+- Support for auto-scaling the storage of an autonomous database, as well as shrinking an autonomous database, in the Database service
+- Support for managed egress via a default networking option on jobs and notebooks in the Data Science service
+- Support for more types of saved search enums in the Management Dashboard service
+ 
+### Breaking Changes
+- Support for retries enabled by default on some operations in the AI Vision service
+
+## 2.15.0 - 2022-02-22
+### Added
+- Support for the Data Connectivity Management service
+- Support for the AI Speech service
+- Support for disabling crash recovery in the MySQL Database service
+- Support for detector recipes of type 'threat', new detector rule of type 'rogue user', and sightings operations in the Cloud Guard service
+- Support for more VM shape configurations when listing shapes in the Compute service
+- Support for customer-managed encryption keys in the Analytics Cloud service
+- Support for FastConnect device information in the Networking service
+ 
+### Breaking Changes
+- Update the property `riskLevel` from required to optional in `TargetDetectorDetails` in Cloud Guard service.
+- Update the property `riskLevel` from required to optional in `DetectorDetails` in Cloud Guard service.
+- Support for retries enabled by default on all operations in the Application Performance Monitoring control plane service
+
+## 2.14.0 - 2022-02-15
+### Added
+- Support for the AI Vision service
+- Support for the Threat Intelligence service
+- Support for creation of NoSQL database tables with on-demand throughput capacity in the NoSQL Database Cloud service
+- Support for tagging features in the Oracle Container Engine for Kubernetes (OKE) service
+- Support for trace snapshots in the Application Performance Monitoring service
+- Support for auditing and alerts in the Data Safe service
+- Support for data discovery and data masking in the Data Safe service
+- Support for customized subscriptions and delivery of announcements by email and SMS in the Announcements service
+ 
+### Breaking Changes
+- The deprecated API `QueryOld` from `QueryClient` and its request model `QueryOldRequest` were removed in the Application Performance Monitoring service
+
+## 2.13.0 - 2022-02-08
+### Added
+- Support for managing tablespaces in the Database Management service
+- Support for upgrading and managing payment for subscriptions in the Account Management service
+- Support for listing fast launch job configurations in the Data Science service
+
+### Breaking Changes
+- Support for retries enabled by default on all operations in the Application Performance Monitoring service
+- The data type of the property BillToAddress was changed from `Address` to `BillToAddress` for the Invoice model of the Account Management service
+
+## 2.12.1 - 2022-02-01
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the ap-dcc-canberra-1 region
+- Support for the Console Dashboard service
+- Support for capacity reservation in the Container Engine for Kubernetes service
+- Support for tagging in the Container Engine for Kubernetes service
+- Support for fetching listings by image OCID in the Marketplace service
+- Support for underscores and hyphens in project resource names in the DevOps service
+- Support for cross-region cloning in the Database service
+
+## 2.12.0 - 2022-01-25
+### Added
+- Support for OneSubscription services
+- Support for retries enabled by default on all operations in the Object Storage service (Breaking change, only for python, go, java, typescript)
+- Support for specifying if a run or application is streaming or batch in the Data Flow service
+- Support for updating the Instance Configuration of an Instance Pool within a Cluster Network in the Compute Management service
+- Updated documentation for Cross Region ADG feature for Autonomous Database in the Database service
+ 
+### Breaking Changes
+- Support for retries enabled by default on all operations in the Object Storage service
+
+## 2.11.1 - 2022-01-18
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the me-dcc-muscat-1 region
+- Support for the Visual Builder service
+- Support for cross-region replication of volume groups in the Block Storage service
+- Support for boot volume encryption in the Container Engine for Kubernetes service
+- Support for adding metadata to records when creating and updating records in the Data Labeling service
+- Support for global export formats in snapshot datasets in the Data Labeling service
+- Support for adding labeling instructions to datasets in the Data Labeling service
+- Support for updating autonomous dataguard associations for autonomous container databases in the Database service
+- Support for setting up automatic failover when creating autonomous container databases in the Database service
+- Support for setting the RECO storage size when updating a database system in the Database service
+- Support for reconnecting refreshable clones to source for autonomous databases on shared infrastructure in the Database service
+- Support for checking if an autonomous database on shared infrastructure can be reconnected to source, in the Database service
+
+## 2.11.0 - 2022-01-11
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the af-johannesburg-1 and eu-stockholm-1 regions
+- Support for multiple protocols on the same listener in the Network Load Balancing service
+- IPv6 support in the Network Load Balancing service
+- Support for creating Enterprise Manager-based Solaris and SunOS host targets in the Operations Insights service
+- Support for choosing Data Guard type (Active Data Guard or regular) on databases in the Database service
+ 
+### Breaking Changes
+- Support for retries enabled by default on all operations in the Java Management 
+
+## 2.10.0 - 2021-12-14
+### Added
+- Support for node replacement in the VMWare Solution service
+- Support for ingestion of SQL stats metrics in the Operations Insights service
+- Support for AWR hub integration in the Operations Insights service
+- Support for automatically generating logical entities from filename patterns and relationships between business terms across glossaries in the Data Catalog service
+- Support for automatic start/stop at scheduled times in the Database service
+- Support for cloud VM cluster resources on autonomous dedicated databases in the Database service
+- Support for external Hive metastores in the Big Data service
+- Support for batch detection/inference in the AI Language service
+- Support for dimensions on monitoring targets in the Service Connector Hub service
+- Support for invoice operations in the Account Management service
+- Support for custom CA trust stores in the API Gateway service
+- Support for generating scoped database tokens in the Identity service
+- Support for database passwords for users, for logging into database accounts, in the Identity service
+
+### Breaking changes
+- Support for retries enabled by default on some operations in the Data Catalog service
+- Support for retries enabled by default on all operations in the Ocvp service
+
+## 2.9.1 - 2021-12-07
+### Added
+- Support for the Application Management service
+- Support for getting the inventory of JMS resources and listing Java runtime usage in a specified host in the Java Management service
+- Support for categories, entity topology, and verifying scheduled tasks in the Logging Analytics service
+- Support for RAC databases in the GoldenGate service
+- Support for querying additional fields of a resource using return clauses in the Search service
+- Support for key versions and key version OCIDs in the Key Management service
+
+## 2.9.0 - 2021-11-30
+### Added
+- Support for SQL Tuning Advisor in the Database Management service
+- Support for listing users and getting user details in the Database Management service
+- Support for autonomous databases in the Database Management service
+- Support for enabling and disabling Database Management features on autonomous databases in the Database service
+- Support for the Solaris platform in the Management Agent Cloud service
+- Support for cross-compartment operations in the Operations Insights service
+- Support for listing deployment backups in the GoldenGate service
+- Support for standard tags in the Identity service
+- Support for viewing problems for deleted targets in the Cloud Guard service
+- Support for choosing a platform version while creating a platform instance in the Blockchain Platform service
+- Support for custom IPSec connection tunnel internet key exchange phase 1 and phase 2 encryption algorithms in the Networking service
+- Support for pagination when listing work requests corresponding to an APM domain in the Application Performance Monitoring service
+- Support for the "deleted" lifecycle state on APM domains in the Application Performance Monitoring service
+- Support for calling Oracle Cloud Infrastructure services in the eu-milan-1 and me-abudhabi-1 regions
+
+### Breaking Changes
+- Support for retries enabled by default in all operations of the DevOps, Build, and Source Code Management services
+
+## 2.8.0 - 2021-11-17
+### Added
+- Support for getting subnet topology in the Networking service
+- Support for encrypted FastConnect resources in the Networking service
+- Support for performance and high availability, as well as recommendation metrics, in the Optimizer service
+- Support for optional TDE wallet passwords in the Database service
+- Support for Object Storage service integration in the Big Data service
+
+### Breaking Changes
+- Support for circuit breakers enabled by default in all services except Streaming and Compute
+- Support for retries enabled by default in all operations of the Functions and Roving Edge services, and in some operations of the Streaming service
+
+## 2.7.0 - 2021-11-09
+### Added
+- Support for drill down metadata in the Management Dashboard service
+- Support for operator access control on dedicated autonomous databases in the Operator Access Control service
+
+### Breaking Changes
+- Update the property `isFullyPreApproved`, `approverGroupsList`, `operatorControlName` from optional to required in `UpdateOperatorControlDetails` in Operator Access Control service.
+- Update the property `isEnforcedAlways` from optional to required in `UpdateOperatorControlAssignmentDetails` in Operator Access Control service.
+- Update the property `approverGroupsList` from optional to required in `CreateOpereatorControlDetails` in Operator Access Control service.
+- Update the property `resourceType` from optional to required in `CreateOpereatorControlAssignmentDetails` in Operator Access Control service.
+- Update the property `resourceType` from type `string` to  type`model.ResourceTypes` in `OperatorControlAssignmentSummary` in Operator Access Control service.
+
+## 2.6.1 - 2021-11-02
+### Added
+- Support for the Database Tools service 
+- Support for scan listener port TCP and TCP SSL on cloud VM clusters in the Database service 
+- Support for domains in the Identity service 
+- Support for redeemable users and support rewards in the Usage service 
+- Support for calling Oracle Cloud Infrastructure services in the ap-singapore-1 and eu-marseille-1 regions
+
+### Changed
+- Endpoint for Identity service changed to include `.oci` subdomain
+
+## 2.6.0 - 2021-10-26
+### Added
+- Support for the Source Code Management service
+- Support for the Build service
+- Support for the Certificates service
+- Support to create child tenancies in an organization and manage subscriptions in the Organizations service
+- Support for Certificates service integration in the Load Balancing service
+- Support for creating hosts in specific availability domains in the VMWare Solution service
+- Support for user-defined functions and libraries, as well as scheduling and orchestration, in the Data Integration service
+- Support for EM-managed Exadatas and EM-managed hosts in the Operations Insights service
+
+### Breaking Changes
+- The cases `COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT`, `COMPUTE_INSTANCE_GROUP_CANARY_DEPLOYMENT`, `COMPUTE_INSTANCE_GROUP_CANARY_TRAFFIC_SHIFT`, `RUN_VALIDATION_TEST_ON_COMPUTE_INSTANCE`, `RUN_DEPLOYMENT_PIPELINE`, and `COMPUTE_INSTANCE_GROUP_BLUE_GREEN_DEPLOYMENT` were removed in the field `deployStageType` in the `DeployStageExecutionProgress` model from the DevOps service.
+
+## 2.5.2 - 2021-10-19
+### Added
+- Support for creating database systems from backups with database software images in the Database service
+- Support for optionally providing a SID prefix during Exadata database creation in the Database service
+- Support for node subsetting on VM clusters in the Database service
+- Support for non-CDB to PDB conversion in the Database service
+- Support for default homepages, unprocessed data buckets, and parsing geostats in the Logging Analytics service
+
+## 2.5.1 - 2021-10-12
+### Added
+- Support for the Data Labeling Service
+- Support for querying and setting Application Performance Monitoring configurations in the Application Performance Monitoring service
+- Support for the run-once monitor feature and network data collection in the Application Performance Monitoring service
+- Support for Oracle Enterprise Manager bridges, source auto-association, source event types mapping, and partitioning and searching data by LogSet in the Logging Analytics service
+- Support for Log events APIs used by plugins like fluentd, fluentbit, etc. to upload data in the Logging Analytics service
+- Support for a new ActionType: FAILED in work requests in the VMware Provisioning service
+- Support for calling Oracle Cloud Infrastructure services in the il-jerusalem-1 region
+
+## 2.5.0 - 2021-10-05
+### Added
+- Support for configuring Binlog variables in the MySQL Database service.
+- Support new response value "OPERATOR" for backup creationType in list and get MDS backup API in the MySQL Database service.
+- Support for SetAutoUpgradableConfig and GetAutoUpgradableConfig operations in Management Agent Cloud service.
+- Support for additional installType filter for List Management Agents, Images and Count API operations in Management Agent Cloud service.
+- Support for list and read DeploymentUpgrade, cancel and restore DeploymentBackup in the Golden Gate service.
+- Support for non-autonomous databases targets, executing Pre-Migration advisor, uploading Datapump logs into Object Storage bucket, and filtering Database Objects in the Database Migration service.
+- Support for calling Oracle Cloud Infrastructure services in the ap-ibaraki-1 region.
+
+### Breaking Changes
+- Removed field `isAgentAutoUpgradable` from `UpdateManagementAgentDetails` model from Management Agent service
+- Removed field `TimeCreated` and `DisplayName` in `SortBy` enum and `displayName` from `ListWorkRequestsRequest` request model from Database Migration service.
+- Removed field `TimeCreated` and `DisplayName` in `SortBy` enum and `displayName` from `ListWorkRequestsLogRequest` request model from Database Migration service.
+- Removed field `TimeCreated` and `DisplayName` in `SortBy` enum and `displayName` from `ListWorkRequestsErrorsRequest` request model from Database Migration service.
+- Update field `lifecycleState` to use `model.MigrationLifecycleStates` instead of `model.LifecycleStates` from `ListMigrationsRequest` request model from Database Migration service.
+- Update field `lifecycleState` to use `model.MigrationLifecycleStates` instead of `model.LifecycleStates` from `Migration` and `MigrationSummary` model from Database Migration service.
+- Update field `timeStamp` to `timestamp` from `WorkRequestLogEntry` and `WorkRequestError` model from Database Migration service.
+- Removed field `compartmentId` from `UpdateAgentDetails` model from Database Migration service.
+- Mark listAll* paginator functions as deprecated in favor of Iterator paginator functions.
+
+## 2.4.0 - 2021-09-28
+### Added
+- Support for autonomous databases and clones on shared infrastructure not requiring mTLS in the Database service
+- Support for server-side encryption using object-specific KMS keys in the Object Storage service
+- Support for Windows in the Java Management service
+- Support for using network security groups in the API Gateway service
+- Support for network security groups in the Functions service
+- Support for signed container images in the Functions service
+- Support for setting message format when creating and updating alarms in the Monitoring service
+- Support for user and security assessment features in the Data Safe service
+
+### Breaking Changes
+- The `RequestSummarizedApplicationUsage`, `RequestSummarizedInstallationUsage`, `RequestSummarizedJreUsage`, `RequestSummarizedManagedInstanceUsage` were removed from the `JavaManagementServiceClient` in the Java Management service
+- The `RequestSummarizedApplicationUsageDetails`, `RequestSummarizedInstallationUsageDetails`, `RequestSummarizedJreUsageDetails` and `RequestSummarizedManagedInstanceUsageDetails` models were removed in the Java Management service
+- The `RequestSummarizedApplicationUsageDetails`, `RequestSummarizedInstallationUsageDetails`, `RequestSummarizedJreUsageDetails` and `RequestSummarizedManagedInstanceUsageDetails` request models were removed in the Java Management service
+- The `RequestSummarizedApplicationUsageDetails`, `RequestSummarizedInstallationUsageDetails` and `RequestSummarizedManagedInstanceUsageDetails` response models were removed in the Java Management service
+
+## 2.3.1 - 2021-09-14
+### Added
+- Support for serviceHostKeyFingerprint property for InstanceConsoleConnection in Core service
+- Support for Shielded Instances in Core service
+- Support for ML Jobs in the Data Science service
+
+## 2.3.0 - 2021-09-07
+### Added
+- Support for terraform advanced options (detailed log level, refresh, and parallelism) on jobs in the Resource Manager service
+- Support for forced cancellation when cancelling jobs in the Resource Manager service
+- Support for getting the detailed log content of a job in the Resource Manager service
+- Support for provider information in the responses of list operations in the Management Dashboard service
+- Support for scheduled jobs in Database Management service
+- Support for monitoring and management of OCI virtual machine, bare metal, and ExaCS databases in the Database Management service
+- Support for a unified way of managing both external and cloud databases in the Database Management service
+- Support for metrics and Performance Hub on virtual machine, bare metal, and ExaCS databases in the Database Management service
+
+### Breaking changes
+- The property `ociSplatGeneratedOcids` has been removed from `CreateTemplateRequest` in the Resource Manager service
+
+## 2.2.2 - 2021-08-31
+### Added
+- Support for Oracle Analytics Cloud and OCI Vault integration on connections in the Data Catalog service
+- Support for critical event monitoring in the OS Management service
+
+## 2.2.1 - 2021-08-24
+### Added
+- Support for generating recommended VM cluster networks in the Database service
+- Support for creating VM cluster networks with a specified listener port in the Database service
+
+## 2.2.0 - 2021-08-17
+### Added
+- Support for getting management agent hosts which are eligible to create Operations Insights host resources on, in the Operations Insights service
+- Support for getting summarized agent counts and summarized plugin counts in the Management Agent Cloud service
+
+### Breaking changes
+- Removed default retries and default circuit breakers from all the services
+- The model `WorkSubmissionKey` has been removed from the Management Agent Cloud service
+- The data type of property `pluginName` in `ListManagementAgentsRequest` has been changed to `Array<string>` in the Management Agent Cloud service
+- The data type of property `version` in `ListManagementAgentsRequest` has been changed to `Array<string>` in the Management Agent Cloud service
+- The data type of property `platformType` in `ListManagementAgentsRequest` has been changed to `Array<model.PlatformTypes>` in the Management Agent Cloud service
+
+## 2.1.0 - 2021-08-03
+### Added
+- Support for manually copying volume group backups across regions in the Block Volume service
+- Support for work requests for the copy volume backup and copy boot volume backup operations in the Block Volume service
+- Support for specifying external Hive metastores during application creation in the Data Flow service
+- Support for changing the compartment of a backup in the MySQL Database service
+- Support for model catalog features including provenance, metadata, schemas, and artifact introspection in the Data Science service
+- Support for Exadata system network bonding in the Database service
+- Support for creating autonomous databases with early patching enabled in the Database service
+
+### Breaking changes
+- Default retries and circuit breakers in the SDK removed for the following services : Functions, Streaming, Big Data and Notifications
+
+## 2.0.1 - 2021-07-27
+### Added
+- Support for filtering by tag on capacity planning and SQL warehouse list operations in the Operations Insights service
+- Support for creating cross-region autonomous data guards in the Database service
+- Support for the customer contacts feature on cloud exadata infrastructure in the Database service
+- Support for cost analysis custom tables in the Usage service
+
+## 2.0.0 - 2021-07-20
+### Added
+- Support for schedules, schedule tasks, REST tasks, operators, S3, and Fusion Apps in the Data Integration service
+- Support for getting available updates and update histories for VM clusters in the Database service
+- Support for downloading network validation reports for Exadata network resources in the Database service
+- Support for patch and upgrade of Grid Infrastructure (GI), and update of DomU OS software for VM clusters in the Database service
+- Support for updating data guard associations in the Database service
+
+### Breaking Changes
+- Support for retries by default in the SDK. To disable default retries, set the environment variable `OCI_SDK_DEFAULT_RETRY_ENABLED` to `false` or programmatically set the value of `common.GenericRetrier.defaultRetryConfiguration`
+- Support for circuit breaker by default in the SDK. To disable default circuit breaker, set the environment variable `OCI_SDK_DEFAULT_CIRCUITBREAKER_ENABLED` to `false` or programmatically set the value of `common.CircuitBreaker.defaultConfiguration`
+- Removed the property `isFilePattern` from `CsvFormatAttribute` model under the Data Integration service
+- Removed the property `bucketName` from `OracleAtpWriteAttributes` model under the Data Integration service
+- Removed the property `bucketName` from `OracleAdwcWriteAttributes` model under the Data Integration service
+- Changed the data type of  property `type` in `ShapeField` model from `string` to `any` under the Data Integration service
+- Changed the data type of  property `type` in `NativeShapeField` model from `string` to `any` under the Data Integration service
+- Changed the data type of property `lifecycleState` in `ListWorkspacesRequest` from `ListWorkspacesRequest.LifecycleState` to `string` under the Data Integration service
+
+## 1.23.0 - 2021-07-13
+### Added
+- Support for the AI Anomaly Detection service
+- Support for retrieving a DNS zone as a zone file in the DNS service
+- Support for querying manual adjustments in the Usage service
+- Support for searching Marketplace listings in the Marketplace service
+- Support for new cluster type 'ODH' in the Big Data service
+- Support for availability domain as an optional parameter when creating VLANs in the Networking service
+- Support for search domain type on DHCP options, to support multi-level domain search in the Networking service
+
+### Breaking Changes
+- Removed the property `tsig` from `ExternalMaster` model under the DNS service
+- Removed the model `TSIG` from the DNS service
+- Removed the models `CreateCustomTableDetails`, `CustomTableCollection`, `CreateScheduleReportDetails`, `CustomTableCollection`,`CustomTableSummary`, `CustomTable`, `SavedScheduleReport`, `ScheduleReportCollection`, `ScheduleReportSummary`, `ScheduleReport`, `UpdateCustomTableDetails`, `UpdateScheduleReportDetails` from the Usage service
+
 ## 1.22.1 - 2021-07-06
 ### Added
 - Support for order activation in the Organizations service

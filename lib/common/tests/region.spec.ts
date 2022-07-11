@@ -4,46 +4,40 @@
  */
 
 import { expect } from "chai";
-import { Region } from "../lib/region";
+import { existsSync, readFileSync } from "fs";
 import { Realm } from "../lib/realm";
+import { Region } from "../lib/region";
+import { RegionMetadataSchema } from "../lib/region-metadata-schema";
 
 describe("Test Region", () => {
   const regionId = "foo-bar-1";
   const realm: Realm = Realm.register("ocx", "ocx-cloud.com");
 
-  const existingRegions = [
-    Region.AP_CHUNCHEON_1,
-    Region.AP_MUMBAI_1,
-    Region.AP_SEOUL_1,
-    Region.AP_SYDNEY_1,
-    Region.AP_HYDERABAD_1,
-    Region.AP_MELBOURNE_1,
-    Region.AP_OSAKA_1,
-    Region.AP_TOKYO_1,
-    Region.CA_MONTREAL_1,
-    Region.CA_TORONTO_1,
-    Region.EU_FRANKFURT_1,
-    Region.EU_ZURICH_1,
-    Region.SA_SAOPAULO_1,
-    Region.UK_CARDIFF_1,
-    Region.UK_LONDON_1,
-    Region.US_ASHBURN_1,
-    Region.US_PHOENIX_1,
-    Region.EU_AMSTERDAM_1,
-    Region.ME_JEDDAH_1,
-    Region.US_LANGLEY_1,
-    Region.US_LUKE_1,
-    Region.US_GOV_ASHBURN_1,
-    Region.US_GOV_CHICAGO_1,
-    Region.US_GOV_PHOENIX_1,
-    Region.UK_GOV_LONDON_1,
-    Region.US_SANJOSE_1,
-    Region.UK_GOV_CARDIFF_1,
-    Region.AP_CHIYODA_1,
-    Region.ME_DUBAI_1,
-    Region.SA_SANTIAGO_1,
-    Region.SA_VINHEDO_1
-  ];
+  const existingRegions = Region.values();
+
+  it("all regions from regions.json should be registered", function() {
+    const filePath = __dirname + "/resources/regions.json";
+    expect(existsSync(filePath)).to.be.true;
+    try {
+      const fileContent = readFileSync(filePath, "utf8");
+      const regionMetadata = JSON.parse(fileContent) as RegionMetadataSchema[];
+      expect(regionMetadata && regionMetadata.length > 0 && Array.isArray(regionMetadata)).to.be
+        .true;
+      const regionsList = Region.values();
+      regionMetadata.forEach(metadata => {
+        expect(RegionMetadataSchema.isValidSchema(metadata)).to.be.true;
+        expect(regionsList.map(e => e.regionId)).to.include(metadata.regionIdentifier);
+        if (metadata != null) {
+          expect(metadata.regionIdentifier).equals(
+            Region.getRegionIdFromShortCode(metadata.regionKey)
+          );
+        }
+      });
+    } catch (error) {
+      throw error;
+    }
+  });
+
   it("should register a region sucessfully ", function() {
     const region = Region.register(regionId, realm);
     expect(region.regionId).equals(regionId);

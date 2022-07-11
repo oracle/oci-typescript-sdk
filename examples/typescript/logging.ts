@@ -17,15 +17,13 @@ oci.LOG.logger = bunLog;
 
 const provider = new oci.common.ConfigFileAuthenticationDetailsProvider();
 
-const tenancyId = {
-  tenancyId: provider.getTenantId() || ""
-};
-
 (async () => {
   const identityClient = new oci.identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
-  const regions = await identityClient.listRegionSubscriptions(tenancyId);
+  const regions = await identityClient.listRegionSubscriptions({
+    tenancyId: provider.getTenantId() || ""
+  });
   for (let i = 0; i < regions.items.length; i++) {
     console.log(`Region fetched ${regions.items[i].regionName}`);
   }

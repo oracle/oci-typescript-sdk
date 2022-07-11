@@ -14,6 +14,9 @@ import { readFileSync } from "fs";
 import { Region } from "../region";
 import { Realm } from "../realm";
 
+const CONFIG_FILE_AUTH_INFO =
+  "For more info about config file and how to get required information, see https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdkconfig.htm for more info on OCI configuration files.";
+
 export class ConfigFileAuthenticationDetailsProvider
   implements AuthenticationDetailsProvider, RegionProvider {
   private delegate: SimpleAuthenticationDetailsProvider;
@@ -50,13 +53,29 @@ export class ConfigFileAuthenticationDetailsProvider
   retrieveRegionFromRegionId(regionId: string): Region {
     let region: Region;
     try {
-      return (region = Region.fromRegionId(regionId));
+      region = Region.fromRegionId(regionId);
+      if (!region) {
+        console.warn(
+          `Found regionId ${regionId} in config file, but not supported by this version of the SDK`
+        );
+        const fallbackSecondLevelDomain = process.env["OCI_DEFAULT_REALM"];
+        // Before defaulting to Realm.OC1, check if user defined a second level domain for unknown region fallback.
+        // If so, create a dummy realm with the second level domain set from the env.OCI_DEFAULT_REALM. Else default to OC1 realm.
+        if (fallbackSecondLevelDomain) {
+          console.warn(`Falling back to using second level domain: ${fallbackSecondLevelDomain}`);
+          const unknownRealm = Realm.register("unknown", fallbackSecondLevelDomain);
+          region = Region.register(regionId, unknownRealm);
+        } else {
+          // Proceed by assuming the region id in the config file belongs to OC1 realm.
+          console.warn(`Falling back to using OC1 realm.`);
+          region = Region.register(regionId, Realm.OC1);
+        }
+      }
+      return region;
     } catch (e) {
-      console.warn(
-        `Found regionId ${regionId} in config file, but not supported by this version of the SDK`
+      throw new Error(
+        `Error from retrying to retrieve region from regionId: ${e}. ${CONFIG_FILE_AUTH_INFO}`
       );
-      // Proceed by assuming the region id in the config file belongs to OC1 realm.
-      return (region = Region.register(regionId, Realm.OC1));
     }
   }
 
@@ -73,7 +92,8 @@ export class ConfigFileAuthenticationDetailsProvider
       region = this.retrieveRegionFromRegionId(regionId!);
     } else {
       throw Error(
-        "Region not specified in Config file or OCI_REGION env variable. Can not proceed without setting a region."
+        "Region not specified in Config file or OCI_REGION env variable. Can not proceed without setting a region. " +
+          CONFIG_FILE_AUTH_INFO
       );
     }
 
@@ -120,7 +140,7 @@ export class ConfigFileAuthenticationDetailsProvider
       const key = readFileSync(filePath, "utf8");
       return key;
     } catch (e) {
-      throw "Failed to read private key from file path.";
+      throw "Failed to read private key from file path. " + CONFIG_FILE_AUTH_INFO;
     }
   }
 
@@ -167,10 +187,17 @@ export class ConfigFileAuthenticationDetailsProvider
   }
 
   /**
-   * Get the rehion
+   * Get the region
    */
   public getRegion(): Region {
     return this.delegate.getRegion();
+  }
+
+  /**
+   * Set the region
+   */
+  public setRegion(regionId: string): void {
+    this.delegate.setRegion(this.retrieveRegionFromRegionId(regionId));
   }
 
   /**

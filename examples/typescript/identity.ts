@@ -13,13 +13,12 @@ import common = require("oci-common");
 const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 
 const tenancy = provider.getTenantId();
-const tenancyId: identity.requests.ListRegionSubscriptionsRequest = {
-  tenancyId: tenancy || ""
-};
 
 (async () => {
   const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
-  const regions = await identityClient.listRegionSubscriptions(tenancyId);
+  const regions = await identityClient.listRegionSubscriptions({
+    tenancyId: tenancy || ""
+  });
   for (let i = 0; i < regions.items.length; i++) {
     if (regions.items[i].isHomeRegion) {
       identityClient.regionId = regions.items[i].regionName;

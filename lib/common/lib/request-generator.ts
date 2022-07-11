@@ -10,8 +10,9 @@ import {
   autoDetectContentLengthAndReadBody,
   formatDateToRFC3339
 } from "./helper";
+import { addRetryToken, OPC_RETRY_TOKEN_HEADER } from "./retry-token-header";
 
-interface Params {
+export interface Params {
   [key: string]:
     | string
     | Date
@@ -61,12 +62,21 @@ export async function composeRequest(params: RequestParams): Promise<HttpRequest
     const content = await autoDetectContentLengthAndReadBody(headers, params);
     body = content ? content : body;
   }
-  return {
-    method: params.method,
-    headers: headers,
-    uri: uri,
-    body: body
-  };
+
+  if (body === "{}") {
+    return {
+      method: params.method,
+      headers: headers,
+      uri: uri
+    };
+  } else {
+    return {
+      method: params.method,
+      headers: headers,
+      uri: uri,
+      body: body
+    };
+  }
 }
 
 function computeUri(params: RequestParams): string {
@@ -106,6 +116,9 @@ function computeHeaders(params: RequestParams): Headers {
       }
     }
   }
+  if (params.headerParams && OPC_RETRY_TOKEN_HEADER in params.headerParams) {
+    addRetryToken(headers);
+  }
   addAdditionalHeaders(headers, params);
   return headers;
 }
@@ -116,6 +129,10 @@ function stringify(queryParams?: Params): string {
     qs = Object.keys(queryParams)
       .map(function(key) {
         let value = queryParams[key];
+        if (Array.isArray(value)) {
+          let formatter = encoderforArrayFormat();
+          return (value as Array<any>).reduce(formatter(key), []).join("&");
+        }
         // Format Date Object to RFC3339 timestamp string.
         if (Object.prototype.toString.call(value) === "[object Date]" && value instanceof Date) {
           return key + "=" + formatDateToRFC3339(value);
@@ -127,4 +144,14 @@ function stringify(queryParams?: Params): string {
       .join("&");
   }
   return qs;
+}
+
+function encoderforArrayFormat() {
+  return (key: any) => (result: any, value: any) => {
+    if (value === undefined || value === null || value === "") {
+      return result;
+    }
+
+    return [...result, [key, "=", value].join("")];
+  };
 }

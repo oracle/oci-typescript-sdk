@@ -60,4 +60,17 @@ describe("Test EndpointBuilder ", () => {
     };
     expect(url).to.throw("secondLevelDomain can not be undefined or empty");
   });
+
+  it("should handle dotted regionId with no given endpointServiceName by extracting service name from template", function() {
+    let regionId = "acmecorp.com";
+    const url = EndpointBuilder.createEndpointFromRegionId(template, regionId);
+    expect(url).equals("https://foobar.acmecorp.com");
+  });
+
+  it("should handle dotted regionId with given endpointServiceName by using endpointServiceName", function() {
+    let regionId = "acmecorp.com";
+    let endpointServiceName = "myService";
+    const url = EndpointBuilder.createEndpointFromRegionId(template, regionId, endpointServiceName);
+    expect(url).equals("https://myService.acmecorp.com");
+  });
 });

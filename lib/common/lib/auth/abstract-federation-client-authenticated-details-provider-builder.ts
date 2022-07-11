@@ -26,6 +26,9 @@ import {
 } from "./url-based-x509-certificate-supplier";
 import CircuitBreaker from "../circuit-breaker";
 
+const INSTANCE_PRINCIPAL_GENERIC_ERROR =
+  "Instance principals authentication can only be used on OCI compute instances. Please confirm this code is running on an OCI compute instance. See https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/callingservicesfrominstances.htm for more info.";
+
 export default abstract class AbstractFederationClientAuthenticationDetailsProviderBuilder<
   B extends AbstractFederationClientAuthenticationDetailsProviderBuilder<B, P>,
   P extends AbstractAuthenticationDetailsProvider
@@ -214,7 +217,9 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
         );
         this._federationEndpoint = endpoint;
       } catch (e) {
-        throw Error(`Endpoint for auth service is not known in region ${this.region}`);
+        throw Error(
+          `Endpoint for auth service is not known in region ${this.region}. ${INSTANCE_PRINCIPAL_GENERIC_ERROR}`
+        );
       }
     }
     return this._federationEndpoint;
@@ -249,7 +254,9 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
         ];
       }
     } catch (e) {
-      throw Error("Failed to autoDetectCertificatesUsingMetadataUrl");
+      throw Error(
+        "Failed to autoDetectCertificatesUsingMetadataUrl. " + INSTANCE_PRINCIPAL_GENERIC_ERROR
+      );
     }
   }
 

@@ -15,11 +15,17 @@ describe("Test Request Generator ", () => {
   };
 
   const queryParams = { "imageId": "test" };
+  const definedTagQueryParams = {
+    "imageId": "test",
+    "definedTagEquals": ["namespace1.key.val", "namespace1.key.val2", "namespace2.key.val"],
+    "freeformTagEquals": ["ff1key.val", "ff2key.val"]
+  };
 
   const headerParams = {
     "opc-request-id": "test-request-id",
     "Content-Length": "0",
-    "Content-Type": "application/json"
+    "Content-Type": "application/json",
+    "opc-retry-token": "retrytoken"
   };
   const appendUserAgent = process.env.OCI_SDK_APPEND_USER_AGENT;
   const clientInfo = `Oracle-TypeScriptSDK/${version}`;
@@ -52,7 +58,8 @@ describe("Test Request Generator ", () => {
     const headerParams = {
       "opc-request-id": "test-request-id",
       "Content-Type": "application/json",
-      "Content-Length": undefined
+      "Content-Length": undefined,
+      "opc-retry-token": undefined
     };
     const fileLocation = __dirname + "/resources/large_file.bin";
     const objectData = await fs.createReadStream(fileLocation);
@@ -85,7 +92,8 @@ describe("Test Request Generator ", () => {
     const headerParams = {
       "opc-request-id": "test-request-id",
       "Content-Type": "application/json",
-      "Content-Length": undefined
+      "Content-Length": undefined,
+      "opc-retry-token": undefined
     };
     const fileLocation = __dirname + "/resources/large_file.bin";
     const size = fs.statSync(fileLocation).size;
@@ -113,5 +121,76 @@ describe("Test Request Generator ", () => {
     expect(sdkRequest.headers.get("content-length")).exist;
     expect(sdkRequest.headers.get("content-length")).equal(String(size));
     expect(typeof sdkRequest.body).equal("object");
+  });
+
+  it("should not add opc-retry-token to headers if the key does not exist in header params", async function() {
+    const headerParams = {
+      "opc-request-id": "test-request-id",
+      "Content-Type": "application/json",
+      "Content-Length": undefined
+    };
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "http://test-end-point/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    expect(sdkRequest.headers.get("opc-retry-token")).not.exist;
+  });
+
+  it("should add opc-retry-token to headers if the key does exists in header params", async function() {
+    const headerParams = {
+      "opc-request-id": "test-request-id",
+      "Content-Type": "application/json",
+      "Content-Length": undefined,
+      "opc-retry-token": undefined
+    };
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "http://test-end-point/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    expect(sdkRequest.headers.get("opc-retry-token")).exist;
+  });
+
+  it("should not overwrite opc-retry-token if the user provides an opc-retry-token", async function() {
+    const headerParams = {
+      "opc-request-id": "test-request-id",
+      "Content-Type": "application/json",
+      "Content-Length": undefined,
+      "opc-retry-token": "retryToken"
+    };
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "http://test-end-point/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    expect(sdkRequest.headers.get("opc-retry-token")).equals("retryToken");
+  });
+
+  it("should create correct url for definedTags query params", async function() {
+    const sdkRequest = await composeRequest({
+      baseEndpoint: "http://test-end-point/20191002",
+      defaultHeaders: {},
+      path: "/testUrl/{testId}/actions",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: definedTagQueryParams
+    });
+    expect(sdkRequest.uri).equals(
+      "http://test-end-point/20191002/testUrl/Test-Id/actions?imageId=test&definedTagEquals=namespace1.key.val&definedTagEquals=namespace1.key.val2&definedTagEquals=namespace2.key.val&freeformTagEquals=ff1key.val&freeformTagEquals=ff2key.val"
+    );
   });
 });

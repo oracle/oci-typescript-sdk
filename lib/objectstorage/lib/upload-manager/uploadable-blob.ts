@@ -9,7 +9,7 @@ import { BinaryBody } from "./types";
 /*
  * Interface for UploadableBlob.
  */
-export interface UploadableBlob extends Blob {
+export interface UploadableBlob {
   size: number;
   type: string;
   getData(): Promise<BinaryBody>;

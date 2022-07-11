@@ -5,7 +5,15 @@
 
 import { ObjectStorageClient } from "../client";
 import { models } from "../../index";
-import { OciError, LOG, getChunk } from "oci-common";
+import { version } from "../../package.json";
+import os from "os";
+import {
+  OciError,
+  LOG,
+  getChunk,
+  RetryConfiguration,
+  NoRetryConfigurationDetails
+} from "oci-common";
 import { UploadResponse } from "./upload-response";
 import { Semaphore } from "await-semaphore";
 import { UploadableBlob } from "./uploadable-blob";
@@ -22,6 +30,12 @@ import {
 } from "./types";
 import { UploadOptions } from "./upload-options";
 import { UploadableStream } from "./uploadable-stream";
+import { NodeFSBlob } from "./node-fs-blob";
+
+const CLIENT_VERSION = `Oracle-TypeScriptSDK/${version}`;
+
+const OS_VERSION = `${os.type()} ${os.release()} ${os.platform()}`;
+const UPLOAD_MANAGER_DEBUG_INFORMATION_LOG = `Client Version: ${CLIENT_VERSION}, OS Version: ${OS_VERSION}, See https://docs.oracle.com/iaas/Content/API/Concepts/sdk_troubleshooting.htm for common issues and steps to resolve them. If you need to contact support, or file a GitHub issue, please include this full error message.`;
 
 /**
  * UploadManager simplifies interaction with the Object Storage service by abstracting away the method used
@@ -51,6 +65,7 @@ export class UploadManager {
   // numberOfRetries will be a dictionary that keeps track of numberOfRetries per uploadId. This helps prevent mismatch numberOfRetries with
   // different upload when uploading multiple things in parallel.
   private numberOfRetries: { [key: string]: number } = {};
+  private uploadRetryConfiguration = { retryConfiguration: NoRetryConfigurationDetails };
 
   private numberOfSingleUploadRetry = 0;
   public constructor(
@@ -69,7 +84,8 @@ export class UploadManager {
     maxConcurrentUploads: 5,
     allowedMemoryUsage: 5 * 20 * 1024 * 1024,
     enforceMD5: false,
-    isDisableAutoAbort: false
+    isDisableAutoAbort: false,
+    disableBufferingForFiles: true
   };
 
   private shouldUseMultipartUpload(
@@ -130,7 +146,8 @@ export class UploadManager {
       const response = await this.client.putObject({
         ...requestDetails,
         ...contentDetails,
-        ...contentMD5Hash
+        ...contentMD5Hash,
+        ...this.uploadRetryConfiguration
       });
       this.numberOfSingleUploadRetry = 0;
       return {
@@ -148,13 +165,17 @@ export class UploadManager {
         console.log(
           `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`
         );
-        throw e;
+        const error = {
+          message: `putObject failed to retry ${this.numberOfSingleUploadRetry} times. Error: ${e}`,
+          troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
+        };
+        throw error;
       }
     }
   }
 
   private async triggerUploadPart(
-    content: RawData,
+    content: RawData | UploadableBlob,
     requestDetails: RequestDetails,
     uploadId: string,
     uploadPartNum: number,
@@ -164,13 +185,24 @@ export class UploadManager {
   ): Promise<models.CommitMultipartUploadPartDetails> {
     try {
       return await semaphore.use(async () => {
-        const contentDetails: UploadPartContentDetails = {
-          uploadPartBody: content.data,
-          contentLength: content.size
-        };
-        const contentMD5Hash: UploadPartContentMD5HashDetails = this.options.enforceMD5
-          ? { contentMD5: content.md5Hash }
-          : {};
+        let contentDetails: UploadPartContentDetails = <UploadPartContentDetails>{};
+        let contentMD5Hash: UploadPartContentMD5HashDetails = <UploadPartContentMD5HashDetails>{};
+        if (content instanceof NodeFSBlob) {
+          contentDetails = {
+            uploadPartBody: await content.getData(),
+            contentLength: content.size
+          };
+
+          contentMD5Hash = this.options.enforceMD5
+            ? { contentMD5: await content.getMD5Hash() }
+            : {};
+        } else if ("data" in content) {
+          contentDetails = {
+            uploadPartBody: content.data,
+            contentLength: content.size
+          };
+          contentMD5Hash = this.options.enforceMD5 ? { contentMD5: content.md5Hash } : {};
+        }
         const uploadPartDetails: UploadPartDetails = {
           uploadId: uploadId,
           uploadPartNum: uploadPartNum
@@ -179,7 +211,8 @@ export class UploadManager {
           ...requestDetails,
           ...uploadPartDetails,
           ...contentDetails,
-          ...contentMD5Hash
+          ...contentMD5Hash,
+          ...this.uploadRetryConfiguration
         });
 
         const uploadSize = (this.uploadSize[uploadId] += content.size);
@@ -210,10 +243,11 @@ export class UploadManager {
           callback
         );
       } else {
-        console.log(
-          `Upload part retried ${this.numberOfRetries[uploadId]} times and failed. Upload of part: ${uploadPartNum} failed due to ${ex}`
-        );
-        throw ex;
+        const error = {
+          message: `Upload part retried ${this.numberOfRetries[uploadId]} times and failed. Upload of part: ${uploadPartNum} failed due to ${ex}`,
+          troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
+        };
+        throw error;
       }
     }
   }
@@ -228,12 +262,17 @@ export class UploadManager {
     let uploadPartNum = 1;
     const semaphore = new Semaphore(this.options.maxConcurrentUploads);
     const partUploadPromises = [];
-    let body = await content.getData();
-    const dataFeeder = getChunk(body, this.options.partSize);
+    let dataFeeder;
+    if (this.options.disableBufferingForFiles && content instanceof NodeFSBlob) {
+      dataFeeder = getFileChunk(content, this.options.partSize);
+    } else {
+      let body = await content.getData();
+      dataFeeder = getChunk(body, this.options.partSize);
+    }
     for await (const dataPart of dataFeeder) {
       if (partUploadPromises.length > this.MAX_PARTS) {
         throw new Error(
-          `Exceeded ${this.MAX_PARTS} as part of the upload to ${requestDetails.bucketName}.`
+          `Exceeded ${this.MAX_PARTS} as part of the upload to ${requestDetails.bucketName}. ${UPLOAD_MANAGER_DEBUG_INFORMATION_LOG}`
         );
       }
       if (dataPart.size === 0) {
@@ -263,6 +302,7 @@ export class UploadManager {
     content: UploadableBlob | UploadableStream,
     callback?: Function
   ): Promise<UploadResponse> {
+    const timestamp = Date.now().toString();
     const createUploadResponse = await this.client.createMultipartUpload({
       ...UploadManager.composeRequestDetails(requestDetails),
       createMultipartUploadDetails: {
@@ -313,12 +353,11 @@ export class UploadManager {
         if (this.logger) this.logger.error(`Abort complete`);
       }
       if (ex instanceof OciError) throw ex;
-      throw new OciError(
-        -1,
-        "Unknown code",
-        `Failed to upload object using multi-part uploads due to ${ex}`,
-        null
-      );
+      const error = {
+        message: `Failed to upload due to ${ex}`,
+        troubleShootingInfo: UPLOAD_MANAGER_DEBUG_INFORMATION_LOG
+      };
+      throw error;
     }
   }
 
@@ -329,5 +368,16 @@ export class UploadManager {
       objectName: requestDetails.objectName,
       opcClientRequestId: requestDetails.opcClientRequestId
     };
+  }
+}
+
+function getFileChunk(content: NodeFSBlob, partSize: number) {
+  return FileChunk(content, partSize);
+}
+
+async function* FileChunk(content: NodeFSBlob, partSize: number) {
+  let totalSize = content.size;
+  for (let currentChunkStart = 0; currentChunkStart < totalSize; currentChunkStart += partSize) {
+    yield content.slice(currentChunkStart, currentChunkStart + partSize);
   }
 }

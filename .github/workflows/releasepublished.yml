@@ -1,0 +1,135 @@
+# Code Courtesy : Mathias Ricken
+# This workflow triggers when a new release has been made.
+
+name: ReleasePublished
+
+# Controls when the action will run.
+on:
+  # Triggers the workflow on push or pull request events but only for the main branch
+  release:
+    types: [published]
+
+  # Allows you to run this workflow manually from the Actions tab.
+  workflow_dispatch:
+    inputs:
+      release:
+        description: 'Release version number ("latest" or "v1.34.0")'
+        required: true
+        default: latest
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  # This workflow contains a single job called "build"
+  build:
+    # NOTE: If this runs in an environment, set this value (where "MC-Action" is the environment name)
+    # environment: MC-Action
+
+    # The type of runner that the job will run on
+    runs-on: ubuntu-latest
+
+    # Steps represent a sequence of tasks that will be executed as part of the job
+    steps:
+      - name: Report the parameters
+        run: |
+          echo "GITHUB_REF is \"$GITHUB_REF\""
+          echo "GITHUB_SHA is \"$GITHUB_SHA\""
+          echo "inputs.release is \"${{github.event.inputs.release}}\""
+          if [ -z "${{github.event.inputs.release}}" ]; then
+            echo "Release not set manually, using GITHUB_REF"
+            export RELEASE=`echo "$GITHUB_REF" | sed "s#refs/tags/##"`
+          else
+            echo "Release set manually, using inputs.release"
+            export RELEASE=${{github.event.inputs.release}}
+          fi
+          echo "Release is $RELEASE"
+          pat="^v.*"
+          if [ "$RELEASE" = "latest" ]; then
+            echo "Using latest release"
+          elif [[ $RELEASE =~ $pat ]]; then
+            echo "Specified '$RELEASE' as release"
+          else
+            echo "Unsupported release, should be 'latest' or something like 'v1.35.0'; was '$RELEASE'"
+            exit 1
+          fi
+          echo "RELEASE=$RELEASE" >> $GITHUB_ENV
+      - name: Check credentials
+        run: |
+          set -e
+          echo "Checking NPM ACCESS_TOKEN"
+          curl --fail -H 'Authorization: Bearer ${{ secrets.NPM_ACCESS_TOKEN }}' https://registry.npmjs.org/
+          echo "Checking GitHub ACCESS_TOKEN"
+          curl -f -H "Authorization: Bearer ${{ secrets.ACCESS_TOKEN }}" -H 'Accept: application/vnd.github.v3.raw' -s https://api.github.com/repos/oracle/oci-typescript-sdk > /dev/null
+      - name: Install packages
+        run: |
+          sudo apt-get install -y jq
+        shell: bash
+      - name: Download the npm artifacts asset
+        env:
+          ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        run: |
+          if [ "$RELEASE" = "latest" ]; then
+            echo "Using latest release"
+            set +e
+            curl -f -H "Authorization: Bearer $ACCESS_TOKEN" -H 'Accept: application/vnd.github.v3.raw' -s https://api.github.com/repos/oracle/oci-typescript-sdk/releases > releases.json
+            result="$?"
+            if [ "$result" -ne 0 ]; then
+              echo "curl returned '$result': Bad access token"
+              exit $result
+            fi
+            asset_id=`cat releases.json | jq ".[0].assets | map(select(.name|test(\"npm_artifacts.zip\")))[0].id"`
+            result="$?"
+            if [ "$result" -ne 0 ]; then
+              echo "jq returned '$result': No releases or bad file (was 'npm_artifacts.zip')"
+              cat releases.json
+              exit $result
+            fi
+            if [ "$asset_id" == "null" ]; then
+              echo "jq returned asset id '$asset_id': No releases or bad file (was 'npm_artifacts.zip')"
+              cat releases.json
+              exit 1
+            fi
+            set -e
+          else
+            echo "Using release $RELEASE"
+            set +e
+            curl -f -H "Authorization: Bearer $ACCESS_TOKEN" -H 'Accept: application/vnd.github.v3.raw' -s https://api.github.com/repos/oracle/oci-typescript-sdk/releases > releases.json
+            result="$?"
+            if [ "$result" -ne 0 ]; then
+              echo "curl returned '$result': Bad access token"
+              exit $result
+            fi
+            asset_id=`cat releases.json | jq ". | map(select(.tag_name == \"$RELEASE\"))[0].assets | map(select(.name|test(\"npm_artifacts.zip\")))[0].id"`
+            result="$?"
+            if [ "$result" -ne 0 ]; then
+              echo "jq returned '$result': Bad release (was '$RELEASE') or bad file (was 'npm_artifacts.zip')"
+              cat releases.json
+              exit $result
+            fi
+            if [ "$asset_id" == "null" ]; then
+              echo "jq returned asset id '$asset_id': Bad release (was '$RELEASE') or bad file (was 'npm_artifacts.zip')"
+              cat releases.json
+              exit 1
+            fi
+            set -e
+          fi
+          echo "Asset id for release $RELEASE file npm_artifacts.zip is $asset_id"
+          wget -q --header="Authorization: Bearer $ACCESS_TOKEN" --auth-no-challenge --header='Accept:application/octet-stream' https://api.github.com/repos/oracle/oci-typescript-sdk/releases/assets/$asset_id -O npm_artifacts.zip
+      - name: Examine npm artifact files
+        run: |
+          ls
+          unzip -q npm_artifacts.zip
+          cd npm_artifacts
+          ls
+          cd ..
+      - uses: actions/setup-node@v2
+        with:
+          node-version: "12.x"
+          registry-url: "https://registry.npmjs.org/"
+      - name: Publish tarball artifacts to npm
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_ACCESS_TOKEN}}
+        run: |
+          ls
+          cd npm_artifacts
+          ls
+          find . -exec npm publish {} \;

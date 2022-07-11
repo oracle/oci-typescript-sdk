@@ -24,18 +24,23 @@ export class WaitContextImpl implements WaitContext {
 }
 
 export class ExponentialBackoffDelayStrategy implements DelayStrategy {
-  private currentDelayInSeconds: number = 1;
-  public constructor(private maxDelayInSeconds: number) {}
+  public constructor(protected maxDelayInSeconds: number) {}
 
   delay(context: WaitContext): number {
-    if (this.currentDelayInSeconds <= 0) {
-      return this.maxDelayInSeconds;
-    }
-
-    const delay = Math.min(this.currentDelayInSeconds, this.maxDelayInSeconds);
-    this.currentDelayInSeconds *= 2;
-
+    const currentDelayInSeconds = Math.pow(2, context.attemptCount);
+    const delay = Math.min(currentDelayInSeconds, this.maxDelayInSeconds);
     return delay;
+  }
+}
+
+export class ExponentialBackoffDelayStrategyWithJitter extends ExponentialBackoffDelayStrategy {
+  public constructor(protected maxDelayInSeconds: number) {
+    super(maxDelayInSeconds);
+  }
+
+  delay(context: WaitContext): number {
+    let jitterValue: number = Math.round(Math.random() * 1000) / 1000;
+    return super.delay(context) + jitterValue;
   }
 }
 
@@ -48,13 +53,17 @@ export class FixedTimeDelayStrategy implements DelayStrategy {
 }
 
 export class MaxAttemptsTerminationStrategy implements TerminationStrategy {
-  private maxAttempts: number;
+  private _maxAttempts: number;
   public constructor(maxAttempts: number) {
-    this.maxAttempts = maxAttempts - 1;
+    this._maxAttempts = maxAttempts - 1;
   }
 
   public shouldTerminate(context: WaitContext): boolean {
-    return context.attemptCount >= this.maxAttempts;
+    return context.attemptCount >= this._maxAttempts;
+  }
+
+  public get maxAttempts(): number {
+    return this._maxAttempts;
   }
 }
 

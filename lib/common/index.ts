@@ -10,6 +10,7 @@ import * as helper from "./lib/helper";
 import * as http from "./lib/http";
 import * as serializer from "./lib/object-serializer";
 import * as range from "./lib/range";
+import * as utils from "./lib/utils";
 import { Region } from "./lib/region";
 import { Realm } from "./lib/realm";
 import { EndpointBuilder } from "./lib/endpoint-builder";
@@ -28,7 +29,12 @@ import {
   MaxAttemptsTerminationStrategy,
   FixedTimeDelayStrategy
 } from "./lib/waiter";
-import { GenericRetrier, RetryConfiguration } from "./lib/retrier";
+import {
+  GenericRetrier,
+  RetryConfiguration,
+  NoRetryConfigurationDetails,
+  OciSdkDefaultRetryConfiguration
+} from "./lib/retrier";
 import { RequireOnlyOne, AuthParams } from "./lib/types";
 import { HttpRequest } from "./lib/http-request";
 import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./lib/auth/instance-principals-authentication-detail-provider";
@@ -47,7 +53,7 @@ import {
 import { ConfigFileAuthenticationDetailsProvider } from "./lib/auth/config-file-auth";
 import getChunk from "./lib/chunker";
 import { ConfigFileReader } from "./lib/config-file-reader";
-import { Method, composeRequest } from "./lib/request-generator";
+import { Method, composeRequest, Params } from "./lib/request-generator";
 import { composeResponse } from "./lib/response-generator";
 export import AuthenticationDetailsProvider = auth.AuthenticationDetailsProvider;
 export import SimpleAuthenticationDetailsProvider = auth.SimpleAuthenticationDetailsProvider;
@@ -92,6 +98,7 @@ export {
   genericPaginateResponses,
   Method,
   composeRequest,
+  Params,
   composeResponse,
   HttpRequest,
   ConfigFileAuthenticationDetailsProvider,
@@ -103,9 +110,12 @@ export {
   FixedTimeDelayStrategy,
   MaxAttemptsTerminationStrategy,
   RetryConfiguration,
+  NoRetryConfigurationDetails,
+  OciSdkDefaultRetryConfiguration,
   BaseRequest,
   ClientConfiguration,
   Constants,
   CircuitBreaker,
-  getChunk
+  getChunk,
+  utils
 };

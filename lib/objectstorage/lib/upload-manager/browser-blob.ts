@@ -52,8 +52,8 @@ export class BrowserBlob implements UploadableBlob {
    * @Summary Get stream for the given BrowserBlob
    * returns Readable object
    */
-  public stream(): ReadableStream {
-    return this.blob.stream();
+  public stream(): ReadableStream<any> {
+    return (this.blob.stream() as unknown) as ReadableStream<any>;
   }
 
   /*

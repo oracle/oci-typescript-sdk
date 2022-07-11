@@ -11,7 +11,7 @@
 
 import * as identity from "oci-identity";
 import * as audit from "oci-audit";
-import common = require("oci-common");
+import * as common from "oci-common";
 
 const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 
@@ -23,7 +23,7 @@ let auditClient: audit.AuditClient;
 export async function getSubscriptionRegions(tenancyId: string) {
   // To retrieve the list of all available regions.
   const listRegionSubscriptionsRequest: identity.requests.ListRegionSubscriptionsRequest = {
-    tenancyId: tenancyId
+    tenancyId
   };
 
   const regions = await identityClient.listRegionSubscriptions(listRegionSubscriptionsRequest);
@@ -81,8 +81,8 @@ async function getAuditEvents(
 }
 
 (async () => {
-  identityClient = await new identity.IdentityClient({ authenticationDetailsProvider: provider });
-  auditClient = await new audit.AuditClient({ authenticationDetailsProvider: provider });
+  identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
+  auditClient = new audit.AuditClient({ authenticationDetailsProvider: provider });
 
   const endTime: Date = new Date();
   const offset = new Date().setDate(new Date().getDate() - 5);

@@ -49,6 +49,9 @@ import SessionKeySupplier from "./models/session-key-supplier";
 import FileBasedResourcePrincipalFederationClient from "./file-based-resource-principal-federation-client";
 import FixedContentResourcePrincipalFederationClient from "./fixed-content-resource-principal-federation-client";
 
+const RP_DEBUG_INFORMATION_LOG =
+  "Resource principals authentication can only be used in certain OCI services. Please check that the OCI service you're running this code from supports Resource principals. See https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm#sdk_authentication_methods_resource_principal for more info.";
+
 export default class ResourcePrincipalAuthenticationDetailsProvider
   extends AbstractRequestingAuthenticationDetailsProvider
   implements RegionProvider, RefreshableOnNotAuthenticatedProvider<String> {
@@ -121,7 +124,10 @@ export default class ResourcePrincipalAuthenticationDetailsProvider
       const OciResourcePrincipalVersion =
         process.env[ResourcePrincipalAuthenticationDetailsProvider.OCI_RESOURCE_PRINCIPAL_VERSION];
       if (!OciResourcePrincipalVersion) {
-        throw Error("OCI_RESOURCE_PRINCIPAL_VERSION environment variable is missing");
+        throw Error(
+          "OCI_RESOURCE_PRINCIPAL_VERSION environment variable is missing " +
+            RP_DEBUG_INFORMATION_LOG
+        );
       }
 
       switch (OciResourcePrincipalVersion) {
@@ -129,7 +135,7 @@ export default class ResourcePrincipalAuthenticationDetailsProvider
           return ResourcePrincipalAuthenticationDetailsProviderBuilder.build_2_2();
         default:
           throw Error(
-            `OCI_RESOURCE_PRINCIPAL_VERSION environment variable has an unknown value ${OciResourcePrincipalVersion}`
+            `OCI_RESOURCE_PRINCIPAL_VERSION environment variable has an unknown value ${OciResourcePrincipalVersion}. ${RP_DEBUG_INFORMATION_LOG}`
           );
       }
     }
@@ -160,13 +166,21 @@ export default class ResourcePrincipalAuthenticationDetailsProvider
         ];
 
       if (!ociResourcePrincipalPrivateKey) {
-        throw Error("OCI_RESOURCE_PRINCIPAL_PRIVATE_PEM environment variable missing");
+        throw Error(
+          "OCI_RESOURCE_PRINCIPAL_PRIVATE_PEM environment variable missing. " +
+            RP_DEBUG_INFORMATION_LOG
+        );
       }
       if (!ociResourcePrincipalRPST) {
-        throw Error("OCI_RESOURCE_PRINCIPAL_RPST environment variable is missing");
+        throw Error(
+          "OCI_RESOURCE_PRINCIPAL_RPST environment variable is missing. " + RP_DEBUG_INFORMATION_LOG
+        );
       }
       if (!ociResourcePrincipalRegion) {
-        throw Error("OCI_RESOURCE_PRINCIPAL_REGION_ENV_VAR_NAME environment variable missing");
+        throw Error(
+          "OCI_RESOURCE_PRINCIPAL_REGION_ENV_VAR_NAME environment variable missing. " +
+            RP_DEBUG_INFORMATION_LOG
+        );
       }
       // Do a check to see if the file path of privateKey and passphrase are absolute path
       if (path.isAbsolute(ociResourcePrincipalPrivateKey)) {

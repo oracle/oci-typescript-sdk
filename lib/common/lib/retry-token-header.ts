@@ -8,7 +8,7 @@
 
 const uuidv1 = require("uuid/v1");
 
-const OPC_RETRY_TOKEN_HEADER: string = "opc-retry-token";
+export const OPC_RETRY_TOKEN_HEADER: string = "opc-retry-token";
 
 export function addRetryToken(headers: Headers) {
   // if user has not passed opc-retry-token
