@@ -8,15 +8,13 @@ const identity = require("oci-identity");
 
 const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
-const tenancyId = {
-  tenancyId: provider.getTenantId() || ""
-};
-
 (async () => {
   const identityClient = new identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
-  const regions = await identityClient.listRegionSubscriptions(tenancyId);
+  const regions = await identityClient.listRegionSubscriptions({
+    tenancyId: provider.getTenantId() || ""
+  });
   for (let i = 0; i < regions.items.length; i++) {
     if (regions.items[i].isHomeRegion) {
       identityClient.regionId = regions.items[i].regionName;

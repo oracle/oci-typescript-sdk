@@ -17,15 +17,13 @@ var bunLog = bunyan.createLogger({ name: "LoggingExample", level: "debug" });
 common.LOG.logger = bunLog;
 const provider = new common.ConfigFileAuthenticationDetailsProvider();
 
-const tenancyId = {
-  tenancyId: provider.getTenantId() || ""
-};
-
 (async () => {
   const identityClient = new identity.IdentityClient({
     authenticationDetailsProvider: provider
   });
-  const regions = await identityClient.listRegionSubscriptions(tenancyId);
+  const regions = await identityClient.listRegionSubscriptions({
+    tenancyId: provider.getTenantId() || ""
+  });
   for (let i = 0; i < regions.items.length; i++) {
     console.log(`Region fetched ${regions.items[i].regionName}`);
   }
