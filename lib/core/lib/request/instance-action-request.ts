@@ -45,7 +45,10 @@ export interface InstanceActionRequest extends common.BaseRequest {
   /**
    * Instance Power Action details
    */
-  "instancePowerActionDetails"?: model.ResetActionDetails | model.SoftResetActionDetails;
+  "instancePowerActionDetails"?:
+    | model.ResetActionDetails
+    | model.RebootMigrateActionDetails
+    | model.SoftResetActionDetails;
 }
 
 export namespace InstanceActionRequest {
@@ -56,6 +59,7 @@ export namespace InstanceActionRequest {
     Reset = "RESET",
     Softstop = "SOFTSTOP",
     Senddiagnosticinterrupt = "SENDDIAGNOSTICINTERRUPT",
-    Diagnosticreboot = "DIAGNOSTICREBOOT"
+    Diagnosticreboot = "DIAGNOSTICREBOOT",
+    Rebootmigrate = "REBOOTMIGRATE"
   }
 }

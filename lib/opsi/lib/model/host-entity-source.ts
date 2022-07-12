@@ -23,6 +23,7 @@ import common = require("oci-common");
 export enum HostEntitySource {
   MacsManagedExternalHost = "MACS_MANAGED_EXTERNAL_HOST",
   EmManagedExternalHost = "EM_MANAGED_EXTERNAL_HOST",
+  PeComanagedHost = "PE_COMANAGED_HOST",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

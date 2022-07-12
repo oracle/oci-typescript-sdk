@@ -97,6 +97,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
   "backupPolicy"?: model.BackupPolicy;
   "source"?:
     | model.DbSystemSourceFromBackup
+    | model.DbSystemSourceFromPitr
     | model.DbSystemSourceFromNone
     | model.DbSystemSourceImportFromUrl;
   /**
@@ -178,6 +179,7 @@ For a standalone DB System, this defines the fault domain in which the DB System
    *
    */
   "crashRecovery"?: model.CrashRecoveryStatus;
+  "pointInTimeRecoveryDetails"?: model.PointInTimeRecoveryDetails;
 }
 
 export namespace DbSystem {
@@ -233,6 +235,10 @@ export namespace DbSystem {
           : undefined,
         "deletionPolicy": obj.deletionPolicy
           ? model.DeletionPolicyDetails.getJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "pointInTimeRecoveryDetails": obj.pointInTimeRecoveryDetails
+          ? model.PointInTimeRecoveryDetails.getJsonObj(obj.pointInTimeRecoveryDetails)
           : undefined
       }
     };
@@ -276,6 +282,10 @@ export namespace DbSystem {
           : undefined,
         "deletionPolicy": obj.deletionPolicy
           ? model.DeletionPolicyDetails.getDeserializedJsonObj(obj.deletionPolicy)
+          : undefined,
+
+        "pointInTimeRecoveryDetails": obj.pointInTimeRecoveryDetails
+          ? model.PointInTimeRecoveryDetails.getDeserializedJsonObj(obj.pointInTimeRecoveryDetails)
           : undefined
       }
     };

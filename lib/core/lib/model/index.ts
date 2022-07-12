@@ -1009,6 +1009,8 @@ import * as NetworkingTopology from "./networking-topology";
 export import NetworkingTopology = NetworkingTopology.NetworkingTopology;
 import * as ParavirtualizedVolumeAttachment from "./paravirtualized-volume-attachment";
 export import ParavirtualizedVolumeAttachment = ParavirtualizedVolumeAttachment.ParavirtualizedVolumeAttachment;
+import * as RebootMigrateActionDetails from "./reboot-migrate-action-details";
+export import RebootMigrateActionDetails = RebootMigrateActionDetails.RebootMigrateActionDetails;
 import * as RemotePeeringConnectionDrgAttachmentNetworkDetails from "./remote-peering-connection-drg-attachment-network-details";
 export import RemotePeeringConnectionDrgAttachmentNetworkDetails = RemotePeeringConnectionDrgAttachmentNetworkDetails.RemotePeeringConnectionDrgAttachmentNetworkDetails;
 import * as ResetActionDetails from "./reset-action-details";

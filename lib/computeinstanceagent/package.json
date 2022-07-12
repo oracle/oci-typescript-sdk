@@ -1,6 +1,6 @@
 {
   "name": "oci-computeinstanceagent",
-  "version": "2.34.0",
+  "version": "2.35.0",
   "description": "OCI NodeJS client for Compute Instance Agent Service",
   "repository": {
     "type": "git",

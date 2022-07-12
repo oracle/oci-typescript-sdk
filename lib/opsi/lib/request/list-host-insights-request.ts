@@ -40,7 +40,7 @@ export interface ListHostInsightsRequest extends common.BaseRequest {
    * Possible value is EXTERNAL-HOST.
    *
    */
-  "hostType"?: Array<string>;
+  "hostType"?: Array<ListHostInsightsRequest.HostType>;
   /**
    * Filter by one or more platform types.
    * Supported platformType(s) for MACS-managed external host insight: [LINUX].
@@ -97,6 +97,10 @@ export interface ListHostInsightsRequest extends common.BaseRequest {
 }
 
 export namespace ListHostInsightsRequest {
+  export enum HostType {
+    ExternalHost = "EXTERNAL-HOST"
+  }
+
   export enum PlatformType {
     Linux = "LINUX",
     Solaris = "SOLARIS",

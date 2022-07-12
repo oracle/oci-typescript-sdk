@@ -63,6 +63,13 @@ To use the node pool with a regional subnet, provide a placement configuration f
 * 
     */
   "placementConfigs"?: Array<model.NodePoolPlacementConfigDetails>;
+  /**
+   * The CNI related configuration of pods in the node pool.
+   *
+   */
+  "nodePoolPodNetworkOptionDetails"?:
+    | model.OciVcnIpNativeNodePoolPodNetworkOptionDetails
+    | model.FlannelOverlayNodePoolPodNetworkOptionDetails;
 }
 
 export namespace NodePoolNodeConfigDetails {
@@ -74,6 +81,9 @@ export namespace NodePoolNodeConfigDetails {
           ? obj.placementConfigs.map(item => {
               return model.NodePoolPlacementConfigDetails.getJsonObj(item);
             })
+          : undefined,
+        "nodePoolPodNetworkOptionDetails": obj.nodePoolPodNetworkOptionDetails
+          ? model.NodePoolPodNetworkOptionDetails.getJsonObj(obj.nodePoolPodNetworkOptionDetails)
           : undefined
       }
     };
@@ -88,6 +98,11 @@ export namespace NodePoolNodeConfigDetails {
           ? obj.placementConfigs.map(item => {
               return model.NodePoolPlacementConfigDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "nodePoolPodNetworkOptionDetails": obj.nodePoolPodNetworkOptionDetails
+          ? model.NodePoolPodNetworkOptionDetails.getDeserializedJsonObj(
+              obj.nodePoolPodNetworkOptionDetails
+            )
           : undefined
       }
     };

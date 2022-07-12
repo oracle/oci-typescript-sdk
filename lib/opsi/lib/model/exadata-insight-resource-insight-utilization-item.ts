@@ -26,6 +26,10 @@ export interface ExadataInsightResourceInsightUtilizationItem {
    */
   "exadataInsightId": string;
   /**
+   * The user-friendly name for the Exadata system. The name does not have to be unique.
+   */
+  "exadataDisplayName"?: string;
+  /**
    * Current utilization Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "currentUtilization": number;

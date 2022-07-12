@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about database to be analyzed.
+ * The information about database to be analyzed. Either an opsiPrivateEndpointId or dbmPrivateEndpointId must be specified. If the dbmPrivateEndpointId is specified, a new Operations Insights private endpoint will be created.
  */
 export interface CreatePeComanagedDatabaseInsightDetails
   extends model.CreateDatabaseInsightDetails {
@@ -33,7 +33,11 @@ export interface CreatePeComanagedDatabaseInsightDetails
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
    */
-  "opsiPrivateEndpointId": string;
+  "opsiPrivateEndpointId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Management private endpoint
+   */
+  "dbmPrivateEndpointId"?: string;
   /**
    * Database service name used for connection requests.
    */

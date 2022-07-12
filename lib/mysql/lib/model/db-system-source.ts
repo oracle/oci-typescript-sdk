@@ -33,6 +33,11 @@ export namespace DbSystemSource {
             <model.DbSystemSourceFromBackup>(<object>jsonObj),
             true
           );
+        case "PITR":
+          return model.DbSystemSourceFromPitr.getJsonObj(
+            <model.DbSystemSourceFromPitr>(<object>jsonObj),
+            true
+          );
         case "NONE":
           return model.DbSystemSourceFromNone.getJsonObj(
             <model.DbSystemSourceFromNone>(<object>jsonObj),
@@ -57,6 +62,11 @@ export namespace DbSystemSource {
         case "BACKUP":
           return model.DbSystemSourceFromBackup.getDeserializedJsonObj(
             <model.DbSystemSourceFromBackup>(<object>jsonObj),
+            true
+          );
+        case "PITR":
+          return model.DbSystemSourceFromPitr.getDeserializedJsonObj(
+            <model.DbSystemSourceFromPitr>(<object>jsonObj),
             true
           );
         case "NONE":

@@ -27,9 +27,17 @@ export interface PeComanagedManagedExternalDatabaseConfigurationSummary
    */
   "databaseId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
+   */
+  "parentId": string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
    */
   "opsiPrivateEndpointId": string;
+  /**
+   * Array of hostname and instance name.
+   */
+  "instances": Array<model.HostInstanceMap>;
 
   "entitySource": string;
 }
@@ -45,7 +53,13 @@ export namespace PeComanagedManagedExternalDatabaseConfigurationSummary {
         : (model.DatabaseConfigurationSummary.getJsonObj(
             obj
           ) as PeComanagedManagedExternalDatabaseConfigurationSummary)),
-      ...{}
+      ...{
+        "instances": obj.instances
+          ? obj.instances.map(item => {
+              return model.HostInstanceMap.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -61,7 +75,13 @@ export namespace PeComanagedManagedExternalDatabaseConfigurationSummary {
         : (model.DatabaseConfigurationSummary.getDeserializedJsonObj(
             obj
           ) as PeComanagedManagedExternalDatabaseConfigurationSummary)),
-      ...{}
+      ...{
+        "instances": obj.instances
+          ? obj.instances.map(item => {
+              return model.HostInstanceMap.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
