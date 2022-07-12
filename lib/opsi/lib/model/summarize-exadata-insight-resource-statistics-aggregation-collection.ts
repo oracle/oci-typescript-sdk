@@ -47,6 +47,10 @@ export interface SummarizeExadataInsightResourceStatisticsAggregationCollection 
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata insight.
    */
   "exadataInsightId": string;
+  /**
+   * The user-friendly name for the Exadata system. The name does not have to be unique.
+   */
+  "exadataDisplayName"?: string;
 }
 
 export namespace SummarizeExadataInsightResourceStatisticsAggregationCollection {

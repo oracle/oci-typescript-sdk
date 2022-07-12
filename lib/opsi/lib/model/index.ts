@@ -607,6 +607,8 @@ import * as PeComanagedDatabaseInsight from "./pe-comanaged-database-insight";
 export import PeComanagedDatabaseInsight = PeComanagedDatabaseInsight.PeComanagedDatabaseInsight;
 import * as PeComanagedDatabaseInsightSummary from "./pe-comanaged-database-insight-summary";
 export import PeComanagedDatabaseInsightSummary = PeComanagedDatabaseInsightSummary.PeComanagedDatabaseInsightSummary;
+import * as PeComanagedHostConfigurationSummary from "./pe-comanaged-host-configuration-summary";
+export import PeComanagedHostConfigurationSummary = PeComanagedHostConfigurationSummary.PeComanagedHostConfigurationSummary;
 import * as PeComanagedManagedExternalDatabaseConfigurationSummary from "./pe-comanaged-managed-external-database-configuration-summary";
 export import PeComanagedManagedExternalDatabaseConfigurationSummary = PeComanagedManagedExternalDatabaseConfigurationSummary.PeComanagedManagedExternalDatabaseConfigurationSummary;
 import * as QueryDataObjectJsonResultSetRowsCollection from "./query-data-object-json-result-set-rows-collection";

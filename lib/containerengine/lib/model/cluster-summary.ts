@@ -95,6 +95,10 @@ export interface ClusterSummary {
    *
    */
   "imagePolicyConfig"?: model.ImagePolicyConfig;
+  /**
+   * Available CNIs and network options for existing and new node pools of the cluster
+   */
+  "clusterPodNetworkOptions"?: Array<model.ClusterPodNetworkOptionDetails>;
 }
 
 export namespace ClusterSummary {
@@ -113,6 +117,11 @@ export namespace ClusterSummary {
 
         "imagePolicyConfig": obj.imagePolicyConfig
           ? model.ImagePolicyConfig.getJsonObj(obj.imagePolicyConfig)
+          : undefined,
+        "clusterPodNetworkOptions": obj.clusterPodNetworkOptions
+          ? obj.clusterPodNetworkOptions.map(item => {
+              return model.ClusterPodNetworkOptionDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -140,6 +149,11 @@ export namespace ClusterSummary {
 
         "imagePolicyConfig": obj.imagePolicyConfig
           ? model.ImagePolicyConfig.getDeserializedJsonObj(obj.imagePolicyConfig)
+          : undefined,
+        "clusterPodNetworkOptions": obj.clusterPodNetworkOptions
+          ? obj.clusterPodNetworkOptions.map(item => {
+              return model.ClusterPodNetworkOptionDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

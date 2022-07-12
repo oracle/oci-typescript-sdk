@@ -25,16 +25,38 @@ export interface ClusterOptions {
    * Available Kubernetes versions.
    */
   "kubernetesVersions"?: Array<string>;
+  /**
+   * Available CNIs and network options for existing and new node pools of the cluster
+   */
+  "clusterPodNetworkOptions"?: Array<model.ClusterPodNetworkOptionDetails>;
 }
 
 export namespace ClusterOptions {
   export function getJsonObj(obj: ClusterOptions): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "clusterPodNetworkOptions": obj.clusterPodNetworkOptions
+          ? obj.clusterPodNetworkOptions.map(item => {
+              return model.ClusterPodNetworkOptionDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ClusterOptions): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "clusterPodNetworkOptions": obj.clusterPodNetworkOptions
+          ? obj.clusterPodNetworkOptions.map(item => {
+              return model.ClusterPodNetworkOptionDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

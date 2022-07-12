@@ -26,6 +26,10 @@ export interface ResourceUsageSummary {
    */
   "exadataInsightId": string;
   /**
+   * The user-friendly name for the Exadata system. The name does not have to be unique.
+   */
+  "exadataDisplayName"?: string;
+  /**
    * Total amount used of the resource metric type (CPU, STORAGE).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

@@ -64,6 +64,10 @@ export interface HostInsightSummary {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
+   */
+  "opsiPrivateEndpointId"?: string;
+  /**
    * Indicates the status of a host insight in Operations Insights
    */
   "status"?: model.ResourceStatus;

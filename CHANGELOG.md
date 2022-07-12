@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.35.0 - 2022-07-12
+### Added
+- Support for DBCS databases in the Operations Insights service
+- Support for point-in-time recovery for non-highly-available database systems in the MySQL Database service
+- Support for triggering reboot migration on instances with pending maintenance in the Compute service
+- Support for native pod networking in the Container Engine for Kubernetes service
+- Support for creating Data Guard associations with new database systems in the Database service
+ 
+### Breaking Changes
+- Property `preserveDataVolumes` is removed from the model `TerminateInstanceRequest` in the Core service.
+- Property `hostType` is changed from type Array of `strings` to type Array of `ListHostInsightsRequest.HostType` in the Operations Insights service.
+
 ## 2.34.0 - 2022-07-05
 ### Added
 - Support for backup policies returned as part of the database system list operation in the MySQL Database service

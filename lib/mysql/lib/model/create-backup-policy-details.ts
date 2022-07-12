@@ -55,16 +55,29 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
 * 
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "pitrPolicy"?: model.PitrPolicy;
 }
 
 export namespace CreateBackupPolicyDetails {
   export function getJsonObj(obj: CreateBackupPolicyDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pitrPolicy": obj.pitrPolicy ? model.PitrPolicy.getJsonObj(obj.pitrPolicy) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateBackupPolicyDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "pitrPolicy": obj.pitrPolicy
+          ? model.PitrPolicy.getDeserializedJsonObj(obj.pitrPolicy)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

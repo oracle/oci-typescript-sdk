@@ -1,6 +1,6 @@
 {
   "name": "oci-loadbalancer",
-  "version": "2.34.0",
+  "version": "2.35.0",
   "description": "OCI NodeJS client for Load Balancer",
   "repository": {
     "type": "git",

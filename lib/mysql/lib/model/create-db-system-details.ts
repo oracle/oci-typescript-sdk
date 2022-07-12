@@ -136,7 +136,8 @@ Must be unique across all VNICs in the subnet and comply with RFC 952 and RFC 11
   "source"?:
     | model.CreateDbSystemSourceFromBackupDetails
     | model.CreateDbSystemSourceFromNoneDetails
-    | model.CreateDbSystemSourceImportFromUrlDetails;
+    | model.CreateDbSystemSourceImportFromUrlDetails
+    | model.CreateDbSystemSourceFromPitrDetails;
   "maintenance"?: model.CreateMaintenanceDetails;
   /**
    * Simple key-value pair applied without any predefined name, type or scope. Exists for cross-compatibility only.

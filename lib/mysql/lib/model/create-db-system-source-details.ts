@@ -43,6 +43,11 @@ export namespace CreateDbSystemSourceDetails {
             <model.CreateDbSystemSourceImportFromUrlDetails>(<object>jsonObj),
             true
           );
+        case "PITR":
+          return model.CreateDbSystemSourceFromPitrDetails.getJsonObj(
+            <model.CreateDbSystemSourceFromPitrDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.sourceType);
       }
@@ -67,6 +72,11 @@ export namespace CreateDbSystemSourceDetails {
         case "IMPORTURL":
           return model.CreateDbSystemSourceImportFromUrlDetails.getDeserializedJsonObj(
             <model.CreateDbSystemSourceImportFromUrlDetails>(<object>jsonObj),
+            true
+          );
+        case "PITR":
+          return model.CreateDbSystemSourceFromPitrDetails.getDeserializedJsonObj(
+            <model.CreateDbSystemSourceFromPitrDetails>(<object>jsonObj),
             true
           );
         default:

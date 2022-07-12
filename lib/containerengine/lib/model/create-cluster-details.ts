@@ -73,6 +73,10 @@ export interface CreateClusterDetails {
    *
    */
   "imagePolicyConfig"?: model.CreateImagePolicyConfigDetails;
+  /**
+   * Available CNIs and network options for existing and new node pools of the cluster
+   */
+  "clusterPodNetworkOptions"?: Array<model.ClusterPodNetworkOptionDetails>;
 }
 
 export namespace CreateClusterDetails {
@@ -87,6 +91,11 @@ export namespace CreateClusterDetails {
         "options": obj.options ? model.ClusterCreateOptions.getJsonObj(obj.options) : undefined,
         "imagePolicyConfig": obj.imagePolicyConfig
           ? model.CreateImagePolicyConfigDetails.getJsonObj(obj.imagePolicyConfig)
+          : undefined,
+        "clusterPodNetworkOptions": obj.clusterPodNetworkOptions
+          ? obj.clusterPodNetworkOptions.map(item => {
+              return model.ClusterPodNetworkOptionDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -106,6 +115,11 @@ export namespace CreateClusterDetails {
           : undefined,
         "imagePolicyConfig": obj.imagePolicyConfig
           ? model.CreateImagePolicyConfigDetails.getDeserializedJsonObj(obj.imagePolicyConfig)
+          : undefined,
+        "clusterPodNetworkOptions": obj.clusterPodNetworkOptions
+          ? obj.clusterPodNetworkOptions.map(item => {
+              return model.ClusterPodNetworkOptionDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

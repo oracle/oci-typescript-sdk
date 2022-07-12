@@ -20,7 +20,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A base object for all types of Instance Power Action requests.
+ * A base object for all types of instance power action requests.
  */
 export interface InstancePowerActionDetails {
   "actionType": string;
@@ -35,6 +35,11 @@ export namespace InstancePowerActionDetails {
         case "reset":
           return model.ResetActionDetails.getJsonObj(
             <model.ResetActionDetails>(<object>jsonObj),
+            true
+          );
+        case "rebootMigrate":
+          return model.RebootMigrateActionDetails.getJsonObj(
+            <model.RebootMigrateActionDetails>(<object>jsonObj),
             true
           );
         case "softreset":
@@ -56,6 +61,11 @@ export namespace InstancePowerActionDetails {
         case "reset":
           return model.ResetActionDetails.getDeserializedJsonObj(
             <model.ResetActionDetails>(<object>jsonObj),
+            true
+          );
+        case "rebootMigrate":
+          return model.RebootMigrateActionDetails.getDeserializedJsonObj(
+            <model.RebootMigrateActionDetails>(<object>jsonObj),
             true
           );
         case "softreset":
