@@ -222,6 +222,8 @@ import * as GetInstanceResponse from "./get-instance-response";
 export import GetInstanceResponse = GetInstanceResponse.GetInstanceResponse;
 import * as GetInstanceConsoleConnectionResponse from "./get-instance-console-connection-response";
 export import GetInstanceConsoleConnectionResponse = GetInstanceConsoleConnectionResponse.GetInstanceConsoleConnectionResponse;
+import * as GetInstanceMaintenanceRebootResponse from "./get-instance-maintenance-reboot-response";
+export import GetInstanceMaintenanceRebootResponse = GetInstanceMaintenanceRebootResponse.GetInstanceMaintenanceRebootResponse;
 import * as GetMeasuredBootReportResponse from "./get-measured-boot-report-response";
 export import GetMeasuredBootReportResponse = GetMeasuredBootReportResponse.GetMeasuredBootReportResponse;
 import * as GetVnicAttachmentResponse from "./get-vnic-attachment-response";

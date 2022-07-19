@@ -49,6 +49,15 @@ Example: `true`
 * 
     */
   "blockTraffic"?: boolean;
+  /**
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table used by the NAT gateway.
+* <p>
+If you don't specify a route table here, the NAT gateway is created without an associated route
+* table. The Networking service does NOT automatically associate the attached VCN's default route
+* table with the NAT gateway.
+* 
+    */
+  "routeTableId"?: string;
 }
 
 export namespace UpdateNatGatewayDetails {

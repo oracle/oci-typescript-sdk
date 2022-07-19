@@ -9050,6 +9050,78 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   }
 
   /**
+   * Gets the maximum possible date that a maintenance reboot can be extended.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetInstanceMaintenanceRebootRequest
+   * @return GetInstanceMaintenanceRebootResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetInstanceMaintenanceReboot.ts.html |here} to see how to use GetInstanceMaintenanceReboot API.
+   */
+  public async getInstanceMaintenanceReboot(
+    getInstanceMaintenanceRebootRequest: requests.GetInstanceMaintenanceRebootRequest
+  ): Promise<responses.GetInstanceMaintenanceRebootResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#getInstanceMaintenanceReboot.");
+    const operationName = "getInstanceMaintenanceReboot";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstanceMaintenanceReboot/GetInstanceMaintenanceReboot";
+    const pathParams = {
+      "{instanceId}": getInstanceMaintenanceRebootRequest.instanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getInstanceMaintenanceRebootRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInstanceMaintenanceRebootRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instances/{instanceId}/maintenanceReboot",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInstanceMaintenanceRebootResponse>{},
+        body: await response.json(),
+        bodyKey: "instanceMaintenanceReboot",
+        bodyModel: model.InstanceMaintenanceReboot,
+        type: "model.InstanceMaintenanceReboot",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the measured boot report for this shielded instance.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMeasuredBootReportRequest

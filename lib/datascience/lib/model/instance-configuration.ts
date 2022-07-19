@@ -23,16 +23,35 @@ export interface InstanceConfiguration {
    * The shape used to launch the model deployment instances.
    */
   "instanceShapeName": string;
+  "modelDeploymentInstanceShapeConfigDetails"?: model.ModelDeploymentInstanceShapeConfigDetails;
 }
 
 export namespace InstanceConfiguration {
   export function getJsonObj(obj: InstanceConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "modelDeploymentInstanceShapeConfigDetails": obj.modelDeploymentInstanceShapeConfigDetails
+          ? model.ModelDeploymentInstanceShapeConfigDetails.getJsonObj(
+              obj.modelDeploymentInstanceShapeConfigDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: InstanceConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "modelDeploymentInstanceShapeConfigDetails": obj.modelDeploymentInstanceShapeConfigDetails
+          ? model.ModelDeploymentInstanceShapeConfigDetails.getDeserializedJsonObj(
+              obj.modelDeploymentInstanceShapeConfigDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

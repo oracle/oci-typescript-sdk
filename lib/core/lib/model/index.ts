@@ -514,6 +514,8 @@ import * as InstanceConsoleConnection from "./instance-console-connection";
 export import InstanceConsoleConnection = InstanceConsoleConnection.InstanceConsoleConnection;
 import * as InstanceCredentials from "./instance-credentials";
 export import InstanceCredentials = InstanceCredentials.InstanceCredentials;
+import * as InstanceMaintenanceReboot from "./instance-maintenance-reboot";
+export import InstanceMaintenanceReboot = InstanceMaintenanceReboot.InstanceMaintenanceReboot;
 import * as InstanceOptions from "./instance-options";
 export import InstanceOptions = InstanceOptions.InstanceOptions;
 import * as InstancePool from "./instance-pool";
