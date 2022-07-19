@@ -24,6 +24,10 @@ export interface UpdateAutonomousDatabaseWalletDetails {
    * Indicates whether to rotate the wallet or not. If `false`, the wallet will not be rotated. The default is `false`.
    */
   "shouldRotate"?: boolean;
+  /**
+   * Grace period in hours to keep the existing wallet valid after rotation. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "gracePeriod"?: number;
 }
 
 export namespace UpdateAutonomousDatabaseWalletDetails {

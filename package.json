@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.35.0",
+  "version": "2.35.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -131,7 +131,11 @@
     "oci-onesubscription": "file:lib/onesubscription",
     "oci-networkfirewall": "file:lib/networkfirewall",
     "oci-emwarehouse": "file:lib/emwarehouse",
-    "oci-vnmonitoring": "file:lib/vnmonitoring"
+    "oci-vnmonitoring": "file:lib/vnmonitoring",
+    "oci-fusionapps": "file:lib/fusionapps",
+    "oci-lockbox": "file:lib/lockbox",
+    "oci-mediaservices": "file:lib/mediaservices",
+    "oci-opa": "file:lib/opa"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

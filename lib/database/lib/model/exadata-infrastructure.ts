@@ -78,6 +78,10 @@ export interface ExadataInfrastructure {
    */
   "maxDataStorageInTBs"?: number;
   /**
+   * The serial number for the Exadata infrastructure.
+   */
+  "rackSerialNumber"?: string;
+  /**
    * The number of Exadata storage servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageCount"?: number;

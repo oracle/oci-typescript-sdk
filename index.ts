@@ -196,3 +196,7 @@ export import onesubscription = require("oci-onesubscription");
 export import networkfirewall = require("oci-networkfirewall");
 export import emwarehouse = require("oci-emwarehouse");
 export import vnmonitoring = require("oci-vnmonitoring");
+export import fusionapps = require("oci-fusionapps");
+export import lockbox = require("oci-lockbox");
+export import mediaservices = require("oci-mediaservices");
+export import opa = require("oci-opa");

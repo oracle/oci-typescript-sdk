@@ -35,6 +35,11 @@ export interface ModelDeploymentShapeSummary {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs": number;
+  /**
+   * The family that the compute shape belongs to.
+   *
+   */
+  "shapeSeries": model.ModelDeploymentShapeSeries;
 }
 
 export namespace ModelDeploymentShapeSummary {
