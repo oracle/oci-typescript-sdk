@@ -48,6 +48,7 @@ export interface CreateNotebookSessionDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "notebookSessionRuntimeConfigDetails"?: model.NotebookSessionRuntimeConfigDetails;
 }
 
 export namespace CreateNotebookSessionDetails {
@@ -62,6 +63,12 @@ export namespace CreateNotebookSessionDetails {
           : undefined,
         "notebookSessionConfigDetails": obj.notebookSessionConfigDetails
           ? model.NotebookSessionConfigDetails.getJsonObj(obj.notebookSessionConfigDetails)
+          : undefined,
+
+        "notebookSessionRuntimeConfigDetails": obj.notebookSessionRuntimeConfigDetails
+          ? model.NotebookSessionRuntimeConfigDetails.getJsonObj(
+              obj.notebookSessionRuntimeConfigDetails
+            )
           : undefined
       }
     };
@@ -80,6 +87,12 @@ export namespace CreateNotebookSessionDetails {
         "notebookSessionConfigDetails": obj.notebookSessionConfigDetails
           ? model.NotebookSessionConfigDetails.getDeserializedJsonObj(
               obj.notebookSessionConfigDetails
+            )
+          : undefined,
+
+        "notebookSessionRuntimeConfigDetails": obj.notebookSessionRuntimeConfigDetails
+          ? model.NotebookSessionRuntimeConfigDetails.getDeserializedJsonObj(
+              obj.notebookSessionRuntimeConfigDetails
             )
           : undefined
       }

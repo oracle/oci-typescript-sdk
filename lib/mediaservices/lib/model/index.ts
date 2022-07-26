@@ -1,10 +1,8 @@
 /**
- * Media Services
+ * Media Services API
  * Media Services (includes Media Flow and Media Streams) is a fully managed service for processing media (video) source content. Use Media Flow and Media Streams to transcode and package digital video using configurable workflows and stream video outputs.
 
-Use the Media Services API to configure media workflows and run Media Flow jobs, create distribution channels, ingest assets, create Preview URLs and play assets. For more information, see [Media Flow](/iaas/Content/dms-mediaflow/home.htm) and Media Streams [Media Streams](/iaas/Content/dms-mediastream/home.htm).
-
-Use the table of contents and search tool to explore the Media Flow API and Media Streams API.
+Use the Media Services API to configure media workflows and run Media Flow jobs, create distribution channels, ingest assets, create Preview URLs and play assets. For more information, see [Media Flow](/iaas/Content/dms-mediaflow/home.htm) and [Media Streams](/iaas/Content/dms-mediastream/home.htm).
 
  * OpenAPI spec version: 20211101
  * 
@@ -44,6 +42,8 @@ import * as CreateStreamPackagingConfigDetails from "./create-stream-packaging-c
 export import CreateStreamPackagingConfigDetails = CreateStreamPackagingConfigDetails.CreateStreamPackagingConfigDetails;
 import * as DeleteMode from "./delete-mode";
 export import DeleteMode = DeleteMode.DeleteMode;
+import * as GenerateSessionTokenDetails from "./generate-session-token-details";
+export import GenerateSessionTokenDetails = GenerateSessionTokenDetails.GenerateSessionTokenDetails;
 import * as IngestStreamDistributionChannelDetails from "./ingest-stream-distribution-channel-details";
 export import IngestStreamDistributionChannelDetails = IngestStreamDistributionChannelDetails.IngestStreamDistributionChannelDetails;
 import * as IngestStreamDistributionChannelResult from "./ingest-stream-distribution-channel-result";
@@ -110,6 +110,8 @@ import * as MediaWorkflowTaskState from "./media-workflow-task-state";
 export import MediaWorkflowTaskState = MediaWorkflowTaskState.MediaWorkflowTaskState;
 import * as Metadata from "./metadata";
 export import Metadata = Metadata.Metadata;
+import * as SessionToken from "./session-token";
+export import SessionToken = SessionToken.SessionToken;
 import * as SortBy from "./sort-by";
 export import SortBy = SortBy.SortBy;
 import * as SortOrder from "./sort-order";

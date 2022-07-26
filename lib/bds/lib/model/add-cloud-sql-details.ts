@@ -23,6 +23,7 @@ export interface AddCloudSqlDetails {
    * Shape of the node.
    */
   "shape": string;
+  "shapeConfig"?: model.ShapeConfigDetails;
   /**
    * The size of block volume in GB to be attached to the given node. All details needed for attaching the block volume are managed by the service itself.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -36,12 +37,26 @@ export interface AddCloudSqlDetails {
 
 export namespace AddCloudSqlDetails {
   export function getJsonObj(obj: AddCloudSqlDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.shapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AddCloudSqlDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "shapeConfig": obj.shapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

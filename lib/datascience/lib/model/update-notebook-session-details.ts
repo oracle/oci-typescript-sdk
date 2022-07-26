@@ -40,6 +40,7 @@ export interface UpdateNotebookSessionDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "notebookSessionRuntimeConfigDetails"?: model.NotebookSessionRuntimeConfigDetails;
 }
 
 export namespace UpdateNotebookSessionDetails {
@@ -50,6 +51,12 @@ export namespace UpdateNotebookSessionDetails {
         "notebookSessionConfigurationDetails": obj.notebookSessionConfigurationDetails
           ? model.NotebookSessionConfigurationDetails.getJsonObj(
               obj.notebookSessionConfigurationDetails
+            )
+          : undefined,
+
+        "notebookSessionRuntimeConfigDetails": obj.notebookSessionRuntimeConfigDetails
+          ? model.NotebookSessionRuntimeConfigDetails.getJsonObj(
+              obj.notebookSessionRuntimeConfigDetails
             )
           : undefined
       }
@@ -64,6 +71,12 @@ export namespace UpdateNotebookSessionDetails {
         "notebookSessionConfigurationDetails": obj.notebookSessionConfigurationDetails
           ? model.NotebookSessionConfigurationDetails.getDeserializedJsonObj(
               obj.notebookSessionConfigurationDetails
+            )
+          : undefined,
+
+        "notebookSessionRuntimeConfigDetails": obj.notebookSessionRuntimeConfigDetails
+          ? model.NotebookSessionRuntimeConfigDetails.getDeserializedJsonObj(
+              obj.notebookSessionRuntimeConfigDetails
             )
           : undefined
       }

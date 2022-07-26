@@ -1,6 +1,6 @@
 {
   "name": "oci-autoscaling",
-  "version": "2.35.1",
+  "version": "2.36.0",
   "description": "OCI NodeJS client for Autoscaling Service",
   "repository": {
     "type": "git",

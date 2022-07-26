@@ -55,6 +55,10 @@ export interface ListManagementAgentPluginsRequest extends common.BaseRequest {
    * Filter to return only results having the particular platform type.
    */
   "platformType"?: Array<model.PlatformTypes>;
+  /**
+   * The ManagementAgentID of the agent from which the Management Agents to be filtered.
+   */
+  "agentId"?: string;
 }
 
 export namespace ListManagementAgentPluginsRequest {

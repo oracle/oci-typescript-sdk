@@ -41,6 +41,7 @@ export interface CreateStackDetails {
     | model.CreateObjectStorageConfigSourceDetails
     | model.CreateCompartmentConfigSourceDetails
     | model.CreateStackTemplateConfigSourceDetails;
+  "customTerraformProvider"?: model.CustomTerraformProvider;
   /**
    * Terraform variables associated with this resource.
    * Maximum number of variables supported is 250.
@@ -77,6 +78,9 @@ export namespace CreateStackDetails {
       ...{
         "configSource": obj.configSource
           ? model.CreateConfigSourceDetails.getJsonObj(obj.configSource)
+          : undefined,
+        "customTerraformProvider": obj.customTerraformProvider
+          ? model.CustomTerraformProvider.getJsonObj(obj.customTerraformProvider)
           : undefined
       }
     };
@@ -89,6 +93,9 @@ export namespace CreateStackDetails {
       ...{
         "configSource": obj.configSource
           ? model.CreateConfigSourceDetails.getDeserializedJsonObj(obj.configSource)
+          : undefined,
+        "customTerraformProvider": obj.customTerraformProvider
+          ? model.CustomTerraformProvider.getDeserializedJsonObj(obj.customTerraformProvider)
           : undefined
       }
     };

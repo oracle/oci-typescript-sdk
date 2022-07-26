@@ -27,9 +27,24 @@ export interface MemberReplica {
    * The volume replica ID.
    */
   "volumeReplicaId": string;
+  /**
+   * Membership state of the volume replica in relation to the volume group replica.
+   */
+  "membershipState"?: MemberReplica.MembershipState;
 }
 
 export namespace MemberReplica {
+  export enum MembershipState {
+    AddPending = "ADD_PENDING",
+    Stable = "STABLE",
+    RemovePending = "REMOVE_PENDING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: MemberReplica): object {
     const jsonObj = { ...obj, ...{} };
 

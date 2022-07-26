@@ -59,6 +59,16 @@ export interface Stack {
     | model.ObjectStorageConfigSource
     | model.CompartmentConfigSource
     | model.ZipUploadConfigSource;
+  "customTerraformProvider"?: model.CustomTerraformProvider;
+  /**
+   * When `true`, the stack sources third-party Terraform providers from
+   * [Terraform Registry](https://registry.terraform.io/browse/providers) and allows
+   * {@link #customTerraformProvider(CustomTerraformProviderRequest) customTerraformProvider}.
+   * For more information about stack sourcing of third-party Terraform providers, see
+   * [Third-party Provider Configuration](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#third-party-providers).
+   *
+   */
+  "isThirdPartyProviderExperienceEnabled"?: boolean;
   /**
    * Terraform variables associated with this resource.
    * Maximum number of variables supported is 250.
@@ -132,6 +142,9 @@ export namespace Stack {
       ...{
         "configSource": obj.configSource
           ? model.ConfigSource.getJsonObj(obj.configSource)
+          : undefined,
+        "customTerraformProvider": obj.customTerraformProvider
+          ? model.CustomTerraformProvider.getJsonObj(obj.customTerraformProvider)
           : undefined
       }
     };
@@ -144,6 +157,9 @@ export namespace Stack {
       ...{
         "configSource": obj.configSource
           ? model.ConfigSource.getDeserializedJsonObj(obj.configSource)
+          : undefined,
+        "customTerraformProvider": obj.customTerraformProvider
+          ? model.CustomTerraformProvider.getDeserializedJsonObj(obj.customTerraformProvider)
           : undefined
       }
     };

@@ -18579,7 +18579,8 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       "sortBy": listMaintenanceRunsRequest.sortBy,
       "sortOrder": listMaintenanceRunsRequest.sortOrder,
       "lifecycleState": listMaintenanceRunsRequest.lifecycleState,
-      "availabilityDomain": listMaintenanceRunsRequest.availabilityDomain
+      "availabilityDomain": listMaintenanceRunsRequest.availabilityDomain,
+      "maintenanceSubtype": listMaintenanceRunsRequest.maintenanceSubtype
     };
 
     let headerParams = {

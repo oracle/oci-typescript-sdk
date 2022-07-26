@@ -86,6 +86,10 @@ export interface OperatorControlAssignmentSummary {
    */
   "lifecycleState"?: model.OperatorControlAssignmentLifecycleStates;
   /**
+   * More in detail about the lifeCycleState.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    *
    */

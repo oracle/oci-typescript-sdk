@@ -20,6 +20,7 @@ import common = require("oci-common");
  * Possible operation types.
  **/
 export enum OperationTypes {
+  DeployPlugin = "DEPLOY_PLUGIN",
   UpgradePlugin = "UPGRADE_PLUGIN",
   CreateUpgradePlugins = "CREATE_UPGRADE_PLUGINS",
   AgentimageUpgrade = "AGENTIMAGE_UPGRADE",

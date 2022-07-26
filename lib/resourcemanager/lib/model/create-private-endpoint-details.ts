@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface CreatePrivateEndpointDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this private endpoint details.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this private endpoint.
    */
   "compartmentId": string;
   /**
@@ -49,7 +49,11 @@ export interface CreatePrivateEndpointDetails {
    */
   "dnsZones"?: Array<string>;
   /**
-   * An array of network security group (NSG) [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the private endpoint. Order does not matter.
+   * The [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of
+   * [network security groups (NSGs)](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/networksecuritygroups.htm)
+   * for the private endpoint.
+   * Order does not matter.
+   *
    */
   "nsgIdList"?: Array<string>;
   /**

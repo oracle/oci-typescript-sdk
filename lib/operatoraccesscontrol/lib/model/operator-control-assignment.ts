@@ -73,6 +73,10 @@ export interface OperatorControlAssignment {
    */
   "lifecycleState"?: model.OperatorControlAssignmentLifecycleStates;
   /**
+   * More in detail about the lifeCycleState.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * The OCID of the user who created this operator control assignment.
    */
   "assignerId"?: string;

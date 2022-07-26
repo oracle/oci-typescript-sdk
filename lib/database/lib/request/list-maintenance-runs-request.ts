@@ -61,6 +61,10 @@ export interface ListMaintenanceRunsRequest extends common.BaseRequest {
    * A filter to return only resources that match the given availability domain exactly.
    */
   "availabilityDomain"?: string;
+  /**
+   * The sub-type of the maintenance run.
+   */
+  "maintenanceSubtype"?: string;
 }
 
 export namespace ListMaintenanceRunsRequest {

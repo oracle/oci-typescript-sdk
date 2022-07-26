@@ -19,16 +19,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A private endpoint. For more information about private endpoints, see [About Private Endpoints](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/privateaccess.htm#private-endpoints).
+ * A private endpoint allowing Resource Manager to access nonpublic cloud resources. For more information about private endpoints, see [Private Endpoint Management](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/private-endpoints.htm).
  *
  */
 export interface PrivateEndpoint {
   /**
-   * Unique identifier ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the private endpoint details.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private endpoint.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this private endpoint details.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this private endpoint.
    */
   "compartmentId": string;
   /**
@@ -48,11 +48,15 @@ export interface PrivateEndpoint {
    */
   "subnetId": string;
   /**
-   * The source IPs which resource manager service will use to connect to customer's network. Automatically assigned by Resource Manager Service.
+   * The source IP addresses that Resource Manager uses to connect to your network. Automatically assigned by Resource Manager.
    */
   "sourceIps"?: Array<string>;
   /**
-   * An array of network security groups (NSG) that the customer can optionally provide.
+   * The [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of
+   * [network security groups (NSGs)](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/networksecuritygroups.htm)
+   * for the private endpoint.
+   * Order does not matter.
+   *
    */
   "nsgIdList"?: Array<string>;
   /**
@@ -60,7 +64,12 @@ export interface PrivateEndpoint {
    */
   "isUsedWithConfigurationSourceProvider"?: boolean;
   /**
-   * DNS Proxy forwards any DNS FQDN queries over into the consumer DNS resolver if the DNS FQDN is included in the dns zones list otherwise it goes to service provider VCN resolver.
+   * DNS zones to use for accessing private Git servers.
+   * For private Git server instructions, see
+   * [Private Git Server](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/private-endpoints.htm#private-git).
+   * Specify DNS fully qualified domain names (FQDNs); DNS Proxy forwards related DNS FQDN queries to the consumer DNS resolver.
+   * For DNS FQDNs not specified, queries go to service provider VCN resolver.
+   * Example: `abc.oraclevcn.com`
    *
    */
   "dnsZones"?: Array<string>;

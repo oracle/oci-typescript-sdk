@@ -43,6 +43,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "status"?: model.OperationStatus;
   /**
+   * The OperationType of the workRequest
+   */
+  "type"?: model.OperationTypes;
+  /**
    * Filter for items with timeCreated greater or equal to provided value.
    * given `timeCreatedGreaterThanOrEqualTo` to the current time, in \"YYYY-MM-ddThh:mmZ\" format with a
    * Z offset, as defined by RFC 3339.

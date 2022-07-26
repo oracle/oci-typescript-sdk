@@ -45,7 +45,11 @@ export interface UpdatePrivateEndpointDetails {
    */
   "dnsZones"?: Array<string>;
   /**
-   * An array of network security group (NSG) [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) for the private endpoint.
+   * The [OCIDs](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of
+   * [network security groups (NSGs)](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/networksecuritygroups.htm)
+   * for the private endpoint.
+   * Order does not matter.
+   *
    */
   "nsgIdList"?: Array<string>;
   /**

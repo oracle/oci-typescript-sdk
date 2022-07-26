@@ -34,12 +34,38 @@ export interface ModifyDatabaseManagementDetails {
    * The name of the Oracle Database service that will be used to connect to the database.
    */
   "serviceName"?: string;
+  /**
+   * Protocol used by the database connection.
+   */
+  "protocol"?: ModifyDatabaseManagementDetails.Protocol;
+  /**
+   * The port used to connect to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "port"?: number;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [secret](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
+   */
+  "sslSecretId"?: string;
+  /**
+   * The role of the user that will be connecting to the database.
+   */
+  "role"?: ModifyDatabaseManagementDetails.Role;
 }
 
 export namespace ModifyDatabaseManagementDetails {
   export enum ManagementType {
     Basic = "BASIC",
     Advanced = "ADVANCED"
+  }
+
+  export enum Protocol {
+    Tcp = "TCP",
+    Tcps = "TCPS"
+  }
+
+  export enum Role {
+    Sysdba = "SYSDBA",
+    Normal = "NORMAL"
   }
 
   export function getJsonObj(obj: ModifyDatabaseManagementDetails): object {

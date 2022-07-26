@@ -1358,7 +1358,8 @@ export class ManagementAgentClient {
       "sortOrder": listManagementAgentPluginsRequest.sortOrder,
       "sortBy": listManagementAgentPluginsRequest.sortBy,
       "lifecycleState": listManagementAgentPluginsRequest.lifecycleState,
-      "platformType": listManagementAgentPluginsRequest.platformType
+      "platformType": listManagementAgentPluginsRequest.platformType,
+      "agentId": listManagementAgentPluginsRequest.agentId
     };
 
     let headerParams = {
@@ -1470,7 +1471,8 @@ export class ManagementAgentClient {
 
   /**
    * Returns a list of Management Agents.
-   * If no explicit page size limit is specified, it will default to 5000.
+   * If no explicit page size limit is specified, it will default to 1000 when compartmentIdInSubtree is true and 5000 otherwise.
+   * The response is limited to maximum 1000 records when compartmentIdInSubtree is true.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListManagementAgentsRequest
@@ -1502,7 +1504,9 @@ export class ManagementAgentClient {
       "limit": listManagementAgentsRequest.limit,
       "page": listManagementAgentsRequest.page,
       "sortOrder": listManagementAgentsRequest.sortOrder,
-      "sortBy": listManagementAgentsRequest.sortBy
+      "sortBy": listManagementAgentsRequest.sortBy,
+      "compartmentIdInSubtree": listManagementAgentsRequest.compartmentIdInSubtree,
+      "accessLevel": listManagementAgentsRequest.accessLevel
     };
 
     let headerParams = {
@@ -1906,6 +1910,7 @@ export class ManagementAgentClient {
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit,
       "status": listWorkRequestsRequest.status,
+      "type": listWorkRequestsRequest.type,
       "timeCreatedGreaterThanOrEqualTo": listWorkRequestsRequest.timeCreatedGreaterThanOrEqualTo,
       "sortOrder": listWorkRequestsRequest.sortOrder,
       "sortBy": listWorkRequestsRequest.sortBy
