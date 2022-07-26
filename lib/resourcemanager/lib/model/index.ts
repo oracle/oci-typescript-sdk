@@ -53,6 +53,8 @@ import * as CreateTemplateConfigSourceDetails from "./create-template-config-sou
 export import CreateTemplateConfigSourceDetails = CreateTemplateConfigSourceDetails.CreateTemplateConfigSourceDetails;
 import * as CreateTemplateDetails from "./create-template-details";
 export import CreateTemplateDetails = CreateTemplateDetails.CreateTemplateDetails;
+import * as CustomTerraformProvider from "./custom-terraform-provider";
+export import CustomTerraformProvider = CustomTerraformProvider.CustomTerraformProvider;
 import * as DetectStackDriftDetails from "./detect-stack-drift-details";
 export import DetectStackDriftDetails = DetectStackDriftDetails.DetectStackDriftDetails;
 import * as FailureDetails from "./failure-details";

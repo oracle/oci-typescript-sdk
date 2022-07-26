@@ -37,6 +37,18 @@ export interface WorkRequestResource {
    */
   "identifier": string;
   /**
+   * The identifier of the source the work request is requesting.
+   */
+  "sourceId"?: string;
+  /**
+   * The name of the source the work request is requesting.
+   */
+  "sourceName"?: string;
+  /**
+   * The version of the source the work request is requesting.
+   */
+  "sourceVersion"?: string;
+  /**
    * The URI path that the user can do a GET on to access the resource metadata
    */
   "entityUri"?: string;

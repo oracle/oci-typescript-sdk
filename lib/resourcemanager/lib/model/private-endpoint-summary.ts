@@ -24,11 +24,11 @@ import common = require("oci-common");
  */
 export interface PrivateEndpointSummary {
   /**
-   * Unique identifier ([OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)) of the private endpoint.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private endpoint.
    */
   "id": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this private endpoint details.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing this private endpoint.
    */
   "compartmentId": string;
   /**
@@ -36,7 +36,7 @@ export interface PrivateEndpointSummary {
    */
   "displayName": string;
   /**
-   * General description of the private endpoint.
+   * Description of the private endpoint. Avoid entering confidential information.
    */
   "description"?: string;
   /**
@@ -48,6 +48,9 @@ export interface PrivateEndpointSummary {
    */
   "isUsedWithConfigurationSourceProvider"?: boolean;
   /**
+   * DNS zones to use for accessing private Git servers.
+   * For private Git server instructions, see
+   * [Private Git Server](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Tasks/private-endpoints.htm#private-git).
    * DNS Proxy forwards any DNS FQDN queries over into the consumer DNS resolver if the DNS FQDN is included in the dns zones list otherwise it goes to service provider VCN resolver.
    *
    */

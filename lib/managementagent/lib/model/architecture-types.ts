@@ -25,6 +25,7 @@ import common = require("oci-common");
 export enum ArchitectureTypes {
   X8664 = "X86_64",
   Sparc = "SPARC",
+  X86 = "X86",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

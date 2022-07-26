@@ -102,8 +102,14 @@ import * as NotebookSessionConfigDetails from "./notebook-session-config-details
 export import NotebookSessionConfigDetails = NotebookSessionConfigDetails.NotebookSessionConfigDetails;
 import * as NotebookSessionConfigurationDetails from "./notebook-session-configuration-details";
 export import NotebookSessionConfigurationDetails = NotebookSessionConfigurationDetails.NotebookSessionConfigurationDetails;
+import * as NotebookSessionGitConfigDetails from "./notebook-session-git-config-details";
+export import NotebookSessionGitConfigDetails = NotebookSessionGitConfigDetails.NotebookSessionGitConfigDetails;
+import * as NotebookSessionGitRepoConfigDetails from "./notebook-session-git-repo-config-details";
+export import NotebookSessionGitRepoConfigDetails = NotebookSessionGitRepoConfigDetails.NotebookSessionGitRepoConfigDetails;
 import * as NotebookSessionLifecycleState from "./notebook-session-lifecycle-state";
 export import NotebookSessionLifecycleState = NotebookSessionLifecycleState.NotebookSessionLifecycleState;
+import * as NotebookSessionRuntimeConfigDetails from "./notebook-session-runtime-config-details";
+export import NotebookSessionRuntimeConfigDetails = NotebookSessionRuntimeConfigDetails.NotebookSessionRuntimeConfigDetails;
 import * as NotebookSessionShapeConfigDetails from "./notebook-session-shape-config-details";
 export import NotebookSessionShapeConfigDetails = NotebookSessionShapeConfigDetails.NotebookSessionShapeConfigDetails;
 import * as NotebookSessionShapeSeries from "./notebook-session-shape-series";

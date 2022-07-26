@@ -37,6 +37,14 @@ export interface ManagementAgentPluginDetails {
    */
   "pluginVersion"?: string;
   /**
+   * Plugin Status
+   */
+  "pluginStatus"?: model.PluginStatus;
+  /**
+   * Status message of the Plugin
+   */
+  "pluginStatusMessage"?: string;
+  /**
    * flag indicating whether the plugin is in enabled mode or disabled mode.
    */
   "isEnabled"?: boolean;

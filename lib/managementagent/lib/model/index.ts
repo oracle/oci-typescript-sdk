@@ -79,6 +79,8 @@ import * as PackageTypes from "./package-types";
 export import PackageTypes = PackageTypes.PackageTypes;
 import * as PlatformTypes from "./platform-types";
 export import PlatformTypes = PlatformTypes.PlatformTypes;
+import * as PluginStatus from "./plugin-status";
+export import PluginStatus = PluginStatus.PluginStatus;
 import * as SetAutoUpgradableConfigDetails from "./set-auto-upgradable-config-details";
 export import SetAutoUpgradableConfigDetails = SetAutoUpgradableConfigDetails.SetAutoUpgradableConfigDetails;
 import * as UpdateManagementAgentDetails from "./update-management-agent-details";

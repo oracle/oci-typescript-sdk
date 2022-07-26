@@ -165,6 +165,10 @@ export interface ExadataInfrastructureSummary {
    */
   "dbServerVersion"?: string;
   /**
+   * The monthly software version of the database servers (dom0) in the Exadata infrastructure.
+   */
+  "monthlyDbServerVersion"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the last maintenance run.
    */
   "lastMaintenanceRunId"?: string;

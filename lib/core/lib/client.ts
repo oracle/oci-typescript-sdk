@@ -3441,6 +3441,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     const queryParams = {
       "availabilityDomain": listBlockVolumeReplicasRequest.availabilityDomain,
       "compartmentId": listBlockVolumeReplicasRequest.compartmentId,
+      "volumeGroupReplicaId": listBlockVolumeReplicasRequest.volumeGroupReplicaId,
       "limit": listBlockVolumeReplicasRequest.limit,
       "page": listBlockVolumeReplicasRequest.page,
       "displayName": listBlockVolumeReplicasRequest.displayName,
@@ -3714,6 +3715,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
     const queryParams = {
       "availabilityDomain": listBootVolumeReplicasRequest.availabilityDomain,
       "compartmentId": listBootVolumeReplicasRequest.compartmentId,
+      "volumeGroupReplicaId": listBootVolumeReplicasRequest.volumeGroupReplicaId,
       "limit": listBootVolumeReplicasRequest.limit,
       "page": listBootVolumeReplicasRequest.page,
       "displayName": listBootVolumeReplicasRequest.displayName,

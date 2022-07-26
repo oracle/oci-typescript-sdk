@@ -57,6 +57,10 @@ export interface AccessRequestSummary {
    */
   "lifecycleState"?: model.AccessRequestLifecycleStates;
   /**
+   * More in detail about the lifeCycleState.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * Time when the access request was created by the operator user in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.Example: '2020-05-22T21:10:29.600Z'
    *
    */

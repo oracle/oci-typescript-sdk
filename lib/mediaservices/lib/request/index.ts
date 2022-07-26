@@ -1,10 +1,8 @@
 /**
- * Media Services
+ * Media Services API
  * Media Services (includes Media Flow and Media Streams) is a fully managed service for processing media (video) source content. Use Media Flow and Media Streams to transcode and package digital video using configurable workflows and stream video outputs.
 
-Use the Media Services API to configure media workflows and run Media Flow jobs, create distribution channels, ingest assets, create Preview URLs and play assets. For more information, see [Media Flow](/iaas/Content/dms-mediaflow/home.htm) and Media Streams [Media Streams](/iaas/Content/dms-mediastream/home.htm).
-
-Use the table of contents and search tool to explore the Media Flow API and Media Streams API.
+Use the Media Services API to configure media workflows and run Media Flow jobs, create distribution channels, ingest assets, create Preview URLs and play assets. For more information, see [Media Flow](/iaas/Content/dms-mediaflow/home.htm) and [Media Streams](/iaas/Content/dms-mediastream/home.htm).
 
  * OpenAPI spec version: 20211101
  * 
@@ -112,3 +110,7 @@ import * as UpdateStreamDistributionChannelRequest from "./update-stream-distrib
 export import UpdateStreamDistributionChannelRequest = UpdateStreamDistributionChannelRequest.UpdateStreamDistributionChannelRequest;
 import * as UpdateStreamPackagingConfigRequest from "./update-stream-packaging-config-request";
 export import UpdateStreamPackagingConfigRequest = UpdateStreamPackagingConfigRequest.UpdateStreamPackagingConfigRequest;
+import * as GeneratePlaylistRequest from "./generate-playlist-request";
+export import GeneratePlaylistRequest = GeneratePlaylistRequest.GeneratePlaylistRequest;
+import * as GenerateSessionTokenRequest from "./generate-session-token-request";
+export import GenerateSessionTokenRequest = GenerateSessionTokenRequest.GenerateSessionTokenRequest;

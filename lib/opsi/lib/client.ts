@@ -2682,6 +2682,174 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets the AWR report for the specified database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAwrDatabaseReportRequest
+   * @return GetAwrDatabaseReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrDatabaseReport.ts.html |here} to see how to use GetAwrDatabaseReport API.
+   */
+  public async getAwrDatabaseReport(
+    getAwrDatabaseReportRequest: requests.GetAwrDatabaseReportRequest
+  ): Promise<responses.GetAwrDatabaseReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseReport.");
+    const operationName = "getAwrDatabaseReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrDatabaseReport";
+    const pathParams = {
+      "{awrHubId}": getAwrDatabaseReportRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier": getAwrDatabaseReportRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": getAwrDatabaseReportRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        getAwrDatabaseReportRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        getAwrDatabaseReportRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": getAwrDatabaseReportRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": getAwrDatabaseReportRequest.timeLessThanOrEqualTo,
+      "reportType": getAwrDatabaseReportRequest.reportType,
+      "reportFormat": getAwrDatabaseReportRequest.reportFormat
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrDatabaseReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrDatabaseReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrDatabaseReportResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseReport",
+        bodyModel: model.AwrDatabaseReport,
+        type: "model.AwrDatabaseReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the SQL health check report for one SQL of the specified database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAwrDatabaseSqlReportRequest
+   * @return GetAwrDatabaseSqlReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetAwrDatabaseSqlReport.ts.html |here} to see how to use GetAwrDatabaseSqlReport API.
+   */
+  public async getAwrDatabaseSqlReport(
+    getAwrDatabaseSqlReportRequest: requests.GetAwrDatabaseSqlReportRequest
+  ): Promise<responses.GetAwrDatabaseSqlReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getAwrDatabaseSqlReport.");
+    const operationName = "getAwrDatabaseSqlReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/GetAwrDatabaseSqlReport";
+    const pathParams = {
+      "{awrHubId}": getAwrDatabaseSqlReportRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier": getAwrDatabaseSqlReportRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": getAwrDatabaseSqlReportRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        getAwrDatabaseSqlReportRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        getAwrDatabaseSqlReportRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": getAwrDatabaseSqlReportRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": getAwrDatabaseSqlReportRequest.timeLessThanOrEqualTo,
+      "sqlId": getAwrDatabaseSqlReportRequest.sqlId,
+      "reportFormat": getAwrDatabaseSqlReportRequest.reportFormat
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAwrDatabaseSqlReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAwrDatabaseSqlReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseSqlReport",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAwrDatabaseSqlReportResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseSqlReport",
+        bodyModel: model.AwrDatabaseSqlReport,
+        type: "model.AwrDatabaseSqlReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets details of an AWR hub.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAwrHubRequest
@@ -4139,6 +4307,183 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists AWR snapshots for the specified database in the AWR.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAwrDatabaseSnapshotsRequest
+   * @return ListAwrDatabaseSnapshotsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrDatabaseSnapshots.ts.html |here} to see how to use ListAwrDatabaseSnapshots API.
+   */
+  public async listAwrDatabaseSnapshots(
+    listAwrDatabaseSnapshotsRequest: requests.ListAwrDatabaseSnapshotsRequest
+  ): Promise<responses.ListAwrDatabaseSnapshotsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listAwrDatabaseSnapshots.");
+    const operationName = "listAwrDatabaseSnapshots";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrDatabaseSnapshots";
+    const pathParams = {
+      "{awrHubId}": listAwrDatabaseSnapshotsRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier": listAwrDatabaseSnapshotsRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": listAwrDatabaseSnapshotsRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        listAwrDatabaseSnapshotsRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        listAwrDatabaseSnapshotsRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": listAwrDatabaseSnapshotsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listAwrDatabaseSnapshotsRequest.timeLessThanOrEqualTo,
+      "page": listAwrDatabaseSnapshotsRequest.page,
+      "limit": listAwrDatabaseSnapshotsRequest.limit,
+      "sortBy": listAwrDatabaseSnapshotsRequest.sortBy,
+      "sortOrder": listAwrDatabaseSnapshotsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrDatabaseSnapshotsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrDatabaseSnapshotsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseSnapshots",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrDatabaseSnapshotsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseSnapshotCollection",
+        bodyModel: model.AwrDatabaseSnapshotCollection,
+        type: "model.AwrDatabaseSnapshotCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of databases and their snapshot summary details available in the AWRHub.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAwrDatabasesRequest
+   * @return ListAwrDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAwrDatabases.ts.html |here} to see how to use ListAwrDatabases API.
+   */
+  public async listAwrDatabases(
+    listAwrDatabasesRequest: requests.ListAwrDatabasesRequest
+  ): Promise<responses.ListAwrDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listAwrDatabases.");
+    const operationName = "listAwrDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/ListAwrDatabases";
+    const pathParams = {
+      "{awrHubId}": listAwrDatabasesRequest.awrHubId
+    };
+
+    const queryParams = {
+      "name": listAwrDatabasesRequest.name,
+      "timeGreaterThanOrEqualTo": listAwrDatabasesRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": listAwrDatabasesRequest.timeLessThanOrEqualTo,
+      "page": listAwrDatabasesRequest.page,
+      "limit": listAwrDatabasesRequest.limit,
+      "sortBy": listAwrDatabasesRequest.sortBy,
+      "sortOrder": listAwrDatabasesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAwrDatabasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAwrDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAwrDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseCollection",
+        bodyModel: model.AwrDatabaseCollection,
+        type: "model.AwrDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -6264,6 +6609,877 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR CPU resource limits and metrics for the specified database in AWR.
+   * Based on the time range provided as part of query param, the metrics points will be returned in the response as below.
+   * - if time range is <=7 days then the metrics points will be for every MINUTES
+   * - if time range is <=2 hours then the metrics points will be for every 10 SECONDS
+   * - if time range is >7 days then the metrics points will be for every HOUR.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseCpuUsagesRequest
+   * @return SummarizeAwrDatabaseCpuUsagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseCpuUsages.ts.html |here} to see how to use SummarizeAwrDatabaseCpuUsages API.
+   */
+  public async summarizeAwrDatabaseCpuUsages(
+    summarizeAwrDatabaseCpuUsagesRequest: requests.SummarizeAwrDatabaseCpuUsagesRequest
+  ): Promise<responses.SummarizeAwrDatabaseCpuUsagesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseCpuUsages."
+      );
+    const operationName = "summarizeAwrDatabaseCpuUsages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseCpuUsages";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseCpuUsagesRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier":
+        summarizeAwrDatabaseCpuUsagesRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseCpuUsagesRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseCpuUsagesRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseCpuUsagesRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDatabaseCpuUsagesRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseCpuUsagesRequest.timeLessThanOrEqualTo,
+      "sessionType": summarizeAwrDatabaseCpuUsagesRequest.sessionType,
+      "page": summarizeAwrDatabaseCpuUsagesRequest.page,
+      "limit": summarizeAwrDatabaseCpuUsagesRequest.limit,
+      "sortBy": summarizeAwrDatabaseCpuUsagesRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseCpuUsagesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseCpuUsagesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseCpuUsagesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseCpuUsages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseCpuUsagesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseCpuUsageCollection",
+        bodyModel: model.AwrDatabaseCpuUsageCollection,
+        type: "model.AwrDatabaseCpuUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the metric samples for the specified database in the AWR. The metric samples are summarized based on the Time dimension for each metric.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseMetricsRequest
+   * @return SummarizeAwrDatabaseMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseMetrics.ts.html |here} to see how to use SummarizeAwrDatabaseMetrics API.
+   */
+  public async summarizeAwrDatabaseMetrics(
+    summarizeAwrDatabaseMetricsRequest: requests.SummarizeAwrDatabaseMetricsRequest
+  ): Promise<responses.SummarizeAwrDatabaseMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseMetrics.");
+    const operationName = "summarizeAwrDatabaseMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseMetrics";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseMetricsRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier": summarizeAwrDatabaseMetricsRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseMetricsRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseMetricsRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseMetricsRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDatabaseMetricsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseMetricsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDatabaseMetricsRequest.name,
+      "page": summarizeAwrDatabaseMetricsRequest.page,
+      "limit": summarizeAwrDatabaseMetricsRequest.limit,
+      "sortBy": summarizeAwrDatabaseMetricsRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseMetricsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseMetricCollection",
+        bodyModel: model.AwrDatabaseMetricCollection,
+        type: "model.AwrDatabaseMetricCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the database parameter change history for one database parameter of the specified database in AWR. One change history record contains
+   * the previous value, the changed value, and the corresponding time range. If the database parameter value was changed multiple times within the time range, then multiple change history records are created for the same parameter.
+   * Note that this API only returns information on change history details for one database parameter.
+   * To get a list of all the database parameters whose values were changed during a specified time range, use the following API endpoint:
+   * /awrHubs/{awrHubId}/awrDbParameters?awrSourceDatabaseIdentifier={awrSourceDbId}
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseParameterChangesRequest
+   * @return SummarizeAwrDatabaseParameterChangesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseParameterChanges.ts.html |here} to see how to use SummarizeAwrDatabaseParameterChanges API.
+   */
+  public async summarizeAwrDatabaseParameterChanges(
+    summarizeAwrDatabaseParameterChangesRequest: requests.SummarizeAwrDatabaseParameterChangesRequest
+  ): Promise<responses.SummarizeAwrDatabaseParameterChangesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameterChanges."
+      );
+    const operationName = "summarizeAwrDatabaseParameterChanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseParameterChanges";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseParameterChangesRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier":
+        summarizeAwrDatabaseParameterChangesRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseParameterChangesRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseParameterChangesRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseParameterChangesRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo":
+        summarizeAwrDatabaseParameterChangesRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseParameterChangesRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDatabaseParameterChangesRequest.name,
+      "page": summarizeAwrDatabaseParameterChangesRequest.page,
+      "limit": summarizeAwrDatabaseParameterChangesRequest.limit,
+      "sortBy": summarizeAwrDatabaseParameterChangesRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseParameterChangesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseParameterChangesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseParameterChangesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseParameterChanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseParameterChangesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseParameterChangeCollection",
+        bodyModel: model.AwrDatabaseParameterChangeCollection,
+        type: "model.AwrDatabaseParameterChangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Summarizes the database parameter history for the specified database in AWR. This includes the list of database
+* parameters, with information on whether the parameter values were modified within the query time range. Note that
+* each database parameter is only listed once. Depending on the optional query parameters, the returned summary gets all the database parameters, which include:
+* <p>
+Queryparam (valueChanged =\"Y\") - Each parameter whose value was changed during the time range, \"isChanged : true\" in response for the DB params.
+* Queryparam (valueChanged =\"N\") - Each parameter whose value was unchanged during the time range, \"isChanged : false\" in response for the DB params.
+* Queryparam (valueChanged =\"Y\"  and valueModified = \"SYSTEM_MOD\") - Each parameter whose value was changed at the system level during the time range, \"isChanged : true\" & \"valueModified : SYSTEM_MOD\" in response for the DB params.
+* Queryparam (valueChanged =\"N\" and  valueDefault = \"FALSE\") - Each parameter whose value was unchanged during the time range, however, the value is not the default value, \"isChanged : true\" & \"isDefault : false\" in response for the DB params.
+* <p>
+Note that this API does not return information on the number of times each database parameter has been changed within the time range. To get the database parameter value change history for a specific parameter, use the following API endpoint:
+* /awrHubs/{awrHubId}/awrDbParameterChanges?awrSourceDatabaseIdentifier={awrSourceDbId}
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param SummarizeAwrDatabaseParametersRequest
+     * @return SummarizeAwrDatabaseParametersResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseParameters.ts.html |here} to see how to use SummarizeAwrDatabaseParameters API.
+     */
+  public async summarizeAwrDatabaseParameters(
+    summarizeAwrDatabaseParametersRequest: requests.SummarizeAwrDatabaseParametersRequest
+  ): Promise<responses.SummarizeAwrDatabaseParametersResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseParameters."
+      );
+    const operationName = "summarizeAwrDatabaseParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseParameters";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseParametersRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier":
+        summarizeAwrDatabaseParametersRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseParametersRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseParametersRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseParametersRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDatabaseParametersRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseParametersRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDatabaseParametersRequest.name,
+      "nameContains": summarizeAwrDatabaseParametersRequest.nameContains,
+      "valueChanged": summarizeAwrDatabaseParametersRequest.valueChanged,
+      "valueDefault": summarizeAwrDatabaseParametersRequest.valueDefault,
+      "valueModified": summarizeAwrDatabaseParametersRequest.valueModified,
+      "page": summarizeAwrDatabaseParametersRequest.page,
+      "limit": summarizeAwrDatabaseParametersRequest.limit,
+      "sortBy": summarizeAwrDatabaseParametersRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseParametersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseParametersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseParametersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseParameters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseParameterCollection",
+        bodyModel: model.AwrDatabaseParameterCollection,
+        type: "model.AwrDatabaseParameterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR snapshot ranges that contain continuous snapshots, for the specified AWRHub.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseSnapshotRangesRequest
+   * @return SummarizeAwrDatabaseSnapshotRangesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseSnapshotRanges.ts.html |here} to see how to use SummarizeAwrDatabaseSnapshotRanges API.
+   */
+  public async summarizeAwrDatabaseSnapshotRanges(
+    summarizeAwrDatabaseSnapshotRangesRequest: requests.SummarizeAwrDatabaseSnapshotRangesRequest
+  ): Promise<responses.SummarizeAwrDatabaseSnapshotRangesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseSnapshotRanges."
+      );
+    const operationName = "summarizeAwrDatabaseSnapshotRanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseSnapshotRanges";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseSnapshotRangesRequest.awrHubId
+    };
+
+    const queryParams = {
+      "name": summarizeAwrDatabaseSnapshotRangesRequest.name,
+      "timeGreaterThanOrEqualTo":
+        summarizeAwrDatabaseSnapshotRangesRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseSnapshotRangesRequest.timeLessThanOrEqualTo,
+      "page": summarizeAwrDatabaseSnapshotRangesRequest.page,
+      "limit": summarizeAwrDatabaseSnapshotRangesRequest.limit,
+      "sortBy": summarizeAwrDatabaseSnapshotRangesRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseSnapshotRangesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseSnapshotRangesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseSnapshotRangesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseSnapshotRanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseSnapshotRangesResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseSnapshotRangeCollection",
+        bodyModel: model.AwrDatabaseSnapshotRangeCollection,
+        type: "model.AwrDatabaseSnapshotRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR SYSSTAT sample data for the specified database in AWR. The statistical data is summarized based on the Time dimension for each statistic.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseSysstatsRequest
+   * @return SummarizeAwrDatabaseSysstatsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseSysstats.ts.html |here} to see how to use SummarizeAwrDatabaseSysstats API.
+   */
+  public async summarizeAwrDatabaseSysstats(
+    summarizeAwrDatabaseSysstatsRequest: requests.SummarizeAwrDatabaseSysstatsRequest
+  ): Promise<responses.SummarizeAwrDatabaseSysstatsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAwrDatabaseSysstats.");
+    const operationName = "summarizeAwrDatabaseSysstats";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseSysstats";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseSysstatsRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier":
+        summarizeAwrDatabaseSysstatsRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseSysstatsRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseSysstatsRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseSysstatsRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDatabaseSysstatsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseSysstatsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDatabaseSysstatsRequest.name,
+      "page": summarizeAwrDatabaseSysstatsRequest.page,
+      "limit": summarizeAwrDatabaseSysstatsRequest.limit,
+      "sortBy": summarizeAwrDatabaseSysstatsRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseSysstatsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseSysstatsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseSysstatsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseSysstats",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseSysstatsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseSysstatCollection",
+        bodyModel: model.AwrDatabaseSysstatCollection,
+        type: "model.AwrDatabaseSysstatCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR top wait events.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseTopWaitEventsRequest
+   * @return SummarizeAwrDatabaseTopWaitEventsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseTopWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseTopWaitEvents API.
+   */
+  public async summarizeAwrDatabaseTopWaitEvents(
+    summarizeAwrDatabaseTopWaitEventsRequest: requests.SummarizeAwrDatabaseTopWaitEventsRequest
+  ): Promise<responses.SummarizeAwrDatabaseTopWaitEventsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseTopWaitEvents."
+      );
+    const operationName = "summarizeAwrDatabaseTopWaitEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseTopWaitEvents";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseTopWaitEventsRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier":
+        summarizeAwrDatabaseTopWaitEventsRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseTopWaitEventsRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseTopWaitEventsRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseTopWaitEventsRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDatabaseTopWaitEventsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseTopWaitEventsRequest.timeLessThanOrEqualTo,
+      "sessionType": summarizeAwrDatabaseTopWaitEventsRequest.sessionType,
+      "topN": summarizeAwrDatabaseTopWaitEventsRequest.topN,
+      "sortBy": summarizeAwrDatabaseTopWaitEventsRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseTopWaitEventsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseTopWaitEventsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseTopWaitEventsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseTopWaitEvents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseTopWaitEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseTopWaitEventCollection",
+        bodyModel: model.AwrDatabaseTopWaitEventCollection,
+        type: "model.AwrDatabaseTopWaitEventCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes AWR wait event data into value buckets and frequency, for the specified database in the AWR.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseWaitEventBucketsRequest
+   * @return SummarizeAwrDatabaseWaitEventBucketsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseWaitEventBuckets.ts.html |here} to see how to use SummarizeAwrDatabaseWaitEventBuckets API.
+   */
+  public async summarizeAwrDatabaseWaitEventBuckets(
+    summarizeAwrDatabaseWaitEventBucketsRequest: requests.SummarizeAwrDatabaseWaitEventBucketsRequest
+  ): Promise<responses.SummarizeAwrDatabaseWaitEventBucketsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEventBuckets."
+      );
+    const operationName = "summarizeAwrDatabaseWaitEventBuckets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseWaitEventBuckets";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseWaitEventBucketsRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier":
+        summarizeAwrDatabaseWaitEventBucketsRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseWaitEventBucketsRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseWaitEventBucketsRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseWaitEventBucketsRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo":
+        summarizeAwrDatabaseWaitEventBucketsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseWaitEventBucketsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDatabaseWaitEventBucketsRequest.name,
+      "numBucket": summarizeAwrDatabaseWaitEventBucketsRequest.numBucket,
+      "minValue": summarizeAwrDatabaseWaitEventBucketsRequest.minValue,
+      "maxValue": summarizeAwrDatabaseWaitEventBucketsRequest.maxValue,
+      "page": summarizeAwrDatabaseWaitEventBucketsRequest.page,
+      "limit": summarizeAwrDatabaseWaitEventBucketsRequest.limit,
+      "sortBy": summarizeAwrDatabaseWaitEventBucketsRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseWaitEventBucketsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseWaitEventBucketsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseWaitEventBucketsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseWaitEventBuckets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseWaitEventBucketsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseWaitEventBucketCollection",
+        bodyModel: model.AwrDatabaseWaitEventBucketCollection,
+        type: "model.AwrDatabaseWaitEventBucketCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR wait event sample data for the specified database in the AWR. The event data is summarized based on the Time dimension for each event.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAwrDatabaseWaitEventsRequest
+   * @return SummarizeAwrDatabaseWaitEventsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAwrDatabaseWaitEvents.ts.html |here} to see how to use SummarizeAwrDatabaseWaitEvents API.
+   */
+  public async summarizeAwrDatabaseWaitEvents(
+    summarizeAwrDatabaseWaitEventsRequest: requests.SummarizeAwrDatabaseWaitEventsRequest
+  ): Promise<responses.SummarizeAwrDatabaseWaitEventsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAwrDatabaseWaitEvents."
+      );
+    const operationName = "summarizeAwrDatabaseWaitEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/AwrHubs/SummarizeAwrDatabaseWaitEvents";
+    const pathParams = {
+      "{awrHubId}": summarizeAwrDatabaseWaitEventsRequest.awrHubId
+    };
+
+    const queryParams = {
+      "awrSourceDatabaseIdentifier":
+        summarizeAwrDatabaseWaitEventsRequest.awrSourceDatabaseIdentifier,
+      "instanceNumber": summarizeAwrDatabaseWaitEventsRequest.instanceNumber,
+      "beginSnapshotIdentifierGreaterThanOrEqualTo":
+        summarizeAwrDatabaseWaitEventsRequest.beginSnapshotIdentifierGreaterThanOrEqualTo,
+      "endSnapshotIdentifierLessThanOrEqualTo":
+        summarizeAwrDatabaseWaitEventsRequest.endSnapshotIdentifierLessThanOrEqualTo,
+      "timeGreaterThanOrEqualTo": summarizeAwrDatabaseWaitEventsRequest.timeGreaterThanOrEqualTo,
+      "timeLessThanOrEqualTo": summarizeAwrDatabaseWaitEventsRequest.timeLessThanOrEqualTo,
+      "name": summarizeAwrDatabaseWaitEventsRequest.name,
+      "sessionType": summarizeAwrDatabaseWaitEventsRequest.sessionType,
+      "page": summarizeAwrDatabaseWaitEventsRequest.page,
+      "limit": summarizeAwrDatabaseWaitEventsRequest.limit,
+      "sortBy": summarizeAwrDatabaseWaitEventsRequest.sortBy,
+      "sortOrder": summarizeAwrDatabaseWaitEventsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAwrDatabaseWaitEventsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAwrDatabaseWaitEventsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/awrHubs/{awrHubId}/awrDatabaseWaitEvents",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAwrDatabaseWaitEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "awrDatabaseWaitEventCollection",
+        bodyModel: model.AwrDatabaseWaitEventCollection,
+        type: "model.AwrDatabaseWaitEventCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

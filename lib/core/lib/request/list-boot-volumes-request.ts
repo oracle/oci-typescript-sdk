@@ -24,11 +24,11 @@ export interface ListBootVolumesRequest extends common.BaseRequest {
 Example: `Uocm:PHX-AD-1`
 * 
  */
-  "availabilityDomain": string;
+  "availabilityDomain"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment.
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
  * For list pagination. The maximum number of results per page, or items to return in a paginated
 * \"List\" call. For important details about how pagination works, see

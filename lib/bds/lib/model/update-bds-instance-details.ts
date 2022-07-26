@@ -39,6 +39,10 @@ export interface UpdateBdsInstanceDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The OCID of the Key Management master encryption key.
+   */
+  "kmsKeyId"?: string;
 }
 
 export namespace UpdateBdsInstanceDetails {

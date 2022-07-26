@@ -35,6 +35,19 @@ export interface UpdateStackDetails {
     | model.UpdateGitConfigSourceDetails
     | model.UpdateObjectStorageConfigSourceDetails
     | model.UpdateZipUploadConfigSourceDetails;
+  "customTerraformProvider"?: model.CustomTerraformProvider;
+  /**
+   * When `true`, changes the stack's sourcing of third-party Terraform providers to
+   * [Terraform Registry](https://registry.terraform.io/browse/providers) and allows
+   * {@link #customTerraformProvider(CustomTerraformProviderRequest) customTerraformProvider}.
+   * Applies to older stacks that use Terraform version 0.12.x and 0.13.x only.
+   * (Older stacks that use other Terraform versions are automatically updated.)
+   * Once set to `true`, cannot be reverted.
+   * For more information about stack sourcing of third-party Terraform providers, see
+   * [Third-party Provider Configuration](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#third-party-providers).
+   *
+   */
+  "isThirdPartyProviderExperienceEnabled"?: boolean;
   /**
    * Terraform variables associated with this resource.
    * The maximum number of variables supported is 250.
@@ -71,6 +84,9 @@ export namespace UpdateStackDetails {
       ...{
         "configSource": obj.configSource
           ? model.UpdateConfigSourceDetails.getJsonObj(obj.configSource)
+          : undefined,
+        "customTerraformProvider": obj.customTerraformProvider
+          ? model.CustomTerraformProvider.getJsonObj(obj.customTerraformProvider)
           : undefined
       }
     };
@@ -83,6 +99,9 @@ export namespace UpdateStackDetails {
       ...{
         "configSource": obj.configSource
           ? model.UpdateConfigSourceDetails.getDeserializedJsonObj(obj.configSource)
+          : undefined,
+        "customTerraformProvider": obj.customTerraformProvider
+          ? model.CustomTerraformProvider.getDeserializedJsonObj(obj.customTerraformProvider)
           : undefined
       }
     };
