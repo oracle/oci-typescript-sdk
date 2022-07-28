@@ -192,6 +192,9 @@
     "webpack": "4.0.0",
     "webpack-cli": "^3.3.0"
   },
+  "overrides": {
+    "node-fetch": "2.6.7"
+  },
   "husky": {
     "hooks": {
       "pre-commit": "pretty-quick --staged"
