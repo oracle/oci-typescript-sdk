@@ -22,6 +22,8 @@ export interface CreateConnectionRequest extends common.BaseRequest {
    * Details for the new connection.
    */
   "createConnectionDetails":
+    | model.CreateGitlabServerAccessTokenConnectionDetails
+    | model.CreateBitbucketServerAccessTokenConnectionDetails
     | model.CreateGithubAccessTokenConnectionDetails
     | model.CreateBitbucketCloudAppPasswordConnectionDetails
     | model.CreateGitlabAccessTokenConnectionDetails;

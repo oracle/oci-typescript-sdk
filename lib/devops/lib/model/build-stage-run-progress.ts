@@ -45,6 +45,7 @@ export interface BuildStageRunProgress extends model.BuildPipelineStageRunProgre
    */
   "steps"?: Array<model.BuildStageRunStep>;
   "exportedVariables"?: model.ExportedVariableCollection;
+  "privateAccessConfig"?: model.ServiceVnicChannel | model.PrivateEndpointChannel;
 
   "buildPipelineStageType": string;
 }
@@ -80,6 +81,9 @@ export namespace BuildStageRunProgress {
           : undefined,
         "exportedVariables": obj.exportedVariables
           ? model.ExportedVariableCollection.getJsonObj(obj.exportedVariables)
+          : undefined,
+        "privateAccessConfig": obj.privateAccessConfig
+          ? model.NetworkChannel.getJsonObj(obj.privateAccessConfig)
           : undefined
       }
     };
@@ -115,6 +119,9 @@ export namespace BuildStageRunProgress {
           : undefined,
         "exportedVariables": obj.exportedVariables
           ? model.ExportedVariableCollection.getDeserializedJsonObj(obj.exportedVariables)
+          : undefined,
+        "privateAccessConfig": obj.privateAccessConfig
+          ? model.NetworkChannel.getDeserializedJsonObj(obj.privateAccessConfig)
           : undefined
       }
     };

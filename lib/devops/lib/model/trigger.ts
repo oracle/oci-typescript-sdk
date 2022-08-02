@@ -100,6 +100,16 @@ export namespace Trigger {
       switch (obj.triggerSource) {
         case "GITLAB":
           return model.GitlabTrigger.getJsonObj(<model.GitlabTrigger>(<object>jsonObj), true);
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerTrigger.getJsonObj(
+            <model.BitbucketServerTrigger>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER":
+          return model.GitlabServerTrigger.getJsonObj(
+            <model.GitlabServerTrigger>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubTrigger.getJsonObj(<model.GithubTrigger>(<object>jsonObj), true);
         case "DEVOPS_CODE_REPOSITORY":
@@ -135,6 +145,16 @@ export namespace Trigger {
         case "GITLAB":
           return model.GitlabTrigger.getDeserializedJsonObj(
             <model.GitlabTrigger>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerTrigger.getDeserializedJsonObj(
+            <model.BitbucketServerTrigger>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER":
+          return model.GitlabServerTrigger.getDeserializedJsonObj(
+            <model.GitlabServerTrigger>(<object>jsonObj),
             true
           );
         case "GITHUB":

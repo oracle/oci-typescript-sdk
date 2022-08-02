@@ -40,6 +40,11 @@ export namespace BuildSource {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerBuildSource.getJsonObj(
+            <model.BitbucketServerBuildSource>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubBuildSource.getJsonObj(
             <model.GithubBuildSource>(<object>jsonObj),
@@ -48,6 +53,11 @@ export namespace BuildSource {
         case "BITBUCKET_CLOUD":
           return model.BitbucketCloudBuildSource.getJsonObj(
             <model.BitbucketCloudBuildSource>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER":
+          return model.GitlabServerBuildSource.getJsonObj(
+            <model.GitlabServerBuildSource>(<object>jsonObj),
             true
           );
         case "DEVOPS_CODE_REPOSITORY":
@@ -71,6 +81,11 @@ export namespace BuildSource {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerBuildSource.getDeserializedJsonObj(
+            <model.BitbucketServerBuildSource>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubBuildSource.getDeserializedJsonObj(
             <model.GithubBuildSource>(<object>jsonObj),
@@ -79,6 +94,11 @@ export namespace BuildSource {
         case "BITBUCKET_CLOUD":
           return model.BitbucketCloudBuildSource.getDeserializedJsonObj(
             <model.BitbucketCloudBuildSource>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER":
+          return model.GitlabServerBuildSource.getDeserializedJsonObj(
+            <model.GitlabServerBuildSource>(<object>jsonObj),
             true
           );
         case "DEVOPS_CODE_REPOSITORY":

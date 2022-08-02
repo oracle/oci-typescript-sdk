@@ -76,9 +76,19 @@ export namespace CreateTriggerDetails {
             <model.CreateBitbucketCloudTriggerDetails>(<object>jsonObj),
             true
           );
+        case "GITLAB_SERVER":
+          return model.CreateGitlabServerTriggerDetails.getJsonObj(
+            <model.CreateGitlabServerTriggerDetails>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.CreateGitlabTriggerDetails.getJsonObj(
             <model.CreateGitlabTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.CreateBitbucketServerTriggerDetails.getJsonObj(
+            <model.CreateBitbucketServerTriggerDetails>(<object>jsonObj),
             true
           );
         default:
@@ -116,9 +126,19 @@ export namespace CreateTriggerDetails {
             <model.CreateBitbucketCloudTriggerDetails>(<object>jsonObj),
             true
           );
+        case "GITLAB_SERVER":
+          return model.CreateGitlabServerTriggerDetails.getDeserializedJsonObj(
+            <model.CreateGitlabServerTriggerDetails>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.CreateGitlabTriggerDetails.getDeserializedJsonObj(
             <model.CreateGitlabTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.CreateBitbucketServerTriggerDetails.getDeserializedJsonObj(
+            <model.CreateBitbucketServerTriggerDetails>(<object>jsonObj),
             true
           );
         default:

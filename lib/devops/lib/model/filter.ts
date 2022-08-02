@@ -37,10 +37,20 @@ export namespace Filter {
             <model.BitbucketCloudFilter>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerFilter.getJsonObj(
+            <model.BitbucketServerFilter>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.GitlabFilter.getJsonObj(<model.GitlabFilter>(<object>jsonObj), true);
         case "GITHUB":
           return model.GithubFilter.getJsonObj(<model.GithubFilter>(<object>jsonObj), true);
+        case "GITLAB_SERVER":
+          return model.GitlabServerFilter.getJsonObj(
+            <model.GitlabServerFilter>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.triggerSource);
       }
@@ -62,6 +72,11 @@ export namespace Filter {
             <model.BitbucketCloudFilter>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerFilter.getDeserializedJsonObj(
+            <model.BitbucketServerFilter>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.GitlabFilter.getDeserializedJsonObj(
             <model.GitlabFilter>(<object>jsonObj),
@@ -70,6 +85,11 @@ export namespace Filter {
         case "GITHUB":
           return model.GithubFilter.getDeserializedJsonObj(
             <model.GithubFilter>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER":
+          return model.GitlabServerFilter.getDeserializedJsonObj(
+            <model.GitlabServerFilter>(<object>jsonObj),
             true
           );
         default:

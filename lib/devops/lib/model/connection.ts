@@ -81,6 +81,11 @@ export namespace Connection {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerAccessTokenConnection.getJsonObj(
+            <model.BitbucketServerAccessTokenConnection>(<object>jsonObj),
+            true
+          );
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConnection.getJsonObj(
             <model.GitlabAccessTokenConnection>(<object>jsonObj),
@@ -96,6 +101,11 @@ export namespace Connection {
             <model.BitbucketCloudAppPasswordConnection>(<object>jsonObj),
             true
           );
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.GitlabServerAccessTokenConnection.getJsonObj(
+            <model.GitlabServerAccessTokenConnection>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.connectionType);
       }
@@ -107,6 +117,11 @@ export namespace Connection {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerAccessTokenConnection.getDeserializedJsonObj(
+            <model.BitbucketServerAccessTokenConnection>(<object>jsonObj),
+            true
+          );
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConnection.getDeserializedJsonObj(
             <model.GitlabAccessTokenConnection>(<object>jsonObj),
@@ -120,6 +135,11 @@ export namespace Connection {
         case "BITBUCKET_CLOUD_APP_PASSWORD":
           return model.BitbucketCloudAppPasswordConnection.getDeserializedJsonObj(
             <model.BitbucketCloudAppPasswordConnection>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.GitlabServerAccessTokenConnection.getDeserializedJsonObj(
+            <model.GitlabServerAccessTokenConnection>(<object>jsonObj),
             true
           );
         default:

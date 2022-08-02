@@ -131,7 +131,7 @@ export class LimitsClient {
    *   * The usage in the selected compartment for the given limit.
    *   Note that not all resource limits support this API. If the value is not available, the API returns a 404 response.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetResourceAvailabilityRequest
    * @return GetResourceAvailabilityResponse
    * @throws OciError when an error occurs
@@ -159,7 +159,7 @@ export class LimitsClient {
       "opc-request-id": getResourceAvailabilityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getResourceAvailabilityRequest.retryConfiguration,
@@ -209,7 +209,7 @@ export class LimitsClient {
    * If the 'areQuotasSupported' property is true, you can create quota policies on top of this limit at the
    * compartment level.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLimitDefinitionsRequest
    * @return ListLimitDefinitionsResponse
    * @throws OciError when an error occurs
@@ -239,7 +239,7 @@ export class LimitsClient {
       "opc-request-id": listLimitDefinitionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLimitDefinitionsRequest.retryConfiguration,
@@ -344,7 +344,7 @@ export class LimitsClient {
   /**
    * Includes a full list of resource limits belonging to a given service.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListLimitValuesRequest
    * @return ListLimitValuesResponse
    * @throws OciError when an error occurs
@@ -376,7 +376,7 @@ export class LimitsClient {
       "opc-request-id": listLimitValuesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listLimitValuesRequest.retryConfiguration,
@@ -482,7 +482,7 @@ export class LimitsClient {
    * Returns the list of supported services.
    * This includes the programmatic service name, along with the friendly service name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListServicesRequest
    * @return ListServicesResponse
    * @throws OciError when an error occurs
@@ -510,7 +510,7 @@ export class LimitsClient {
       "opc-request-id": listServicesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listServicesRequest.retryConfiguration,
@@ -822,7 +822,7 @@ export class QuotasClient {
 
   /**
    * Creates a new quota with the details supplied.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateQuotaRequest
    * @return CreateQuotaResponse
    * @throws OciError when an error occurs
@@ -845,7 +845,7 @@ export class QuotasClient {
       "opc-retry-token": createQuotaRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createQuotaRequest.retryConfiguration,
@@ -902,7 +902,7 @@ export class QuotasClient {
 
   /**
    * Deletes the quota corresponding to the given OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteQuotaRequest
    * @return DeleteQuotaResponse
    * @throws OciError when an error occurs
@@ -929,7 +929,7 @@ export class QuotasClient {
       "if-match": deleteQuotaRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteQuotaRequest.retryConfiguration,
@@ -972,7 +972,7 @@ export class QuotasClient {
 
   /**
    * Gets the quota for the OCID specified.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetQuotaRequest
    * @return GetQuotaResponse
    * @throws OciError when an error occurs
@@ -995,7 +995,7 @@ export class QuotasClient {
       "opc-request-id": getQuotaRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getQuotaRequest.retryConfiguration,
@@ -1047,7 +1047,7 @@ export class QuotasClient {
 
   /**
    * Lists all quotas on resources from the given compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListQuotasRequest
    * @return ListQuotasResponse
    * @throws OciError when an error occurs
@@ -1077,7 +1077,7 @@ export class QuotasClient {
       "opc-request-id": listQuotasRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listQuotasRequest.retryConfiguration,
@@ -1263,7 +1263,7 @@ export class QuotasClient {
 
   /**
    * Updates the quota corresponding to given OCID with the details supplied.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateQuotaRequest
    * @return UpdateQuotaResponse
    * @throws OciError when an error occurs
@@ -1290,7 +1290,7 @@ export class QuotasClient {
       "if-match": updateQuotaRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateQuotaRequest.retryConfiguration,

@@ -50,6 +50,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGithubAccessTokenConnectionDetails>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.UpdateBitbucketServerAccessTokenConnectionDetails.getJsonObj(
+            <model.UpdateBitbucketServerAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GITLAB_ACCESS_TOKEN":
           return model.UpdateGitlabAccessTokenConnectionDetails.getJsonObj(
             <model.UpdateGitlabAccessTokenConnectionDetails>(<object>jsonObj),
@@ -58,6 +63,11 @@ export namespace UpdateConnectionDetails {
         case "BITBUCKET_CLOUD_APP_PASSWORD":
           return model.UpdateBitbucketCloudAppPasswordConnectionDetails.getJsonObj(
             <model.UpdateBitbucketCloudAppPasswordConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.UpdateGitlabServerAccessTokenConnectionDetails.getJsonObj(
+            <model.UpdateGitlabServerAccessTokenConnectionDetails>(<object>jsonObj),
             true
           );
         default:
@@ -76,6 +86,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGithubAccessTokenConnectionDetails>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.UpdateBitbucketServerAccessTokenConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketServerAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GITLAB_ACCESS_TOKEN":
           return model.UpdateGitlabAccessTokenConnectionDetails.getDeserializedJsonObj(
             <model.UpdateGitlabAccessTokenConnectionDetails>(<object>jsonObj),
@@ -84,6 +99,11 @@ export namespace UpdateConnectionDetails {
         case "BITBUCKET_CLOUD_APP_PASSWORD":
           return model.UpdateBitbucketCloudAppPasswordConnectionDetails.getDeserializedJsonObj(
             <model.UpdateBitbucketCloudAppPasswordConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.UpdateGitlabServerAccessTokenConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateGitlabServerAccessTokenConnectionDetails>(<object>jsonObj),
             true
           );
         default:

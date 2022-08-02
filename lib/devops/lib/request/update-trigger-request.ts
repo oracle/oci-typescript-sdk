@@ -26,6 +26,8 @@ export interface UpdateTriggerRequest extends common.BaseRequest {
    * The information to be updated.
    */
   "updateTriggerDetails":
+    | model.UpdateBitbucketServerTriggerDetails
+    | model.UpdateGitlabServerTriggerDetails
     | model.UpdateDevopsCodeRepositoryTriggerDetails
     | model.UpdateGithubTriggerDetails
     | model.UpdateGitlabTriggerDetails

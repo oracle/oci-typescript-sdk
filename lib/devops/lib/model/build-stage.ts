@@ -35,6 +35,7 @@ export interface BuildStage extends model.BuildPipelineStage {
    * Name of the build source where the build_spec.yml file is located. If not specified, then the first entry in the build source collection is chosen as primary build source.
    */
   "primaryBuildSource"?: string;
+  "privateAccessConfig"?: model.ServiceVnicChannel | model.PrivateEndpointChannel;
 
   "buildPipelineStageType": string;
 }
@@ -55,6 +56,10 @@ export namespace BuildStage {
       ...{
         "buildSourceCollection": obj.buildSourceCollection
           ? model.BuildSourceCollection.getJsonObj(obj.buildSourceCollection)
+          : undefined,
+
+        "privateAccessConfig": obj.privateAccessConfig
+          ? model.NetworkChannel.getJsonObj(obj.privateAccessConfig)
           : undefined
       }
     };
@@ -70,6 +75,10 @@ export namespace BuildStage {
       ...{
         "buildSourceCollection": obj.buildSourceCollection
           ? model.BuildSourceCollection.getDeserializedJsonObj(obj.buildSourceCollection)
+          : undefined,
+
+        "privateAccessConfig": obj.privateAccessConfig
+          ? model.NetworkChannel.getDeserializedJsonObj(obj.privateAccessConfig)
           : undefined
       }
     };

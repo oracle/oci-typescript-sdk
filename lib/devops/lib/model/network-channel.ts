@@ -29,6 +29,11 @@ export namespace NetworkChannel {
 
     if (obj && "networkChannelType" in obj && obj.networkChannelType) {
       switch (obj.networkChannelType) {
+        case "SERVICE_VNIC_CHANNEL":
+          return model.ServiceVnicChannel.getJsonObj(
+            <model.ServiceVnicChannel>(<object>jsonObj),
+            true
+          );
         case "PRIVATE_ENDPOINT_CHANNEL":
           return model.PrivateEndpointChannel.getJsonObj(
             <model.PrivateEndpointChannel>(<object>jsonObj),
@@ -45,6 +50,11 @@ export namespace NetworkChannel {
 
     if (obj && "networkChannelType" in obj && obj.networkChannelType) {
       switch (obj.networkChannelType) {
+        case "SERVICE_VNIC_CHANNEL":
+          return model.ServiceVnicChannel.getDeserializedJsonObj(
+            <model.ServiceVnicChannel>(<object>jsonObj),
+            true
+          );
         case "PRIVATE_ENDPOINT_CHANNEL":
           return model.PrivateEndpointChannel.getDeserializedJsonObj(
             <model.PrivateEndpointChannel>(<object>jsonObj),

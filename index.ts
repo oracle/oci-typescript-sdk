@@ -200,3 +200,4 @@ export import fusionapps = require("oci-fusionapps");
 export import lockbox = require("oci-lockbox");
 export import mediaservices = require("oci-mediaservices");
 export import opa = require("oci-opa");
+export import opensearch = require("oci-opensearch");

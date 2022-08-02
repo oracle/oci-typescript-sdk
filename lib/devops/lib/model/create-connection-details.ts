@@ -49,6 +49,16 @@ export namespace CreateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.CreateGitlabServerAccessTokenConnectionDetails.getJsonObj(
+            <model.CreateGitlabServerAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.CreateBitbucketServerAccessTokenConnectionDetails.getJsonObj(
+            <model.CreateBitbucketServerAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.CreateGithubAccessTokenConnectionDetails.getJsonObj(
             <model.CreateGithubAccessTokenConnectionDetails>(<object>jsonObj),
@@ -75,6 +85,16 @@ export namespace CreateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.CreateGitlabServerAccessTokenConnectionDetails.getDeserializedJsonObj(
+            <model.CreateGitlabServerAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.CreateBitbucketServerAccessTokenConnectionDetails.getDeserializedJsonObj(
+            <model.CreateBitbucketServerAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.CreateGithubAccessTokenConnectionDetails.getDeserializedJsonObj(
             <model.CreateGithubAccessTokenConnectionDetails>(<object>jsonObj),
