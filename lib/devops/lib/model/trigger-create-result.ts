@@ -89,6 +89,11 @@ export namespace TriggerCreateResult {
 
     if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "GITLAB_SERVER":
+          return model.GitlabServerTriggerCreateResult.getJsonObj(
+            <model.GitlabServerTriggerCreateResult>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubTriggerCreateResult.getJsonObj(
             <model.GithubTriggerCreateResult>(<object>jsonObj),
@@ -107,6 +112,11 @@ export namespace TriggerCreateResult {
         case "BITBUCKET_CLOUD":
           return model.BitbucketCloudTriggerCreateResult.getJsonObj(
             <model.BitbucketCloudTriggerCreateResult>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerTriggerCreateResult.getJsonObj(
+            <model.BitbucketServerTriggerCreateResult>(<object>jsonObj),
             true
           );
         default:
@@ -129,6 +139,11 @@ export namespace TriggerCreateResult {
 
     if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "GITLAB_SERVER":
+          return model.GitlabServerTriggerCreateResult.getDeserializedJsonObj(
+            <model.GitlabServerTriggerCreateResult>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubTriggerCreateResult.getDeserializedJsonObj(
             <model.GithubTriggerCreateResult>(<object>jsonObj),
@@ -147,6 +162,11 @@ export namespace TriggerCreateResult {
         case "BITBUCKET_CLOUD":
           return model.BitbucketCloudTriggerCreateResult.getDeserializedJsonObj(
             <model.BitbucketCloudTriggerCreateResult>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerTriggerCreateResult.getDeserializedJsonObj(
+            <model.BitbucketServerTriggerCreateResult>(<object>jsonObj),
             true
           );
         default:

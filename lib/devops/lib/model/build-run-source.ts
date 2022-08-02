@@ -27,6 +27,16 @@ export namespace BuildRunSource {
 
     if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
+        case "GITLAB_SERVER":
+          return model.GitlabServerBuildRunSource.getJsonObj(
+            <model.GitlabServerBuildRunSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerBuildRunSource.getJsonObj(
+            <model.BitbucketServerBuildRunSource>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubBuildRunSource.getJsonObj(
             <model.GithubBuildRunSource>(<object>jsonObj),
@@ -63,6 +73,16 @@ export namespace BuildRunSource {
 
     if (obj && "sourceType" in obj && obj.sourceType) {
       switch (obj.sourceType) {
+        case "GITLAB_SERVER":
+          return model.GitlabServerBuildRunSource.getDeserializedJsonObj(
+            <model.GitlabServerBuildRunSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerBuildRunSource.getDeserializedJsonObj(
+            <model.BitbucketServerBuildRunSource>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubBuildRunSource.getDeserializedJsonObj(
             <model.GithubBuildRunSource>(<object>jsonObj),

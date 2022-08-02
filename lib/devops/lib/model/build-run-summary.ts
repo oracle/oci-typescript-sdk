@@ -39,6 +39,8 @@ export interface BuildRunSummary {
    */
   "buildPipelineId": string;
   "buildRunSource":
+    | model.GitlabServerBuildRunSource
+    | model.BitbucketServerBuildRunSource
     | model.GithubBuildRunSource
     | model.DevopsCodeRepositoryBuildRunSource
     | model.ManualBuildRunSource

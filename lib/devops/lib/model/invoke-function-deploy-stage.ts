@@ -23,7 +23,9 @@ export interface InvokeFunctionDeployStage extends model.DeployStage {
    */
   "functionDeployEnvironmentId": string;
   /**
-   * Optional binary artifact OCID user may provide to this stage.
+   * Optional artifact OCID. The artifact will be included in the body for the function invocation during the stage's execution.
+   * If the DeployArtifact.argumentSubstituitionMode is set to SUBSTITUTE_PLACEHOLDERS, then the pipeline parameter values will be used to replace the placeholders in the artifact content.
+   *
    */
   "deployArtifactId"?: string;
   /**

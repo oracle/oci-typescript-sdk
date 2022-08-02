@@ -88,6 +88,16 @@ export namespace ConnectionSummary {
             <model.GitlabAccessTokenConnectionSummary>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerTokenConnectionSummary.getJsonObj(
+            <model.BitbucketServerTokenConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.GitlabServerAccessTokenConnectionSummary.getJsonObj(
+            <model.GitlabServerAccessTokenConnectionSummary>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.connectionType);
       }
@@ -112,6 +122,16 @@ export namespace ConnectionSummary {
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConnectionSummary.getDeserializedJsonObj(
             <model.GitlabAccessTokenConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerTokenConnectionSummary.getDeserializedJsonObj(
+            <model.BitbucketServerTokenConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER_ACCESS_TOKEN":
+          return model.GitlabServerAccessTokenConnectionSummary.getDeserializedJsonObj(
+            <model.GitlabServerAccessTokenConnectionSummary>(<object>jsonObj),
             true
           );
         default:

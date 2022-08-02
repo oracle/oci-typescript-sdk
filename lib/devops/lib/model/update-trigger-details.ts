@@ -57,6 +57,16 @@ export namespace UpdateTriggerDetails {
 
     if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "BITBUCKET_SERVER":
+          return model.UpdateBitbucketServerTriggerDetails.getJsonObj(
+            <model.UpdateBitbucketServerTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER":
+          return model.UpdateGitlabServerTriggerDetails.getJsonObj(
+            <model.UpdateGitlabServerTriggerDetails>(<object>jsonObj),
+            true
+          );
         case "DEVOPS_CODE_REPOSITORY":
           return model.UpdateDevopsCodeRepositoryTriggerDetails.getJsonObj(
             <model.UpdateDevopsCodeRepositoryTriggerDetails>(<object>jsonObj),
@@ -97,6 +107,16 @@ export namespace UpdateTriggerDetails {
 
     if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "BITBUCKET_SERVER":
+          return model.UpdateBitbucketServerTriggerDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketServerTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "GITLAB_SERVER":
+          return model.UpdateGitlabServerTriggerDetails.getDeserializedJsonObj(
+            <model.UpdateGitlabServerTriggerDetails>(<object>jsonObj),
+            true
+          );
         case "DEVOPS_CODE_REPOSITORY":
           return model.UpdateDevopsCodeRepositoryTriggerDetails.getDeserializedJsonObj(
             <model.UpdateDevopsCodeRepositoryTriggerDetails>(<object>jsonObj),

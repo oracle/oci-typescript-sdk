@@ -86,6 +86,11 @@ export namespace TriggerSummary {
             <model.GitlabTriggerSummary>(<object>jsonObj),
             true
           );
+        case "GITLAB_SERVER":
+          return model.GitlabServerTriggerSummary.getJsonObj(
+            <model.GitlabServerTriggerSummary>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubTriggerSummary.getJsonObj(
             <model.GithubTriggerSummary>(<object>jsonObj),
@@ -94,6 +99,11 @@ export namespace TriggerSummary {
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryTriggerSummary.getJsonObj(
             <model.DevopsCodeRepositoryTriggerSummary>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerTriggerSummary.getJsonObj(
+            <model.BitbucketServerTriggerSummary>(<object>jsonObj),
             true
           );
         default:
@@ -117,6 +127,11 @@ export namespace TriggerSummary {
             <model.GitlabTriggerSummary>(<object>jsonObj),
             true
           );
+        case "GITLAB_SERVER":
+          return model.GitlabServerTriggerSummary.getDeserializedJsonObj(
+            <model.GitlabServerTriggerSummary>(<object>jsonObj),
+            true
+          );
         case "GITHUB":
           return model.GithubTriggerSummary.getDeserializedJsonObj(
             <model.GithubTriggerSummary>(<object>jsonObj),
@@ -125,6 +140,11 @@ export namespace TriggerSummary {
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryTriggerSummary.getDeserializedJsonObj(
             <model.DevopsCodeRepositoryTriggerSummary>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER":
+          return model.BitbucketServerTriggerSummary.getDeserializedJsonObj(
+            <model.BitbucketServerTriggerSummary>(<object>jsonObj),
             true
           );
         default:

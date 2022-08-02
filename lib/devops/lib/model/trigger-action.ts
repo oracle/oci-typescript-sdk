@@ -21,8 +21,10 @@ export interface TriggerAction {
   "filter"?:
     | model.DevopsCodeRepositoryFilter
     | model.BitbucketCloudFilter
+    | model.BitbucketServerFilter
     | model.GitlabFilter
-    | model.GithubFilter;
+    | model.GithubFilter
+    | model.GitlabServerFilter;
 
   "type": string;
 }

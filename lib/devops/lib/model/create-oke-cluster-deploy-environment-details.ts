@@ -23,7 +23,7 @@ export interface CreateOkeClusterDeployEnvironmentDetails
    * The OCID of the Kubernetes cluster.
    */
   "clusterId": string;
-  "networkChannel"?: model.PrivateEndpointChannel;
+  "networkChannel"?: model.ServiceVnicChannel | model.PrivateEndpointChannel;
 
   "deployEnvironmentType": string;
 }

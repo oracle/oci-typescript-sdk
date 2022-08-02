@@ -34,7 +34,7 @@ export interface CreateTableDetails {
    * Complete CREATE TABLE DDL statement.
    */
   "ddlStatement": string;
-  "tableLimits": model.TableLimits;
+  "tableLimits"?: model.TableLimits;
   /**
    * True if table can be reclaimed after an idle period.
    */
