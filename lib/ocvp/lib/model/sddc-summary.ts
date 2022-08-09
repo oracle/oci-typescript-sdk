@@ -123,6 +123,10 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "initialHostOcpuCount"?: number;
   /**
+   * Indicates whether this SDDC is designated for only single ESXi host.
+   */
+  "isSingleHostSddc"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

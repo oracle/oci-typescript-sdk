@@ -16,11 +16,20 @@ import common = require("oci-common");
 
 export interface GetHealthCheckerResponse {
   /**
-   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about
-   * a particular request, please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
+  /**
+     * Reflects the current version of the load balancer and the resources it contains.
+* The value only changes when the load balancer or an associated resource is created,
+* updated, or delete
+* <p>
+For optimistic concurrency control. See `if-match`.
+* 
+     */
+  "eTag": string;
   /**
    * The returned model.HealthChecker instance.
    */

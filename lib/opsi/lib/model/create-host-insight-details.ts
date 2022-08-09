@@ -47,6 +47,11 @@ export namespace CreateHostInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.CreateMacsManagedCloudHostInsightDetails.getJsonObj(
+            <model.CreateMacsManagedCloudHostInsightDetails>(<object>jsonObj),
+            true
+          );
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.CreateMacsManagedExternalHostInsightDetails.getJsonObj(
             <model.CreateMacsManagedExternalHostInsightDetails>(<object>jsonObj),
@@ -68,6 +73,11 @@ export namespace CreateHostInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.CreateMacsManagedCloudHostInsightDetails.getDeserializedJsonObj(
+            <model.CreateMacsManagedCloudHostInsightDetails>(<object>jsonObj),
+            true
+          );
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.CreateMacsManagedExternalHostInsightDetails.getDeserializedJsonObj(
             <model.CreateMacsManagedExternalHostInsightDetails>(<object>jsonObj),

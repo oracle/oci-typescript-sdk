@@ -22,6 +22,7 @@ export interface CreateHostInsightRequest extends common.BaseRequest {
    * Details for the host for which a Host Insight resource will be created in Operations Insights.
    */
   "createHostInsightDetails":
+    | model.CreateMacsManagedCloudHostInsightDetails
     | model.CreateMacsManagedExternalHostInsightDetails
     | model.CreateEmManagedExternalHostInsightDetails;
   /**

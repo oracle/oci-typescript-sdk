@@ -91,6 +91,18 @@ export interface CreateMonitorDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * If isRunNow is enabled, then the monitor will run now.
+   */
+  "isRunNow"?: boolean;
+  /**
+   * Scheduling policy on Vantage points.
+   */
+  "schedulingPolicy"?: model.SchedulingPolicy;
+  /**
+   * Time interval between 2 runs in round robin batch mode (*SchedulingPolicy - BATCHED_ROUND_ROBIN). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "batchIntervalInSeconds"?: number;
 }
 
 export namespace CreateMonitorDetails {

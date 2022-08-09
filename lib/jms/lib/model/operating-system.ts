@@ -35,6 +35,10 @@ export interface OperatingSystem {
    * The architecture of the operating system as provided by the Java system property os.arch.
    */
   "architecture": string;
+  /**
+   * Number of instances running the operating system Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "managedInstanceCount"?: number;
 }
 
 export namespace OperatingSystem {

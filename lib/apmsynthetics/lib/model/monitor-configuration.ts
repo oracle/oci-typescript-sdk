@@ -22,13 +22,21 @@ export interface MonitorConfiguration {
    * If isFailureRetried is enabled, then a failed call will be retried.
    */
   "isFailureRetried"?: boolean;
+  "dnsConfiguration"?: model.DnsConfiguration;
 
   "configType": string;
 }
 
 export namespace MonitorConfiguration {
   export function getJsonObj(obj: MonitorConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dnsConfiguration": obj.dnsConfiguration
+          ? model.DnsConfiguration.getJsonObj(obj.dnsConfiguration)
+          : undefined
+      }
+    };
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {
@@ -59,7 +67,14 @@ export namespace MonitorConfiguration {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MonitorConfiguration): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "dnsConfiguration": obj.dnsConfiguration
+          ? model.DnsConfiguration.getDeserializedJsonObj(obj.dnsConfiguration)
+          : undefined
+      }
+    };
 
     if (obj && "configType" in obj && obj.configType) {
       switch (obj.configType) {

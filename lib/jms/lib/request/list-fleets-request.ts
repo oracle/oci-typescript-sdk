@@ -60,4 +60,9 @@ export interface ListFleetsRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * Filter the list with displayName contains the given value.
+   *
+   */
+  "displayNameContains"?: string;
 }

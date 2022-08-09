@@ -23,6 +23,7 @@ export interface EnableHostInsightRequest extends common.BaseRequest {
    */
   "enableHostInsightDetails":
     | model.EnableMacsManagedExternalHostInsightDetails
+    | model.EnableMacsManagedCloudHostInsightDetails
     | model.EnableEmManagedExternalHostInsightDetails;
   /**
    * Unique host insight identifier

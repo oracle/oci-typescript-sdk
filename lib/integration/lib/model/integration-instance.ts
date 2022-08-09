@@ -31,7 +31,10 @@ export interface IntegrationInstance {
    */
   "compartmentId": string;
   /**
-   * Standard or Enterprise type
+   * Standard or Enterprise type,
+   * Oracle Integration Generation 2 uses ENTERPRISE and STANDARD,
+   * Oracle Integration 3 uses ENTERPRISEX and STANDARDX
+   *
    */
   "integrationInstanceType": IntegrationInstance.IntegrationInstanceType;
   /**
@@ -95,12 +98,24 @@ export interface IntegrationInstance {
    */
   "consumptionModel"?: IntegrationInstance.ConsumptionModel;
   "networkEndpointDetails"?: model.PublicEndpointDetails;
+  "idcsInfo"?: model.IdcsInfoDetails;
+  /**
+   * A list of associated attachments to other services
+   *
+   */
+  "attachments"?: Array<model.AttachmentDetails>;
+  /**
+   * Shape
+   */
+  "shape"?: IntegrationInstance.Shape;
 }
 
 export namespace IntegrationInstance {
   export enum IntegrationInstanceType {
     Standard = "STANDARD",
     Enterprise = "ENTERPRISE",
+    Standardx = "STANDARDX",
+    Enterprisex = "ENTERPRISEX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -134,6 +149,16 @@ export namespace IntegrationInstance {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum Shape {
+    Development = "DEVELOPMENT",
+    Production = "PRODUCTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: IntegrationInstance): object {
     const jsonObj = {
       ...obj,
@@ -149,6 +174,12 @@ export namespace IntegrationInstance {
 
         "networkEndpointDetails": obj.networkEndpointDetails
           ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
+          : undefined,
+        "idcsInfo": obj.idcsInfo ? model.IdcsInfoDetails.getJsonObj(obj.idcsInfo) : undefined,
+        "attachments": obj.attachments
+          ? obj.attachments.map(item => {
+              return model.AttachmentDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -170,6 +201,14 @@ export namespace IntegrationInstance {
 
         "networkEndpointDetails": obj.networkEndpointDetails
           ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined,
+        "idcsInfo": obj.idcsInfo
+          ? model.IdcsInfoDetails.getDeserializedJsonObj(obj.idcsInfo)
+          : undefined,
+        "attachments": obj.attachments
+          ? obj.attachments.map(item => {
+              return model.AttachmentDetails.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

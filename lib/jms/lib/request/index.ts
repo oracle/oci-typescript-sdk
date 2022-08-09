@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddFleetInstallationSitesRequest from "./add-fleet-installation-sites-request";
+export import AddFleetInstallationSitesRequest = AddFleetInstallationSitesRequest.AddFleetInstallationSitesRequest;
 import * as CancelWorkRequestRequest from "./cancel-work-request-request";
 export import CancelWorkRequestRequest = CancelWorkRequestRequest.CancelWorkRequestRequest;
 import * as ChangeFleetCompartmentRequest from "./change-fleet-compartment-request";
@@ -23,10 +25,16 @@ import * as DeleteBlocklistRequest from "./delete-blocklist-request";
 export import DeleteBlocklistRequest = DeleteBlocklistRequest.DeleteBlocklistRequest;
 import * as DeleteFleetRequest from "./delete-fleet-request";
 export import DeleteFleetRequest = DeleteFleetRequest.DeleteFleetRequest;
+import * as GenerateAgentDeployScriptRequest from "./generate-agent-deploy-script-request";
+export import GenerateAgentDeployScriptRequest = GenerateAgentDeployScriptRequest.GenerateAgentDeployScriptRequest;
 import * as GetFleetRequest from "./get-fleet-request";
 export import GetFleetRequest = GetFleetRequest.GetFleetRequest;
 import * as GetFleetAgentConfigurationRequest from "./get-fleet-agent-configuration-request";
 export import GetFleetAgentConfigurationRequest = GetFleetAgentConfigurationRequest.GetFleetAgentConfigurationRequest;
+import * as GetJavaFamilyRequest from "./get-java-family-request";
+export import GetJavaFamilyRequest = GetJavaFamilyRequest.GetJavaFamilyRequest;
+import * as GetJavaReleaseRequest from "./get-java-release-request";
+export import GetJavaReleaseRequest = GetJavaReleaseRequest.GetJavaReleaseRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as ListBlocklistsRequest from "./list-blocklists-request";
@@ -35,6 +43,10 @@ import * as ListFleetsRequest from "./list-fleets-request";
 export import ListFleetsRequest = ListFleetsRequest.ListFleetsRequest;
 import * as ListInstallationSitesRequest from "./list-installation-sites-request";
 export import ListInstallationSitesRequest = ListInstallationSitesRequest.ListInstallationSitesRequest;
+import * as ListJavaFamiliesRequest from "./list-java-families-request";
+export import ListJavaFamiliesRequest = ListJavaFamiliesRequest.ListJavaFamiliesRequest;
+import * as ListJavaReleasesRequest from "./list-java-releases-request";
+export import ListJavaReleasesRequest = ListJavaReleasesRequest.ListJavaReleasesRequest;
 import * as ListJreUsageRequest from "./list-jre-usage-request";
 export import ListJreUsageRequest = ListJreUsageRequest.ListJreUsageRequest;
 import * as ListWorkItemsRequest from "./list-work-items-request";

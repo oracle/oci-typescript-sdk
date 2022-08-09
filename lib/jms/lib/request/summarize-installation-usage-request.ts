@@ -89,4 +89,9 @@ export interface SummarizeInstallationUsageRequest extends common.BaseRequest {
    * The operating system type.
    */
   "osFamily"?: Array<model.OsFamily>;
+  /**
+   * Filter the list with path contains the given value.
+   *
+   */
+  "pathContains"?: string;
 }

@@ -126,6 +126,92 @@ export class ApmSyntheticClient {
   }
 
   /**
+   * Gets aggregated network data for given executions.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AggregateNetworkDataRequest
+   * @return AggregateNetworkDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/apmsynthetics/AggregateNetworkData.ts.html |here} to see how to use AggregateNetworkData API.
+   */
+  public async aggregateNetworkData(
+    aggregateNetworkDataRequest: requests.AggregateNetworkDataRequest
+  ): Promise<responses.AggregateNetworkDataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ApmSyntheticClient#aggregateNetworkData.");
+    const operationName = "aggregateNetworkData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/apm-synthetic-monitoring/20200630/AggregatedNetworkDataResult/AggregateNetworkData";
+    const pathParams = {
+      "{monitorId}": aggregateNetworkDataRequest.monitorId
+    };
+
+    const queryParams = {
+      "apmDomainId": aggregateNetworkDataRequest.apmDomainId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": aggregateNetworkDataRequest.opcRetryToken,
+      "opc-request-id": aggregateNetworkDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      aggregateNetworkDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitors/{monitorId}/actions/aggregateNetworkData",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        aggregateNetworkDataRequest.aggregateNetworkDataDetails,
+        "AggregateNetworkDataDetails",
+        model.AggregateNetworkDataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AggregateNetworkDataResponse>{},
+        body: await response.json(),
+        bodyKey: "aggregatedNetworkDataResult",
+        bodyModel: model.AggregatedNetworkDataResult,
+        type: "model.AggregatedNetworkDataResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Registers a new dedicated vantage point.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

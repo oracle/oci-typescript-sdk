@@ -152,6 +152,86 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Add Java installation sites in a Fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AddFleetInstallationSitesRequest
+   * @return AddFleetInstallationSitesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/AddFleetInstallationSites.ts.html |here} to see how to use AddFleetInstallationSites API.
+   */
+  public async addFleetInstallationSites(
+    addFleetInstallationSitesRequest: requests.AddFleetInstallationSitesRequest
+  ): Promise<responses.AddFleetInstallationSitesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#addFleetInstallationSites.");
+    const operationName = "addFleetInstallationSites";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/InstallationSiteSummary/AddFleetInstallationSites";
+    const pathParams = {
+      "{fleetId}": addFleetInstallationSitesRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addFleetInstallationSitesRequest.ifMatch,
+      "opc-retry-token": addFleetInstallationSitesRequest.opcRetryToken,
+      "opc-request-id": addFleetInstallationSitesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addFleetInstallationSitesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/addInstallationSites",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addFleetInstallationSitesRequest.addFleetInstallationSitesDetails,
+        "AddFleetInstallationSitesDetails",
+        model.AddFleetInstallationSitesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddFleetInstallationSitesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the work request specified by an identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
@@ -386,14 +466,20 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Create a new Fleet using the information provided.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param CreateFleetRequest
-   * @return CreateFleetResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateFleet.ts.html |here} to see how to use CreateFleet API.
-   */
+     * Create a new Fleet using the information provided.
+* <p>
+`inventoryLog` is now a required parameter for CreateFleet API.
+* Update existing applications using this API
+* before July 15, 2022 to ensure the applications continue to work.
+* See the [Service Change Notice](https://docs.oracle.com/en-us/iaas/Content/servicechanges.htm#JMS) for more details.
+* Migrate existing fleets using the `UpdateFleet` API to set the `inventoryLog` parameter.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateFleetRequest
+     * @return CreateFleetResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/CreateFleet.ts.html |here} to see how to use CreateFleet API.
+     */
   public async createFleet(
     createFleetRequest: requests.CreateFleetRequest
   ): Promise<responses.CreateFleetResponse> {
@@ -606,6 +692,94 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Generates Agent Deploy Script for Fleet using the information provided.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GenerateAgentDeployScriptRequest
+   * @return GenerateAgentDeployScriptResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GenerateAgentDeployScript.ts.html |here} to see how to use GenerateAgentDeployScript API.
+   */
+  public async generateAgentDeployScript(
+    generateAgentDeployScriptRequest: requests.GenerateAgentDeployScriptRequest
+  ): Promise<responses.GenerateAgentDeployScriptResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#generateAgentDeployScript.");
+    const operationName = "generateAgentDeployScript";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/GenerateAgentDeployScript";
+    const pathParams = {
+      "{fleetId}": generateAgentDeployScriptRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateAgentDeployScriptRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateAgentDeployScriptRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/generateAgentDeployScript",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateAgentDeployScriptRequest.generateAgentDeployScriptDetails,
+        "GenerateAgentDeployScriptDetails",
+        model.GenerateAgentDeployScriptDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateAgentDeployScriptResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-type"),
+            key: "contentType",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve a Fleet with the specified identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFleetRequest
@@ -745,6 +919,151 @@ export class JavaManagementServiceClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns details of a Java release family based on specified version.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetJavaFamilyRequest
+   * @return GetJavaFamilyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaFamily.ts.html |here} to see how to use GetJavaFamily API.
+   */
+  public async getJavaFamily(
+    getJavaFamilyRequest: requests.GetJavaFamilyRequest
+  ): Promise<responses.GetJavaFamilyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getJavaFamily.");
+    const operationName = "getJavaFamily";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamily/GetJavaFamily";
+    const pathParams = {
+      "{familyVersion}": getJavaFamilyRequest.familyVersion
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJavaFamilyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJavaFamilyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/javaFamilies/{familyVersion}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJavaFamilyResponse>{},
+        body: await response.json(),
+        bodyKey: "javaFamily",
+        bodyModel: model.JavaFamily,
+        type: "model.JavaFamily",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns detail of a Java release.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetJavaReleaseRequest
+   * @return GetJavaReleaseResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaRelease.ts.html |here} to see how to use GetJavaRelease API.
+   */
+  public async getJavaRelease(
+    getJavaReleaseRequest: requests.GetJavaReleaseRequest
+  ): Promise<responses.GetJavaReleaseResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getJavaRelease.");
+    const operationName = "getJavaRelease";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaRelease/GetJavaRelease";
+    const pathParams = {
+      "{releaseVersion}": getJavaReleaseRequest.releaseVersion
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJavaReleaseRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJavaReleaseRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/javaReleases/{releaseVersion}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJavaReleaseResponse>{},
+        body: await response.json(),
+        bodyKey: "javaRelease",
+        bodyModel: model.JavaRelease,
+        type: "model.JavaRelease",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -952,7 +1271,8 @@ export class JavaManagementServiceClient {
       "limit": listFleetsRequest.limit,
       "page": listFleetsRequest.page,
       "sortOrder": listFleetsRequest.sortOrder,
-      "sortBy": listFleetsRequest.sortBy
+      "sortBy": listFleetsRequest.sortBy,
+      "displayNameContains": listFleetsRequest.displayNameContains
     };
 
     let headerParams = {
@@ -1042,7 +1362,10 @@ export class JavaManagementServiceClient {
       "sortOrder": listInstallationSitesRequest.sortOrder,
       "sortBy": listInstallationSitesRequest.sortBy,
       "osFamily": listInstallationSitesRequest.osFamily,
-      "jreSecurityStatus": listInstallationSitesRequest.jreSecurityStatus
+      "jreSecurityStatus": listInstallationSitesRequest.jreSecurityStatus,
+      "pathContains": listInstallationSitesRequest.pathContains,
+      "timeStart": listInstallationSitesRequest.timeStart,
+      "timeEnd": listInstallationSitesRequest.timeEnd
     };
 
     let headerParams = {
@@ -1080,6 +1403,176 @@ export class JavaManagementServiceClient {
         bodyKey: "installationSiteCollection",
         bodyModel: model.InstallationSiteCollection,
         type: "model.InstallationSiteCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of the Java release family information.
+   * A Java release family is typically a major version in the Java version identifier.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListJavaFamiliesRequest
+   * @return ListJavaFamiliesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaFamilies.ts.html |here} to see how to use ListJavaFamilies API.
+   */
+  public async listJavaFamilies(
+    listJavaFamiliesRequest: requests.ListJavaFamiliesRequest
+  ): Promise<responses.ListJavaFamiliesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listJavaFamilies.");
+    const operationName = "listJavaFamilies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamilyCollection/ListJavaFamilies";
+    const pathParams = {};
+
+    const queryParams = {
+      "familyVersion": listJavaFamiliesRequest.familyVersion,
+      "displayName": listJavaFamiliesRequest.displayName,
+      "limit": listJavaFamiliesRequest.limit,
+      "page": listJavaFamiliesRequest.page,
+      "sortOrder": listJavaFamiliesRequest.sortOrder,
+      "sortBy": listJavaFamiliesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJavaFamiliesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJavaFamiliesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/javaFamilies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJavaFamiliesResponse>{},
+        body: await response.json(),
+        bodyKey: "javaFamilyCollection",
+        bodyModel: model.JavaFamilyCollection,
+        type: "model.JavaFamilyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Java releases.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListJavaReleasesRequest
+   * @return ListJavaReleasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaReleases.ts.html |here} to see how to use ListJavaReleases API.
+   */
+  public async listJavaReleases(
+    listJavaReleasesRequest: requests.ListJavaReleasesRequest
+  ): Promise<responses.ListJavaReleasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listJavaReleases.");
+    const operationName = "listJavaReleases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaRelease/ListJavaReleases";
+    const pathParams = {};
+
+    const queryParams = {
+      "releaseVersion": listJavaReleasesRequest.releaseVersion,
+      "familyVersion": listJavaReleasesRequest.familyVersion,
+      "releaseType": listJavaReleasesRequest.releaseType,
+      "jreSecurityStatus": listJavaReleasesRequest.jreSecurityStatus,
+      "licenseType": listJavaReleasesRequest.licenseType,
+      "limit": listJavaReleasesRequest.limit,
+      "page": listJavaReleasesRequest.page,
+      "sortOrder": listJavaReleasesRequest.sortOrder,
+      "sortBy": listJavaReleasesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJavaReleasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJavaReleasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/javaReleases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJavaReleasesResponse>{},
+        body: await response.json(),
+        bodyKey: "javaReleaseCollection",
+        bodyModel: model.JavaReleaseCollection,
+        type: "model.JavaReleaseCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1629,7 +2122,8 @@ export class JavaManagementServiceClient {
       "page": summarizeApplicationUsageRequest.page,
       "sortOrder": summarizeApplicationUsageRequest.sortOrder,
       "sortBy": summarizeApplicationUsageRequest.sortBy,
-      "osFamily": summarizeApplicationUsageRequest.osFamily
+      "osFamily": summarizeApplicationUsageRequest.osFamily,
+      "displayNameContains": summarizeApplicationUsageRequest.displayNameContains
     };
 
     let headerParams = {
@@ -1723,7 +2217,8 @@ export class JavaManagementServiceClient {
       "page": summarizeInstallationUsageRequest.page,
       "sortOrder": summarizeInstallationUsageRequest.sortOrder,
       "sortBy": summarizeInstallationUsageRequest.sortBy,
-      "osFamily": summarizeInstallationUsageRequest.osFamily
+      "osFamily": summarizeInstallationUsageRequest.osFamily,
+      "pathContains": summarizeInstallationUsageRequest.pathContains
     };
 
     let headerParams = {
@@ -1910,7 +2405,8 @@ export class JavaManagementServiceClient {
       "page": summarizeManagedInstanceUsageRequest.page,
       "sortOrder": summarizeManagedInstanceUsageRequest.sortOrder,
       "sortBy": summarizeManagedInstanceUsageRequest.sortBy,
-      "osFamily": summarizeManagedInstanceUsageRequest.osFamily
+      "osFamily": summarizeManagedInstanceUsageRequest.osFamily,
+      "hostnameContains": summarizeManagedInstanceUsageRequest.hostnameContains
     };
 
     let headerParams = {

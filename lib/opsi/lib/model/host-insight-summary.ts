@@ -107,6 +107,11 @@ export namespace HostInsightSummary {
             <model.EmManagedExternalHostInsightSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.MacsManagedCloudHostInsightSummary.getJsonObj(
+            <model.MacsManagedCloudHostInsightSummary>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.entitySource);
       }
@@ -126,6 +131,11 @@ export namespace HostInsightSummary {
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostInsightSummary.getDeserializedJsonObj(
             <model.EmManagedExternalHostInsightSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.MacsManagedCloudHostInsightSummary.getDeserializedJsonObj(
+            <model.MacsManagedCloudHostInsightSummary>(<object>jsonObj),
             true
           );
         default:

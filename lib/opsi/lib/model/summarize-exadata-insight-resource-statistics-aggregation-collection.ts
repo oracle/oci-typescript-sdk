@@ -34,10 +34,9 @@ export interface SummarizeExadataInsightResourceStatisticsAggregationCollection 
    */
   "items": Array<model.ExadataInsightResourceStatisticsAggregation>;
   /**
-   * Displays usage unit ( CORES, GB)
-   *
+   * Displays usage unit ( CORES, GB , PERCENT, MBPS)
    */
-  "usageUnit": model.UsageUnit;
+  "usageUnit": SummarizeExadataInsightResourceStatisticsAggregationCollection.UsageUnit;
   /**
    * Defines the type of exadata resource metric (example: CPU, STORAGE)
    *
@@ -54,6 +53,19 @@ export interface SummarizeExadataInsightResourceStatisticsAggregationCollection 
 }
 
 export namespace SummarizeExadataInsightResourceStatisticsAggregationCollection {
+  export enum UsageUnit {
+    Cores = "CORES",
+    Gb = "GB",
+    Mbps = "MBPS",
+    Iops = "IOPS",
+    Percent = "PERCENT",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum ExadataResourceMetric {
     Cpu = "CPU",
     Storage = "STORAGE",

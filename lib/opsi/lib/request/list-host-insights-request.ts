@@ -37,10 +37,10 @@ export interface ListHostInsightsRequest extends common.BaseRequest {
   "lifecycleState"?: Array<model.LifecycleState>;
   /**
    * Filter by one or more host types.
-   * Possible value is EXTERNAL-HOST.
+   * Possible values are CLOUD-HOST, EXTERNAL-HOST
    *
    */
-  "hostType"?: Array<ListHostInsightsRequest.HostType>;
+  "hostType"?: Array<string>;
   /**
    * Filter by one or more platform types.
    * Supported platformType(s) for MACS-managed external host insight: [LINUX].
@@ -97,10 +97,6 @@ export interface ListHostInsightsRequest extends common.BaseRequest {
 }
 
 export namespace ListHostInsightsRequest {
-  export enum HostType {
-    ExternalHost = "EXTERNAL-HOST"
-  }
-
   export enum PlatformType {
     Linux = "LINUX",
     Solaris = "SOLARIS",

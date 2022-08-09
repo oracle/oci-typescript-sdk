@@ -78,4 +78,17 @@ export interface ListInstallationSitesRequest extends common.BaseRequest {
    * The security status of the Java Runtime.
    */
   "jreSecurityStatus"?: model.JreSecurityStatus;
+  /**
+   * Filter the list with path contains the given value.
+   *
+   */
+  "pathContains"?: string;
+  /**
+   * The start of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   */
+  "timeStart"?: Date;
+  /**
+   * The end of the time period during which resources are searched (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
+   */
+  "timeEnd"?: Date;
 }

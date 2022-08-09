@@ -23,11 +23,11 @@ export interface JreUsage {
    */
   "id"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related fleet.  This property value is present only for /actions/listJreUsage.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related fleet.
    */
   "fleetId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related managed instance. This property value is present only for /actions/listJreUsage.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the related managed instance. This property value is present only for /listJreUsage.
    */
   "managedInstanceId"?: string;
   /**
@@ -54,6 +54,10 @@ export interface JreUsage {
    * The version of the Java Runtime.
    */
   "version": string;
+  /**
+   * The number of days since this release has been under the security baseline. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "daysUnderSecurityBaseline"?: number;
   /**
    * The operating systems that have this Java Runtime installed.
    */

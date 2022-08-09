@@ -44,10 +44,9 @@ export interface SummarizeExadataInsightResourceCapacityTrendCollection {
    */
   "timeIntervalEnd": Date;
   /**
-   * Displays usage unit ( CORES, GB)
-   *
+   * Displays usage unit ( CORES, GB , PERCENT, MBPS)
    */
-  "usageUnit": model.UsageUnit;
+  "usageUnit": SummarizeExadataInsightResourceCapacityTrendCollection.UsageUnit;
   /**
    * Capacity Data with time interval
    *
@@ -75,6 +74,19 @@ export namespace SummarizeExadataInsightResourceCapacityTrendCollection {
     Memory = "MEMORY",
     Iops = "IOPS",
     Throughput = "THROUGHPUT",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum UsageUnit {
+    Cores = "CORES",
+    Gb = "GB",
+    Mbps = "MBPS",
+    Iops = "IOPS",
+    Percent = "PERCENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

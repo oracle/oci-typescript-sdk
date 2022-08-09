@@ -63,6 +63,11 @@ export interface Fleet {
   "inventoryLog"?: model.CustomLog;
   "operationLog"?: model.CustomLog;
   /**
+   * Whether or not advanced features are enabled in this fleet.  By default, this is set to false.
+   *
+   */
+  "isAdvancedFeaturesEnabled"?: boolean;
+  /**
    * The creation date and time of the Fleet (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
    */

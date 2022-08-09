@@ -140,6 +140,17 @@ export interface SummarizeHostInsightResourceCapacityTrendRequest extends common
    *
    */
   "compartmentIdInSubtree"?: boolean;
+  /**
+   * Filter by one or more host types.
+   * Possible values are CLOUD-HOST, EXTERNAL-HOST
+   *
+   */
+  "hostType"?: Array<string>;
+  /**
+   * Optional [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the host (Compute Id)
+   *
+   */
+  "hostId"?: string;
 }
 
 export namespace SummarizeHostInsightResourceCapacityTrendRequest {

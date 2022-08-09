@@ -258,6 +258,7 @@ export class LoadBalancerClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createBackendRequest.opcRequestId,
+      "if-match": createBackendRequest.ifMatch,
       "opc-retry-token": createBackendRequest.opcRetryToken
     };
 
@@ -335,7 +336,8 @@ export class LoadBalancerClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createBackendSetRequest.opcRequestId,
-      "opc-retry-token": createBackendSetRequest.opcRetryToken
+      "opc-retry-token": createBackendSetRequest.opcRetryToken,
+      "if-match": createBackendSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -412,7 +414,8 @@ export class LoadBalancerClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createCertificateRequest.opcRequestId,
-      "opc-retry-token": createCertificateRequest.opcRetryToken
+      "opc-retry-token": createCertificateRequest.opcRetryToken,
+      "if-match": createCertificateRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -491,6 +494,7 @@ export class LoadBalancerClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createHostnameRequest.opcRequestId,
+      "if-match": createHostnameRequest.ifMatch,
       "opc-retry-token": createHostnameRequest.opcRetryToken
     };
 
@@ -568,7 +572,8 @@ export class LoadBalancerClient {
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createListenerRequest.opcRequestId,
-      "opc-retry-token": createListenerRequest.opcRetryToken
+      "opc-retry-token": createListenerRequest.opcRetryToken,
+      "if-match": createListenerRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -749,7 +754,8 @@ When you create a load balancer, the system assigns an IP address.
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createPathRouteSetRequest.opcRequestId,
-      "opc-retry-token": createPathRouteSetRequest.opcRetryToken
+      "opc-retry-token": createPathRouteSetRequest.opcRetryToken,
+      "if-match": createPathRouteSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -828,7 +834,8 @@ When you create a load balancer, the system assigns an IP address.
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createRoutingPolicyRequest.opcRequestId,
-      "opc-retry-token": createRoutingPolicyRequest.opcRetryToken
+      "opc-retry-token": createRoutingPolicyRequest.opcRetryToken,
+      "if-match": createRoutingPolicyRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -906,7 +913,9 @@ When you create a load balancer, the system assigns an IP address.
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": createRuleSetRequest.opcRequestId
+      "opc-request-id": createRuleSetRequest.opcRequestId,
+      "opc-retry-token": createRuleSetRequest.opcRetryToken,
+      "if-match": createRuleSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -984,7 +993,8 @@ When you create a load balancer, the system assigns an IP address.
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createSSLCipherSuiteRequest.opcRequestId,
-      "opc-retry-token": createSSLCipherSuiteRequest.opcRetryToken
+      "opc-retry-token": createSSLCipherSuiteRequest.opcRetryToken,
+      "if-match": createSSLCipherSuiteRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1062,7 +1072,8 @@ When you create a load balancer, the system assigns an IP address.
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteBackendRequest.opcRequestId
+      "opc-request-id": deleteBackendRequest.opcRequestId,
+      "if-match": deleteBackendRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1137,7 +1148,8 @@ Before you can delete a backend set, you must remove it from any active listener
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteBackendSetRequest.opcRequestId
+      "opc-request-id": deleteBackendSetRequest.opcRequestId,
+      "if-match": deleteBackendSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1209,7 +1221,8 @@ Before you can delete a backend set, you must remove it from any active listener
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteCertificateRequest.opcRequestId
+      "opc-request-id": deleteCertificateRequest.opcRequestId,
+      "if-match": deleteCertificateRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1282,7 +1295,8 @@ Before you can delete a backend set, you must remove it from any active listener
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteHostnameRequest.opcRequestId
+      "opc-request-id": deleteHostnameRequest.opcRequestId,
+      "if-match": deleteHostnameRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1354,7 +1368,8 @@ Before you can delete a backend set, you must remove it from any active listener
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteListenerRequest.opcRequestId
+      "opc-request-id": deleteListenerRequest.opcRequestId,
+      "if-match": deleteListenerRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1425,7 +1440,8 @@ Before you can delete a backend set, you must remove it from any active listener
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteLoadBalancerRequest.opcRequestId
+      "opc-request-id": deleteLoadBalancerRequest.opcRequestId,
+      "if-match": deleteLoadBalancerRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1501,7 +1517,8 @@ To delete a path route rule from a path route set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deletePathRouteSetRequest.opcRequestId
+      "opc-request-id": deletePathRouteSetRequest.opcRequestId,
+      "if-match": deletePathRouteSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1577,7 +1594,8 @@ To delete a routing rule from a routing policy, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteRoutingPolicyRequest.opcRequestId
+      "opc-request-id": deleteRoutingPolicyRequest.opcRequestId,
+      "if-match": deleteRoutingPolicyRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1653,7 +1671,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteRuleSetRequest.opcRequestId
+      "opc-request-id": deleteRuleSetRequest.opcRequestId,
+      "if-match": deleteRuleSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1726,7 +1745,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": deleteSSLCipherSuiteRequest.opcRequestId
+      "opc-request-id": deleteSSLCipherSuiteRequest.opcRequestId,
+      "if-match": deleteSSLCipherSuiteRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1800,7 +1820,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getBackendRequest.opcRequestId
+      "opc-request-id": getBackendRequest.opcRequestId,
+      "if-match": getBackendRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1838,6 +1859,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -1873,7 +1899,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getBackendHealthRequest.opcRequestId
+      "opc-request-id": getBackendHealthRequest.opcRequestId,
+      "if-match": getBackendHealthRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1912,6 +1939,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -1946,7 +1978,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getBackendSetRequest.opcRequestId
+      "opc-request-id": getBackendSetRequest.opcRequestId,
+      "if-match": getBackendSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1984,6 +2017,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2018,7 +2056,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getBackendSetHealthRequest.opcRequestId
+      "opc-request-id": getBackendSetHealthRequest.opcRequestId,
+      "if-match": getBackendSetHealthRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2056,6 +2095,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2090,7 +2134,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getHealthCheckerRequest.opcRequestId
+      "opc-request-id": getHealthCheckerRequest.opcRequestId,
+      "if-match": getHealthCheckerRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2128,6 +2173,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2162,7 +2212,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getHostnameRequest.opcRequestId
+      "opc-request-id": getHostnameRequest.opcRequestId,
+      "if-match": getHostnameRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2200,6 +2251,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2233,7 +2289,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getLoadBalancerRequest.opcRequestId
+      "opc-request-id": getLoadBalancerRequest.opcRequestId,
+      "if-match": getLoadBalancerRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2271,6 +2328,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2305,7 +2367,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getLoadBalancerHealthRequest.opcRequestId
+      "opc-request-id": getLoadBalancerHealthRequest.opcRequestId,
+      "if-match": getLoadBalancerHealthRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2343,6 +2406,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2377,7 +2445,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getPathRouteSetRequest.opcRequestId
+      "opc-request-id": getPathRouteSetRequest.opcRequestId,
+      "if-match": getPathRouteSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2415,6 +2484,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2449,7 +2523,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getRoutingPolicyRequest.opcRequestId
+      "opc-request-id": getRoutingPolicyRequest.opcRequestId,
+      "if-match": getRoutingPolicyRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2487,6 +2562,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2521,7 +2601,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getRuleSetRequest.opcRequestId
+      "opc-request-id": getRuleSetRequest.opcRequestId,
+      "if-match": getRuleSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2559,6 +2640,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2593,7 +2679,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getSSLCipherSuiteRequest.opcRequestId
+      "opc-request-id": getSSLCipherSuiteRequest.opcRequestId,
+      "if-match": getSSLCipherSuiteRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2630,6 +2717,11 @@ To delete a rule from a rule set, use the
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
             dataType: "string"
           }
         ]
@@ -2735,7 +2827,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listBackendSetsRequest.opcRequestId
+      "opc-request-id": listBackendSetsRequest.opcRequestId,
+      "if-match": listBackendSetsRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2773,6 +2866,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2807,7 +2905,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listBackendsRequest.opcRequestId
+      "opc-request-id": listBackendsRequest.opcRequestId,
+      "if-match": listBackendsRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2845,6 +2944,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2878,7 +2982,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listCertificatesRequest.opcRequestId
+      "opc-request-id": listCertificatesRequest.opcRequestId,
+      "if-match": listCertificatesRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2916,6 +3021,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -2949,7 +3059,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listHostnamesRequest.opcRequestId
+      "opc-request-id": listHostnamesRequest.opcRequestId,
+      "if-match": listHostnamesRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -2986,6 +3097,11 @@ To delete a rule from a rule set, use the
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
             dataType: "string"
           }
         ]
@@ -3028,7 +3144,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listListenerRulesRequest.opcRequestId
+      "opc-request-id": listListenerRulesRequest.opcRequestId,
+      "if-match": listListenerRulesRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -3065,6 +3182,11 @@ To delete a rule from a rule set, use the
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
             dataType: "string"
           }
         ]
@@ -3365,7 +3487,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listPathRouteSetsRequest.opcRequestId
+      "opc-request-id": listPathRouteSetsRequest.opcRequestId,
+      "if-match": listPathRouteSetsRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -3402,6 +3525,11 @@ To delete a rule from a rule set, use the
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
             dataType: "string"
           }
         ]
@@ -3699,7 +3827,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listRoutingPoliciesRequest.opcRequestId
+      "opc-request-id": listRoutingPoliciesRequest.opcRequestId,
+      "if-match": listRoutingPoliciesRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -3741,6 +3870,11 @@ To delete a rule from a rule set, use the
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
             dataType: "string"
           }
         ]
@@ -3827,7 +3961,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listRuleSetsRequest.opcRequestId
+      "opc-request-id": listRuleSetsRequest.opcRequestId,
+      "if-match": listRuleSetsRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -3865,6 +4000,11 @@ To delete a rule from a rule set, use the
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
+            dataType: "string"
           }
         ]
       });
@@ -3898,7 +4038,8 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listSSLCipherSuitesRequest.opcRequestId
+      "opc-request-id": listSSLCipherSuitesRequest.opcRequestId,
+      "if-match": listSSLCipherSuitesRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -3935,6 +4076,11 @@ To delete a rule from a rule set, use the
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("eTag"),
+            key: "eTag",
             dataType: "string"
           }
         ]
@@ -4232,7 +4378,8 @@ To delete a rule from a rule set, use the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateBackendRequest.opcRequestId,
-      "opc-retry-token": updateBackendRequest.opcRetryToken
+      "opc-retry-token": updateBackendRequest.opcRetryToken,
+      "if-match": updateBackendRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4310,7 +4457,8 @@ To delete a rule from a rule set, use the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateBackendSetRequest.opcRequestId,
-      "opc-retry-token": updateBackendSetRequest.opcRetryToken
+      "opc-retry-token": updateBackendSetRequest.opcRetryToken,
+      "if-match": updateBackendSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4388,7 +4536,8 @@ To delete a rule from a rule set, use the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateHealthCheckerRequest.opcRequestId,
-      "opc-retry-token": updateHealthCheckerRequest.opcRetryToken
+      "opc-retry-token": updateHealthCheckerRequest.opcRetryToken,
+      "if-match": updateHealthCheckerRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4467,7 +4616,9 @@ To delete a rule from a rule set, use the
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": updateHostnameRequest.opcRequestId
+      "opc-request-id": updateHostnameRequest.opcRequestId,
+      "opc-retry-token": updateHostnameRequest.opcRetryToken,
+      "if-match": updateHostnameRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4545,7 +4696,8 @@ To delete a rule from a rule set, use the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateListenerRequest.opcRequestId,
-      "opc-retry-token": updateListenerRequest.opcRetryToken
+      "opc-retry-token": updateListenerRequest.opcRetryToken,
+      "if-match": updateListenerRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4622,6 +4774,7 @@ To delete a rule from a rule set, use the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateLoadBalancerRequest.opcRequestId,
+      "if-match": updateLoadBalancerRequest.ifMatch,
       "opc-retry-token": updateLoadBalancerRequest.opcRetryToken
     };
 
@@ -4707,7 +4860,8 @@ To delete a rule from a rule set, use the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateLoadBalancerShapeRequest.opcRequestId,
-      "opc-retry-token": updateLoadBalancerShapeRequest.opcRetryToken
+      "opc-retry-token": updateLoadBalancerShapeRequest.opcRetryToken,
+      "if-match": updateLoadBalancerShapeRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4786,7 +4940,8 @@ To delete a rule from a rule set, use the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateNetworkSecurityGroupsRequest.opcRequestId,
-      "opc-retry-token": updateNetworkSecurityGroupsRequest.opcRetryToken
+      "opc-retry-token": updateNetworkSecurityGroupsRequest.opcRetryToken,
+      "if-match": updateNetworkSecurityGroupsRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -4870,6 +5025,7 @@ To add a new path route rule to a path route set, the `pathRoutes` in the
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updatePathRouteSetRequest.opcRequestId,
+      "if-match": updatePathRouteSetRequest.ifMatch,
       "opc-retry-token": updatePathRouteSetRequest.opcRetryToken
     };
 
@@ -4952,6 +5108,7 @@ To add a new routing rule to a routing policy, the body must include both the ne
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateRoutingPolicyRequest.opcRequestId,
+      "if-match": updateRoutingPolicyRequest.ifMatch,
       "opc-retry-token": updateRoutingPolicyRequest.opcRetryToken
     };
 
@@ -5033,7 +5190,9 @@ To add a new rule to a set, the body must include both the new rule to add and t
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": updateRuleSetRequest.opcRequestId
+      "opc-request-id": updateRuleSetRequest.opcRequestId,
+      "opc-retry-token": updateRuleSetRequest.opcRetryToken,
+      "if-match": updateRuleSetRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -5112,7 +5271,8 @@ To add a new rule to a set, the body must include both the new rule to add and t
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": updateSSLCipherSuiteRequest.opcRequestId,
-      "opc-retry-token": updateSSLCipherSuiteRequest.opcRetryToken
+      "opc-retry-token": updateSSLCipherSuiteRequest.opcRetryToken,
+      "if-match": updateSSLCipherSuiteRequest.ifMatch
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;

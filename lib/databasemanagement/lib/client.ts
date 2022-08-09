@@ -2292,6 +2292,241 @@ export class DbManagementClient {
   }
 
   /**
+   * Gets a comprehensive report of the Optimizer Statistics Advisor execution, which includes details of the
+   * Managed Database, findings, recommendations, rationale, and examples.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOptimizerStatisticsAdvisorExecutionRequest
+   * @return GetOptimizerStatisticsAdvisorExecutionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsAdvisorExecution.ts.html |here} to see how to use GetOptimizerStatisticsAdvisorExecution API.
+   */
+  public async getOptimizerStatisticsAdvisorExecution(
+    getOptimizerStatisticsAdvisorExecutionRequest: requests.GetOptimizerStatisticsAdvisorExecutionRequest
+  ): Promise<responses.GetOptimizerStatisticsAdvisorExecutionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#getOptimizerStatisticsAdvisorExecution."
+      );
+    const operationName = "getOptimizerStatisticsAdvisorExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetOptimizerStatisticsAdvisorExecution";
+    const pathParams = {
+      "{managedDatabaseId}": getOptimizerStatisticsAdvisorExecutionRequest.managedDatabaseId,
+      "{executionName}": getOptimizerStatisticsAdvisorExecutionRequest.executionName
+    };
+
+    const queryParams = {
+      "taskName": getOptimizerStatisticsAdvisorExecutionRequest.taskName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOptimizerStatisticsAdvisorExecutionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOptimizerStatisticsAdvisorExecutionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/optimizerStatisticsAdvisorExecutions/{executionName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOptimizerStatisticsAdvisorExecutionResponse>{},
+        body: await response.json(),
+        bodyKey: "optimizerStatisticsAdvisorExecution",
+        bodyModel: model.OptimizerStatisticsAdvisorExecution,
+        type: "model.OptimizerStatisticsAdvisorExecution",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the Oracle system-generated script for the specified Optimizer Statistics Advisor execution.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOptimizerStatisticsAdvisorExecutionScriptRequest
+   * @return GetOptimizerStatisticsAdvisorExecutionScriptResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsAdvisorExecutionScript.ts.html |here} to see how to use GetOptimizerStatisticsAdvisorExecutionScript API.
+   */
+  public async getOptimizerStatisticsAdvisorExecutionScript(
+    getOptimizerStatisticsAdvisorExecutionScriptRequest: requests.GetOptimizerStatisticsAdvisorExecutionScriptRequest
+  ): Promise<responses.GetOptimizerStatisticsAdvisorExecutionScriptResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#getOptimizerStatisticsAdvisorExecutionScript."
+      );
+    const operationName = "getOptimizerStatisticsAdvisorExecutionScript";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetOptimizerStatisticsAdvisorExecutionScript";
+    const pathParams = {
+      "{managedDatabaseId}": getOptimizerStatisticsAdvisorExecutionScriptRequest.managedDatabaseId,
+      "{executionName}": getOptimizerStatisticsAdvisorExecutionScriptRequest.executionName
+    };
+
+    const queryParams = {
+      "taskName": getOptimizerStatisticsAdvisorExecutionScriptRequest.taskName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOptimizerStatisticsAdvisorExecutionScriptRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOptimizerStatisticsAdvisorExecutionScriptRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/optimizerStatisticsAdvisorExecutions/{executionName}/script",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOptimizerStatisticsAdvisorExecutionScriptResponse>{},
+        body: await response.json(),
+        bodyKey: "optimizerStatisticsAdvisorExecutionScript",
+        bodyModel: model.OptimizerStatisticsAdvisorExecutionScript,
+        type: "model.OptimizerStatisticsAdvisorExecutionScript",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a detailed report of the Optimizer Statistics Collection operation for the specified Managed Database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOptimizerStatisticsCollectionOperationRequest
+   * @return GetOptimizerStatisticsCollectionOperationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetOptimizerStatisticsCollectionOperation.ts.html |here} to see how to use GetOptimizerStatisticsCollectionOperation API.
+   */
+  public async getOptimizerStatisticsCollectionOperation(
+    getOptimizerStatisticsCollectionOperationRequest: requests.GetOptimizerStatisticsCollectionOperationRequest
+  ): Promise<responses.GetOptimizerStatisticsCollectionOperationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#getOptimizerStatisticsCollectionOperation."
+      );
+    const operationName = "getOptimizerStatisticsCollectionOperation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetOptimizerStatisticsCollectionOperation";
+    const pathParams = {
+      "{managedDatabaseId}": getOptimizerStatisticsCollectionOperationRequest.managedDatabaseId,
+      "{optimizerStatisticsCollectionOperationId}":
+        getOptimizerStatisticsCollectionOperationRequest.optimizerStatisticsCollectionOperationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOptimizerStatisticsCollectionOperationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOptimizerStatisticsCollectionOperationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/optimizerStatisticsCollectionOperations/{optimizerStatisticsCollectionOperationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOptimizerStatisticsCollectionOperationResponse>{},
+        body: await response.json(),
+        bodyKey: "optimizerStatisticsCollectionOperation",
+        bodyModel: model.OptimizerStatisticsCollectionOperation,
+        type: "model.OptimizerStatisticsCollectionOperation",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a summary of the resource usage metrics such as CPU, User I/O, and Storage for each
    * PDB within a specific CDB. If comparmentId is specified, then the metrics for
    * each PDB (within the CDB) in the specified compartment are retrieved.
@@ -2584,6 +2819,88 @@ export class DbManagementClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Asynchronously implements the findings and recommendations of the Optimizer Statistics Advisor execution.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ImplementOptimizerStatisticsAdvisorRecommendationsRequest
+   * @return ImplementOptimizerStatisticsAdvisorRecommendationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ImplementOptimizerStatisticsAdvisorRecommendations.ts.html |here} to see how to use ImplementOptimizerStatisticsAdvisorRecommendations API.
+   */
+  public async implementOptimizerStatisticsAdvisorRecommendations(
+    implementOptimizerStatisticsAdvisorRecommendationsRequest: requests.ImplementOptimizerStatisticsAdvisorRecommendationsRequest
+  ): Promise<responses.ImplementOptimizerStatisticsAdvisorRecommendationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#implementOptimizerStatisticsAdvisorRecommendations."
+      );
+    const operationName = "implementOptimizerStatisticsAdvisorRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ImplementOptimizerStatisticsAdvisorRecommendations";
+    const pathParams = {
+      "{managedDatabaseId}":
+        implementOptimizerStatisticsAdvisorRecommendationsRequest.managedDatabaseId,
+      "{executionName}": implementOptimizerStatisticsAdvisorRecommendationsRequest.executionName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": implementOptimizerStatisticsAdvisorRecommendationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      implementOptimizerStatisticsAdvisorRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/optimizerStatisticsAdvisorExecutions/{executionName}/actions/implementRecommendations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        implementOptimizerStatisticsAdvisorRecommendationsRequest.implementOptimizerStatisticsAdvisorRecommendationsDetails,
+        "ImplementOptimizerStatisticsAdvisorRecommendationsDetails",
+        model.ImplementOptimizerStatisticsAdvisorRecommendationsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImplementOptimizerStatisticsAdvisorRecommendationsResponse>{},
+        body: await response.json(),
+        bodyKey: "job",
+        bodyModel: model.Job,
+        type: "model.Job",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -3803,6 +4120,279 @@ export class DbManagementClient {
   }
 
   /**
+   * Lists the details of the Optimizer Statistics Advisor task executions, such as their duration, and the number of findings, if any.
+   * Optionally, you can specify a date-time range (of seven days) to obtain the list of executions that fall within the specified time range.
+   * If the date-time range is not specified, then the executions in the last seven days are listed.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOptimizerStatisticsAdvisorExecutionsRequest
+   * @return ListOptimizerStatisticsAdvisorExecutionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsAdvisorExecutions.ts.html |here} to see how to use ListOptimizerStatisticsAdvisorExecutions API.
+   */
+  public async listOptimizerStatisticsAdvisorExecutions(
+    listOptimizerStatisticsAdvisorExecutionsRequest: requests.ListOptimizerStatisticsAdvisorExecutionsRequest
+  ): Promise<responses.ListOptimizerStatisticsAdvisorExecutionsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#listOptimizerStatisticsAdvisorExecutions."
+      );
+    const operationName = "listOptimizerStatisticsAdvisorExecutions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListOptimizerStatisticsAdvisorExecutions";
+    const pathParams = {
+      "{managedDatabaseId}": listOptimizerStatisticsAdvisorExecutionsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "startTimeGreaterThanOrEqualTo":
+        listOptimizerStatisticsAdvisorExecutionsRequest.startTimeGreaterThanOrEqualTo,
+      "endTimeLessThanOrEqualTo":
+        listOptimizerStatisticsAdvisorExecutionsRequest.endTimeLessThanOrEqualTo
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOptimizerStatisticsAdvisorExecutionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOptimizerStatisticsAdvisorExecutionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/optimizerStatisticsAdvisorExecutions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOptimizerStatisticsAdvisorExecutionsResponse>{},
+        body: await response.json(),
+        bodyKey: "optimizerStatisticsAdvisorExecutionsCollection",
+        bodyModel: model.OptimizerStatisticsAdvisorExecutionsCollection,
+        type: "model.OptimizerStatisticsAdvisorExecutionsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of the optimizer statistics collection operations per hour, grouped by task or object status for the specified Managed Database.
+   * You must specify a value for GroupByQueryParam to determine whether the data should be grouped by task status or task object status.
+   * Optionally, you can specify a date-time range (of seven days) to obtain collection aggregations within the specified time range.
+   * If the date-time range is not specified, then the operations in the last seven days are listed.
+   * You can further filter the results by providing the optional type of TaskTypeQueryParam.
+   * If the task type not provided, then both Auto and Manual tasks are considered for aggregation.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOptimizerStatisticsCollectionAggregationsRequest
+   * @return ListOptimizerStatisticsCollectionAggregationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsCollectionAggregations.ts.html |here} to see how to use ListOptimizerStatisticsCollectionAggregations API.
+   */
+  public async listOptimizerStatisticsCollectionAggregations(
+    listOptimizerStatisticsCollectionAggregationsRequest: requests.ListOptimizerStatisticsCollectionAggregationsRequest
+  ): Promise<responses.ListOptimizerStatisticsCollectionAggregationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#listOptimizerStatisticsCollectionAggregations."
+      );
+    const operationName = "listOptimizerStatisticsCollectionAggregations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListOptimizerStatisticsCollectionAggregations";
+    const pathParams = {
+      "{managedDatabaseId}": listOptimizerStatisticsCollectionAggregationsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "startTimeGreaterThanOrEqualTo":
+        listOptimizerStatisticsCollectionAggregationsRequest.startTimeGreaterThanOrEqualTo,
+      "endTimeLessThanOrEqualTo":
+        listOptimizerStatisticsCollectionAggregationsRequest.endTimeLessThanOrEqualTo,
+      "taskType": listOptimizerStatisticsCollectionAggregationsRequest.taskType,
+      "groupType": listOptimizerStatisticsCollectionAggregationsRequest.groupType,
+      "limit": listOptimizerStatisticsCollectionAggregationsRequest.limit,
+      "page": listOptimizerStatisticsCollectionAggregationsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOptimizerStatisticsCollectionAggregationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOptimizerStatisticsCollectionAggregationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/optimizerStatisticsCollectionAggregations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOptimizerStatisticsCollectionAggregationsResponse>{},
+        body: await response.json(),
+        bodyKey: "optimizerStatisticsCollectionAggregationsCollection",
+        bodyModel: model.OptimizerStatisticsCollectionAggregationsCollection,
+        type: "model.OptimizerStatisticsCollectionAggregationsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Optimizer Statistics Collection (Auto and Manual) task operation summary for the specified Managed Database.
+   * The summary includes the details of each operation and the number of tasks grouped by status: Completed, In Progress, Failed, and so on.
+   * Optionally, you can specify a date-time range (of seven days) to obtain the list of operations that fall within the specified time range.
+   * If the date-time range is not specified, then the operations in the last seven days are listed.
+   * This API also enables the pagination of results and the opc-next-page response header indicates whether there is a next page.
+   * If you use the same header value in a consecutive request, the next page records are returned.
+   * To obtain the required results, you can apply the different types of filters supported by this API.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOptimizerStatisticsCollectionOperationsRequest
+   * @return ListOptimizerStatisticsCollectionOperationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListOptimizerStatisticsCollectionOperations.ts.html |here} to see how to use ListOptimizerStatisticsCollectionOperations API.
+   */
+  public async listOptimizerStatisticsCollectionOperations(
+    listOptimizerStatisticsCollectionOperationsRequest: requests.ListOptimizerStatisticsCollectionOperationsRequest
+  ): Promise<responses.ListOptimizerStatisticsCollectionOperationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#listOptimizerStatisticsCollectionOperations."
+      );
+    const operationName = "listOptimizerStatisticsCollectionOperations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListOptimizerStatisticsCollectionOperations";
+    const pathParams = {
+      "{managedDatabaseId}": listOptimizerStatisticsCollectionOperationsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "startTimeGreaterThanOrEqualTo":
+        listOptimizerStatisticsCollectionOperationsRequest.startTimeGreaterThanOrEqualTo,
+      "endTimeLessThanOrEqualTo":
+        listOptimizerStatisticsCollectionOperationsRequest.endTimeLessThanOrEqualTo,
+      "taskType": listOptimizerStatisticsCollectionOperationsRequest.taskType,
+      "limit": listOptimizerStatisticsCollectionOperationsRequest.limit,
+      "page": listOptimizerStatisticsCollectionOperationsRequest.page,
+      "filterBy": listOptimizerStatisticsCollectionOperationsRequest.filterBy,
+      "sortBy": listOptimizerStatisticsCollectionOperationsRequest.sortBy,
+      "sortOrder": listOptimizerStatisticsCollectionOperationsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOptimizerStatisticsCollectionOperationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOptimizerStatisticsCollectionOperationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/optimizerStatisticsCollectionOperations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOptimizerStatisticsCollectionOperationsResponse>{},
+        body: await response.json(),
+        bodyKey: "optimizerStatisticsCollectionOperationsCollection",
+        bodyModel: model.OptimizerStatisticsCollectionOperationsCollection,
+        type: "model.OptimizerStatisticsCollectionOperationsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the list of users on whose behalf the current user acts as proxy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListProxiedForUsersRequest
@@ -4121,6 +4711,79 @@ export class DbManagementClient {
             key: "opcNextPage",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the database table statistics grouped by different statuses such as Not Stale Stats, Stale Stats, and No Stats.
+   * This also includes the percentage of each status.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListTableStatisticsRequest
+   * @return ListTableStatisticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListTableStatistics.ts.html |here} to see how to use ListTableStatistics API.
+   */
+  public async listTableStatistics(
+    listTableStatisticsRequest: requests.ListTableStatisticsRequest
+  ): Promise<responses.ListTableStatisticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listTableStatistics.");
+    const operationName = "listTableStatistics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListTableStatistics";
+    const pathParams = {
+      "{managedDatabaseId}": listTableStatisticsRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTableStatisticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTableStatisticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/tableStatistics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTableStatisticsResponse>{},
+        body: await response.json(),
+        bodyKey: "tableStatisticsCollection",
+        bodyModel: model.TableStatisticsCollection,
+        type: "model.TableStatisticsCollection",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

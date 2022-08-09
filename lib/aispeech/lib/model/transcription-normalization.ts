@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface TranscriptionNormalization {
   /**
-   * Whether to add punctuation in generated transcription. By default it is enabled.
+   * Whether to add punctuation in the generated transcription. Enabled by default.
    */
   "isPunctuationEnabled"?: boolean;
   /**

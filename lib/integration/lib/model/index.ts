@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AttachmentDetails from "./attachment-details";
+export import AttachmentDetails = AttachmentDetails.AttachmentDetails;
 import * as ChangeIntegrationInstanceCompartmentDetails from "./change-integration-instance-compartment-details";
 export import ChangeIntegrationInstanceCompartmentDetails = ChangeIntegrationInstanceCompartmentDetails.ChangeIntegrationInstanceCompartmentDetails;
 import * as ChangeIntegrationInstanceNetworkEndpointDetails from "./change-integration-instance-network-endpoint-details";
@@ -21,6 +23,8 @@ import * as CreateIntegrationInstanceDetails from "./create-integration-instance
 export import CreateIntegrationInstanceDetails = CreateIntegrationInstanceDetails.CreateIntegrationInstanceDetails;
 import * as CustomEndpointDetails from "./custom-endpoint-details";
 export import CustomEndpointDetails = CustomEndpointDetails.CustomEndpointDetails;
+import * as IdcsInfoDetails from "./idcs-info-details";
+export import IdcsInfoDetails = IdcsInfoDetails.IdcsInfoDetails;
 import * as IntegrationInstance from "./integration-instance";
 export import IntegrationInstance = IntegrationInstance.IntegrationInstance;
 import * as IntegrationInstanceSummary from "./integration-instance-summary";

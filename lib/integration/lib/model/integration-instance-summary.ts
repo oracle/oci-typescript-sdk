@@ -31,7 +31,10 @@ export interface IntegrationInstanceSummary {
    */
   "compartmentId": string;
   /**
-   * Standard or Enterprise type
+   * Standard or Enterprise type,
+   * Oracle Integration Generation 2 uses ENTERPRISE and STANDARD,
+   * Oracle Integration 3 uses ENTERPRISEX and STANDARDX
+   *
    */
   "integrationInstanceType": IntegrationInstanceSummary.IntegrationInstanceType;
   /**
@@ -81,12 +84,32 @@ export interface IntegrationInstanceSummary {
    */
   "consumptionModel"?: IntegrationInstanceSummary.ConsumptionModel;
   "networkEndpointDetails"?: model.PublicEndpointDetails;
+  /**
+   * Simple key-value pair that is applied without any predefined name,
+   * type or scope. Exists for cross-compatibility only.
+   * Example: `{\"bar-key\": \"value\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
+  /**
+   * Usage of predefined tag keys. These predefined keys are scoped to
+   * namespaces.
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Shape
+   */
+  "shape"?: IntegrationInstanceSummary.Shape;
 }
 
 export namespace IntegrationInstanceSummary {
   export enum IntegrationInstanceType {
     Standard = "STANDARD",
     Enterprise = "ENTERPRISE",
+    Standardx = "STANDARDX",
+    Enterprisex = "ENTERPRISEX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -113,6 +136,16 @@ export namespace IntegrationInstanceSummary {
     Ucm = "UCM",
     Gov = "GOV",
     Oic4Saas = "OIC4SAAS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum Shape {
+    Development = "DEVELOPMENT",
+    Production = "PRODUCTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

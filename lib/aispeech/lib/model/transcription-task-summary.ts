@@ -39,6 +39,10 @@ export interface TranscriptionTaskSummary {
    */
   "fileDurationInSeconds"?: number;
   /**
+   * Task proccessing duration, which excludes waiting time in the system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "processingDurationInSeconds"?: number;
+  /**
    * Task started time
    */
   "timeStarted"?: Date;

@@ -24,6 +24,17 @@ export interface TranscriptionModelDetails {
   "domain"?: TranscriptionModelDetails.Domain;
   /**
    * Locale value as per given in [https://datatracker.ietf.org/doc/html/rfc5646].
+   * - en-US: English - United States
+   * - es-ES: Spanish - Spain
+   * - pt-BR: Portuguese - Brazil
+   * - en-GB: English - Great Britain
+   * - en-AU: English - Australia
+   * - en-IN: English - India
+   * - hi-IN: Hindi - India
+   * - fr-FR: French - France
+   * - de-DE: German - Germany
+   * - it-IT: Italian - Italy
+   *
    */
   "languageCode"?: TranscriptionModelDetails.LanguageCode;
 }
@@ -42,6 +53,13 @@ export namespace TranscriptionModelDetails {
     EnUs = "en-US",
     EsEs = "es-ES",
     PtBr = "pt-BR",
+    EnGb = "en-GB",
+    EnAu = "en-AU",
+    EnIn = "en-IN",
+    HiIn = "hi-IN",
+    FrFr = "fr-FR",
+    DeDe = "de-DE",
+    ItIt = "it-IT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
