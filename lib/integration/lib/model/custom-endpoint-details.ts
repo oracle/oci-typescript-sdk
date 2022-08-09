@@ -32,6 +32,11 @@ export interface CustomEndpointDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "certificateSecretVersion"?: number;
+  /**
+   * When creating the DNS CNAME record for the custom hostname, this value must be specified in the rdata.
+   *
+   */
+  "alias"?: string;
 }
 
 export namespace CustomEndpointDetails {

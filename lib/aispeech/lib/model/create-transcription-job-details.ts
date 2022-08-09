@@ -31,7 +31,7 @@ export interface CreateTranscriptionJobDetails {
    */
   "description"?: string;
   /**
-   * Transcription Format. By default JSON format will be considered.
+   * Transcription Format. By default, the JSON format is used.
    */
   "additionalTranscriptionFormats"?: Array<
     CreateTranscriptionJobDetails.AdditionalTranscriptionFormats

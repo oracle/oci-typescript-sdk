@@ -140,6 +140,8 @@ import * as ListHostedEntitiesResponse from "./list-hosted-entities-response";
 export import ListHostedEntitiesResponse = ListHostedEntitiesResponse.ListHostedEntitiesResponse;
 import * as ListImportableAgentEntitiesResponse from "./list-importable-agent-entities-response";
 export import ListImportableAgentEntitiesResponse = ListImportableAgentEntitiesResponse.ListImportableAgentEntitiesResponse;
+import * as ListImportableComputeEntitiesResponse from "./list-importable-compute-entities-response";
+export import ListImportableComputeEntitiesResponse = ListImportableComputeEntitiesResponse.ListImportableComputeEntitiesResponse;
 import * as ListImportableEnterpriseManagerEntitiesResponse from "./list-importable-enterprise-manager-entities-response";
 export import ListImportableEnterpriseManagerEntitiesResponse = ListImportableEnterpriseManagerEntitiesResponse.ListImportableEnterpriseManagerEntitiesResponse;
 import * as ListOperationsInsightsPrivateEndpointsResponse from "./list-operations-insights-private-endpoints-response";

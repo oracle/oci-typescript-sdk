@@ -53,6 +53,11 @@ export namespace UpdateHostInsightDetails {
             <model.UpdateMacsManagedExternalHostInsightDetails>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.UpdateMacsManagedCloudHostInsightDetails.getJsonObj(
+            <model.UpdateMacsManagedCloudHostInsightDetails>(<object>jsonObj),
+            true
+          );
         default:
           throw Error("Unknown value for: " + obj.entitySource);
       }
@@ -72,6 +77,11 @@ export namespace UpdateHostInsightDetails {
         case "MACS_MANAGED_EXTERNAL_HOST":
           return model.UpdateMacsManagedExternalHostInsightDetails.getDeserializedJsonObj(
             <model.UpdateMacsManagedExternalHostInsightDetails>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.UpdateMacsManagedCloudHostInsightDetails.getDeserializedJsonObj(
+            <model.UpdateMacsManagedCloudHostInsightDetails>(<object>jsonObj),
             true
           );
         default:

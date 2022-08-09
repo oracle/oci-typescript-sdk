@@ -98,4 +98,9 @@ export interface SummarizeApplicationUsageRequest extends common.BaseRequest {
    * The operating system type.
    */
   "osFamily"?: Array<model.OsFamily>;
+  /**
+   * Filter the list with displayName contains the given value.
+   *
+   */
+  "displayNameContains"?: string;
 }

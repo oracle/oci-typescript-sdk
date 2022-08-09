@@ -94,4 +94,9 @@ export interface SummarizeManagedInstanceUsageRequest extends common.BaseRequest
    * The operating system type.
    */
   "osFamily"?: Array<model.OsFamily>;
+  /**
+   * Filter the list with hostname contains the given value.
+   *
+   */
+  "hostnameContains"?: string;
 }

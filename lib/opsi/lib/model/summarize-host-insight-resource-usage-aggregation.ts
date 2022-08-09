@@ -36,10 +36,9 @@ export interface SummarizeHostInsightResourceUsageAggregation {
    */
   "resourceMetric": SummarizeHostInsightResourceUsageAggregation.ResourceMetric;
   /**
-   * Displays usage unit (CORES, GB)
-   *
+   * Displays usage unit ( CORES, GB , PERCENT, MBPS)
    */
-  "usageUnit": model.UsageUnit;
+  "usageUnit": SummarizeHostInsightResourceUsageAggregation.UsageUnit;
   /**
    * Total amount used of the resource metric type (CPU, STORAGE).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -61,6 +60,19 @@ export namespace SummarizeHostInsightResourceUsageAggregation {
     Cpu = "CPU",
     Memory = "MEMORY",
     LogicalMemory = "LOGICAL_MEMORY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum UsageUnit {
+    Cores = "CORES",
+    Gb = "GB",
+    Mbps = "MBPS",
+    Iops = "IOPS",
+    Percent = "PERCENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

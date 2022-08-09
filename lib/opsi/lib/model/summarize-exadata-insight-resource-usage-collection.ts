@@ -40,10 +40,9 @@ export interface SummarizeExadataInsightResourceUsageCollection {
    */
   "exadataResourceType": SummarizeExadataInsightResourceUsageCollection.ExadataResourceType;
   /**
-   * Displays usage unit (CORES, GB)
-   *
+   * Displays usage unit ( CORES, GB , PERCENT, MBPS)
    */
-  "usageUnit": model.UsageUnit;
+  "usageUnit": SummarizeExadataInsightResourceUsageCollection.UsageUnit;
   /**
    * Collection of Resource Usage Summary items
    */
@@ -70,6 +69,19 @@ export namespace SummarizeExadataInsightResourceUsageCollection {
     Host = "HOST",
     StorageServer = "STORAGE_SERVER",
     Diskgroup = "DISKGROUP",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum UsageUnit {
+    Cores = "CORES",
+    Gb = "GB",
+    Mbps = "MBPS",
+    Iops = "IOPS",
+    Percent = "PERCENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

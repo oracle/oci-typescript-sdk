@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of DVP Stack.
+ * Details of a Dedicated Vantage Point (DVP) stack in Resource Manager.
  */
 export interface DvpStackDetails {
   /**
-   * Version of DVP.
+   * Version of the dedicated vantage point.
    */
   "dvpVersion": string;
 

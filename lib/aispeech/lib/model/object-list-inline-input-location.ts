@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of object locations in Object Storage inline in request.
+ * Use this locationType when passing the WAV file name in the request.
  */
 export interface ObjectListInlineInputLocation extends model.InputLocation {
   /**

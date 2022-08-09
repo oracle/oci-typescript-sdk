@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * DVP details of Oracle RM stack.
+ * Details of the Oracle Resource Manager stack, which is a subtype of the Dedicated Vantage Point stack.
  */
 export interface OracleRMStack extends model.DvpStackDetails {
   /**
-   * Stack [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of DVP RM stack.
+   * Stack [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Resource Manager stack for dedicated vantage point.
    */
   "dvpStackId": string;
   /**
-   * Stream [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of DVP RM stack.
+   * Stream [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Resource Manager stack for dedicated vantage point.
    */
   "dvpStreamId": string;
 

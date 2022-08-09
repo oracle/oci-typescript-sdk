@@ -27,7 +27,8 @@ export interface UpdateHostInsightRequest extends common.BaseRequest {
    */
   "updateHostInsightDetails":
     | model.UpdateEmManagedExternalHostInsightDetails
-    | model.UpdateMacsManagedExternalHostInsightDetails;
+    | model.UpdateMacsManagedExternalHostInsightDetails
+    | model.UpdateMacsManagedCloudHostInsightDetails;
   /**
    * Used for optimistic concurrency control. In the update or delete call for a resource, set the `if-match`
    * parameter to the value of the etag from a previous get, create, or update response for that resource.  The resource

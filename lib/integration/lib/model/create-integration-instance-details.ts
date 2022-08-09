@@ -16,6 +16,10 @@ import common = require("oci-common");
 
 /**
  * The information about new IntegrationInstance.
+ * Some properties may not be applicable to specific integration types,
+ * see [Differences in Instance Management](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/application-integration&id=INTOO-GUID-931B5E33-4FE6-4997-93E5-8748516F46AA__GUID-176E43D5-4116-4828-8120-B929DF2A6B5E)
+ * for details.
+ *
  */
 export interface CreateIntegrationInstanceDetails {
   /**
@@ -27,7 +31,10 @@ export interface CreateIntegrationInstanceDetails {
    */
   "compartmentId": string;
   /**
-   * Standard or Enterprise type
+   * Standard or Enterprise type,
+   * Oracle Integration Generation 2 uses ENTERPRISE and STANDARD,
+   * Oracle Integration 3 uses ENTERPRISEX and STANDARDX
+   *
    */
   "integrationInstanceType": CreateIntegrationInstanceDetails.IntegrationInstanceType;
   /**
@@ -76,18 +83,29 @@ export interface CreateIntegrationInstanceDetails {
    */
   "isFileServerEnabled"?: boolean;
   "networkEndpointDetails"?: model.PublicEndpointDetails;
+  /**
+   * Shape
+   */
+  "shape"?: CreateIntegrationInstanceDetails.Shape;
 }
 
 export namespace CreateIntegrationInstanceDetails {
   export enum IntegrationInstanceType {
     Standard = "STANDARD",
-    Enterprise = "ENTERPRISE"
+    Enterprise = "ENTERPRISE",
+    Standardx = "STANDARDX",
+    Enterprisex = "ENTERPRISEX"
   }
 
   export enum ConsumptionModel {
     Ucm = "UCM",
     Gov = "GOV",
     Oic4Saas = "OIC4SAAS"
+  }
+
+  export enum Shape {
+    Development = "DEVELOPMENT",
+    Production = "PRODUCTION"
   }
 
   export function getJsonObj(obj: CreateIntegrationInstanceDetails): object {

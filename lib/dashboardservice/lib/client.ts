@@ -159,6 +159,79 @@ export class DashboardClient {
   }
 
   /**
+   * Moves a Dashboard resource from one dashboardGroup identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDashboardGroupRequest
+   * @return ChangeDashboardGroupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ChangeDashboardGroup.ts.html |here} to see how to use ChangeDashboardGroup API.
+   */
+  public async changeDashboardGroup(
+    changeDashboardGroupRequest: requests.ChangeDashboardGroupRequest
+  ): Promise<responses.ChangeDashboardGroupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DashboardClient#changeDashboardGroup.");
+    const operationName = "changeDashboardGroup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/Dashboard/ChangeDashboardGroup";
+    const pathParams = {
+      "{dashboardId}": changeDashboardGroupRequest.dashboardId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDashboardGroupRequest.ifMatch,
+      "opc-request-id": changeDashboardGroupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDashboardGroupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dashboards/{dashboardId}/actions/changeDashboardGroup",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDashboardGroupRequest.changeDashboardGroupDetails,
+        "ChangeDashboardGroupDetails",
+        model.ChangeDashboardGroupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDashboardGroupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new dashboard in the dashboard group's compartment using the details provided in request body.
    * <p>
    **Caution:** Resources for the Dashboard service are created in the tenacy's home region.
@@ -684,6 +757,80 @@ export class DashboardGroupClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Moves a DashboardGroup resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDashboardGroupCompartmentRequest
+   * @return ChangeDashboardGroupCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dashboardservice/ChangeDashboardGroupCompartment.ts.html |here} to see how to use ChangeDashboardGroupCompartment API.
+   */
+  public async changeDashboardGroupCompartment(
+    changeDashboardGroupCompartmentRequest: requests.ChangeDashboardGroupCompartmentRequest
+  ): Promise<responses.ChangeDashboardGroupCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DashboardGroupClient#changeDashboardGroupCompartment.");
+    const operationName = "changeDashboardGroupCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dashboard/20210731/DashboardGroup/ChangeDashboardGroupCompartment";
+    const pathParams = {
+      "{dashboardGroupId}": changeDashboardGroupCompartmentRequest.dashboardGroupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDashboardGroupCompartmentRequest.ifMatch,
+      "opc-request-id": changeDashboardGroupCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDashboardGroupCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dashboardGroups/{dashboardGroupId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDashboardGroupCompartmentRequest.changeDashboardGroupCompartmentDetails,
+        "ChangeDashboardGroupCompartmentDetails",
+        model.ChangeDashboardGroupCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDashboardGroupCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

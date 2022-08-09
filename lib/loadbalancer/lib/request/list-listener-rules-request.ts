@@ -33,4 +33,18 @@ export interface ListListenerRulesRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+ * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the if-match
+* parameter to the value of the ETag for the load balancer. This value can be obtained from a GET
+* or POST response for any resource of that load balancer.
+* <p>
+For example, the eTag returned by getListener can be specified as the ifMatch for updateRuleSets.
+* <p>
+The resource is updated or deleted only if the ETag you provide matches the resource's current
+* ETag value.
+* <p>
+Example: `example-etag`
+* 
+ */
+  "ifMatch"?: string;
 }

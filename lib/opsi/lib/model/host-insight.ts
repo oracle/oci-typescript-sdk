@@ -93,6 +93,11 @@ export namespace HostInsight {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.MacsManagedCloudHostInsight.getJsonObj(
+            <model.MacsManagedCloudHostInsight>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostInsight.getJsonObj(
             <model.EmManagedExternalHostInsight>(<object>jsonObj),
@@ -114,6 +119,11 @@ export namespace HostInsight {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.MacsManagedCloudHostInsight.getDeserializedJsonObj(
+            <model.MacsManagedCloudHostInsight>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostInsight.getDeserializedJsonObj(
             <model.EmManagedExternalHostInsight>(<object>jsonObj),

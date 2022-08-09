@@ -5172,7 +5172,9 @@ export class OperationsInsightsClient {
       "freeformTagEquals": listHostConfigurationsRequest.freeformTagEquals,
       "definedTagExists": listHostConfigurationsRequest.definedTagExists,
       "freeformTagExists": listHostConfigurationsRequest.freeformTagExists,
-      "compartmentIdInSubtree": listHostConfigurationsRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": listHostConfigurationsRequest.compartmentIdInSubtree,
+      "hostType": listHostConfigurationsRequest.hostType,
+      "hostId": listHostConfigurationsRequest.hostId
     };
 
     let headerParams = {
@@ -5361,7 +5363,9 @@ export class OperationsInsightsClient {
       "limit": listHostedEntitiesRequest.limit,
       "page": listHostedEntitiesRequest.page,
       "sortOrder": listHostedEntitiesRequest.sortOrder,
-      "sortBy": listHostedEntitiesRequest.sortBy
+      "sortBy": listHostedEntitiesRequest.sortBy,
+      "hostType": listHostedEntitiesRequest.hostType,
+      "hostId": listHostedEntitiesRequest.hostId
     };
 
     let headerParams = {
@@ -5485,6 +5489,96 @@ export class OperationsInsightsClient {
         bodyKey: "importableAgentEntitySummaryCollection",
         bodyModel: model.ImportableAgentEntitySummaryCollection,
         type: "model.ImportableAgentEntitySummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of available compute intances running cloud agent to add a new hostInsight.  An Compute entity is \"available\"
+   * and will be shown if all the following conditions are true:
+   *    1. Compute is running OCA
+   *    2. OCI Management Agent is not enabled or If OCI Management Agent is enabled
+   *       2.1 The agent OCID is not already being used for an existing hostInsight.
+   *       2.2 The agent availabilityStatus = 'ACTIVE'
+   *       2.3 The agent lifecycleState = 'ACTIVE'
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListImportableComputeEntitiesRequest
+   * @return ListImportableComputeEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListImportableComputeEntities.ts.html |here} to see how to use ListImportableComputeEntities API.
+   */
+  public async listImportableComputeEntities(
+    listImportableComputeEntitiesRequest: requests.ListImportableComputeEntitiesRequest
+  ): Promise<responses.ListImportableComputeEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listImportableComputeEntities."
+      );
+    const operationName = "listImportableComputeEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/ListImportableComputeEntities";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listImportableComputeEntitiesRequest.compartmentId,
+      "limit": listImportableComputeEntitiesRequest.limit,
+      "page": listImportableComputeEntitiesRequest.page,
+      "sortOrder": listImportableComputeEntitiesRequest.sortOrder,
+      "sortBy": listImportableComputeEntitiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listImportableComputeEntitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImportableComputeEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/importableComputeEntities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListImportableComputeEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "importableComputeEntitySummaryCollection",
+        bodyModel: model.ImportableComputeEntitySummaryCollection,
+        type: "model.ImportableComputeEntitySummaryCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -9273,7 +9367,9 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeHostInsightResourceCapacityTrendRequest.definedTagExists,
       "freeformTagExists": summarizeHostInsightResourceCapacityTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeHostInsightResourceCapacityTrendRequest.compartmentIdInSubtree
+        summarizeHostInsightResourceCapacityTrendRequest.compartmentIdInSubtree,
+      "hostType": summarizeHostInsightResourceCapacityTrendRequest.hostType,
+      "hostId": summarizeHostInsightResourceCapacityTrendRequest.hostId
     };
 
     let headerParams = {
@@ -9373,7 +9469,9 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeHostInsightResourceForecastTrendRequest.definedTagExists,
       "freeformTagExists": summarizeHostInsightResourceForecastTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeHostInsightResourceForecastTrendRequest.compartmentIdInSubtree
+        summarizeHostInsightResourceForecastTrendRequest.compartmentIdInSubtree,
+      "hostType": summarizeHostInsightResourceForecastTrendRequest.hostType,
+      "hostId": summarizeHostInsightResourceForecastTrendRequest.hostId
     };
 
     let headerParams = {
@@ -9468,7 +9566,10 @@ Note that this API does not return information on the number of times each datab
       "freeformTagEquals": summarizeHostInsightResourceStatisticsRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceStatisticsRequest.definedTagExists,
       "freeformTagExists": summarizeHostInsightResourceStatisticsRequest.freeformTagExists,
-      "compartmentIdInSubtree": summarizeHostInsightResourceStatisticsRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree":
+        summarizeHostInsightResourceStatisticsRequest.compartmentIdInSubtree,
+      "hostType": summarizeHostInsightResourceStatisticsRequest.hostType,
+      "hostId": summarizeHostInsightResourceStatisticsRequest.hostId
     };
 
     let headerParams = {
@@ -9565,7 +9666,9 @@ Note that this API does not return information on the number of times each datab
       "freeformTagEquals": summarizeHostInsightResourceUsageRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceUsageRequest.definedTagExists,
       "freeformTagExists": summarizeHostInsightResourceUsageRequest.freeformTagExists,
-      "compartmentIdInSubtree": summarizeHostInsightResourceUsageRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": summarizeHostInsightResourceUsageRequest.compartmentIdInSubtree,
+      "hostType": summarizeHostInsightResourceUsageRequest.hostType,
+      "hostId": summarizeHostInsightResourceUsageRequest.hostId
     };
 
     let headerParams = {
@@ -9657,7 +9760,10 @@ Note that this API does not return information on the number of times each datab
       "freeformTagEquals": summarizeHostInsightResourceUsageTrendRequest.freeformTagEquals,
       "definedTagExists": summarizeHostInsightResourceUsageTrendRequest.definedTagExists,
       "freeformTagExists": summarizeHostInsightResourceUsageTrendRequest.freeformTagExists,
-      "compartmentIdInSubtree": summarizeHostInsightResourceUsageTrendRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree":
+        summarizeHostInsightResourceUsageTrendRequest.compartmentIdInSubtree,
+      "hostType": summarizeHostInsightResourceUsageTrendRequest.hostType,
+      "hostId": summarizeHostInsightResourceUsageTrendRequest.hostId
     };
 
     let headerParams = {
@@ -9754,7 +9860,9 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeHostInsightResourceUtilizationInsightRequest.definedTagExists,
       "freeformTagExists": summarizeHostInsightResourceUtilizationInsightRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeHostInsightResourceUtilizationInsightRequest.compartmentIdInSubtree
+        summarizeHostInsightResourceUtilizationInsightRequest.compartmentIdInSubtree,
+      "hostType": summarizeHostInsightResourceUtilizationInsightRequest.hostType,
+      "hostId": summarizeHostInsightResourceUtilizationInsightRequest.hostId
     };
 
     let headerParams = {
@@ -9839,7 +9947,9 @@ Note that this API does not return information on the number of times each datab
       "timeIntervalStart": summarizeHostInsightTopProcessesUsageTrendRequest.timeIntervalStart,
       "timeIntervalEnd": summarizeHostInsightTopProcessesUsageTrendRequest.timeIntervalEnd,
       "page": summarizeHostInsightTopProcessesUsageTrendRequest.page,
-      "limit": summarizeHostInsightTopProcessesUsageTrendRequest.limit
+      "limit": summarizeHostInsightTopProcessesUsageTrendRequest.limit,
+      "hostType": summarizeHostInsightTopProcessesUsageTrendRequest.hostType,
+      "hostId": summarizeHostInsightTopProcessesUsageTrendRequest.hostId
     };
 
     let headerParams = {

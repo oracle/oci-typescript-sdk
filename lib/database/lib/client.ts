@@ -11806,6 +11806,82 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
+   * Gets information about the specified maintenance run history.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetMaintenanceRunHistoryRequest
+   * @return GetMaintenanceRunHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetMaintenanceRunHistory.ts.html |here} to see how to use GetMaintenanceRunHistory API.
+   */
+  public async getMaintenanceRunHistory(
+    getMaintenanceRunHistoryRequest: requests.GetMaintenanceRunHistoryRequest
+  ): Promise<responses.GetMaintenanceRunHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getMaintenanceRunHistory.");
+    const operationName = "getMaintenanceRunHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRunHistory/GetMaintenanceRunHistory";
+    const pathParams = {
+      "{maintenanceRunHistoryId}": getMaintenanceRunHistoryRequest.maintenanceRunHistoryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getMaintenanceRunHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceRunHistory/{maintenanceRunHistoryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetMaintenanceRunHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "maintenanceRunHistory",
+        bodyModel: model.MaintenanceRunHistory,
+        type: "model.MaintenanceRunHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of operations performed to convert the specified database from non-container (non-CDB) to pluggable (PDB).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -18549,6 +18625,145 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
     request: requests.ListKeyStoresRequest
   ): AsyncIterableIterator<responses.ListKeyStoresResponse> {
     return paginateResponses(request, req => this.listKeyStores(req));
+  }
+
+  /**
+   * Gets a list of the maintenance run histories in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListMaintenanceRunHistoryRequest
+   * @return ListMaintenanceRunHistoryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListMaintenanceRunHistory.ts.html |here} to see how to use ListMaintenanceRunHistory API.
+   */
+  public async listMaintenanceRunHistory(
+    listMaintenanceRunHistoryRequest: requests.ListMaintenanceRunHistoryRequest
+  ): Promise<responses.ListMaintenanceRunHistoryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listMaintenanceRunHistory.");
+    const operationName = "listMaintenanceRunHistory";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/MaintenanceRunHistory/ListMaintenanceRunHistory";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listMaintenanceRunHistoryRequest.compartmentId,
+      "targetResourceId": listMaintenanceRunHistoryRequest.targetResourceId,
+      "targetResourceType": listMaintenanceRunHistoryRequest.targetResourceType,
+      "maintenanceType": listMaintenanceRunHistoryRequest.maintenanceType,
+      "limit": listMaintenanceRunHistoryRequest.limit,
+      "page": listMaintenanceRunHistoryRequest.page,
+      "sortBy": listMaintenanceRunHistoryRequest.sortBy,
+      "sortOrder": listMaintenanceRunHistoryRequest.sortOrder,
+      "lifecycleState": listMaintenanceRunHistoryRequest.lifecycleState,
+      "availabilityDomain": listMaintenanceRunHistoryRequest.availabilityDomain,
+      "maintenanceSubtype": listMaintenanceRunHistoryRequest.maintenanceSubtype
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaintenanceRunHistoryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maintenanceRunHistory",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaintenanceRunHistoryResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.MaintenanceRunHistorySummary,
+        type: "Array<model.MaintenanceRunHistorySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listMaintenanceRunHistoryRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.MaintenanceRunHistorySummary objects
+   * contained in responses from the listMaintenanceRunHistory operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMaintenanceRunHistory(
+    request: requests.ListMaintenanceRunHistoryRequest
+  ): AsyncIterableIterator<model.MaintenanceRunHistorySummary> {
+    return paginateRecords(request, req => this.listMaintenanceRunHistory(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listMaintenanceRunHistoryResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listMaintenanceRunHistory operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllMaintenanceRunHistoryResponses(
+    request: requests.ListMaintenanceRunHistoryRequest
+  ): AsyncIterableIterator<responses.ListMaintenanceRunHistoryResponse> {
+    return paginateResponses(request, req => this.listMaintenanceRunHistory(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.MaintenanceRunHistorySummary objects
+   * contained in responses from the listMaintenanceRunHistory operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMaintenanceRunHistoryRecordIterator(
+    request: requests.ListMaintenanceRunHistoryRequest
+  ): AsyncIterableIterator<model.MaintenanceRunHistorySummary> {
+    return paginateRecords(request, req => this.listMaintenanceRunHistory(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listMaintenanceRunHistory operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listMaintenanceRunHistoryResponseIterator(
+    request: requests.ListMaintenanceRunHistoryRequest
+  ): AsyncIterableIterator<responses.ListMaintenanceRunHistoryResponse> {
+    return paginateResponses(request, req => this.listMaintenanceRunHistory(req));
   }
 
   /**

@@ -19,6 +19,8 @@ Therefore, creating resources outside of the home region is not recommended.
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ChangeDashboardGroupRequest from "./change-dashboard-group-request";
+export import ChangeDashboardGroupRequest = ChangeDashboardGroupRequest.ChangeDashboardGroupRequest;
 import * as CreateDashboardRequest from "./create-dashboard-request";
 export import CreateDashboardRequest = CreateDashboardRequest.CreateDashboardRequest;
 import * as DeleteDashboardRequest from "./delete-dashboard-request";
@@ -29,6 +31,8 @@ import * as ListDashboardsRequest from "./list-dashboards-request";
 export import ListDashboardsRequest = ListDashboardsRequest.ListDashboardsRequest;
 import * as UpdateDashboardRequest from "./update-dashboard-request";
 export import UpdateDashboardRequest = UpdateDashboardRequest.UpdateDashboardRequest;
+import * as ChangeDashboardGroupCompartmentRequest from "./change-dashboard-group-compartment-request";
+export import ChangeDashboardGroupCompartmentRequest = ChangeDashboardGroupCompartmentRequest.ChangeDashboardGroupCompartmentRequest;
 import * as CreateDashboardGroupRequest from "./create-dashboard-group-request";
 export import CreateDashboardGroupRequest = CreateDashboardGroupRequest.CreateDashboardGroupRequest;
 import * as DeleteDashboardGroupRequest from "./delete-dashboard-group-request";

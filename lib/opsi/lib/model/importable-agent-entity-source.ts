@@ -22,6 +22,7 @@ import common = require("oci-common");
  **/
 export enum ImportableAgentEntitySource {
   MacsManagedExternalHost = "MACS_MANAGED_EXTERNAL_HOST",
+  MacsManagedCloudHost = "MACS_MANAGED_CLOUD_HOST",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

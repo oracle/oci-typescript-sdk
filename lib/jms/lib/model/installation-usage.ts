@@ -21,6 +21,10 @@ import common = require("oci-common");
  */
 export interface InstallationUsage {
   /**
+   * The unique identifier for the installation of a Java Runtime at a specific path on a specific operating system.
+   */
+  "installationKey"?: string;
+  /**
    * The vendor of the Java Runtime that is deployed with the installation.
    */
   "jreVendor": string;

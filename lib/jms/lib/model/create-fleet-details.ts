@@ -30,8 +30,13 @@ export interface CreateFleetDetails {
    * The Fleet's description. If nothing is provided, the Fleet description will be null.
    */
   "description"?: string;
-  "inventoryLog"?: model.CustomLog;
+  "inventoryLog": model.CustomLog;
   "operationLog"?: model.CustomLog;
+  /**
+   * Whether or not advanced features are enabled in this fleet.  By default, this is set to false.
+   *
+   */
+  "isAdvancedFeaturesEnabled"?: boolean;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`. (See [Understanding Free-form Tags](https://docs.cloud.oracle.com/Content/Tagging/Tasks/managingtagsandtagnamespaces.htm)).

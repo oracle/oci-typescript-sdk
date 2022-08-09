@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AddFleetInstallationSitesResponse from "./add-fleet-installation-sites-response";
+export import AddFleetInstallationSitesResponse = AddFleetInstallationSitesResponse.AddFleetInstallationSitesResponse;
 import * as CancelWorkRequestResponse from "./cancel-work-request-response";
 export import CancelWorkRequestResponse = CancelWorkRequestResponse.CancelWorkRequestResponse;
 import * as ChangeFleetCompartmentResponse from "./change-fleet-compartment-response";
@@ -23,10 +25,16 @@ import * as DeleteBlocklistResponse from "./delete-blocklist-response";
 export import DeleteBlocklistResponse = DeleteBlocklistResponse.DeleteBlocklistResponse;
 import * as DeleteFleetResponse from "./delete-fleet-response";
 export import DeleteFleetResponse = DeleteFleetResponse.DeleteFleetResponse;
+import * as GenerateAgentDeployScriptResponse from "./generate-agent-deploy-script-response";
+export import GenerateAgentDeployScriptResponse = GenerateAgentDeployScriptResponse.GenerateAgentDeployScriptResponse;
 import * as GetFleetResponse from "./get-fleet-response";
 export import GetFleetResponse = GetFleetResponse.GetFleetResponse;
 import * as GetFleetAgentConfigurationResponse from "./get-fleet-agent-configuration-response";
 export import GetFleetAgentConfigurationResponse = GetFleetAgentConfigurationResponse.GetFleetAgentConfigurationResponse;
+import * as GetJavaFamilyResponse from "./get-java-family-response";
+export import GetJavaFamilyResponse = GetJavaFamilyResponse.GetJavaFamilyResponse;
+import * as GetJavaReleaseResponse from "./get-java-release-response";
+export import GetJavaReleaseResponse = GetJavaReleaseResponse.GetJavaReleaseResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
 import * as ListBlocklistsResponse from "./list-blocklists-response";
@@ -35,6 +43,10 @@ import * as ListFleetsResponse from "./list-fleets-response";
 export import ListFleetsResponse = ListFleetsResponse.ListFleetsResponse;
 import * as ListInstallationSitesResponse from "./list-installation-sites-response";
 export import ListInstallationSitesResponse = ListInstallationSitesResponse.ListInstallationSitesResponse;
+import * as ListJavaFamiliesResponse from "./list-java-families-response";
+export import ListJavaFamiliesResponse = ListJavaFamiliesResponse.ListJavaFamiliesResponse;
+import * as ListJavaReleasesResponse from "./list-java-releases-response";
+export import ListJavaReleasesResponse = ListJavaReleasesResponse.ListJavaReleasesResponse;
 import * as ListJreUsageResponse from "./list-jre-usage-response";
 export import ListJreUsageResponse = ListJreUsageResponse.ListJreUsageResponse;
 import * as ListWorkItemsResponse from "./list-work-items-response";

@@ -52,6 +52,10 @@ export interface TranscriptionTask {
    * Duration of input file in Seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "fileDurationInSeconds"?: number;
+  /**
+   * Task proccessing duration, which excludes waiting time in the system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "processingDurationInSeconds"?: number;
   "inputLocation"?: model.ObjectLocation;
   "outputLocation"?: model.ObjectLocation;
   /**

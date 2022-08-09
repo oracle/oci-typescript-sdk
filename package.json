@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.37.0",
+  "version": "2.38.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -150,7 +150,7 @@
     "mail": ""
   },
   "devDependencies": {
-    "@types/chai": "^4.1.7",
+    "@types/chai": "4.1.7",
     "@types/isomorphic-fetch": "0.0.35",
     "@types/jsonwebtoken": "^8.5.0",
     "@types/jssha": "^2.0.0",

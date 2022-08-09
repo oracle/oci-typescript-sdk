@@ -55,10 +55,11 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
   "instanceDisplayNamePrefix"?: string;
   /**
    * The number of ESXi hosts to create in the SDDC. You can add more hosts later
-   * (see {@link #createEsxiHost(CreateEsxiHostRequest) createEsxiHost}).
+   * (see {@link #createEsxiHost(CreateEsxiHostRequest) createEsxiHost}). Creating
+   * a SDDC with a ESXi host count of 1 will be considered a single ESXi host SDDC.
    * <p>
-   **Note:** If you later delete EXSi hosts from the SDDC to total less than 3,
-   * you are still billed for the 3 minimum recommended ESXi hosts. Also,
+   **Note:** If you later delete EXSi hosts from a production SDDC to total less
+   * than 3, you are still billed for the 3 minimum recommended ESXi hosts. Also,
    * you cannot add more VMware workloads to the SDDC until it again has at least
    * 3 ESXi hosts.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -86,6 +87,11 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    *
    */
   "isHcxEnterpriseEnabled"?: boolean;
+  /**
+   * Indicates whether this SDDC is designated for only single ESXi host.
+   *
+   */
+  "isSingleHostSddc"?: boolean;
   /**
    * One or more public SSH keys to be included in the `~/.ssh/authorized_keys` file for
    * the default user on each ESXi host. Use a newline character to separate multiple keys.

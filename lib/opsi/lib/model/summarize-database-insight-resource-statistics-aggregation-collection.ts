@@ -35,10 +35,9 @@ export interface SummarizeDatabaseInsightResourceStatisticsAggregationCollection
    */
   "resourceMetric": SummarizeDatabaseInsightResourceStatisticsAggregationCollection.ResourceMetric;
   /**
-   * Displays usage unit ( CORES, GB)
-   *
+   * Displays usage unit ( CORES, GB , PERCENT, MBPS)
    */
-  "usageUnit": model.UsageUnit;
+  "usageUnit": SummarizeDatabaseInsightResourceStatisticsAggregationCollection.UsageUnit;
   /**
    * Collection of Resource Statistics items
    */
@@ -53,6 +52,19 @@ export namespace SummarizeDatabaseInsightResourceStatisticsAggregationCollection
     Memory = "MEMORY",
     MemoryPga = "MEMORY_PGA",
     MemorySga = "MEMORY_SGA",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum UsageUnit {
+    Cores = "CORES",
+    Gb = "GB",
+    Mbps = "MBPS",
+    Iops = "IOPS",
+    Percent = "PERCENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

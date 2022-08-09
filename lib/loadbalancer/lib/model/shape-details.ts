@@ -34,7 +34,7 @@ Example: `150`
 * achieve. This bandwidth cannot be always guaranteed. For a guaranteed bandwidth use the minimumBandwidthInMbps
 * parameter.
 * <p>
-The values must be between minimumBandwidthInMbps and 8192 (8Gbps).
+The values must be between minimumBandwidthInMbps and 8000 (8Gbps).
 * <p>
 Example: `1500`
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
