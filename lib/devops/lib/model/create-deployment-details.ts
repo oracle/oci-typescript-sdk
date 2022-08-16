@@ -65,7 +65,7 @@ export namespace CreateDeploymentDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.deploymentType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.deploymentType}`);
       }
     }
     return jsonObj;
@@ -96,7 +96,7 @@ export namespace CreateDeploymentDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.deploymentType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.deploymentType}`);
       }
     }
     return jsonObj;

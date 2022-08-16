@@ -34,6 +34,7 @@ export interface StandaloneJobInfrastructureConfigurationDetails
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockStorageSizeInGBs": number;
+  "jobShapeConfigDetails"?: model.JobShapeConfigDetails;
 
   "jobInfrastructureType": string;
 }
@@ -49,7 +50,11 @@ export namespace StandaloneJobInfrastructureConfigurationDetails {
         : (model.JobInfrastructureConfigurationDetails.getJsonObj(
             obj
           ) as StandaloneJobInfrastructureConfigurationDetails)),
-      ...{}
+      ...{
+        "jobShapeConfigDetails": obj.jobShapeConfigDetails
+          ? model.JobShapeConfigDetails.getJsonObj(obj.jobShapeConfigDetails)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -65,7 +70,11 @@ export namespace StandaloneJobInfrastructureConfigurationDetails {
         : (model.JobInfrastructureConfigurationDetails.getDeserializedJsonObj(
             obj
           ) as StandaloneJobInfrastructureConfigurationDetails)),
-      ...{}
+      ...{
+        "jobShapeConfigDetails": obj.jobShapeConfigDetails
+          ? model.JobShapeConfigDetails.getDeserializedJsonObj(obj.jobShapeConfigDetails)
+          : undefined
+      }
     };
 
     return jsonObj;

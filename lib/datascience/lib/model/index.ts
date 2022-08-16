@@ -62,6 +62,8 @@ import * as JobRunLogDetails from "./job-run-log-details";
 export import JobRunLogDetails = JobRunLogDetails.JobRunLogDetails;
 import * as JobRunSummary from "./job-run-summary";
 export import JobRunSummary = JobRunSummary.JobRunSummary;
+import * as JobShapeConfigDetails from "./job-shape-config-details";
+export import JobShapeConfigDetails = JobShapeConfigDetails.JobShapeConfigDetails;
 import * as JobShapeSummary from "./job-shape-summary";
 export import JobShapeSummary = JobShapeSummary.JobShapeSummary;
 import * as JobSummary from "./job-summary";

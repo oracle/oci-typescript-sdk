@@ -35,7 +35,7 @@ export namespace AbstractCallAttribute {
         case "BIP_CALL_ATTRIBUTE":
           return model.BipCallAttribute.getJsonObj(<model.BipCallAttribute>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -51,7 +51,7 @@ export namespace AbstractCallAttribute {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

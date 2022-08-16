@@ -109,7 +109,8 @@ export namespace BuildPipelineStageSummary {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.buildPipelineStageType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;
@@ -149,7 +150,8 @@ export namespace BuildPipelineStageSummary {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.buildPipelineStageType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;

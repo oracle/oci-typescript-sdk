@@ -71,7 +71,7 @@ export namespace TypedObject {
         case "NATIVE_SHAPE_FIELD":
           return model.NativeShapeField.getJsonObj(<model.NativeShapeField>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -107,7 +107,7 @@ export namespace TypedObject {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

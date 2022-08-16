@@ -122,7 +122,8 @@ export namespace BuildPipelineStage {
         case "BUILD":
           return model.BuildStage.getJsonObj(<model.BuildStage>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.buildPipelineStageType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;
@@ -156,7 +157,8 @@ export namespace BuildPipelineStage {
         case "BUILD":
           return model.BuildStage.getDeserializedJsonObj(<model.BuildStage>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.buildPipelineStageType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.buildPipelineStageType}`);
       }
     }
     return jsonObj;

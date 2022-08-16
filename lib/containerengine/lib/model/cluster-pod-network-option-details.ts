@@ -41,7 +41,7 @@ export namespace ClusterPodNetworkOptionDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.cniType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.cniType}`);
       }
     }
     return jsonObj;
@@ -62,7 +62,7 @@ export namespace ClusterPodNetworkOptionDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.cniType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.cniType}`);
       }
     }
     return jsonObj;

@@ -40,7 +40,7 @@ export namespace BackupLocation {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.destination);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.destination}`);
       }
     }
     return jsonObj;
@@ -61,7 +61,7 @@ export namespace BackupLocation {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.destination);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.destination}`);
       }
     }
     return jsonObj;

@@ -56,7 +56,7 @@ export namespace PaymentDetail {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.paymentMethod);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.paymentMethod}`);
       }
     }
     return jsonObj;
@@ -82,7 +82,7 @@ export namespace PaymentDetail {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.paymentMethod);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.paymentMethod}`);
       }
     }
     return jsonObj;

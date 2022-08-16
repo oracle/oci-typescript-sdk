@@ -102,7 +102,7 @@ export namespace SensitiveType {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.entityType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`);
       }
     }
     return jsonObj;
@@ -123,7 +123,7 @@ export namespace SensitiveType {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.entityType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entityType}`);
       }
     }
     return jsonObj;

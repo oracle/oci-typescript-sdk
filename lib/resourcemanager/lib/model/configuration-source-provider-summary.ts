@@ -99,7 +99,8 @@ export namespace ConfigurationSourceProviderSummary {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.configSourceProviderType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.configSourceProviderType}`);
       }
     }
     return jsonObj;
@@ -127,7 +128,8 @@ export namespace ConfigurationSourceProviderSummary {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.configSourceProviderType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.configSourceProviderType}`);
       }
     }
     return jsonObj;

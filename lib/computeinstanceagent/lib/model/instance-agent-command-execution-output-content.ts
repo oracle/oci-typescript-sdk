@@ -57,7 +57,7 @@ export namespace InstanceAgentCommandExecutionOutputContent {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.outputType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.outputType}`);
       }
     }
     return jsonObj;
@@ -85,7 +85,7 @@ export namespace InstanceAgentCommandExecutionOutputContent {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.outputType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.outputType}`);
       }
     }
     return jsonObj;

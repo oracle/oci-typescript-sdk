@@ -40,7 +40,8 @@ export namespace JobInfrastructureConfigurationDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.jobInfrastructureType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.jobInfrastructureType}`);
       }
     }
     return jsonObj;
@@ -61,7 +62,8 @@ export namespace JobInfrastructureConfigurationDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.jobInfrastructureType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.jobInfrastructureType}`);
       }
     }
     return jsonObj;

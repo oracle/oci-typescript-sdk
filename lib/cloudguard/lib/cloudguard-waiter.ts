@@ -2,7 +2,7 @@
  * Cloud Guard and Security Zones API
  * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -41,6 +41,25 @@ export class CloudGuardWaiter {
       this.config,
       () => this.client.getDataMaskRule(request),
       response => targetStates.includes(response.dataMaskRule.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forDataSource till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDataSourceResponse | null (null in case of 404 response)
+   */
+  public async forDataSource(
+    request: serviceRequests.GetDataSourceRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetDataSourceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDataSource(request),
+      response => targetStates.includes(response.dataSource.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
     );
   }
@@ -346,6 +365,22 @@ export class CloudGuardWaiter {
       response =>
         targetStates.includes(response.targetResponderRecipeResponderRule.lifecycleState!),
       targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetWorkRequestResponse
+   */
+  public async forWorkRequest(
+    request: serviceRequests.GetWorkRequestRequest
+  ): Promise<serviceResponses.GetWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getWorkRequest(request),
+      response => (response.workRequest.timeFinished ? true : false)
     );
   }
 }

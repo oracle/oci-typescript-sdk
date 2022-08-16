@@ -73,7 +73,7 @@ export namespace Config {
         case "SPAN_FILTER":
           return model.SpanFilter.getJsonObj(<model.SpanFilter>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.configType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
     }
     return jsonObj;
@@ -95,7 +95,7 @@ export namespace Config {
         case "SPAN_FILTER":
           return model.SpanFilter.getDeserializedJsonObj(<model.SpanFilter>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.configType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
     }
     return jsonObj;

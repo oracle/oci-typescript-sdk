@@ -40,7 +40,8 @@ export namespace NetworkChannel {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.networkChannelType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.networkChannelType}`);
       }
     }
     return jsonObj;
@@ -61,7 +62,8 @@ export namespace NetworkChannel {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.networkChannelType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.networkChannelType}`);
       }
     }
     return jsonObj;

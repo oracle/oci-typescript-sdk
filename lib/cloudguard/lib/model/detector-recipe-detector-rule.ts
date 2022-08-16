@@ -2,7 +2,7 @@
  * Cloud Guard and Security Zones API
  * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -74,6 +74,14 @@ export interface DetectorRecipeDetectorRule {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * The id of the attached DataSource.
+   */
+  "dataSourceId"?: string;
+  /**
+   * Data Source entities mapping for a Detector Rule
+   */
+  "entitiesMappings"?: Array<model.EntitiesMapping>;
 }
 
 export namespace DetectorRecipeDetectorRule {
@@ -107,6 +115,12 @@ export namespace DetectorRecipeDetectorRule {
           ? obj.candidateResponderRules.map(item => {
               return model.CandidateResponderRule.getJsonObj(item);
             })
+          : undefined,
+
+        "entitiesMappings": obj.entitiesMappings
+          ? obj.entitiesMappings.map(item => {
+              return model.EntitiesMapping.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -124,6 +138,12 @@ export namespace DetectorRecipeDetectorRule {
         "candidateResponderRules": obj.candidateResponderRules
           ? obj.candidateResponderRules.map(item => {
               return model.CandidateResponderRule.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "entitiesMappings": obj.entitiesMappings
+          ? obj.entitiesMappings.map(item => {
+              return model.EntitiesMapping.getDeserializedJsonObj(item);
             })
           : undefined
       }

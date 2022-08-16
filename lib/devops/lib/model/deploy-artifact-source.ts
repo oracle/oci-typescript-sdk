@@ -48,7 +48,8 @@ export namespace DeployArtifactSource {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.deployArtifactSourceType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.deployArtifactSourceType}`);
       }
     }
     return jsonObj;
@@ -79,7 +80,8 @@ export namespace DeployArtifactSource {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.deployArtifactSourceType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.deployArtifactSourceType}`);
       }
     }
     return jsonObj;

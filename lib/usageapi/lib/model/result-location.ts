@@ -35,7 +35,7 @@ export namespace ResultLocation {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.locationType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.locationType}`);
       }
     }
     return jsonObj;
@@ -51,7 +51,7 @@ export namespace ResultLocation {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.locationType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.locationType}`);
       }
     }
     return jsonObj;

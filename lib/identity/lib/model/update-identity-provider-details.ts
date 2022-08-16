@@ -51,7 +51,7 @@ export namespace UpdateIdentityProviderDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.protocol);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.protocol}`);
       }
     }
     return jsonObj;
@@ -67,7 +67,7 @@ export namespace UpdateIdentityProviderDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.protocol);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.protocol}`);
       }
     }
     return jsonObj;

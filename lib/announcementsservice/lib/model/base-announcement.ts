@@ -169,7 +169,7 @@ export namespace BaseAnnouncement {
         case "Announcement":
           return model.Announcement.getJsonObj(<model.Announcement>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -190,7 +190,7 @@ export namespace BaseAnnouncement {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

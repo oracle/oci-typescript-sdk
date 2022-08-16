@@ -49,7 +49,7 @@ export namespace BaseTagDefinitionValidator {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.validatorType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.validatorType}`);
       }
     }
     return jsonObj;
@@ -70,7 +70,7 @@ export namespace BaseTagDefinitionValidator {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.validatorType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.validatorType}`);
       }
     }
     return jsonObj;

@@ -93,7 +93,7 @@ export namespace AbstractField {
         case "SORT":
           return model.SortField.getJsonObj(<model.SortField>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.name);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.name}`);
       }
     }
     return jsonObj;
@@ -118,7 +118,7 @@ export namespace AbstractField {
         case "SORT":
           return model.SortField.getDeserializedJsonObj(<model.SortField>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.name);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.name}`);
       }
     }
     return jsonObj;

@@ -122,7 +122,7 @@ export namespace DataAsset {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -187,7 +187,7 @@ export namespace DataAsset {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

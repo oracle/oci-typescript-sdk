@@ -34,7 +34,7 @@ export namespace DateRange {
         case "DYNAMIC":
           return model.DynamicDateRange.getJsonObj(<model.DynamicDateRange>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.dateRangeType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dateRangeType}`);
       }
     }
     return jsonObj;
@@ -55,7 +55,7 @@ export namespace DateRange {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.dateRangeType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dateRangeType}`);
       }
     }
     return jsonObj;

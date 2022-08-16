@@ -65,7 +65,7 @@ export namespace BaseType {
         case "COMPOSITE_TYPE":
           return model.CompositeType.getJsonObj(<model.CompositeType>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -105,7 +105,7 @@ export namespace BaseType {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

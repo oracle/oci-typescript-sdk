@@ -2,7 +2,7 @@
  * Cloud Guard and Security Zones API
  * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -38,6 +38,22 @@ export interface UpdateDetectorRuleDetails {
    * user defined labels for a detector rule
    */
   "labels"?: Array<string>;
+  /**
+   * Description for DetectorRecipeDetectorRule.
+   */
+  "description"?: string;
+  /**
+   * Recommendation for DetectorRecipeDetectorRule
+   */
+  "recommendation"?: string;
+  /**
+   * The id of the attached DataSource.
+   */
+  "dataSourceId"?: string;
+  /**
+   * Data Source entities mapping for a Detector Rule
+   */
+  "entitiesMappings"?: Array<model.EntitiesMapping>;
 }
 
 export namespace UpdateDetectorRuleDetails {
@@ -50,7 +66,13 @@ export namespace UpdateDetectorRuleDetails {
               return model.DetectorConfiguration.getJsonObj(item);
             })
           : undefined,
-        "condition": obj.condition ? model.Condition.getJsonObj(obj.condition) : undefined
+        "condition": obj.condition ? model.Condition.getJsonObj(obj.condition) : undefined,
+
+        "entitiesMappings": obj.entitiesMappings
+          ? obj.entitiesMappings.map(item => {
+              return model.EntitiesMapping.getJsonObj(item);
+            })
+          : undefined
       }
     };
 
@@ -67,6 +89,12 @@ export namespace UpdateDetectorRuleDetails {
           : undefined,
         "condition": obj.condition
           ? model.Condition.getDeserializedJsonObj(obj.condition)
+          : undefined,
+
+        "entitiesMappings": obj.entitiesMappings
+          ? obj.entitiesMappings.map(item => {
+              return model.EntitiesMapping.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

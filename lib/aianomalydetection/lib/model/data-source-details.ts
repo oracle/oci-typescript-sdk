@@ -46,7 +46,7 @@ export namespace DataSourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.dataSourceType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dataSourceType}`);
       }
     }
     return jsonObj;
@@ -72,7 +72,7 @@ export namespace DataSourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.dataSourceType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.dataSourceType}`);
       }
     }
     return jsonObj;
