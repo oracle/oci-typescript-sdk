@@ -75,7 +75,8 @@ export namespace CreateMediaWorkflowJobDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.workflowIdentifierType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.workflowIdentifierType}`);
       }
     }
     return jsonObj;
@@ -96,7 +97,8 @@ export namespace CreateMediaWorkflowJobDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.workflowIdentifierType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.workflowIdentifierType}`);
       }
     }
     return jsonObj;

@@ -30,7 +30,8 @@ export namespace CaCertificate {
         case "PEM":
           return model.PemCaCertificate.getJsonObj(<model.PemCaCertificate>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.certificateType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.certificateType}`);
       }
     }
     return jsonObj;
@@ -46,7 +47,8 @@ export namespace CaCertificate {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.certificateType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.certificateType}`);
       }
     }
     return jsonObj;

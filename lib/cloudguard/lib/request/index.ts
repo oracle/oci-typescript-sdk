@@ -2,7 +2,7 @@
  * Cloud Guard and Security Zones API
  * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -16,6 +16,10 @@
 
 import * as AddCompartmentRequest from "./add-compartment-request";
 export import AddCompartmentRequest = AddCompartmentRequest.AddCompartmentRequest;
+import * as CancelWorkRequestRequest from "./cancel-work-request-request";
+export import CancelWorkRequestRequest = CancelWorkRequestRequest.CancelWorkRequestRequest;
+import * as ChangeDataSourceCompartmentRequest from "./change-data-source-compartment-request";
+export import ChangeDataSourceCompartmentRequest = ChangeDataSourceCompartmentRequest.ChangeDataSourceCompartmentRequest;
 import * as ChangeDetectorRecipeCompartmentRequest from "./change-detector-recipe-compartment-request";
 export import ChangeDetectorRecipeCompartmentRequest = ChangeDetectorRecipeCompartmentRequest.ChangeDetectorRecipeCompartmentRequest;
 import * as ChangeManagedListCompartmentRequest from "./change-managed-list-compartment-request";
@@ -28,8 +32,12 @@ import * as ChangeSecurityZoneCompartmentRequest from "./change-security-zone-co
 export import ChangeSecurityZoneCompartmentRequest = ChangeSecurityZoneCompartmentRequest.ChangeSecurityZoneCompartmentRequest;
 import * as CreateDataMaskRuleRequest from "./create-data-mask-rule-request";
 export import CreateDataMaskRuleRequest = CreateDataMaskRuleRequest.CreateDataMaskRuleRequest;
+import * as CreateDataSourceRequest from "./create-data-source-request";
+export import CreateDataSourceRequest = CreateDataSourceRequest.CreateDataSourceRequest;
 import * as CreateDetectorRecipeRequest from "./create-detector-recipe-request";
 export import CreateDetectorRecipeRequest = CreateDetectorRecipeRequest.CreateDetectorRecipeRequest;
+import * as CreateDetectorRecipeDetectorRuleRequest from "./create-detector-recipe-detector-rule-request";
+export import CreateDetectorRecipeDetectorRuleRequest = CreateDetectorRecipeDetectorRuleRequest.CreateDetectorRecipeDetectorRuleRequest;
 import * as CreateManagedListRequest from "./create-managed-list-request";
 export import CreateManagedListRequest = CreateManagedListRequest.CreateManagedListRequest;
 import * as CreateResponderRecipeRequest from "./create-responder-recipe-request";
@@ -46,8 +54,14 @@ import * as CreateTargetResponderRecipeRequest from "./create-target-responder-r
 export import CreateTargetResponderRecipeRequest = CreateTargetResponderRecipeRequest.CreateTargetResponderRecipeRequest;
 import * as DeleteDataMaskRuleRequest from "./delete-data-mask-rule-request";
 export import DeleteDataMaskRuleRequest = DeleteDataMaskRuleRequest.DeleteDataMaskRuleRequest;
+import * as DeleteDataSourceRequest from "./delete-data-source-request";
+export import DeleteDataSourceRequest = DeleteDataSourceRequest.DeleteDataSourceRequest;
 import * as DeleteDetectorRecipeRequest from "./delete-detector-recipe-request";
 export import DeleteDetectorRecipeRequest = DeleteDetectorRecipeRequest.DeleteDetectorRecipeRequest;
+import * as DeleteDetectorRecipeDetectorRuleRequest from "./delete-detector-recipe-detector-rule-request";
+export import DeleteDetectorRecipeDetectorRuleRequest = DeleteDetectorRecipeDetectorRuleRequest.DeleteDetectorRecipeDetectorRuleRequest;
+import * as DeleteDetectorRecipeDetectorRuleDataSourceRequest from "./delete-detector-recipe-detector-rule-data-source-request";
+export import DeleteDetectorRecipeDetectorRuleDataSourceRequest = DeleteDetectorRecipeDetectorRuleDataSourceRequest.DeleteDetectorRecipeDetectorRuleDataSourceRequest;
 import * as DeleteManagedListRequest from "./delete-managed-list-request";
 export import DeleteManagedListRequest = DeleteManagedListRequest.DeleteManagedListRequest;
 import * as DeleteResponderRecipeRequest from "./delete-responder-recipe-request";
@@ -70,6 +84,8 @@ import * as GetConfigurationRequest from "./get-configuration-request";
 export import GetConfigurationRequest = GetConfigurationRequest.GetConfigurationRequest;
 import * as GetDataMaskRuleRequest from "./get-data-mask-rule-request";
 export import GetDataMaskRuleRequest = GetDataMaskRuleRequest.GetDataMaskRuleRequest;
+import * as GetDataSourceRequest from "./get-data-source-request";
+export import GetDataSourceRequest = GetDataSourceRequest.GetDataSourceRequest;
 import * as GetDetectorRequest from "./get-detector-request";
 export import GetDetectorRequest = GetDetectorRequest.GetDetectorRequest;
 import * as GetDetectorRecipeRequest from "./get-detector-recipe-request";
@@ -110,10 +126,16 @@ import * as GetTargetResponderRecipeRequest from "./get-target-responder-recipe-
 export import GetTargetResponderRecipeRequest = GetTargetResponderRecipeRequest.GetTargetResponderRecipeRequest;
 import * as GetTargetResponderRecipeResponderRuleRequest from "./get-target-responder-recipe-responder-rule-request";
 export import GetTargetResponderRecipeResponderRuleRequest = GetTargetResponderRecipeResponderRuleRequest.GetTargetResponderRecipeResponderRuleRequest;
+import * as GetWorkRequestRequest from "./get-work-request-request";
+export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
 import * as ListConditionMetadataTypesRequest from "./list-condition-metadata-types-request";
 export import ListConditionMetadataTypesRequest = ListConditionMetadataTypesRequest.ListConditionMetadataTypesRequest;
 import * as ListDataMaskRulesRequest from "./list-data-mask-rules-request";
 export import ListDataMaskRulesRequest = ListDataMaskRulesRequest.ListDataMaskRulesRequest;
+import * as ListDataSourceEventsRequest from "./list-data-source-events-request";
+export import ListDataSourceEventsRequest = ListDataSourceEventsRequest.ListDataSourceEventsRequest;
+import * as ListDataSourcesRequest from "./list-data-sources-request";
+export import ListDataSourcesRequest = ListDataSourcesRequest.ListDataSourcesRequest;
 import * as ListDetectorRecipeDetectorRulesRequest from "./list-detector-recipe-detector-rules-request";
 export import ListDetectorRecipeDetectorRulesRequest = ListDetectorRecipeDetectorRulesRequest.ListDetectorRecipeDetectorRulesRequest;
 import * as ListDetectorRecipesRequest from "./list-detector-recipes-request";
@@ -132,6 +154,8 @@ import * as ListPoliciesRequest from "./list-policies-request";
 export import ListPoliciesRequest = ListPoliciesRequest.ListPoliciesRequest;
 import * as ListProblemEndpointsRequest from "./list-problem-endpoints-request";
 export import ListProblemEndpointsRequest = ListProblemEndpointsRequest.ListProblemEndpointsRequest;
+import * as ListProblemEntitiesRequest from "./list-problem-entities-request";
+export import ListProblemEntitiesRequest = ListProblemEntitiesRequest.ListProblemEntitiesRequest;
 import * as ListProblemHistoriesRequest from "./list-problem-histories-request";
 export import ListProblemHistoriesRequest = ListProblemHistoriesRequest.ListProblemHistoriesRequest;
 import * as ListProblemsRequest from "./list-problems-request";
@@ -182,6 +206,12 @@ import * as ListTargetsRequest from "./list-targets-request";
 export import ListTargetsRequest = ListTargetsRequest.ListTargetsRequest;
 import * as ListTechniquesRequest from "./list-techniques-request";
 export import ListTechniquesRequest = ListTechniquesRequest.ListTechniquesRequest;
+import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
+export import ListWorkRequestErrorsRequest = ListWorkRequestErrorsRequest.ListWorkRequestErrorsRequest;
+import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
+export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
+import * as ListWorkRequestsRequest from "./list-work-requests-request";
+export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as RemoveCompartmentRequest from "./remove-compartment-request";
 export import RemoveCompartmentRequest = RemoveCompartmentRequest.RemoveCompartmentRequest;
 import * as RequestRiskScoresRequest from "./request-risk-scores-request";
@@ -222,6 +252,8 @@ import * as UpdateConfigurationRequest from "./update-configuration-request";
 export import UpdateConfigurationRequest = UpdateConfigurationRequest.UpdateConfigurationRequest;
 import * as UpdateDataMaskRuleRequest from "./update-data-mask-rule-request";
 export import UpdateDataMaskRuleRequest = UpdateDataMaskRuleRequest.UpdateDataMaskRuleRequest;
+import * as UpdateDataSourceRequest from "./update-data-source-request";
+export import UpdateDataSourceRequest = UpdateDataSourceRequest.UpdateDataSourceRequest;
 import * as UpdateDetectorRecipeRequest from "./update-detector-recipe-request";
 export import UpdateDetectorRecipeRequest = UpdateDetectorRecipeRequest.UpdateDetectorRecipeRequest;
 import * as UpdateDetectorRecipeDetectorRuleRequest from "./update-detector-recipe-detector-rule-request";

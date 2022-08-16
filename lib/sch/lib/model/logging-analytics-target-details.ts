@@ -29,6 +29,13 @@ export interface LoggingAnalyticsTargetDetails extends model.TargetDetails {
    *
    */
   "logGroupId": string;
+  /**
+   * Identifier of the log source that you want to use for processing data received from the service connector source.
+   * Applies to `StreamingSource` only.
+   * Equivalent to `name` at {@link LogAnalyticsSource}.
+   *
+   */
+  "logSourceIdentifier"?: string;
 
   "kind": string;
 }

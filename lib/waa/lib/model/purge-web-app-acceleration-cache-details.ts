@@ -36,7 +36,7 @@ export namespace PurgeWebAppAccelerationCacheDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.purgeType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.purgeType}`);
       }
     }
     return jsonObj;
@@ -52,7 +52,7 @@ export namespace PurgeWebAppAccelerationCacheDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.purgeType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.purgeType}`);
       }
     }
     return jsonObj;

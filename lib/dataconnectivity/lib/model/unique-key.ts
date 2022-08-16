@@ -63,7 +63,7 @@ export namespace UniqueKey {
         case "PRIMARY_KEY":
           return model.PrimaryKey.getJsonObj(<model.PrimaryKey>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -89,7 +89,7 @@ export namespace UniqueKey {
         case "PRIMARY_KEY":
           return model.PrimaryKey.getDeserializedJsonObj(<model.PrimaryKey>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

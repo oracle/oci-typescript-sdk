@@ -87,7 +87,7 @@ export namespace Action {
         case "FAAS":
           return model.FaaSAction.getJsonObj(<model.FaaSAction>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.actionType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.actionType}`);
       }
     }
     return jsonObj;
@@ -110,7 +110,7 @@ export namespace Action {
         case "FAAS":
           return model.FaaSAction.getDeserializedJsonObj(<model.FaaSAction>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.actionType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.actionType}`);
       }
     }
     return jsonObj;

@@ -38,7 +38,7 @@ export namespace UpdateColumnSourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.columnSource);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.columnSource}`);
       }
     }
     return jsonObj;
@@ -59,7 +59,7 @@ export namespace UpdateColumnSourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.columnSource);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.columnSource}`);
       }
     }
     return jsonObj;

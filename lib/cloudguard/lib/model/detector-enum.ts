@@ -2,7 +2,7 @@
  * Cloud Guard and Security Zones API
  * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -24,6 +24,7 @@ export enum DetectorEnum {
   IaasActivityDetector = "IAAS_ACTIVITY_DETECTOR",
   IaasConfigurationDetector = "IAAS_CONFIGURATION_DETECTOR",
   IaasThreatDetector = "IAAS_THREAT_DETECTOR",
+  IaasLogInsightDetector = "IAAS_LOG_INSIGHT_DETECTOR",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

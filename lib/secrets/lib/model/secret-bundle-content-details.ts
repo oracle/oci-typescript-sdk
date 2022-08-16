@@ -33,7 +33,7 @@ export namespace SecretBundleContentDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.contentType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.contentType}`);
       }
     }
     return jsonObj;
@@ -49,7 +49,7 @@ export namespace SecretBundleContentDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.contentType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.contentType}`);
       }
     }
     return jsonObj;

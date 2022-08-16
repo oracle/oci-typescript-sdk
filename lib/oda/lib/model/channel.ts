@@ -110,7 +110,7 @@ export namespace Channel {
         case "TEST":
           return model.TestChannel.getJsonObj(<model.TestChannel>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -187,7 +187,7 @@ export namespace Channel {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

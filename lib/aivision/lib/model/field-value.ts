@@ -63,7 +63,7 @@ export namespace FieldValue {
         case "ARRAY":
           return model.ValueArray.getJsonObj(<model.ValueArray>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.valueType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.valueType}`);
       }
     }
     return jsonObj;
@@ -107,7 +107,7 @@ export namespace FieldValue {
         case "ARRAY":
           return model.ValueArray.getDeserializedJsonObj(<model.ValueArray>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.valueType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.valueType}`);
       }
     }
     return jsonObj;

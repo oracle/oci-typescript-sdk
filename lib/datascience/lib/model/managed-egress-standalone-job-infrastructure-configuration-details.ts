@@ -29,6 +29,7 @@ export interface ManagedEgressStandaloneJobInfrastructureConfigurationDetails
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "blockStorageSizeInGBs": number;
+  "jobShapeConfigDetails"?: model.JobShapeConfigDetails;
 
   "jobInfrastructureType": string;
 }
@@ -44,7 +45,11 @@ export namespace ManagedEgressStandaloneJobInfrastructureConfigurationDetails {
         : (model.JobInfrastructureConfigurationDetails.getJsonObj(
             obj
           ) as ManagedEgressStandaloneJobInfrastructureConfigurationDetails)),
-      ...{}
+      ...{
+        "jobShapeConfigDetails": obj.jobShapeConfigDetails
+          ? model.JobShapeConfigDetails.getJsonObj(obj.jobShapeConfigDetails)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -60,7 +65,11 @@ export namespace ManagedEgressStandaloneJobInfrastructureConfigurationDetails {
         : (model.JobInfrastructureConfigurationDetails.getDeserializedJsonObj(
             obj
           ) as ManagedEgressStandaloneJobInfrastructureConfigurationDetails)),
-      ...{}
+      ...{
+        "jobShapeConfigDetails": obj.jobShapeConfigDetails
+          ? model.JobShapeConfigDetails.getDeserializedJsonObj(obj.jobShapeConfigDetails)
+          : undefined
+      }
     };
 
     return jsonObj;

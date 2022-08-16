@@ -113,7 +113,8 @@ export namespace StreamPackagingConfig {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.streamPackagingFormat);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.streamPackagingFormat}`);
       }
     }
     return jsonObj;
@@ -141,7 +142,8 @@ export namespace StreamPackagingConfig {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.streamPackagingFormat);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.streamPackagingFormat}`);
       }
     }
     return jsonObj;

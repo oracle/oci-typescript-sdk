@@ -43,7 +43,7 @@ export namespace TargetResourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.sessionType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sessionType}`);
       }
     }
     return jsonObj;
@@ -64,7 +64,7 @@ export namespace TargetResourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.sessionType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sessionType}`);
       }
     }
     return jsonObj;

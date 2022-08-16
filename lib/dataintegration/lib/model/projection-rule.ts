@@ -73,7 +73,7 @@ export namespace ProjectionRule {
         case "NAME_LIST_RULE":
           return model.NameListRule.getJsonObj(<model.NameListRule>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -117,7 +117,7 @@ export namespace ProjectionRule {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

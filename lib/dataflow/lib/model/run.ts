@@ -43,6 +43,7 @@ export interface Run {
    *
    */
   "applicationId": string;
+  "applicationLogConfig"?: model.ApplicationLogConfig;
   /**
    * The class for the application.
    *
@@ -253,6 +254,10 @@ export namespace Run {
     const jsonObj = {
       ...obj,
       ...{
+        "applicationLogConfig": obj.applicationLogConfig
+          ? model.ApplicationLogConfig.getJsonObj(obj.applicationLogConfig)
+          : undefined,
+
         "driverShapeConfig": obj.driverShapeConfig
           ? model.ShapeConfig.getJsonObj(obj.driverShapeConfig)
           : undefined,
@@ -275,6 +280,10 @@ export namespace Run {
     const jsonObj = {
       ...obj,
       ...{
+        "applicationLogConfig": obj.applicationLogConfig
+          ? model.ApplicationLogConfig.getDeserializedJsonObj(obj.applicationLogConfig)
+          : undefined,
+
         "driverShapeConfig": obj.driverShapeConfig
           ? model.ShapeConfig.getDeserializedJsonObj(obj.driverShapeConfig)
           : undefined,

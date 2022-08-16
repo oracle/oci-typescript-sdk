@@ -30,7 +30,7 @@ export namespace Source {
         case "OCISERVICE":
           return model.OciService.getJsonObj(<model.OciService>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.sourceType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;
@@ -43,7 +43,7 @@ export namespace Source {
         case "OCISERVICE":
           return model.OciService.getDeserializedJsonObj(<model.OciService>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.sourceType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;

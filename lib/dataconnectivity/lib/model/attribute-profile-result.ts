@@ -68,7 +68,7 @@ export namespace AttributeProfileResult {
         case "DATE_TIME":
           return model.DateAttribute.getJsonObj(<model.DateAttribute>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -117,7 +117,7 @@ export namespace AttributeProfileResult {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

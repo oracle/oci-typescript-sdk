@@ -2,7 +2,7 @@
  * Cloud Guard and Security Zones API
  * Use the Cloud Guard and Security Zones API to automate processes that you would otherwise perform through the Cloud Guard Console or the Security Zones Console. For more information on these services, see the [Cloud Guard](/iaas/cloud-guard/home.htm) and [Security Zones](/iaas/security-zone/home.htm) documentation.
 
-**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations in Cloud Guard from any region.
+**Note:** For Cloud Guard, you can perform Create, Update, and Delete operations only from the reporting region of your Cloud Guard tenancy. You can perform Read operations from any region.
 
  * OpenAPI spec version: 20200131
  * 
@@ -220,6 +220,154 @@ export class CloudGuardClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cancels the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelWorkRequestRequest
+   * @return CancelWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CancelWorkRequest.ts.html |here} to see how to use CancelWorkRequest API.
+   */
+  public async cancelWorkRequest(
+    cancelWorkRequestRequest: requests.CancelWorkRequestRequest
+  ): Promise<responses.CancelWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#cancelWorkRequest.");
+    const operationName = "cancelWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequest/CancelWorkRequest";
+    const pathParams = {
+      "{workRequestId}": cancelWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelWorkRequestRequest.ifMatch,
+      "opc-request-id": cancelWorkRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the DataSource from current compartment to another.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDataSourceCompartmentRequest
+   * @return ChangeDataSourceCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ChangeDataSourceCompartment.ts.html |here} to see how to use ChangeDataSourceCompartment API.
+   */
+  public async changeDataSourceCompartment(
+    changeDataSourceCompartmentRequest: requests.ChangeDataSourceCompartmentRequest
+  ): Promise<responses.ChangeDataSourceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#changeDataSourceCompartment.");
+    const operationName = "changeDataSourceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/ChangeDataSourceCompartment";
+    const pathParams = {
+      "{dataSourceId}": changeDataSourceCompartmentRequest.dataSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDataSourceCompartmentRequest.ifMatch,
+      "opc-request-id": changeDataSourceCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeDataSourceCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDataSourceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSources/{dataSourceId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDataSourceCompartmentRequest.changeDataSourceCompartmentDetails,
+        "ChangeDataSourceCompartmentDetails",
+        model.ChangeDataSourceCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDataSourceCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -693,6 +841,83 @@ export class CloudGuardClient {
   }
 
   /**
+   * Creates a DataSource
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateDataSourceRequest
+   * @return CreateDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDataSource.ts.html |here} to see how to use CreateDataSource API.
+   */
+  public async createDataSource(
+    createDataSourceRequest: requests.CreateDataSourceRequest
+  ): Promise<responses.CreateDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#createDataSource.");
+    const operationName = "createDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/CreateDataSource";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDataSourceRequest.opcRetryToken,
+      "opc-request-id": createDataSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDataSourceRequest.createDataSourceDetails,
+        "CreateDataSourceDetails",
+        model.CreateDataSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDataSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a DetectorRecipe
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -753,6 +978,89 @@ export class CloudGuardClient {
         bodyKey: "detectorRecipe",
         bodyModel: model.DetectorRecipe,
         type: "model.DetectorRecipe",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create the DetectorRule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateDetectorRecipeDetectorRuleRequest
+   * @return CreateDetectorRecipeDetectorRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/CreateDetectorRecipeDetectorRule.ts.html |here} to see how to use CreateDetectorRecipeDetectorRule API.
+   */
+  public async createDetectorRecipeDetectorRule(
+    createDetectorRecipeDetectorRuleRequest: requests.CreateDetectorRecipeDetectorRuleRequest
+  ): Promise<responses.CreateDetectorRecipeDetectorRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#createDetectorRecipeDetectorRule.");
+    const operationName = "createDetectorRecipeDetectorRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/CreateDetectorRecipeDetectorRule";
+    const pathParams = {
+      "{detectorRecipeId}": createDetectorRecipeDetectorRuleRequest.detectorRecipeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createDetectorRecipeDetectorRuleRequest.opcRequestId,
+      "opc-retry-token": createDetectorRecipeDetectorRuleRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDetectorRecipeDetectorRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectorRecipes/{detectorRecipeId}/detectorRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDetectorRecipeDetectorRuleRequest.createDetectorRecipeDetectorRuleDetails,
+        "CreateDetectorRecipeDetectorRuleDetails",
+        model.CreateDetectorRecipeDetectorRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDetectorRecipeDetectorRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "detectorRecipeDetectorRule",
+        bodyModel: model.DetectorRecipeDetectorRule,
+        type: "model.DetectorRecipeDetectorRule",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1415,6 +1723,80 @@ export class CloudGuardClient {
   }
 
   /**
+   * Deletes a DataSource identified by dataSourceId
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDataSourceRequest
+   * @return DeleteDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDataSource.ts.html |here} to see how to use DeleteDataSource API.
+   */
+  public async deleteDataSource(
+    deleteDataSourceRequest: requests.DeleteDataSourceRequest
+  ): Promise<responses.DeleteDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#deleteDataSource.");
+    const operationName = "deleteDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/DeleteDataSource";
+    const pathParams = {
+      "{dataSourceId}": deleteDataSourceRequest.dataSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDataSourceRequest.ifMatch,
+      "opc-request-id": deleteDataSourceRequest.opcRequestId,
+      "opc-retry-token": deleteDataSourceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSources/{dataSourceId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDataSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a DetectorRecipe identified by detectorRecipeId
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDetectorRecipeRequest
@@ -1468,6 +1850,150 @@ export class CloudGuardClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteDetectorRecipeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes DetectorRecipeDetectorRule
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDetectorRecipeDetectorRuleRequest
+   * @return DeleteDetectorRecipeDetectorRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipeDetectorRule.ts.html |here} to see how to use DeleteDetectorRecipeDetectorRule API.
+   */
+  public async deleteDetectorRecipeDetectorRule(
+    deleteDetectorRecipeDetectorRuleRequest: requests.DeleteDetectorRecipeDetectorRuleRequest
+  ): Promise<responses.DeleteDetectorRecipeDetectorRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation CloudGuardClient#deleteDetectorRecipeDetectorRule.");
+    const operationName = "deleteDetectorRecipeDetectorRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/DeleteDetectorRecipeDetectorRule";
+    const pathParams = {
+      "{detectorRecipeId}": deleteDetectorRecipeDetectorRuleRequest.detectorRecipeId,
+      "{detectorRuleId}": deleteDetectorRecipeDetectorRuleRequest.detectorRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDetectorRecipeDetectorRuleRequest.ifMatch,
+      "opc-request-id": deleteDetectorRecipeDetectorRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDetectorRecipeDetectorRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectorRecipes/{detectorRecipeId}/detectorRules/{detectorRuleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDetectorRecipeDetectorRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete the DetectorRecipeDetectorRuleDataSource resource by identifier
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDetectorRecipeDetectorRuleDataSourceRequest
+   * @return DeleteDetectorRecipeDetectorRuleDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/DeleteDetectorRecipeDetectorRuleDataSource.ts.html |here} to see how to use DeleteDetectorRecipeDetectorRuleDataSource API.
+   */
+  public async deleteDetectorRecipeDetectorRuleDataSource(
+    deleteDetectorRecipeDetectorRuleDataSourceRequest: requests.DeleteDetectorRecipeDetectorRuleDataSourceRequest
+  ): Promise<responses.DeleteDetectorRecipeDetectorRuleDataSourceResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation CloudGuardClient#deleteDetectorRecipeDetectorRuleDataSource."
+      );
+    const operationName = "deleteDetectorRecipeDetectorRuleDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DetectorRecipeDetectorRule/DeleteDetectorRecipeDetectorRuleDataSource";
+    const pathParams = {
+      "{detectorRecipeId}": deleteDetectorRecipeDetectorRuleDataSourceRequest.detectorRecipeId,
+      "{detectorRuleId}": deleteDetectorRecipeDetectorRuleDataSourceRequest.detectorRuleId,
+      "{dataSourceId}": deleteDetectorRecipeDetectorRuleDataSourceRequest.dataSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDetectorRecipeDetectorRuleDataSourceRequest.ifMatch,
+      "opc-request-id": deleteDetectorRecipeDetectorRuleDataSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDetectorRecipeDetectorRuleDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/detectorRecipes/{detectorRecipeId}/detectorRules/{detectorRuleId}/dataSources/{dataSourceId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDetectorRecipeDetectorRuleDataSourceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2259,6 +2785,82 @@ export class CloudGuardClient {
         bodyKey: "dataMaskRule",
         bodyModel: model.DataMaskRule,
         type: "model.DataMaskRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a DataSource identified by dataSourceId
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetDataSourceRequest
+   * @return GetDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetDataSource.ts.html |here} to see how to use GetDataSource API.
+   */
+  public async getDataSource(
+    getDataSourceRequest: requests.GetDataSourceRequest
+  ): Promise<responses.GetDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getDataSource.");
+    const operationName = "getDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/GetDataSource";
+    const pathParams = {
+      "{dataSourceId}": getDataSourceRequest.dataSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDataSourceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSources/{dataSourceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDataSourceResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSource",
+        bodyModel: model.DataSource,
+        type: "model.DataSource",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3828,6 +4430,87 @@ export class CloudGuardClient {
   }
 
   /**
+   * Gets details of the work request with the given ID.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetWorkRequestRequest
+   * @return GetWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   */
+  public async getWorkRequest(
+    getWorkRequestRequest: requests.GetWorkRequestRequest
+  ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequest/GetWorkRequest";
+    const pathParams = {
+      "{workRequestId}": getWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("retry-after"),
+            key: "retryAfter",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of condition types.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3978,6 +4661,190 @@ export class CloudGuardClient {
         bodyKey: "dataMaskRuleCollection",
         bodyModel: model.DataMaskRuleCollection,
         type: "model.DataMaskRuleCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of events from CloudGuard DataSource
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDataSourceEventsRequest
+   * @return ListDataSourceEventsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataSourceEvents.ts.html |here} to see how to use ListDataSourceEvents API.
+   */
+  public async listDataSourceEvents(
+    listDataSourceEventsRequest: requests.ListDataSourceEventsRequest
+  ): Promise<responses.ListDataSourceEventsResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDataSourceEvents.");
+    const operationName = "listDataSourceEvents";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/ListDataSourceEvents";
+    const pathParams = {
+      "{dataSourceId}": listDataSourceEventsRequest.dataSourceId
+    };
+
+    const queryParams = {
+      "region": listDataSourceEventsRequest.region,
+      "page": listDataSourceEventsRequest.page,
+      "limit": listDataSourceEventsRequest.limit,
+      "sortOrder": listDataSourceEventsRequest.sortOrder,
+      "sortBy": listDataSourceEventsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataSourceEventsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataSourceEventsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSources/{dataSourceId}/events",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataSourceEventsResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSourceEventCollection",
+        bodyModel: model.DataSourceEventCollection,
+        type: "model.DataSourceEventCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Returns a list of all Data Sources in a compartment
+* <p>
+The ListDataSources operation returns only the data Sources in `compartmentId` passed.
+* The list does not include any subcompartments of the compartmentId passed.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* Principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform ListdataSources on the
+* `compartmentId` passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListDataSourcesRequest
+     * @return ListDataSourcesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListDataSources.ts.html |here} to see how to use ListDataSources API.
+     */
+  public async listDataSources(
+    listDataSourcesRequest: requests.ListDataSourcesRequest
+  ): Promise<responses.ListDataSourcesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listDataSources.");
+    const operationName = "listDataSources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/ListDataSources";
+    const pathParams = {};
+
+    const queryParams = {
+      "displayName": listDataSourcesRequest.displayName,
+      "dataSourceFeedProvider": listDataSourcesRequest.dataSourceFeedProvider,
+      "compartmentId": listDataSourcesRequest.compartmentId,
+      "lifecycleState": listDataSourcesRequest.lifecycleState,
+      "limit": listDataSourcesRequest.limit,
+      "page": listDataSourcesRequest.page,
+      "loggingQueryType": listDataSourcesRequest.loggingQueryType,
+      "compartmentIdInSubtree": listDataSourcesRequest.compartmentIdInSubtree,
+      "accessLevel": listDataSourcesRequest.accessLevel,
+      "sortOrder": listDataSourcesRequest.sortOrder,
+      "sortBy": listDataSourcesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataSourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataSourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataSourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSourceCollection",
+        bodyModel: model.DataSourceCollection,
+        type: "model.DataSourceCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4757,6 +5624,88 @@ The parameter `compartmentIdInSubtree` applies when you perform ListManagedLists
         bodyKey: "problemEndpointCollection",
         bodyModel: model.ProblemEndpointCollection,
         type: "model.ProblemEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of entities for a CloudGuard Problem
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListProblemEntitiesRequest
+   * @return ListProblemEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListProblemEntities.ts.html |here} to see how to use ListProblemEntities API.
+   */
+  public async listProblemEntities(
+    listProblemEntitiesRequest: requests.ListProblemEntitiesRequest
+  ): Promise<responses.ListProblemEntitiesResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listProblemEntities.");
+    const operationName = "listProblemEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/Problem/ListProblemEntities";
+    const pathParams = {
+      "{problemId}": listProblemEntitiesRequest.problemId
+    };
+
+    const queryParams = {
+      "page": listProblemEntitiesRequest.page,
+      "limit": listProblemEntitiesRequest.limit,
+      "sortOrder": listProblemEntitiesRequest.sortOrder,
+      "sortBy": listProblemEntitiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProblemEntitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProblemEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/problems/{problemId}/entities",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProblemEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "problemEntityCollection",
+        bodyModel: model.ProblemEntityCollection,
+        type: "model.ProblemEntityCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6999,6 +7948,250 @@ The parameter `compartmentIdInSubtree` applies when you perform ListTargets on t
   }
 
   /**
+   * Return a (paginated) list of errors for a given work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListWorkRequestErrorsRequest
+   * @return ListWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   */
+  public async listWorkRequestErrors(
+    listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
+  ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequestError/ListWorkRequestErrors";
+    const pathParams = {
+      "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestErrorsRequest.page,
+      "limit": listWorkRequestErrorsRequest.limit,
+      "sortBy": listWorkRequestErrorsRequest.sortBy,
+      "sortOrder": listWorkRequestErrorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/errors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Return a (paginated) list of logs for a given work request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListWorkRequestLogsRequest
+   * @return ListWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   */
+  public async listWorkRequestLogs(
+    listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
+  ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequestLogEntry/ListWorkRequestLogs";
+    const pathParams = {
+      "{workRequestId}": listWorkRequestLogsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestLogsRequest.page,
+      "limit": listWorkRequestLogsRequest.limit,
+      "sortBy": listWorkRequestLogsRequest.sortBy,
+      "sortOrder": listWorkRequestLogsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the work requests in a compartment.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListWorkRequestsRequest
+   * @return ListWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   */
+  public async listWorkRequests(
+    listWorkRequestsRequest: requests.ListWorkRequestsRequest
+  ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/WorkRequest/ListWorkRequests";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listWorkRequestsRequest.compartmentId,
+      "status": listWorkRequestsRequest.status,
+      "resourceId": listWorkRequestsRequest.resourceId,
+      "page": listWorkRequestsRequest.page,
+      "limit": listWorkRequestsRequest.limit,
+      "sortOrder": listWorkRequestsRequest.sortOrder,
+      "sortBy": listWorkRequestsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestSummaryCollection",
+        bodyModel: model.WorkRequestSummaryCollection,
+        type: "model.WorkRequestSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes an existing compartment from a security zone. When you remove a subcompartment from a security zone, it no longer enforces security zone policies on the resources in the subcompartment. You can't remove the primary compartment that was used to create the security zone.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveCompartmentRequest
@@ -8680,6 +9873,85 @@ The parameter `compartmentIdInSubtree` applies when you perform summarize API on
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a data source identified by dataSourceId
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDataSourceRequest
+   * @return UpdateDataSourceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cloudguard/UpdateDataSource.ts.html |here} to see how to use UpdateDataSource API.
+   */
+  public async updateDataSource(
+    updateDataSourceRequest: requests.UpdateDataSourceRequest
+  ): Promise<responses.UpdateDataSourceResponse> {
+    if (this.logger) this.logger.debug("Calling operation CloudGuardClient#updateDataSource.");
+    const operationName = "updateDataSource";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/cloud-guard/20200131/DataSource/UpdateDataSource";
+    const pathParams = {
+      "{dataSourceId}": updateDataSourceRequest.dataSourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDataSourceRequest.ifMatch,
+      "opc-request-id": updateDataSourceRequest.opcRequestId,
+      "opc-retry-token": updateDataSourceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataSourceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSources/{dataSourceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDataSourceRequest.updateDataSourceDetails,
+        "UpdateDataSourceDetails",
+        model.UpdateDataSourceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDataSourceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {

@@ -100,7 +100,7 @@ export namespace CreateConnectivityValidationDetails {
         case "SOURCE_OPERATOR":
           return model.Source.getJsonObj(<model.Source>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;
@@ -142,7 +142,7 @@ export namespace CreateConnectivityValidationDetails {
         case "SOURCE_OPERATOR":
           return model.Source.getDeserializedJsonObj(<model.Source>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.modelType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
     }
     return jsonObj;

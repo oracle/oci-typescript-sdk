@@ -20,6 +20,7 @@ import common = require("oci-common");
  *
  */
 export interface Application {
+  "applicationLogConfig"?: model.ApplicationLogConfig;
   /**
    * An Oracle Cloud Infrastructure URI of an archive.zip file containing custom dependencies that may be used to support the execution a Python, Java, or Scala application.
    * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
@@ -198,6 +199,10 @@ export namespace Application {
     const jsonObj = {
       ...obj,
       ...{
+        "applicationLogConfig": obj.applicationLogConfig
+          ? model.ApplicationLogConfig.getJsonObj(obj.applicationLogConfig)
+          : undefined,
+
         "driverShapeConfig": obj.driverShapeConfig
           ? model.ShapeConfig.getJsonObj(obj.driverShapeConfig)
           : undefined,
@@ -220,6 +225,10 @@ export namespace Application {
     const jsonObj = {
       ...obj,
       ...{
+        "applicationLogConfig": obj.applicationLogConfig
+          ? model.ApplicationLogConfig.getDeserializedJsonObj(obj.applicationLogConfig)
+          : undefined,
+
         "driverShapeConfig": obj.driverShapeConfig
           ? model.ShapeConfig.getDeserializedJsonObj(obj.driverShapeConfig)
           : undefined,

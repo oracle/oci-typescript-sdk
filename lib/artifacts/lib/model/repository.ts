@@ -94,7 +94,7 @@ export namespace Repository {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.repositoryType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.repositoryType}`);
       }
     }
     return jsonObj;
@@ -110,7 +110,7 @@ export namespace Repository {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.repositoryType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.repositoryType}`);
       }
     }
     return jsonObj;

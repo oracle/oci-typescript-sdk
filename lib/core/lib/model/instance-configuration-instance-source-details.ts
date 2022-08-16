@@ -40,7 +40,7 @@ export namespace InstanceConfigurationInstanceSourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.sourceType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;
@@ -61,7 +61,7 @@ export namespace InstanceConfigurationInstanceSourceDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.sourceType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.sourceType}`);
       }
     }
     return jsonObj;

@@ -119,7 +119,7 @@ export namespace CreateDataGuardAssociationDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.creationType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.creationType}`);
       }
     }
     return jsonObj;
@@ -145,7 +145,7 @@ export namespace CreateDataGuardAssociationDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.creationType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.creationType}`);
       }
     }
     return jsonObj;

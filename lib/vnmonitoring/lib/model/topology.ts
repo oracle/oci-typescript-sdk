@@ -63,7 +63,7 @@ export namespace Topology {
         case "SUBNET":
           return model.SubnetTopology.getJsonObj(<model.SubnetTopology>(<object>jsonObj), true);
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;
@@ -103,7 +103,7 @@ export namespace Topology {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.type);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
     }
     return jsonObj;

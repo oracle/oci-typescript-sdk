@@ -35,7 +35,7 @@ export namespace JobConfigurationDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.jobType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.jobType}`);
       }
     }
     return jsonObj;
@@ -51,7 +51,7 @@ export namespace JobConfigurationDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.jobType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.jobType}`);
       }
     }
     return jsonObj;

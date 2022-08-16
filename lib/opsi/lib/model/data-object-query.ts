@@ -36,7 +36,7 @@ export namespace DataObjectQuery {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.queryType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.queryType}`);
       }
     }
     return jsonObj;
@@ -52,7 +52,7 @@ export namespace DataObjectQuery {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.queryType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.queryType}`);
       }
     }
     return jsonObj;

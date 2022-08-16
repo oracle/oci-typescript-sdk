@@ -52,7 +52,7 @@ export namespace Filter {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.triggerSource);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.triggerSource}`);
       }
     }
     return jsonObj;
@@ -93,7 +93,7 @@ export namespace Filter {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.triggerSource);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.triggerSource}`);
       }
     }
     return jsonObj;

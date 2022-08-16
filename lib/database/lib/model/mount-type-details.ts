@@ -36,7 +36,7 @@ export namespace MountTypeDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.mountType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.mountType}`);
       }
     }
     return jsonObj;
@@ -57,7 +57,7 @@ export namespace MountTypeDetails {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.mountType);
+          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.mountType}`);
       }
     }
     return jsonObj;

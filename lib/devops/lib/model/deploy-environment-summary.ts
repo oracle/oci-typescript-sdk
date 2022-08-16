@@ -92,7 +92,8 @@ export namespace DeployEnvironmentSummary {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.deployEnvironmentType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.deployEnvironmentType}`);
       }
     }
     return jsonObj;
@@ -118,7 +119,8 @@ export namespace DeployEnvironmentSummary {
             true
           );
         default:
-          throw Error("Unknown value for: " + obj.deployEnvironmentType);
+          if (common.LOG.logger)
+            common.LOG.logger.info(`Unknown value for: ${obj.deployEnvironmentType}`);
       }
     }
     return jsonObj;

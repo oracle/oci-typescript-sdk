@@ -20,6 +20,7 @@ import common = require("oci-common");
 * set in the associated application:
 *   - applicationId
 *   - archiveUri
+*   - applicationLogConfig
 *   - arguments
 *   - configuration
 *   - definedTags
@@ -52,6 +53,7 @@ If displayName is not specified, it will be derived from the displayName of asso
 * 
 */
 export interface CreateRunDetails {
+  "applicationLogConfig"?: model.ApplicationLogConfig;
   /**
    * The OCID of the associated application. If this value is set, then no value for the execute parameter is required. If this value is not set, then a value for the execute parameter is required, and a new application is created and associated with the new run.
    *
@@ -176,6 +178,10 @@ export namespace CreateRunDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "applicationLogConfig": obj.applicationLogConfig
+          ? model.ApplicationLogConfig.getJsonObj(obj.applicationLogConfig)
+          : undefined,
+
         "driverShapeConfig": obj.driverShapeConfig
           ? model.ShapeConfig.getJsonObj(obj.driverShapeConfig)
           : undefined,
@@ -198,6 +204,10 @@ export namespace CreateRunDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "applicationLogConfig": obj.applicationLogConfig
+          ? model.ApplicationLogConfig.getDeserializedJsonObj(obj.applicationLogConfig)
+          : undefined,
+
         "driverShapeConfig": obj.driverShapeConfig
           ? model.ShapeConfig.getDeserializedJsonObj(obj.driverShapeConfig)
           : undefined,

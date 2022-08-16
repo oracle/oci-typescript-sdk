@@ -18,6 +18,8 @@ import * as ApplicationLanguage from "./application-language";
 export import ApplicationLanguage = ApplicationLanguage.ApplicationLanguage;
 import * as ApplicationLifecycleState from "./application-lifecycle-state";
 export import ApplicationLifecycleState = ApplicationLifecycleState.ApplicationLifecycleState;
+import * as ApplicationLogConfig from "./application-log-config";
+export import ApplicationLogConfig = ApplicationLogConfig.ApplicationLogConfig;
 import * as ApplicationParameter from "./application-parameter";
 export import ApplicationParameter = ApplicationParameter.ApplicationParameter;
 import * as ApplicationSummary from "./application-summary";
