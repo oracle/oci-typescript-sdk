@@ -26,6 +26,10 @@ export interface GitlabTriggerCreateResult extends model.TriggerCreateResult {
    * The endpoint that listens to trigger events.
    */
   "triggerUrl": string;
+  /**
+   * The OCID of the connection resource used to get details for triggered events.
+   */
+  "connectionId"?: string;
 
   "triggerSource": string;
 }

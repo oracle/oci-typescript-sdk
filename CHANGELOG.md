@@ -3,6 +3,19 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.40.0 - 2022-08-23
+### Added
+- Support for the Enterprise Manager Warehouse service
+- Support for additional configuration variables in the MySQL Database service
+- Support for file filters in the DevOps service
+- Support for support rewards redemption summaries in the Usage service
+- Support for the parent tenancy of an organization to view child tenancy categories, recommendations, and resource actions in the Optimizer service
+- Support for choosing prior versions during infrastructure maintenance on Exadata Cloud at Customer in the Database service
+
+### Breaking Changes
+- EmDataLakeClient is renamed to EmWarehouseClient for the EM Warehouse service.
+- The property `parameters` has its object value type changed from `string` to `any`.
+
 ## 2.39.0 - 2022-08-16
 ### Added
 - Support for Logging Analytics as a streaming source target in the Service Connector Hub service
@@ -12,6 +25,9 @@ The format is based on [Keep a Changelog](http://keepachangelog.com/).
 - Support for E3, E4, Standard3, and Optimized3 flexible compute shapes on notebooks, model deployment, and jobs in the Data Science service
 - Support for streaming application logs to the Logging service in the Data Flow service
  
+### Changed
+- The OCI TypeScript SDK will now proceed with the serialization and deserialization of a request and response when an unknown enum is given to the request or response. An 'Unknown Value' enum will be logged to notify the user if an enum was not recognized by the SDK is used.
+
 ### Breaking Changes
 - Support for retries by default on operations of the Dataflow service
 

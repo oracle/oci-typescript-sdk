@@ -23,6 +23,7 @@ export interface GitlabServerFilter extends model.Filter {
    */
   "events"?: Array<GitlabServerFilter.Events>;
   "include"?: model.GitlabServerFilterAttributes;
+  "exclude"?: model.GitlabServerFilterExclusionAttributes;
 
   "triggerSource": string;
 }
@@ -47,6 +48,9 @@ export namespace GitlabServerFilter {
       ...{
         "include": obj.include
           ? model.GitlabServerFilterAttributes.getJsonObj(obj.include)
+          : undefined,
+        "exclude": obj.exclude
+          ? model.GitlabServerFilterExclusionAttributes.getJsonObj(obj.exclude)
           : undefined
       }
     };
@@ -63,6 +67,9 @@ export namespace GitlabServerFilter {
       ...{
         "include": obj.include
           ? model.GitlabServerFilterAttributes.getDeserializedJsonObj(obj.include)
+          : undefined,
+        "exclude": obj.exclude
+          ? model.GitlabServerFilterExclusionAttributes.getDeserializedJsonObj(obj.exclude)
           : undefined
       }
     };

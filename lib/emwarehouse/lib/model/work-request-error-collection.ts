@@ -1,6 +1,6 @@
 /**
- * EmdwControlPlane API
- * A description of the EmdwControlPlane API
+ * EM Warehouse API
+ * Use the EM Warehouse API to manage EM Warehouse data collection.
  * OpenAPI spec version: 20180828
  *
  *

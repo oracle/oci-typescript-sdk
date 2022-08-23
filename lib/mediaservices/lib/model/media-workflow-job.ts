@@ -62,7 +62,7 @@ export interface MediaWorkflowJob {
    * keys refer to a parameter's name.
    *
    */
-  "parameters"?: { [key: string]: string };
+  "parameters"?: { [key: string]: any };
   /**
    * Creation time of the job. An RFC3339 formatted datetime string.
    */
@@ -76,7 +76,7 @@ export interface MediaWorkflowJob {
    * and parameters are merged. Parameter values are all fully resolved.
    *
    */
-  "runnable"?: { [key: string]: string };
+  "runnable"?: { [key: string]: any };
   /**
    * A list of JobOutput for the workflowJob.
    */

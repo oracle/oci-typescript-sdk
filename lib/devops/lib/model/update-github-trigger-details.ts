@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Update trigger specific to GitHub.
  */
 export interface UpdateGithubTriggerDetails extends model.UpdateTriggerDetails {
+  /**
+   * The OCID of the connection resource used to get details for triggered events.
+   */
+  "connectionId"?: string;
+
   "triggerSource": string;
 }
 

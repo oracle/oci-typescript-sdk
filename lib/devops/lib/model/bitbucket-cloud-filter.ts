@@ -23,6 +23,7 @@ export interface BitbucketCloudFilter extends model.Filter {
    */
   "events"?: Array<BitbucketCloudFilter.Events>;
   "include"?: model.BitbucketCloudFilterAttributes;
+  "exclude"?: model.BitbucketCloudFilterExclusionAttributes;
 
   "triggerSource": string;
 }
@@ -46,6 +47,9 @@ export namespace BitbucketCloudFilter {
       ...{
         "include": obj.include
           ? model.BitbucketCloudFilterAttributes.getJsonObj(obj.include)
+          : undefined,
+        "exclude": obj.exclude
+          ? model.BitbucketCloudFilterExclusionAttributes.getJsonObj(obj.exclude)
           : undefined
       }
     };
@@ -64,6 +68,9 @@ export namespace BitbucketCloudFilter {
       ...{
         "include": obj.include
           ? model.BitbucketCloudFilterAttributes.getDeserializedJsonObj(obj.include)
+          : undefined,
+        "exclude": obj.exclude
+          ? model.BitbucketCloudFilterExclusionAttributes.getDeserializedJsonObj(obj.exclude)
           : undefined
       }
     };

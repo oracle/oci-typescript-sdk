@@ -37,7 +37,7 @@ export interface SystemMediaWorkflow {
    * MediaWorkflowJobs from this MediaWorkflow.
    *
    */
-  "parameters"?: { [key: string]: string };
+  "parameters"?: { [key: string]: any };
   /**
    * The processing to be done in this workflow. Each key of the MediaWorkflowTasks in this array is unique
    * within the array. The order of the items is preserved from the order of the tasks array in

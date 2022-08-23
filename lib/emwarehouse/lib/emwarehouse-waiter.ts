@@ -1,6 +1,6 @@
 /**
- * EmdwControlPlane API
- * A description of the EmdwControlPlane API
+ * EM Warehouse API
+ * Use the EM Warehouse API to manage EM Warehouse data collection.
  * OpenAPI spec version: 20180828
  *
  *
@@ -14,12 +14,12 @@
 import * as serviceRequests from "./request";
 import * as serviceResponses from "./response";
 import * as models from "./model";
-import { EmDataLakeClient } from "./client";
+import { EmWarehouseClient } from "./client";
 import { genericWaiter, genericTerminalConditionWaiter, WaiterConfiguration } from "oci-common";
 
-export class EmDataLakeWaiter {
+export class EmWarehouseWaiter {
   public constructor(
-    private client: EmDataLakeClient,
+    private client: EmWarehouseClient,
     private readonly config?: WaiterConfiguration
   ) {}
 

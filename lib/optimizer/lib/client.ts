@@ -383,7 +383,7 @@ export class OptimizerClient {
   }
 
   /**
-   * Queries the Cloud Advisor resource actions that are supported by the specified recommendation.
+   * Queries the Cloud Advisor resource actions that are supported.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param FilterResourceActionsRequest
@@ -404,6 +404,9 @@ export class OptimizerClient {
       "compartmentId": filterResourceActionsRequest.compartmentId,
       "compartmentIdInSubtree": filterResourceActionsRequest.compartmentIdInSubtree,
       "recommendationId": filterResourceActionsRequest.recommendationId,
+      "recommendationName": filterResourceActionsRequest.recommendationName,
+      "childTenancyIds": filterResourceActionsRequest.childTenancyIds,
+      "includeOrganization": filterResourceActionsRequest.includeOrganization,
       "limit": filterResourceActionsRequest.limit,
       "page": filterResourceActionsRequest.page
     };
@@ -950,6 +953,8 @@ export class OptimizerClient {
     const queryParams = {
       "compartmentId": listCategoriesRequest.compartmentId,
       "compartmentIdInSubtree": listCategoriesRequest.compartmentIdInSubtree,
+      "childTenancyIds": listCategoriesRequest.childTenancyIds,
+      "includeOrganization": listCategoriesRequest.includeOrganization,
       "name": listCategoriesRequest.name,
       "limit": listCategoriesRequest.limit,
       "page": listCategoriesRequest.page,
@@ -1468,7 +1473,7 @@ export class OptimizerClient {
   }
 
   /**
-   * Lists the Cloud Advisor recommendations that are currently supported in the specified category.
+   * Lists the Cloud Advisor recommendations that are currently supported.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRecommendationsRequest
@@ -1489,6 +1494,9 @@ export class OptimizerClient {
       "compartmentId": listRecommendationsRequest.compartmentId,
       "compartmentIdInSubtree": listRecommendationsRequest.compartmentIdInSubtree,
       "categoryId": listRecommendationsRequest.categoryId,
+      "categoryName": listRecommendationsRequest.categoryName,
+      "childTenancyIds": listRecommendationsRequest.childTenancyIds,
+      "includeOrganization": listRecommendationsRequest.includeOrganization,
       "name": listRecommendationsRequest.name,
       "limit": listRecommendationsRequest.limit,
       "page": listRecommendationsRequest.page,
@@ -1645,7 +1653,7 @@ export class OptimizerClient {
   }
 
   /**
-   * Lists the Cloud Advisor resource actions that are supported by the specified recommendation.
+   * Lists the Cloud Advisor resource actions that are supported.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListResourceActionsRequest
@@ -1666,6 +1674,9 @@ export class OptimizerClient {
       "compartmentId": listResourceActionsRequest.compartmentId,
       "compartmentIdInSubtree": listResourceActionsRequest.compartmentIdInSubtree,
       "recommendationId": listResourceActionsRequest.recommendationId,
+      "recommendationName": listResourceActionsRequest.recommendationName,
+      "childTenancyIds": listResourceActionsRequest.childTenancyIds,
+      "includeOrganization": listResourceActionsRequest.includeOrganization,
       "name": listResourceActionsRequest.name,
       "resourceType": listResourceActionsRequest.resourceType,
       "limit": listResourceActionsRequest.limit,

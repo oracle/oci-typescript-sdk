@@ -19,5 +19,7 @@ import * as ListProductsRequest from "./list-products-request";
 export import ListProductsRequest = ListProductsRequest.ListProductsRequest;
 import * as ListRedeemableUsersRequest from "./list-redeemable-users-request";
 export import ListRedeemableUsersRequest = ListRedeemableUsersRequest.ListRedeemableUsersRequest;
+import * as ListRedemptionsRequest from "./list-redemptions-request";
+export import ListRedemptionsRequest = ListRedemptionsRequest.ListRedemptionsRequest;
 import * as ListRewardsRequest from "./list-rewards-request";
 export import ListRewardsRequest = ListRewardsRequest.ListRewardsRequest;

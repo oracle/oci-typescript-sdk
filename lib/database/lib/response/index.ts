@@ -292,6 +292,8 @@ import * as GetExternalNonContainerDatabaseResponse from "./get-external-non-con
 export import GetExternalNonContainerDatabaseResponse = GetExternalNonContainerDatabaseResponse.GetExternalNonContainerDatabaseResponse;
 import * as GetExternalPluggableDatabaseResponse from "./get-external-pluggable-database-response";
 export import GetExternalPluggableDatabaseResponse = GetExternalPluggableDatabaseResponse.GetExternalPluggableDatabaseResponse;
+import * as GetInfrastructureTargetVersionsResponse from "./get-infrastructure-target-versions-response";
+export import GetInfrastructureTargetVersionsResponse = GetInfrastructureTargetVersionsResponse.GetInfrastructureTargetVersionsResponse;
 import * as GetKeyStoreResponse from "./get-key-store-response";
 export import GetKeyStoreResponse = GetKeyStoreResponse.GetKeyStoreResponse;
 import * as GetMaintenanceRunResponse from "./get-maintenance-run-response";

@@ -19,5 +19,7 @@ import * as ListProductsResponse from "./list-products-response";
 export import ListProductsResponse = ListProductsResponse.ListProductsResponse;
 import * as ListRedeemableUsersResponse from "./list-redeemable-users-response";
 export import ListRedeemableUsersResponse = ListRedeemableUsersResponse.ListRedeemableUsersResponse;
+import * as ListRedemptionsResponse from "./list-redemptions-response";
+export import ListRedemptionsResponse = ListRedemptionsResponse.ListRedemptionsResponse;
 import * as ListRewardsResponse from "./list-rewards-response";
 export import ListRewardsResponse = ListRewardsResponse.ListRewardsResponse;

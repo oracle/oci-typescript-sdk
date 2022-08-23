@@ -11654,6 +11654,87 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
   }
 
   /**
+   * Gets details of the Exadata Infrastructure target system software versions that can be applied to the specified infrastructure resource for maintenance updates.
+   * Applies to Exadata Cloud@Customer and Exadata Cloud instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetInfrastructureTargetVersionsRequest
+   * @return GetInfrastructureTargetVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetInfrastructureTargetVersions.ts.html |here} to see how to use GetInfrastructureTargetVersions API.
+   */
+  public async getInfrastructureTargetVersions(
+    getInfrastructureTargetVersionsRequest: requests.GetInfrastructureTargetVersionsRequest
+  ): Promise<responses.GetInfrastructureTargetVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getInfrastructureTargetVersions.");
+    const operationName = "getInfrastructureTargetVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/InfrastructureTargetVersion/GetInfrastructureTargetVersions";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": getInfrastructureTargetVersionsRequest.compartmentId,
+      "targetResourceId": getInfrastructureTargetVersionsRequest.targetResourceId,
+      "targetResourceType": getInfrastructureTargetVersionsRequest.targetResourceType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getInfrastructureTargetVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getInfrastructureTargetVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/infrastructureTargetVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetInfrastructureTargetVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "infrastructureTargetVersion",
+        bodyModel: model.InfrastructureTargetVersion,
+        type: "model.InfrastructureTargetVersion",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified key store.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

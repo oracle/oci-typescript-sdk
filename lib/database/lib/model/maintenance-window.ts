@@ -42,6 +42,10 @@ export interface MaintenanceWindow {
    */
   "customActionTimeoutInMins"?: number;
   /**
+   * If true, enables the monthly patching option.
+   */
+  "isMonthlyPatchingEnabled"?: boolean;
+  /**
    * Months during the year when maintenance should be performed.
    */
   "months"?: Array<model.Month>;

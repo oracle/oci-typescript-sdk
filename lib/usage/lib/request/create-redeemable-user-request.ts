@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateRedeemableUserRequest extends common.BaseRequest {
   /**
-   * CreateRedeemableUserDetails inforamtion.
+   * CreateRedeemableUserDetails information.
    *
    */
   "createRedeemableUserDetails": model.CreateRedeemableUserDetails;

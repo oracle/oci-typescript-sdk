@@ -23,6 +23,7 @@ export interface GithubFilter extends model.Filter {
    */
   "events"?: Array<GithubFilter.Events>;
   "include"?: model.GithubFilterAttributes;
+  "exclude"?: model.GithubFilterExclusionAttributes;
 
   "triggerSource": string;
 }
@@ -45,7 +46,10 @@ export namespace GithubFilter {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Filter.getJsonObj(obj) as GithubFilter)),
       ...{
-        "include": obj.include ? model.GithubFilterAttributes.getJsonObj(obj.include) : undefined
+        "include": obj.include ? model.GithubFilterAttributes.getJsonObj(obj.include) : undefined,
+        "exclude": obj.exclude
+          ? model.GithubFilterExclusionAttributes.getJsonObj(obj.exclude)
+          : undefined
       }
     };
 
@@ -58,6 +62,9 @@ export namespace GithubFilter {
       ...{
         "include": obj.include
           ? model.GithubFilterAttributes.getDeserializedJsonObj(obj.include)
+          : undefined,
+        "exclude": obj.exclude
+          ? model.GithubFilterExclusionAttributes.getDeserializedJsonObj(obj.exclude)
           : undefined
       }
     };

@@ -31,6 +31,10 @@ export interface CategorySummary {
    */
   "compartmentId": string;
   /**
+   * The name associated with the compartment.
+   */
+  "compartmentName": string;
+  /**
    * The name assigned to the category.
    */
   "name": string;
