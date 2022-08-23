@@ -38,13 +38,13 @@ export interface MediaWorkflowTaskDeclaration {
    * parameters when jobs are created.
    *
    */
-  "parametersSchema": { [key: string]: string };
+  "parametersSchema": { [key: string]: any };
   /**
    * JSON schema similar to the parameterSchema, but permits parameter values to refer to other parameters using the
    * ${/path/to/another/parmeter} syntax.  This is used to validate task parameters when workflows are created.
    *
    */
-  "parametersSchemaAllowingReferences": { [key: string]: string };
+  "parametersSchemaAllowingReferences": { [key: string]: any };
 }
 
 export namespace MediaWorkflowTaskDeclaration {

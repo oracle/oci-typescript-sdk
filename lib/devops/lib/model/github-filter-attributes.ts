@@ -26,16 +26,29 @@ export interface GithubFilterAttributes {
    * The target branch for pull requests; not applicable for push requests.
    */
   "baseRef"?: string;
+  "fileFilter"?: model.FileFilter;
 }
 
 export namespace GithubFilterAttributes {
   export function getJsonObj(obj: GithubFilterAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fileFilter": obj.fileFilter ? model.FileFilter.getJsonObj(obj.fileFilter) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: GithubFilterAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fileFilter": obj.fileFilter
+          ? model.FileFilter.getDeserializedJsonObj(obj.fileFilter)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

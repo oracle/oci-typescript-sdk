@@ -22,6 +22,10 @@ export interface BitbucketCloudTriggerCreateResult extends model.TriggerCreateRe
    * The endpoint that listens to trigger events. Contains the secret as a query parameter.
    */
   "triggerUrl": string;
+  /**
+   * The OCID of the connection resource used to get details for triggered events.
+   */
+  "connectionId"?: string;
 
   "triggerSource": string;
 }

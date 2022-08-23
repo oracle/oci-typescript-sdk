@@ -23,7 +23,7 @@ export interface UpdateRecommendationRequest extends common.BaseRequest {
    */
   "recommendationId": string;
   /**
-   * The request object for udpating the recommendation details.
+   * The request object for updating the recommendation details.
    */
   "updateRecommendationDetails": model.UpdateRecommendationDetails;
   /**

@@ -15,13 +15,21 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The email object for a user that can redeem rewards.
+ * The summary of a user that can redeem rewards.
  */
 export interface RedeemableUser {
   /**
    * The email ID for a user that can redeem rewards.
    */
   "emailId": string;
+  /**
+   * The first name of the user that can redeem rewards.
+   */
+  "firstName"?: string;
+  /**
+   * The last name of the user that can redeem rewards.
+   */
+  "lastName"?: string;
 }
 
 export namespace RedeemableUser {

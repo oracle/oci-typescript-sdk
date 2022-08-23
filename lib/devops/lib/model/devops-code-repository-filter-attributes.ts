@@ -22,16 +22,29 @@ export interface DevopsCodeRepositoryFilterAttributes {
    * Branch for push event.
    */
   "headRef"?: string;
+  "fileFilter"?: model.FileFilter;
 }
 
 export namespace DevopsCodeRepositoryFilterAttributes {
   export function getJsonObj(obj: DevopsCodeRepositoryFilterAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fileFilter": obj.fileFilter ? model.FileFilter.getJsonObj(obj.fileFilter) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DevopsCodeRepositoryFilterAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fileFilter": obj.fileFilter
+          ? model.FileFilter.getDeserializedJsonObj(obj.fileFilter)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

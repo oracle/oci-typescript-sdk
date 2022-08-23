@@ -57,14 +57,14 @@ export interface MediaWorkflowTask {
    * a enableParameterReference is given. The value is a JSON node.
    *
    */
-  "enableWhenReferencedParameterEquals"?: { [key: string]: string };
+  "enableWhenReferencedParameterEquals"?: { [key: string]: any };
   /**
    * Data specifiying how this task is to be run. The data is a JSON object that must conform to the JSON Schema
    * specified by the parameters of the MediaWorkflowTaskDeclaration this task references. The parameters may
    * contain values or references to other parameters.
    *
    */
-  "parameters"?: { [key: string]: string };
+  "parameters"?: { [key: string]: any };
 }
 
 export namespace MediaWorkflowTask {

@@ -23,6 +23,7 @@ export interface DevopsCodeRepositoryFilter extends model.Filter {
    */
   "events"?: Array<DevopsCodeRepositoryFilter.Events>;
   "include"?: model.DevopsCodeRepositoryFilterAttributes;
+  "exclude"?: model.DevopsCodeRepositoryFilterExclusionAttributes;
 
   "triggerSource": string;
 }
@@ -43,6 +44,9 @@ export namespace DevopsCodeRepositoryFilter {
       ...{
         "include": obj.include
           ? model.DevopsCodeRepositoryFilterAttributes.getJsonObj(obj.include)
+          : undefined,
+        "exclude": obj.exclude
+          ? model.DevopsCodeRepositoryFilterExclusionAttributes.getJsonObj(obj.exclude)
           : undefined
       }
     };
@@ -61,6 +65,9 @@ export namespace DevopsCodeRepositoryFilter {
       ...{
         "include": obj.include
           ? model.DevopsCodeRepositoryFilterAttributes.getDeserializedJsonObj(obj.include)
+          : undefined,
+        "exclude": obj.exclude
+          ? model.DevopsCodeRepositoryFilterExclusionAttributes.getDeserializedJsonObj(obj.exclude)
           : undefined
       }
     };

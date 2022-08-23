@@ -292,6 +292,8 @@ import * as GetExternalNonContainerDatabaseRequest from "./get-external-non-cont
 export import GetExternalNonContainerDatabaseRequest = GetExternalNonContainerDatabaseRequest.GetExternalNonContainerDatabaseRequest;
 import * as GetExternalPluggableDatabaseRequest from "./get-external-pluggable-database-request";
 export import GetExternalPluggableDatabaseRequest = GetExternalPluggableDatabaseRequest.GetExternalPluggableDatabaseRequest;
+import * as GetInfrastructureTargetVersionsRequest from "./get-infrastructure-target-versions-request";
+export import GetInfrastructureTargetVersionsRequest = GetInfrastructureTargetVersionsRequest.GetInfrastructureTargetVersionsRequest;
 import * as GetKeyStoreRequest from "./get-key-store-request";
 export import GetKeyStoreRequest = GetKeyStoreRequest.GetKeyStoreRequest;
 import * as GetMaintenanceRunRequest from "./get-maintenance-run-request";

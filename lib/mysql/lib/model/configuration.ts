@@ -55,6 +55,7 @@ export interface Configuration {
    * The current state of the Configuration.
    */
   "lifecycleState": Configuration.LifecycleState;
+  "initVariables"?: model.InitializationVariables;
   "variables": model.ConfigurationVariables;
   /**
    * The OCID of the Configuration from which this Configuration is
@@ -102,6 +103,9 @@ export namespace Configuration {
     const jsonObj = {
       ...obj,
       ...{
+        "initVariables": obj.initVariables
+          ? model.InitializationVariables.getJsonObj(obj.initVariables)
+          : undefined,
         "variables": obj.variables
           ? model.ConfigurationVariables.getJsonObj(obj.variables)
           : undefined
@@ -114,6 +118,9 @@ export namespace Configuration {
     const jsonObj = {
       ...obj,
       ...{
+        "initVariables": obj.initVariables
+          ? model.InitializationVariables.getDeserializedJsonObj(obj.initVariables)
+          : undefined,
         "variables": obj.variables
           ? model.ConfigurationVariables.getDeserializedJsonObj(obj.variables)
           : undefined

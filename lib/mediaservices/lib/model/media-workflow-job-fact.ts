@@ -43,7 +43,7 @@ export interface MediaWorkflowJobFact {
   /**
    * The body of the detail captured as JSON.
    */
-  "detail": { [key: string]: string };
+  "detail": { [key: string]: any };
 }
 
 export namespace MediaWorkflowJobFact {

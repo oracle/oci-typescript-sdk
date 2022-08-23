@@ -61,6 +61,14 @@ export interface UpdateMaintenanceRunDetails {
    * If true, then the patching is resumed and the next component will be patched immediately.
    */
   "isResumePatching"?: boolean;
+  /**
+   * The target database server system software version for the patching operation.
+   */
+  "targetDbServerVersion"?: string;
+  /**
+   * The target storage cell system software version for the patching operation.
+   */
+  "targetStorageServerVersion"?: string;
 }
 
 export namespace UpdateMaintenanceRunDetails {

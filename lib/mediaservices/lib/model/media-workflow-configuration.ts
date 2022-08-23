@@ -40,7 +40,7 @@ export interface MediaWorkflowConfiguration {
    * unique to the task. taskKey -> parameterName -> parameterValue
    *
    */
-  "parameters": { [key: string]: string };
+  "parameters": { [key: string]: any };
   /**
    * The time when the the MediaWorkflowConfiguration was created. An RFC3339 formatted datetime string.
    */

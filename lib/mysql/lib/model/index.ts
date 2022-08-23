@@ -103,6 +103,8 @@ import * as HeatWaveClusterTableMemoryEstimate from "./heat-wave-cluster-table-m
 export import HeatWaveClusterTableMemoryEstimate = HeatWaveClusterTableMemoryEstimate.HeatWaveClusterTableMemoryEstimate;
 import * as HeatWaveNode from "./heat-wave-node";
 export import HeatWaveNode = HeatWaveNode.HeatWaveNode;
+import * as InitializationVariables from "./initialization-variables";
+export import InitializationVariables = InitializationVariables.InitializationVariables;
 import * as InnoDbShutdownMode from "./inno-db-shutdown-mode";
 export import InnoDbShutdownMode = InnoDbShutdownMode.InnoDbShutdownMode;
 import * as MaintenanceDetails from "./maintenance-details";

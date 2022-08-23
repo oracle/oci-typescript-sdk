@@ -54,7 +54,7 @@ export interface MediaWorkflow {
    * MediaWorkflowJobs from this MediaWorkflow.
    *
    */
-  "parameters"?: { [key: string]: string };
+  "parameters"?: { [key: string]: any };
   /**
    * The time when the MediaWorkflow was created. An RFC3339 formatted datetime string.
    */

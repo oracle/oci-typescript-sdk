@@ -32,7 +32,7 @@ export interface CreateMediaWorkflowConfigurationDetails {
    * unique to the task. taskKey -> parameterName -> parameterValue
    *
    */
-  "parameters": { [key: string]: string };
+  "parameters": { [key: string]: any };
   /**
    * Compartment Identifier.
    */

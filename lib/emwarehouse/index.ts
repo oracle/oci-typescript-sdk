@@ -1,6 +1,6 @@
 /**
- * EmdwControlPlane API
- * A description of the EmdwControlPlane API
+ * EM Warehouse API
+ * Use the EM Warehouse API to manage EM Warehouse data collection.
  * OpenAPI spec version: 20180828
  *
  *
@@ -15,10 +15,10 @@ import * as requests from "./lib/request";
 import * as models from "./lib/model";
 import * as responses from "./lib/response";
 import * as client from "./lib/client";
-import * as emdatalake_waiter from "./lib/emdatalake-waiter";
+import * as emwarehouse_waiter from "./lib/emwarehouse-waiter";
 
 export { models };
 export { requests };
 export { responses };
-export import EmDataLakeClient = client.EmDataLakeClient;
-export import EmDataLakeWaiter = emdatalake_waiter.EmDataLakeWaiter;
+export import EmWarehouseClient = client.EmWarehouseClient;
+export import EmWarehouseWaiter = emwarehouse_waiter.EmWarehouseWaiter;

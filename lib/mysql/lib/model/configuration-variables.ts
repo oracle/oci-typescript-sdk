@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User controllable service variables.
+ * User-defined service variables.
  */
 export interface ConfigurationVariables {
   /**
@@ -23,9 +23,44 @@ export interface ConfigurationVariables {
    */
   "completionType"?: ConfigurationVariables.CompletionType;
   /**
+    * If enabled, the server stores all temporary tables on disk rather than in memory.
+* <p>
+bigTables corresponds to the MySQL server variable [big_tables](https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_big_tables).
+* 
+    */
+  "bigTables"?: boolean;
+  /**
+    * Set the chunking size for updates to the global memory usage counter Global_connection_memory.
+* <p>
+connectionMemoryChunkSize corresponds to the MySQL system variable [connection_memory_chunk_size](https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_connection_memory_chunk_size).
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "connectionMemoryChunkSize"?: number;
+  /**
+    * Set the maximum amount of memory that can be used by a single user connection.
+* <p>
+connectionMemoryLimit corresponds to the MySQL system variable [connection_memory_limit](https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_connection_memory_limit).
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "connectionMemoryLimit"?: number;
+  /**
    * (\"default_authentication_plugin\")
    */
   "defaultAuthenticationPlugin"?: ConfigurationVariables.DefaultAuthenticationPlugin;
+  /**
+    * Set the total amount of memory that can be used by all user connections.
+* <p>
+globalConnectionMemoryLimit corresponds to the MySQL system variable [global_connection_memory_limit](https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_global_connection_memory_limit).
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "globalConnectionMemoryLimit"?: number;
+  /**
+    * Determines whether the MySQL server calculates Global_connection_memory.
+* <p>
+globalConnectionMemoryTracking corresponds to the MySQL system variable [global_connection_memory_tracking](https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_global_connection_memory_tracking).
+* 
+    */
+  "globalConnectionMemoryTracking"?: boolean;
   /**
    * (\"transaction_isolation\")
    */
@@ -84,6 +119,13 @@ export interface ConfigurationVariables {
    */
   "innodbFtEnableStopword"?: boolean;
   /**
+    * Enables dedicated log writer threads for writing redo log records from the log buffer to the system buffers and flushing the system buffers to the redo log files.
+* <p>
+This is the MySQL variable \"innodb_log_writer_threads\". For more information, please see the [MySQL documentation](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_log_writer_threads)
+* 
+    */
+  "innodbLogWriterThreads"?: boolean;
+  /**
    * (\"local_infile\")
    */
   "localInfile"?: boolean;
@@ -128,13 +170,39 @@ export interface ConfigurationVariables {
    */
   "binlogTransactionCompression"?: boolean;
   /**
-   * (\"innodb_buffer_pool_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The size (in bytes) of the buffer pool, that is, the memory area where InnoDB caches table and index data.
+* <p>
+innodbBufferPoolSize corresponds to the MySQL server system variable
+* [innodb_buffer_pool_size](https://dev.mysql.com/doc/refman/en/innodb-parameters.html#sysvar_innodb_buffer_pool_size).
+* <p>
+The default and maximum values depend on the amount of RAM provisioned by the shape.
+* See [Default User Variables](https://docs.cloud.oracle.com/mysql-database/doc/configuring-db-system.html#GUID-B5504C19-F6F4-4DAB-8506-189A4E8F4A6A).
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "innodbBufferPoolSize"?: number;
   /**
    * (\"innodb_ft_result_cache_limit\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbFtResultCacheLimit"?: number;
+  /**
+    * Sets the size of the transaction cache.
+* <p>
+maxBinlogCacheSize corresponds to the MySQL server system variable [max_binlog_cache_size](https://dev.mysql.com/doc/refman/8.0/en/replication-options-binary-log.html#sysvar_max_binlog_cache_size).
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "maxBinlogCacheSize"?: number;
+  /**
+   * (\"max_connect_errors\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxConnectErrors"?: number;
+  /**
+    * This variable sets the maximum size to which user-created MEMORY tables are permitted to grow.
+* <p>
+maxHeapTableSize corresponds to the MySQL system variable
+* [max_heap_table_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_max_heap_table_size)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "maxHeapTableSize"?: number;
   /**
    * (\"max_connections\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -144,8 +212,15 @@ export interface ConfigurationVariables {
    */
   "maxPreparedStmtCount"?: number;
   /**
-   * (\"connect_timeout\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The number of seconds that the mysqld server waits for a connect packet before responding with Bad handshake.
+* <p>
+connectTimeout corresponds to the MySQL system variable
+* [connect_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_connect_timeout)
+* <p>
+Increasing the connect_timeout value might help if clients frequently encounter errors of the form
+* \"Lost connection to MySQL server at 'XXX', system error: errno\".
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "connectTimeout"?: number;
   /**
    * (\"cte_max_recursion_depth\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -160,9 +235,32 @@ export interface ConfigurationVariables {
    */
   "informationSchemaStatsExpiry"?: number;
   /**
+    * Specifies the percentage of the most recently used pages for each buffer pool to read out and dump.
+* <p>
+innodbBufferPoolDumpPct corresponds to the MySQL InnoDB system variable
+* [innodb_buffer_pool_dump_pct](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_buffer_pool_dump_pct).
+* <p>
+The range is 1 to 100. The default value is 25.
+* <p>
+For example, if there are 4 buffer pools with 100 pages each, and innodb_buffer_pool_dump_pct is set to 25,
+* the 25 most recently used pages from each buffer pool are dumped.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "innodbBufferPoolDumpPct"?: number;
+  /**
    * (\"innodb_buffer_pool_instances\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "innodbBufferPoolInstances"?: number;
+  /**
+   * innodbDdlBufferSize corresponds to the MySQL system variable [innodb_ddl_buffer_size] (https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ddl_buffer_size)
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "innodbDdlBufferSize"?: number;
+  /**
+   * innodbDdlThreads corresponds to the MySQL system variable [innodb_ddl_threads] (https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_ddl_threads)
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "innodbDdlThreads"?: number;
   /**
    * (\"innodb_ft_max_token_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -180,20 +278,83 @@ export interface ConfigurationVariables {
    */
   "innodbLockWaitTimeout"?: number;
   /**
-   * (\"innodb_max_purge_lag\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The desired maximum purge lag in terms of transactions.
+* <p>
+InnoDB maintains a list of transactions that have index records delete-marked by UPDATE or DELETE operations. The length of the list is the purge lag.
+* <p>
+If this value is exceeded, a delay is imposed on INSERT, UPDATE, and DELETE operations to allow time for purge to catch up.
+* <p>
+The default value is 0, which means there is no maximum purge lag and no delay.
+* <p>
+innodbMaxPurgeLag corresponds to the MySQL server system variable
+* [innodb_max_purge_lag](https://dev.mysql.com/doc/refman/en/innodb-parameters.html#sysvar_innodb_max_purge_lag).
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "innodbMaxPurgeLag"?: number;
   /**
-   * (\"innodb_max_purge_lag_delay\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The maximum delay in microseconds for the delay imposed when the innodb_max_purge_lag threshold is exceeded.
+* <p>
+The specified innodb_max_purge_lag_delay value is an upper limit on the delay period.
+* <p>
+innodbMaxPurgeLagDelay corresponds to the MySQL server system variable
+* [innodb_max_purge_lag_delay](https://dev.mysql.com/doc/refman/en/innodb-parameters.html#sysvar_innodb_max_purge_lag_delay).
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "innodbMaxPurgeLagDelay"?: number;
+  /**
+    * The number of seconds the server waits for activity on an interactive connection before closing it.
+* <p>
+interactiveTimeout corresponds to the MySQL system variable.
+* [interactive_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_interactive_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "interactiveTimeout"?: number;
+  /**
+    * The number of index pages to sample when estimating cardinality and other statistics for an indexed column,
+* such as those calculated by ANALYZE TABLE.
+* <p>
+innodbStatsPersistentSamplePages corresponds to the MySQL InnoDB system variable
+* [innodb_stats_persistent_sample_pages](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_persistent_sample_pages)
+* <p>
+innodb_stats_persistent_sample_pages only applies when innodb_stats_persistent is enabled for a table;
+* when innodb_stats_persistent is disabled, innodb_stats_transient_sample_pages applies instead.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "innodbStatsPersistentSamplePages"?: number;
+  /**
+    * The number of index pages to sample when estimating cardinality and other statistics for an indexed column,
+* such as those calculated by [ANALYZE TABLE](https://dev.mysql.com/doc/refman/8.0/en/analyze-table.html).
+* <p>
+innodbStatsTransientSamplePages corresponds to the MySQL InnoDB system variable
+* [innodb_stats_transient_sample_pages](https://dev.mysql.com/doc/refman/8.0/en/innodb-parameters.html#sysvar_innodb_stats_transient_sample_pages)
+* <p>
+innodb_stats_transient_sample_pages only applies when innodb_stats_persistent is disabled for a table;
+* when innodb_stats_persistent is enabled, innodb_stats_persistent_sample_pages applies instead.
+* <p>
+innodb_stats_persistent is ON by default and cannot be changed. It is possible to override it using the
+* STATS_PERSISTENT clause of the [CREATE TABLE](https://dev.mysql.com/doc/refman/8.0/en/create-table.html) and
+* [ALTER TABLE](https://dev.mysql.com/doc/refman/8.0/en/alter-table.html) statements.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "innodbStatsTransientSamplePages"?: number;
+  /**
+    * The maximum size of one packet or any generated/intermediate string.
+* <p>
+This is the mysql variable \"max_allowed_packet\".
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "maxAllowedPacket"?: number;
   /**
    * (\"max_execution_time\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxExecutionTime"?: number;
   /**
-   * (\"mysqlx_connect_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The number of seconds X Plugin waits for the first packet to be received from newly connected clients.
+* <p>
+mysqlxConnectTimeout corresponds to the MySQL X Plugin system variable
+* [mysqlx_connect_timeout](https://dev.mysql.com/doc/refman/8.0/en/x-plugin-options-system-variables.html#sysvar_mysqlx_connect_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "mysqlxConnectTimeout"?: number;
   /**
    * (\"mysqlx_document_id_unique_prefix\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -204,29 +365,67 @@ export interface ConfigurationVariables {
    */
   "mysqlxIdleWorkerThreadTimeout"?: number;
   /**
-   * (\"mysqlx_interactive_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The number of seconds to wait for interactive clients to timeout.
+* <p>
+mysqlxInteractiveTimeout corresponds to the MySQL X Plugin system variable.
+* [mysqlx_interactive_timeout](https://dev.mysql.com/doc/refman/8.0/en/x-plugin-options-system-variables.html#sysvar_mysqlx_interactive_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "mysqlxInteractiveTimeout"?: number;
   /**
-   * (\"mysqlx_max_allowed_packet\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The maximum size of network packets that can be received by X Plugin.
+* <p>
+This is the mysql variable \"mysqlx_max_allowed_packet\".
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "mysqlxMaxAllowedPacket"?: number;
   /**
    * (\"mysqlx_min_worker_threads\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlxMinWorkerThreads"?: number;
   /**
-   * (\"mysqlx_read_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The number of seconds that X Plugin waits for blocking read operations to complete. After this time, if the
+* read operation is not successful, X Plugin closes the connection and returns a warning notice with the error
+* code ER_IO_READ_ERROR to the client application.
+* <p>
+mysqlxReadTimeout corresponds to the MySQL X Plugin system variable
+* [mysqlx_read_timeout](https://dev.mysql.com/doc/refman/8.0/en/x-plugin-options-system-variables.html#sysvar_mysqlx_read_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "mysqlxReadTimeout"?: number;
   /**
-   * (\"mysqlx_wait_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The number of seconds that X Plugin waits for activity on a connection.
+* <p>
+mysqlxWaitTimeout corresponds to the MySQL X Plugin system variable.
+* [mysqlx_wait_timeout](https://dev.mysql.com/doc/refman/8.0/en/x-plugin-options-system-variables.html#sysvar_mysqlx_wait_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "mysqlxWaitTimeout"?: number;
   /**
-   * (\"mysqlx_write_timeout\") DEPRECATED -- variable should not be settable and will be ignored Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The number of seconds that X Plugin waits for blocking write operations to complete. After this time, if the
+* write operation is not successful, X Plugin closes the connection.
+* <p>
+mysqlxReadmysqlxWriteTimeoutTimeout corresponds to the MySQL X Plugin system variable
+* [mysqlx_write_timeout](https://dev.mysql.com/doc/refman/8.0/en/x-plugin-options-system-variables.html#sysvar_mysqlx_write_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "mysqlxWriteTimeout"?: number;
+  /**
+    * The number of seconds to wait for more data from a connection before aborting the read.
+* <p>
+netReadTimeout corresponds to the MySQL system variable
+* [net_read_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_read_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "netReadTimeout"?: number;
+  /**
+    * The number of seconds to wait for a block to be written to a connection before aborting the write.
+* <p>
+netWriteTimeout corresponds to the MySQL system variable
+* [net_write_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_net_write_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "netWriteTimeout"?: number;
   /**
    * (\"parser_max_mem_size\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -240,9 +439,22 @@ export interface ConfigurationVariables {
    */
   "queryPreallocSize"?: number;
   /**
+   * regexpTimeLimit corresponds to the MySQL system variable [regexp_time_limit] (https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_regexp_time_limit)
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "regexpTimeLimit"?: number;
+  /**
    * (\"sql_mode\")
    */
   "sqlMode"?: string;
+  /**
+    * The maximum size of internal in-memory temporary tables. This variable does not apply to user-created MEMORY tables.
+* <p>
+tmp_table_size corresponds to the MySQL system variable
+* [tmp_table_size](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_tmp_table_size)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "tmpTableSize"?: number;
   /**
    * Set the default compression level for the deflate algorithm. (\"mysqlx_deflate_default_compression_level\") Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -271,6 +483,46 @@ export interface ConfigurationVariables {
    * DEPRECATED -- typo of mysqlx_zstd_default_compression_level. variable will be ignored. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "mysqlZstdDefaultCompressionLevel"?: number;
+  /**
+    * Each session that must perform a sort allocates a buffer of this size.
+* <p>
+sortBufferSize corresponds to the MySQL system variable [sort_buffer_size](https://dev.mysql.com/doc/refman/en/server-system-variables.html#sysvar_sort_buffer_size)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "sortBufferSize"?: number;
+  /**
+    * The number of seconds the server waits for activity on a noninteractive connection before closing it.
+* <p>
+waitTimeout corresponds to the MySQL system variable.
+* [wait_timeout](https://dev.mysql.com/doc/refman/8.0/en/server-system-variables.html#sysvar_wait_timeout)
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "waitTimeout"?: number;
+  /**
+   * Controls whether the thread pool uses dedicated listener threads. If enabled, a listener thread in each thread group is dedicated to the task of listening
+   * for network events from clients, ensuring that the maximum number of query worker threads is no more than the value specified by threadPoolMaxTransactionsLimit.
+   * threadPoolDedicatedListeners corresponds to the MySQL Database Service-specific system variable thread_pool_dedicated_listeners.
+   *
+   */
+  "threadPoolDedicatedListeners"?: boolean;
+  /**
+   * Limits the maximum number of open transactions to the defined value. The default value is 0, which enforces no limit.
+   * threadPoolMaxTransactionsLimit corresponds to the MySQL Database Service-specific system variable thread_pool_max_transactions_limit.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "threadPoolMaxTransactionsLimit"?: number;
+  /**
+    * Initializes the time zone for each client that connects.
+* <p>
+This corresponds to the MySQL System Variable \"time_zone\".
+* <p>
+The values can be given in one of the following formats, none of which are case-sensitive:
+* <p>
+- As a string indicating an offset from UTC of the form [H]H:MM, prefixed with a + or -, such as '+10:00', '-6:00', or '+05:30'. The permitted range is '-13:59' to '+14:00', inclusive.
+* - As a named time zone, as defined by the \"IANA Time Zone database\", such as 'Europe/Helsinki', 'US/Eastern', 'MET', or 'UTC'.
+* 
+    */
+  "timeZone"?: string;
 }
 
 export namespace ConfigurationVariables {

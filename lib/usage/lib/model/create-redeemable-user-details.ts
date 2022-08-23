@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of email IDs to be added to the list of users that can redeem rewards.
+ * A list of new user to be added to the list of user that can redeem rewards.
  */
 export interface CreateRedeemableUserDetails {
   /**
-   * The list of email IDs to be added to the list of users that can redeem rewards.
+   * The list of new user to be added to the list of user that can redeem rewards.
    */
   "items"?: Array<model.RedeemableUser>;
 }

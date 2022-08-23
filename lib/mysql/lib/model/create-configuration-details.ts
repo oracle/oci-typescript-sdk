@@ -35,6 +35,7 @@ export interface CreateConfigurationDetails {
    * The name of the associated Shape.
    */
   "shapeName": string;
+  "initVariables"?: model.InitializationVariables;
   "variables"?: model.ConfigurationVariables;
   /**
    * The OCID of the Configuration from which the new Configuration is derived. The values in CreateConfigurationDetails.variables supersede the variables of the parent Configuration.
@@ -60,6 +61,9 @@ export namespace CreateConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "initVariables": obj.initVariables
+          ? model.InitializationVariables.getJsonObj(obj.initVariables)
+          : undefined,
         "variables": obj.variables
           ? model.ConfigurationVariables.getJsonObj(obj.variables)
           : undefined
@@ -72,6 +76,9 @@ export namespace CreateConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "initVariables": obj.initVariables
+          ? model.InitializationVariables.getDeserializedJsonObj(obj.initVariables)
+          : undefined,
         "variables": obj.variables
           ? model.ConfigurationVariables.getDeserializedJsonObj(obj.variables)
           : undefined

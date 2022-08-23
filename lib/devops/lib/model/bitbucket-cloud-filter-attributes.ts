@@ -26,16 +26,29 @@ export interface BitbucketCloudFilterAttributes {
    * The target branch for pull requests; not applicable for push requests.
    */
   "baseRef"?: string;
+  "fileFilter"?: model.FileFilter;
 }
 
 export namespace BitbucketCloudFilterAttributes {
   export function getJsonObj(obj: BitbucketCloudFilterAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fileFilter": obj.fileFilter ? model.FileFilter.getJsonObj(obj.fileFilter) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: BitbucketCloudFilterAttributes): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "fileFilter": obj.fileFilter
+          ? model.FileFilter.getDeserializedJsonObj(obj.fileFilter)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

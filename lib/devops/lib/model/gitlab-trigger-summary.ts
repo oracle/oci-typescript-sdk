@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Summary of the GitLab trigger.
  */
 export interface GitlabTriggerSummary extends model.TriggerSummary {
+  /**
+   * The OCID of the connection resource used to get details for triggered events.
+   */
+  "connectionId"?: string;
+
   "triggerSource": string;
 }
 

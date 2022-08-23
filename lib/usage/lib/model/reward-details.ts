@@ -39,7 +39,7 @@ export interface RewardDetails {
    */
   "totalRewardsAvailable"?: number;
   /**
-   * The redemption code used in the billing center during the reward redemption process
+   * The redemption code used in the Billing Center during the reward redemption process.
    */
   "redemptionCode"?: string;
 }

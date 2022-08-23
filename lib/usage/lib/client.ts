@@ -125,7 +125,7 @@ export class RewardsClient {
   }
 
   /**
-   * Adds the list of redeemable user email IDs for a subscription ID.
+   * Adds the list of redeemable user summary for a subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRedeemableUserRequest
@@ -212,7 +212,7 @@ export class RewardsClient {
   }
 
   /**
-   * Deletes the list of redeemable user email IDs for a subscription ID.
+   * Deletes the list of redeemable user email ID for a subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRedeemableUserRequest
@@ -369,7 +369,7 @@ export class RewardsClient {
   }
 
   /**
-   * Provides the email IDs of users that can redeem rewards for the given subscription ID.
+   * Provides the list of user summary that can redeem rewards for the given subscription ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListRedeemableUsersRequest
@@ -431,6 +431,91 @@ export class RewardsClient {
         bodyKey: "redeemableUserCollection",
         bodyModel: model.RedeemableUserCollection,
         type: "model.RedeemableUserCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the list of redemption for the subscription ID.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRedemptionsRequest
+   * @return ListRedemptionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/usage/ListRedemptions.ts.html |here} to see how to use ListRedemptions API.
+   */
+  public async listRedemptions(
+    listRedemptionsRequest: requests.ListRedemptionsRequest
+  ): Promise<responses.ListRedemptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation RewardsClient#listRedemptions.");
+    const operationName = "listRedemptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/usage-proxy/20190111/RedemptionSummary/ListRedemptions";
+    const pathParams = {
+      "{subscriptionId}": listRedemptionsRequest.subscriptionId
+    };
+
+    const queryParams = {
+      "tenancyId": listRedemptionsRequest.tenancyId,
+      "timeRedeemedGreaterThanOrEqualTo": listRedemptionsRequest.timeRedeemedGreaterThanOrEqualTo,
+      "timeRedeemedLessThan": listRedemptionsRequest.timeRedeemedLessThan,
+      "page": listRedemptionsRequest.page,
+      "limit": listRedemptionsRequest.limit,
+      "sortOrder": listRedemptionsRequest.sortOrder,
+      "sortBy": listRedemptionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRedemptionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRedemptionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/subscriptions/{subscriptionId}/redemptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRedemptionsResponse>{},
+        body: await response.json(),
+        bodyKey: "redemptionCollection",
+        bodyModel: model.RedemptionCollection,
+        type: "model.RedemptionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
