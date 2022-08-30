@@ -66,8 +66,8 @@ export namespace CreateOaxServiceInstanceDetails {
             obj
           ) as CreateOaxServiceInstanceDetails)),
       ...{
-        "fawAdminInfo": (obj as any).FawAdminInfo
-          ? model.FawAdminInfoDetails.getDeserializedJsonObj((obj as any).FawAdminInfo)
+        "fawAdminInfo": (obj as any)["FawAdminInfo"]
+          ? model.FawAdminInfoDetails.getDeserializedJsonObj((obj as any)["FawAdminInfo"])
           : undefined
       }
     };

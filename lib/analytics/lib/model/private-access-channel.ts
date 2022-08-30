@@ -58,6 +58,16 @@ export interface PrivateAccessChannel {
    *
    */
   "privateSourceDnsZones"?: Array<model.PrivateSourceDnsZone>;
+  /**
+   * List of Private Source DB SCAN hosts registered with Private Access Channel for access from Analytics Instance.
+   *
+   */
+  "privateSourceScanHosts"?: Array<model.PrivateSourceScanHost>;
+  /**
+   * Network Security Group OCIDs for an Analytics instance.
+   *
+   */
+  "networkSecurityGroupIds"?: Array<string>;
 }
 
 export namespace PrivateAccessChannel {
@@ -68,6 +78,11 @@ export namespace PrivateAccessChannel {
         "privateSourceDnsZones": obj.privateSourceDnsZones
           ? obj.privateSourceDnsZones.map(item => {
               return model.PrivateSourceDnsZone.getJsonObj(item);
+            })
+          : undefined,
+        "privateSourceScanHosts": obj.privateSourceScanHosts
+          ? obj.privateSourceScanHosts.map(item => {
+              return model.PrivateSourceScanHost.getJsonObj(item);
             })
           : undefined
       }
@@ -82,6 +97,11 @@ export namespace PrivateAccessChannel {
         "privateSourceDnsZones": obj.privateSourceDnsZones
           ? obj.privateSourceDnsZones.map(item => {
               return model.PrivateSourceDnsZone.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "privateSourceScanHosts": obj.privateSourceScanHosts
+          ? obj.privateSourceScanHosts.map(item => {
+              return model.PrivateSourceScanHost.getDeserializedJsonObj(item);
             })
           : undefined
       }

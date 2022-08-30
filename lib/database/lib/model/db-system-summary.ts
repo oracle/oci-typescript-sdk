@@ -270,6 +270,7 @@ Example: `{\"Department\": \"Finance\"}`
    * The point in time for a cloned database system when the data disks were cloned from the source database system, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "pointInTimeDataDiskCloneTimestamp"?: Date;
+  "dataCollectionOptions"?: model.DataCollectionOptions;
 }
 
 export namespace DbSystemSummary {
@@ -343,6 +344,10 @@ export namespace DbSystemSummary {
 
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };
@@ -359,6 +364,10 @@ export namespace DbSystemSummary {
 
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };

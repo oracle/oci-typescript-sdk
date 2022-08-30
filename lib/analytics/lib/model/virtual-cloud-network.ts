@@ -26,7 +26,7 @@ export interface VirtualCloudNetwork {
    */
   "id": string;
   /**
-   * Source IP addresses or IP address ranges igress rules.
+   * Source IP addresses or IP address ranges in ingress rules.
    *
    */
   "whitelistedIps"?: Array<string>;

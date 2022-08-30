@@ -12,6 +12,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AccessControlServiceType from "./access-control-service-type";
+export import AccessControlServiceType = AccessControlServiceType.AccessControlServiceType;
 import * as AnalyticsInstance from "./analytics-instance";
 export import AnalyticsInstance = AnalyticsInstance.AnalyticsInstance;
 import * as AnalyticsInstanceLifecycleState from "./analytics-instance-lifecycle-state";
@@ -44,6 +46,8 @@ import * as PrivateAccessChannel from "./private-access-channel";
 export import PrivateAccessChannel = PrivateAccessChannel.PrivateAccessChannel;
 import * as PrivateSourceDnsZone from "./private-source-dns-zone";
 export import PrivateSourceDnsZone = PrivateSourceDnsZone.PrivateSourceDnsZone;
+import * as PrivateSourceScanHost from "./private-source-scan-host";
+export import PrivateSourceScanHost = PrivateSourceScanHost.PrivateSourceScanHost;
 import * as ScaleAnalyticsInstanceDetails from "./scale-analytics-instance-details";
 export import ScaleAnalyticsInstanceDetails = ScaleAnalyticsInstanceDetails.ScaleAnalyticsInstanceDetails;
 import * as SetKmsKeyDetails from "./set-kms-key-details";

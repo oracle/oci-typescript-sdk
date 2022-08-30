@@ -76,11 +76,13 @@ Example: `{\"Department\": \"Finance\"}`
 * <p>
 Allowed values:
 * <p>
-  * `10`: Represents Balanced option.
+  * `10`: Represents the Balanced option.
 * <p>
-  * `20`: Represents Higher Performance option.
+  * `20`: Represents the Higher Performance option.
 * <p>
   * `30`-`120`: Represents the Ultra High Performance option.
+* <p>
+For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
@@ -89,7 +91,8 @@ Allowed values:
     | model.BootVolumeSourceFromBootVolumeDetails
     | model.BootVolumeSourceFromBootVolumeReplicaDetails;
   /**
-   * Specifies whether the auto-tune performance is enabled for this boot volume.
+   * Specifies whether the auto-tune performance is enabled for this boot volume. This field is deprecated.
+   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
    *
    */
   "isAutoTuneEnabled"?: boolean;
@@ -99,6 +102,10 @@ Allowed values:
    *
    */
   "bootVolumeReplicas"?: Array<model.BootVolumeReplicaDetails>;
+  /**
+   * The list of autotune policies to be enabled for this volume.
+   */
+  "autotunePolicies"?: Array<model.AutotunePolicy>;
 }
 
 export namespace CreateBootVolumeDetails {
@@ -113,6 +120,11 @@ export namespace CreateBootVolumeDetails {
         "bootVolumeReplicas": obj.bootVolumeReplicas
           ? obj.bootVolumeReplicas.map(item => {
               return model.BootVolumeReplicaDetails.getJsonObj(item);
+            })
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.AutotunePolicy.getJsonObj(item);
             })
           : undefined
       }
@@ -131,6 +143,11 @@ export namespace CreateBootVolumeDetails {
         "bootVolumeReplicas": obj.bootVolumeReplicas
           ? obj.bootVolumeReplicas.map(item => {
               return model.BootVolumeReplicaDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.AutotunePolicy.getDeserializedJsonObj(item);
             })
           : undefined
       }

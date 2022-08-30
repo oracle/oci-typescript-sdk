@@ -43,6 +43,8 @@ Allowed values:
   * `20`: Represents Higher Performance option.
 * <p>
   * `30`-`120`: Represents the Ultra High Performance option.
+* <p>
+For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "bootVolumeVpusPerGB"?: number;
