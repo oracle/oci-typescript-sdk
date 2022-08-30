@@ -97,6 +97,8 @@ Allowed values:
   * `20`: Represents Higher Performance option.
 * <p>
   * `30`-`120`: Represents the Ultra High Performance option.
+* <p>
+For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
@@ -133,12 +135,13 @@ Allowed values:
    */
   "kmsKeyId"?: string;
   /**
-   * Specifies whether the auto-tune performance is enabled for this boot volume.
+   * Specifies whether the auto-tune performance is enabled for this boot volume. This field is deprecated.
+   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
    *
    */
   "isAutoTuneEnabled"?: boolean;
   /**
-   * The number of Volume Performance Units per GB that this boot volume is effectively tuned to when it's idle.
+   * The number of Volume Performance Units per GB that this boot volume is effectively tuned to.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "autoTunedVpusPerGB"?: number;
@@ -146,6 +149,10 @@ Allowed values:
    * The list of boot volume replicas of this boot volume
    */
   "bootVolumeReplicas"?: Array<model.BootVolumeReplicaInfo>;
+  /**
+   * The list of autotune policies enabled for this volume.
+   */
+  "autotunePolicies"?: Array<model.AutotunePolicy>;
 }
 
 export namespace BootVolume {
@@ -175,6 +182,11 @@ export namespace BootVolume {
           ? obj.bootVolumeReplicas.map(item => {
               return model.BootVolumeReplicaInfo.getJsonObj(item);
             })
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.AutotunePolicy.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -192,6 +204,11 @@ export namespace BootVolume {
         "bootVolumeReplicas": obj.bootVolumeReplicas
           ? obj.bootVolumeReplicas.map(item => {
               return model.BootVolumeReplicaInfo.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.AutotunePolicy.getDeserializedJsonObj(item);
             })
           : undefined
       }

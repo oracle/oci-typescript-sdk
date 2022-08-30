@@ -81,6 +81,7 @@ To get a list of shapes, use the {@link #listDbSystemShapes(ListDbSystemShapesRe
    */
   "licenseModel"?: UpdateDbSystemDetails.LicenseModel;
   "maintenanceWindowDetails"?: model.MaintenanceWindow;
+  "dataCollectionOptions"?: model.DataCollectionOptions;
 }
 
 export namespace UpdateDbSystemDetails {
@@ -97,6 +98,9 @@ export namespace UpdateDbSystemDetails {
 
         "maintenanceWindowDetails": obj.maintenanceWindowDetails
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
+          : undefined,
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };
@@ -111,6 +115,9 @@ export namespace UpdateDbSystemDetails {
 
         "maintenanceWindowDetails": obj.maintenanceWindowDetails
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined,
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };

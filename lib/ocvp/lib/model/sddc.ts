@@ -416,6 +416,21 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
+   * The vSphere licenses to be used when upgrade SDDC.
+   *
+   */
+  "upgradeLicenses"?: Array<model.VsphereLicense>;
+  /**
+   * The link of guidance to upgrade vSphere.
+   *
+   */
+  "vsphereUpgradeGuide"?: string;
+  /**
+   * The links of binary objects needed for upgrade vSphere.
+   *
+   */
+  "vsphereUpgradeObjects"?: Array<model.VsphereUpgradeObject>;
+  /**
    * The initial compute shape of the SDDC's ESXi hosts.
    * {@link #listSupportedHostShapes(ListSupportedHostShapesRequest) listSupportedHostShapes}.
    *
@@ -463,6 +478,18 @@ export namespace Sddc {
           ? obj.hcxOnPremLicenses.map(item => {
               return model.HcxLicenseSummary.getJsonObj(item);
             })
+          : undefined,
+
+        "upgradeLicenses": obj.upgradeLicenses
+          ? obj.upgradeLicenses.map(item => {
+              return model.VsphereLicense.getJsonObj(item);
+            })
+          : undefined,
+
+        "vsphereUpgradeObjects": obj.vsphereUpgradeObjects
+          ? obj.vsphereUpgradeObjects.map(item => {
+              return model.VsphereUpgradeObject.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -476,6 +503,18 @@ export namespace Sddc {
         "hcxOnPremLicenses": obj.hcxOnPremLicenses
           ? obj.hcxOnPremLicenses.map(item => {
               return model.HcxLicenseSummary.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "upgradeLicenses": obj.upgradeLicenses
+          ? obj.upgradeLicenses.map(item => {
+              return model.VsphereLicense.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "vsphereUpgradeObjects": obj.vsphereUpgradeObjects
+          ? obj.vsphereUpgradeObjects.map(item => {
+              return model.VsphereUpgradeObject.getDeserializedJsonObj(item);
             })
           : undefined
       }

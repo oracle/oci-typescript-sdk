@@ -63,7 +63,7 @@ Avoid entering confidential information.
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
    * is failed. This is an optional parameter. If this parameter is specified, a new ESXi
    * host will be created to replace the failed one, and the `failedEsxiHostId` field
-   * will be udpated in the newly created Esxi host.
+   * will be updated in the newly created Esxi host.
    *
    */
   "failedEsxiHostId"?: string;
@@ -83,6 +83,15 @@ Avoid entering confidential information.
    *
    */
   "capacityReservationId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
+   * will be upgraded. This is an optional parameter. If this parameter
+   * is specified, an ESXi host with new version will be created to replace the
+   * original one, and the `nonUpgradedEsxiHostId` field will be updated in the newly
+   * created Esxi host.
+   *
+   */
+  "nonUpgradedEsxiHostId"?: string;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).

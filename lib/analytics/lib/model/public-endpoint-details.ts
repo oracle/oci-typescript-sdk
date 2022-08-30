@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface PublicEndpointDetails extends model.NetworkEndpointDetails {
   /**
-   * Source IP addresses or IP address ranges igress rules.
+   * Source IP addresses or IP address ranges in ingress rules.
    *
    */
   "whitelistedIps"?: Array<string>;
@@ -30,11 +30,25 @@ export interface PublicEndpointDetails extends model.NetworkEndpointDetails {
    *
    */
   "whitelistedVcns"?: Array<model.VirtualCloudNetwork>;
+  /**
+   * Oracle Cloud Services that are allowed to access this Analytics instance.
+   *
+   */
+  "whitelistedServices"?: Array<PublicEndpointDetails.WhitelistedServices>;
 
   "networkEndpointType": string;
 }
 
 export namespace PublicEndpointDetails {
+  export enum WhitelistedServices {
+    All = "ALL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: PublicEndpointDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj

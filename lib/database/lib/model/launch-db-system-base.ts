@@ -203,6 +203,7 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "privateIp"?: string;
+  "dataCollectionOptions"?: model.DataCollectionOptions;
 
   "source": string;
 }
@@ -219,6 +220,10 @@ export namespace LaunchDbSystemBase {
       ...{
         "dbSystemOptions": obj.dbSystemOptions
           ? model.DbSystemOptions.getJsonObj(obj.dbSystemOptions)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };
@@ -257,6 +262,10 @@ export namespace LaunchDbSystemBase {
       ...{
         "dbSystemOptions": obj.dbSystemOptions
           ? model.DbSystemOptions.getDeserializedJsonObj(obj.dbSystemOptions)
+          : undefined,
+
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
           : undefined
       }
     };

@@ -84,6 +84,8 @@ Allowed values:
   * `20`: Represents Higher Performance option.
 * <p>
   * `30`-`120`: Represents the Ultra High Performance option.
+* <p>
+For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
@@ -109,7 +111,8 @@ Allowed values:
    */
   "volumeBackupId"?: string;
   /**
-   * Specifies whether the auto-tune performance is enabled for this volume.
+   * Specifies whether the auto-tune performance is enabled for this volume. This field is deprecated.
+   * Use the `DetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
    *
    */
   "isAutoTuneEnabled"?: boolean;
@@ -119,6 +122,10 @@ Allowed values:
    *
    */
   "blockVolumeReplicas"?: Array<model.BlockVolumeReplicaDetails>;
+  /**
+   * The list of autotune policies to be enabled for this volume.
+   */
+  "autotunePolicies"?: Array<model.AutotunePolicy>;
 }
 
 export namespace CreateVolumeDetails {
@@ -133,6 +140,11 @@ export namespace CreateVolumeDetails {
         "blockVolumeReplicas": obj.blockVolumeReplicas
           ? obj.blockVolumeReplicas.map(item => {
               return model.BlockVolumeReplicaDetails.getJsonObj(item);
+            })
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.AutotunePolicy.getJsonObj(item);
             })
           : undefined
       }
@@ -151,6 +163,11 @@ export namespace CreateVolumeDetails {
         "blockVolumeReplicas": obj.blockVolumeReplicas
           ? obj.blockVolumeReplicas.map(item => {
               return model.BlockVolumeReplicaDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.AutotunePolicy.getDeserializedJsonObj(item);
             })
           : undefined
       }

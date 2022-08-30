@@ -107,6 +107,23 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "gracePeriodEndDate"?: Date;
   /**
+   * The version of VMware software that the Oracle Cloud VMware Solution installed on the ESXi hosts.
+   *
+   */
+  "vmwareSoftwareVersion": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
+   * will be upgraded.
+   *
+   */
+  "nonUpgradedEsxiHostId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
+   * is newly created to upgrade the original host.
+   *
+   */
+  "upgradedReplacementEsxiHostId"?: string;
+  /**
    * The availability domain of the ESXi host.
    *
    */

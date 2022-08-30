@@ -144,6 +144,7 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "databaseDefinedTags"?: { [key: string]: { [key: string]: any } };
+  "dataCollectionOptions"?: model.DataCollectionOptions;
 
   "creationType": string;
 }
@@ -169,7 +170,11 @@ export namespace CreateDataGuardAssociationWithNewDbSystemDetails {
         : (model.CreateDataGuardAssociationDetails.getJsonObj(
             obj
           ) as CreateDataGuardAssociationWithNewDbSystemDetails)),
-      ...{}
+      ...{
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getJsonObj(obj.dataCollectionOptions)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -185,7 +190,11 @@ export namespace CreateDataGuardAssociationWithNewDbSystemDetails {
         : (model.CreateDataGuardAssociationDetails.getDeserializedJsonObj(
             obj
           ) as CreateDataGuardAssociationWithNewDbSystemDetails)),
-      ...{}
+      ...{
+        "dataCollectionOptions": obj.dataCollectionOptions
+          ? model.DataCollectionOptions.getDeserializedJsonObj(obj.dataCollectionOptions)
+          : undefined
+      }
     };
 
     return jsonObj;

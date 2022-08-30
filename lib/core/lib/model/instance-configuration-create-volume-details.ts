@@ -83,6 +83,8 @@ Allowed values:
   * `20`: Represents Higher Performance option.
 * <p>
   * `30`-`120`: Represents the Ultra High Performance option.
+* <p>
+For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/GB.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "vpusPerGB"?: number;
@@ -93,6 +95,10 @@ Allowed values:
   "sourceDetails"?:
     | model.InstanceConfigurationVolumeSourceFromVolumeBackupDetails
     | model.InstanceConfigurationVolumeSourceFromVolumeDetails;
+  /**
+   * The list of autotune policies enabled for this volume.
+   */
+  "autotunePolicies"?: Array<model.InstanceConfigurationAutotunePolicy>;
 }
 
 export namespace InstanceConfigurationCreateVolumeDetails {
@@ -102,6 +108,11 @@ export namespace InstanceConfigurationCreateVolumeDetails {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.InstanceConfigurationVolumeSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.InstanceConfigurationAutotunePolicy.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -114,6 +125,11 @@ export namespace InstanceConfigurationCreateVolumeDetails {
       ...{
         "sourceDetails": obj.sourceDetails
           ? model.InstanceConfigurationVolumeSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+        "autotunePolicies": obj.autotunePolicies
+          ? obj.autotunePolicies.map(item => {
+              return model.InstanceConfigurationAutotunePolicy.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };
