@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -23,16 +23,16 @@ export interface DataEntitySummaryFromDataStore extends model.DataEntitySummary 
    */
   "key"?: string;
   /**
-   * The object's model version.
+   * The model version of the object.
    */
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   * Free form text without any restriction on the permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
-   * Detailed description for the object.
+   * Detailed description of the object.
    */
   "description"?: string;
   /**
@@ -40,7 +40,7 @@ export interface DataEntitySummaryFromDataStore extends model.DataEntitySummary 
    */
   "objectVersion"?: number;
   /**
-   * The external key for the object
+   * The external key of the object.
    */
   "externalKey"?: string;
   "shape"?: model.Shape;
@@ -73,19 +73,19 @@ export interface DataEntitySummaryFromDataStore extends model.DataEntitySummary 
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be modified.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with an upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
-   * Query filter for the extract. It can be Null.
+   * Query filter for the extract. It can be null.
    */
   "filters"?: string;
   /**
-   * It shows whether or not effective date is disabled
+   * It shows whether the effective date is disabled.
    */
   "isEffectiveDateDisabled"?: boolean;
   /**
-   * Is Flex data store. Metadata csv will be generated for flex data store
+   * Is a flex data store. Metadata CSV will be generated for a flex data store.
    */
   "isFlexDataStore"?: boolean;
   /**
@@ -93,7 +93,7 @@ export interface DataEntitySummaryFromDataStore extends model.DataEntitySummary 
    */
   "isSilentError"?: boolean;
   /**
-   * It shows whether the datastore supports Incremental Extract or not.
+   * It shows whether the datastore supports incremental extract.
    */
   "supportsIncremental"?: boolean;
 
@@ -107,6 +107,7 @@ export namespace DataEntitySummaryFromDataStore {
     File = "FILE",
     Sql = "SQL",
     DataStore = "DATA_STORE",
+    Message = "MESSAGE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

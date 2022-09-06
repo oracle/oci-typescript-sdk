@@ -60,6 +60,9 @@ Example: `2019-02-01T01:02:29.600Z`
   "timestampTriggered": Date;
   /**
     * The status of this alarm.
+* Status is collective, across all metric streams in the alarm.
+* To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
+* The alarm attribute `isNotificationsPerMetricDimensionEnabled` must be set to `true`.
 * <p>
 Example: `FIRING`
 * 

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A metadata details of a profiling entity result.
+ * The metadata details of a profiling entity result.
  */
 export interface EntityProfileResult {
   /**
-   * Number of columns in the DataFrame (arrow buffer) sent from Java layer. This value is not impacted by the List of attributes to profile as being passed via configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of columns in the DataFrame (arrow buffer) sent from Java layer. This value is not impacted by the list of attributes to profile as being passed via configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "attributeCount"?: number;
   /**
-   * Number of rows were that were sampled Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of rows that are sampled. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sampledRowCount"?: number;
   /**

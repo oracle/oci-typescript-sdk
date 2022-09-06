@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Represents reference details of a dcms artifact.
+ * Represents reference details of a DCMS artifact.
  */
 export interface ReferenceInfo {
   /**
@@ -23,7 +23,7 @@ export interface ReferenceInfo {
    */
   "modelType"?: string;
   /**
-   * Generated key that can be used in API calls to identify referenceinfo.
+   * Generated key that can be used in API calls to identify the referenceinfo.
    */
   "key"?: string;
   /**
@@ -31,7 +31,7 @@ export interface ReferenceInfo {
    */
   "modelVersion"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   * Free form text without any restriction on the permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -47,19 +47,19 @@ export interface ReferenceInfo {
    */
   "objectVersion"?: number;
   /**
-   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with an upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   /**
-   * unique id of dcms artifact that is getting registered.
+   * The unique ID of the DCMS artifact that is getting registered.
    */
   "dcmsArtifactId": string;
   /**
-   * unique id of service which is referencing data asset.
+   * The unique ID of the service that is referencing a data asset.
    */
   "serviceArtifactId": string;
   /**
-   * count of how many times a data asset has been registered by a service. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of times a data asset has been registered by a service. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "referenceCount"?: number;
   "registryMetadata"?: model.RegistryMetadata;

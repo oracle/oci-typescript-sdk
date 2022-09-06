@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListReferenceArtifactsRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -43,7 +43,7 @@ export interface ListReferenceArtifactsRequest extends common.BaseRequest {
    */
   "type"?: string;
   /**
-   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
+   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order are by relevance score in descending order).
    */
   "sortBy"?: ListReferenceArtifactsRequest.SortBy;
   /**
@@ -62,7 +62,7 @@ export interface ListReferenceArtifactsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Types which wont be listed while listing dataAsset/Connection
+   * The types that will be excluded from the list of data assets/connections.
    */
   "excludeTypes"?: Array<string>;
   /**

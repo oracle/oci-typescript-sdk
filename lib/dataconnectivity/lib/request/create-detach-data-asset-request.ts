@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface CreateDetachDataAssetRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
-   * DCMS Endpoint id
+   * DCMS endpoint ID.
    */
   "endpointId": string;
   /**
-   * Request body parameters to detach data asset to an private endpoint
+   * Request body parameters to detach data asset to a private endpoint.
    */
   "createDetachDataAssetDetails": model.CreateDetachDataAssetDetails;
   /**
@@ -38,7 +38,7 @@ export interface CreateDetachDataAssetRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;

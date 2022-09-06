@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -51,8 +51,6 @@ import * as CreateTestNetworkConnectivityResponse from "./create-test-network-co
 export import CreateTestNetworkConnectivityResponse = CreateTestNetworkConnectivityResponse.CreateTestNetworkConnectivityResponse;
 import * as DeleteConnectionResponse from "./delete-connection-response";
 export import DeleteConnectionResponse = DeleteConnectionResponse.DeleteConnectionResponse;
-import * as DeleteConnectionValidationResponse from "./delete-connection-validation-response";
-export import DeleteConnectionValidationResponse = DeleteConnectionValidationResponse.DeleteConnectionValidationResponse;
 import * as DeleteDataAssetResponse from "./delete-data-asset-response";
 export import DeleteDataAssetResponse = DeleteDataAssetResponse.DeleteDataAssetResponse;
 import * as DeleteEndpointResponse from "./delete-endpoint-response";
@@ -63,16 +61,18 @@ import * as DeleteNetworkConnectivityStatusResponse from "./delete-network-conne
 export import DeleteNetworkConnectivityStatusResponse = DeleteNetworkConnectivityStatusResponse.DeleteNetworkConnectivityStatusResponse;
 import * as DeleteRegistryResponse from "./delete-registry-response";
 export import DeleteRegistryResponse = DeleteRegistryResponse.DeleteRegistryResponse;
+import * as DeriveEntitiesResponse from "./derive-entities-response";
+export import DeriveEntitiesResponse = DeriveEntitiesResponse.DeriveEntitiesResponse;
 import * as GetConnectionResponse from "./get-connection-response";
 export import GetConnectionResponse = GetConnectionResponse.GetConnectionResponse;
-import * as GetConnectionValidationResponse from "./get-connection-validation-response";
-export import GetConnectionValidationResponse = GetConnectionValidationResponse.GetConnectionValidationResponse;
 import * as GetDataAssetResponse from "./get-data-asset-response";
 export import GetDataAssetResponse = GetDataAssetResponse.GetDataAssetResponse;
 import * as GetDataEntityResponse from "./get-data-entity-response";
 export import GetDataEntityResponse = GetDataEntityResponse.GetDataEntityResponse;
 import * as GetEndpointResponse from "./get-endpoint-response";
 export import GetEndpointResponse = GetEndpointResponse.GetEndpointResponse;
+import * as GetEngineConfigurationsResponse from "./get-engine-configurations-response";
+export import GetEngineConfigurationsResponse = GetEngineConfigurationsResponse.GetEngineConfigurationsResponse;
 import * as GetExecuteOperationJobResponse from "./get-execute-operation-job-response";
 export import GetExecuteOperationJobResponse = GetExecuteOperationJobResponse.GetExecuteOperationJobResponse;
 import * as GetFolderResponse from "./get-folder-response";
@@ -89,8 +89,6 @@ import * as GetTypeResponse from "./get-type-response";
 export import GetTypeResponse = GetTypeResponse.GetTypeResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
-import * as ListConnectionValidationsResponse from "./list-connection-validations-response";
-export import ListConnectionValidationsResponse = ListConnectionValidationsResponse.ListConnectionValidationsResponse;
 import * as ListConnectionsResponse from "./list-connections-response";
 export import ListConnectionsResponse = ListConnectionsResponse.ListConnectionsResponse;
 import * as ListDataAssetsResponse from "./list-data-assets-response";

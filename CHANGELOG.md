@@ -3,6 +3,23 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.41.0 - 2022-09-06
+### Added
+- Support for generic REST, OCI Streaming service, and Lake House connectors in the Data Connectivity Management service
+- Support for connecting to the Data Catalog service in the Data Connectivity Management service
+- Support for Kerberos and SSL for HDFS operations in the Data Connectivity Management service
+- Support for excel-formatted data and default columns in the Data Connectivity Management service
+- Support for reporting connector usage in the Data Connectivity Management service
+- Support for preferred credentials for performing privileged operations in the Database Management service
+- Support for passing a content encoding when posting metrics in the Monitoring service
+ 
+### Breaking Changes
+- Support for default retries in operations of the Data Connectivity Management service
+- Model `ConnectionValidationSummaryCollection` has been removed in the Data Connectivity Management service
+- Method `public async deleteConnectionValidation` has been removed in the Data Connectivity Management service
+- Method `public async listConnectionValidations` has been removed in the Data Connectivity Management service
+- Method `public async getConnectionValidation` has been removed in the Data Connectivity Management service
+
 ## 2.40.1 - 2022-08-30
 ### Added
 - Support for opting out of guest VM event collection, health metrics, diagnostics logs, and traces in the Database service

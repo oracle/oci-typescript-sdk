@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface DataProfile {
   /**
-   * Entity name for which prodilig is requested.
+   * Entity name for which profiling is requested.
    */
   "entityName": string;
   "entityProfileResult"?: model.EntityProfileResult;
   /**
-   * Array of profiling results
+   * Array of profiling results.
    */
   "attributeProfileResults"?: Array<model.AttributeProfileResult>;
 }

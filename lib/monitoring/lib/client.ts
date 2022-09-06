@@ -704,6 +704,9 @@ This call is subject to a Monitoring limit that applies to the total number of r
 
   /**
      * List the status of each alarm in the specified compartment.
+* Status is collective, across all metric streams in the alarm.
+* To list alarm status for each metric stream, use {@link #retrieveDimensionStates(RetrieveDimensionStatesRequest) retrieveDimensionStates}.
+* The alarm attribute `isNotificationsPerMetricDimensionEnabled` must be set to `true`.
 * For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
 * <p>
 This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
@@ -994,7 +997,7 @@ Per-call limits information follows.
 * <p>
 *A metric group is the combination of a given metric, metric namespace, and tenancy for the purpose of determining limits.
 * A dimension is a qualifier provided in a metric definition.
-* A metric stream is an individual set of aggregated data for a metric, typically specific to a resource.
+* A metric stream is an individual set of aggregated data for a metric with zero or more dimension values.
 * For more information about metric-related concepts, see [Monitoring Concepts](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#concepts).
 * <p>
 The endpoints for this operation differ from other Monitoring operations. Replace the string `telemetry` with `telemetry-ingestion` in the endpoint, as in the following example:
@@ -1020,7 +1023,8 @@ https://telemetry-ingestion.eu-frankfurt-1.oraclecloud.com
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": postMetricDataRequest.opcRequestId
+      "opc-request-id": postMetricDataRequest.opcRequestId,
+      "content-encoding": postMetricDataRequest.contentEncoding
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -1137,6 +1141,101 @@ This call is subject to a Monitoring limit that applies to the total number of r
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Lists the current alarm status of each metric stream, where status is derived from the metric stream's last associated transition. 
+* Optionally filter by status value and one or more dimension key-value pairs.
+* This operation is only valid for alarms that have notifications per dimension enabled (`isNotificationsPerMetricDimensionEnabled=true`).
+*  If `isNotificationsPerMetricDimensionEnabled` for the alarm is false or null, then no results are returned.
+* <p>
+For important limits information, see [Limits on Monitoring](https://docs.cloud.oracle.com/iaas/Content/Monitoring/Concepts/monitoringoverview.htm#Limits).
+*  
+*  This call is subject to a Monitoring limit that applies to the total number of requests across all alarm operations.
+*  Monitoring might throttle this call to reject an otherwise valid request when the total rate of alarm operations exceeds 10 requests,
+*  or transactions, per second (TPS) for a given tenancy.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param RetrieveDimensionStatesRequest
+     * @return RetrieveDimensionStatesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/monitoring/RetrieveDimensionStates.ts.html |here} to see how to use RetrieveDimensionStates API.
+     */
+  public async retrieveDimensionStates(
+    retrieveDimensionStatesRequest: requests.RetrieveDimensionStatesRequest
+  ): Promise<responses.RetrieveDimensionStatesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MonitoringClient#retrieveDimensionStates.");
+    const operationName = "retrieveDimensionStates";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/monitoring/20180401/AlarmDimensionStatesCollection/RetrieveDimensionStates";
+    const pathParams = {
+      "{alarmId}": retrieveDimensionStatesRequest.alarmId
+    };
+
+    const queryParams = {
+      "page": retrieveDimensionStatesRequest.page,
+      "limit": retrieveDimensionStatesRequest.limit
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": retrieveDimensionStatesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      retrieveDimensionStatesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alarms/{alarmId}/actions/retrieveDimensionStates",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        retrieveDimensionStatesRequest.retrieveDimensionStatesDetails,
+        "RetrieveDimensionStatesDetails",
+        model.RetrieveDimensionStatesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RetrieveDimensionStatesResponse>{},
+        body: await response.json(),
+        bodyKey: "alarmDimensionStatesCollection",
+        bodyModel: model.AlarmDimensionStatesCollection,
+        type: "model.AlarmDimensionStatesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of WorkRequestLog summaries.
+ * The list of work request log summaries.
  */
 export interface WorkRequestLogCollection {
   /**
-   * The array of WorkRequestLog summariess
+   * The list of work request log summaries.
    */
   "items": Array<model.WorkRequestLog>;
 }

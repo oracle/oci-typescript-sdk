@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ConnectionSummary {
   /**
-   * Generated key that can be used in API calls to identify connection. On scenarios where reference to the connection is needed, a value can be passed in create.
+   * Generated key that can be used in API calls to identify the connection. In scenarios where reference to the connection is required, a value can be passed in create.
    */
   "key": string;
   /**
@@ -31,7 +31,7 @@ export interface ConnectionSummary {
    */
   "modelType"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   * Free form text without any restriction on the permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name": string;
   /**
@@ -47,16 +47,16 @@ export interface ConnectionSummary {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with an upper case letter or underscore. The value can be modified.
    */
   "identifier": string;
   "primarySchema"?: model.Schema;
   /**
-   * The properties for the connection.
+   * The properties of the connection.
    */
   "connectionProperties"?: Array<model.ConnectionProperty>;
   /**
-   * All the properties for the connection in a key-value map format.
+   * All the properties of the connection in a key-value map format.
    */
   "properties"?: { [key: string]: any };
   /**
@@ -64,7 +64,7 @@ export interface ConnectionSummary {
    */
   "type"?: string;
   /**
-   * The default property for the connection.
+   * The default property of the connection.
    */
   "isDefault"?: boolean;
   "metadata"?: model.ObjectMetadata;

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetTypeRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
-   * key of the a specefic Type.
+   * Key of the a specific type.
    */
   "typeKey": string;
   /**

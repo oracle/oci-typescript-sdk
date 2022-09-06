@@ -16,18 +16,18 @@ import common = require("oci-common");
 
 export interface GetWorkRequestResponse {
   /**
-   * For optimistic concurrency control. See `if-match`.
+   * For optimistic concurrency control. See [ETags for Optimistic Concurrency Control](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#eleven).
+   *
    */
   "etag": string;
   /**
-   * Unique Oracle-assigned identifier for the request. If
-   * you need to contact Oracle about a particular request,
-   * please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
   /**
-   * some decimal number representing the number of seconds the client should wait before polling this endpoint again
+   * Indicates the waiting time, in seconds, before making a follow-up request.
    */
   "retryAfter": number;
   /**

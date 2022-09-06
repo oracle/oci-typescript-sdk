@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties used in connection update operations.
+ * Properties used in the update connection operations.
  */
 export interface UpdateConnectionDetails {
   /**
@@ -27,7 +27,7 @@ export interface UpdateConnectionDetails {
    */
   "modelType"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   * Free form text without any restriction on the permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name"?: string;
   /**
@@ -43,16 +43,16 @@ export interface UpdateConnectionDetails {
    */
   "objectStatus"?: number;
   /**
-   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with an upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;
   "primarySchema"?: model.Schema;
   /**
-   * The properties for the connection.
+   * The properties of the connection.
    */
   "connectionProperties"?: Array<model.ConnectionProperty>;
   /**
-   * All the properties for the connection in a key-value map format.
+   * All the properties of the connection in a key-value map format.
    */
   "properties": { [key: string]: any };
   /**
@@ -60,7 +60,7 @@ export interface UpdateConnectionDetails {
    */
   "type": string;
   /**
-   * The default property for the connection.
+   * The default property of the connection.
    */
   "isDefault"?: boolean;
   "metadata"?: model.ObjectMetadata;

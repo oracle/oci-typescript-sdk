@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ValidateDataAssetNetworkReachablityRequest extends common.BaseRequest {
   /**
-   * DCMS Endpoint id
+   * DCMS endpoint ID.
    */
   "endpointId": string;
   /**
@@ -37,12 +37,12 @@ export interface ValidateDataAssetNetworkReachablityRequest extends common.BaseR
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;
   /**
-   * DCMS registry id
+   * DCMS registry ID
    */
   "registryId"?: string;
 }

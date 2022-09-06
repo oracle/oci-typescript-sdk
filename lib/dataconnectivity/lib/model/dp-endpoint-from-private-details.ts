@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -23,23 +23,23 @@ export interface DpEndpointFromPrivateDetails extends model.DpEndpointDetails {
    */
   "dcmsEndpointId": string;
   /**
-   * The ocid of private endpoint resource.
+   * The OCID of the private endpoint resource.
    */
   "peId"?: string;
   /**
-   * The compartmentId of private endpoint resource.
+   * The compartmentId of the private endpoint resource.
    */
   "compartmentId"?: string;
   /**
-   * The IP address of dns proxy.
+   * The IP address of DNS proxy.
    */
   "dnsProxyIp"?: string;
   /**
-   * The ocid of private endpoint resource.
+   * The OCID of the private endpoint resource.
    */
   "privateEndpointIp"?: string;
   /**
-   * Array of dns zones to be use during private endpoint resolution.
+   * Array of DNS zones to be used during the private endpoint resolution.
    */
   "dnsZones"?: Array<string>;
   /**

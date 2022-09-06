@@ -19,18 +19,18 @@ import common = require("oci-common");
  */
 export interface CreateEndpointRequest extends common.BaseRequest {
   /**
-   * Details for the new Data Connectivity Management Endpoint.
+   * Details of the new Data Connectivity Management endpoint.
    */
   "createEndpointDetails": model.CreateEndpointDetails;
   /**
-   * DCMS registry id
-   */
-  "registryId"?: string;
-  /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * DCMS registry ID
+   */
+  "registryId"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If
    * you need to contact Oracle about a particular request,

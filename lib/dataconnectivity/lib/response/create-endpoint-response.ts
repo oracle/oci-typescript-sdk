@@ -16,15 +16,15 @@ import common = require("oci-common");
 
 export interface CreateEndpointResponse {
   /**
-   * Unique Oracle-assigned identifier for the asynchronous request. You can use this to query status of the asynchronous operation.
-   *
-   */
-  "opcWorkRequestId": string;
-  /**
-   * Unique Oracle-assigned identifier for the request. If
-   * you need to contact Oracle about a particular request,
-   * please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/identifiers.htm) of the work request. Use [GetWorkRequest](https://docs.cloud.oracle.com/api/#/en/workrequests/20160918/WorkRequest/GetWorkRequest)
+   * with this ID to track the status of the request.
+   *
+   */
+  "opcWorkRequestId": string;
 }

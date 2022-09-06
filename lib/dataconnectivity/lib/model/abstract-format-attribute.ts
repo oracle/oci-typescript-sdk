@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -47,6 +47,11 @@ export namespace AbstractFormatAttribute {
             <model.ParquetFormatAttribute>(<object>jsonObj),
             true
           );
+        case "EXCEL_FORMAT":
+          return model.ExcelFormatAttribute.getJsonObj(
+            <model.ExcelFormatAttribute>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -76,6 +81,11 @@ export namespace AbstractFormatAttribute {
         case "PARQUET_FORMAT":
           return model.ParquetFormatAttribute.getDeserializedJsonObj(
             <model.ParquetFormatAttribute>(<object>jsonObj),
+            true
+          );
+        case "EXCEL_FORMAT":
+          return model.ExcelFormatAttribute.getDeserializedJsonObj(
+            <model.ExcelFormatAttribute>(<object>jsonObj),
             true
           );
         default:

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Properties used in endpoint create operations.
+ * Properties used in the create operations of the endpoint.
  */
 export interface CreateDpEndpointDetails {
   /**
-   * Generated key that can be used in API calls to identify endpoint. On scenarios where reference to the endpoint is needed, a value can be passed in create.
+   * Generated key that can be used in API calls to identify the endpoint. In scenarios where reference to the endpoint is required, a value can be passed in create.
    */
   "key"?: string;
   /**
@@ -28,11 +28,11 @@ export interface CreateDpEndpointDetails {
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   * Free form text without any restriction on the permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name": string;
   /**
-   * User-defined description for the endpoint.
+   * User-defined description of the endpoint.
    */
   "description"?: string;
   /**
@@ -44,11 +44,11 @@ export interface CreateDpEndpointDetails {
    */
   "objectVersion"?: number;
   /**
-   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with an upper case letter or underscore. The value can be modified.
    */
   "identifier": string;
   /**
-   * List of data assets which belongs to this endpoint
+   * The list of data assets that belong to the endpoint.
    */
   "dataAssets"?: Array<model.DataAsset>;
 

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,22 +19,22 @@ import common = require("oci-common");
  */
 export interface WorkRequestSummary {
   /**
-   * type of the work request
+   * Type of the work request.
    */
   "operationType": WorkRequestSummary.OperationType;
   /**
-   * status of current work request.
+   * Status of the current work request.
    */
   "status": WorkRequestSummary.Status;
   /**
-   * The id of the work request.
+   * The ID of the work request.
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains the work request. Work requests should be scoped to
+   * The OCID of the compartment that contains the work request. Work requests should be scoped to
    * the same compartment as the resource the work request affects. If the work request affects multiple resources,
    * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used
+   * resource whose compartment should be used.
    *
    */
   "compartmentId": string;
@@ -43,7 +43,7 @@ export interface WorkRequestSummary {
    */
   "resources": Array<model.WorkRequestResource>;
   /**
-   * Percentage of the request completed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The percentage of the request completed. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "percentComplete": number;
   /**

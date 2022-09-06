@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Represents the info needed for de-referencing a dcms artifact.
+ * Represents the info required for de-referencing a DCMS artifact.
  */
 export interface CreateDeReferenceArtifactDetails {
   /**
-   * unique id of service which is referencing data asset.
+   * The unique ID of the service that is referencing a data asset.
    */
   "serviceArtifactId": string;
 }

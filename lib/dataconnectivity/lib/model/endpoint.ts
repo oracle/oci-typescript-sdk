@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An Endpoint is an organizational construct to keep multiple data Connectivity Management solutions and their resources (pe-id, dnsProxyIp, dnsZones, and so on) separate from each other, helping you to stay organized. For example, you could have separate registries for development, testing, and production.
+ * An endpoint is an organizational construct to keep multiple data connectivity management solutions and their resources (pe-id, dnsProxyIp, dnsZones, and so on) separate from each other, helping you to stay organized. For example, you could have separate registries for development, testing, and production.
  */
 export interface Endpoint {
   /**
@@ -23,7 +23,7 @@ export interface Endpoint {
    */
   "vcnId": string;
   /**
-   * Subnet OCID for the customer connected network where databases for example reside.
+   * Subnet OCID of the customer connected network where, for example, the databases reside.
    */
   "subnetId": string;
   /**
@@ -33,7 +33,7 @@ export interface Endpoint {
    */
   "dnsZones"?: Array<string>;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type, or scope. Exists only for cross-compatibility.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
@@ -49,7 +49,7 @@ export interface Endpoint {
    */
   "description"?: string;
   /**
-   * Data Connectivity Management Registry display name, registries can be renamed
+   * The Data Connectivity Management Registry display name; registries can be renamed.
    */
   "displayName": string;
   /**
@@ -57,23 +57,23 @@ export interface Endpoint {
    */
   "compartmentId"?: string;
   /**
-   * The time the Data Connectivity Management Registry was created. An RFC3339 formatted datetime string
+   * Time when the Data Connectivity Management registry was created. An RFC3339 formatted datetime string.
    */
   "timeCreated"?: Date;
   /**
-   * The time the Data Connectivity Management Registry was updated. An RFC3339 formatted datetime string
+   * Time when the Data Connectivity Management registry was updated. An RFC3339 formatted datetime string.
    */
   "timeUpdated"?: Date;
   /**
-   * Lifecycle states for registries in Data Connectivity Management Service
-   * CREATING - The resource is being created and may not be usable until the entire metadata is defined
-   * UPDATING - The resource is being updated and may not be usable until all changes are commited
+   * Lifecycle states for registries in the Data Connectivity Management Service.
+   * CREATING - The resource is being created and may not be usable until the entire metadata is defined.
+   * UPDATING - The resource is being updated and may not be usable until all changes are commited.
    * DELETING - The resource is being deleted and might require deep cleanup of children.
-   * ACTIVE   - The resource is valid and available for access
+   * ACTIVE   - The resource is valid and available for access.
    * INACTIVE - The resource might be incomplete in its definition or might have been made unavailable for
-   *          administrative reasons
-   * DELETED  - The resource has been deleted and isn't available
-   * FAILED   - The resource is in a failed state due to validation or other errors
+   *          administrative reasons.
+   * DELETED  - The resource has been deleted and isn't available.
+   * FAILED   - The resource is in a failed state due to validation or other errors.
    *
    */
   "lifecycleState"?: Endpoint.LifecycleState;
@@ -82,7 +82,7 @@ export interface Endpoint {
    */
   "stateMessage"?: string;
   /**
-   * Unique identifier that is immutable on creation
+   * A unique identifier that is immutable on creation.
    */
   "id": string;
   /**
@@ -90,7 +90,7 @@ export interface Endpoint {
    */
   "endpointSize"?: number;
   /**
-   * List of NSGs to which the Private Endpoint VNIC must be added.
+   * The list of NSGs to which the private endpoint VNIC must be added.
    */
   "nsgIds"?: Array<string>;
 }

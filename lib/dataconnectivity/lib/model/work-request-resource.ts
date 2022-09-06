@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -25,8 +25,8 @@ export interface WorkRequestResource {
   /**
    * The way in which this resource is affected by the work tracked in the work request.
    * A resource being created, updated, or deleted will remain in the IN_PROGRESS state until
-   * work is complete for that resource at which point it will transition to CREATED, UPDATED,
-   * or DELETED, respectively.
+   * work is complete for that resource, after which it moves to CREATED, UPDATED,
+   * or DELETED state, respectively.
    *
    */
   "actionType": WorkRequestResource.ActionType;
@@ -35,7 +35,7 @@ export interface WorkRequestResource {
    */
   "identifier": string;
   /**
-   * The URI path that the user can do a GET on to access the resource metadata
+   * The URI path that the user can do a GET on to access the resource metadata.
    */
   "entityUri"?: string;
 }

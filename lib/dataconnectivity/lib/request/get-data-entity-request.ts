@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetDataEntityRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -42,7 +42,7 @@ export interface GetDataEntityRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Endpoint Id used for getDataAssetFullDetails.
+   * Endpoint ID used for getDataAssetFullDetails.
    */
   "endpointId"?: string;
 }

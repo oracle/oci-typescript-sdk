@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about connectivity validation results
+ * The information about connectivity validation results.
  */
 export interface ConnectivityValidation {
   /**
-   * Total number of validation messages Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of validation messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "totalMessageCount": number;
   /**
-   * Total number of validation error messages Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of validation error messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "errorMessageCount"?: number;
   /**
-   * Total number of validation warning messages Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of validation warning messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "warnMessageCount"?: number;
   /**
-   * Total number of validation information messages Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of validation information messages. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "infoMessageCount"?: number;
   /**

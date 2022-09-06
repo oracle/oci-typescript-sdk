@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,25 +15,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Endpoint.
+ * Information about a new endpoint.
  */
 export interface CreateEndpointDetails {
   /**
-   * VCN Identifier where the subnet resides.
+   * VCN identifier where the subnet resides.
    */
   "vcnId"?: string;
   /**
-   * Subnet Identifier for customer connected databases
+   * Subnet identifier for the customer-connected databases.
    */
   "subnetId"?: string;
   /**
-   * List of DNS zones to be used by the data assets to be harvested.
+   * The list of DNS zones to be used by the data assets to be harvested.
    * Example: custpvtsubnet.oraclevcn.com for data asset: db.custpvtsubnet.oraclevcn.com
    *
    */
   "dnsZones"?: Array<string>;
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type, or scope. Exists only for cross-compatibility.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
@@ -49,7 +49,7 @@ export interface CreateEndpointDetails {
    */
   "description"?: string;
   /**
-   * Data Connectivity Management Registry display name, registries can be renamed
+   * The Data Connectivity Management registry display name; registries can be renamed.
    */
   "displayName": string;
   /**
@@ -61,7 +61,7 @@ export interface CreateEndpointDetails {
    */
   "endpointSize"?: number;
   /**
-   * List of NSGs to which the Private Endpoint VNIC must be added.
+   * The list of NSGs to which the private endpoint VNIC must be added.
    */
   "nsgIds"?: Array<string>;
 }

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface CreateTestNetworkConnectivityRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
-   * Request body parameters to execute network validation
+   * Request body parameters to execute network validation.
    */
   "createTestNetworkConnectivityDetails": model.CreateTestNetworkConnectivityDetails;
   /**
@@ -34,12 +34,12 @@ export interface CreateTestNetworkConnectivityRequest extends common.BaseRequest
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;
   /**
-   * Endpoint Id used for getDataAssetFullDetails.
+   * Endpoint ID used for getDataAssetFullDetails.
    */
   "endpointId"?: string;
   /**

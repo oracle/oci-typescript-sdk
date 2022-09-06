@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -29,15 +29,15 @@ export interface Parameter extends model.TypedObject {
    */
   "defaultValue"?: any;
   /**
-   * The default value of the parameter which can be an object in DIS, such as a data entity.
+   * The default value of the parameter, which can be an object in DIS, such as a data entity.
    */
   "rootObjectDefaultValue"?: any;
   /**
-   * Specifies whether the parameter is input value.
+   * Specifies whether the parameter is an input value.
    */
   "isInput"?: boolean;
   /**
-   * Specifies whether the parameter is output value.
+   * Specifies whether the parameter is an output value.
    */
   "isOutput"?: boolean;
   /**

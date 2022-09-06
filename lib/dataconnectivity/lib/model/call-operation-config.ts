@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,20 +15,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Holder for parameters names.
+ * Holder for parameter names.
  */
 export interface CallOperationConfig {
   /**
-   * List of names of IN/INOUT parameters.
+   * The list of names of the IN/INOUT parameters.
    */
   "inFields"?: Array<string>;
   /**
-   * List of names of OUT/INOUT parameters.
+   * The list of names of the OUT/INOUT parameters.
    */
   "outFields"?: Array<string>;
-  "callAttribute"?: model.BipCallAttribute;
+  "callAttribute"?: model.BipCallAttribute | model.GenericRestCallAttribute;
   /**
-   * List of push down operations.
+   * The List of push down operations.
    */
   "pushDownOperations"?: Array<model.PushDownOperation>;
 }

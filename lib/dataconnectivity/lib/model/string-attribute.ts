@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -22,7 +22,7 @@ export interface StringAttribute extends model.AttributeProfileResult {
   "maxLength"?: model.ProfileStat;
   "meanLength"?: model.ProfileStat;
   /**
-   * Pattern frequencies for the column as described already in profile config.
+   * Pattern frequencies for the column as described in the profile config.
    */
   "patternFrequencies"?: Array<model.ObjectFreqStat>;
   /**

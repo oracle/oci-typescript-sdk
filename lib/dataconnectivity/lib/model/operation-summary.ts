@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The operation summary object
+ * The operation summary object.
  */
 export interface OperationSummary {
   "metadata"?: model.ObjectMetadata;
@@ -39,6 +39,11 @@ export namespace OperationSummary {
             <model.OperationSummaryFromProcedure>(<object>jsonObj),
             true
           );
+        case "API":
+          return model.OperationSummaryFromApi.getJsonObj(
+            <model.OperationSummaryFromApi>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -60,6 +65,11 @@ export namespace OperationSummary {
         case "PROCEDURE":
           return model.OperationSummaryFromProcedure.getDeserializedJsonObj(
             <model.OperationSummaryFromProcedure>(<object>jsonObj),
+            true
+          );
+        case "API":
+          return model.OperationSummaryFromApi.getDeserializedJsonObj(
+            <model.OperationSummaryFromApi>(<object>jsonObj),
             true
           );
         default:

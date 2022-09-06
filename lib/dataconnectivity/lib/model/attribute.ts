@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,35 +15,35 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Registry Attribute Object, to get connector details
+ * The attribute object fo the registry that can be used to get the connector details.
  */
 export interface Attribute {
   /**
-   * The name of of the Attribute.
+   * The name of of the attribute.
    */
   "name": string;
   /**
-   * True if Attribute is sensitive.
+   * True if attribute is sensitive.
    */
   "isSensitive"?: boolean;
   /**
-   * True if Attribute is mandatory.
+   * True if attribute is mandatory.
    */
   "isMandatory"?: boolean;
   /**
-   * True if Attribute is generated.
+   * True if attribute is generated.
    */
   "isGenerated"?: boolean;
   /**
-   * True if Attribute is encoded.
+   * True if attribute is encoded.
    */
   "isBase64Encoded"?: boolean;
   /**
-   * List of valid key list
+   * The list of valid keys.
    */
   "validKeyList"?: Array<string>;
   /**
-   * Attribute type details
+   * The attribute type details.
    */
   "attributeType"?: string;
 }

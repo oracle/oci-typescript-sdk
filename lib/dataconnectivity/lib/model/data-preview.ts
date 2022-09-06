@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,19 +19,19 @@ import common = require("oci-common");
  */
 export interface DataPreview {
   /**
-   * Name of the entity for which data preview was requested
+   * Name of the entity for which data preview is requested.
    */
   "entityName": string;
   /**
-   * Total number of rows taken for sampling Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Total number of rows taken for sampling. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sampleRowsCount"?: number;
   /**
-   * Array of column definition for the preview result
+   * Array of column definition for the preview result.
    */
   "columns"?: Array<model.Column>;
   /**
-   * Array of rows values for the preview result
+   * Array of row values for the preview result.
    */
   "rows"?: Array<model.Row>;
 }

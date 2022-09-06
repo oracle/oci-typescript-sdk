@@ -1285,6 +1285,76 @@ export class DbManagementClient {
   }
 
   /**
+   * Deletes the preferred credential based on the credentialName.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeletePreferredCredentialRequest
+   * @return DeletePreferredCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeletePreferredCredential.ts.html |here} to see how to use DeletePreferredCredential API.
+   */
+  public async deletePreferredCredential(
+    deletePreferredCredentialRequest: requests.DeletePreferredCredentialRequest
+  ): Promise<responses.DeletePreferredCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deletePreferredCredential.");
+    const operationName = "deletePreferredCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/DeletePreferredCredential";
+    const pathParams = {
+      "{managedDatabaseId}": deletePreferredCredentialRequest.managedDatabaseId,
+      "{credentialName}": deletePreferredCredentialRequest.credentialName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deletePreferredCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePreferredCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/preferredCredentials/{credentialName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePreferredCredentialResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Drops the tablespace specified by tablespaceName within the Managed Database specified by managedDatabaseId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2596,6 +2666,85 @@ export class DbManagementClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the preferred credential details for a Managed Database based on credentialName.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetPreferredCredentialRequest
+   * @return GetPreferredCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetPreferredCredential.ts.html |here} to see how to use GetPreferredCredential API.
+   */
+  public async getPreferredCredential(
+    getPreferredCredentialRequest: requests.GetPreferredCredentialRequest
+  ): Promise<responses.GetPreferredCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getPreferredCredential.");
+    const operationName = "getPreferredCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/GetPreferredCredential";
+    const pathParams = {
+      "{managedDatabaseId}": getPreferredCredentialRequest.managedDatabaseId,
+      "{credentialName}": getPreferredCredentialRequest.credentialName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPreferredCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPreferredCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/preferredCredentials/{credentialName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPreferredCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "preferredCredential",
+        bodyModel: model.PreferredCredential,
+        type: "model.PreferredCredential",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -4372,6 +4521,84 @@ export class DbManagementClient {
         bodyKey: "optimizerStatisticsCollectionOperationsCollection",
         bodyModel: model.OptimizerStatisticsCollectionOperationsCollection,
         type: "model.OptimizerStatisticsCollectionOperationsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of preferred credentials for a given Managed Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListPreferredCredentialsRequest
+   * @return ListPreferredCredentialsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListPreferredCredentials.ts.html |here} to see how to use ListPreferredCredentials API.
+   */
+  public async listPreferredCredentials(
+    listPreferredCredentialsRequest: requests.ListPreferredCredentialsRequest
+  ): Promise<responses.ListPreferredCredentialsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listPreferredCredentials.");
+    const operationName = "listPreferredCredentials";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/ListPreferredCredentials";
+    const pathParams = {
+      "{managedDatabaseId}": listPreferredCredentialsRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPreferredCredentialsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPreferredCredentialsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/preferredCredentials",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPreferredCredentialsResponse>{},
+        body: await response.json(),
+        bodyKey: "preferredCredentialCollection",
+        bodyModel: model.PreferredCredentialCollection,
+        type: "model.PreferredCredentialCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -6540,6 +6767,86 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Tests the preferred credential.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param TestPreferredCredentialRequest
+   * @return TestPreferredCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/TestPreferredCredential.ts.html |here} to see how to use TestPreferredCredential API.
+   */
+  public async testPreferredCredential(
+    testPreferredCredentialRequest: requests.TestPreferredCredentialRequest
+  ): Promise<responses.TestPreferredCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#testPreferredCredential.");
+    const operationName = "testPreferredCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/TestPreferredCredential";
+    const pathParams = {
+      "{managedDatabaseId}": testPreferredCredentialRequest.managedDatabaseId,
+      "{credentialName}": testPreferredCredentialRequest.credentialName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": testPreferredCredentialRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testPreferredCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/preferredCredentials/{credentialName}/actions/test",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testPreferredCredentialRequest.testPreferredCredentialDetails,
+        "TestPreferredCredentialDetails",
+        model.TestPreferredCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestPreferredCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "testPreferredCredentialStatus",
+        bodyModel: model.TestPreferredCredentialStatus,
+        type: "model.TestPreferredCredentialStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates one or more attributes of a specific Database Management private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateDbManagementPrivateEndpointRequest
@@ -6770,6 +7077,91 @@ Note that this API does not return information on the number of times each datab
         bodyKey: "managedDatabaseGroup",
         bodyModel: model.ManagedDatabaseGroup,
         type: "model.ManagedDatabaseGroup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the preferred credential based on the credentialName.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdatePreferredCredentialRequest
+   * @return UpdatePreferredCredentialResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdatePreferredCredential.ts.html |here} to see how to use UpdatePreferredCredential API.
+   */
+  public async updatePreferredCredential(
+    updatePreferredCredentialRequest: requests.UpdatePreferredCredentialRequest
+  ): Promise<responses.UpdatePreferredCredentialResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updatePreferredCredential.");
+    const operationName = "updatePreferredCredential";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/PreferredCredential/UpdatePreferredCredential";
+    const pathParams = {
+      "{managedDatabaseId}": updatePreferredCredentialRequest.managedDatabaseId,
+      "{credentialName}": updatePreferredCredentialRequest.credentialName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updatePreferredCredentialRequest.opcRequestId,
+      "if-match": updatePreferredCredentialRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePreferredCredentialRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/preferredCredentials/{credentialName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePreferredCredentialRequest.updatePreferredCredentialDetails,
+        "UpdatePreferredCredentialDetails",
+        model.UpdatePreferredCredentialDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePreferredCredentialResponse>{},
+        body: await response.json(),
+        bodyKey: "preferredCredential",
+        bodyModel: model.PreferredCredential,
+        type: "model.PreferredCredential",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

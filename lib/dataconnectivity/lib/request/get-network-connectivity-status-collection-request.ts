@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetNetworkConnectivityStatusCollectionRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -34,7 +34,7 @@ export interface GetNetworkConnectivityStatusCollectionRequest extends common.Ba
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;
@@ -47,7 +47,7 @@ export interface GetNetworkConnectivityStatusCollectionRequest extends common.Ba
    */
   "limit"?: number;
   /**
-   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
+   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order are by relevance score in descending order).
    */
   "sortBy"?: GetNetworkConnectivityStatusCollectionRequest.SortBy;
   /**

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface SchemaDriftConfig {
   /**
-   * The setting for how to handle extra columns/fields.  NULL_FILLUP means that nulls will be loaded into the target for extra columns.
+   * The setting to handle extra columns/fields.  NULL_FILLUP means that nulls will be loaded into the target for extra columns.
    */
   "extraColumnHandling"?: SchemaDriftConfig.ExtraColumnHandling;
   /**
-   * The setting for how to handle missing columns/fields.  NULL_SELECT means that null values will be selected from the source for missing columns.
+   * The setting to handle missing columns/fields.  NULL_SELECT means that null values will be selected from the source for missing columns.
    */
   "missingColumnHandling"?: SchemaDriftConfig.MissingColumnHandling;
   /**
-   * The setting for how to handle columns/fields with changed data types.
+   * The setting to handle columns/fields with changed data types.
    */
   "dataTypeChangeHandling"?: SchemaDriftConfig.DataTypeChangeHandling;
   /**

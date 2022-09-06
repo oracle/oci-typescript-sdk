@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDataAssetsRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -35,11 +35,11 @@ export interface ListDataAssetsRequest extends common.BaseRequest {
    */
   "fields"?: Array<string>;
   /**
-   * DataAsset type which needs to be listed while listing dataAssets
+   * Artifact type which needs to be listed while listing Artifacts.
    */
   "includeTypes"?: Array<string>;
   /**
-   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
+   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order are by relevance score in descending order).
    */
   "sortBy"?: ListDataAssetsRequest.SortBy;
   /**
@@ -58,7 +58,7 @@ export interface ListDataAssetsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Types which wont be listed while listing dataAsset/Connection
+   * The types that will be excluded from the list of data assets/connections.
    */
   "excludeTypes"?: Array<string>;
   /**
@@ -70,11 +70,11 @@ export interface ListDataAssetsRequest extends common.BaseRequest {
    */
   "folderId"?: string;
   /**
-   * Endpoint Ids used for data-plane APIs to filter or prefer specific endpoint.
+   * Endpoint IDs used for data-plane APIs to filter or prefer specific endpoint.
    */
   "endpointIds"?: Array<string>;
   /**
-   * Endpoints which will be excluded while listing dataAssets
+   * Endpoints which will be excluded while listing data assets.
    */
   "excludeEndpointIds"?: Array<string>;
 }

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Validation Result object for a single DataAsset.
+ * Validation result object for a single data asset.
  */
 export interface ValidationResult {
   /**
-   * Error text for validation failure
+   * Error text for validation failure.
    */
   "errorMsg"?: string;
   /**
-   * Status of the validatio result execution
+   * Status of the validation result execution.
    */
   "status"?: ValidationResult.Status;
 }

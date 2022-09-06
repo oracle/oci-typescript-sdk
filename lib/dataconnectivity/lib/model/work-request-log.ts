@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -23,7 +23,7 @@ export interface WorkRequestLog {
    */
   "message": string;
   /**
-   * The time the log message was written. An RFC3339 formatted datetime string
+   * Time when the log message was written. An RFC3339 formatted datetime string.
    */
   "timestamp": Date;
 }

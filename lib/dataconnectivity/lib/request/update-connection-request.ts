@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateConnectionRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -27,7 +27,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
    */
   "connectionKey": string;
   /**
-   * The information needed to update a connection.
+   * The information required to update a connection.
    */
   "updateConnectionDetails": model.UpdateConnectionDetails;
   /**

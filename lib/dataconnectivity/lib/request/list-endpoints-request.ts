@@ -23,7 +23,7 @@ export interface ListEndpointsRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * DCMS registry id
+   * DCMS registry ID
    */
   "registryId"?: string;
   /**
@@ -47,7 +47,7 @@ export interface ListEndpointsRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListEndpointsRequest.SortOrder;
   /**
-   * This parameter allows users to specify a sort field.  Default sort order is the descending order of `timeCreated` (most recently created objects at the top).  Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
+   * This parameter allows users to specify a sort field. Default sort order is the descending order of `timeCreated` (most recently created objects at the top). Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
    */
   "sortBy"?: ListEndpointsRequest.SortBy;
   /**

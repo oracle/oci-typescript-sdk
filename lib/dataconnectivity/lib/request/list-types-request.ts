@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListTypesRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -42,7 +42,7 @@ export interface ListTypesRequest extends common.BaseRequest {
    */
   "type"?: string;
   /**
-   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
+   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order are by relevance score in descending order).
    */
   "sortBy"?: ListTypesRequest.SortBy;
   /**
