@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateDataAssetRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -27,7 +27,7 @@ export interface UpdateDataAssetRequest extends common.BaseRequest {
    */
   "dataAssetKey": string;
   /**
-   * The information needed to update a data asset.
+   * The information required to update a data asset.
    */
   "updateDataAssetDetails": model.UpdateDataAssetDetails;
   /**

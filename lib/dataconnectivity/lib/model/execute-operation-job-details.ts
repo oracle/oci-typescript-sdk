@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface ExecuteOperationJobDetails {
   /**
-   * Job id to track job status.
+   * Job ID to track the job status.
    */
   "executeOperationJobId": string;
   /**
-   * The status of job
+   * The status of the job.
    */
   "status": ExecuteOperationJobDetails.Status;
   /**
-   * Error message if job creation is failed.
+   * Error message when the job creation fails.
    */
   "errorMessage"?: string;
 }

@@ -19,15 +19,15 @@ import common = require("oci-common");
  */
 export interface ChangeEndpointCompartmentRequest extends common.BaseRequest {
   /**
-   * DCMS Endpoint id
+   * DCMS endpoint ID.
    */
   "endpointId": string;
   /**
-   * The details of change compartment action.
+   * The details of the change compartment action.
    */
   "changeEndpointCompartmentDetails": model.ChangeEndpointCompartmentDetails;
   /**
-   * DCMS registry id
+   * DCMS registry ID
    */
   "registryId"?: string;
   /**
@@ -45,7 +45,7 @@ export interface ChangeEndpointCompartmentRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;

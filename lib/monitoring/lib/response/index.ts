@@ -34,6 +34,8 @@ import * as PostMetricDataResponse from "./post-metric-data-response";
 export import PostMetricDataResponse = PostMetricDataResponse.PostMetricDataResponse;
 import * as RemoveAlarmSuppressionResponse from "./remove-alarm-suppression-response";
 export import RemoveAlarmSuppressionResponse = RemoveAlarmSuppressionResponse.RemoveAlarmSuppressionResponse;
+import * as RetrieveDimensionStatesResponse from "./retrieve-dimension-states-response";
+export import RetrieveDimensionStatesResponse = RetrieveDimensionStatesResponse.RetrieveDimensionStatesResponse;
 import * as SummarizeMetricsDataResponse from "./summarize-metrics-data-response";
 export import SummarizeMetricsDataResponse = SummarizeMetricsDataResponse.SummarizeMetricsDataResponse;
 import * as UpdateAlarmResponse from "./update-alarm-response";

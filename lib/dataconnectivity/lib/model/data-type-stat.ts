@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Statistical data in profiling results
+ * Statistical data in profiling results.
  */
 export interface DataTypeStat {
   /**
-   * Value of the confidence of the profile result
+   * Value of the confidence of the profile result.
    */
   "value"?: string;
   /**
@@ -27,7 +27,7 @@ export interface DataTypeStat {
    */
   "confidence"?: number;
   /**
-   * How many times that value occurred. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of times the value appeared. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "freq"?: number;
   /**

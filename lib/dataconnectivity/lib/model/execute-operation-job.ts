@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -23,7 +23,7 @@ export interface ExecuteOperationJob {
    */
   "operationStatus": string;
   /**
-   * Error message, if whole operation is failed.
+   * Error message when the whole operation fails.
    */
   "errorMessage"?: string;
   /**
@@ -31,11 +31,11 @@ export interface ExecuteOperationJob {
    */
   "operationName"?: string;
   /**
-   * List of names of OUT/INOUT params.
+   * The list of names of OUT/INOUT parameters.
    */
   "outParams"?: Array<string>;
   /**
-   * List of operation execution result for each input set.
+   * The list of operation execution result for each input set.
    */
   "operationResult": Array<model.OperationExecResult>;
 }

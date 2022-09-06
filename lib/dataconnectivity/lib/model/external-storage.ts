@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,31 +15,31 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * BICC Connector Attribute.Object Storage as External storage where the BICC extracted files are written
+ * BICC Connector Attribute. Object Storage as External storage where the BICC extracted files are written.
  */
 export interface ExternalStorage extends model.ConnectorAttribute {
   /**
-   * Id of the external stoarge configured in BICC console. Usually its numeric.
+   * ID of the external stoarge configured in the BICC console. Usually it's numeric.
    */
   "storageId"?: string;
   /**
-   * Name of the external storage configured in BICC console
+   * Name of the external storage configured in the BICC console.
    */
   "storageName"?: string;
   /**
-   * Object Storage host Url. DO not give http/https.
+   * Object Storage host URL. DO not give http/https.
    */
   "host"?: string;
   /**
-   * Tenancy OCID for the OOS bucket
+   * Tenancy OCID of the OOS bucket.
    */
   "tenancyId"?: string;
   /**
-   * Namespace for the OOS bucket
+   * Namespace of the OOS bucket.
    */
   "namespace"?: string;
   /**
-   * Bucket Name where BICC extracts stores the files
+   * Bucket name where BICC extracts and stores the files.
    */
   "bucket"?: string;
 

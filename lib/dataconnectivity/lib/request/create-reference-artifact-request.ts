@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateReferenceArtifactRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -27,7 +27,7 @@ export interface CreateReferenceArtifactRequest extends common.BaseRequest {
    */
   "dcmsArtifactId": string;
   /**
-   * The information needed to reference a dcms artifact
+   * The information required to reference a dcms artifact.
    */
   "createReferenceArtifactDetails": model.CreateReferenceArtifactDetails;
   /**
@@ -38,7 +38,7 @@ export interface CreateReferenceArtifactRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;

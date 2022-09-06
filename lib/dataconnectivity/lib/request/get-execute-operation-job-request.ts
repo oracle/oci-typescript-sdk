@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetExecuteOperationJobRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -31,7 +31,7 @@ export interface GetExecuteOperationJobRequest extends common.BaseRequest {
    */
   "schemaResourceName": string;
   /**
-   * Job id returned by execute operation job api
+   * Job ID returned by the execute operation job API.
    */
   "executeOperationJobKey": string;
   /**
@@ -42,7 +42,7 @@ export interface GetExecuteOperationJobRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * Endpoint Id used for getDataAssetFullDetails.
+   * Endpoint ID used for getDataAssetFullDetails.
    */
   "endpointId"?: string;
 }

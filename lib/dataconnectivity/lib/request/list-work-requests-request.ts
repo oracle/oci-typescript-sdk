@@ -30,11 +30,11 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * DCMS registry or endpoint id
+   * DCMS registry ID
    */
-  "resourceId"?: string;
+  "registryId"?: string;
   /**
-   * Work Request status.
+   * Work request status.
    */
   "workRequestStatus"?: ListWorkRequestsRequest.WorkRequestStatus;
   /**

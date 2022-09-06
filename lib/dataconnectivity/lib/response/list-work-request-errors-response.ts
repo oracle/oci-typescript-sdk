@@ -16,18 +16,16 @@ import common = require("oci-common");
 
 export interface ListWorkRequestErrorsResponse {
   /**
-   * For pagination of a list of items. When paging through a list, if this header appears in the response,
-   * then there might be additional items still to get. Include this value as the `page` parameter for the
-   * subsequent GET request.
-   *
-   */
-  "opcNextPage": string;
-  /**
-   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a
-   * particular request, please provide the request ID.
+   * Unique Oracle-assigned identifier for the request. If you need to contact
+   * Oracle about a particular request, please provide the request ID.
    *
    */
   "opcRequestId": string;
+  /**
+   * Retrieves the next page of results. When this header appears in the response, additional pages of results remain. See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
+   *
+   */
+  "opcNextPage": string;
   /**
    * The returned model.WorkRequestErrorCollection instance.
    */

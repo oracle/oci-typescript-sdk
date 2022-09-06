@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface OperationExecResult {
   /**
-   * Status of the operation job for particular set of input.
+   * Status of the operation job for a particular set of input.
    */
   "executionStatus"?: OperationExecResult.ExecutionStatus;
   /**
-   * Error message if execution of operation is failed.
+   * Error message when the execution of operation fails.
    */
   "errorMessage"?: string;
   /**
@@ -31,11 +31,11 @@ export interface OperationExecResult {
    */
   "metrics"?: any;
   /**
-   * List of emitted rows for each OUT/INOUT param.
+   * The list of emitted rows for each OUT/INOUT parameter.
    */
   "outputValues"?: Array<Array<any>>;
   /**
-   * True, if error message should be displayed on UI.
+   * True, if the error message must be displayed in the UI.
    */
   "isWhitelistedErrorMessage"?: boolean;
 }

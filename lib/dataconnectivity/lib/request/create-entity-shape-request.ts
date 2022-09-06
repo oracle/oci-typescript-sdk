@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateEntityShapeRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -31,10 +31,11 @@ export interface CreateEntityShapeRequest extends common.BaseRequest {
    */
   "schemaResourceName": string;
   /**
-   * The details needed to create the data entity shape.
+   * The details required to create the data entity shape.
    */
   "createEntityShapeDetails":
     | model.CreateEntityShapeFromDataStore
+    | model.CreateEntityShapeFromMessage
     | model.CreateEntityShapeFromTable
     | model.CreateEntityShapeFromSQL
     | model.CreateEntityShapeFromFile
@@ -47,7 +48,7 @@ export interface CreateEntityShapeRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without risk of executing that same action again.
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or server error without the risk of executing that same action again.
    *
    */
   "opcRetryToken"?: string;
@@ -63,7 +64,7 @@ export interface CreateEntityShapeRequest extends common.BaseRequest {
    */
   "authorizationMode"?: CreateEntityShapeRequest.AuthorizationMode;
   /**
-   * Endpoint Id used for getDataAssetFullDetails.
+   * Endpoint ID used for getDataAssetFullDetails.
    */
   "endpointId"?: string;
 }

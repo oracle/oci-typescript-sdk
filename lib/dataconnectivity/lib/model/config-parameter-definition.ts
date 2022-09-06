@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -29,7 +29,7 @@ export interface ConfigParameterDefinition {
    */
   "parameterName"?: string;
   /**
-   * A user defined description for the object.
+   * A user-defined description for the object.
    */
   "description"?: string;
   /**
@@ -41,11 +41,11 @@ export interface ConfigParameterDefinition {
    */
   "classFieldName"?: string;
   /**
-   * Specifies whether the parameter is static or not.
+   * Specifies whether the parameter is static.
    */
   "isStatic"?: boolean;
   /**
-   * Specifies whether the parameter is a class field or not.
+   * Specifies whether the parameter is a class field.
    */
   "isClassFieldValue"?: boolean;
 }

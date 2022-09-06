@@ -35,7 +35,7 @@ export interface ListRegistriesRequest extends common.BaseRequest {
    */
   "page"?: string;
   /**
-   * This parameter allows list registries to deep look at whole tenancy.
+   * This parameter allows list registries to deep look at the whole tenancy.
    */
   "isDeepLookup"?: boolean;
   /**

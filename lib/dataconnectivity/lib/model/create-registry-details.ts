@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new Registry.
+ * The information about a new Registry.
  */
 export interface CreateRegistryDetails {
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type, or scope. Exists only for cross-compatibility.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
@@ -35,7 +35,7 @@ export interface CreateRegistryDetails {
    */
   "description"?: string;
   /**
-   * Data Connectivity Management Registry display name, registries can be renamed
+   * The Data Connectivity Management Registry display name; registries can be renamed.
    */
   "displayName": string;
   /**

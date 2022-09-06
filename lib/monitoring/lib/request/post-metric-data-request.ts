@@ -29,4 +29,9 @@ export interface PostMetricDataRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The optional Content-Encoding header that defines the content encodings that were applied to the payload.
+   *
+   */
+  "contentEncoding"?: string;
 }

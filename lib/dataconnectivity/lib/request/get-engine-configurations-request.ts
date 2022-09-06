@@ -15,17 +15,21 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataconnectivity/GetConnectionValidation.ts.html |here} to see how to use GetConnectionValidationRequest.
+ * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataconnectivity/GetEngineConfigurations.ts.html |here} to see how to use GetEngineConfigurationsRequest.
  */
-export interface GetConnectionValidationRequest extends common.BaseRequest {
+export interface GetEngineConfigurationsRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
-   * The key of the connection validation.
+   * The connection key.
    */
-  "connectionValidationKey": string;
+  "connectionKey": string;
+  /**
+   * Specifies the runtime engine for the bulk read/write operation. Default is SPARK.
+   */
+  "engineTypeQueryParam"?: GetEngineConfigurationsRequest.EngineTypeQueryParam;
   /**
    * Unique Oracle-assigned identifier for the request. If
    * you need to contact Oracle about a particular request,
@@ -33,8 +37,10 @@ export interface GetConnectionValidationRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
-  /**
-   * Endpoint Id used for getDataAssetFullDetails.
-   */
-  "endpointId"?: string;
+}
+
+export namespace GetEngineConfigurationsRequest {
+  export enum EngineTypeQueryParam {
+    Spark = "SPARK"
+  }
 }

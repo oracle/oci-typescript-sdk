@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -46,6 +46,18 @@ export interface CsvFormatAttribute extends model.AbstractFormatAttribute {
    * Format for timestamp information.
    */
   "timestampFormat"?: string;
+  /**
+   * Defines whether the quote entire content while performing read/write.
+   */
+  "isQuoteAll"?: boolean;
+  /**
+   * Defines whether the file has a multiline content
+   */
+  "isMultiline"?: boolean;
+  /**
+   * Defines whether the file has a trailing delimiter
+   */
+  "isTrailingDelimiter"?: boolean;
 
   "modelType": string;
 }

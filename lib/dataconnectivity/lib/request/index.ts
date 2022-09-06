@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -51,8 +51,6 @@ import * as CreateTestNetworkConnectivityRequest from "./create-test-network-con
 export import CreateTestNetworkConnectivityRequest = CreateTestNetworkConnectivityRequest.CreateTestNetworkConnectivityRequest;
 import * as DeleteConnectionRequest from "./delete-connection-request";
 export import DeleteConnectionRequest = DeleteConnectionRequest.DeleteConnectionRequest;
-import * as DeleteConnectionValidationRequest from "./delete-connection-validation-request";
-export import DeleteConnectionValidationRequest = DeleteConnectionValidationRequest.DeleteConnectionValidationRequest;
 import * as DeleteDataAssetRequest from "./delete-data-asset-request";
 export import DeleteDataAssetRequest = DeleteDataAssetRequest.DeleteDataAssetRequest;
 import * as DeleteEndpointRequest from "./delete-endpoint-request";
@@ -63,16 +61,18 @@ import * as DeleteNetworkConnectivityStatusRequest from "./delete-network-connec
 export import DeleteNetworkConnectivityStatusRequest = DeleteNetworkConnectivityStatusRequest.DeleteNetworkConnectivityStatusRequest;
 import * as DeleteRegistryRequest from "./delete-registry-request";
 export import DeleteRegistryRequest = DeleteRegistryRequest.DeleteRegistryRequest;
+import * as DeriveEntitiesRequest from "./derive-entities-request";
+export import DeriveEntitiesRequest = DeriveEntitiesRequest.DeriveEntitiesRequest;
 import * as GetConnectionRequest from "./get-connection-request";
 export import GetConnectionRequest = GetConnectionRequest.GetConnectionRequest;
-import * as GetConnectionValidationRequest from "./get-connection-validation-request";
-export import GetConnectionValidationRequest = GetConnectionValidationRequest.GetConnectionValidationRequest;
 import * as GetDataAssetRequest from "./get-data-asset-request";
 export import GetDataAssetRequest = GetDataAssetRequest.GetDataAssetRequest;
 import * as GetDataEntityRequest from "./get-data-entity-request";
 export import GetDataEntityRequest = GetDataEntityRequest.GetDataEntityRequest;
 import * as GetEndpointRequest from "./get-endpoint-request";
 export import GetEndpointRequest = GetEndpointRequest.GetEndpointRequest;
+import * as GetEngineConfigurationsRequest from "./get-engine-configurations-request";
+export import GetEngineConfigurationsRequest = GetEngineConfigurationsRequest.GetEngineConfigurationsRequest;
 import * as GetExecuteOperationJobRequest from "./get-execute-operation-job-request";
 export import GetExecuteOperationJobRequest = GetExecuteOperationJobRequest.GetExecuteOperationJobRequest;
 import * as GetFolderRequest from "./get-folder-request";
@@ -89,8 +89,6 @@ import * as GetTypeRequest from "./get-type-request";
 export import GetTypeRequest = GetTypeRequest.GetTypeRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
-import * as ListConnectionValidationsRequest from "./list-connection-validations-request";
-export import ListConnectionValidationsRequest = ListConnectionValidationsRequest.ListConnectionValidationsRequest;
 import * as ListConnectionsRequest from "./list-connections-request";
 export import ListConnectionsRequest = ListConnectionsRequest.ListConnectionsRequest;
 import * as ListDataAssetsRequest from "./list-data-assets-request";

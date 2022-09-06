@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateEndpointDetails {
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type, or scope. Exists only for cross-compatibility.
    * Example: `{\"bar-key\": \"value\"}`
    *
    */
@@ -35,17 +35,23 @@ export interface UpdateEndpointDetails {
    */
   "description"?: string;
   /**
-   * Data Connectivity Management Registry display name, registries can be renamed
+   * The Data Connectivity Management registry display name; registries can be renamed.
    */
   "displayName"?: string;
   /**
-   * Update Endpoint size for reverse connection capacity. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Update endpoint size for reverse connection capacity. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "endpointSize"?: number;
   /**
-   * List of NSGs to which the Private Endpoint VNIC must be added.
+   * The list of NSGs to which the Private Endpoint VNIC must be added.
    */
   "nsgIds"?: Array<string>;
+  /**
+   * List of DNS zones to be used by the data assets.
+   * Example: custpvtsubnet.oraclevcn.com for data asset: db.custpvtsubnet.oraclevcn.com
+   *
+   */
+  "dnsZones"?: Array<string>;
 }
 
 export namespace UpdateEndpointDetails {

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The summary object for data asset.
+ * The summary object of the data asset.
  */
 export interface DataAssetSummary {
   /**
-   * Currently not used on data asset creation. Reserved for future.
+   * Currently not used while creating a data asset. Reserved for future.
    */
   "key": string;
   /**
@@ -31,7 +31,7 @@ export interface DataAssetSummary {
    */
   "modelType"?: string;
   /**
-   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   * Free form text without any restriction on the permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
    */
   "name": string;
   /**
@@ -47,11 +47,11 @@ export interface DataAssetSummary {
    */
   "objectVersion"?: number;
   /**
-   * Value can only contain upper case letters, underscore, and numbers. It should begin with upper case letter or underscore. The value can be modified.
+   * Value can only contain upper case letters, underscore, and numbers. It should begin with an upper case letter or underscore. The value can be modified.
    */
   "identifier": string;
   /**
-   * The external key for the object.
+   * The external key of the object.
    */
   "externalKey"?: string;
   /**

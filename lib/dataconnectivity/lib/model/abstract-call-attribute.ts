@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The call attributes
+ * The call attributes.
  */
 export interface AbstractCallAttribute {
   "modelType": string;
@@ -29,6 +29,11 @@ export namespace AbstractCallAttribute {
       switch (obj.modelType) {
         case "BIPCALLATTRIBUTE":
           return model.BipCallAttribute.getJsonObj(<model.BipCallAttribute>(<object>jsonObj), true);
+        case "GENERIC_REST_CALL_ATTRIBUTE":
+          return model.GenericRestCallAttribute.getJsonObj(
+            <model.GenericRestCallAttribute>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -43,6 +48,11 @@ export namespace AbstractCallAttribute {
         case "BIPCALLATTRIBUTE":
           return model.BipCallAttribute.getDeserializedJsonObj(
             <model.BipCallAttribute>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_REST_CALL_ATTRIBUTE":
+          return model.GenericRestCallAttribute.getDeserializedJsonObj(
+            <model.GenericRestCallAttribute>(<object>jsonObj),
             true
           );
         default:

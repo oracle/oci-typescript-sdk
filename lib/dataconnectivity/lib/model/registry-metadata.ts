@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -23,7 +23,7 @@ export interface RegistryMetadata {
    */
   "aggregatorKey"?: string;
   /**
-   * Labels are keywords or labels that you can add to data assets, dataflows etc. You can define your own labels and use them to categorize content.
+   * Labels are keywords or labels that you can add to data assets, dataflows, and so on. You can define your own labels and use them to categorize content.
    */
   "labels"?: Array<string>;
   /**
@@ -35,11 +35,11 @@ export interface RegistryMetadata {
    */
   "key"?: string;
   /**
-   * Specifies whether this object is a favorite or not.
+   * Specifies whether the object is a favorite.
    */
   "isFavorite"?: boolean;
   /**
-   * The id of the user who created the object.
+   * The ID of the user who created the object.
    */
   "createdByUserId"?: string;
   /**
@@ -47,7 +47,7 @@ export interface RegistryMetadata {
    */
   "createdByUserName"?: string;
   /**
-   * The id of the user who updated the object.
+   * The ID of the user who updated the object.
    */
   "updatedByUserId"?: string;
   /**

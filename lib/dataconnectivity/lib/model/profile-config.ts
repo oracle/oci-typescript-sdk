@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,23 +19,23 @@ import common = require("oci-common");
  */
 export interface ProfileConfig {
   /**
-   * Array of column names to profile. If empty all columns in the entity are profiled.
+   * Array of column names to profile. If empty, all the columns in the entity are profiled.
    */
   "attributes"?: Array<string>;
   /**
-   * Array of enum Strings basically what all profile functions to run. If empty, all supported functions are run.
+   * Array of enum strings to decide which profile functions to run. If empty, all the supported functions are run.
    */
   "functions"?: Array<ProfileConfig.Functions>;
   /**
-   * The maximum number of value frequencies to return per column. The VFs are sorted descending on frequency and ascending on value and then topN are returned and rest discarded. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of value frequencies to return per column. The VFs are sorted descending on frequency, and ascending on value, and then topN are returned and rest discarded. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "topNValFreq"?: number;
   /**
-   * A pattern has to qualify minumum this percentage threshold to be considered a legitimate pattern on its own. All patterns which does not qualify this will be clubbed together into a single 'Others' pattern. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A pattern has to qualify at least this percentage threshold to be considered a pattern on its own. Patterns that do not qualify are clubbed together into 'Others' pattern. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "patternThreshold"?: number;
   /**
-   * A data type has to qualify minimum this percentage threshold to be considered an infrred data type for a column. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A data type has to qualify at least this percentage threshold to be considered an inferred data type for a column. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataTypeThreshold"?: number;
 }

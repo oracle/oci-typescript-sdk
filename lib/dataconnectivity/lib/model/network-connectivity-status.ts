@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -31,7 +31,7 @@ export interface NetworkConnectivityStatus {
    */
   "errorMessage"?: string;
   /**
-   * Instant when the network validation was last done for the given DataAsset-PrivateEndpoint pair..
+   * The timestamp when the network validation was last updated for the given DataAsset-PrivateEndpoint pair.
    */
   "timeLastUpdated"?: Date;
   /**

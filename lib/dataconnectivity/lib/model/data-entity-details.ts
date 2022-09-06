@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -47,6 +47,11 @@ export namespace DataEntityDetails {
             <model.DataEntityFromDataStoreEntityDetails>(<object>jsonObj),
             true
           );
+        case "MESSAGE_ENTITY":
+          return model.DataEntityFromMessageEntityDetails.getJsonObj(
+            <model.DataEntityFromMessageEntityDetails>(<object>jsonObj),
+            true
+          );
         case "TABLE_ENTITY":
           return model.DataEntityFromTableEntityDetails.getJsonObj(
             <model.DataEntityFromTableEntityDetails>(<object>jsonObj),
@@ -81,6 +86,11 @@ export namespace DataEntityDetails {
         case "DATA_STORE_ENTITY":
           return model.DataEntityFromDataStoreEntityDetails.getDeserializedJsonObj(
             <model.DataEntityFromDataStoreEntityDetails>(<object>jsonObj),
+            true
+          );
+        case "MESSAGE_ENTITY":
+          return model.DataEntityFromMessageEntityDetails.getDeserializedJsonObj(
+            <model.DataEntityFromMessageEntityDetails>(<object>jsonObj),
             true
           );
         case "TABLE_ENTITY":

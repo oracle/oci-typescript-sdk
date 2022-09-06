@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary type containing information about the object including its key, name and when/who created/updated it.
+ * A summary type containing information about the object including its key, name, the time that it was created or updated, and the user who created or updated it.
  */
 export interface ObjectMetadata {
   /**
@@ -48,7 +48,7 @@ export interface ObjectMetadata {
   "aggregatorKey"?: string;
   "aggregator"?: model.AggregatorSummary;
   /**
-   * The full path to identify this object.
+   * The full path to identify the object.
    */
   "identifierPath"?: string;
   /**
@@ -60,11 +60,11 @@ export interface ObjectMetadata {
    */
   "registryVersion"?: number;
   /**
-   * Labels are keywords or tags that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.
+   * Labels are keywords or tags that you can add to data assets, dataflows, and so on. You can define your own labels and use them to categorize content.
    */
   "labels"?: Array<string>;
   /**
-   * Specifies whether this object is a favorite or not.
+   * Specifies whether this object is a favorite.
    */
   "isFavorite"?: boolean;
 }

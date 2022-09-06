@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -18,6 +18,7 @@ import common = require("oci-common");
  * The operation object.
  */
 export interface Operation {
+  "operationAttributes"?: model.GenericRestApiAttributes;
   "metadata"?: model.ObjectMetadata;
 
   "modelType": string;
@@ -28,6 +29,9 @@ export namespace Operation {
     const jsonObj = {
       ...obj,
       ...{
+        "operationAttributes": obj.operationAttributes
+          ? model.AbstractOperationAttributes.getJsonObj(obj.operationAttributes)
+          : undefined,
         "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined
       }
     };
@@ -39,6 +43,8 @@ export namespace Operation {
             <model.OperationFromProcedure>(<object>jsonObj),
             true
           );
+        case "API":
+          return model.OperationFromApi.getJsonObj(<model.OperationFromApi>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -49,6 +55,9 @@ export namespace Operation {
     const jsonObj = {
       ...obj,
       ...{
+        "operationAttributes": obj.operationAttributes
+          ? model.AbstractOperationAttributes.getDeserializedJsonObj(obj.operationAttributes)
+          : undefined,
         "metadata": obj.metadata
           ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
           : undefined
@@ -60,6 +69,11 @@ export namespace Operation {
         case "PROCEDURE":
           return model.OperationFromProcedure.getDeserializedJsonObj(
             <model.OperationFromProcedure>(<object>jsonObj),
+            true
+          );
+        case "API":
+          return model.OperationFromApi.getDeserializedJsonObj(
+            <model.OperationFromApi>(<object>jsonObj),
             true
           );
         default:

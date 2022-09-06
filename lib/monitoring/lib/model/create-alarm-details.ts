@@ -141,6 +141,12 @@ Example: `High CPU usage alert. Follow runbook instructions for resolution.`
     */
   "body"?: string;
   /**
+   * When set to `true`, splits notifications per metric stream. When set to `false`, groups notifications across metric streams.
+   * Example: `true`
+   *
+   */
+  "isNotificationsPerMetricDimensionEnabled"?: boolean;
+  /**
    * The format to use for notification messages sent from this alarm. The formats are:
    * * `RAW` - Raw JSON blob. Default value.
    * * `PRETTY_JSON`: JSON with new lines and indents.

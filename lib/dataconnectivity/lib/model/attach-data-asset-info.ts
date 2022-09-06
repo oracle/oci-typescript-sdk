@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AttachDataAssetInfo {
   /**
-   * Map of DataAsset name as key and results as value
+   * Mapping the DataAsset name as the key to the results as the value.
    */
   "referenceInfo": { [key: string]: model.ValidationResult };
 }

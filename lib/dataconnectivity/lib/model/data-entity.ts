@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -18,6 +18,10 @@ import common = require("oci-common");
  * The data entity object.
  */
 export interface DataEntity {
+  /**
+   * Map<String, String> for entity properties
+   */
+  "entityProperties"?: { [key: string]: string };
   "metadata"?: model.ObjectMetadata;
 
   "modelType": string;
@@ -59,6 +63,8 @@ export namespace DataEntity {
             <model.DataEntityFromFile>(<object>jsonObj),
             true
           );
+        case "DERIVED_ENTITY":
+          return model.DerivedEntity.getJsonObj(<model.DerivedEntity>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -100,6 +106,11 @@ export namespace DataEntity {
         case "FILE_ENTITY":
           return model.DataEntityFromFile.getDeserializedJsonObj(
             <model.DataEntityFromFile>(<object>jsonObj),
+            true
+          );
+        case "DERIVED_ENTITY":
+          return model.DerivedEntity.getDeserializedJsonObj(
+            <model.DerivedEntity>(<object>jsonObj),
             true
           );
         default:

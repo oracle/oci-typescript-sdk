@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -36,7 +36,7 @@ export interface OperationSummaryFromProcedure extends model.OperationSummary {
    */
   "objectVersion"?: number;
   /**
-   * The external key for the object.
+   * The external key of the object.
    */
   "externalKey"?: string;
   /**

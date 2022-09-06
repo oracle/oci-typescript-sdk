@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -23,7 +23,7 @@ export interface ReadOperationConfig extends model.AbstractDataOperationConfig {
    */
   "key"?: string;
   /**
-   * The object's model version.
+   * The model version of the object.
    */
   "modelVersion"?: string;
   "parentRef"?: model.ParentReference;
@@ -42,7 +42,7 @@ export interface ReadOperationConfig extends model.AbstractDataOperationConfig {
    */
   "objectStatus"?: number;
   /**
-   * Specifies if this readOperationConfig operation should trigger raw data preview flow.
+   * Specifies if the readOperationConfig operation should trigger a raw data preview flow.
    */
   "readRawData"?: boolean;
 

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of connection validation summaries.
+ * The request object for derived Entities.
  */
-export interface ConnectionValidationSummaryCollection {
+export interface DeriveEntitiesDetails {
   /**
-   * An array of connection validation summaries.
+   * The array of DeriveEntitiesRequestItem
    */
-  "items": Array<model.ConnectionValidationSummary>;
+  "items": Array<model.DeriveEntitiesItem>;
 }
 
-export namespace ConnectionValidationSummaryCollection {
-  export function getJsonObj(obj: ConnectionValidationSummaryCollection): object {
+export namespace DeriveEntitiesDetails {
+  export function getJsonObj(obj: DeriveEntitiesDetails): object {
     const jsonObj = {
       ...obj,
       ...{
         "items": obj.items
           ? obj.items.map(item => {
-              return model.ConnectionValidationSummary.getJsonObj(item);
+              return model.DeriveEntitiesItem.getJsonObj(item);
             })
           : undefined
       }
@@ -39,13 +39,13 @@ export namespace ConnectionValidationSummaryCollection {
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: ConnectionValidationSummaryCollection): object {
+  export function getDeserializedJsonObj(obj: DeriveEntitiesDetails): object {
     const jsonObj = {
       ...obj,
       ...{
         "items": obj.items
           ? obj.items.map(item => {
-              return model.ConnectionValidationSummary.getDeserializedJsonObj(item);
+              return model.DeriveEntitiesItem.getDeserializedJsonObj(item);
             })
           : undefined
       }

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateFolderRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -27,7 +27,7 @@ export interface UpdateFolderRequest extends common.BaseRequest {
    */
   "folderKey": string;
   /**
-   * The information needed to update a folder.
+   * The information required to update a folder.
    */
   "updateFolderDetails": model.UpdateFolderDetails;
   /**

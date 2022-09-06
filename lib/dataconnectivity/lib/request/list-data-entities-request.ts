@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListDataEntitiesRequest extends common.BaseRequest {
   /**
-   * The registry Ocid.
+   * The registry OCID.
    */
   "registryId": string;
   /**
@@ -51,7 +51,7 @@ export interface ListDataEntitiesRequest extends common.BaseRequest {
    */
   "fields"?: Array<string>;
   /**
-   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order is by relevance score in descending order).
+   * Specifies the field to sort by. Accepts only one field. By default, when you sort by time fields, results are shown in descending order. All other fields default to ascending order. Sorting related parameters are ignored when parameter `query` is present (search operation and sorting order are by relevance score in descending order).
    */
   "sortBy"?: ListDataEntitiesRequest.SortBy;
   /**
@@ -74,13 +74,17 @@ export interface ListDataEntitiesRequest extends common.BaseRequest {
    */
   "nameList"?: Array<string>;
   /**
-   * This parameter can be used to specify whether entity search type is pattern search or not.
+   * This parameter can be used to specify whether entity search type is a pattern search.
    */
   "isPattern"?: boolean;
   /**
-   * Endpoint Id used for getDataAssetFullDetails.
+   * Endpoint ID used for getDataAssetFullDetails.
    */
   "endpointId"?: string;
+  /**
+   * Artifact type which needs to be listed while listing Artifacts.
+   */
+  "includeTypes"?: Array<string>;
 }
 
 export namespace ListDataEntitiesRequest {

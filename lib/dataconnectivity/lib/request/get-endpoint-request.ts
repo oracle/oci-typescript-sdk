@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetEndpointRequest extends common.BaseRequest {
   /**
-   * DCMS Endpoint id
+   * DCMS endpoint ID.
    */
   "endpointId": string;
   /**
-   * DCMS registry id
+   * DCMS registry ID
    */
   "registryId"?: string;
   /**

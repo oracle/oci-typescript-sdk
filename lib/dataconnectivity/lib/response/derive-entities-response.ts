@@ -14,12 +14,7 @@
 import * as model from "../model";
 import common = require("oci-common");
 
-export interface GetConnectionValidationResponse {
-  /**
-   * For optimistic concurrency control. See [ETags for Optimistic Concurrency Control](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#eleven).
-   *
-   */
-  "etag": string;
+export interface DeriveEntitiesResponse {
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
@@ -27,7 +22,7 @@ export interface GetConnectionValidationResponse {
    */
   "opcRequestId": string;
   /**
-   * The returned model.ConnectionValidation instance.
+   * The returned model.DeriveEntities instance.
    */
-  "connectionValidation": model.ConnectionValidation;
+  "deriveEntities": model.DeriveEntities;
 }

@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The full pushdown task
+ * The full pushdown task.
  */
 export interface FullPushDownTaskResponse {
   /**
-   * The type of of FullPushDownTask Response.
+   * The type of of FullPushDownTask response.
    */
   "modelType": string;
   /**
-   * The error message in response object.
+   * The error message in the response object.
    */
   "errorMessage"?: string;
   /**

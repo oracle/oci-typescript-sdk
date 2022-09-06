@@ -1,6 +1,6 @@
 /**
  * Data Connectivity Management API
- * Use the DCMS APIs to perform Metadata/Data operations.
+ * Use the Data Connectivity Management Service APIs to perform common extract, load, and transform (ETL) tasks.
  * OpenAPI spec version: 20210217
  * Contact: di_dcms_dev_ww_grp@oracle.com
  *
@@ -152,7 +152,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * The Endpoint will be moved to the desired compartment.
+   * The endpoint will be moved to the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeEndpointCompartmentRequest
@@ -217,13 +217,13 @@ export class DataConnectivityManagementClient {
         responseObject: <responses.ChangeEndpointCompartmentResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -236,7 +236,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * The registry will be moved to the desired compartment.
+   * The registry will be moved to the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeRegistryCompartmentRequest
@@ -299,13 +299,13 @@ export class DataConnectivityManagementClient {
         responseObject: <responses.ChangeRegistryCompartmentResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -318,7 +318,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Attaches list of DataAssets to the given endpoint
+   * Attaches a list of data assets to the given endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateAttachDataAssetRequest
    * @return CreateAttachDataAssetResponse
@@ -400,7 +400,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Creates a connection under an existing data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
@@ -425,7 +425,7 @@ export class DataConnectivityManagementClient {
       "opc-retry-token": createConnectionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createConnectionRequest.retryConfiguration,
@@ -482,7 +482,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Creates a connection validation.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConnectionValidationRequest
    * @return CreateConnectionValidationResponse
    * @throws OciError when an error occurs
@@ -511,7 +511,7 @@ export class DataConnectivityManagementClient {
       "opc-retry-token": createConnectionValidationRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createConnectionValidationRequest.retryConfiguration,
@@ -568,7 +568,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * This endpoint is used to trigger validation of dataAsset, connection, schema, entity, dataOperationConfig
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConnectivityValidationRequest
    * @return CreateConnectivityValidationResponse
    * @throws OciError when an error occurs
@@ -597,7 +597,7 @@ export class DataConnectivityManagementClient {
       "opc-retry-token": createConnectivityValidationRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createConnectivityValidationRequest.retryConfiguration,
@@ -654,7 +654,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Creates a data asset with default connection.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
@@ -679,7 +679,7 @@ export class DataConnectivityManagementClient {
       "opc-retry-token": createDataAssetRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDataAssetRequest.retryConfiguration,
@@ -735,8 +735,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Provide data preview on live schema
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Provide data preview on live schema.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDataPreviewRequest
    * @return CreateDataPreviewResponse
    * @throws OciError when an error occurs
@@ -764,7 +764,7 @@ export class DataConnectivityManagementClient {
       "if-match": createDataPreviewRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDataPreviewRequest.retryConfiguration,
@@ -815,8 +815,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Execute data profiling on live schema
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Execute data profiling on live schema.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDataProfileRequest
    * @return CreateDataProfileResponse
    * @throws OciError when an error occurs
@@ -844,7 +844,7 @@ export class DataConnectivityManagementClient {
       "if-match": createDataProfileRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDataProfileRequest.retryConfiguration,
@@ -895,8 +895,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * DeRereferenced a dcms artifact.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Dereferenced a dcms artifact.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDeReferenceArtifactRequest
    * @return CreateDeReferenceArtifactResponse
    * @throws OciError when an error occurs
@@ -925,7 +925,7 @@ export class DataConnectivityManagementClient {
       "if-match": createDeReferenceArtifactRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDeReferenceArtifactRequest.retryConfiguration,
@@ -981,7 +981,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Detaches list of DataAssets to the given endpoint
+   * Detaches a list of data assets to the given endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateDetachDataAssetRequest
    * @return CreateDetachDataAssetResponse
@@ -1062,7 +1062,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Creates a new Data Connectivity Management Endpoint ready for performing data Connectivity.
+   * Creates a new Data Connectivity Management endpoint ready to perform data connectivity.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateEndpointRequest
@@ -1122,13 +1122,13 @@ export class DataConnectivityManagementClient {
         responseObject: <responses.CreateEndpointResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1142,7 +1142,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Creates the data entity shape using the shape from the data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateEntityShapeRequest
    * @return CreateEntityShapeResponse
    * @throws OciError when an error occurs
@@ -1173,7 +1173,7 @@ export class DataConnectivityManagementClient {
       "if-match": createEntityShapeRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createEntityShapeRequest.retryConfiguration,
@@ -1314,8 +1314,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Creates a folder under a specefied registry.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Creates a folder under a specified registry.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFolderRequest
    * @return CreateFolderResponse
    * @throws OciError when an error occurs
@@ -1340,7 +1340,7 @@ export class DataConnectivityManagementClient {
       "opc-retry-token": createFolderRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createFolderRequest.retryConfiguration,
@@ -1396,8 +1396,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * This endpoint is used to create a connectivity task (like PushdownTask).
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This endpoint is used to create a connectivity task (such as PushdownTask).
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFullPushDownTaskRequest
    * @return CreateFullPushDownTaskResponse
    * @throws OciError when an error occurs
@@ -1427,7 +1427,7 @@ export class DataConnectivityManagementClient {
       "if-match": createFullPushDownTaskRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createFullPushDownTaskRequest.retryConfiguration,
@@ -1484,7 +1484,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Reference a data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateReferenceArtifactRequest
    * @return CreateReferenceArtifactResponse
    * @throws OciError when an error occurs
@@ -1513,7 +1513,7 @@ export class DataConnectivityManagementClient {
       "if-match": createReferenceArtifactRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createReferenceArtifactRequest.retryConfiguration,
@@ -1569,7 +1569,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Creates a new Data Connectivity Management Registry ready for performing data Connectivity Management.
+   * Creates a new Data Connectivity Management registry ready to perform data connectivity management.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateRegistryRequest
@@ -1627,13 +1627,13 @@ export class DataConnectivityManagementClient {
         responseObject: <responses.CreateRegistryResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1646,7 +1646,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Execute network validation on selected data assets associated with the provided private endpoint
+   * Execute network validation on the selected data assets associated with the provided private endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateTestNetworkConnectivityRequest
    * @return CreateTestNetworkConnectivityResponse
@@ -1802,79 +1802,6 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Deletes a connection validation.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteConnectionValidationRequest
-   * @return DeleteConnectionValidationResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataconnectivity/DeleteConnectionValidation.ts.html |here} to see how to use DeleteConnectionValidation API.
-   */
-  public async deleteConnectionValidation(
-    deleteConnectionValidationRequest: requests.DeleteConnectionValidationRequest
-  ): Promise<responses.DeleteConnectionValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataConnectivityManagementClient#deleteConnectionValidation."
-      );
-    const operationName = "deleteConnectionValidation";
-    const apiReferenceLink = "";
-    const pathParams = {
-      "{registryId}": deleteConnectionValidationRequest.registryId,
-      "{connectionValidationKey}": deleteConnectionValidationRequest.connectionValidationKey
-    };
-
-    const queryParams = {
-      "endpointId": deleteConnectionValidationRequest.endpointId
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": deleteConnectionValidationRequest.ifMatch,
-      "opc-request-id": deleteConnectionValidationRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      deleteConnectionValidationRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/registries/{registryId}/connectionValidations/{connectionValidationKey}",
-      method: "DELETE",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.DeleteConnectionValidationResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Removes a data asset using the specified identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteDataAssetRequest
@@ -1944,7 +1871,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Deletes a Data Connectivity Management Endpoint resource by identifier
+   * Deletes a Data Connectivity Management endpoint resource by its identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteEndpointRequest
    * @return DeleteEndpointResponse
@@ -2001,13 +1928,13 @@ export class DataConnectivityManagementClient {
         responseObject: <responses.DeleteEndpointResponse>{},
         responseHeaders: [
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -2161,7 +2088,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Deletes a Data Connectivity Management Registry resource by identifier
+   * Deletes a Data Connectivity Management registry resource by its identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteRegistryRequest
    * @return DeleteRegistryResponse
@@ -2217,10 +2144,87 @@ export class DataConnectivityManagementClient {
         responseObject: <responses.DeleteRegistryResponse>{},
         responseHeaders: [
           {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
             dataType: "string"
-          },
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the Derived Entities from the EntityFlowMode and reference key of DataObject
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeriveEntitiesRequest
+   * @return DeriveEntitiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataconnectivity/DeriveEntities.ts.html |here} to see how to use DeriveEntities API.
+   */
+  public async deriveEntities(
+    deriveEntitiesRequest: requests.DeriveEntitiesRequest
+  ): Promise<responses.DeriveEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataConnectivityManagementClient#deriveEntities.");
+    const operationName = "deriveEntities";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{registryId}": deriveEntitiesRequest.registryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deriveEntitiesRequest.opcRequestId,
+      "opc-retry-token": deriveEntitiesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deriveEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registries/{registryId}/actions/deriveEntities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        deriveEntitiesRequest.deriveEntitiesDetails,
+        "DeriveEntitiesDetails",
+        model.DeriveEntitiesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeriveEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "deriveEntities",
+        bodyModel: model.DeriveEntities,
+        type: "model.DeriveEntities",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2237,7 +2241,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Retrieves the connection details using the specified identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
@@ -2262,7 +2266,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getConnectionRequest.retryConfiguration,
@@ -2313,89 +2317,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Retrieves a connection validation using the specified identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param GetConnectionValidationRequest
-   * @return GetConnectionValidationResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataconnectivity/GetConnectionValidation.ts.html |here} to see how to use GetConnectionValidation API.
-   */
-  public async getConnectionValidation(
-    getConnectionValidationRequest: requests.GetConnectionValidationRequest
-  ): Promise<responses.GetConnectionValidationResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataConnectivityManagementClient#getConnectionValidation."
-      );
-    const operationName = "getConnectionValidation";
-    const apiReferenceLink = "";
-    const pathParams = {
-      "{registryId}": getConnectionValidationRequest.registryId,
-      "{connectionValidationKey}": getConnectionValidationRequest.connectionValidationKey
-    };
-
-    const queryParams = {
-      "endpointId": getConnectionValidationRequest.endpointId
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getConnectionValidationRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      getConnectionValidationRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/registries/{registryId}/connectionValidations/{connectionValidationKey}",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetConnectionValidationResponse>{},
-        body: await response.json(),
-        bodyKey: "connectionValidation",
-        bodyModel: model.ConnectionValidation,
-        type: "model.ConnectionValidation",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Retrieves details of a data asset using the specified identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
@@ -2420,7 +2343,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataAssetRequest.retryConfiguration,
@@ -2472,7 +2395,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Retrieves the data entity details with the given name from live schema.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataEntityRequest
    * @return GetDataEntityResponse
    * @throws OciError when an error occurs
@@ -2501,7 +2424,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getDataEntityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataEntityRequest.retryConfiguration,
@@ -2548,8 +2471,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Gets a Data Connectivity Management Endpoint by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Gets a Data Connectivity Management endpoint by its identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetEndpointRequest
    * @return GetEndpointResponse
    * @throws OciError when an error occurs
@@ -2575,7 +2498,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getEndpointRequest.retryConfiguration,
@@ -2626,8 +2549,84 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Get the operation status or operation execution result
+   * This endpoint is used to fetch connector-specific engine configurations.
    * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetEngineConfigurationsRequest
+   * @return GetEngineConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataconnectivity/GetEngineConfigurations.ts.html |here} to see how to use GetEngineConfigurations API.
+   */
+  public async getEngineConfigurations(
+    getEngineConfigurationsRequest: requests.GetEngineConfigurationsRequest
+  ): Promise<responses.GetEngineConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataConnectivityManagementClient#getEngineConfigurations."
+      );
+    const operationName = "getEngineConfigurations";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{registryId}": getEngineConfigurationsRequest.registryId,
+      "{connectionKey}": getEngineConfigurationsRequest.connectionKey
+    };
+
+    const queryParams = {
+      "engineTypeQueryParam": getEngineConfigurationsRequest.engineTypeQueryParam
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getEngineConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getEngineConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/registries/{registryId}/connections/{connectionKey}/engineConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetEngineConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "configDetails",
+        bodyModel: model.ConfigDetails,
+        type: "model.ConfigDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the status or the result of the execution.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExecuteOperationJobRequest
    * @return GetExecuteOperationJobResponse
    * @throws OciError when an error occurs
@@ -2658,7 +2657,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getExecuteOperationJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getExecuteOperationJobRequest.retryConfiguration,
@@ -2706,7 +2705,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Retrieves the folder details using the specified identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFolderRequest
    * @return GetFolderResponse
    * @throws OciError when an error occurs
@@ -2731,7 +2730,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getFolderRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFolderRequest.retryConfiguration,
@@ -2782,8 +2781,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Get Status of network reachability check, with the timestamp when the status was last checked, for a given PrivateEndpoint-DataAsset pair
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Get the status of network reachability check, with the timestamp of when the status was last checked, for a given PrivateEndpoint-DataAsset pair.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNetworkConnectivityStatusRequest
    * @return GetNetworkConnectivityStatusResponse
    * @throws OciError when an error occurs
@@ -2814,7 +2813,7 @@ export class DataConnectivityManagementClient {
       "if-match": getNetworkConnectivityStatusRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNetworkConnectivityStatusRequest.retryConfiguration,
@@ -2865,8 +2864,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Retrieves the details of operation with given resource name.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves the details of operation with the given resource name.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOperationRequest
    * @return GetOperationResponse
    * @throws OciError when an error occurs
@@ -2895,7 +2894,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getOperationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getOperationRequest.retryConfiguration,
@@ -2942,8 +2941,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Gets a Data Connectivity Management Registry by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a Data Connectivity Management registry using the specified identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRegistryRequest
    * @return GetRegistryResponse
    * @throws OciError when an error occurs
@@ -2967,7 +2966,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getRegistryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRegistryRequest.retryConfiguration,
@@ -3019,7 +3018,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Retrieves a schema that can be accessed using the specified connection.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSchemaRequest
    * @return GetSchemaResponse
    * @throws OciError when an error occurs
@@ -3047,7 +3046,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getSchemaRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSchemaRequest.retryConfiguration,
@@ -3093,9 +3092,9 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * This endpoint retrieves dataAsset and connection attributes from DataAssetRegistry
+   * This endpoint retrieves dataAsset and connection attributes from DataAssetRegistry.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTypeRequest
    * @return GetTypeResponse
    * @throws OciError when an error occurs
@@ -3122,7 +3121,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getTypeRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTypeRequest.retryConfiguration,
@@ -3174,7 +3173,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -3198,7 +3197,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -3254,106 +3253,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Retrieves a list of connection validations within the specified registry.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListConnectionValidationsRequest
-   * @return ListConnectionValidationsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataconnectivity/ListConnectionValidations.ts.html |here} to see how to use ListConnectionValidations API.
-   */
-  public async listConnectionValidations(
-    listConnectionValidationsRequest: requests.ListConnectionValidationsRequest
-  ): Promise<responses.ListConnectionValidationsResponse> {
-    if (this.logger)
-      this.logger.debug(
-        "Calling operation DataConnectivityManagementClient#listConnectionValidations."
-      );
-    const operationName = "listConnectionValidations";
-    const apiReferenceLink = "";
-    const pathParams = {
-      "{registryId}": listConnectionValidationsRequest.registryId
-    };
-
-    const queryParams = {
-      "key": listConnectionValidationsRequest.key,
-      "name": listConnectionValidationsRequest.name,
-      "identifier": listConnectionValidationsRequest.identifier,
-      "fields": listConnectionValidationsRequest.fields,
-      "page": listConnectionValidationsRequest.page,
-      "limit": listConnectionValidationsRequest.limit,
-      "sortBy": listConnectionValidationsRequest.sortBy,
-      "sortOrder": listConnectionValidationsRequest.sortOrder,
-      "endpointId": listConnectionValidationsRequest.endpointId
-    };
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": listConnectionValidationsRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      listConnectionValidationsRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/registries/{registryId}/connectionValidations",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.ListConnectionValidationsResponse>{},
-        body: await response.json(),
-        bodyKey: "connectionValidationSummaryCollection",
-        bodyModel: model.ConnectionValidationSummaryCollection,
-        type: "model.ConnectionValidationSummaryCollection",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-prev-page"),
-            key: "opcPrevPage",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-total-items"),
-            key: "opcTotalItems",
-            dataType: "number"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Retrieves a list of all connections.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
@@ -3387,7 +3288,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listConnectionsRequest.retryConfiguration,
@@ -3450,7 +3351,7 @@ export class DataConnectivityManagementClient {
   /**
    * Retrieves a list of all data asset summaries.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
@@ -3487,7 +3388,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataAssetsRequest.retryConfiguration,
@@ -3550,7 +3451,7 @@ export class DataConnectivityManagementClient {
   /**
    * Lists a summary of data entities from the data asset using the specified connection.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataEntitiesRequest
    * @return ListDataEntitiesResponse
    * @throws OciError when an error occurs
@@ -3580,7 +3481,8 @@ export class DataConnectivityManagementClient {
       "apiMode": listDataEntitiesRequest.apiMode,
       "nameList": listDataEntitiesRequest.nameList,
       "isPattern": listDataEntitiesRequest.isPattern,
-      "endpointId": listDataEntitiesRequest.endpointId
+      "endpointId": listDataEntitiesRequest.endpointId,
+      "includeTypes": listDataEntitiesRequest.includeTypes
     };
 
     let headerParams = {
@@ -3588,7 +3490,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listDataEntitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataEntitiesRequest.retryConfiguration,
@@ -3650,9 +3552,9 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Returns a list of Data Connectivity Management Endpoints.
+   * Returns a list of Data Connectivity Management endpoints.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListEndpointsRequest
    * @return ListEndpointsResponse
    * @throws OciError when an error occurs
@@ -3683,7 +3585,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listEndpointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listEndpointsRequest.retryConfiguration,
@@ -3734,8 +3636,8 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Retrieves a list of all folders.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * Retrieves a list of all the folders.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFoldersRequest
    * @return ListFoldersResponse
    * @throws OciError when an error occurs
@@ -3768,7 +3670,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listFoldersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFoldersRequest.retryConfiguration,
@@ -3829,9 +3731,9 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Lists the summary of operations present in the schema identified by schema name.
+   * Lists the summary of operations that are present in the schema, identified by the schema name.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOperationsRequest
    * @return ListOperationsResponse
    * @throws OciError when an error occurs
@@ -3864,7 +3766,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listOperationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOperationsRequest.retryConfiguration,
@@ -3928,7 +3830,7 @@ export class DataConnectivityManagementClient {
   /**
    * Retrieves a list of all reference info of a dcms artifact.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListReferenceArtifactsRequest
    * @return ListReferenceArtifactsResponse
    * @throws OciError when an error occurs
@@ -3966,7 +3868,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listReferenceArtifactsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listReferenceArtifactsRequest.retryConfiguration,
@@ -4027,9 +3929,9 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Returns a list of Data Connectivity Management Registries.
+   * Retrieves a list of Data Connectivity Management registries.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRegistriesRequest
    * @return ListRegistriesResponse
    * @throws OciError when an error occurs
@@ -4058,7 +3960,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listRegistriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRegistriesRequest.retryConfiguration,
@@ -4110,7 +4012,7 @@ export class DataConnectivityManagementClient {
 
   /**
    * Retrieves a list of all the schemas that can be accessed using the specified connection.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListSchemasRequest
    * @return ListSchemasResponse
    * @throws OciError when an error occurs
@@ -4137,7 +4039,8 @@ export class DataConnectivityManagementClient {
       "schemaResourceKey": listSchemasRequest.schemaResourceKey,
       "name": listSchemasRequest.name,
       "nameList": listSchemasRequest.nameList,
-      "endpointId": listSchemasRequest.endpointId
+      "endpointId": listSchemasRequest.endpointId,
+      "includeTypes": listSchemasRequest.includeTypes
     };
 
     let headerParams = {
@@ -4145,7 +4048,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listSchemasRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSchemasRequest.retryConfiguration,
@@ -4206,9 +4109,9 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * This endpoint retrieves list of all the supported connector types
+   * This endpoint retrieves a list of all the supported connector types.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTypesRequest
    * @return ListTypesResponse
    * @throws OciError when an error occurs
@@ -4239,7 +4142,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTypesRequest.retryConfiguration,
@@ -4300,9 +4203,9 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Returns a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -4331,7 +4234,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -4363,13 +4266,13 @@ export class DataConnectivityManagementClient {
         type: "model.WorkRequestErrorCollection",
         responseHeaders: [
           {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -4382,9 +4285,9 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Return a (paginated) list of logs for a given work request.
+   * Returns a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -4411,7 +4314,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -4443,13 +4346,13 @@ export class DataConnectivityManagementClient {
         type: "model.WorkRequestLogCollection",
         responseHeaders: [
           {
-            value: response.headers.get("opc-next-page"),
-            key: "opcNextPage",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -4464,7 +4367,7 @@ export class DataConnectivityManagementClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4481,7 +4384,7 @@ export class DataConnectivityManagementClient {
 
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
-      "resourceId": listWorkRequestsRequest.resourceId,
+      "registryId": listWorkRequestsRequest.registryId,
       "workRequestStatus": listWorkRequestsRequest.workRequestStatus,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit
@@ -4492,7 +4395,7 @@ export class DataConnectivityManagementClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -4709,7 +4612,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Updates the Data Connectivity Management Endpoint
+   * Updates the Data Connectivity Management endpoint.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateEndpointRequest
    * @return UpdateEndpointResponse
@@ -4779,13 +4682,13 @@ export class DataConnectivityManagementClient {
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -4798,7 +4701,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Updates a folder under a specefied registry.
+   * Updates a folder under a specified registry.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateFolderRequest
    * @return UpdateFolderResponse
@@ -4881,7 +4784,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Updates the Data Connectivity Management Registry
+   * Updates the Data Connectivity Management Registry.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRegistryRequest
    * @return UpdateRegistryResponse
@@ -4949,13 +4852,13 @@ export class DataConnectivityManagementClient {
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           },
           {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -4968,7 +4871,7 @@ export class DataConnectivityManagementClient {
   }
 
   /**
-   * Validates the dataAsset network Reachability.
+   * Validates the dataAsset network reachability.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ValidateDataAssetNetworkReachablityRequest
@@ -5151,8 +5054,8 @@ export class NetworkValidationClient {
   }
 
   /**
-   * This api is used to get Network Connectivity Status for all the Data Assets attatched to the provided Private endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This API is used to get the network connectivity status fofor all the data assets attached to the provided private endpoint.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetNetworkConnectivityStatusCollectionRequest
    * @return GetNetworkConnectivityStatusCollectionResponse
    * @throws OciError when an error occurs
@@ -5185,7 +5088,7 @@ export class NetworkValidationClient {
       "opc-retry-token": getNetworkConnectivityStatusCollectionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getNetworkConnectivityStatusCollectionRequest.retryConfiguration,
