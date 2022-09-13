@@ -26,6 +26,7 @@ export interface ApiSpecificationRequestPolicies {
   "cors"?: model.CorsPolicy;
   "mutualTls"?: model.MutualTlsDetails;
   "usagePlans"?: model.UsagePlansPolicy;
+  "dynamicAuthentication"?: model.DynamicAuthenticationPolicy;
 }
 
 export namespace ApiSpecificationRequestPolicies {
@@ -41,7 +42,12 @@ export namespace ApiSpecificationRequestPolicies {
           : undefined,
         "cors": obj.cors ? model.CorsPolicy.getJsonObj(obj.cors) : undefined,
         "mutualTls": obj.mutualTls ? model.MutualTlsDetails.getJsonObj(obj.mutualTls) : undefined,
-        "usagePlans": obj.usagePlans ? model.UsagePlansPolicy.getJsonObj(obj.usagePlans) : undefined
+        "usagePlans": obj.usagePlans
+          ? model.UsagePlansPolicy.getJsonObj(obj.usagePlans)
+          : undefined,
+        "dynamicAuthentication": obj.dynamicAuthentication
+          ? model.DynamicAuthenticationPolicy.getJsonObj(obj.dynamicAuthentication)
+          : undefined
       }
     };
 
@@ -63,6 +69,9 @@ export namespace ApiSpecificationRequestPolicies {
           : undefined,
         "usagePlans": obj.usagePlans
           ? model.UsagePlansPolicy.getDeserializedJsonObj(obj.usagePlans)
+          : undefined,
+        "dynamicAuthentication": obj.dynamicAuthentication
+          ? model.DynamicAuthenticationPolicy.getDeserializedJsonObj(obj.dynamicAuthentication)
           : undefined
       }
     };

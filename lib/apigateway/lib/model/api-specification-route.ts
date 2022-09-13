@@ -36,7 +36,11 @@ export interface ApiSpecificationRoute {
   "requestPolicies"?: model.ApiSpecificationRouteRequestPolicies;
   "responsePolicies"?: model.ApiSpecificationRouteResponsePolicies;
   "loggingPolicies"?: model.ApiSpecificationLoggingPolicies;
-  "backend": model.HTTPBackend | model.OracleFunctionBackend | model.StockResponseBackend;
+  "backend":
+    | model.HTTPBackend
+    | model.OracleFunctionBackend
+    | model.StockResponseBackend
+    | model.DynamicRoutingBackend;
 }
 
 export namespace ApiSpecificationRoute {

@@ -12,6 +12,12 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ArtifactExportDetails from "./artifact-export-details";
+export import ArtifactExportDetails = ArtifactExportDetails.ArtifactExportDetails;
+import * as ArtifactImportDetails from "./artifact-import-details";
+export import ArtifactImportDetails = ArtifactImportDetails.ArtifactImportDetails;
+import * as ArtifactSourceType from "./artifact-source-type";
+export import ArtifactSourceType = ArtifactSourceType.ArtifactSourceType;
 import * as CategoryLogDetails from "./category-log-details";
 export import CategoryLogDetails = CategoryLogDetails.CategoryLogDetails;
 import * as ChangeJobCompartmentDetails from "./change-job-compartment-details";
@@ -40,8 +46,12 @@ import * as CreateNotebookSessionDetails from "./create-notebook-session-details
 export import CreateNotebookSessionDetails = CreateNotebookSessionDetails.CreateNotebookSessionDetails;
 import * as CreateProjectDetails from "./create-project-details";
 export import CreateProjectDetails = CreateProjectDetails.CreateProjectDetails;
+import * as ExportModelArtifactDetails from "./export-model-artifact-details";
+export import ExportModelArtifactDetails = ExportModelArtifactDetails.ExportModelArtifactDetails;
 import * as FastLaunchJobConfigSummary from "./fast-launch-job-config-summary";
 export import FastLaunchJobConfigSummary = FastLaunchJobConfigSummary.FastLaunchJobConfigSummary;
+import * as ImportModelArtifactDetails from "./import-model-artifact-details";
+export import ImportModelArtifactDetails = ImportModelArtifactDetails.ImportModelArtifactDetails;
 import * as InstanceConfiguration from "./instance-configuration";
 export import InstanceConfiguration = InstanceConfiguration.InstanceConfiguration;
 import * as Job from "./job";
@@ -163,6 +173,10 @@ export import WorkRequestStatus = WorkRequestStatus.WorkRequestStatus;
 import * as WorkRequestSummary from "./work-request-summary";
 export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 
+import * as ArtifactExportDetailsObjectStorage from "./artifact-export-details-object-storage";
+export import ArtifactExportDetailsObjectStorage = ArtifactExportDetailsObjectStorage.ArtifactExportDetailsObjectStorage;
+import * as ArtifactImportDetailsObjectStorage from "./artifact-import-details-object-storage";
+export import ArtifactImportDetailsObjectStorage = ArtifactImportDetailsObjectStorage.ArtifactImportDetailsObjectStorage;
 import * as DefaultJobConfigurationDetails from "./default-job-configuration-details";
 export import DefaultJobConfigurationDetails = DefaultJobConfigurationDetails.DefaultJobConfigurationDetails;
 import * as FixedSizeScalingPolicy from "./fixed-size-scaling-policy";

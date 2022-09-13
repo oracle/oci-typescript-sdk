@@ -70,6 +70,8 @@ import * as DeleteNotebookSessionRequest from "./delete-notebook-session-request
 export import DeleteNotebookSessionRequest = DeleteNotebookSessionRequest.DeleteNotebookSessionRequest;
 import * as DeleteProjectRequest from "./delete-project-request";
 export import DeleteProjectRequest = DeleteProjectRequest.DeleteProjectRequest;
+import * as ExportModelArtifactRequest from "./export-model-artifact-request";
+export import ExportModelArtifactRequest = ExportModelArtifactRequest.ExportModelArtifactRequest;
 import * as GetJobRequest from "./get-job-request";
 export import GetJobRequest = GetJobRequest.GetJobRequest;
 import * as GetJobArtifactContentRequest from "./get-job-artifact-content-request";
@@ -94,6 +96,8 @@ import * as HeadJobArtifactRequest from "./head-job-artifact-request";
 export import HeadJobArtifactRequest = HeadJobArtifactRequest.HeadJobArtifactRequest;
 import * as HeadModelArtifactRequest from "./head-model-artifact-request";
 export import HeadModelArtifactRequest = HeadModelArtifactRequest.HeadModelArtifactRequest;
+import * as ImportModelArtifactRequest from "./import-model-artifact-request";
+export import ImportModelArtifactRequest = ImportModelArtifactRequest.ImportModelArtifactRequest;
 import * as ListFastLaunchJobConfigsRequest from "./list-fast-launch-job-configs-request";
 export import ListFastLaunchJobConfigsRequest = ListFastLaunchJobConfigsRequest.ListFastLaunchJobConfigsRequest;
 import * as ListJobRunsRequest from "./list-job-runs-request";
