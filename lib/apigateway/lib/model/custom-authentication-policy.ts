@@ -36,6 +36,18 @@ export interface CustomAuthenticationPolicy extends model.AuthenticationPolicy {
    * The name of the query parameter containing the authentication token.
    */
   "tokenQueryParam"?: string;
+  /**
+   * A map where key is a user defined string and value is a context expressions whose values will be sent to the custom auth function. Values should contain an expression.
+   * Example: `{\"foo\": \"request.header[abc]\"}`
+   *
+   */
+  "parameters"?: { [key: string]: string };
+  /**
+   * A list of keys from \"parameters\" attribute value whose values will be added to the cache key.
+   *
+   */
+  "cacheKey"?: Array<string>;
+  "validationFailurePolicy"?: model.ModifyResponseValidationFailurePolicy;
 
   "type": string;
 }
@@ -46,7 +58,11 @@ export namespace CustomAuthenticationPolicy {
       ...(isParentJsonObj
         ? obj
         : (model.AuthenticationPolicy.getJsonObj(obj) as CustomAuthenticationPolicy)),
-      ...{}
+      ...{
+        "validationFailurePolicy": obj.validationFailurePolicy
+          ? model.ValidationFailurePolicy.getJsonObj(obj.validationFailurePolicy)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -60,7 +76,11 @@ export namespace CustomAuthenticationPolicy {
       ...(isParentJsonObj
         ? obj
         : (model.AuthenticationPolicy.getDeserializedJsonObj(obj) as CustomAuthenticationPolicy)),
-      ...{}
+      ...{
+        "validationFailurePolicy": obj.validationFailurePolicy
+          ? model.ValidationFailurePolicy.getDeserializedJsonObj(obj.validationFailurePolicy)
+          : undefined
+      }
     };
 
     return jsonObj;

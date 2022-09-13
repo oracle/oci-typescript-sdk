@@ -70,6 +70,8 @@ import * as DeleteNotebookSessionResponse from "./delete-notebook-session-respon
 export import DeleteNotebookSessionResponse = DeleteNotebookSessionResponse.DeleteNotebookSessionResponse;
 import * as DeleteProjectResponse from "./delete-project-response";
 export import DeleteProjectResponse = DeleteProjectResponse.DeleteProjectResponse;
+import * as ExportModelArtifactResponse from "./export-model-artifact-response";
+export import ExportModelArtifactResponse = ExportModelArtifactResponse.ExportModelArtifactResponse;
 import * as GetJobResponse from "./get-job-response";
 export import GetJobResponse = GetJobResponse.GetJobResponse;
 import * as GetJobArtifactContentResponse from "./get-job-artifact-content-response";
@@ -94,6 +96,8 @@ import * as HeadJobArtifactResponse from "./head-job-artifact-response";
 export import HeadJobArtifactResponse = HeadJobArtifactResponse.HeadJobArtifactResponse;
 import * as HeadModelArtifactResponse from "./head-model-artifact-response";
 export import HeadModelArtifactResponse = HeadModelArtifactResponse.HeadModelArtifactResponse;
+import * as ImportModelArtifactResponse from "./import-model-artifact-response";
+export import ImportModelArtifactResponse = ImportModelArtifactResponse.ImportModelArtifactResponse;
 import * as ListFastLaunchJobConfigsResponse from "./list-fast-launch-job-configs-response";
 export import ListFastLaunchJobConfigsResponse = ListFastLaunchJobConfigsResponse.ListFastLaunchJobConfigsResponse;
 import * as ListJobRunsResponse from "./list-job-runs-response";

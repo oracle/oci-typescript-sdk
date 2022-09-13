@@ -43,6 +43,11 @@ export namespace ApiSpecificationRouteBackend {
             <model.StockResponseBackend>(<object>jsonObj),
             true
           );
+        case "DYNAMIC_ROUTING_BACKEND":
+          return model.DynamicRoutingBackend.getJsonObj(
+            <model.DynamicRoutingBackend>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -67,6 +72,11 @@ export namespace ApiSpecificationRouteBackend {
         case "STOCK_RESPONSE_BACKEND":
           return model.StockResponseBackend.getDeserializedJsonObj(
             <model.StockResponseBackend>(<object>jsonObj),
+            true
+          );
+        case "DYNAMIC_ROUTING_BACKEND":
+          return model.DynamicRoutingBackend.getDeserializedJsonObj(
+            <model.DynamicRoutingBackend>(<object>jsonObj),
             true
           );
         default:

@@ -1301,7 +1301,8 @@ export class DataScienceClient {
       "opc-request-id": createModelArtifactRequest.opcRequestId,
       "opc-retry-token": createModelArtifactRequest.opcRetryToken,
       "content-length": createModelArtifactRequest.contentLength,
-      "content-disposition": createModelArtifactRequest.contentDisposition
+      "content-disposition": createModelArtifactRequest.contentDisposition,
+      "if-match": createModelArtifactRequest.ifMatch
     };
 
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
@@ -2356,6 +2357,85 @@ export class DataScienceClient {
   }
 
   /**
+   * Export model artifact from source to the service bucket
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportModelArtifactRequest
+   * @return ExportModelArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ExportModelArtifact.ts.html |here} to see how to use ExportModelArtifact API.
+   */
+  public async exportModelArtifact(
+    exportModelArtifactRequest: requests.ExportModelArtifactRequest
+  ): Promise<responses.ExportModelArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#exportModelArtifact.");
+    const operationName = "exportModelArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ExportModelArtifact";
+    const pathParams = {
+      "{modelId}": exportModelArtifactRequest.modelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": exportModelArtifactRequest.opcRequestId,
+      "opc-retry-token": exportModelArtifactRequest.opcRetryToken,
+      "if-match": exportModelArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportModelArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/actions/exportArtifact",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportModelArtifactRequest.exportModelArtifactDetails,
+        "ExportModelArtifactDetails",
+        model.ExportModelArtifactDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportModelArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a job.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobRequest
@@ -3083,7 +3163,7 @@ export class DataScienceClient {
 
   /**
    * Gets the specified work request's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -3107,7 +3187,7 @@ export class DataScienceClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -3336,6 +3416,84 @@ export class DataScienceClient {
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Import model artifact from service bucket
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ImportModelArtifactRequest
+   * @return ImportModelArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ImportModelArtifact.ts.html |here} to see how to use ImportModelArtifact API.
+   */
+  public async importModelArtifact(
+    importModelArtifactRequest: requests.ImportModelArtifactRequest
+  ): Promise<responses.ImportModelArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#importModelArtifact.");
+    const operationName = "importModelArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Model/ImportModelArtifact";
+    const pathParams = {
+      "{modelId}": importModelArtifactRequest.modelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": importModelArtifactRequest.opcRequestId,
+      "if-match": importModelArtifactRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importModelArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}/actions/importArtifact",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importModelArtifactRequest.importModelArtifactDetails,
+        "ImportModelArtifactDetails",
+        model.ImportModelArtifactDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportModelArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -4741,7 +4899,7 @@ export class DataScienceClient {
 
   /**
    * Lists work request errors for the specified work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -4766,7 +4924,7 @@ export class DataScienceClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -4813,7 +4971,7 @@ export class DataScienceClient {
 
   /**
    * Lists work request logs for the specified work request.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -4837,7 +4995,7 @@ export class DataScienceClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -4884,7 +5042,7 @@ export class DataScienceClient {
 
   /**
    * Lists work requests in the specified compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -4915,7 +5073,7 @@ export class DataScienceClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,

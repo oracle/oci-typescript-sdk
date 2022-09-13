@@ -20,12 +20,12 @@ import common = require("oci-common");
  */
 export interface NotebookSessionShapeConfigDetails {
   /**
-   * A notebook session instance of type VM.Standard.E3.Flex allows the ocpu count to be specified.
+   * The total number of OCPUs available to the notebook session instance.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus"?: number;
   /**
-   * A notebook session instance of type VM.Standard.E3.Flex allows memory to be specified. This specifies the size of the memory in GBs.
+   * The total amount of memory available to the notebook session instance, in gigabytes.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
