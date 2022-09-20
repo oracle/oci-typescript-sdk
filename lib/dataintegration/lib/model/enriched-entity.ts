@@ -23,7 +23,8 @@ export interface EnrichedEntity {
     | model.DataEntityFromDataStore
     | model.DataEntityFromView
     | model.DataEntityFromSql
-    | model.DataEntityFromFile;
+    | model.DataEntityFromFile
+    | model.DerivedEntity;
   "dataFormat"?: model.DataFormat;
   /**
    * The model type for the entity which is referenced.

@@ -19,6 +19,7 @@ import common = require("oci-common");
  */
 export interface Pivot extends model.Operator {
   "groupByColumns"?: model.DynamicProxyField;
+  "materializedGroupByColumns"?: model.MaterializedDynamicField;
   "pivotKeys"?: model.PivotKeys;
 
   "modelType": string;
@@ -31,6 +32,9 @@ export namespace Pivot {
       ...{
         "groupByColumns": obj.groupByColumns
           ? model.DynamicProxyField.getJsonObj(obj.groupByColumns)
+          : undefined,
+        "materializedGroupByColumns": obj.materializedGroupByColumns
+          ? model.MaterializedDynamicField.getJsonObj(obj.materializedGroupByColumns)
           : undefined,
         "pivotKeys": obj.pivotKeys ? model.PivotKeys.getJsonObj(obj.pivotKeys) : undefined
       }
@@ -45,6 +49,9 @@ export namespace Pivot {
       ...{
         "groupByColumns": obj.groupByColumns
           ? model.DynamicProxyField.getDeserializedJsonObj(obj.groupByColumns)
+          : undefined,
+        "materializedGroupByColumns": obj.materializedGroupByColumns
+          ? model.MaterializedDynamicField.getDeserializedJsonObj(obj.materializedGroupByColumns)
           : undefined,
         "pivotKeys": obj.pivotKeys
           ? model.PivotKeys.getDeserializedJsonObj(obj.pivotKeys)

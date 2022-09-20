@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The saved static date range (Required when dynamicDateRange is missing).
+ * The saved static date range (required when the dynamic date range is missing).
  */
 export interface StaticDateRange extends model.DateRange {
   /**

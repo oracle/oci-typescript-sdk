@@ -20,11 +20,14 @@ import common = require("oci-common");
 export interface MacroField extends model.TypedObject {
   "expr"?: model.Expression;
   "type"?:
+    | model.ArrayType
     | model.ConfiguredType
     | model.JavaType
     | model.DynamicType
     | model.DerivedType
     | model.DataType
+    | model.MaterializedCompositeType
+    | model.MapType
     | model.CompositeType;
   /**
    * Specifies whether the type of macro fields is inferred from an expression or useType (false) or the source field (true).

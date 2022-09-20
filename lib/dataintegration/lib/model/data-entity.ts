@@ -59,6 +59,8 @@ export namespace DataEntity {
             <model.DataEntityFromFile>(<object>jsonObj),
             true
           );
+        case "DERIVED_ENTITY":
+          return model.DerivedEntity.getJsonObj(<model.DerivedEntity>(<object>jsonObj), true);
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -100,6 +102,11 @@ export namespace DataEntity {
         case "FILE_ENTITY":
           return model.DataEntityFromFile.getDeserializedJsonObj(
             <model.DataEntityFromFile>(<object>jsonObj),
+            true
+          );
+        case "DERIVED_ENTITY":
+          return model.DerivedEntity.getDeserializedJsonObj(
+            <model.DerivedEntity>(<object>jsonObj),
             true
           );
         default:

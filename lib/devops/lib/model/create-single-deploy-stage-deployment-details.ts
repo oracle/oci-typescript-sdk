@@ -21,7 +21,7 @@ export interface CreateSingleDeployStageDeploymentDetails extends model.CreateDe
   /**
    * Specifies the OCID of the stage to be redeployed.
    */
-  "deployStageId"?: string;
+  "deployStageId": string;
   "deploymentArguments"?: model.DeploymentArgumentCollection;
   "deployArtifactOverrideArguments"?: model.DeployArtifactOverrideArgumentCollection;
 

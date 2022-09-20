@@ -26,16 +26,31 @@ export interface DataflowApplication {
    * The compartmentId id under which Oracle Cloud Infrastructure dataflow application lies.
    */
   "compartmentId"?: string;
+  "configValues"?: model.ConfigValues;
 }
 
 export namespace DataflowApplication {
   export function getJsonObj(obj: DataflowApplication): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configValues": obj.configValues
+          ? model.ConfigValues.getJsonObj(obj.configValues)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: DataflowApplication): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "configValues": obj.configValues
+          ? model.ConfigValues.getDeserializedJsonObj(obj.configValues)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

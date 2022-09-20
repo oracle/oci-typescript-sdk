@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The saved dynamic date range (Required when staticDateRange is missing).
+ * The saved dynamic date range (required when the static date range is missing).
  */
 export interface DynamicDateRange extends model.DateRange {
   "dynamicDateRangeType": DynamicDateRange.DynamicDateRangeType;
@@ -26,12 +26,17 @@ export interface DynamicDateRange extends model.DateRange {
 export namespace DynamicDateRange {
   export enum DynamicDateRangeType {
     Last7Days = "LAST_7_DAYS",
+    Last10Days = "LAST_10_DAYS",
     LastCalendarWeek = "LAST_CALENDAR_WEEK",
     LastCalendarMonth = "LAST_CALENDAR_MONTH",
+    Last2CalendarMonths = "LAST_2_CALENDAR_MONTHS",
+    Last3CalendarMonths = "LAST_3_CALENDAR_MONTHS",
+    Last6CalendarMonths = "LAST_6_CALENDAR_MONTHS",
     Last30Days = "LAST_30_DAYS",
     MonthToDate = "MONTH_TO_DATE",
     LastYear = "LAST_YEAR",
     YearTodate = "YEAR_TODATE",
+    All = "ALL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

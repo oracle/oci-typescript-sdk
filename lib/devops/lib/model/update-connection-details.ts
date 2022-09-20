@@ -50,6 +50,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateGithubAccessTokenConnectionDetails>(<object>jsonObj),
             true
           );
+        case "VBS_ACCESS_TOKEN":
+          return model.UpdateVbsAccessTokenConnectionDetails.getJsonObj(
+            <model.UpdateVbsAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "BITBUCKET_SERVER_ACCESS_TOKEN":
           return model.UpdateBitbucketServerAccessTokenConnectionDetails.getJsonObj(
             <model.UpdateBitbucketServerAccessTokenConnectionDetails>(<object>jsonObj),
@@ -84,6 +89,11 @@ export namespace UpdateConnectionDetails {
         case "GITHUB_ACCESS_TOKEN":
           return model.UpdateGithubAccessTokenConnectionDetails.getDeserializedJsonObj(
             <model.UpdateGithubAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "VBS_ACCESS_TOKEN":
+          return model.UpdateVbsAccessTokenConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateVbsAccessTokenConnectionDetails>(<object>jsonObj),
             true
           );
         case "BITBUCKET_SERVER_ACCESS_TOKEN":

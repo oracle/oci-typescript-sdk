@@ -64,6 +64,18 @@ export interface WorkspaceSummary {
    * A detailed description about the current state of the workspace. Used to provide actionable information if the workspace is in a failed state.
    */
   "stateMessage"?: string;
+  /**
+   * Name of the private endpoint associated with the container/workspace. Returns null if there is none.
+   */
+  "endpointName"?: string;
+  /**
+   * DCMS endpoint associated with the container/workspace. Returns null if there is none.
+   */
+  "endpointId"?: string;
+  /**
+   * DCMS registry associated with the container/workspace. Returns null if there is none.
+   */
+  "registryId"?: string;
 }
 
 export namespace WorkspaceSummary {

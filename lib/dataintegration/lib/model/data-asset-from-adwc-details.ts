@@ -31,6 +31,31 @@ export interface DataAssetFromAdwcDetails extends model.DataAsset {
    */
   "driverClass"?: string;
   "defaultConnection"?: model.ConnectionFromAdwcDetails;
+  "stagingDataAsset"?:
+    | model.DataAssetFromJdbc
+    | model.DataAssetFromOracleDetails
+    | model.DataAssetFromAdwcDetails
+    | model.DataAssetFromAmazonS3
+    | model.DataAssetFromLakehouseDetails
+    | model.DataAssetFromObjectStorageDetails
+    | model.DataAssetFromFusionApp
+    | model.DataAssetFromAtpDetails
+    | model.DataAssetFromMySQL
+    | model.DataAssetFromRestDetails;
+  "stagingConnection"?:
+    | model.ConnectionFromObjectStorage
+    | model.ConnectionFromAdwc
+    | model.ConnectionFromAtp
+    | model.ConnectionFromOracle
+    | model.ConnectionFromLakehouse
+    | model.ConnectionFromAmazonS3
+    | model.ConnectionFromBIP
+    | model.ConnectionFromMySQL
+    | model.ConnectionFromJdbc
+    | model.ConnectionFromBICC
+    | model.ConnectionFromRestNoAuth
+    | model.ConnectionFromRestBasicAuth;
+  "bucketSchema"?: model.Schema;
 
   "modelType": string;
 }
@@ -42,7 +67,14 @@ export namespace DataAssetFromAdwcDetails {
       ...{
         "defaultConnection": obj.defaultConnection
           ? model.ConnectionFromAdwcDetails.getJsonObj(obj.defaultConnection)
-          : undefined
+          : undefined,
+        "stagingDataAsset": obj.stagingDataAsset
+          ? model.DataAsset.getJsonObj(obj.stagingDataAsset)
+          : undefined,
+        "stagingConnection": obj.stagingConnection
+          ? model.Connection.getJsonObj(obj.stagingConnection)
+          : undefined,
+        "bucketSchema": obj.bucketSchema ? model.Schema.getJsonObj(obj.bucketSchema) : undefined
       }
     };
 
@@ -60,6 +92,15 @@ export namespace DataAssetFromAdwcDetails {
       ...{
         "defaultConnection": obj.defaultConnection
           ? model.ConnectionFromAdwcDetails.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined,
+        "stagingDataAsset": obj.stagingDataAsset
+          ? model.DataAsset.getDeserializedJsonObj(obj.stagingDataAsset)
+          : undefined,
+        "stagingConnection": obj.stagingConnection
+          ? model.Connection.getDeserializedJsonObj(obj.stagingConnection)
+          : undefined,
+        "bucketSchema": obj.bucketSchema
+          ? model.Schema.getDeserializedJsonObj(obj.bucketSchema)
           : undefined
       }
     };

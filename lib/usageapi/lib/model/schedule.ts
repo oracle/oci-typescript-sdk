@@ -19,35 +19,52 @@ import common = require("oci-common");
  */
 export interface Schedule {
   /**
-   * The OCID representing unique shedule
+   * The OCID representing a unique shedule.
    */
   "id": string;
   /**
-   * The unique name of the schedule created by the user
+   * The unique name of the schedule created by the user.
    */
   "name": string;
   /**
-   * The tenancy of the customer
+   * The customer tenancy.
    */
   "compartmentId": string;
   "resultLocation": model.ObjectStorageLocation;
   /**
-   * In x-obmcs-recurring-time format shown here: https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10
-   * Describes the frequency of when the schedule will be run
+   * The description of the schedule.
+   */
+  "description"?: string;
+  /**
+   * The date and time of the next job execution.
+   */
+  "timeNextRun"?: Date;
+  /**
+   * Specifies supported output file format.
+   */
+  "outputFileFormat"?: Schedule.OutputFileFormat;
+  /**
+   * The saved report id which can also be used to generate query.
+   */
+  "savedReportId"?: string;
+  /**
+   * Specifies the frequency according to when the schedule will be run,
+   * in the x-obmcs-recurring-time format described in [RFC 5545 section 3.3.10](https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10).
+   * Supported values are : ONE_TIME, DAILY, WEEKLY and MONTHLY.
    *
    */
   "scheduleRecurrences": string;
   /**
-   * The date and time of the first time job execution
+   * The date and time of the first time job execution.
    */
   "timeScheduled": Date;
-  "queryProperties": model.QueryProperties;
+  "queryProperties"?: model.QueryProperties;
   /**
-   * The date and time of when the schedule was created
+   * The date and time the schedule was created.
    */
   "timeCreated": Date;
   /**
-   * The lifecycle state of the schedule
+   * The schedule lifecycle state.
    */
   "lifecycleState": Schedule.LifecycleState;
   /**
@@ -69,6 +86,16 @@ export interface Schedule {
 }
 
 export namespace Schedule {
+  export enum OutputFileFormat {
+    Csv = "CSV",
+    Pdf = "PDF",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Active = "ACTIVE",
     Inactive = "INACTIVE",

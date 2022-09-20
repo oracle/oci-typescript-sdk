@@ -66,7 +66,8 @@ export interface ListDataFlowValidationsRequest extends common.BaseRequest {
 export namespace ListDataFlowValidationsRequest {
   export enum SortBy {
     TimeCreated = "TIME_CREATED",
-    DisplayName = "DISPLAY_NAME"
+    DisplayName = "DISPLAY_NAME",
+    TimeUpdated = "TIME_UPDATED"
   }
 
   export enum SortOrder {

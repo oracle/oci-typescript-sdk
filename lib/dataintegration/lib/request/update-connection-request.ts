@@ -33,8 +33,11 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateConnectionFromJdbc
     | model.UpdateConnectionFromObjectStorage
     | model.UpdateConnectionFromBICC
+    | model.UpdateConnectionFromRestNoAuth
     | model.UpdateConnectionFromAmazonS3
     | model.UpdateConnectionFromAtp
+    | model.UpdateConnectionFromRestBasicAuth
+    | model.UpdateConnectionFromLakehouse
     | model.UpdateConnectionFromOracle
     | model.UpdateConnectionFromAdwc
     | model.UpdateConnectionFromBIP

@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.42.0",
+  "version": "2.43.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -136,7 +136,9 @@
     "oci-lockbox": "file:lib/lockbox",
     "oci-mediaservices": "file:lib/mediaservices",
     "oci-opa": "file:lib/opa",
-    "oci-opensearch": "file:lib/opensearch"
+    "oci-opensearch": "file:lib/opensearch",
+    "oci-cloudbridge": "file:lib/cloudbridge",
+    "oci-cloudmigrations": "file:lib/cloudmigrations"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

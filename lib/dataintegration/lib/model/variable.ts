@@ -52,11 +52,14 @@ export interface Variable {
    */
   "identifier"?: string;
   "type"?:
+    | model.ArrayType
     | model.ConfiguredType
     | model.JavaType
     | model.DynamicType
     | model.DerivedType
     | model.DataType
+    | model.MaterializedCompositeType
+    | model.MapType
     | model.CompositeType;
   "configValues"?: model.ConfigValues;
   /**

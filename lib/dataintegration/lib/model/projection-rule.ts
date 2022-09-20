@@ -70,6 +70,11 @@ export namespace ProjectionRule {
           );
         case "NAME_PATTERN_RULE":
           return model.NamePatternRule.getJsonObj(<model.NamePatternRule>(<object>jsonObj), true);
+        case "GROUPED_NAME_PATTERN_RULE":
+          return model.GroupedNamePatternRule.getJsonObj(
+            <model.GroupedNamePatternRule>(<object>jsonObj),
+            true
+          );
         case "NAME_LIST_RULE":
           return model.NameListRule.getJsonObj(<model.NameListRule>(<object>jsonObj), true);
         default:
@@ -109,6 +114,11 @@ export namespace ProjectionRule {
         case "NAME_PATTERN_RULE":
           return model.NamePatternRule.getDeserializedJsonObj(
             <model.NamePatternRule>(<object>jsonObj),
+            true
+          );
+        case "GROUPED_NAME_PATTERN_RULE":
+          return model.GroupedNamePatternRule.getDeserializedJsonObj(
+            <model.GroupedNamePatternRule>(<object>jsonObj),
             true
           );
         case "NAME_LIST_RULE":

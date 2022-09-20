@@ -23,20 +23,25 @@ export interface ConfigurationDetails {
     | model.DataAssetFromOracleDetails
     | model.DataAssetFromAdwcDetails
     | model.DataAssetFromAmazonS3
+    | model.DataAssetFromLakehouseDetails
     | model.DataAssetFromObjectStorageDetails
     | model.DataAssetFromFusionApp
     | model.DataAssetFromAtpDetails
-    | model.DataAssetFromMySQL;
+    | model.DataAssetFromMySQL
+    | model.DataAssetFromRestDetails;
   "connection"?:
     | model.ConnectionFromObjectStorage
     | model.ConnectionFromAdwc
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
+    | model.ConnectionFromLakehouse
     | model.ConnectionFromAmazonS3
     | model.ConnectionFromBIP
     | model.ConnectionFromMySQL
     | model.ConnectionFromJdbc
-    | model.ConnectionFromBICC;
+    | model.ConnectionFromBICC
+    | model.ConnectionFromRestNoAuth
+    | model.ConnectionFromRestBasicAuth;
   /**
    * The compartment ID of the object store.
    */

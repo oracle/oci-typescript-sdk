@@ -50,6 +50,12 @@ import * as ListDeploymentUpgradesRequest from "./list-deployment-upgrades-reque
 export import ListDeploymentUpgradesRequest = ListDeploymentUpgradesRequest.ListDeploymentUpgradesRequest;
 import * as ListDeploymentsRequest from "./list-deployments-request";
 export import ListDeploymentsRequest = ListDeploymentsRequest.ListDeploymentsRequest;
+import * as ListMessagesRequest from "./list-messages-request";
+export import ListMessagesRequest = ListMessagesRequest.ListMessagesRequest;
+import * as ListTrailFilesRequest from "./list-trail-files-request";
+export import ListTrailFilesRequest = ListTrailFilesRequest.ListTrailFilesRequest;
+import * as ListTrailSequencesRequest from "./list-trail-sequences-request";
+export import ListTrailSequencesRequest = ListTrailSequencesRequest.ListTrailSequencesRequest;
 import * as ListWorkRequestErrorsRequest from "./list-work-request-errors-request";
 export import ListWorkRequestErrorsRequest = ListWorkRequestErrorsRequest.ListWorkRequestErrorsRequest;
 import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";

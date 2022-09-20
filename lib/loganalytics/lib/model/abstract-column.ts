@@ -100,8 +100,25 @@ export namespace AbstractColumn {
           return model.ClassifyColumn.getJsonObj(<model.ClassifyColumn>(<object>jsonObj), true);
         case "TREND_COLUMN":
           return model.TrendColumn.getJsonObj(<model.TrendColumn>(<object>jsonObj), true);
+        case "TIME_STATS_COLUMN":
+          return model.TimeStatsColumn.getJsonObj(<model.TimeStatsColumn>(<object>jsonObj), true);
+        case "TIME_CLUSTER_COLUMN":
+          return model.TimeClusterColumn.getJsonObj(
+            <model.TimeClusterColumn>(<object>jsonObj),
+            true
+          );
         case "COLUMN":
           return model.Column.getJsonObj(<model.Column>(<object>jsonObj), true);
+        case "TIME_CLUSTER_DATA_COLUMN":
+          return model.TimeClusterDataColumn.getJsonObj(
+            <model.TimeClusterDataColumn>(<object>jsonObj),
+            true
+          );
+        case "TIME_STATS_DATA_COLUMN":
+          return model.TimeStatsDataColumn.getJsonObj(
+            <model.TimeStatsDataColumn>(<object>jsonObj),
+            true
+          );
         case "CHART_COLUMN":
           return model.ChartColumn.getJsonObj(<model.ChartColumn>(<object>jsonObj), true);
         case "CHART_DATA_COLUMN":
@@ -138,8 +155,28 @@ export namespace AbstractColumn {
             <model.TrendColumn>(<object>jsonObj),
             true
           );
+        case "TIME_STATS_COLUMN":
+          return model.TimeStatsColumn.getDeserializedJsonObj(
+            <model.TimeStatsColumn>(<object>jsonObj),
+            true
+          );
+        case "TIME_CLUSTER_COLUMN":
+          return model.TimeClusterColumn.getDeserializedJsonObj(
+            <model.TimeClusterColumn>(<object>jsonObj),
+            true
+          );
         case "COLUMN":
           return model.Column.getDeserializedJsonObj(<model.Column>(<object>jsonObj), true);
+        case "TIME_CLUSTER_DATA_COLUMN":
+          return model.TimeClusterDataColumn.getDeserializedJsonObj(
+            <model.TimeClusterDataColumn>(<object>jsonObj),
+            true
+          );
+        case "TIME_STATS_DATA_COLUMN":
+          return model.TimeStatsDataColumn.getDeserializedJsonObj(
+            <model.TimeStatsDataColumn>(<object>jsonObj),
+            true
+          );
         case "CHART_COLUMN":
           return model.ChartColumn.getDeserializedJsonObj(
             <model.ChartColumn>(<object>jsonObj),

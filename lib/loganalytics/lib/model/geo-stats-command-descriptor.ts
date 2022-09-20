@@ -21,17 +21,50 @@ import common = require("oci-common");
  */
 export interface GeoStatsCommandDescriptor extends model.AbstractCommandDescriptor {
   /**
-   * Indicates which coordinates to show.  Either client, server or both.  Defaults to client.
+   * Indicates which coordinates to show.  Either client, server, client and server or custom. If custom is specified at least one of  coordinatesField, regionField or countryField is required. Defaults to client.
    *
    */
   "include"?: GeoStatsCommandDescriptor.Include;
   /**
-   * Group by fields if specified in the query string.
+   * The city field to use. Only applicable when include = CUSTOM.
+   *
+   */
+  "cityField"?: model.FieldsAddRemoveField | model.FunctionField | model.Field | model.SortField;
+  /**
+   * The region field to use. Only applicable when include = CUSTOM.
+   *
+   */
+  "regionField"?: model.FieldsAddRemoveField | model.FunctionField | model.Field | model.SortField;
+  /**
+   * The country field to use. Only applicable when include = CUSTOM.
+   *
+   */
+  "countryField"?: model.FieldsAddRemoveField | model.FunctionField | model.Field | model.SortField;
+  /**
+   * The continent field to use. Only applicable when include = CUSTOM.
+   *
+   */
+  "continentField"?:
+    | model.FieldsAddRemoveField
+    | model.FunctionField
+    | model.Field
+    | model.SortField;
+  /**
+   * The coordinates field to use. Only applicable when include = CUSTOM.
+   *
+   */
+  "coordinatesField"?:
+    | model.FieldsAddRemoveField
+    | model.FunctionField
+    | model.Field
+    | model.SortField;
+  /**
+   * Group by fields if specified in the query string.  Required if include = CUSTOM.
    *
    */
   "groupByFields"?: Array<model.AbstractField>;
   /**
-   * Statistical functions specified in the query string. Atleast 1 is required for a GEOSTATS command.
+   * Statistical functions specified in the query string. At least 1 is required for a GEOSTATS command.
    *
    */
   "functions"?: Array<model.FunctionField>;
@@ -44,6 +77,7 @@ export namespace GeoStatsCommandDescriptor {
     Client = "CLIENT",
     Server = "SERVER",
     ClientAndServer = "CLIENT_AND_SERVER",
+    Custom = "CUSTOM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -57,6 +91,19 @@ export namespace GeoStatsCommandDescriptor {
         ? obj
         : (model.AbstractCommandDescriptor.getJsonObj(obj) as GeoStatsCommandDescriptor)),
       ...{
+        "cityField": obj.cityField ? model.AbstractField.getJsonObj(obj.cityField) : undefined,
+        "regionField": obj.regionField
+          ? model.AbstractField.getJsonObj(obj.regionField)
+          : undefined,
+        "countryField": obj.countryField
+          ? model.AbstractField.getJsonObj(obj.countryField)
+          : undefined,
+        "continentField": obj.continentField
+          ? model.AbstractField.getJsonObj(obj.continentField)
+          : undefined,
+        "coordinatesField": obj.coordinatesField
+          ? model.AbstractField.getJsonObj(obj.coordinatesField)
+          : undefined,
         "groupByFields": obj.groupByFields
           ? obj.groupByFields.map(item => {
               return model.AbstractField.getJsonObj(item);
@@ -84,6 +131,21 @@ export namespace GeoStatsCommandDescriptor {
             obj
           ) as GeoStatsCommandDescriptor)),
       ...{
+        "cityField": obj.cityField
+          ? model.AbstractField.getDeserializedJsonObj(obj.cityField)
+          : undefined,
+        "regionField": obj.regionField
+          ? model.AbstractField.getDeserializedJsonObj(obj.regionField)
+          : undefined,
+        "countryField": obj.countryField
+          ? model.AbstractField.getDeserializedJsonObj(obj.countryField)
+          : undefined,
+        "continentField": obj.continentField
+          ? model.AbstractField.getDeserializedJsonObj(obj.continentField)
+          : undefined,
+        "coordinatesField": obj.coordinatesField
+          ? model.AbstractField.getDeserializedJsonObj(obj.coordinatesField)
+          : undefined,
         "groupByFields": obj.groupByFields
           ? obj.groupByFields.map(item => {
               return model.AbstractField.getDeserializedJsonObj(item);

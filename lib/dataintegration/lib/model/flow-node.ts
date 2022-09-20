@@ -59,6 +59,7 @@ export interface FlowNode {
     | model.Union
     | model.ExpressionOperator
     | model.Function
+    | model.DecisionOperator
     | model.Intersect
     | model.Target
     | model.Distinct

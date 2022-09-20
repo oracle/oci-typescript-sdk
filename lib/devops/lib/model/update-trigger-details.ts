@@ -62,6 +62,11 @@ export namespace UpdateTriggerDetails {
             <model.UpdateBitbucketServerTriggerDetails>(<object>jsonObj),
             true
           );
+        case "VBS":
+          return model.UpdateVbsTriggerDetails.getJsonObj(
+            <model.UpdateVbsTriggerDetails>(<object>jsonObj),
+            true
+          );
         case "GITLAB_SERVER":
           return model.UpdateGitlabServerTriggerDetails.getJsonObj(
             <model.UpdateGitlabServerTriggerDetails>(<object>jsonObj),
@@ -110,6 +115,11 @@ export namespace UpdateTriggerDetails {
         case "BITBUCKET_SERVER":
           return model.UpdateBitbucketServerTriggerDetails.getDeserializedJsonObj(
             <model.UpdateBitbucketServerTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "VBS":
+          return model.UpdateVbsTriggerDetails.getDeserializedJsonObj(
+            <model.UpdateVbsTriggerDetails>(<object>jsonObj),
             true
           );
         case "GITLAB_SERVER":

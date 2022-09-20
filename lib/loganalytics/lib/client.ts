@@ -548,6 +548,84 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Moves the specified ingest time rule to a different compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeIngestTimeRuleCompartmentRequest
+   * @return ChangeIngestTimeRuleCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ChangeIngestTimeRuleCompartment.ts.html |here} to see how to use ChangeIngestTimeRuleCompartment API.
+   */
+  public async changeIngestTimeRuleCompartment(
+    changeIngestTimeRuleCompartmentRequest: requests.ChangeIngestTimeRuleCompartmentRequest
+  ): Promise<responses.ChangeIngestTimeRuleCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#changeIngestTimeRuleCompartment.");
+    const operationName = "changeIngestTimeRuleCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/ChangeIngestTimeRuleCompartment";
+    const pathParams = {
+      "{namespaceName}": changeIngestTimeRuleCompartmentRequest.namespaceName,
+      "{ingestTimeRuleId}": changeIngestTimeRuleCompartmentRequest.ingestTimeRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeIngestTimeRuleCompartmentRequest.ifMatch,
+      "opc-request-id": changeIngestTimeRuleCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeIngestTimeRuleCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeIngestTimeRuleCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/namespaces/{namespaceName}/ingestTimeRules/{ingestTimeRuleId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeIngestTimeRuleCompartmentRequest.changeIngestTimeRuleCompartmentDetails,
+        "ChangeIngestTimeRuleCompartmentDetails",
+        model.ChangeIngestTimeRuleCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeIngestTimeRuleCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update the compartment of the log analytics enterprise manager bridge with the given id.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeLogAnalyticsEmBridgeCompartmentRequest
@@ -1079,6 +1157,90 @@ export class LogAnalyticsClient {
         bodyModel: model.CompareContentResult,
         type: "model.CompareContentResult",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new ingest time rule in the specified compartment. You may also specify optional information such as description, defined tags, and free-form tags.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateIngestTimeRuleRequest
+   * @return CreateIngestTimeRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/CreateIngestTimeRule.ts.html |here} to see how to use CreateIngestTimeRule API.
+   */
+  public async createIngestTimeRule(
+    createIngestTimeRuleRequest: requests.CreateIngestTimeRuleRequest
+  ): Promise<responses.CreateIngestTimeRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#createIngestTimeRule.");
+    const operationName = "createIngestTimeRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/CreateIngestTimeRule";
+    const pathParams = {
+      "{namespaceName}": createIngestTimeRuleRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createIngestTimeRuleRequest.opcRetryToken,
+      "opc-request-id": createIngestTimeRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createIngestTimeRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/ingestTimeRules",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createIngestTimeRuleRequest.createIngestTimeRuleDetails,
+        "CreateIngestTimeRuleDetails",
+        model.CreateIngestTimeRuleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateIngestTimeRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestTimeRule",
+        bodyModel: model.IngestTimeRule,
+        type: "model.IngestTimeRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1718,6 +1880,77 @@ export class LogAnalyticsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFieldResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified ingest time rule.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteIngestTimeRuleRequest
+   * @return DeleteIngestTimeRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DeleteIngestTimeRule.ts.html |here} to see how to use DeleteIngestTimeRule API.
+   */
+  public async deleteIngestTimeRule(
+    deleteIngestTimeRuleRequest: requests.DeleteIngestTimeRuleRequest
+  ): Promise<responses.DeleteIngestTimeRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#deleteIngestTimeRule.");
+    const operationName = "deleteIngestTimeRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/DeleteIngestTimeRule";
+    const pathParams = {
+      "{namespaceName}": deleteIngestTimeRuleRequest.namespaceName,
+      "{ingestTimeRuleId}": deleteIngestTimeRuleRequest.ingestTimeRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteIngestTimeRuleRequest.ifMatch,
+      "opc-request-id": deleteIngestTimeRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteIngestTimeRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/ingestTimeRules/{ingestTimeRuleId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteIngestTimeRuleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2844,6 +3077,83 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Disables the specified ingest time rule.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableIngestTimeRuleRequest
+   * @return DisableIngestTimeRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/DisableIngestTimeRule.ts.html |here} to see how to use DisableIngestTimeRule API.
+   */
+  public async disableIngestTimeRule(
+    disableIngestTimeRuleRequest: requests.DisableIngestTimeRuleRequest
+  ): Promise<responses.DisableIngestTimeRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#disableIngestTimeRule.");
+    const operationName = "disableIngestTimeRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/DisableIngestTimeRule";
+    const pathParams = {
+      "{namespaceName}": disableIngestTimeRuleRequest.namespaceName,
+      "{ingestTimeRuleId}": disableIngestTimeRuleRequest.ingestTimeRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableIngestTimeRuleRequest.ifMatch,
+      "opc-request-id": disableIngestTimeRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableIngestTimeRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/namespaces/{namespaceName}/ingestTimeRules/{ingestTimeRuleId}/actions/disableIngestTimeRule",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableIngestTimeRuleResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disable one or more event types in a source.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -3060,6 +3370,83 @@ export class LogAnalyticsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableAutoAssociationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables the specified ingest time rule.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableIngestTimeRuleRequest
+   * @return EnableIngestTimeRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/EnableIngestTimeRule.ts.html |here} to see how to use EnableIngestTimeRule API.
+   */
+  public async enableIngestTimeRule(
+    enableIngestTimeRuleRequest: requests.EnableIngestTimeRuleRequest
+  ): Promise<responses.EnableIngestTimeRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#enableIngestTimeRule.");
+    const operationName = "enableIngestTimeRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/EnableIngestTimeRule";
+    const pathParams = {
+      "{namespaceName}": enableIngestTimeRuleRequest.namespaceName,
+      "{ingestTimeRuleId}": enableIngestTimeRuleRequest.ingestTimeRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableIngestTimeRuleRequest.ifMatch,
+      "opc-request-id": enableIngestTimeRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableIngestTimeRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/namespaces/{namespaceName}/ingestTimeRules/{ingestTimeRuleId}/actions/enableIngestTimeRule",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableIngestTimeRuleResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4221,6 +4608,84 @@ export class LogAnalyticsClient {
         bodyModel: model.FieldSummaryReport,
         type: "model.FieldSummaryReport",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets detailed information about the specified ingest time rule such as description, defined tags, and free-form tags.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetIngestTimeRuleRequest
+   * @return GetIngestTimeRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetIngestTimeRule.ts.html |here} to see how to use GetIngestTimeRule API.
+   */
+  public async getIngestTimeRule(
+    getIngestTimeRuleRequest: requests.GetIngestTimeRuleRequest
+  ): Promise<responses.GetIngestTimeRuleResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getIngestTimeRule.");
+    const operationName = "getIngestTimeRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/GetIngestTimeRule";
+    const pathParams = {
+      "{namespaceName}": getIngestTimeRuleRequest.namespaceName,
+      "{ingestTimeRuleId}": getIngestTimeRuleRequest.ingestTimeRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getIngestTimeRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getIngestTimeRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/ingestTimeRules/{ingestTimeRuleId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetIngestTimeRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestTimeRule",
+        bodyModel: model.IngestTimeRule,
+        type: "model.IngestTimeRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -7209,6 +7674,99 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Returns a list of ingest time rules in a compartment. You may limit the number of rules, provide sorting options, and filter the results.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListIngestTimeRulesRequest
+   * @return ListIngestTimeRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListIngestTimeRules.ts.html |here} to see how to use ListIngestTimeRules API.
+   */
+  public async listIngestTimeRules(
+    listIngestTimeRulesRequest: requests.ListIngestTimeRulesRequest
+  ): Promise<responses.ListIngestTimeRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listIngestTimeRules.");
+    const operationName = "listIngestTimeRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/ListIngestTimeRules";
+    const pathParams = {
+      "{namespaceName}": listIngestTimeRulesRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": listIngestTimeRulesRequest.compartmentId,
+      "displayName": listIngestTimeRulesRequest.displayName,
+      "lifecycleState": listIngestTimeRulesRequest.lifecycleState,
+      "conditionKind": listIngestTimeRulesRequest.conditionKind,
+      "fieldName": listIngestTimeRulesRequest.fieldName,
+      "fieldValue": listIngestTimeRulesRequest.fieldValue,
+      "limit": listIngestTimeRulesRequest.limit,
+      "page": listIngestTimeRulesRequest.page,
+      "sortOrder": listIngestTimeRulesRequest.sortOrder,
+      "sortBy": listIngestTimeRulesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listIngestTimeRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listIngestTimeRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/ingestTimeRules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListIngestTimeRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestTimeRuleSummaryCollection",
+        bodyModel: model.IngestTimeRuleSummaryCollection,
+        type: "model.IngestTimeRuleSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the available problem priorities that could be associated with a label.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -8870,6 +9428,97 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of ingest time rules and scheduled tasks in a compartment. You may limit the number of items returned, provide sorting options, and filter the results.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListRulesRequest
+   * @return ListRulesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListRules.ts.html |here} to see how to use ListRules API.
+   */
+  public async listRules(
+    listRulesRequest: requests.ListRulesRequest
+  ): Promise<responses.ListRulesResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#listRules.");
+    const operationName = "listRules";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Rule/ListRules";
+    const pathParams = {
+      "{namespaceName}": listRulesRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": listRulesRequest.compartmentId,
+      "displayName": listRulesRequest.displayName,
+      "kind": listRulesRequest.kind,
+      "lifecycleState": listRulesRequest.lifecycleState,
+      "limit": listRulesRequest.limit,
+      "page": listRulesRequest.page,
+      "sortOrder": listRulesRequest.sortOrder,
+      "sortBy": listRulesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRulesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRulesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/rules",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRulesResponse>{},
+        body: await response.json(),
+        bodyKey: "ruleSummaryCollection",
+        bodyModel: model.RuleSummaryCollection,
+        type: "model.RuleSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -12204,6 +12853,91 @@ export class LogAnalyticsClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.UnsuppressWarningResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified ingest time rule's description, defined tags, and free-form tags.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateIngestTimeRuleRequest
+   * @return UpdateIngestTimeRuleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/UpdateIngestTimeRule.ts.html |here} to see how to use UpdateIngestTimeRule API.
+   */
+  public async updateIngestTimeRule(
+    updateIngestTimeRuleRequest: requests.UpdateIngestTimeRuleRequest
+  ): Promise<responses.UpdateIngestTimeRuleResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#updateIngestTimeRule.");
+    const operationName = "updateIngestTimeRule";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/IngestTimeRule/UpdateIngestTimeRule";
+    const pathParams = {
+      "{namespaceName}": updateIngestTimeRuleRequest.namespaceName,
+      "{ingestTimeRuleId}": updateIngestTimeRuleRequest.ingestTimeRuleId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateIngestTimeRuleRequest.ifMatch,
+      "opc-request-id": updateIngestTimeRuleRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateIngestTimeRuleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/ingestTimeRules/{ingestTimeRuleId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateIngestTimeRuleRequest.updateIngestTimeRuleDetails,
+        "IngestTimeRule",
+        model.IngestTimeRule.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateIngestTimeRuleResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestTimeRule",
+        bodyModel: model.IngestTimeRule,
+        type: "model.IngestTimeRule",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

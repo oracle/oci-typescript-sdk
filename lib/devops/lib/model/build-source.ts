@@ -40,6 +40,8 @@ export namespace BuildSource {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "VBS":
+          return model.VbsBuildSource.getJsonObj(<model.VbsBuildSource>(<object>jsonObj), true);
         case "BITBUCKET_SERVER":
           return model.BitbucketServerBuildSource.getJsonObj(
             <model.BitbucketServerBuildSource>(<object>jsonObj),
@@ -81,6 +83,11 @@ export namespace BuildSource {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "VBS":
+          return model.VbsBuildSource.getDeserializedJsonObj(
+            <model.VbsBuildSource>(<object>jsonObj),
+            true
+          );
         case "BITBUCKET_SERVER":
           return model.BitbucketServerBuildSource.getDeserializedJsonObj(
             <model.BitbucketServerBuildSource>(<object>jsonObj),

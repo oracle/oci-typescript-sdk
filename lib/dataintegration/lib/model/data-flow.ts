@@ -65,6 +65,14 @@ export interface DataFlow {
    * A key map. If provided, key is replaced with generated key. This structure provides mapping between user provided key and generated key.
    */
   "keyMap"?: { [key: string]: string };
+  /**
+   * A hash map that maps TypedObject keys to the object itself, for java sdk.
+   */
+  "typedObjectMap"?: { [key: string]: model.TypedObjectWrapper };
+  /**
+   * A hash map that maps TypedObject keys to a field map that maps to the typed object as a target, for java sdk.
+   */
+  "targetFieldMapSummary"?: { [key: string]: model.FieldMapWrapper };
 }
 
 export namespace DataFlow {
@@ -89,7 +97,14 @@ export namespace DataFlow {
           ? model.ConfigValues.getJsonObj(obj.flowConfigValues)
           : undefined,
 
-        "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined
+        "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined,
+
+        "typedObjectMap": obj.typedObjectMap
+          ? common.mapContainer(obj.typedObjectMap, model.TypedObjectWrapper.getJsonObj)
+          : undefined,
+        "targetFieldMapSummary": obj.targetFieldMapSummary
+          ? common.mapContainer(obj.targetFieldMapSummary, model.FieldMapWrapper.getJsonObj)
+          : undefined
       }
     };
 
@@ -120,6 +135,16 @@ export namespace DataFlow {
 
         "metadata": obj.metadata
           ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined,
+
+        "typedObjectMap": obj.typedObjectMap
+          ? common.mapContainer(obj.typedObjectMap, model.TypedObjectWrapper.getDeserializedJsonObj)
+          : undefined,
+        "targetFieldMapSummary": obj.targetFieldMapSummary
+          ? common.mapContainer(
+              obj.targetFieldMapSummary,
+              model.FieldMapWrapper.getDeserializedJsonObj
+            )
           : undefined
       }
     };

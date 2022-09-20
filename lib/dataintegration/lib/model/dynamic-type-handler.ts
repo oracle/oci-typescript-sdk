@@ -27,6 +27,11 @@ export namespace DynamicTypeHandler {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "FLATTEN_TYPE_HANDLER":
+          return model.FlattenTypeHandler.getJsonObj(
+            <model.FlattenTypeHandler>(<object>jsonObj),
+            true
+          );
         case "RULE_TYPE_CONFIGS":
           return model.RuleTypeConfig.getJsonObj(<model.RuleTypeConfig>(<object>jsonObj), true);
         default:
@@ -40,6 +45,11 @@ export namespace DynamicTypeHandler {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "FLATTEN_TYPE_HANDLER":
+          return model.FlattenTypeHandler.getDeserializedJsonObj(
+            <model.FlattenTypeHandler>(<object>jsonObj),
+            true
+          );
         case "RULE_TYPE_CONFIGS":
           return model.RuleTypeConfig.getDeserializedJsonObj(
             <model.RuleTypeConfig>(<object>jsonObj),

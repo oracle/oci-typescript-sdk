@@ -49,6 +49,11 @@ export namespace CreateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "VBS_ACCESS_TOKEN":
+          return model.CreateVbsAccessTokenConnectionDetails.getJsonObj(
+            <model.CreateVbsAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GITLAB_SERVER_ACCESS_TOKEN":
           return model.CreateGitlabServerAccessTokenConnectionDetails.getJsonObj(
             <model.CreateGitlabServerAccessTokenConnectionDetails>(<object>jsonObj),
@@ -85,6 +90,11 @@ export namespace CreateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "VBS_ACCESS_TOKEN":
+          return model.CreateVbsAccessTokenConnectionDetails.getDeserializedJsonObj(
+            <model.CreateVbsAccessTokenConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GITLAB_SERVER_ACCESS_TOKEN":
           return model.CreateGitlabServerAccessTokenConnectionDetails.getDeserializedJsonObj(
             <model.CreateGitlabServerAccessTokenConnectionDetails>(<object>jsonObj),

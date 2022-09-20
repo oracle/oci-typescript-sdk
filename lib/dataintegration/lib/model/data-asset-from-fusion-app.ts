@@ -24,13 +24,16 @@ export interface DataAssetFromFusionApp extends model.DataAsset {
   "serviceUrl"?: string;
   "defaultConnection"?:
     | model.ConnectionFromJdbcDetails
+    | model.ConnectionFromRestNoAuthDetails
     | model.ConnectionFromAmazonS3Details
     | model.ConnectionFromObjectStorageDetails
+    | model.ConnectionFromLakehouseDetails
     | model.ConnectionFromBICCDetails
     | model.ConnectionFromMySQLDetails
     | model.ConnectionFromAdwcDetails
     | model.ConnectionFromAtpDetails
     | model.ConnectionFromOracleDetails
+    | model.ConnectionFromRestBasicAuthDetails
     | model.ConnectionFromBipDetails;
 
   "modelType": string;

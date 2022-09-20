@@ -24,17 +24,22 @@ export interface CreateConnectionValidationDetails {
     | model.CreateDataAssetFromOracle
     | model.CreateDataAssetFromAdwc
     | model.CreateDataAssetFromAmazonS3
+    | model.CreateDataAssetFromRest
     | model.CreateDataAssetFromFusionApp
+    | model.CreateDataAssetFromLakehouse
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;
   "connection"?:
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromAmazonS3
+    | model.CreateConnectionFromLakehouse
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
     | model.CreateConnectionFromBIP
+    | model.CreateConnectionFromRestBasicAuth
     | model.CreateConnectionFromAdwc
+    | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromOracle
     | model.CreateConnectionFromObjectStorage;
   "registryMetadata"?: model.RegistryMetadata;

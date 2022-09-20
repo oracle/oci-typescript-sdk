@@ -19,11 +19,14 @@ import common = require("oci-common");
  */
 export interface Shape extends model.TypedObject {
   "type"?:
+    | model.ArrayType
     | model.ConfiguredType
     | model.JavaType
     | model.DynamicType
     | model.DerivedType
     | model.DataType
+    | model.MaterializedCompositeType
+    | model.MapType
     | model.CompositeType;
 
   "modelType": string;

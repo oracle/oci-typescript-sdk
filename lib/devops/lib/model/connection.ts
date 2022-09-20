@@ -106,6 +106,11 @@ export namespace Connection {
             <model.GitlabServerAccessTokenConnection>(<object>jsonObj),
             true
           );
+        case "VBS_ACCESS_TOKEN":
+          return model.VbsAccessTokenConnection.getJsonObj(
+            <model.VbsAccessTokenConnection>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectionType}`);
       }
@@ -140,6 +145,11 @@ export namespace Connection {
         case "GITLAB_SERVER_ACCESS_TOKEN":
           return model.GitlabServerAccessTokenConnection.getDeserializedJsonObj(
             <model.GitlabServerAccessTokenConnection>(<object>jsonObj),
+            true
+          );
+        case "VBS_ACCESS_TOKEN":
+          return model.VbsAccessTokenConnection.getDeserializedJsonObj(
+            <model.VbsAccessTokenConnection>(<object>jsonObj),
             true
           );
         default:

@@ -86,6 +86,11 @@ export namespace ConnectionDetails {
             <model.ConnectionFromJdbcDetails>(<object>jsonObj),
             true
           );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.ConnectionFromRestNoAuthDetails.getJsonObj(
+            <model.ConnectionFromRestNoAuthDetails>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionFromAmazonS3Details.getJsonObj(
             <model.ConnectionFromAmazonS3Details>(<object>jsonObj),
@@ -94,6 +99,11 @@ export namespace ConnectionDetails {
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionFromObjectStorageDetails.getJsonObj(
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.ConnectionFromLakehouseDetails.getJsonObj(
+            <model.ConnectionFromLakehouseDetails>(<object>jsonObj),
             true
           );
         case "BICC_CONNECTION":
@@ -119,6 +129,11 @@ export namespace ConnectionDetails {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionFromOracleDetails.getJsonObj(
             <model.ConnectionFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionFromRestBasicAuthDetails.getJsonObj(
+            <model.ConnectionFromRestBasicAuthDetails>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":
@@ -162,6 +177,11 @@ export namespace ConnectionDetails {
             <model.ConnectionFromJdbcDetails>(<object>jsonObj),
             true
           );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.ConnectionFromRestNoAuthDetails.getDeserializedJsonObj(
+            <model.ConnectionFromRestNoAuthDetails>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionFromAmazonS3Details.getDeserializedJsonObj(
             <model.ConnectionFromAmazonS3Details>(<object>jsonObj),
@@ -170,6 +190,11 @@ export namespace ConnectionDetails {
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.ConnectionFromObjectStorageDetails.getDeserializedJsonObj(
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.ConnectionFromLakehouseDetails.getDeserializedJsonObj(
+            <model.ConnectionFromLakehouseDetails>(<object>jsonObj),
             true
           );
         case "BICC_CONNECTION":
@@ -195,6 +220,11 @@ export namespace ConnectionDetails {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionFromOracleDetails.getDeserializedJsonObj(
             <model.ConnectionFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionFromRestBasicAuthDetails.getDeserializedJsonObj(
+            <model.ConnectionFromRestBasicAuthDetails>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":

@@ -19,25 +19,38 @@ import common = require("oci-common");
  */
 export interface CreateScheduleDetails {
   /**
-   * The unique name of the schedule created by the user
+   * The unique name of the user-created schedule.
    */
   "name": string;
   /**
-   * The tenancy of the customer
+   * The customer tenancy.
    */
   "compartmentId": string;
+  /**
+   * The description of the schedule.
+   */
+  "description"?: string;
+  /**
+   * Specifies supported output file format.
+   */
+  "outputFileFormat"?: CreateScheduleDetails.OutputFileFormat;
+  /**
+   * The saved report id which can also be used to generate query.
+   */
+  "savedReportId"?: string;
   "resultLocation": model.ObjectStorageLocation;
   /**
-   * In x-obmcs-recurring-time format shown here: https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10
-   * Describes the frequency of when the schedule will be run
+   * Specifies the frequency according to when the schedule will be run,
+   * in the x-obmcs-recurring-time format described in [RFC 5545 section 3.3.10](https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10).
+   * Supported values are : ONE_TIME, DAILY, WEEKLY and MONTHLY.
    *
    */
   "scheduleRecurrences": string;
   /**
-   * The date and time of the first time job execution
+   * The date and time of the first time job execution.
    */
   "timeScheduled": Date;
-  "queryProperties": model.QueryProperties;
+  "queryProperties"?: model.QueryProperties;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"bar-key\": \"value\"}`
@@ -52,6 +65,11 @@ export interface CreateScheduleDetails {
 }
 
 export namespace CreateScheduleDetails {
+  export enum OutputFileFormat {
+    Csv = "CSV",
+    Pdf = "PDF"
+  }
+
   export function getJsonObj(obj: CreateScheduleDetails): object {
     const jsonObj = {
       ...obj,

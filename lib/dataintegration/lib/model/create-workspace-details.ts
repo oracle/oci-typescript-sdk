@@ -62,6 +62,30 @@ export interface CreateWorkspaceDetails {
    * Specifies whether the private network connection is enabled or disabled.
    */
   "isPrivateNetworkEnabled"?: boolean;
+  /**
+   * DCMS Data Asset Registry ID to which the workspace is associated
+   */
+  "registryId"?: string;
+  /**
+   * DCMS Private Endpoint ID associated with workspace if the pvt networking is enabled
+   */
+  "endpointId"?: string;
+  /**
+   * DCMS Data Asset Registry display name
+   */
+  "registryName"?: string;
+  /**
+   * DCMS Data Asset Registry Compartment Identifier
+   */
+  "registryCompartmentId"?: string;
+  /**
+   * DCMS Private Endpoint Name
+   */
+  "endpointName"?: string;
+  /**
+   * DCMS PRivate Endpoint Compartment Identifier
+   */
+  "endpointCompartmentId"?: string;
 }
 
 export namespace CreateWorkspaceDetails {

@@ -18,19 +18,36 @@ import common = require("oci-common");
  * Details for the flatten operator.
  */
 export interface FlattenDetails {
-  "flattenProjectionPreferences": model.FlattenProjectionPreferences;
+  "flattenProjectionPreferences"?: model.FlattenProjectionPreferences;
   /**
    * The string of flatten attribute column name where the flatten process starts.
    */
-  "flattenAttributeRoot": string;
+  "flattenAttributeRoot"?: string;
   /**
-   * The string of flatten attribute path in flattenAttributeRoot from upper level to leaf/targeted level concatenated with dot(.)
+   * The string of flatten attribute path in flattenAttributeRoot from upper level to leaf/targeted level concatenated with dot(.).
    */
-  "flattenAttributePath": string;
+  "flattenAttributePath"?: string;
   /**
    * The array of flatten columns which are the input to flatten.
    */
-  "flattenColumns": Array<model.TypedObject>;
+  "flattenColumns"?: Array<model.TypedObject>;
+  /**
+   * The key of the object.
+   */
+  "key"?: string;
+  /**
+   * The type of the object.
+   */
+  "modelType"?: string;
+  /**
+   * The model version of an object.
+   */
+  "modelVersion"?: string;
+  "parentRef"?: model.ParentReference;
+  /**
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "objectStatus"?: number;
 }
 
 export namespace FlattenDetails {
@@ -46,7 +63,9 @@ export namespace FlattenDetails {
           ? obj.flattenColumns.map(item => {
               return model.TypedObject.getJsonObj(item);
             })
-          : undefined
+          : undefined,
+
+        "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined
       }
     };
 
@@ -66,6 +85,10 @@ export namespace FlattenDetails {
           ? obj.flattenColumns.map(item => {
               return model.TypedObject.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
           : undefined
       }
     };

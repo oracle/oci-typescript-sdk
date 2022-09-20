@@ -100,6 +100,8 @@ export namespace Trigger {
       switch (obj.triggerSource) {
         case "GITLAB":
           return model.GitlabTrigger.getJsonObj(<model.GitlabTrigger>(<object>jsonObj), true);
+        case "VBS":
+          return model.VbsTrigger.getJsonObj(<model.VbsTrigger>(<object>jsonObj), true);
         case "BITBUCKET_SERVER":
           return model.BitbucketServerTrigger.getJsonObj(
             <model.BitbucketServerTrigger>(<object>jsonObj),
@@ -147,6 +149,8 @@ export namespace Trigger {
             <model.GitlabTrigger>(<object>jsonObj),
             true
           );
+        case "VBS":
+          return model.VbsTrigger.getDeserializedJsonObj(<model.VbsTrigger>(<object>jsonObj), true);
         case "BITBUCKET_SERVER":
           return model.BitbucketServerTrigger.getDeserializedJsonObj(
             <model.BitbucketServerTrigger>(<object>jsonObj),

@@ -36,6 +36,14 @@ export interface RecallArchivedDataDetails {
    * This is the type of the log data to be recalled
    */
   "dataType"?: model.StorageDataType;
+  /**
+   * This is a list of comma-separated log sets that recalled data belongs to.
+   */
+  "logSets"?: string;
+  /**
+   * This is the query that identifies the recalled data.
+   */
+  "query"?: string;
 }
 
 export namespace RecallArchivedDataDetails {

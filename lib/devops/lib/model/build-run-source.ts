@@ -47,6 +47,11 @@ export namespace BuildRunSource {
             <model.DevopsCodeRepositoryBuildRunSource>(<object>jsonObj),
             true
           );
+        case "VBS":
+          return model.VbsBuildRunSource.getJsonObj(
+            <model.VbsBuildRunSource>(<object>jsonObj),
+            true
+          );
         case "MANUAL":
           return model.ManualBuildRunSource.getJsonObj(
             <model.ManualBuildRunSource>(<object>jsonObj),
@@ -91,6 +96,11 @@ export namespace BuildRunSource {
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryBuildRunSource.getDeserializedJsonObj(
             <model.DevopsCodeRepositoryBuildRunSource>(<object>jsonObj),
+            true
+          );
+        case "VBS":
+          return model.VbsBuildRunSource.getDeserializedJsonObj(
+            <model.VbsBuildRunSource>(<object>jsonObj),
             true
           );
         case "MANUAL":

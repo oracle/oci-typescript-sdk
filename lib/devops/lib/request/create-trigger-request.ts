@@ -23,6 +23,7 @@ export interface CreateTriggerRequest extends common.BaseRequest {
    */
   "createTriggerDetails":
     | model.CreateGithubTriggerDetails
+    | model.CreateVbsTriggerDetails
     | model.CreateDevopsCodeRepositoryTriggerDetails
     | model.CreateBitbucketCloudTriggerDetails
     | model.CreateGitlabServerTriggerDetails

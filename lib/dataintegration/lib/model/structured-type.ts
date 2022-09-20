@@ -19,11 +19,14 @@ import common = require("oci-common");
  */
 export interface StructuredType {
   "schema"?:
+    | model.ArrayType
     | model.ConfiguredType
     | model.JavaType
     | model.DynamicType
     | model.DerivedType
     | model.DataType
+    | model.MaterializedCompositeType
+    | model.MapType
     | model.CompositeType;
   /**
    * The data type.

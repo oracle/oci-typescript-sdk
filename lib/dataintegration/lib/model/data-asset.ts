@@ -101,6 +101,11 @@ export namespace DataAsset {
             <model.DataAssetFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "LAKE_HOUSE_DATA_ASSET":
+          return model.DataAssetFromLakehouseDetails.getJsonObj(
+            <model.DataAssetFromLakehouseDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetFromObjectStorageDetails.getJsonObj(
             <model.DataAssetFromObjectStorageDetails>(<object>jsonObj),
@@ -119,6 +124,11 @@ export namespace DataAsset {
         case "MYSQL_DATA_ASSET":
           return model.DataAssetFromMySQL.getJsonObj(
             <model.DataAssetFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "REST_DATA_ASSET":
+          return model.DataAssetFromRestDetails.getJsonObj(
+            <model.DataAssetFromRestDetails>(<object>jsonObj),
             true
           );
         default:
@@ -166,6 +176,11 @@ export namespace DataAsset {
             <model.DataAssetFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "LAKE_HOUSE_DATA_ASSET":
+          return model.DataAssetFromLakehouseDetails.getDeserializedJsonObj(
+            <model.DataAssetFromLakehouseDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetFromObjectStorageDetails.getDeserializedJsonObj(
             <model.DataAssetFromObjectStorageDetails>(<object>jsonObj),
@@ -184,6 +199,11 @@ export namespace DataAsset {
         case "MYSQL_DATA_ASSET":
           return model.DataAssetFromMySQL.getDeserializedJsonObj(
             <model.DataAssetFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "REST_DATA_ASSET":
+          return model.DataAssetFromRestDetails.getDeserializedJsonObj(
+            <model.DataAssetFromRestDetails>(<object>jsonObj),
             true
           );
         default:

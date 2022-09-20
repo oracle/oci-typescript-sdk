@@ -201,3 +201,5 @@ export import lockbox = require("oci-lockbox");
 export import mediaservices = require("oci-mediaservices");
 export import opa = require("oci-opa");
 export import opensearch = require("oci-opensearch");
+export import cloudbridge = require("oci-cloudbridge");
+export import cloudmigrations = require("oci-cloudmigrations");

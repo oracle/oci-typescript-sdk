@@ -15,10 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for updating the custom table. Only updating tags is supported
+ * Details for updating the custom table.
  *
  */
 export interface UpdateScheduleDetails {
+  /**
+   * The description of the schedule.
+   */
+  "description"?: string;
+  /**
+   * Specifies supported output file format.
+   */
+  "outputFileFormat"?: UpdateScheduleDetails.OutputFileFormat;
+  "resultLocation"?: model.ObjectStorageLocation;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * See [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm). Example: `{\"bar-key\": \"value\"}`
@@ -33,13 +42,32 @@ export interface UpdateScheduleDetails {
 }
 
 export namespace UpdateScheduleDetails {
+  export enum OutputFileFormat {
+    Csv = "CSV",
+    Pdf = "PDF"
+  }
+
   export function getJsonObj(obj: UpdateScheduleDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resultLocation": obj.resultLocation
+          ? model.ResultLocation.getJsonObj(obj.resultLocation)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateScheduleDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "resultLocation": obj.resultLocation
+          ? model.ResultLocation.getDeserializedJsonObj(obj.resultLocation)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

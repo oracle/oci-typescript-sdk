@@ -21,7 +21,7 @@ export interface SingleDeployStageDeploymentSummary extends model.DeploymentSumm
   /**
    * Specifies the OCID of the stage to be deployed.
    */
-  "deployStageId"?: string;
+  "deployStageId": string;
 
   "deploymentType": string;
 }

@@ -19,11 +19,14 @@ import common = require("oci-common");
  */
 export interface ConfigParameterDefinition {
   "parameterType"?:
+    | model.ArrayType
     | model.ConfiguredType
     | model.JavaType
     | model.DynamicType
     | model.DerivedType
     | model.DataType
+    | model.MaterializedCompositeType
+    | model.MapType
     | model.CompositeType;
   /**
    * This object represents the configurable properties for an object type.

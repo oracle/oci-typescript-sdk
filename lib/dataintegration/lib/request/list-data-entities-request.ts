@@ -73,12 +73,17 @@ export interface ListDataEntitiesRequest extends common.BaseRequest {
    * This parameter can be used to specify whether entity search type is pattern search or not.
    */
   "isPattern"?: boolean;
+  /**
+   * Artifact type which needs to be listed while listing Artifacts.
+   */
+  "includeTypes"?: Array<string>;
 }
 
 export namespace ListDataEntitiesRequest {
   export enum SortBy {
     TimeCreated = "TIME_CREATED",
-    DisplayName = "DISPLAY_NAME"
+    DisplayName = "DISPLAY_NAME",
+    TimeUpdated = "TIME_UPDATED"
   }
 
   export enum SortOrder {

@@ -54,6 +54,8 @@ export namespace BaseType {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "ARRAY_TYPE":
+          return model.ArrayType.getJsonObj(<model.ArrayType>(<object>jsonObj), true);
         case "CONFIGURED_TYPE":
           return model.ConfiguredType.getJsonObj(<model.ConfiguredType>(<object>jsonObj), true);
         case "JAVA_TYPE":
@@ -64,6 +66,13 @@ export namespace BaseType {
           return model.DerivedType.getJsonObj(<model.DerivedType>(<object>jsonObj), true);
         case "DATA_TYPE":
           return model.DataType.getJsonObj(<model.DataType>(<object>jsonObj), true);
+        case "MATERIALIZED_COMPOSITE_TYPE":
+          return model.MaterializedCompositeType.getJsonObj(
+            <model.MaterializedCompositeType>(<object>jsonObj),
+            true
+          );
+        case "MAP_TYPE":
+          return model.MapType.getJsonObj(<model.MapType>(<object>jsonObj), true);
         case "COMPOSITE_TYPE":
           return model.CompositeType.getJsonObj(<model.CompositeType>(<object>jsonObj), true);
         default:
@@ -84,6 +93,8 @@ export namespace BaseType {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "ARRAY_TYPE":
+          return model.ArrayType.getDeserializedJsonObj(<model.ArrayType>(<object>jsonObj), true);
         case "CONFIGURED_TYPE":
           return model.ConfiguredType.getDeserializedJsonObj(
             <model.ConfiguredType>(<object>jsonObj),
@@ -103,6 +114,13 @@ export namespace BaseType {
           );
         case "DATA_TYPE":
           return model.DataType.getDeserializedJsonObj(<model.DataType>(<object>jsonObj), true);
+        case "MATERIALIZED_COMPOSITE_TYPE":
+          return model.MaterializedCompositeType.getDeserializedJsonObj(
+            <model.MaterializedCompositeType>(<object>jsonObj),
+            true
+          );
+        case "MAP_TYPE":
+          return model.MapType.getDeserializedJsonObj(<model.MapType>(<object>jsonObj), true);
         case "COMPOSITE_TYPE":
           return model.CompositeType.getDeserializedJsonObj(
             <model.CompositeType>(<object>jsonObj),

@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface TimeColumn extends model.AbstractColumn {
   /**
-   * Time span betwwen each series data point.
+   * Time span between each series data point.
    *
    */
   "span"?: string;

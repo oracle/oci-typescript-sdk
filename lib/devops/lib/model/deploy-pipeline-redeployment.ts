@@ -21,7 +21,7 @@ export interface DeployPipelineRedeployment extends model.Deployment {
   /**
    * Specifies the OCID of the previous deployment to be redeployed.
    */
-  "previousDeploymentId"?: string;
+  "previousDeploymentId": string;
 
   "deploymentType": string;
 }

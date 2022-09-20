@@ -23,6 +23,7 @@ import common = require("oci-common");
 export enum CreationSourceType {
   EmBridge = "EM_BRIDGE",
   ServiceConnectorHub = "SERVICE_CONNECTOR_HUB",
+  Discovery = "DISCOVERY",
   None = "NONE",
 
   /**

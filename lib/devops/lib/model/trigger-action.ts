@@ -19,6 +19,7 @@ import common = require("oci-common");
  */
 export interface TriggerAction {
   "filter"?:
+    | model.VbsFilter
     | model.DevopsCodeRepositoryFilter
     | model.BitbucketCloudFilter
     | model.BitbucketServerFilter

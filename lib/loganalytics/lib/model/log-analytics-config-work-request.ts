@@ -28,10 +28,7 @@ export interface LogAnalyticsConfigWorkRequest {
    */
   "compartmentId"?: string;
   /**
-   * The operation type.  There are two classes of operations, association operations and
-   * lookup operations.  Associations may be created or deleted, and lookup operations include
-   * append, update and delete.
-   *
+   * The operation type
    */
   "operationType"?: LogAnalyticsConfigWorkRequest.OperationType;
   /**
@@ -69,6 +66,8 @@ export namespace LogAnalyticsConfigWorkRequest {
     AppendLookupData = "APPEND_LOOKUP_DATA",
     UpdateLookupData = "UPDATE_LOOKUP_DATA",
     DeleteLookup = "DELETE_LOOKUP",
+    EnableIngestTimeRule = "ENABLE_INGEST_TIME_RULE",
+    DisableIngestTimeRule = "DISABLE_INGEST_TIME_RULE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
