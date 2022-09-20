@@ -25,11 +25,14 @@ export interface DataAssetSummaryFromFusionApp extends model.DataAssetSummary {
   "defaultConnection"?:
     | model.ConnectionSummaryFromJdbc
     | model.ConnectionSummaryFromBICC
+    | model.ConnectionSummaryFromRestNoAuth
     | model.ConnectionSummaryFromAtp
     | model.ConnectionSummaryFromOracle
     | model.ConnectionSummaryFromAmazonS3
+    | model.ConnectionSummaryFromRestBasicAuth
     | model.ConnectionSummaryFromAdwc
     | model.ConnectionSummaryFromMySQL
+    | model.ConnectionSummaryFromLakehouse
     | model.ConnectionSummaryFromBIP
     | model.ConnectionSummaryFromObjectStorage;
   "stagingDataAsset"?: model.DataAssetSummaryFromObjectStorage;

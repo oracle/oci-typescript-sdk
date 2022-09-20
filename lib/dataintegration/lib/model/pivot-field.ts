@@ -21,11 +21,14 @@ export interface PivotField extends model.TypedObject {
   "expr"?: model.Expression;
   "useType"?: model.ConfiguredType;
   "type"?:
+    | model.ArrayType
     | model.ConfiguredType
     | model.JavaType
     | model.DynamicType
     | model.DerivedType
     | model.DataType
+    | model.MaterializedCompositeType
+    | model.MapType
     | model.CompositeType;
   /**
    * column name pattern can be used to generate the name structure of the generated columns. By default column names are of %PIVOT_KEY_VALUE% or %MACRO_INPUT%_%PIVOT_KEY_VALUE%, but we can change it something by passing something like MY_PREFIX%PIVOT_KEY_VALUE%MY_SUFFIX or MY_PREFIX%MACRO_INPUT%_%PIVOT_KEY_VALUE%MY_SUFFIX which will add custom prefix and suffix to the column name.

@@ -19,6 +19,7 @@ import common = require("oci-common");
  */
 export interface Aggregator extends model.Operator {
   "groupByColumns"?: model.DynamicProxyField;
+  "materializedGroupByColumns"?: model.MaterializedDynamicField;
 
   "modelType": string;
 }
@@ -30,6 +31,9 @@ export namespace Aggregator {
       ...{
         "groupByColumns": obj.groupByColumns
           ? model.DynamicProxyField.getJsonObj(obj.groupByColumns)
+          : undefined,
+        "materializedGroupByColumns": obj.materializedGroupByColumns
+          ? model.MaterializedDynamicField.getJsonObj(obj.materializedGroupByColumns)
           : undefined
       }
     };
@@ -43,6 +47,9 @@ export namespace Aggregator {
       ...{
         "groupByColumns": obj.groupByColumns
           ? model.DynamicProxyField.getDeserializedJsonObj(obj.groupByColumns)
+          : undefined,
+        "materializedGroupByColumns": obj.materializedGroupByColumns
+          ? model.MaterializedDynamicField.getDeserializedJsonObj(obj.materializedGroupByColumns)
           : undefined
       }
     };

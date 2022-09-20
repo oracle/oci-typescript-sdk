@@ -105,6 +105,11 @@ export namespace Connection {
             <model.ConnectionFromOracle>(<object>jsonObj),
             true
           );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.ConnectionFromLakehouse.getJsonObj(
+            <model.ConnectionFromLakehouse>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionFromAmazonS3.getJsonObj(
             <model.ConnectionFromAmazonS3>(<object>jsonObj),
@@ -128,6 +133,16 @@ export namespace Connection {
         case "BICC_CONNECTION":
           return model.ConnectionFromBICC.getJsonObj(
             <model.ConnectionFromBICC>(<object>jsonObj),
+            true
+          );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.ConnectionFromRestNoAuth.getJsonObj(
+            <model.ConnectionFromRestNoAuth>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionFromRestBasicAuth.getJsonObj(
+            <model.ConnectionFromRestBasicAuth>(<object>jsonObj),
             true
           );
         default:
@@ -181,6 +196,11 @@ export namespace Connection {
             <model.ConnectionFromOracle>(<object>jsonObj),
             true
           );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.ConnectionFromLakehouse.getDeserializedJsonObj(
+            <model.ConnectionFromLakehouse>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionFromAmazonS3.getDeserializedJsonObj(
             <model.ConnectionFromAmazonS3>(<object>jsonObj),
@@ -204,6 +224,16 @@ export namespace Connection {
         case "BICC_CONNECTION":
           return model.ConnectionFromBICC.getDeserializedJsonObj(
             <model.ConnectionFromBICC>(<object>jsonObj),
+            true
+          );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.ConnectionFromRestNoAuth.getDeserializedJsonObj(
+            <model.ConnectionFromRestNoAuth>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionFromRestBasicAuth.getDeserializedJsonObj(
+            <model.ConnectionFromRestBasicAuth>(<object>jsonObj),
             true
           );
         default:

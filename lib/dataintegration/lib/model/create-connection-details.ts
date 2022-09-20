@@ -82,6 +82,11 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.CreateConnectionFromLakehouse.getJsonObj(
+            <model.CreateConnectionFromLakehouse>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_CONNECTION":
           return model.CreateConnectionFromJdbc.getJsonObj(
             <model.CreateConnectionFromJdbc>(<object>jsonObj),
@@ -102,9 +107,19 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromBIP>(<object>jsonObj),
             true
           );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.CreateConnectionFromRestBasicAuth.getJsonObj(
+            <model.CreateConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_CONNECTION":
           return model.CreateConnectionFromAdwc.getJsonObj(
             <model.CreateConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.CreateConnectionFromRestNoAuth.getJsonObj(
+            <model.CreateConnectionFromRestNoAuth>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":
@@ -154,6 +169,11 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.CreateConnectionFromLakehouse.getDeserializedJsonObj(
+            <model.CreateConnectionFromLakehouse>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_CONNECTION":
           return model.CreateConnectionFromJdbc.getDeserializedJsonObj(
             <model.CreateConnectionFromJdbc>(<object>jsonObj),
@@ -174,9 +194,19 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromBIP>(<object>jsonObj),
             true
           );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.CreateConnectionFromRestBasicAuth.getDeserializedJsonObj(
+            <model.CreateConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_CONNECTION":
           return model.CreateConnectionFromAdwc.getDeserializedJsonObj(
             <model.CreateConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.CreateConnectionFromRestNoAuth.getDeserializedJsonObj(
+            <model.CreateConnectionFromRestNoAuth>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":

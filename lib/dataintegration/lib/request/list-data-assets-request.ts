@@ -62,7 +62,8 @@ export interface ListDataAssetsRequest extends common.BaseRequest {
 export namespace ListDataAssetsRequest {
   export enum SortBy {
     TimeCreated = "TIME_CREATED",
-    DisplayName = "DISPLAY_NAME"
+    DisplayName = "DISPLAY_NAME",
+    TimeUpdated = "TIME_UPDATED"
   }
 
   export enum SortOrder {

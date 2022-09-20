@@ -78,6 +78,11 @@ export namespace ConnectionSummary {
             <model.BitbucketCloudAppPasswordConnectionSummary>(<object>jsonObj),
             true
           );
+        case "VBS_ACCESS_TOKEN":
+          return model.VbsAccessTokenConnectionSummary.getJsonObj(
+            <model.VbsAccessTokenConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.GithubAccessTokenConnectionSummary.getJsonObj(
             <model.GithubAccessTokenConnectionSummary>(<object>jsonObj),
@@ -112,6 +117,11 @@ export namespace ConnectionSummary {
         case "BITBUCKET_CLOUD_APP_PASSWORD":
           return model.BitbucketCloudAppPasswordConnectionSummary.getDeserializedJsonObj(
             <model.BitbucketCloudAppPasswordConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "VBS_ACCESS_TOKEN":
+          return model.VbsAccessTokenConnectionSummary.getDeserializedJsonObj(
+            <model.VbsAccessTokenConnectionSummary>(<object>jsonObj),
             true
           );
         case "GITHUB_ACCESS_TOKEN":

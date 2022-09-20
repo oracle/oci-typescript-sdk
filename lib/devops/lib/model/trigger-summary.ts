@@ -106,6 +106,11 @@ export namespace TriggerSummary {
             <model.BitbucketServerTriggerSummary>(<object>jsonObj),
             true
           );
+        case "VBS":
+          return model.VbsTriggerSummary.getJsonObj(
+            <model.VbsTriggerSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.triggerSource}`);
       }
@@ -145,6 +150,11 @@ export namespace TriggerSummary {
         case "BITBUCKET_SERVER":
           return model.BitbucketServerTriggerSummary.getDeserializedJsonObj(
             <model.BitbucketServerTriggerSummary>(<object>jsonObj),
+            true
+          );
+        case "VBS":
+          return model.VbsTriggerSummary.getDeserializedJsonObj(
+            <model.VbsTriggerSummary>(<object>jsonObj),
             true
           );
         default:

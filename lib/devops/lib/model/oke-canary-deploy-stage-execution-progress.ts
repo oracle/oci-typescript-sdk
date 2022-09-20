@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Specifies the Container Engine for Kubernetes (OKE) cluster Canary deployment stage.
  */
 export interface OkeCanaryDeployStageExecutionProgress extends model.DeployStageExecutionProgress {
+  /**
+   * The namespace of OKE Canary deployment.
+   */
+  "namespace"?: string;
+
   "deployStageType": string;
 }
 

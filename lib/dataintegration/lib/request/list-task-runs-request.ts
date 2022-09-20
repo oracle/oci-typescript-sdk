@@ -88,6 +88,7 @@ export namespace ListTaskRunsRequest {
 
   export enum SortBy {
     TimeCreated = "TIME_CREATED",
-    DisplayName = "DISPLAY_NAME"
+    DisplayName = "DISPLAY_NAME",
+    TimeUpdated = "TIME_UPDATED"
   }
 }

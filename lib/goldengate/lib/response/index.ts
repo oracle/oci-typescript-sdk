@@ -50,6 +50,12 @@ import * as ListDeploymentUpgradesResponse from "./list-deployment-upgrades-resp
 export import ListDeploymentUpgradesResponse = ListDeploymentUpgradesResponse.ListDeploymentUpgradesResponse;
 import * as ListDeploymentsResponse from "./list-deployments-response";
 export import ListDeploymentsResponse = ListDeploymentsResponse.ListDeploymentsResponse;
+import * as ListMessagesResponse from "./list-messages-response";
+export import ListMessagesResponse = ListMessagesResponse.ListMessagesResponse;
+import * as ListTrailFilesResponse from "./list-trail-files-response";
+export import ListTrailFilesResponse = ListTrailFilesResponse.ListTrailFilesResponse;
+import * as ListTrailSequencesResponse from "./list-trail-sequences-response";
+export import ListTrailSequencesResponse = ListTrailSequencesResponse.ListTrailSequencesResponse;
 import * as ListWorkRequestErrorsResponse from "./list-work-request-errors-response";
 export import ListWorkRequestErrorsResponse = ListWorkRequestErrorsResponse.ListWorkRequestErrorsResponse;
 import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response";

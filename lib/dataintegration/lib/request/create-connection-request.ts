@@ -28,11 +28,14 @@ export interface CreateConnectionRequest extends common.BaseRequest {
   "createConnectionDetails":
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromAmazonS3
+    | model.CreateConnectionFromLakehouse
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
     | model.CreateConnectionFromBIP
+    | model.CreateConnectionFromRestBasicAuth
     | model.CreateConnectionFromAdwc
+    | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromOracle
     | model.CreateConnectionFromObjectStorage;
   /**

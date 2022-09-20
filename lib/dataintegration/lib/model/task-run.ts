@@ -126,6 +126,10 @@ export interface TaskRun {
    */
   "taskType"?: TaskRun.TaskType;
   /**
+   * This field tells the user if there is any logs being fetched in backend for failure. Applicable only for failed pipeline tasks.
+   */
+  "isLogProcessingInProgress"?: boolean;
+  /**
    * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be modified.
    */
   "identifier"?: string;

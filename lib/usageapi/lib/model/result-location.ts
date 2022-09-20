@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The location where usage/cost CSVs will be uploaded defined by `locationType`,
+ * The location where usage or cost CSVs will be uploaded defined by `locationType`,
  * which corresponds with type-specific characteristics.
  *
  */

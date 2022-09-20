@@ -99,6 +99,11 @@ export namespace TriggerCreateResult {
             <model.GithubTriggerCreateResult>(<object>jsonObj),
             true
           );
+        case "VBS":
+          return model.VbsTriggerCreateResult.getJsonObj(
+            <model.VbsTriggerCreateResult>(<object>jsonObj),
+            true
+          );
         case "GITLAB":
           return model.GitlabTriggerCreateResult.getJsonObj(
             <model.GitlabTriggerCreateResult>(<object>jsonObj),
@@ -147,6 +152,11 @@ export namespace TriggerCreateResult {
         case "GITHUB":
           return model.GithubTriggerCreateResult.getDeserializedJsonObj(
             <model.GithubTriggerCreateResult>(<object>jsonObj),
+            true
+          );
+        case "VBS":
+          return model.VbsTriggerCreateResult.getDeserializedJsonObj(
+            <model.VbsTriggerCreateResult>(<object>jsonObj),
             true
           );
         case "GITLAB":

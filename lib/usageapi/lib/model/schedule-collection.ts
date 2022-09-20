@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ScheduleCollection {
   /**
-   * List of schedule summary.
+   * Schedule summary list.
    */
   "items": Array<model.ScheduleSummary>;
 }

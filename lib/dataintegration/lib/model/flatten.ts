@@ -20,6 +20,7 @@ import common = require("oci-common");
 export interface Flatten extends model.Operator {
   "flattenDetails"?: model.FlattenDetails;
   "flattenField"?: model.DynamicProxyField;
+  "materializedFlattenField"?: model.MaterializedDynamicField;
 
   "modelType": string;
 }
@@ -34,6 +35,9 @@ export namespace Flatten {
           : undefined,
         "flattenField": obj.flattenField
           ? model.DynamicProxyField.getJsonObj(obj.flattenField)
+          : undefined,
+        "materializedFlattenField": obj.materializedFlattenField
+          ? model.MaterializedDynamicField.getJsonObj(obj.materializedFlattenField)
           : undefined
       }
     };
@@ -50,6 +54,9 @@ export namespace Flatten {
           : undefined,
         "flattenField": obj.flattenField
           ? model.DynamicProxyField.getDeserializedJsonObj(obj.flattenField)
+          : undefined,
+        "materializedFlattenField": obj.materializedFlattenField
+          ? model.MaterializedDynamicField.getDeserializedJsonObj(obj.materializedFlattenField)
           : undefined
       }
     };

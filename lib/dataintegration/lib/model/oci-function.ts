@@ -29,9 +29,51 @@ export interface OciFunction {
   "fnConfigDefinition"?: model.ConfigDefinition;
   "inputShape"?: model.Shape;
   "outputShape"?: model.Shape;
+  /**
+   * The type of the OCI Function object.
+   */
+  "modelType"?: OciFunction.ModelType;
+  /**
+   * The key identifying the OCI Function operator object, use this to identiy this instance within the dataflow.
+   */
+  "key"?: string;
+  "parentRef"?: model.ParentReference;
+  /**
+   * The model version of an object.
+   */
+  "modelVersion"?: string;
+  /**
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "objectVersion"?: number;
+  /**
+   * The OCI Function payload format.
+   */
+  "payloadFormat"?: OciFunction.PayloadFormat;
+  "fnConfigDef"?: model.FunctionConfigurationDefinition;
 }
 
 export namespace OciFunction {
+  export enum ModelType {
+    OciFunction = "OCI_FUNCTION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PayloadFormat {
+    Json = "JSON",
+    Avro = "AVRO",
+    Jsonbytes = "JSONBYTES",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: OciFunction): object {
     const jsonObj = {
       ...obj,
@@ -40,7 +82,13 @@ export namespace OciFunction {
           ? model.ConfigDefinition.getJsonObj(obj.fnConfigDefinition)
           : undefined,
         "inputShape": obj.inputShape ? model.Shape.getJsonObj(obj.inputShape) : undefined,
-        "outputShape": obj.outputShape ? model.Shape.getJsonObj(obj.outputShape) : undefined
+        "outputShape": obj.outputShape ? model.Shape.getJsonObj(obj.outputShape) : undefined,
+
+        "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined,
+
+        "fnConfigDef": obj.fnConfigDef
+          ? model.FunctionConfigurationDefinition.getJsonObj(obj.fnConfigDef)
+          : undefined
       }
     };
 
@@ -58,6 +106,14 @@ export namespace OciFunction {
           : undefined,
         "outputShape": obj.outputShape
           ? model.Shape.getDeserializedJsonObj(obj.outputShape)
+          : undefined,
+
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
+        "fnConfigDef": obj.fnConfigDef
+          ? model.FunctionConfigurationDefinition.getDeserializedJsonObj(obj.fnConfigDef)
           : undefined
       }
     };

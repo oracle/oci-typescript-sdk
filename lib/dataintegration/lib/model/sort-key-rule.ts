@@ -23,6 +23,7 @@ export interface SortKeyRule {
     | model.TypeListRule
     | model.TypedNamePatternRule
     | model.NamePatternRule
+    | model.GroupedNamePatternRule
     | model.NameListRule;
   /**
    * Specifies if the sort key has ascending order.

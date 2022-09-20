@@ -18,7 +18,7 @@ import common = require("oci-common");
  * The dynamic type.
  */
 export interface DynamicType extends model.BaseType {
-  "typeHandler"?: model.RuleTypeConfig;
+  "typeHandler"?: model.FlattenTypeHandler | model.RuleTypeConfig;
   "configDefinition"?: model.ConfigDefinition;
 
   "modelType": string;

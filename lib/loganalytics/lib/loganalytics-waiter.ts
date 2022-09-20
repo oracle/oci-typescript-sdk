@@ -25,6 +25,25 @@ export class LogAnalyticsWaiter {
   ) {}
 
   /**
+   * Waits forIngestTimeRule till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetIngestTimeRuleResponse | null (null in case of 404 response)
+   */
+  public async forIngestTimeRule(
+    request: serviceRequests.GetIngestTimeRuleRequest,
+    ...targetStates: models.ConfigLifecycleState[]
+  ): Promise<serviceResponses.GetIngestTimeRuleResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getIngestTimeRule(request),
+      response => targetStates.includes(response.ingestTimeRule.lifecycleState!),
+      targetStates.includes(models.ConfigLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forLogAnalyticsEmBridge till it reaches any of the provided states
    *
    * @param request the request to send

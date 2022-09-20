@@ -65,12 +65,17 @@ export interface ListSchemasRequest extends common.BaseRequest {
    * Used to filter by the name of the object.
    */
   "nameList"?: Array<string>;
+  /**
+   * Artifact type which needs to be listed while listing Artifacts.
+   */
+  "includeTypes"?: Array<string>;
 }
 
 export namespace ListSchemasRequest {
   export enum SortBy {
     TimeCreated = "TIME_CREATED",
-    DisplayName = "DISPLAY_NAME"
+    DisplayName = "DISPLAY_NAME",
+    TimeUpdated = "TIME_UPDATED"
   }
 
   export enum SortOrder {

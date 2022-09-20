@@ -15,19 +15,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The object storage location where usage/cost CSVs will be uploaded
+ * The object storage location where usage or cost CSVs will be uploaded.
  */
 export interface ObjectStorageLocation extends model.ResultLocation {
   /**
-   * The destination Object Store Region specified by customer
+   * The destination Object Store Region specified by the customer.
    */
   "region": string;
   /**
-   * The namespace needed to determine object storage bucket.
+   * The namespace needed to determine the object storage bucket.
    */
   "namespace": string;
   /**
-   * The bucket name where usage/cost CSVs will be uploaded
+   * The bucket name where usage or cost CSVs will be uploaded.
    */
   "bucketName": string;
 

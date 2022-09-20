@@ -22,6 +22,10 @@ export interface TypedExpression extends model.TypedObject {
    * The expression string for the object.
    */
   "expression"?: string;
+  /**
+   * The object type.
+   */
+  "type"?: string;
 
   "modelType": string;
 }

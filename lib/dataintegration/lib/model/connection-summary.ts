@@ -95,6 +95,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromBICC>(<object>jsonObj),
             true
           );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.ConnectionSummaryFromRestNoAuth.getJsonObj(
+            <model.ConnectionSummaryFromRestNoAuth>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_CONNECTION":
           return model.ConnectionSummaryFromAtp.getJsonObj(
             <model.ConnectionSummaryFromAtp>(<object>jsonObj),
@@ -110,6 +115,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionSummaryFromRestBasicAuth.getJsonObj(
+            <model.ConnectionSummaryFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_CONNECTION":
           return model.ConnectionSummaryFromAdwc.getJsonObj(
             <model.ConnectionSummaryFromAdwc>(<object>jsonObj),
@@ -118,6 +128,11 @@ export namespace ConnectionSummary {
         case "MYSQL_CONNECTION":
           return model.ConnectionSummaryFromMySQL.getJsonObj(
             <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.ConnectionSummaryFromLakehouse.getJsonObj(
+            <model.ConnectionSummaryFromLakehouse>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":
@@ -171,6 +186,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromBICC>(<object>jsonObj),
             true
           );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.ConnectionSummaryFromRestNoAuth.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromRestNoAuth>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_CONNECTION":
           return model.ConnectionSummaryFromAtp.getDeserializedJsonObj(
             <model.ConnectionSummaryFromAtp>(<object>jsonObj),
@@ -186,6 +206,11 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
             true
           );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionSummaryFromRestBasicAuth.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_CONNECTION":
           return model.ConnectionSummaryFromAdwc.getDeserializedJsonObj(
             <model.ConnectionSummaryFromAdwc>(<object>jsonObj),
@@ -194,6 +219,11 @@ export namespace ConnectionSummary {
         case "MYSQL_CONNECTION":
           return model.ConnectionSummaryFromMySQL.getDeserializedJsonObj(
             <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.ConnectionSummaryFromLakehouse.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromLakehouse>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":

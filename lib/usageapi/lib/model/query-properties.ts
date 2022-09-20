@@ -51,7 +51,7 @@ export interface QueryProperties {
    */
   "queryType"?: QueryProperties.QueryType;
   /**
-   * Specifies whether aggregated by time. If isAggregateByTime is true, all usage/cost over the query time period will be added up.
+   * Specifies whether aggregated by time. If isAggregateByTime is true, all usage or cost over the query time period will be added up.
    */
   "isAggregateByTime"?: boolean;
   "dateRange": model.StaticDateRange | model.DynamicDateRange;

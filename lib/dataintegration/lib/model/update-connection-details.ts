@@ -91,6 +91,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromBICC>(<object>jsonObj),
             true
           );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.UpdateConnectionFromRestNoAuth.getJsonObj(
+            <model.UpdateConnectionFromRestNoAuth>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.UpdateConnectionFromAmazonS3.getJsonObj(
             <model.UpdateConnectionFromAmazonS3>(<object>jsonObj),
@@ -99,6 +104,16 @@ export namespace UpdateConnectionDetails {
         case "ORACLE_ATP_CONNECTION":
           return model.UpdateConnectionFromAtp.getJsonObj(
             <model.UpdateConnectionFromAtp>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.UpdateConnectionFromRestBasicAuth.getJsonObj(
+            <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.UpdateConnectionFromLakehouse.getJsonObj(
+            <model.UpdateConnectionFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":
@@ -163,6 +178,11 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromBICC>(<object>jsonObj),
             true
           );
+        case "REST_NO_AUTH_CONNECTION":
+          return model.UpdateConnectionFromRestNoAuth.getDeserializedJsonObj(
+            <model.UpdateConnectionFromRestNoAuth>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.UpdateConnectionFromAmazonS3.getDeserializedJsonObj(
             <model.UpdateConnectionFromAmazonS3>(<object>jsonObj),
@@ -171,6 +191,16 @@ export namespace UpdateConnectionDetails {
         case "ORACLE_ATP_CONNECTION":
           return model.UpdateConnectionFromAtp.getDeserializedJsonObj(
             <model.UpdateConnectionFromAtp>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.UpdateConnectionFromRestBasicAuth.getDeserializedJsonObj(
+            <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_CONNECTION":
+          return model.UpdateConnectionFromLakehouse.getDeserializedJsonObj(
+            <model.UpdateConnectionFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":

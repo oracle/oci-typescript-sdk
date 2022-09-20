@@ -66,7 +66,8 @@ export interface ListConnectionsRequest extends common.BaseRequest {
 export namespace ListConnectionsRequest {
   export enum SortBy {
     TimeCreated = "TIME_CREATED",
-    DisplayName = "DISPLAY_NAME"
+    DisplayName = "DISPLAY_NAME",
+    TimeUpdated = "TIME_UPDATED"
   }
 
   export enum SortOrder {

@@ -21,7 +21,7 @@ export interface DeployPipelineRedeploymentSummary extends model.DeploymentSumma
   /**
    * Specifies the OCID of the previous deployment to be redeployed.
    */
-  "previousDeploymentId"?: string;
+  "previousDeploymentId": string;
 
   "deploymentType": string;
 }

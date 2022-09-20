@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface CreateDisApplicationDetails {
   /**
+   * OCID of the compartment that this resource belongs to. Defaults to compartment of the Workspace.
+   */
+  "compartmentId"?: string;
+  /**
    * Currently not used on application creation. Reserved for future.
    */
   "key"?: string;

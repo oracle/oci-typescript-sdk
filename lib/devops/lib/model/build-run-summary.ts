@@ -43,6 +43,7 @@ export interface BuildRunSummary {
     | model.BitbucketServerBuildRunSource
     | model.GithubBuildRunSource
     | model.DevopsCodeRepositoryBuildRunSource
+    | model.VbsBuildRunSource
     | model.ManualBuildRunSource
     | model.BitbucketCloudBuildRunSource
     | model.GitlabBuildRunSource;

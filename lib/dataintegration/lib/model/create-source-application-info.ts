@@ -26,9 +26,18 @@ export interface CreateSourceApplicationInfo {
    * The source application key to use when creating the application.
    */
   "applicationKey"?: string;
+  /**
+   * Parameter to specify the link between SOURCE and TARGET application after copying. CONNECTED    - Indicate that TARGET application is conneced to SOURCE and can be synced after copy. DISCONNECTED - Indicate that TARGET application is not conneced to SOURCE and can evolve independently.
+   */
+  "copyType"?: CreateSourceApplicationInfo.CopyType;
 }
 
 export namespace CreateSourceApplicationInfo {
+  export enum CopyType {
+    Connected = "CONNECTED",
+    Disconnected = "DISCONNECTED"
+  }
+
   export function getJsonObj(obj: CreateSourceApplicationInfo): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -31,20 +31,25 @@ export interface OracleAtpWriteAttribute extends model.AbstractWriteAttribute {
     | model.DataAssetFromOracleDetails
     | model.DataAssetFromAdwcDetails
     | model.DataAssetFromAmazonS3
+    | model.DataAssetFromLakehouseDetails
     | model.DataAssetFromObjectStorageDetails
     | model.DataAssetFromFusionApp
     | model.DataAssetFromAtpDetails
-    | model.DataAssetFromMySQL;
+    | model.DataAssetFromMySQL
+    | model.DataAssetFromRestDetails;
   "stagingConnection"?:
     | model.ConnectionFromObjectStorage
     | model.ConnectionFromAdwc
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
+    | model.ConnectionFromLakehouse
     | model.ConnectionFromAmazonS3
     | model.ConnectionFromBIP
     | model.ConnectionFromMySQL
     | model.ConnectionFromJdbc
-    | model.ConnectionFromBICC;
+    | model.ConnectionFromBICC
+    | model.ConnectionFromRestNoAuth
+    | model.ConnectionFromRestBasicAuth;
 
   "modelType": string;
 }

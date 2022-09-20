@@ -27,6 +27,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
    */
   "updateConnectionDetails":
     | model.UpdateGithubAccessTokenConnectionDetails
+    | model.UpdateVbsAccessTokenConnectionDetails
     | model.UpdateBitbucketServerAccessTokenConnectionDetails
     | model.UpdateGitlabAccessTokenConnectionDetails
     | model.UpdateBitbucketCloudAppPasswordConnectionDetails

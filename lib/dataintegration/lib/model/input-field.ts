@@ -19,11 +19,14 @@ import common = require("oci-common");
  */
 export interface InputField extends model.TypedObject {
   "type"?:
+    | model.ArrayType
     | model.ConfiguredType
     | model.JavaType
     | model.DynamicType
     | model.DerivedType
     | model.DataType
+    | model.MaterializedCompositeType
+    | model.MapType
     | model.CompositeType;
   /**
    * Labels are keywords or labels that you can add to data assets, dataflows and so on. You can define your own labels and use them to categorize content.

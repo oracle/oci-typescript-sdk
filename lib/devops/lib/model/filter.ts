@@ -27,6 +27,8 @@ export namespace Filter {
 
     if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "VBS":
+          return model.VbsFilter.getJsonObj(<model.VbsFilter>(<object>jsonObj), true);
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryFilter.getJsonObj(
             <model.DevopsCodeRepositoryFilter>(<object>jsonObj),
@@ -62,6 +64,8 @@ export namespace Filter {
 
     if (obj && "triggerSource" in obj && obj.triggerSource) {
       switch (obj.triggerSource) {
+        case "VBS":
+          return model.VbsFilter.getDeserializedJsonObj(<model.VbsFilter>(<object>jsonObj), true);
         case "DEVOPS_CODE_REPOSITORY":
           return model.DevopsCodeRepositoryFilter.getDeserializedJsonObj(
             <model.DevopsCodeRepositoryFilter>(<object>jsonObj),

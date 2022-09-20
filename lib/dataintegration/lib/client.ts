@@ -5514,6 +5514,169 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Retrieves a runtime operator using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetRuntimeOperatorRequest
+   * @return GetRuntimeOperatorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetRuntimeOperator.ts.html |here} to see how to use GetRuntimeOperator API.
+   */
+  public async getRuntimeOperator(
+    getRuntimeOperatorRequest: requests.GetRuntimeOperatorRequest
+  ): Promise<responses.GetRuntimeOperatorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getRuntimeOperator.");
+    const operationName = "getRuntimeOperator";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimeOperator/GetRuntimeOperator";
+    const pathParams = {
+      "{workspaceId}": getRuntimeOperatorRequest.workspaceId,
+      "{applicationKey}": getRuntimeOperatorRequest.applicationKey,
+      "{runtimePipelineKey}": getRuntimeOperatorRequest.runtimePipelineKey,
+      "{runtimeOperatorKey}": getRuntimeOperatorRequest.runtimeOperatorKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRuntimeOperatorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRuntimeOperatorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/applications/{applicationKey}/runtimePipelines/{runtimePipelineKey}/runtimeOperators/{runtimeOperatorKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRuntimeOperatorResponse>{},
+        body: await response.json(),
+        bodyKey: "runtimeOperator",
+        bodyModel: model.RuntimeOperator,
+        type: "model.RuntimeOperator",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a runtime pipeline using the specified identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetRuntimePipelineRequest
+   * @return GetRuntimePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetRuntimePipeline.ts.html |here} to see how to use GetRuntimePipeline API.
+   */
+  public async getRuntimePipeline(
+    getRuntimePipelineRequest: requests.GetRuntimePipelineRequest
+  ): Promise<responses.GetRuntimePipelineResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getRuntimePipeline.");
+    const operationName = "getRuntimePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimePipeline/GetRuntimePipeline";
+    const pathParams = {
+      "{workspaceId}": getRuntimePipelineRequest.workspaceId,
+      "{applicationKey}": getRuntimePipelineRequest.applicationKey,
+      "{runtimePipelineKey}": getRuntimePipelineRequest.runtimePipelineKey
+    };
+
+    const queryParams = {
+      "expandReferences": getRuntimePipelineRequest.expandReferences
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRuntimePipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRuntimePipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/applications/{applicationKey}/runtimePipelines/{runtimePipelineKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRuntimePipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "runtimePipeline",
+        bodyModel: model.RuntimePipeline,
+        type: "model.RuntimePipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves schedule by schedule key
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetScheduleRequest
@@ -6708,7 +6871,8 @@ export class DataIntegrationClient {
       "sortBy": listDataEntitiesRequest.sortBy,
       "sortOrder": listDataEntitiesRequest.sortOrder,
       "nameList": listDataEntitiesRequest.nameList,
-      "isPattern": listDataEntitiesRequest.isPattern
+      "isPattern": listDataEntitiesRequest.isPattern,
+      "includeTypes": listDataEntitiesRequest.includeTypes
     };
 
     let headerParams = {
@@ -7058,6 +7222,100 @@ export class DataIntegrationClient {
             value: response.headers.get("opc-total-items"),
             key: "opcTotalItems",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This endpoint can be used to list Task Run Lineages within a given time window.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListDisApplicationTaskRunLineagesRequest
+   * @return ListDisApplicationTaskRunLineagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListDisApplicationTaskRunLineages.ts.html |here} to see how to use ListDisApplicationTaskRunLineages API.
+   */
+  public async listDisApplicationTaskRunLineages(
+    listDisApplicationTaskRunLineagesRequest: requests.ListDisApplicationTaskRunLineagesRequest
+  ): Promise<responses.ListDisApplicationTaskRunLineagesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataIntegrationClient#listDisApplicationTaskRunLineages."
+      );
+    const operationName = "listDisApplicationTaskRunLineages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRunLineageSummaryCollection/ListDisApplicationTaskRunLineages";
+    const pathParams = {
+      "{workspaceId}": listDisApplicationTaskRunLineagesRequest.workspaceId,
+      "{disApplicationId}": listDisApplicationTaskRunLineagesRequest.disApplicationId
+    };
+
+    const queryParams = {
+      "fields": listDisApplicationTaskRunLineagesRequest.fields,
+      "page": listDisApplicationTaskRunLineagesRequest.page,
+      "limit": listDisApplicationTaskRunLineagesRequest.limit,
+      "sortOrder": listDisApplicationTaskRunLineagesRequest.sortOrder,
+      "sortBy": listDisApplicationTaskRunLineagesRequest.sortBy,
+      "filter": listDisApplicationTaskRunLineagesRequest.filter,
+      "timeUpdatedGreaterThan": listDisApplicationTaskRunLineagesRequest.timeUpdatedGreaterThan,
+      "timeUpdatedGreaterThanOrEqualTo":
+        listDisApplicationTaskRunLineagesRequest.timeUpdatedGreaterThanOrEqualTo,
+      "timeUpatedLessThan": listDisApplicationTaskRunLineagesRequest.timeUpatedLessThan,
+      "timeUpatedLessThanOrEqualTo":
+        listDisApplicationTaskRunLineagesRequest.timeUpatedLessThanOrEqualTo
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDisApplicationTaskRunLineagesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDisApplicationTaskRunLineagesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/disApplications/{disApplicationId}/taskRunLineages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDisApplicationTaskRunLineagesResponse>{},
+        body: await response.json(),
+        bodyKey: "taskRunLineageSummaryCollection",
+        bodyModel: model.TaskRunLineageSummaryCollection,
+        type: "model.TaskRunLineageSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -8230,6 +8488,188 @@ export class DataIntegrationClient {
   }
 
   /**
+   * This endpoint can be used to list runtime operators with filtering options
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRuntimeOperatorsRequest
+   * @return ListRuntimeOperatorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListRuntimeOperators.ts.html |here} to see how to use ListRuntimeOperators API.
+   */
+  public async listRuntimeOperators(
+    listRuntimeOperatorsRequest: requests.ListRuntimeOperatorsRequest
+  ): Promise<responses.ListRuntimeOperatorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listRuntimeOperators.");
+    const operationName = "listRuntimeOperators";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimeOperatorSummaryCollection/ListRuntimeOperators";
+    const pathParams = {
+      "{workspaceId}": listRuntimeOperatorsRequest.workspaceId,
+      "{applicationKey}": listRuntimeOperatorsRequest.applicationKey,
+      "{runtimePipelineKey}": listRuntimeOperatorsRequest.runtimePipelineKey
+    };
+
+    const queryParams = {
+      "key": listRuntimeOperatorsRequest.key,
+      "fields": listRuntimeOperatorsRequest.fields,
+      "name": listRuntimeOperatorsRequest.name,
+      "identifier": listRuntimeOperatorsRequest.identifier,
+      "page": listRuntimeOperatorsRequest.page,
+      "limit": listRuntimeOperatorsRequest.limit,
+      "sortOrder": listRuntimeOperatorsRequest.sortOrder,
+      "sortBy": listRuntimeOperatorsRequest.sortBy,
+      "aggregatorType": listRuntimeOperatorsRequest.aggregatorType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRuntimeOperatorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRuntimeOperatorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/workspaces/{workspaceId}/applications/{applicationKey}/runtimePipelines/{runtimePipelineKey}/runtimeOperators",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRuntimeOperatorsResponse>{},
+        body: await response.json(),
+        bodyKey: "runtimeOperatorSummaryCollection",
+        bodyModel: model.RuntimeOperatorSummaryCollection,
+        type: "model.RuntimeOperatorSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This endpoint can be used to list runtime pipelines with filtering options
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListRuntimePipelinesRequest
+   * @return ListRuntimePipelinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListRuntimePipelines.ts.html |here} to see how to use ListRuntimePipelines API.
+   */
+  public async listRuntimePipelines(
+    listRuntimePipelinesRequest: requests.ListRuntimePipelinesRequest
+  ): Promise<responses.ListRuntimePipelinesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listRuntimePipelines.");
+    const operationName = "listRuntimePipelines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/RuntimePipelineSummaryCollection/ListRuntimePipelines";
+    const pathParams = {
+      "{workspaceId}": listRuntimePipelinesRequest.workspaceId,
+      "{applicationKey}": listRuntimePipelinesRequest.applicationKey
+    };
+
+    const queryParams = {
+      "key": listRuntimePipelinesRequest.key,
+      "aggregatorKey": listRuntimePipelinesRequest.aggregatorKey,
+      "fields": listRuntimePipelinesRequest.fields,
+      "name": listRuntimePipelinesRequest.name,
+      "identifier": listRuntimePipelinesRequest.identifier,
+      "page": listRuntimePipelinesRequest.page,
+      "limit": listRuntimePipelinesRequest.limit,
+      "sortOrder": listRuntimePipelinesRequest.sortOrder,
+      "sortBy": listRuntimePipelinesRequest.sortBy,
+      "aggregatorType": listRuntimePipelinesRequest.aggregatorType,
+      "filter": listRuntimePipelinesRequest.filter
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listRuntimePipelinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listRuntimePipelinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/runtimePipelines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListRuntimePipelinesResponse>{},
+        body: await response.json(),
+        bodyKey: "runtimePipelineSummaryCollection",
+        bodyModel: model.RuntimePipelineSummaryCollection,
+        type: "model.RuntimePipelineSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Use this endpoint to list schedules.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -8354,7 +8794,8 @@ export class DataIntegrationClient {
       "sortOrder": listSchemasRequest.sortOrder,
       "schemaResourceName": listSchemasRequest.schemaResourceName,
       "name": listSchemasRequest.name,
-      "nameList": listSchemasRequest.nameList
+      "nameList": listSchemasRequest.nameList,
+      "includeTypes": listSchemasRequest.includeTypes
     };
 
     let headerParams = {
@@ -8412,6 +8853,96 @@ export class DataIntegrationClient {
             value: response.headers.get("opc-total-items"),
             key: "opcTotalItems",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This endpoint can be used to list Task Run Lineages within a given time window.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListTaskRunLineagesRequest
+   * @return ListTaskRunLineagesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListTaskRunLineages.ts.html |here} to see how to use ListTaskRunLineages API.
+   */
+  public async listTaskRunLineages(
+    listTaskRunLineagesRequest: requests.ListTaskRunLineagesRequest
+  ): Promise<responses.ListTaskRunLineagesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listTaskRunLineages.");
+    const operationName = "listTaskRunLineages";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/TaskRunLineageSummaryCollection/ListTaskRunLineages";
+    const pathParams = {
+      "{workspaceId}": listTaskRunLineagesRequest.workspaceId,
+      "{applicationKey}": listTaskRunLineagesRequest.applicationKey
+    };
+
+    const queryParams = {
+      "fields": listTaskRunLineagesRequest.fields,
+      "page": listTaskRunLineagesRequest.page,
+      "limit": listTaskRunLineagesRequest.limit,
+      "sortOrder": listTaskRunLineagesRequest.sortOrder,
+      "sortBy": listTaskRunLineagesRequest.sortBy,
+      "filter": listTaskRunLineagesRequest.filter,
+      "timeUpdatedGreaterThan": listTaskRunLineagesRequest.timeUpdatedGreaterThan,
+      "timeUpdatedGreaterThanOrEqualTo": listTaskRunLineagesRequest.timeUpdatedGreaterThanOrEqualTo,
+      "timeUpatedLessThan": listTaskRunLineagesRequest.timeUpatedLessThan,
+      "timeUpatedLessThanOrEqualTo": listTaskRunLineagesRequest.timeUpatedLessThanOrEqualTo
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTaskRunLineagesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTaskRunLineagesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/taskRunLineages",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTaskRunLineagesResponse>{},
+        body: await response.json(),
+        bodyKey: "taskRunLineageSummaryCollection",
+        bodyModel: model.TaskRunLineageSummaryCollection,
+        type: "model.TaskRunLineageSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });

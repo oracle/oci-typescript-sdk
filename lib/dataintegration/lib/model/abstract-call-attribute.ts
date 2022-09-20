@@ -34,6 +34,11 @@ export namespace AbstractCallAttribute {
       switch (obj.modelType) {
         case "BIP_CALL_ATTRIBUTE":
           return model.BipCallAttribute.getJsonObj(<model.BipCallAttribute>(<object>jsonObj), true);
+        case "GENERIC_REST_CALL_ATTRIBUTE":
+          return model.GenericRestCallAttribute.getJsonObj(
+            <model.GenericRestCallAttribute>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -48,6 +53,11 @@ export namespace AbstractCallAttribute {
         case "BIP_CALL_ATTRIBUTE":
           return model.BipCallAttribute.getDeserializedJsonObj(
             <model.BipCallAttribute>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_REST_CALL_ATTRIBUTE":
+          return model.GenericRestCallAttribute.getDeserializedJsonObj(
+            <model.GenericRestCallAttribute>(<object>jsonObj),
             true
           );
         default:

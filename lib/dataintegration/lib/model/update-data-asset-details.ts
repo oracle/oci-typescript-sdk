@@ -72,9 +72,19 @@ export namespace UpdateDataAssetDetails {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "REST_DATA_ASSET":
+          return model.UpdateDataAssetFromRest.getJsonObj(
+            <model.UpdateDataAssetFromRest>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_DATA_ASSET":
           return model.UpdateDataAssetFromAtp.getJsonObj(
             <model.UpdateDataAssetFromAtp>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_DATA_ASSET":
+          return model.UpdateDataAssetFromLakehouse.getJsonObj(
+            <model.UpdateDataAssetFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_DATA_ASSET":
@@ -130,9 +140,19 @@ export namespace UpdateDataAssetDetails {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "REST_DATA_ASSET":
+          return model.UpdateDataAssetFromRest.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromRest>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ATP_DATA_ASSET":
           return model.UpdateDataAssetFromAtp.getDeserializedJsonObj(
             <model.UpdateDataAssetFromAtp>(<object>jsonObj),
+            true
+          );
+        case "LAKE_HOUSE_DATA_ASSET":
+          return model.UpdateDataAssetFromLakehouse.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_DATA_ASSET":

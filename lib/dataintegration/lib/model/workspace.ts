@@ -95,6 +95,18 @@ export interface Workspace {
    * A system-generated and immutable identifier assigned to the workspace upon creation.
    */
   "id": string;
+  /**
+   * OCID of the private endpoint associated with the container/workspace.
+   */
+  "endpointId"?: string;
+  /**
+   * Name of the private endpoint associated with the container/workspace.
+   */
+  "endpointName"?: string;
+  /**
+   * DCMS Registry ID associated with the container/workspace.
+   */
+  "registryId"?: string;
 }
 
 export namespace Workspace {

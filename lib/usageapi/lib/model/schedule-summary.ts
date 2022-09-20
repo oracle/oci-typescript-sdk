@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Schedule summary for listSchedule.
+ * Schedule summary for the list schedule.
  */
 export interface ScheduleSummary {
   /**
@@ -23,17 +23,26 @@ export interface ScheduleSummary {
    */
   "id": string;
   /**
-   * The unique name of the schedule created by the user
+   * The unique name of the user-created schedule.
    */
   "name": string;
   /**
-   * In x-obmcs-recurring-time format shown here: https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10
-   * Describes the frequency of when the schedule will be run
+   * The description of the schedule.
+   */
+  "description"?: string;
+  /**
+   * The date and time of the next job execution.
+   */
+  "timeNextRun"?: Date;
+  /**
+   * Specifies the frequency according to when the schedule will be run,
+   * in the x-obmcs-recurring-time format described in [RFC 5545 section 3.3.10](https://datatracker.ietf.org/doc/html/rfc5545#section-3.3.10).
+   * Supported values are : ONE_TIME, DAILY, WEEKLY and MONTHLY.
    *
    */
   "scheduleRecurrences": string;
   /**
-   * The date and time of the first time job execution
+   * The date and time of the first time job execution.
    */
   "timeScheduled": Date;
   /**
@@ -53,7 +62,7 @@ export interface ScheduleSummary {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The lifecycle state of the schedule summary
+   * The schedule summary lifecycle state.
    */
   "lifecycleState": string;
 }

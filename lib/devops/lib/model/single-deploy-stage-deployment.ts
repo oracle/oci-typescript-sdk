@@ -21,7 +21,7 @@ export interface SingleDeployStageDeployment extends model.Deployment {
   /**
    * Specifies the OCID of the stage to be deployed.
    */
-  "deployStageId"?: string;
+  "deployStageId": string;
 
   "deploymentType": string;
 }

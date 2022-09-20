@@ -46,6 +46,7 @@ export interface BuildRun {
     | model.BitbucketServerBuildRunSource
     | model.GithubBuildRunSource
     | model.DevopsCodeRepositoryBuildRunSource
+    | model.VbsBuildRunSource
     | model.ManualBuildRunSource
     | model.BitbucketCloudBuildRunSource
     | model.GitlabBuildRunSource;

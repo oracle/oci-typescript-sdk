@@ -120,6 +120,8 @@ export namespace Operator {
           );
         case "FUNCTION_OPERATOR":
           return model.Function.getJsonObj(<model.Function>(<object>jsonObj), true);
+        case "DECISION_OPERATOR":
+          return model.DecisionOperator.getJsonObj(<model.DecisionOperator>(<object>jsonObj), true);
         case "INTERSECT_OPERATOR":
           return model.Intersect.getJsonObj(<model.Intersect>(<object>jsonObj), true);
         case "TARGET_OPERATOR":
@@ -209,6 +211,11 @@ export namespace Operator {
           );
         case "FUNCTION_OPERATOR":
           return model.Function.getDeserializedJsonObj(<model.Function>(<object>jsonObj), true);
+        case "DECISION_OPERATOR":
+          return model.DecisionOperator.getDeserializedJsonObj(
+            <model.DecisionOperator>(<object>jsonObj),
+            true
+          );
         case "INTERSECT_OPERATOR":
           return model.Intersect.getDeserializedJsonObj(<model.Intersect>(<object>jsonObj), true);
         case "TARGET_OPERATOR":

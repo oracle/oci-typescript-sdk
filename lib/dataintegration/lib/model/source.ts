@@ -23,7 +23,8 @@ export interface Source extends model.Operator {
     | model.DataEntityFromDataStore
     | model.DataEntityFromView
     | model.DataEntityFromSql
-    | model.DataEntityFromFile;
+    | model.DataEntityFromFile
+    | model.DerivedEntity;
   /**
    * Specifies the read access.
    */

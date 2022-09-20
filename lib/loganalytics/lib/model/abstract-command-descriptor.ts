@@ -45,6 +45,11 @@ export interface AbstractCommandDescriptor {
    *
    */
   "declaredFields"?: Array<model.AbstractField>;
+  /**
+   * Field denoting if this is a hidden command that is not shown in the query string.
+   *
+   */
+  "isHidden"?: boolean;
 
   "name": string;
 }
@@ -79,44 +84,14 @@ export namespace AbstractCommandDescriptor {
             <model.HighlightCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "MULTI_SEARCH":
-          return model.MultiSearchCommandDescriptor.getJsonObj(
-            <model.MultiSearchCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "COMPARE":
-          return model.CompareCommandDescriptor.getJsonObj(
-            <model.CompareCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "STATS":
           return model.StatsCommandDescriptor.getJsonObj(
             <model.StatsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "TIME_COMPARE":
-          return model.TimeCompareCommandDescriptor.getJsonObj(
-            <model.TimeCompareCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "TAIL":
           return model.TailCommandDescriptor.getJsonObj(
             <model.TailCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "REGEX":
-          return model.RegexCommandDescriptor.getJsonObj(
-            <model.RegexCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "DELTA":
-          return model.DeltaCommandDescriptor.getJsonObj(
-            <model.DeltaCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "LOOKUP":
-          return model.LookupCommandDescriptor.getJsonObj(
-            <model.LookupCommandDescriptor>(<object>jsonObj),
             true
           );
         case "DEMO_MODE":
@@ -134,19 +109,9 @@ export namespace AbstractCommandDescriptor {
             <model.GeoStatsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "JSON_EXTRACT":
-          return model.JsonExtractCommandDescriptor.getJsonObj(
-            <model.JsonExtractCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "MAP":
           return model.MapCommandDescriptor.getJsonObj(
             <model.MapCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "EVENT_STATS":
-          return model.EventStatsCommandDescriptor.getJsonObj(
-            <model.EventStatsCommandDescriptor>(<object>jsonObj),
             true
           );
         case "HIGHLIGHT_GROUPS":
@@ -154,14 +119,9 @@ export namespace AbstractCommandDescriptor {
             <model.HighlightGroupsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "WHERE":
-          return model.WhereCommandDescriptor.getJsonObj(
-            <model.WhereCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "CLUSTER_SPLIT":
-          return model.ClusterSplitCommandDescriptor.getJsonObj(
-            <model.ClusterSplitCommandDescriptor>(<object>jsonObj),
+        case "DEDUP":
+          return model.DedupCommandDescriptor.getJsonObj(
+            <model.DedupCommandDescriptor>(<object>jsonObj),
             true
           );
         case "TIME_STATS":
@@ -174,19 +134,9 @@ export namespace AbstractCommandDescriptor {
             <model.ClusterCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "CLUSTER_DETAILS":
-          return model.ClusterDetailsCommandDescriptor.getJsonObj(
-            <model.ClusterDetailsCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "DELETE":
           return model.DeleteCommandDescriptor.getJsonObj(
             <model.DeleteCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "CLUSTER_COMPARE":
-          return model.ClusterCompareCommandDescriptor.getJsonObj(
-            <model.ClusterCompareCommandDescriptor>(<object>jsonObj),
             true
           );
         case "SEARCH":
@@ -199,14 +149,9 @@ export namespace AbstractCommandDescriptor {
             <model.BucketCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "COMMAND":
-          return model.CommandDescriptor.getJsonObj(
-            <model.CommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "DISTINCT":
-          return model.DistinctCommandDescriptor.getJsonObj(
-            <model.DistinctCommandDescriptor>(<object>jsonObj),
+        case "ADD_INSIGHTS":
+          return model.AddInsightsCommandDescriptor.getJsonObj(
+            <model.AddInsightsCommandDescriptor>(<object>jsonObj),
             true
           );
         case "LINK":
@@ -217,6 +162,106 @@ export namespace AbstractCommandDescriptor {
         case "SORT":
           return model.SortCommandDescriptor.getJsonObj(
             <model.SortCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "HIGHLIGHT_ROWS":
+          return model.HighlightRowsCommandDescriptor.getJsonObj(
+            <model.HighlightRowsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MACRO":
+          return model.MacroCommandDescriptor.getJsonObj(
+            <model.MacroCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "EVAL":
+          return model.EvalCommandDescriptor.getJsonObj(
+            <model.EvalCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "RENAME":
+          return model.RenameCommandDescriptor.getJsonObj(
+            <model.RenameCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "XML_EXTRACT":
+          return model.XmlExtractCommandDescriptor.getJsonObj(
+            <model.XmlExtractCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MULTI_SEARCH":
+          return model.MultiSearchCommandDescriptor.getJsonObj(
+            <model.MultiSearchCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "COMPARE":
+          return model.CompareCommandDescriptor.getJsonObj(
+            <model.CompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "TIME_COMPARE":
+          return model.TimeCompareCommandDescriptor.getJsonObj(
+            <model.TimeCompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MODULE":
+          return model.ModuleCommandDescriptor.getJsonObj(
+            <model.ModuleCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "REGEX":
+          return model.RegexCommandDescriptor.getJsonObj(
+            <model.RegexCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DELTA":
+          return model.DeltaCommandDescriptor.getJsonObj(
+            <model.DeltaCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "LOOKUP":
+          return model.LookupCommandDescriptor.getJsonObj(
+            <model.LookupCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "JSON_EXTRACT":
+          return model.JsonExtractCommandDescriptor.getJsonObj(
+            <model.JsonExtractCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "EVENT_STATS":
+          return model.EventStatsCommandDescriptor.getJsonObj(
+            <model.EventStatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "WHERE":
+          return model.WhereCommandDescriptor.getJsonObj(
+            <model.WhereCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_SPLIT":
+          return model.ClusterSplitCommandDescriptor.getJsonObj(
+            <model.ClusterSplitCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_DETAILS":
+          return model.ClusterDetailsCommandDescriptor.getJsonObj(
+            <model.ClusterDetailsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_COMPARE":
+          return model.ClusterCompareCommandDescriptor.getJsonObj(
+            <model.ClusterCompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "COMMAND":
+          return model.CommandDescriptor.getJsonObj(
+            <model.CommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DISTINCT":
+          return model.DistinctCommandDescriptor.getJsonObj(
+            <model.DistinctCommandDescriptor>(<object>jsonObj),
             true
           );
         case "EXTRACT":
@@ -239,14 +284,9 @@ export namespace AbstractCommandDescriptor {
             <model.FieldsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "HIGHLIGHT_ROWS":
-          return model.HighlightRowsCommandDescriptor.getJsonObj(
-            <model.HighlightRowsCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "MACRO":
-          return model.MacroCommandDescriptor.getJsonObj(
-            <model.MacroCommandDescriptor>(<object>jsonObj),
+        case "ANOMALY":
+          return model.AnomalyCommandDescriptor.getJsonObj(
+            <model.AnomalyCommandDescriptor>(<object>jsonObj),
             true
           );
         case "CLASSIFY":
@@ -274,24 +314,14 @@ export namespace AbstractCommandDescriptor {
             <model.CreateViewCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "TIME_CLUSTER":
+          return model.TimeClusterCommandDescriptor.getJsonObj(
+            <model.TimeClusterCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "ADD_FIELDS":
           return model.AddFieldsCommandDescriptor.getJsonObj(
             <model.AddFieldsCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "EVAL":
-          return model.EvalCommandDescriptor.getJsonObj(
-            <model.EvalCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "RENAME":
-          return model.RenameCommandDescriptor.getJsonObj(
-            <model.RenameCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "XML_EXTRACT":
-          return model.XmlExtractCommandDescriptor.getJsonObj(
-            <model.XmlExtractCommandDescriptor>(<object>jsonObj),
             true
           );
         default:
@@ -329,44 +359,14 @@ export namespace AbstractCommandDescriptor {
             <model.HighlightCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "MULTI_SEARCH":
-          return model.MultiSearchCommandDescriptor.getDeserializedJsonObj(
-            <model.MultiSearchCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "COMPARE":
-          return model.CompareCommandDescriptor.getDeserializedJsonObj(
-            <model.CompareCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "STATS":
           return model.StatsCommandDescriptor.getDeserializedJsonObj(
             <model.StatsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "TIME_COMPARE":
-          return model.TimeCompareCommandDescriptor.getDeserializedJsonObj(
-            <model.TimeCompareCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "TAIL":
           return model.TailCommandDescriptor.getDeserializedJsonObj(
             <model.TailCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "REGEX":
-          return model.RegexCommandDescriptor.getDeserializedJsonObj(
-            <model.RegexCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "DELTA":
-          return model.DeltaCommandDescriptor.getDeserializedJsonObj(
-            <model.DeltaCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "LOOKUP":
-          return model.LookupCommandDescriptor.getDeserializedJsonObj(
-            <model.LookupCommandDescriptor>(<object>jsonObj),
             true
           );
         case "DEMO_MODE":
@@ -384,19 +384,9 @@ export namespace AbstractCommandDescriptor {
             <model.GeoStatsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "JSON_EXTRACT":
-          return model.JsonExtractCommandDescriptor.getDeserializedJsonObj(
-            <model.JsonExtractCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "MAP":
           return model.MapCommandDescriptor.getDeserializedJsonObj(
             <model.MapCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "EVENT_STATS":
-          return model.EventStatsCommandDescriptor.getDeserializedJsonObj(
-            <model.EventStatsCommandDescriptor>(<object>jsonObj),
             true
           );
         case "HIGHLIGHT_GROUPS":
@@ -404,14 +394,9 @@ export namespace AbstractCommandDescriptor {
             <model.HighlightGroupsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "WHERE":
-          return model.WhereCommandDescriptor.getDeserializedJsonObj(
-            <model.WhereCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "CLUSTER_SPLIT":
-          return model.ClusterSplitCommandDescriptor.getDeserializedJsonObj(
-            <model.ClusterSplitCommandDescriptor>(<object>jsonObj),
+        case "DEDUP":
+          return model.DedupCommandDescriptor.getDeserializedJsonObj(
+            <model.DedupCommandDescriptor>(<object>jsonObj),
             true
           );
         case "TIME_STATS":
@@ -424,19 +409,9 @@ export namespace AbstractCommandDescriptor {
             <model.ClusterCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "CLUSTER_DETAILS":
-          return model.ClusterDetailsCommandDescriptor.getDeserializedJsonObj(
-            <model.ClusterDetailsCommandDescriptor>(<object>jsonObj),
-            true
-          );
         case "DELETE":
           return model.DeleteCommandDescriptor.getDeserializedJsonObj(
             <model.DeleteCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "CLUSTER_COMPARE":
-          return model.ClusterCompareCommandDescriptor.getDeserializedJsonObj(
-            <model.ClusterCompareCommandDescriptor>(<object>jsonObj),
             true
           );
         case "SEARCH":
@@ -449,14 +424,9 @@ export namespace AbstractCommandDescriptor {
             <model.BucketCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "COMMAND":
-          return model.CommandDescriptor.getDeserializedJsonObj(
-            <model.CommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "DISTINCT":
-          return model.DistinctCommandDescriptor.getDeserializedJsonObj(
-            <model.DistinctCommandDescriptor>(<object>jsonObj),
+        case "ADD_INSIGHTS":
+          return model.AddInsightsCommandDescriptor.getDeserializedJsonObj(
+            <model.AddInsightsCommandDescriptor>(<object>jsonObj),
             true
           );
         case "LINK":
@@ -467,6 +437,106 @@ export namespace AbstractCommandDescriptor {
         case "SORT":
           return model.SortCommandDescriptor.getDeserializedJsonObj(
             <model.SortCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "HIGHLIGHT_ROWS":
+          return model.HighlightRowsCommandDescriptor.getDeserializedJsonObj(
+            <model.HighlightRowsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MACRO":
+          return model.MacroCommandDescriptor.getDeserializedJsonObj(
+            <model.MacroCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "EVAL":
+          return model.EvalCommandDescriptor.getDeserializedJsonObj(
+            <model.EvalCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "RENAME":
+          return model.RenameCommandDescriptor.getDeserializedJsonObj(
+            <model.RenameCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "XML_EXTRACT":
+          return model.XmlExtractCommandDescriptor.getDeserializedJsonObj(
+            <model.XmlExtractCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MULTI_SEARCH":
+          return model.MultiSearchCommandDescriptor.getDeserializedJsonObj(
+            <model.MultiSearchCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "COMPARE":
+          return model.CompareCommandDescriptor.getDeserializedJsonObj(
+            <model.CompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "TIME_COMPARE":
+          return model.TimeCompareCommandDescriptor.getDeserializedJsonObj(
+            <model.TimeCompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "MODULE":
+          return model.ModuleCommandDescriptor.getDeserializedJsonObj(
+            <model.ModuleCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "REGEX":
+          return model.RegexCommandDescriptor.getDeserializedJsonObj(
+            <model.RegexCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DELTA":
+          return model.DeltaCommandDescriptor.getDeserializedJsonObj(
+            <model.DeltaCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "LOOKUP":
+          return model.LookupCommandDescriptor.getDeserializedJsonObj(
+            <model.LookupCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "JSON_EXTRACT":
+          return model.JsonExtractCommandDescriptor.getDeserializedJsonObj(
+            <model.JsonExtractCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "EVENT_STATS":
+          return model.EventStatsCommandDescriptor.getDeserializedJsonObj(
+            <model.EventStatsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "WHERE":
+          return model.WhereCommandDescriptor.getDeserializedJsonObj(
+            <model.WhereCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_SPLIT":
+          return model.ClusterSplitCommandDescriptor.getDeserializedJsonObj(
+            <model.ClusterSplitCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_DETAILS":
+          return model.ClusterDetailsCommandDescriptor.getDeserializedJsonObj(
+            <model.ClusterDetailsCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "CLUSTER_COMPARE":
+          return model.ClusterCompareCommandDescriptor.getDeserializedJsonObj(
+            <model.ClusterCompareCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "COMMAND":
+          return model.CommandDescriptor.getDeserializedJsonObj(
+            <model.CommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "DISTINCT":
+          return model.DistinctCommandDescriptor.getDeserializedJsonObj(
+            <model.DistinctCommandDescriptor>(<object>jsonObj),
             true
           );
         case "EXTRACT":
@@ -489,14 +559,9 @@ export namespace AbstractCommandDescriptor {
             <model.FieldsCommandDescriptor>(<object>jsonObj),
             true
           );
-        case "HIGHLIGHT_ROWS":
-          return model.HighlightRowsCommandDescriptor.getDeserializedJsonObj(
-            <model.HighlightRowsCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "MACRO":
-          return model.MacroCommandDescriptor.getDeserializedJsonObj(
-            <model.MacroCommandDescriptor>(<object>jsonObj),
+        case "ANOMALY":
+          return model.AnomalyCommandDescriptor.getDeserializedJsonObj(
+            <model.AnomalyCommandDescriptor>(<object>jsonObj),
             true
           );
         case "CLASSIFY":
@@ -524,24 +589,14 @@ export namespace AbstractCommandDescriptor {
             <model.CreateViewCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "TIME_CLUSTER":
+          return model.TimeClusterCommandDescriptor.getDeserializedJsonObj(
+            <model.TimeClusterCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "ADD_FIELDS":
           return model.AddFieldsCommandDescriptor.getDeserializedJsonObj(
             <model.AddFieldsCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "EVAL":
-          return model.EvalCommandDescriptor.getDeserializedJsonObj(
-            <model.EvalCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "RENAME":
-          return model.RenameCommandDescriptor.getDeserializedJsonObj(
-            <model.RenameCommandDescriptor>(<object>jsonObj),
-            true
-          );
-        case "XML_EXTRACT":
-          return model.XmlExtractCommandDescriptor.getDeserializedJsonObj(
-            <model.XmlExtractCommandDescriptor>(<object>jsonObj),
             true
           );
         default:

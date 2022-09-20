@@ -30,7 +30,9 @@ export interface UpdateDataAssetRequest extends common.BaseRequest {
    * The information needed to update a data asset.
    */
   "updateDataAssetDetails":
+    | model.UpdateDataAssetFromRest
     | model.UpdateDataAssetFromAtp
+    | model.UpdateDataAssetFromLakehouse
     | model.UpdateDataAssetFromAdwc
     | model.UpdateDataAssetFromJdbc
     | model.UpdateDataAssetFromObjectStorage

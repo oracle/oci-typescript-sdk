@@ -66,6 +66,11 @@ export namespace CreateTriggerDetails {
             <model.CreateGithubTriggerDetails>(<object>jsonObj),
             true
           );
+        case "VBS":
+          return model.CreateVbsTriggerDetails.getJsonObj(
+            <model.CreateVbsTriggerDetails>(<object>jsonObj),
+            true
+          );
         case "DEVOPS_CODE_REPOSITORY":
           return model.CreateDevopsCodeRepositoryTriggerDetails.getJsonObj(
             <model.CreateDevopsCodeRepositoryTriggerDetails>(<object>jsonObj),
@@ -114,6 +119,11 @@ export namespace CreateTriggerDetails {
         case "GITHUB":
           return model.CreateGithubTriggerDetails.getDeserializedJsonObj(
             <model.CreateGithubTriggerDetails>(<object>jsonObj),
+            true
+          );
+        case "VBS":
+          return model.CreateVbsTriggerDetails.getDeserializedJsonObj(
+            <model.CreateVbsTriggerDetails>(<object>jsonObj),
             true
           );
         case "DEVOPS_CODE_REPOSITORY":
