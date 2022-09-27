@@ -588,7 +588,9 @@ export class StackMonitoringClient {
       "{monitoredResourceId}": deleteMonitoredResourceRequest.monitoredResourceId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isDeleteMembers": deleteMonitoredResourceRequest.isDeleteMembers
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -1439,6 +1441,98 @@ export class StackMonitoringClient {
   }
 
   /**
+   * List associated monitored resources.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SearchAssociatedResourcesRequest
+   * @return SearchAssociatedResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/SearchAssociatedResources.ts.html |here} to see how to use SearchAssociatedResources API.
+   */
+  public async searchAssociatedResources(
+    searchAssociatedResourcesRequest: requests.SearchAssociatedResourcesRequest
+  ): Promise<responses.SearchAssociatedResourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#searchAssociatedResources.");
+    const operationName = "searchAssociatedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/SearchAssociatedResources";
+    const pathParams = {};
+
+    const queryParams = {
+      "fields": searchAssociatedResourcesRequest.fields,
+      "excludeFields": searchAssociatedResourcesRequest.excludeFields,
+      "limit": searchAssociatedResourcesRequest.limit,
+      "page": searchAssociatedResourcesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": searchAssociatedResourcesRequest.opcRequestId,
+      "opc-retry-token": searchAssociatedResourcesRequest.opcRetryToken,
+      "if-match": searchAssociatedResourcesRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      searchAssociatedResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResources/actions/searchAssociatedResources",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        searchAssociatedResourcesRequest.searchAssociatedResourcesDetails,
+        "SearchAssociatedResourcesDetails",
+        model.SearchAssociatedResourcesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SearchAssociatedResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "associatedResourcesCollection",
+        bodyModel: model.AssociatedResourcesCollection,
+        type: "model.AssociatedResourcesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of monitored resource associations.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourceAssociationsRequest
@@ -1644,7 +1738,9 @@ export class StackMonitoringClient {
 
     const queryParams = {
       "limit": searchMonitoredResourcesRequest.limit,
-      "page": searchMonitoredResourcesRequest.page
+      "page": searchMonitoredResourcesRequest.page,
+      "fields": searchMonitoredResourcesRequest.fields,
+      "excludeFields": searchMonitoredResourcesRequest.excludeFields
     };
 
     let headerParams = {

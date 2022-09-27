@@ -23,7 +23,7 @@ export interface VmNetworkDetails {
   /**
    * The network VLAN ID.
    */
-  "vlanId": string;
+  "vlanId"?: string;
   /**
    * The network type.
    */
@@ -31,15 +31,15 @@ export interface VmNetworkDetails {
   /**
    * The network netmask.
    */
-  "netmask": string;
+  "netmask"?: string;
   /**
    * The network gateway.
    */
-  "gateway": string;
+  "gateway"?: string;
   /**
    * The network domain name.
    */
-  "domainName": string;
+  "domainName"?: string;
   /**
    * The list of node details.
    */

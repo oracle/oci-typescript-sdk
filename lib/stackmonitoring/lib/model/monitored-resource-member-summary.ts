@@ -39,6 +39,14 @@ export interface MonitoredResourceMemberSummary {
    */
   "hostName"?: string;
   /**
+   * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * which is not a Stack Monitoring service resource.
+   * Currently supports only following resource type identifiers - externalcontainerdatabase,
+   * externalnoncontainerdatabase, externalpluggabledatabase and OCI compute instance.
+   *
+   */
+  "externalId"?: string;
+  /**
    * Parent monitored resource identifier
    */
   "parentId"?: string;

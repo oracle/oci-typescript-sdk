@@ -101,11 +101,11 @@ export interface DbSystemShapeSummary {
    */
   "minDataStorageInTBs"?: number;
   /**
-   * The minimum number of database nodes available for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The minimum number of compute servers available for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minimumNodeCount"?: number;
   /**
-   * The maximum number of database nodes available for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of compute servers available for this shape. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maximumNodeCount"?: number;
   /**

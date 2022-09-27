@@ -400,6 +400,11 @@ export class ResourceSearchClient {
             dataType: "string"
           },
           {
+            value: response.headers.get("opc-previous-page"),
+            key: "opcPreviousPage",
+            dataType: "string"
+          },
+          {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"

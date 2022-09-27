@@ -43,6 +43,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as SearchAssociatedResourcesResponse from "./search-associated-resources-response";
+export import SearchAssociatedResourcesResponse = SearchAssociatedResourcesResponse.SearchAssociatedResourcesResponse;
 import * as SearchMonitoredResourceAssociationsResponse from "./search-monitored-resource-associations-response";
 export import SearchMonitoredResourceAssociationsResponse = SearchMonitoredResourceAssociationsResponse.SearchMonitoredResourceAssociationsResponse;
 import * as SearchMonitoredResourceMembersResponse from "./search-monitored-resource-members-response";

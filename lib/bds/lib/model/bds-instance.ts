@@ -107,6 +107,7 @@ export namespace BdsInstance {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Inactive = "INACTIVE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

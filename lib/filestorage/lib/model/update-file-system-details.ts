@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -43,7 +44,9 @@ Example: `My file system`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Key Management master encryption key to associate with the specified file system. If this value is empty, the Update operation will remove the associated key, if there is one, from the file system. (The file system will continue to be encrypted, but with an encryption key managed by Oracle.)
+    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Key Management master encryption key to associate with the specified file system.
+* If this value is empty, the Update operation will remove the associated key, if there is one, from the file system.
+* (The file system will continue to be encrypted, but with an encryption key managed by Oracle.)
 * <p>
 If updating to a new Key Management key, the old key must remain enabled so that files previously encrypted continue
 * to be accessible. For more information, see [Overview of Key Management](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm).

@@ -29,6 +29,10 @@ export interface GenerateRecommendedNetworkDetails {
    */
   "displayName": string;
   /**
+   * The list of Db server Ids to configure network.
+   */
+  "dbServers"?: Array<string>;
+  /**
    * The SCAN TCPIP port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "scanListenerPortTcp"?: number;

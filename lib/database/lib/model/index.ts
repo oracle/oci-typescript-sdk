@@ -428,6 +428,8 @@ import * as RemoteClonePluggableDatabaseDetails from "./remote-clone-pluggable-d
 export import RemoteClonePluggableDatabaseDetails = RemoteClonePluggableDatabaseDetails.RemoteClonePluggableDatabaseDetails;
 import * as RemoveVirtualMachineFromVmClusterDetails from "./remove-virtual-machine-from-vm-cluster-details";
 export import RemoveVirtualMachineFromVmClusterDetails = RemoveVirtualMachineFromVmClusterDetails.RemoveVirtualMachineFromVmClusterDetails;
+import * as ResizeVmClusterNetworkDetails from "./resize-vm-cluster-network-details";
+export import ResizeVmClusterNetworkDetails = ResizeVmClusterNetworkDetails.ResizeVmClusterNetworkDetails;
 import * as RestoreAutonomousDatabaseDetails from "./restore-autonomous-database-details";
 export import RestoreAutonomousDatabaseDetails = RestoreAutonomousDatabaseDetails.RestoreAutonomousDatabaseDetails;
 import * as RestoreDatabaseDetails from "./restore-database-details";

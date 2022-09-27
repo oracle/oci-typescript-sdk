@@ -3247,6 +3247,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forResizeVmClusterNetwork
+   *
+   * @param request the request to send
+   * @return response returns ResizeVmClusterNetworkResponse, GetWorkRequestResponse tuple
+   */
+  public async forResizeVmClusterNetwork(
+    request: serviceRequests.ResizeVmClusterNetworkRequest
+  ): Promise<{
+    response: serviceResponses.ResizeVmClusterNetworkResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const resizeVmClusterNetworkResponse = await this.client.resizeVmClusterNetwork(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      resizeVmClusterNetworkResponse.opcWorkRequestId
+    );
+    return {
+      response: resizeVmClusterNetworkResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forRestartAutonomousContainerDatabase
    *
    * @param request the request to send

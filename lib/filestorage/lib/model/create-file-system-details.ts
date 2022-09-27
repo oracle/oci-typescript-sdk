@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -60,7 +61,7 @@ Example: `My file system`
   "kmsKeyId"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the snapshot used to create a cloned file system.
-   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm).
    *
    */
   "sourceSnapshotId"?: string;

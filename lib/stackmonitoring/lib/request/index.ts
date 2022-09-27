@@ -43,6 +43,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as SearchAssociatedResourcesRequest from "./search-associated-resources-request";
+export import SearchAssociatedResourcesRequest = SearchAssociatedResourcesRequest.SearchAssociatedResourcesRequest;
 import * as SearchMonitoredResourceAssociationsRequest from "./search-monitored-resource-associations-request";
 export import SearchMonitoredResourceAssociationsRequest = SearchMonitoredResourceAssociationsRequest.SearchMonitoredResourceAssociationsRequest;
 import * as SearchMonitoredResourceMembersRequest from "./search-monitored-resource-members-request";

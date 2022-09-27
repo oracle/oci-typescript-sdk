@@ -27,6 +27,10 @@ export interface PrepareStatementRequest extends common.BaseRequest {
    */
   "statement": string;
   /**
+   * Include a query execution plan in the result.
+   */
+  "isGetQueryPlan"?: boolean;
+  /**
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;

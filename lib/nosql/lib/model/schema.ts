@@ -38,6 +38,7 @@ export interface Schema {
    * The default Time-to-Live for the table, in days. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ttl": number;
+  "identity"?: model.Identity;
 }
 
 export namespace Schema {
@@ -49,7 +50,9 @@ export namespace Schema {
           ? obj.columns.map(item => {
               return model.Column.getJsonObj(item);
             })
-          : undefined
+          : undefined,
+
+        "identity": obj.identity ? model.Identity.getJsonObj(obj.identity) : undefined
       }
     };
 
@@ -63,7 +66,9 @@ export namespace Schema {
           ? obj.columns.map(item => {
               return model.Column.getDeserializedJsonObj(item);
             })
-          : undefined
+          : undefined,
+
+        "identity": obj.identity ? model.Identity.getDeserializedJsonObj(obj.identity) : undefined
       }
     };
 

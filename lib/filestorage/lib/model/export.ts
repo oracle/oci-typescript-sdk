@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -49,8 +50,6 @@ No two non-'DELETED' export resources in the same export set can
 * <p>
 Use `exportOptions` to control access to an export. For more information, see
 * [Export Options](https://docs.cloud.oracle.com/Content/File/Tasks/exportoptions.htm).
-* <p>
-**Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
 * 
 */
 export interface Export {

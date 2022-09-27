@@ -3180,6 +3180,164 @@ export class BdsClient {
   }
 
   /**
+   * Starts the BDS cluster that was stopped earlier.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param StartBdsInstanceRequest
+   * @return StartBdsInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/StartBdsInstance.ts.html |here} to see how to use StartBdsInstance API.
+   */
+  public async startBdsInstance(
+    startBdsInstanceRequest: requests.StartBdsInstanceRequest
+  ): Promise<responses.StartBdsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#startBdsInstance.");
+    const operationName = "startBdsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/StartBdsInstance";
+    const pathParams = {
+      "{bdsInstanceId}": startBdsInstanceRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": startBdsInstanceRequest.opcRequestId,
+      "if-match": startBdsInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startBdsInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/start",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        startBdsInstanceRequest.startBdsInstanceDetails,
+        "StartBdsInstanceDetails",
+        model.StartBdsInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartBdsInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Stops the BDS cluster that can be started at later point of time.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param StopBdsInstanceRequest
+   * @return StopBdsInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/StopBdsInstance.ts.html |here} to see how to use StopBdsInstance API.
+   */
+  public async stopBdsInstance(
+    stopBdsInstanceRequest: requests.StopBdsInstanceRequest
+  ): Promise<responses.StopBdsInstanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#stopBdsInstance.");
+    const operationName = "stopBdsInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/StopBdsInstance";
+    const pathParams = {
+      "{bdsInstanceId}": stopBdsInstanceRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": stopBdsInstanceRequest.opcRequestId,
+      "if-match": stopBdsInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      stopBdsInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/stop",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        stopBdsInstanceRequest.stopBdsInstanceDetails,
+        "StopBdsInstanceDetails",
+        model.StopBdsInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StopBdsInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Test specified metastore configuration.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

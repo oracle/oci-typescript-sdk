@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -45,7 +46,15 @@ Example: `My mount target`
 * `files-1` in the FQDN `files-1.subnet123.vcn1.oraclevcn.com`.
 * Must be unique across all VNICs in the subnet and comply
 * with [RFC 952](https://tools.ietf.org/html/rfc952)
-* and [RFC 1123](https://tools.ietf.org/html/rfc1123). 
+* and [RFC 1123](https://tools.ietf.org/html/rfc1123).
+* <p>
+Note: This attribute value is stored in the [PrivateIp](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/) resource,
+* not in the `mountTarget` resource.
+* To update the `hostnameLabel`, use `GetMountTarget` to obtain the
+* [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the mount target's
+* private IPs (`privateIpIds`). Then, you can use
+* [UpdatePrivateIp](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/UpdatePrivateIp)
+* to update the `hostnameLabel` value.
 * <p>
 For more information, see
 * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/Content/Network/Concepts/dns.htm).
@@ -58,6 +67,14 @@ Example: `files-1`
     * A private IP address of your choice. Must be an available IP address within
 * the subnet's CIDR. If you don't specify a value, Oracle automatically
 * assigns a private IP address from the subnet.
+* <p>
+Note: This attribute value is stored in the [PrivateIp](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/) resource,
+* not in the `mountTarget` resource.
+* To update the `ipAddress`, use `GetMountTarget` to obtain the
+* [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the mount target's
+* private IPs (`privateIpIds`). Then, you can use
+* [UpdatePrivateIp](https://docs.cloud.oracle.com/en-us/iaas/api/#/en/iaas/20160918/PrivateIp/UpdatePrivateIp)
+* to update the `ipAddress` value.
 * <p>
 Example: `10.0.3.3`
 * 

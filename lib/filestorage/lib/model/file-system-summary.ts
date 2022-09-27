@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -87,7 +88,7 @@ Example: `2016-08-25T21:10:29.600Z`
   "sourceDetails"?: model.SourceDetails;
   /**
    * Specifies whether the file system has been cloned.
-   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm).
    *
    */
   "isCloneParent"?: boolean;
@@ -95,7 +96,7 @@ Example: `2016-08-25T21:10:29.600Z`
    * Specifies whether the data has finished copying from the source to the clone.
    * Hydration can take up to several hours to complete depending on the size of the source.
    * The source and clone remain available during hydration, but there may be some performance impact.
-   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm#hydration).
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm#hydration).
    *
    */
   "isHydrated"?: boolean;
@@ -111,6 +112,7 @@ export namespace FileSystemSummary {
     Active = "ACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

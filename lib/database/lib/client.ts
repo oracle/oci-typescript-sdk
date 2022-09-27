@@ -20857,6 +20857,98 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Adds or removes Db server network nodes to extend or shrink the existing VM cluster network. Applies to Exadata
+   * Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ResizeVmClusterNetworkRequest
+   * @return ResizeVmClusterNetworkResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ResizeVmClusterNetwork.ts.html |here} to see how to use ResizeVmClusterNetwork API.
+   */
+  public async resizeVmClusterNetwork(
+    resizeVmClusterNetworkRequest: requests.ResizeVmClusterNetworkRequest
+  ): Promise<responses.ResizeVmClusterNetworkResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#resizeVmClusterNetwork.");
+    const operationName = "resizeVmClusterNetwork";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/VmClusterNetwork/ResizeVmClusterNetwork";
+    const pathParams = {
+      "{exadataInfrastructureId}": resizeVmClusterNetworkRequest.exadataInfrastructureId,
+      "{vmClusterNetworkId}": resizeVmClusterNetworkRequest.vmClusterNetworkId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": resizeVmClusterNetworkRequest.opcRequestId,
+      "opc-retry-token": resizeVmClusterNetworkRequest.opcRetryToken,
+      "if-match": resizeVmClusterNetworkRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resizeVmClusterNetworkRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/exadataInfrastructures/{exadataInfrastructureId}/vmClusterNetworks/{vmClusterNetworkId}/actions/resize",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        resizeVmClusterNetworkRequest.resizeVmClusterNetworkDetails,
+        "ResizeVmClusterNetworkDetails",
+        model.ResizeVmClusterNetworkDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResizeVmClusterNetworkResponse>{},
+        body: await response.json(),
+        bodyKey: "vmClusterNetwork",
+        bodyModel: model.VmClusterNetwork,
+        type: "model.VmClusterNetwork",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Rolling restarts the specified Autonomous Container Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

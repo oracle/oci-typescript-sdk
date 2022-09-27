@@ -58,6 +58,19 @@ export interface VmClusterNetworkSummary {
   "vmNetworks"?: Array<model.VmNetworkDetails>;
   /**
    * The current state of the VM cluster network.
+   * CREATING - The resource is being created
+   * REQUIRES_VALIDATION - The resource is created and may not be usable until it is validated.
+   * VALIDATING - The resource is being validated and not available to use.
+   * VALIDATED - The resource is validated and is available for consumption by VM cluster.
+   * VALIDATION_FAILED - The resource validation has failed and might require user input to be corrected.
+   * UPDATING - The resource is being updated and not available to use.
+   * ALLOCATED - The resource is is currently being used by VM cluster.
+   * TERMINATING - The resource is being deleted and not available to use.
+   * TERMINATED - The resource is deleted and unavailable.
+   * FAILED - The resource is in a failed state due to validation or other errors.
+   * NEEDS_ATTENTION - The resource is in needs attention state as some of it's child nodes are not validated
+   *                   and unusable by VM cluster.
+   *
    */
   "lifecycleState"?: VmClusterNetworkSummary.LifecycleState;
   /**
@@ -96,6 +109,7 @@ export namespace VmClusterNetworkSummary {
     Terminating = "TERMINATING",
     Terminated = "TERMINATED",
     Failed = "FAILED",
+    NeedsAttention = "NEEDS_ATTENTION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -450,6 +450,8 @@ import * as RemoteClonePluggableDatabaseResponse from "./remote-clone-pluggable-
 export import RemoteClonePluggableDatabaseResponse = RemoteClonePluggableDatabaseResponse.RemoteClonePluggableDatabaseResponse;
 import * as RemoveVirtualMachineFromVmClusterResponse from "./remove-virtual-machine-from-vm-cluster-response";
 export import RemoveVirtualMachineFromVmClusterResponse = RemoveVirtualMachineFromVmClusterResponse.RemoveVirtualMachineFromVmClusterResponse;
+import * as ResizeVmClusterNetworkResponse from "./resize-vm-cluster-network-response";
+export import ResizeVmClusterNetworkResponse = ResizeVmClusterNetworkResponse.ResizeVmClusterNetworkResponse;
 import * as RestartAutonomousContainerDatabaseResponse from "./restart-autonomous-container-database-response";
 export import RestartAutonomousContainerDatabaseResponse = RestartAutonomousContainerDatabaseResponse.RestartAutonomousContainerDatabaseResponse;
 import * as RestartAutonomousDatabaseResponse from "./restart-autonomous-database-response";

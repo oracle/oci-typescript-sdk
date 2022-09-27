@@ -42,7 +42,7 @@ Example: `500`
  */
   "limit"?: number;
   /**
- * For list pagination. The value of the `opc-next-page` response 
+ * For list pagination. The value of the `opc-next-page` response
 * header from the previous \"List\" call.
 * <p>
 For important details about how pagination works,
