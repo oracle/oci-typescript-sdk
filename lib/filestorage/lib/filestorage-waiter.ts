@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -97,6 +98,44 @@ export class FileStorageWaiter {
       () => this.client.getMountTarget(request),
       response => targetStates.includes(response.mountTarget.lifecycleState!),
       targetStates.includes(models.MountTarget.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forReplication till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetReplicationResponse | null (null in case of 404 response)
+   */
+  public async forReplication(
+    request: serviceRequests.GetReplicationRequest,
+    ...targetStates: models.Replication.LifecycleState[]
+  ): Promise<serviceResponses.GetReplicationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getReplication(request),
+      response => targetStates.includes(response.replication.lifecycleState!),
+      targetStates.includes(models.Replication.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forReplicationTarget till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetReplicationTargetResponse | null (null in case of 404 response)
+   */
+  public async forReplicationTarget(
+    request: serviceRequests.GetReplicationTargetRequest,
+    ...targetStates: models.ReplicationTarget.LifecycleState[]
+  ): Promise<serviceResponses.GetReplicationTargetResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getReplicationTarget(request),
+      response => targetStates.includes(response.replicationTarget.lifecycleState!),
+      targetStates.includes(models.ReplicationTarget.LifecycleState.Deleted)
     );
   }
 

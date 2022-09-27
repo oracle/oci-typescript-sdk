@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -17,8 +18,6 @@ import common = require("oci-common");
 
 /**
  * A point-in-time snapshot of a specified file system.
- * <p>
- **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
  */
 export interface Snapshot {
@@ -54,21 +53,39 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated": Date;
   /**
+   * Specifies generation type of the snapshot.
+   *
+   */
+  "snapshotType"?: Snapshot.SnapshotType;
+  /**
+    * The date and time the snapshot was taken, expressed
+* in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* This value might be the same or different from `timeCreated` depending
+* on the following factors:
+* - If the snapshot is created in the original file system directory.
+* - If the snapshot is cloned from a file system.
+* - If the snapshot is replicated from a file system.
+* <p>
+Example: `2020-08-25T21:10:29.600Z`
+* 
+    */
+  "snapshotTime"?: Date;
+  /**
    * An [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) identifying the parent from which this snapshot was cloned.
    * If this snapshot was not cloned, then the `provenanceId` is the same as the snapshot `id` value.
    * If this snapshot was cloned, then the `provenanceId` value is the parent's `provenanceId`.
-   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm).
    *
    */
   "provenanceId"?: string;
   /**
    * Specifies whether the snapshot has been cloned.
-   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningafilesystem.htm).
+   * See [Cloning a File System](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/cloningFS.htm).
    *
    */
   "isCloneSource"?: boolean;
   /**
-   * Additional information about the current 'lifecycleState'.
+   * Additional information about the current `lifecycleState`.
    */
   "lifecycleDetails"?: string;
   /**
@@ -94,6 +111,17 @@ export namespace Snapshot {
     Active = "ACTIVE",
     Deleting = "DELETING",
     Deleted = "DELETED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum SnapshotType {
+    User = "USER",
+    PolicyBased = "POLICY_BASED",
+    Replication = "REPLICATION",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

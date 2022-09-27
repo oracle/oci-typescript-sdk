@@ -43,6 +43,7 @@ export namespace DiscoveryDetails {
     OciOracleDb = "OCI_ORACLE_DB",
     OciOracleCdb = "OCI_ORACLE_CDB",
     OciOraclePdb = "OCI_ORACLE_PDB",
+    Host = "HOST",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

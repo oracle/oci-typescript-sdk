@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -16,6 +17,8 @@ import * as ChangeFileSystemCompartmentDetails from "./change-file-system-compar
 export import ChangeFileSystemCompartmentDetails = ChangeFileSystemCompartmentDetails.ChangeFileSystemCompartmentDetails;
 import * as ChangeMountTargetCompartmentDetails from "./change-mount-target-compartment-details";
 export import ChangeMountTargetCompartmentDetails = ChangeMountTargetCompartmentDetails.ChangeMountTargetCompartmentDetails;
+import * as ChangeReplicationCompartmentDetails from "./change-replication-compartment-details";
+export import ChangeReplicationCompartmentDetails = ChangeReplicationCompartmentDetails.ChangeReplicationCompartmentDetails;
 import * as ClientOptions from "./client-options";
 export import ClientOptions = ClientOptions.ClientOptions;
 import * as CreateExportDetails from "./create-export-details";
@@ -24,6 +27,8 @@ import * as CreateFileSystemDetails from "./create-file-system-details";
 export import CreateFileSystemDetails = CreateFileSystemDetails.CreateFileSystemDetails;
 import * as CreateMountTargetDetails from "./create-mount-target-details";
 export import CreateMountTargetDetails = CreateMountTargetDetails.CreateMountTargetDetails;
+import * as CreateReplicationDetails from "./create-replication-details";
+export import CreateReplicationDetails = CreateReplicationDetails.CreateReplicationDetails;
 import * as CreateSnapshotDetails from "./create-snapshot-details";
 export import CreateSnapshotDetails = CreateSnapshotDetails.CreateSnapshotDetails;
 import * as Export from "./export";
@@ -42,6 +47,16 @@ import * as MountTarget from "./mount-target";
 export import MountTarget = MountTarget.MountTarget;
 import * as MountTargetSummary from "./mount-target-summary";
 export import MountTargetSummary = MountTargetSummary.MountTargetSummary;
+import * as Replication from "./replication";
+export import Replication = Replication.Replication;
+import * as ReplicationEstimate from "./replication-estimate";
+export import ReplicationEstimate = ReplicationEstimate.ReplicationEstimate;
+import * as ReplicationSummary from "./replication-summary";
+export import ReplicationSummary = ReplicationSummary.ReplicationSummary;
+import * as ReplicationTarget from "./replication-target";
+export import ReplicationTarget = ReplicationTarget.ReplicationTarget;
+import * as ReplicationTargetSummary from "./replication-target-summary";
+export import ReplicationTargetSummary = ReplicationTargetSummary.ReplicationTargetSummary;
 import * as Snapshot from "./snapshot";
 export import Snapshot = Snapshot.Snapshot;
 import * as SnapshotSummary from "./snapshot-summary";
@@ -56,5 +71,7 @@ import * as UpdateFileSystemDetails from "./update-file-system-details";
 export import UpdateFileSystemDetails = UpdateFileSystemDetails.UpdateFileSystemDetails;
 import * as UpdateMountTargetDetails from "./update-mount-target-details";
 export import UpdateMountTargetDetails = UpdateMountTargetDetails.UpdateMountTargetDetails;
+import * as UpdateReplicationDetails from "./update-replication-details";
+export import UpdateReplicationDetails = UpdateReplicationDetails.UpdateReplicationDetails;
 import * as UpdateSnapshotDetails from "./update-snapshot-details";
 export import UpdateSnapshotDetails = UpdateSnapshotDetails.UpdateSnapshotDetails;

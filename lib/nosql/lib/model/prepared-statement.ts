@@ -28,6 +28,11 @@ export interface PreparedStatement {
    *
    */
   "statement"?: string;
+  /**
+   * A representation of the query plan as a schema-less JSON object.
+   *
+   */
+  "queryPlan"?: any;
   "usage"?: model.RequestUsage;
 }
 

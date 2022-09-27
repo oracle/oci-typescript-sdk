@@ -24,9 +24,13 @@ export interface ShapeConfigDetails {
    */
   "ocpus"?: number;
   /**
-   * The total amount of memory available to the node, in gigabytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total amount of memory available to the node, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
+  /**
+   * The number of NVMe drives to be used for storage. A single drive has 6.8 TB available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "nvmes"?: number;
 }
 
 export namespace ShapeConfigDetails {

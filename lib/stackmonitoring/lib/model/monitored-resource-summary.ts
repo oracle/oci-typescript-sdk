@@ -39,6 +39,14 @@ export interface MonitoredResourceSummary {
    */
   "hostName"?: string;
   /**
+   * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * which is not a Stack Monitoring service resource.
+   * Currently supports only following resource type identifiers - externalcontainerdatabase,
+   * externalnoncontainerdatabase, externalpluggabledatabase and OCI compute instance.
+   *
+   */
+  "externalId"?: string;
+  /**
    * Management Agent Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
    */
   "managementAgentId"?: string;
@@ -54,6 +62,10 @@ export interface MonitoredResourceSummary {
    * The current state of the monitored resource.
    */
   "lifecycleState"?: model.ResourceLifecycleState;
+  /**
+   * List of monitored resource properties
+   */
+  "properties"?: Array<model.MonitoredResourceProperty>;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -76,12 +88,30 @@ export interface MonitoredResourceSummary {
 
 export namespace MonitoredResourceSummary {
   export function getJsonObj(obj: MonitoredResourceSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.MonitoredResourceProperty.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MonitoredResourceSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "properties": obj.properties
+          ? obj.properties.map(item => {
+              return model.MonitoredResourceProperty.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

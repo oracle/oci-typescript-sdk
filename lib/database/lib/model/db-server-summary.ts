@@ -59,6 +59,11 @@ export interface DbServerSummary {
    */
   "dbNodeIds"?: Array<string>;
   /**
+   * The shape of the Db server. The shape determines the amount of CPU, storage, and memory resources available.
+   *
+   */
+  "shape"?: string;
+  /**
    * The current state of the Db server.
    */
   "lifecycleState"?: DbServerSummary.LifecycleState;

@@ -37,4 +37,8 @@ export interface DeleteMonitoredResourceRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to delete the associated children or not for given resource.
+   */
+  "isDeleteMembers"?: boolean;
 }

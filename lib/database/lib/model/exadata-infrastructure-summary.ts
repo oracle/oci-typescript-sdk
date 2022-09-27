@@ -100,6 +100,17 @@ export interface ExadataInfrastructureSummary {
    */
   "computeCount"?: number;
   /**
+   * The requested number of additional compute servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "additionalComputeCount"?: number;
+  /**
+   * Oracle Exadata System Model specification. The system model determines the amount of compute or storage
+   * server resources available for use. For more information, please see [System and Shape Configuration Options]
+   * (https://docs.oracle.com/en/engineered-systems/exadata-cloud-at-customer/ecccm/ecc-system-config-options.html#GUID-9E090174-5C57-4EB1-9243-B470F9F10D6B)
+   *
+   */
+  "additionalComputeSystemModel"?: ExadataInfrastructureSummary.AdditionalComputeSystemModel;
+  /**
    * The IP address for the first control plane server.
    */
   "cloudControlPlaneServer1"?: string;
@@ -212,6 +223,18 @@ export namespace ExadataInfrastructureSummary {
     Deleted = "DELETED",
     Disconnected = "DISCONNECTED",
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AdditionalComputeSystemModel {
+    X7 = "X7",
+    X8 = "X8",
+    X8M = "X8M",
+    X9M = "X9M",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

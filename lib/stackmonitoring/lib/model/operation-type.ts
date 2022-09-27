@@ -26,6 +26,7 @@ export enum OperationType {
   DisableExternalDatabase = "DISABLE_EXTERNAL_DATABASE",
   AddSourcesToAgent = "ADD_SOURCES_TO_AGENT",
   BulkAddResources = "BULK_ADD_RESOURCES",
+  BulkDeleteResources = "BULK_DELETE_RESOURCES",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

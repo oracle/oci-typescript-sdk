@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -16,12 +17,16 @@ import * as ChangeFileSystemCompartmentRequest from "./change-file-system-compar
 export import ChangeFileSystemCompartmentRequest = ChangeFileSystemCompartmentRequest.ChangeFileSystemCompartmentRequest;
 import * as ChangeMountTargetCompartmentRequest from "./change-mount-target-compartment-request";
 export import ChangeMountTargetCompartmentRequest = ChangeMountTargetCompartmentRequest.ChangeMountTargetCompartmentRequest;
+import * as ChangeReplicationCompartmentRequest from "./change-replication-compartment-request";
+export import ChangeReplicationCompartmentRequest = ChangeReplicationCompartmentRequest.ChangeReplicationCompartmentRequest;
 import * as CreateExportRequest from "./create-export-request";
 export import CreateExportRequest = CreateExportRequest.CreateExportRequest;
 import * as CreateFileSystemRequest from "./create-file-system-request";
 export import CreateFileSystemRequest = CreateFileSystemRequest.CreateFileSystemRequest;
 import * as CreateMountTargetRequest from "./create-mount-target-request";
 export import CreateMountTargetRequest = CreateMountTargetRequest.CreateMountTargetRequest;
+import * as CreateReplicationRequest from "./create-replication-request";
+export import CreateReplicationRequest = CreateReplicationRequest.CreateReplicationRequest;
 import * as CreateSnapshotRequest from "./create-snapshot-request";
 export import CreateSnapshotRequest = CreateSnapshotRequest.CreateSnapshotRequest;
 import * as DeleteExportRequest from "./delete-export-request";
@@ -30,8 +35,14 @@ import * as DeleteFileSystemRequest from "./delete-file-system-request";
 export import DeleteFileSystemRequest = DeleteFileSystemRequest.DeleteFileSystemRequest;
 import * as DeleteMountTargetRequest from "./delete-mount-target-request";
 export import DeleteMountTargetRequest = DeleteMountTargetRequest.DeleteMountTargetRequest;
+import * as DeleteReplicationRequest from "./delete-replication-request";
+export import DeleteReplicationRequest = DeleteReplicationRequest.DeleteReplicationRequest;
+import * as DeleteReplicationTargetRequest from "./delete-replication-target-request";
+export import DeleteReplicationTargetRequest = DeleteReplicationTargetRequest.DeleteReplicationTargetRequest;
 import * as DeleteSnapshotRequest from "./delete-snapshot-request";
 export import DeleteSnapshotRequest = DeleteSnapshotRequest.DeleteSnapshotRequest;
+import * as EstimateReplicationRequest from "./estimate-replication-request";
+export import EstimateReplicationRequest = EstimateReplicationRequest.EstimateReplicationRequest;
 import * as GetExportRequest from "./get-export-request";
 export import GetExportRequest = GetExportRequest.GetExportRequest;
 import * as GetExportSetRequest from "./get-export-set-request";
@@ -40,6 +51,10 @@ import * as GetFileSystemRequest from "./get-file-system-request";
 export import GetFileSystemRequest = GetFileSystemRequest.GetFileSystemRequest;
 import * as GetMountTargetRequest from "./get-mount-target-request";
 export import GetMountTargetRequest = GetMountTargetRequest.GetMountTargetRequest;
+import * as GetReplicationRequest from "./get-replication-request";
+export import GetReplicationRequest = GetReplicationRequest.GetReplicationRequest;
+import * as GetReplicationTargetRequest from "./get-replication-target-request";
+export import GetReplicationTargetRequest = GetReplicationTargetRequest.GetReplicationTargetRequest;
 import * as GetSnapshotRequest from "./get-snapshot-request";
 export import GetSnapshotRequest = GetSnapshotRequest.GetSnapshotRequest;
 import * as ListExportSetsRequest from "./list-export-sets-request";
@@ -50,6 +65,10 @@ import * as ListFileSystemsRequest from "./list-file-systems-request";
 export import ListFileSystemsRequest = ListFileSystemsRequest.ListFileSystemsRequest;
 import * as ListMountTargetsRequest from "./list-mount-targets-request";
 export import ListMountTargetsRequest = ListMountTargetsRequest.ListMountTargetsRequest;
+import * as ListReplicationTargetsRequest from "./list-replication-targets-request";
+export import ListReplicationTargetsRequest = ListReplicationTargetsRequest.ListReplicationTargetsRequest;
+import * as ListReplicationsRequest from "./list-replications-request";
+export import ListReplicationsRequest = ListReplicationsRequest.ListReplicationsRequest;
 import * as ListSnapshotsRequest from "./list-snapshots-request";
 export import ListSnapshotsRequest = ListSnapshotsRequest.ListSnapshotsRequest;
 import * as UpdateExportRequest from "./update-export-request";
@@ -60,5 +79,7 @@ import * as UpdateFileSystemRequest from "./update-file-system-request";
 export import UpdateFileSystemRequest = UpdateFileSystemRequest.UpdateFileSystemRequest;
 import * as UpdateMountTargetRequest from "./update-mount-target-request";
 export import UpdateMountTargetRequest = UpdateMountTargetRequest.UpdateMountTargetRequest;
+import * as UpdateReplicationRequest from "./update-replication-request";
+export import UpdateReplicationRequest = UpdateReplicationRequest.UpdateReplicationRequest;
 import * as UpdateSnapshotRequest from "./update-snapshot-request";
 export import UpdateSnapshotRequest = UpdateSnapshotRequest.UpdateSnapshotRequest;

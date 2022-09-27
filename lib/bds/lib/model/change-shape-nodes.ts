@@ -40,9 +40,10 @@ export interface ChangeShapeNodes {
   "utility"?: string;
   "utilityShapeConfig"?: model.ShapeConfigDetails;
   /**
-   * Change shape of the Cloud SQL node to the desired target shape. Only VM_STANDARD shapes are allowed here.
+   * Change shape of the Cloud SQL node to the desired target shape. Both VM_STANDARD and E4 Flex shapes are allowed here.
    */
   "cloudsql"?: string;
+  "cloudsqlShapeConfig"?: model.ShapeConfigDetails;
 }
 
 export namespace ChangeShapeNodes {
@@ -64,6 +65,10 @@ export namespace ChangeShapeNodes {
 
         "utilityShapeConfig": obj.utilityShapeConfig
           ? model.ShapeConfigDetails.getJsonObj(obj.utilityShapeConfig)
+          : undefined,
+
+        "cloudsqlShapeConfig": obj.cloudsqlShapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.cloudsqlShapeConfig)
           : undefined
       }
     };
@@ -88,6 +93,10 @@ export namespace ChangeShapeNodes {
 
         "utilityShapeConfig": obj.utilityShapeConfig
           ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.utilityShapeConfig)
+          : undefined,
+
+        "cloudsqlShapeConfig": obj.cloudsqlShapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.cloudsqlShapeConfig)
           : undefined
       }
     };

@@ -60,6 +60,11 @@ export interface TableUsageSummary {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageThrottleCount"?: number;
+  /**
+   * The percentage of allowed per-shard usage for the table shard with the highest usage.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxShardSizeUsageInPercent"?: number;
 }
 
 export namespace TableUsageSummary {

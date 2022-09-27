@@ -25,6 +25,8 @@ import * as CreateTableDetails from "./create-table-details";
 export import CreateTableDetails = CreateTableDetails.CreateTableDetails;
 import * as DeleteRowResult from "./delete-row-result";
 export import DeleteRowResult = DeleteRowResult.DeleteRowResult;
+import * as Identity from "./identity";
+export import Identity = Identity.Identity;
 import * as Index from "./model-index";
 export import Index = Index.Index;
 import * as IndexCollection from "./index-collection";

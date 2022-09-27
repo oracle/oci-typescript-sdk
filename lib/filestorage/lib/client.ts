@@ -1,6 +1,7 @@
 /**
  * File Storage API
- * API for the File Storage service. Use this API to manage file systems, mount targets, and snapshots. For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
+ * Use the File Storage service API to manage file systems, mount targets, and snapshots.
+For more information, see [Overview of File Storage](/iaas/Content/File/Concepts/filestorageoverview.htm).
 
  * OpenAPI spec version: 20171215
  * 
@@ -302,6 +303,82 @@ export class FileStorageClient {
   }
 
   /**
+   * Moves a replication and its replication target into a different compartment within the same tenancy.
+   * For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeReplicationCompartmentRequest
+   * @return ChangeReplicationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeReplicationCompartment.ts.html |here} to see how to use ChangeReplicationCompartment API.
+   */
+  public async changeReplicationCompartment(
+    changeReplicationCompartmentRequest: requests.ChangeReplicationCompartmentRequest
+  ): Promise<responses.ChangeReplicationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeReplicationCompartment.");
+    const operationName = "changeReplicationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/ChangeReplicationCompartment";
+    const pathParams = {
+      "{replicationId}": changeReplicationCompartmentRequest.replicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeReplicationCompartmentRequest.ifMatch,
+      "opc-request-id": changeReplicationCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeReplicationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications/{replicationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeReplicationCompartmentRequest.changeReplicationCompartmentDetails,
+        "ChangeReplicationCompartmentDetails",
+        model.ChangeReplicationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeReplicationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new export in the specified export set, path, and
    * file system.
    *
@@ -409,7 +486,7 @@ For information about availability domains, see [Regions and
 * <p>
 All Oracle Cloud Infrastructure resources, including
 * file systems, get an Oracle-assigned, unique ID called an Oracle
-* Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).  
+* Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
 * When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type or by viewing the resource in the Console.
@@ -521,8 +598,8 @@ For information about availability domains, see [Regions and
 * <p>
 All Oracle Cloud Infrastructure Services resources, including
 * mount targets, get an Oracle-assigned, unique ID called an
-* Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).  
-* When you create a resource, you can find its OCID in the response. 
+* Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+* When you create a resource, you can find its OCID in the response.
 * You can also retrieve a resource's OCID by using a List API operation on that resource
 * type, or by viewing the resource in the Console.
 * 
@@ -584,6 +661,113 @@ All Oracle Cloud Infrastructure Services resources, including
         bodyKey: "mountTarget",
         bodyModel: model.MountTarget,
         type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a new replication in the specified compartment.
+* Replications are the primary resource that governs the policy of cross-region replication between source
+* and target file systems. Replications are associated with a secondary resource called a {@link ReplicationTarget}
+* located in another availability domain.
+* The associated replication target resource is automatically created along with the replication resource.
+* The replication retrieves the delta of data between two snapshots of a source file system
+* and sends it to the associated `ReplicationTarget`, which retrieves the delta and applies it to the target
+* file system.
+* Only unexported file systems can be used as target file systems.
+* For more information, see [Using Replication](https://docs.cloud.oracle.com/iaas/Content/File/Tasks/FSreplication.htm).
+* <p>
+For information about access control and compartments, see
+* [Overview of the IAM
+* Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* <p>
+For information about availability domains, see [Regions and
+* Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* To get a list of availability domains, use the
+* `ListAvailabilityDomains` operation in the Identity and Access
+* Management Service API.
+* <p>
+All Oracle Cloud Infrastructure Services resources, including
+* replications, get an Oracle-assigned, unique ID called an
+* Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+* When you create a resource, you can find its OCID in the response.
+* You can also retrieve a resource's OCID by using a List API operation on that resource
+* type, or by viewing the resource in the Console.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateReplicationRequest
+     * @return CreateReplicationResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateReplication.ts.html |here} to see how to use CreateReplication API.
+     */
+  public async createReplication(
+    createReplicationRequest: requests.CreateReplicationRequest
+  ): Promise<responses.CreateReplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#createReplication.");
+    const operationName = "createReplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/CreateReplication";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createReplicationRequest.opcRetryToken,
+      "opc-request-id": createReplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createReplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createReplicationRequest.createReplicationDetails,
+        "CreateReplicationDetails",
+        model.CreateReplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateReplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "replication",
+        bodyModel: model.Replication,
+        type: "model.Replication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -897,6 +1081,150 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * Deletes the specified replication and the the associated replication target.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteReplicationRequest
+   * @return DeleteReplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteReplication.ts.html |here} to see how to use DeleteReplication API.
+   */
+  public async deleteReplication(
+    deleteReplicationRequest: requests.DeleteReplicationRequest
+  ): Promise<responses.DeleteReplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#deleteReplication.");
+    const operationName = "deleteReplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/DeleteReplication";
+    const pathParams = {
+      "{replicationId}": deleteReplicationRequest.replicationId
+    };
+
+    const queryParams = {
+      "deleteMode": deleteReplicationRequest.deleteMode
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteReplicationRequest.ifMatch,
+      "opc-request-id": deleteReplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteReplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications/{replicationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteReplicationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified replication target.
+   * This operation causes the immediate release of the target file system if there are currently no delta application operations.
+   * If there is any current delta being applied the delete operation is blocked until the current
+   * delta has been completely applied.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteReplicationTargetRequest
+   * @return DeleteReplicationTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteReplicationTarget.ts.html |here} to see how to use DeleteReplicationTarget API.
+   */
+  public async deleteReplicationTarget(
+    deleteReplicationTargetRequest: requests.DeleteReplicationTargetRequest
+  ): Promise<responses.DeleteReplicationTargetResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#deleteReplicationTarget.");
+    const operationName = "deleteReplicationTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationTarget/DeleteReplicationTarget";
+    const pathParams = {
+      "{replicationTargetId}": deleteReplicationTargetRequest.replicationTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteReplicationTargetRequest.ifMatch,
+      "opc-request-id": deleteReplicationTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteReplicationTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicationTargets/{replicationTargetId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteReplicationTargetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified snapshot.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -951,6 +1279,86 @@ All Oracle Cloud Infrastructure Services resources, including
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteSnapshotResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Provides estimates for replication created using specific file system.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EstimateReplicationRequest
+   * @return EstimateReplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/EstimateReplication.ts.html |here} to see how to use EstimateReplication API.
+   */
+  public async estimateReplication(
+    estimateReplicationRequest: requests.EstimateReplicationRequest
+  ): Promise<responses.EstimateReplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#estimateReplication.");
+    const operationName = "estimateReplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FileSystem/EstimateReplication";
+    const pathParams = {
+      "{fileSystemId}": estimateReplicationRequest.fileSystemId
+    };
+
+    const queryParams = {
+      "changeRateInMBps": estimateReplicationRequest.changeRateInMBps
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": estimateReplicationRequest.ifMatch,
+      "opc-request-id": estimateReplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      estimateReplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fileSystems/{fileSystemId}/actions/estimateReplication",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EstimateReplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "replicationEstimate",
+        bodyModel: model.ReplicationEstimate,
+        type: "model.ReplicationEstimate",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1249,6 +1657,158 @@ All Oracle Cloud Infrastructure Services resources, including
         bodyKey: "mountTarget",
         bodyModel: model.MountTarget,
         type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified replication's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetReplicationRequest
+   * @return GetReplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetReplication.ts.html |here} to see how to use GetReplication API.
+   */
+  public async getReplication(
+    getReplicationRequest: requests.GetReplicationRequest
+  ): Promise<responses.GetReplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getReplication.");
+    const operationName = "getReplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/GetReplication";
+    const pathParams = {
+      "{replicationId}": getReplicationRequest.replicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications/{replicationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "replication",
+        bodyModel: model.Replication,
+        type: "model.Replication",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified replication target's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetReplicationTargetRequest
+   * @return GetReplicationTargetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetReplicationTarget.ts.html |here} to see how to use GetReplicationTarget API.
+   */
+  public async getReplicationTarget(
+    getReplicationTargetRequest: requests.GetReplicationTargetRequest
+  ): Promise<responses.GetReplicationTargetResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getReplicationTarget.");
+    const operationName = "getReplicationTarget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationTarget/GetReplicationTarget";
+    const pathParams = {
+      "{replicationTargetId}": getReplicationTargetRequest.replicationTargetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReplicationTargetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReplicationTargetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicationTargets/{replicationTargetId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReplicationTargetResponse>{},
+        body: await response.json(),
+        bodyKey: "replicationTarget",
+        bodyModel: model.ReplicationTarget,
+        type: "model.ReplicationTarget",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1899,6 +2459,282 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * Lists the replication target resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListReplicationTargetsRequest
+   * @return ListReplicationTargetsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListReplicationTargets.ts.html |here} to see how to use ListReplicationTargets API.
+   */
+  public async listReplicationTargets(
+    listReplicationTargetsRequest: requests.ListReplicationTargetsRequest
+  ): Promise<responses.ListReplicationTargetsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#listReplicationTargets.");
+    const operationName = "listReplicationTargets";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationTargetSummary/ListReplicationTargets";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listReplicationTargetsRequest.compartmentId,
+      "availabilityDomain": listReplicationTargetsRequest.availabilityDomain,
+      "limit": listReplicationTargetsRequest.limit,
+      "page": listReplicationTargetsRequest.page,
+      "lifecycleState": listReplicationTargetsRequest.lifecycleState,
+      "displayName": listReplicationTargetsRequest.displayName,
+      "id": listReplicationTargetsRequest.id,
+      "sortBy": listReplicationTargetsRequest.sortBy,
+      "sortOrder": listReplicationTargetsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReplicationTargetsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReplicationTargetsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicationTargets",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReplicationTargetsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ReplicationTargetSummary,
+        type: "Array<model.ReplicationTargetSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listReplicationTargetsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ReplicationTargetSummary objects
+   * contained in responses from the listReplicationTargets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllReplicationTargets(
+    request: requests.ListReplicationTargetsRequest
+  ): AsyncIterableIterator<model.ReplicationTargetSummary> {
+    return paginateRecords(request, req => this.listReplicationTargets(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listReplicationTargetsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listReplicationTargets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllReplicationTargetsResponses(
+    request: requests.ListReplicationTargetsRequest
+  ): AsyncIterableIterator<responses.ListReplicationTargetsResponse> {
+    return paginateResponses(request, req => this.listReplicationTargets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ReplicationTargetSummary objects
+   * contained in responses from the listReplicationTargets operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listReplicationTargetsRecordIterator(
+    request: requests.ListReplicationTargetsRequest
+  ): AsyncIterableIterator<model.ReplicationTargetSummary> {
+    return paginateRecords(request, req => this.listReplicationTargets(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listReplicationTargets operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listReplicationTargetsResponseIterator(
+    request: requests.ListReplicationTargetsRequest
+  ): AsyncIterableIterator<responses.ListReplicationTargetsResponse> {
+    return paginateResponses(request, req => this.listReplicationTargets(req));
+  }
+
+  /**
+   * Lists the replication resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListReplicationsRequest
+   * @return ListReplicationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListReplications.ts.html |here} to see how to use ListReplications API.
+   */
+  public async listReplications(
+    listReplicationsRequest: requests.ListReplicationsRequest
+  ): Promise<responses.ListReplicationsResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#listReplications.");
+    const operationName = "listReplications";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/ReplicationSummary/ListReplications";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listReplicationsRequest.compartmentId,
+      "availabilityDomain": listReplicationsRequest.availabilityDomain,
+      "limit": listReplicationsRequest.limit,
+      "page": listReplicationsRequest.page,
+      "lifecycleState": listReplicationsRequest.lifecycleState,
+      "displayName": listReplicationsRequest.displayName,
+      "id": listReplicationsRequest.id,
+      "sortBy": listReplicationsRequest.sortBy,
+      "sortOrder": listReplicationsRequest.sortOrder,
+      "fileSystemId": listReplicationsRequest.fileSystemId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReplicationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReplicationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReplicationsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ReplicationSummary,
+        type: "Array<model.ReplicationSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listReplicationsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ReplicationSummary objects
+   * contained in responses from the listReplications operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllReplications(
+    request: requests.ListReplicationsRequest
+  ): AsyncIterableIterator<model.ReplicationSummary> {
+    return paginateRecords(request, req => this.listReplications(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listReplicationsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listReplications operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllReplicationsResponses(
+    request: requests.ListReplicationsRequest
+  ): AsyncIterableIterator<responses.ListReplicationsResponse> {
+    return paginateResponses(request, req => this.listReplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ReplicationSummary objects
+   * contained in responses from the listReplications operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listReplicationsRecordIterator(
+    request: requests.ListReplicationsRequest
+  ): AsyncIterableIterator<model.ReplicationSummary> {
+    return paginateRecords(request, req => this.listReplications(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listReplications operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listReplicationsResponseIterator(
+    request: requests.ListReplicationsRequest
+  ): AsyncIterableIterator<responses.ListReplicationsResponse> {
+    return paginateResponses(request, req => this.listReplications(req));
+  }
+
+  /**
    * Lists snapshots of the specified file system.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1917,11 +2753,11 @@ All Oracle Cloud Infrastructure Services resources, including
     const pathParams = {};
 
     const queryParams = {
-      "fileSystemId": listSnapshotsRequest.fileSystemId,
       "limit": listSnapshotsRequest.limit,
       "page": listSnapshotsRequest.page,
       "lifecycleState": listSnapshotsRequest.lifecycleState,
       "id": listSnapshotsRequest.id,
+      "fileSystemId": listSnapshotsRequest.fileSystemId,
       "sortOrder": listSnapshotsRequest.sortOrder
     };
 
@@ -2342,6 +3178,89 @@ All Oracle Cloud Infrastructure Services resources, including
         bodyKey: "mountTarget",
         bodyModel: model.MountTarget,
         type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the information for the specified replication and its associated replication target.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateReplicationRequest
+   * @return UpdateReplicationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateReplication.ts.html |here} to see how to use UpdateReplication API.
+   */
+  public async updateReplication(
+    updateReplicationRequest: requests.UpdateReplicationRequest
+  ): Promise<responses.UpdateReplicationResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#updateReplication.");
+    const operationName = "updateReplication";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/Replication/UpdateReplication";
+    const pathParams = {
+      "{replicationId}": updateReplicationRequest.replicationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateReplicationRequest.ifMatch,
+      "opc-request-id": updateReplicationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateReplicationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replications/{replicationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateReplicationRequest.updateReplicationDetails,
+        "UpdateReplicationDetails",
+        model.UpdateReplicationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateReplicationResponse>{},
+        body: await response.json(),
+        bodyKey: "replication",
+        bodyModel: model.Replication,
+        type: "model.Replication",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

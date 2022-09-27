@@ -87,6 +87,14 @@ export interface Node {
    * The total amount of memory available to the node, in gigabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;
+  /**
+   * The number of NVMe drives to be used for storage. A single drive has 6.8 TB available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "nvmes"?: number;
+  /**
+   * The aggregate size of all local disks, in gigabytes. If the instance does not have any local disks, this field is null. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "localDisksTotalSizeInGBs"?: number;
 }
 
 export namespace Node {
@@ -98,6 +106,9 @@ export namespace Node {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Stopped = "STOPPED",
+    Stopping = "STOPPING",
+    Starting = "STARTING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

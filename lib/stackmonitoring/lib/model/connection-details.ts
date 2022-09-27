@@ -42,6 +42,10 @@ export interface ConnectionDetails {
    * dbId of the database
    */
   "dbId"?: string;
+  /**
+   * SSL Secret Identifier for TCPS connector in OCI Vault[OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   */
+  "sslSecretId"?: string;
 }
 
 export namespace ConnectionDetails {
