@@ -44,7 +44,7 @@ export interface SummarizeDatabaseInsightResourceUsageAggregation {
    */
   "usage": number;
   /**
-   * The maximum allocated amount of the resource metric type  (CPU, STORAGE).
+   * The maximum allocated amount of the resource metric type  (CPU, STORAGE) for a set of databases.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacity": number;
@@ -52,6 +52,11 @@ export interface SummarizeDatabaseInsightResourceUsageAggregation {
    * Percentage change in resource usage during the current period calculated using linear regression functions Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "usageChangePercent": number;
+  /**
+   * The maximum host CPUs (cores x threads/core) on the underlying infrastructure. This only applies to CPU and does not not apply for Autonomous Databases.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalHostCapacity"?: number;
 }
 
 export namespace SummarizeDatabaseInsightResourceUsageAggregation {

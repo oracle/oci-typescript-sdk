@@ -122,6 +122,12 @@ export class ConfigFileAuthenticationDetailsProvider
     const privateKey = this.getPvtKey(ConfigFileReader.expandUserHome(pemFilePath));
     const profileCredentials = file.profileCredentials;
 
+    const sessionTokenPath = file.get("security_token_file");
+
+    const sessionToken = sessionTokenPath
+      ? this.getPvtKey(ConfigFileReader.expandUserHome(sessionTokenPath))
+      : undefined;
+
     return new SimpleAuthenticationDetailsProvider(
       tenantId,
       user,
@@ -131,7 +137,8 @@ export class ConfigFileAuthenticationDetailsProvider
       region,
       undefined,
       undefined,
-      profileCredentials
+      profileCredentials,
+      sessionToken
     );
   }
 
@@ -227,5 +234,13 @@ export class ConfigFileAuthenticationDetailsProvider
 
   public getProfileCredentials(): ConfigAccumulator | undefined {
     return this.delegate.getProfileCredentials();
+  }
+
+  public get sessionToken(): string | undefined {
+    return this.delegate.sessionToken;
+  }
+
+  public set sessionToken(token) {
+    this.delegate.sessionToken = token;
   }
 }

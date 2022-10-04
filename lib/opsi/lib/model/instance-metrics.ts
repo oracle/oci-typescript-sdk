@@ -35,10 +35,15 @@ export interface InstanceMetrics {
    */
   "usage"?: number;
   /**
-   * The maximum allocated amount of the resource metric type  (CPU, STORAGE).
+   * The maximum allocated amount of the resource metric type  (CPU, STORAGE) for a set of databases.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacity"?: number;
+  /**
+   * The maximum host CPUs (cores x threads/core) on the underlying infrastructure. This only applies to CPU and does not not apply for Autonomous Databases.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalHostCapacity"?: number;
   /**
    * Resource utilization in percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

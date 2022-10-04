@@ -51,6 +51,7 @@ import {
 } from "./lib/paginators";
 
 import { ConfigFileAuthenticationDetailsProvider } from "./lib/auth/config-file-auth";
+import { SessionAuthDetailProvider } from "./lib/auth/session-auth-details-provider";
 import getChunk from "./lib/chunker";
 import { ConfigFileReader } from "./lib/config-file-reader";
 import { Method, composeRequest, Params } from "./lib/request-generator";
@@ -102,6 +103,7 @@ export {
   composeResponse,
   HttpRequest,
   ConfigFileAuthenticationDetailsProvider,
+  SessionAuthDetailProvider,
   ConfigFileReader,
   InstancePrincipalsAuthenticationDetailsProviderBuilder,
   ResourcePrincipalAuthenticationDetailsProvider,

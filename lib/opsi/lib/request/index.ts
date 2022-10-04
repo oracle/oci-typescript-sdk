@@ -232,6 +232,8 @@ import * as SummarizeHostInsightResourceUsageTrendRequest from "./summarize-host
 export import SummarizeHostInsightResourceUsageTrendRequest = SummarizeHostInsightResourceUsageTrendRequest.SummarizeHostInsightResourceUsageTrendRequest;
 import * as SummarizeHostInsightResourceUtilizationInsightRequest from "./summarize-host-insight-resource-utilization-insight-request";
 export import SummarizeHostInsightResourceUtilizationInsightRequest = SummarizeHostInsightResourceUtilizationInsightRequest.SummarizeHostInsightResourceUtilizationInsightRequest;
+import * as SummarizeHostInsightTopProcessesUsageRequest from "./summarize-host-insight-top-processes-usage-request";
+export import SummarizeHostInsightTopProcessesUsageRequest = SummarizeHostInsightTopProcessesUsageRequest.SummarizeHostInsightTopProcessesUsageRequest;
 import * as SummarizeHostInsightTopProcessesUsageTrendRequest from "./summarize-host-insight-top-processes-usage-trend-request";
 export import SummarizeHostInsightTopProcessesUsageTrendRequest = SummarizeHostInsightTopProcessesUsageTrendRequest.SummarizeHostInsightTopProcessesUsageTrendRequest;
 import * as SummarizeOperationsInsightsWarehouseResourceUsageRequest from "./summarize-operations-insights-warehouse-resource-usage-request";

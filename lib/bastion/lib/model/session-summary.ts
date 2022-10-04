@@ -35,6 +35,7 @@ export interface SessionSummary {
    */
   "bastionId": string;
   "targetResourceDetails":
+    | model.DynamicPortForwardingSessionTargetResourceDetails
     | model.ManagedSshSessionTargetResourceDetails
     | model.PortForwardingSessionTargetResourceDetails;
   /**

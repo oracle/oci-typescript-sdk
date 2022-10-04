@@ -9916,6 +9916,98 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Returns response with aggregated data (timestamp, usageData) for top processes on a specific date.
+   * Data is aggregated for the time specified and processes are sorted descendent by the process metric specified (CPU, MEMORY, VIRTUAL_MEMORY).
+   * hostInsightId, processMetric must be specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeHostInsightTopProcessesUsageRequest
+   * @return SummarizeHostInsightTopProcessesUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightTopProcessesUsage.ts.html |here} to see how to use SummarizeHostInsightTopProcessesUsage API.
+   */
+  public async summarizeHostInsightTopProcessesUsage(
+    summarizeHostInsightTopProcessesUsageRequest: requests.SummarizeHostInsightTopProcessesUsageRequest
+  ): Promise<responses.SummarizeHostInsightTopProcessesUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightTopProcessesUsage."
+      );
+    const operationName = "summarizeHostInsightTopProcessesUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightTopProcessesUsage";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightTopProcessesUsageRequest.compartmentId,
+      "id": summarizeHostInsightTopProcessesUsageRequest.id,
+      "resourceMetric": summarizeHostInsightTopProcessesUsageRequest.resourceMetric,
+      "timeIntervalStart": summarizeHostInsightTopProcessesUsageRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightTopProcessesUsageRequest.timeIntervalEnd,
+      "page": summarizeHostInsightTopProcessesUsageRequest.page,
+      "limit": summarizeHostInsightTopProcessesUsageRequest.limit,
+      "analysisTimeInterval": summarizeHostInsightTopProcessesUsageRequest.analysisTimeInterval,
+      "hostType": summarizeHostInsightTopProcessesUsageRequest.hostType,
+      "hostId": summarizeHostInsightTopProcessesUsageRequest.hostId,
+      "timestamp": summarizeHostInsightTopProcessesUsageRequest.timestamp
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightTopProcessesUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightTopProcessesUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/topProcessesUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightTopProcessesUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightsTopProcessesUsageCollection",
+        bodyModel: model.SummarizeHostInsightsTopProcessesUsageCollection,
+        type: "model.SummarizeHostInsightsTopProcessesUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns response with aggregated time series data (timeIntervalstart, timeIntervalEnd, commandArgs, usageData) for top processes.
    * Data is aggregated for the time period specified and proceses are sorted descendent by the proces metric specified (CPU, MEMORY, VIRTUAL_MEMORY).
    * HostInsight Id and Process metric must be specified
@@ -9949,7 +10041,8 @@ Note that this API does not return information on the number of times each datab
       "page": summarizeHostInsightTopProcessesUsageTrendRequest.page,
       "limit": summarizeHostInsightTopProcessesUsageTrendRequest.limit,
       "hostType": summarizeHostInsightTopProcessesUsageTrendRequest.hostType,
-      "hostId": summarizeHostInsightTopProcessesUsageTrendRequest.hostId
+      "hostId": summarizeHostInsightTopProcessesUsageTrendRequest.hostId,
+      "processHash": summarizeHostInsightTopProcessesUsageTrendRequest.processHash
     };
 
     let headerParams = {

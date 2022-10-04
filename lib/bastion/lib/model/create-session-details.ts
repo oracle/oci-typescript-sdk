@@ -28,6 +28,7 @@ export interface CreateSessionDetails {
   "bastionId": string;
   "targetResourceDetails":
     | model.CreateManagedSshSessionTargetResourceDetails
+    | model.CreateDynamicPortForwardingSessionTargetResourceDetails
     | model.CreatePortForwardingSessionTargetResourceDetails;
   /**
    * The type of the key used to connect to the session. PUB is a standard public key in OpenSSH format.

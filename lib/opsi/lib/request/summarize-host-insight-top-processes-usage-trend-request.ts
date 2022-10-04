@@ -91,4 +91,9 @@ export interface SummarizeHostInsightTopProcessesUsageTrendRequest extends commo
    *
    */
   "hostId"?: string;
+  /**
+   * Unique identifier for a process.
+   *
+   */
+  "processHash"?: string;
 }
