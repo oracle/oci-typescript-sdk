@@ -36,6 +36,7 @@ export interface HostConfigurationSummary {
   /**
    * Platform type.
    * Supported platformType(s) for MACS-managed external host insight: [LINUX].
+   * Supported platformType(s) for MACS-managed cloud host insight: [LINUX].
    * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX].
    *
    */
@@ -147,6 +148,11 @@ export namespace HostConfigurationSummary {
             <model.EmManagedExternalHostConfigurationSummary>(<object>jsonObj),
             true
           );
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.MacsManagedCloudHostConfigurationSummary.getJsonObj(
+            <model.MacsManagedCloudHostConfigurationSummary>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -171,6 +177,11 @@ export namespace HostConfigurationSummary {
         case "EM_MANAGED_EXTERNAL_HOST":
           return model.EmManagedExternalHostConfigurationSummary.getDeserializedJsonObj(
             <model.EmManagedExternalHostConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "MACS_MANAGED_CLOUD_HOST":
+          return model.MacsManagedCloudHostConfigurationSummary.getDeserializedJsonObj(
+            <model.MacsManagedCloudHostConfigurationSummary>(<object>jsonObj),
             true
           );
         default:

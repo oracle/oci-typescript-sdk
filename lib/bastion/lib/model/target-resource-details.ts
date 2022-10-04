@@ -18,11 +18,6 @@ import common = require("oci-common");
  * Details about a bastion session's target resource.
  */
 export interface TargetResourceDetails {
-  /**
-   * The port number to connect to on the target resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "targetResourcePort": number;
-
   "sessionType": string;
 }
 
@@ -32,6 +27,11 @@ export namespace TargetResourceDetails {
 
     if (obj && "sessionType" in obj && obj.sessionType) {
       switch (obj.sessionType) {
+        case "DYNAMIC_PORT_FORWARDING":
+          return model.DynamicPortForwardingSessionTargetResourceDetails.getJsonObj(
+            <model.DynamicPortForwardingSessionTargetResourceDetails>(<object>jsonObj),
+            true
+          );
         case "MANAGED_SSH":
           return model.ManagedSshSessionTargetResourceDetails.getJsonObj(
             <model.ManagedSshSessionTargetResourceDetails>(<object>jsonObj),
@@ -53,6 +53,11 @@ export namespace TargetResourceDetails {
 
     if (obj && "sessionType" in obj && obj.sessionType) {
       switch (obj.sessionType) {
+        case "DYNAMIC_PORT_FORWARDING":
+          return model.DynamicPortForwardingSessionTargetResourceDetails.getDeserializedJsonObj(
+            <model.DynamicPortForwardingSessionTargetResourceDetails>(<object>jsonObj),
+            true
+          );
         case "MANAGED_SSH":
           return model.ManagedSshSessionTargetResourceDetails.getDeserializedJsonObj(
             <model.ManagedSshSessionTargetResourceDetails>(<object>jsonObj),

@@ -54,6 +54,10 @@ export interface CreateBastionDetails {
    */
   "maxSessionTtlInSeconds"?: number;
   /**
+   * The desired dns proxy status of the bastion.
+   */
+  "dnsProxyStatus"?: model.BastionDnsProxyStatus;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *

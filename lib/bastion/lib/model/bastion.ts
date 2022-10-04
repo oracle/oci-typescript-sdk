@@ -69,6 +69,10 @@ export interface Bastion {
    */
   "maxSessionsAllowed"?: number;
   /**
+   * The current dns proxy status of the bastion.
+   */
+  "dnsProxyStatus"?: model.BastionDnsProxyStatus;
+  /**
    * The time the bastion was created. Format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
    * Example: `2020-01-25T21:10:29.600Z`
    *

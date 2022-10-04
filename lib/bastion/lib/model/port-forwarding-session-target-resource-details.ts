@@ -30,6 +30,14 @@ export interface PortForwardingSessionTargetResourceDetails extends model.Target
    * The display name of the target Compute instance that the session connects to.
    */
   "targetResourceDisplayName"?: string;
+  /**
+   * The Fully Qualified Domain Name of the target resource that the session connects to.
+   */
+  "targetResourceFqdn"?: string;
+  /**
+   * The port number to connect to on the target resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "targetResourcePort"?: number;
 
   "sessionType": string;
 }

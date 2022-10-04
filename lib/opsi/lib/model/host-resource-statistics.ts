@@ -28,7 +28,7 @@ export interface HostResourceStatistics {
    */
   "usage": number;
   /**
-   * The maximum allocated amount of the resource metric type  (CPU, STORAGE).
+   * The maximum allocated amount of the resource metric type  (CPU, STORAGE) for a set of databases.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "capacity": number;

@@ -1,6 +1,6 @@
 {
   "name": "oci-usageapi",
-  "version": "2.44.0",
+  "version": "2.45.0",
   "description": "OCI NodeJS client for Usage Api Service",
   "repository": {
     "type": "git",

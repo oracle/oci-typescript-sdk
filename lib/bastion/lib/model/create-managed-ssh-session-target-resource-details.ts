@@ -31,6 +31,10 @@ export interface CreateManagedSshSessionTargetResourceDetails
    * The private IP address of the target resource that the session connects to.
    */
   "targetResourcePrivateIpAddress"?: string;
+  /**
+   * The port number to connect to on the target resource. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "targetResourcePort"?: number;
 
   "sessionType": string;
 }

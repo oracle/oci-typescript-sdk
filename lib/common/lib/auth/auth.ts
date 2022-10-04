@@ -92,7 +92,8 @@ export class SimpleAuthenticationDetailsProvider
     private region?: Region,
     private authType?: string | undefined,
     private delegationToken?: string | undefined,
-    private profileCredentials?: ConfigAccumulator | undefined
+    private profileCredentials?: ConfigAccumulator | undefined,
+    private _sessionToken?: string | undefined
   ) {}
 
   /**
@@ -181,5 +182,13 @@ export class SimpleAuthenticationDetailsProvider
 
   public getProfileCredentials(): ConfigAccumulator | undefined {
     return this.profileCredentials;
+  }
+
+  public get sessionToken(): string | undefined {
+    return this._sessionToken;
+  }
+
+  public set sessionToken(token) {
+    this._sessionToken = token;
   }
 }
