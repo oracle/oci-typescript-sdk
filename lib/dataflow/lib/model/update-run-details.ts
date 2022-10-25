@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The update run details. Only the tags of a run can be updated.
+ * The update run details. Only a limited set of properties of a run can be updated.
  *
  */
 export interface UpdateRunDetails {
@@ -33,6 +33,18 @@ export interface UpdateRunDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * The maximum duration in minutes for which an Application should run. Data Flow Run would be terminated
+   * once it reaches this duration from the time it transitions to `IN_PROGRESS` state.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxDurationInMinutes"?: number;
+  /**
+   * The timeout value in minutes used to manage Runs. A Run would be stopped after inactivity for this amount of time period.
+   * Note: This parameter is currently only applicable for Runs of type `SESSION`. Default value is 2880 minutes (2 days)
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "idleTimeoutInMinutes"?: number;
 }
 
 export namespace UpdateRunDetails {

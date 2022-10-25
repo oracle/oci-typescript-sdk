@@ -1,6 +1,6 @@
 {
   "name": "oci-bds",
-  "version": "2.45.0",
+  "version": "2.46.0",
   "description": "OCI NodeJS client for BDS Service",
   "repository": {
     "type": "git",

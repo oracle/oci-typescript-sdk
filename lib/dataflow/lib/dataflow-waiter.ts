@@ -81,6 +81,24 @@ export class DataFlowWaiter {
   }
 
   /**
+   * Waits forStatement till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetStatementResponse
+   */
+  public async forStatement(
+    request: serviceRequests.GetStatementRequest,
+    ...targetStates: models.StatementLifecycleState[]
+  ): Promise<serviceResponses.GetStatementResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getStatement(request),
+      response => targetStates.includes(response.statement.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

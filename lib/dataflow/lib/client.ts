@@ -639,6 +639,88 @@ export class DataFlowClient {
   }
 
   /**
+   * Executes a statement for a Session run.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateStatementRequest
+   * @return CreateStatementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateStatement.ts.html |here} to see how to use CreateStatement API.
+   */
+  public async createStatement(
+    createStatementRequest: requests.CreateStatementRequest
+  ): Promise<responses.CreateStatementResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createStatement.");
+    const operationName = "createStatement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Statement/CreateStatement";
+    const pathParams = {
+      "{runId}": createStatementRequest.runId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createStatementRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createStatementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runs/{runId}/statements",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createStatementRequest.createStatementDetails,
+        "CreateStatementDetails",
+        model.CreateStatementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateStatementResponse>{},
+        body: await response.json(),
+        bodyKey: "statement",
+        bodyModel: model.Statement,
+        type: "model.Statement",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an application using an `applicationId`.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -836,6 +918,76 @@ export class DataFlowClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRunResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cancels the specified statement for a Session run.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteStatementRequest
+   * @return DeleteStatementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteStatement.ts.html |here} to see how to use DeleteStatement API.
+   */
+  public async deleteStatement(
+    deleteStatementRequest: requests.DeleteStatementRequest
+  ): Promise<responses.DeleteStatementResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteStatement.");
+    const operationName = "deleteStatement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Statement/DeleteStatement";
+    const pathParams = {
+      "{runId}": deleteStatementRequest.runId,
+      "{statementId}": deleteStatementRequest.statementId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteStatementRequest.opcRequestId,
+      "if-match": deleteStatementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteStatementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runs/{runId}/statements/{statementId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteStatementResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1173,6 +1325,84 @@ export class DataFlowClient {
         }
       });
       sdkResponse.opcMeta = opcMeta;
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves the statement corresponding to the `statementId` for a Session run specified by `runId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetStatementRequest
+   * @return GetStatementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetStatement.ts.html |here} to see how to use GetStatement API.
+   */
+  public async getStatement(
+    getStatementRequest: requests.GetStatementRequest
+  ): Promise<responses.GetStatementResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getStatement.");
+    const operationName = "getStatement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/Statement/GetStatement";
+    const pathParams = {
+      "{runId}": getStatementRequest.runId,
+      "{statementId}": getStatementRequest.statementId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getStatementRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStatementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runs/{runId}/statements/{statementId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetStatementResponse>{},
+        body: await response.json(),
+        bodyKey: "statement",
+        bodyModel: model.Statement,
+        type: "model.Statement",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
 
       return sdkResponse;
     } catch (err) {
@@ -1761,6 +1991,94 @@ export class DataFlowClient {
     request: requests.ListRunsRequest
   ): AsyncIterableIterator<responses.ListRunsResponse> {
     return paginateResponses(request, req => this.listRuns(req));
+  }
+
+  /**
+   * Lists all statements for a Session run.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListStatementsRequest
+   * @return ListStatementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListStatements.ts.html |here} to see how to use ListStatements API.
+   */
+  public async listStatements(
+    listStatementsRequest: requests.ListStatementsRequest
+  ): Promise<responses.ListStatementsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listStatements.");
+    const operationName = "listStatements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/StatementCollection/ListStatements";
+    const pathParams = {
+      "{runId}": listStatementsRequest.runId
+    };
+
+    const queryParams = {
+      "lifecycleState": listStatementsRequest.lifecycleState,
+      "sortBy": listStatementsRequest.sortBy,
+      "sortOrder": listStatementsRequest.sortOrder,
+      "limit": listStatementsRequest.limit,
+      "page": listStatementsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listStatementsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStatementsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/runs/{runId}/statements",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStatementsResponse>{},
+        body: await response.json(),
+        bodyKey: "statementCollection",
+        bodyModel: model.StatementCollection,
+        type: "model.StatementCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
