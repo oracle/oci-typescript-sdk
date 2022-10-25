@@ -43,7 +43,7 @@ export interface UpdateApplicationDetails {
   "language"?: model.ApplicationLanguage;
   "applicationLogConfig"?: model.ApplicationLogConfig;
   /**
-   * An Oracle Cloud Infrastructure URI of an archive.zip file containing custom dependencies that may be used to support the execution a Python, Java, or Scala application.
+   * A comma separated list of one or more archive files as Oracle Cloud Infrastructure URIs. For example, ``oci://path/to/a.zip,oci://path/to/b.zip``. An Oracle Cloud Infrastructure URI of an archive.zip file containing custom dependencies that may be used to support the execution of a Python, Java, or Scala application.
    * See https://docs.cloud.oracle.com/iaas/Content/API/SDKDocs/hdfsconnector.htm#uriformat.
    *
    */
@@ -149,6 +149,18 @@ export interface UpdateApplicationDetails {
    *
    */
   "warehouseBucketUri"?: string;
+  /**
+   * The maximum duration in minutes for which an Application should run. Data Flow Run would be terminated
+   * once it reaches this duration from the time it transitions to `IN_PROGRESS` state.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxDurationInMinutes"?: number;
+  /**
+   * The timeout value in minutes used to manage Runs. A Run would be stopped after inactivity for this amount of time period.
+   * Note: This parameter is currently only applicable for Runs of type `SESSION`. Default value is 2880 minutes (2 days)
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "idleTimeoutInMinutes"?: number;
 }
 
 export namespace UpdateApplicationDetails {

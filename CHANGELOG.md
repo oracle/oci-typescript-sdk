@@ -3,6 +3,18 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.46.0 - 2022-10-25
+### Added
+- Support for the Disaster Recovery service
+- Support for running code interactively with session applications using statements in the Data Flow service
+- Support for language custom models and language translation in the AI Language service
+ 
+### Breaking Changes
+- The type of property `Documents` was changed from an Array of `TextClassificationDocument` to an Array of `TextDocument` in `BatchDetectLanguageTextClassificationDetails` model in the AI Language service
+- The type of property `Documents` was changed from an Array of `SentimentsDocument` to an Array of `TextDocument` in `BatchDetectLanguageSentimentsDetails` model in the AI Language service
+- The type of property `Documents` was changed from an Array of `KeyPhraseDocument` to an Array of `TextDocument` in `BatchDetectLanguageKeyPhrasesDetails` model in the AI Language service
+- The type of property `Documents` was changed from an Array of `EntityDocument` to an Array of `TextDocument` in `BatchDetectLanguageEntitiesDetails` model in the AI Language service
+
 ## 2.45.0 - 2022-10-04
 ### Added
 - Support for calling Oracle Cloud Infrastructure services in the eu-dcc-milan-1 region

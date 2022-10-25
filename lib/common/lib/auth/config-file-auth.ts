@@ -116,7 +116,6 @@ export class ConfigFileAuthenticationDetailsProvider
     }
 
     const fingerprint = checkNotNull(file.get("fingerprint"), "missing fingerprint in config");
-    const user = checkNotNull(file.get("user"), "missing user in config");
     const pemFilePath = checkNotNull(file.get("key_file"), "missing key_file in config");
     const passPhrase = file.get("pass_phrase");
     const privateKey = this.getPvtKey(ConfigFileReader.expandUserHome(pemFilePath));
@@ -127,6 +126,8 @@ export class ConfigFileAuthenticationDetailsProvider
     const sessionToken = sessionTokenPath
       ? this.getPvtKey(ConfigFileReader.expandUserHome(sessionTokenPath))
       : undefined;
+
+    const user = sessionToken ? "" : checkNotNull(file.get("user"), "missing user in config");
 
     return new SimpleAuthenticationDetailsProvider(
       tenantId,
