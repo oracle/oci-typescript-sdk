@@ -385,6 +385,91 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * This API submits a work request to assign customer encryption key.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AssignEncryptionKeyRequest
+   * @return AssignEncryptionKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/AssignEncryptionKey.ts.html |here} to see how to use AssignEncryptionKey API.
+   */
+  public async assignEncryptionKey(
+    assignEncryptionKeyRequest: requests.AssignEncryptionKeyRequest
+  ): Promise<responses.AssignEncryptionKeyResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#assignEncryptionKey.");
+    const operationName = "assignEncryptionKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/AssignEncryptionKey";
+    const pathParams = {
+      "{namespaceName}": assignEncryptionKeyRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": assignEncryptionKeyRequest.opcRequestId,
+      "opc-retry-token": assignEncryptionKeyRequest.opcRetryToken,
+      "if-match": assignEncryptionKeyRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      assignEncryptionKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/actions/assignEncryptionKey",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        assignEncryptionKeyRequest.assignEncryptionKeyDetails,
+        "AssignEncryptionKeyDetails",
+        model.AssignEncryptionKeyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AssignEncryptionKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists basic information about a specified set of labels in batch.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -7385,6 +7470,78 @@ export class LogAnalyticsClient {
             key: "opcNextPage",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API returns the list of customer owned encryption key info.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListEncryptionKeyInfoRequest
+   * @return ListEncryptionKeyInfoResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEncryptionKeyInfo.ts.html |here} to see how to use ListEncryptionKeyInfo API.
+   */
+  public async listEncryptionKeyInfo(
+    listEncryptionKeyInfoRequest: requests.ListEncryptionKeyInfoRequest
+  ): Promise<responses.ListEncryptionKeyInfoResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listEncryptionKeyInfo.");
+    const operationName = "listEncryptionKeyInfo";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListEncryptionKeyInfo";
+    const pathParams = {
+      "{namespaceName}": listEncryptionKeyInfoRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEncryptionKeyInfoRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEncryptionKeyInfoRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/encryptionKeyInfo",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEncryptionKeyInfoResponse>{},
+        body: await response.json(),
+        bodyKey: "encryptionKeyInfoCollection",
+        bodyModel: model.EncryptionKeyInfoCollection,
+        type: "model.EncryptionKeyInfoCollection",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

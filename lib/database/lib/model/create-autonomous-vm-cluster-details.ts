@@ -55,7 +55,7 @@ export interface CreateAutonomousVmClusterDetails {
    */
   "totalContainerDatabases"?: number;
   /**
-   * The number of OCPU cores to enable per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of CPU cores to enable per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCountPerNode"?: number;
   /**

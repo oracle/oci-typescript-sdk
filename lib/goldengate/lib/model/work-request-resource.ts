@@ -26,7 +26,10 @@ export interface WorkRequestResource {
    */
   "entityType": string;
   /**
-   * The way in which this resource is affected by the work tracked in the work request.  When you create, update, or delete a resource, it remains in the IN_PROGRESS state until work is complete for that resource.  It then transitions to CREATED, UPDATED, or DELETED, respectively.
+   * The way in which this resource is affected by the work tracked in the work request.  When
+   * you create, update, or delete a resource, it remains in the IN_PROGRESS state until work
+   * is complete for that resource.  It then transitions to CREATED, UPDATED, or DELETED,
+   * respectively.
    *
    */
   "actionType": model.ActionType;

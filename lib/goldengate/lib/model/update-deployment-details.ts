@@ -36,19 +36,22 @@ export interface UpdateDeploymentDetails {
    */
   "description"?: string;
   /**
-   * A simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
-   *
-   */
+    * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
+* for cross-compatibility only.
+* <p>
+Example: `{\"bar-key\": \"value\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Tags defined for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
-   *
-   */
+    * Tags defined for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * An array of [Network Security Group](https://docs.cloud.oracle.com/Content/Network/Concepts/networksecuritygroups.htm) OCIDs used to define network access for a deployment.
+   * An array of Network Security Group OCIDs used to define network access for either Deployments or Connections.
    *
    */
   "nsgIds"?: Array<string>;

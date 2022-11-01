@@ -1,6 +1,6 @@
 {
   "name": "oci-sch",
-  "version": "2.46.0",
+  "version": "2.47.0",
   "description": "OCI NodeJS client for Sch Service",
   "repository": {
     "type": "git",

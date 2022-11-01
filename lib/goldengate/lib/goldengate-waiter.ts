@@ -25,6 +25,43 @@ export class GoldenGateWaiter {
   ) {}
 
   /**
+   * Waits forConnection till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetConnectionResponse | null (null in case of 404 response)
+   */
+  public async forConnection(
+    request: serviceRequests.GetConnectionRequest,
+    ...targetStates: models.Connection.LifecycleState[]
+  ): Promise<serviceResponses.GetConnectionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getConnection(request),
+      response => targetStates.includes(response.connection.lifecycleState!),
+      targetStates.includes(models.Connection.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forConnectionAssignment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetConnectionAssignmentResponse
+   */
+  public async forConnectionAssignment(
+    request: serviceRequests.GetConnectionAssignmentRequest,
+    ...targetStates: models.ConnectionAssignment.LifecycleState[]
+  ): Promise<serviceResponses.GetConnectionAssignmentResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getConnectionAssignment(request),
+      response => targetStates.includes(response.connectionAssignment.lifecycleState!)
+    );
+  }
+
+  /**
    * Waits forDatabaseRegistration till it reaches any of the provided states
    *
    * @param request the request to send

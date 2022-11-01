@@ -232,7 +232,94 @@ export class GoldenGateClient {
   }
 
   /**
-   * Moves the DatabaseRegistration into a different compartment within the same tenancy. When provided, If-Match is checked against ETag values of the resource.  For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves the Connection into a different compartment within the same tenancy. When
+   * provided, If-Match is checked against ETag values of the resource.  For information about
+   * moving resources between compartments, see [Moving Resources Between
+   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeConnectionCompartmentRequest
+   * @return ChangeConnectionCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ChangeConnectionCompartment.ts.html |here} to see how to use ChangeConnectionCompartment API.
+   */
+  public async changeConnectionCompartment(
+    changeConnectionCompartmentRequest: requests.ChangeConnectionCompartmentRequest
+  ): Promise<responses.ChangeConnectionCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#changeConnectionCompartment.");
+    const operationName = "changeConnectionCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/ChangeConnectionCompartment";
+    const pathParams = {
+      "{connectionId}": changeConnectionCompartmentRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeConnectionCompartmentRequest.ifMatch,
+      "opc-request-id": changeConnectionCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeConnectionCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeConnectionCompartmentRequest.changeConnectionCompartmentDetails,
+        "ChangeConnectionCompartmentDetails",
+        model.ChangeConnectionCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeConnectionCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Note: Deprecated. Use the new resource model APIs instead.
+   * Moves the DatabaseRegistration into a different compartment within the same tenancy. When
+   * provided, If-Match is checked against ETag values of the resource.  For information about
+   * moving resources between compartments, see [Moving Resources Between
+   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDatabaseRegistrationCompartmentRequest
@@ -305,6 +392,11 @@ export class GoldenGateClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("sunset"),
+            key: "sunset",
+            dataType: "string"
           }
         ]
       });
@@ -316,7 +408,10 @@ export class GoldenGateClient {
   }
 
   /**
-   * Moves a DeploymentBackup into a different compartment within the same tenancy.  When provided, If-Match is checked against ETag values of the resource.  For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves a DeploymentBackup into a different compartment within the same tenancy.  When provided,
+   * If-Match is checked against ETag values of the resource.  For information about moving
+   * resources between compartments, see [Moving Resources Between
+   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDeploymentBackupCompartmentRequest
@@ -392,7 +487,10 @@ export class GoldenGateClient {
   }
 
   /**
-   * Moves the Deployment into a different compartment within the same tenancy.  When provided, If-Match is checked against ETag values of the resource.  For information about moving resources between compartments, see [Moving Resources Between Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   * Moves the Deployment into a different compartment within the same tenancy.  When provided,
+   * If-Match is checked against ETag values of the resource.  For information about moving
+   * resources between compartments, see [Moving Resources Between
+   * Compartments](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDeploymentCompartmentRequest
@@ -473,6 +571,179 @@ export class GoldenGateClient {
   }
 
   /**
+   * Creates a new Connection.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateConnectionRequest
+   * @return CreateConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateConnection.ts.html |here} to see how to use CreateConnection API.
+   */
+  public async createConnection(
+    createConnectionRequest: requests.CreateConnectionRequest
+  ): Promise<responses.CreateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#createConnection.");
+    const operationName = "createConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/CreateConnection";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createConnectionRequest.opcRetryToken,
+      "opc-request-id": createConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createConnectionRequest.createConnectionDetails,
+        "CreateConnectionDetails",
+        model.CreateConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Connection Assignment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateConnectionAssignmentRequest
+   * @return CreateConnectionAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CreateConnectionAssignment.ts.html |here} to see how to use CreateConnectionAssignment API.
+   */
+  public async createConnectionAssignment(
+    createConnectionAssignmentRequest: requests.CreateConnectionAssignmentRequest
+  ): Promise<responses.CreateConnectionAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#createConnectionAssignment.");
+    const operationName = "createConnectionAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/CreateConnectionAssignment";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createConnectionAssignmentRequest.opcRetryToken,
+      "opc-request-id": createConnectionAssignmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConnectionAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connectionAssignments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createConnectionAssignmentRequest.createConnectionAssignmentDetails,
+        "CreateConnectionAssignmentDetails",
+        model.CreateConnectionAssignmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateConnectionAssignmentResponse>{},
+        body: await response.json(),
+        bodyKey: "connectionAssignment",
+        bodyModel: model.ConnectionAssignment,
+        type: "model.ConnectionAssignment",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Creates a new DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -548,6 +819,11 @@ export class GoldenGateClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("sunset"),
+            key: "sunset",
             dataType: "string"
           }
         ]
@@ -723,6 +999,155 @@ export class GoldenGateClient {
   }
 
   /**
+   * Deletes a Connection.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteConnectionRequest
+   * @return DeleteConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteConnection.ts.html |here} to see how to use DeleteConnection API.
+   */
+  public async deleteConnection(
+    deleteConnectionRequest: requests.DeleteConnectionRequest
+  ): Promise<responses.DeleteConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#deleteConnection.");
+    const operationName = "deleteConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/DeleteConnection";
+    const pathParams = {
+      "{connectionId}": deleteConnectionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteConnectionRequest.ifMatch,
+      "opc-request-id": deleteConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Connection Assignment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteConnectionAssignmentRequest
+   * @return DeleteConnectionAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeleteConnectionAssignment.ts.html |here} to see how to use DeleteConnectionAssignment API.
+   */
+  public async deleteConnectionAssignment(
+    deleteConnectionAssignmentRequest: requests.DeleteConnectionAssignmentRequest
+  ): Promise<responses.DeleteConnectionAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#deleteConnectionAssignment.");
+    const operationName = "deleteConnectionAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/DeleteConnectionAssignment";
+    const pathParams = {
+      "{connectionAssignmentId}": deleteConnectionAssignmentRequest.connectionAssignmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteConnectionAssignmentRequest.ifMatch,
+      "opc-request-id": deleteConnectionAssignmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConnectionAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connectionAssignments/{connectionAssignmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteConnectionAssignmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Deletes a DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -786,6 +1211,11 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("sunset"),
+            key: "sunset",
             dataType: "string"
           }
         ]
@@ -947,6 +1377,162 @@ export class GoldenGateClient {
   }
 
   /**
+   * Retrieves a Connection.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetConnectionRequest
+   * @return GetConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetConnection.ts.html |here} to see how to use GetConnection API.
+   */
+  public async getConnection(
+    getConnectionRequest: requests.GetConnectionRequest
+  ): Promise<responses.GetConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#getConnection.");
+    const operationName = "getConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/GetConnection";
+    const pathParams = {
+      "{connectionId}": getConnectionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a Connection Assignment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetConnectionAssignmentRequest
+   * @return GetConnectionAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/GetConnectionAssignment.ts.html |here} to see how to use GetConnectionAssignment API.
+   */
+  public async getConnectionAssignment(
+    getConnectionAssignmentRequest: requests.GetConnectionAssignmentRequest
+  ): Promise<responses.GetConnectionAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#getConnectionAssignment.");
+    const operationName = "getConnectionAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/GetConnectionAssignment";
+    const pathParams = {
+      "{connectionAssignmentId}": getConnectionAssignmentRequest.connectionAssignmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConnectionAssignmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConnectionAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connectionAssignments/{connectionAssignmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConnectionAssignmentResponse>{},
+        body: await response.json(),
+        bodyKey: "connectionAssignment",
+        bodyModel: model.ConnectionAssignment,
+        type: "model.ConnectionAssignment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Retrieves a DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1013,6 +1599,11 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("sunset"),
+            key: "sunset",
             dataType: "string"
           }
         ]
@@ -1333,6 +1924,180 @@ export class GoldenGateClient {
   }
 
   /**
+   * Lists the Connection Assignments in the compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListConnectionAssignmentsRequest
+   * @return ListConnectionAssignmentsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnectionAssignments.ts.html |here} to see how to use ListConnectionAssignments API.
+   */
+  public async listConnectionAssignments(
+    listConnectionAssignmentsRequest: requests.ListConnectionAssignmentsRequest
+  ): Promise<responses.ListConnectionAssignmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listConnectionAssignments.");
+    const operationName = "listConnectionAssignments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/ListConnectionAssignments";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listConnectionAssignmentsRequest.compartmentId,
+      "deploymentId": listConnectionAssignmentsRequest.deploymentId,
+      "connectionId": listConnectionAssignmentsRequest.connectionId,
+      "name": listConnectionAssignmentsRequest.name,
+      "lifecycleState": listConnectionAssignmentsRequest.lifecycleState,
+      "limit": listConnectionAssignmentsRequest.limit,
+      "page": listConnectionAssignmentsRequest.page,
+      "sortOrder": listConnectionAssignmentsRequest.sortOrder,
+      "sortBy": listConnectionAssignmentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listConnectionAssignmentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConnectionAssignmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connectionAssignments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConnectionAssignmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "connectionAssignmentCollection",
+        bodyModel: model.ConnectionAssignmentCollection,
+        type: "model.ConnectionAssignmentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the Connections in the compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListConnectionsRequest
+   * @return ListConnectionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListConnections.ts.html |here} to see how to use ListConnections API.
+   */
+  public async listConnections(
+    listConnectionsRequest: requests.ListConnectionsRequest
+  ): Promise<responses.ListConnectionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listConnections.");
+    const operationName = "listConnections";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/ListConnections";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listConnectionsRequest.compartmentId,
+      "technologyType": listConnectionsRequest.technologyType,
+      "connectionType": listConnectionsRequest.connectionType,
+      "assignedDeploymentId": listConnectionsRequest.assignedDeploymentId,
+      "assignableDeploymentId": listConnectionsRequest.assignableDeploymentId,
+      "assignableDeploymentType": listConnectionsRequest.assignableDeploymentType,
+      "lifecycleState": listConnectionsRequest.lifecycleState,
+      "displayName": listConnectionsRequest.displayName,
+      "limit": listConnectionsRequest.limit,
+      "page": listConnectionsRequest.page,
+      "sortOrder": listConnectionsRequest.sortOrder,
+      "sortBy": listConnectionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listConnectionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConnectionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConnectionsResponse>{},
+        body: await response.json(),
+        bodyKey: "connectionCollection",
+        bodyModel: model.ConnectionCollection,
+        type: "model.ConnectionCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Lists the DatabaseRegistrations in the compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1405,6 +2170,11 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("sunset"),
+            key: "sunset",
             dataType: "string"
           }
         ]
@@ -1480,6 +2250,88 @@ export class GoldenGateClient {
         bodyKey: "deploymentBackupCollection",
         bodyModel: model.DeploymentBackupCollection,
         type: "model.DeploymentBackupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns an array of DeploymentTypeDescriptor
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDeploymentTypesRequest
+   * @return ListDeploymentTypesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentTypes.ts.html |here} to see how to use ListDeploymentTypes API.
+   */
+  public async listDeploymentTypes(
+    listDeploymentTypesRequest: requests.ListDeploymentTypesRequest
+  ): Promise<responses.ListDeploymentTypesResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#listDeploymentTypes.");
+    const operationName = "listDeploymentTypes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentTypeCollection/ListDeploymentTypes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDeploymentTypesRequest.compartmentId,
+      "displayName": listDeploymentTypesRequest.displayName,
+      "limit": listDeploymentTypesRequest.limit,
+      "page": listDeploymentTypesRequest.page,
+      "sortOrder": listDeploymentTypesRequest.sortOrder,
+      "sortBy": listDeploymentTypesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDeploymentTypesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentTypesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentTypes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDeploymentTypesResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentTypeCollection",
+        bodyModel: model.DeploymentTypeCollection,
+        type: "model.DeploymentTypeCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1605,6 +2457,9 @@ export class GoldenGateClient {
 
     const queryParams = {
       "compartmentId": listDeploymentsRequest.compartmentId,
+      "supportedConnectionType": listDeploymentsRequest.supportedConnectionType,
+      "assignedConnectionId": listDeploymentsRequest.assignedConnectionId,
+      "assignableConnectionId": listDeploymentsRequest.assignableConnectionId,
       "lifecycleState": listDeploymentsRequest.lifecycleState,
       "lifecycleSubState": listDeploymentsRequest.lifecycleSubState,
       "displayName": listDeploymentsRequest.displayName,
@@ -2547,6 +3402,86 @@ export class GoldenGateClient {
   }
 
   /**
+   * Updates the Connection.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateConnectionRequest
+   * @return UpdateConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpdateConnection.ts.html |here} to see how to use UpdateConnection API.
+   */
+  public async updateConnection(
+    updateConnectionRequest: requests.UpdateConnectionRequest
+  ): Promise<responses.UpdateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation GoldenGateClient#updateConnection.");
+    const operationName = "updateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Connection/UpdateConnection";
+    const pathParams = {
+      "{connectionId}": updateConnectionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateConnectionRequest.ifMatch,
+      "opc-request-id": updateConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConnectionRequest.updateConnectionDetails,
+        "UpdateConnectionDetails",
+        model.UpdateConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Note: Deprecated. Use the new resource model APIs instead.
    * Updates the DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2615,6 +3550,11 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("sunset"),
+            key: "sunset",
             dataType: "string"
           }
         ]

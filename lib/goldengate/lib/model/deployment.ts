@@ -46,12 +46,14 @@ export interface Deployment {
    */
   "deploymentBackupId"?: string;
   /**
-   * The time the resource was created. The format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * The time the resource was created. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
    *
    */
   "timeCreated"?: Date;
   /**
-   * The time the resource was last updated. The format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * The time the resource was last updated. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
    *
    */
   "timeUpdated"?: Date;
@@ -66,21 +68,25 @@ export interface Deployment {
    */
   "lifecycleSubState"?: model.LifecycleSubState;
   /**
-   * Describes the object's current state in detail. For example, it can be used to provide actionable information for a resource in a Failed state.
+   * Describes the object's current state in detail. For example, it can be used to provide
+   * actionable information for a resource in a Failed state.
    *
    */
   "lifecycleDetails"?: string;
   /**
-   * A simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
-   *
-   */
+    * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
+* for cross-compatibility only.
+* <p>
+Example: `{\"bar-key\": \"value\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Tags defined for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
-   *
-   */
+    * Tags defined for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * True if all of the aggregate resources are working correctly.
@@ -113,7 +119,7 @@ export interface Deployment {
    */
   "isAutoScalingEnabled": boolean;
   /**
-   * An array of [Network Security Group](https://docs.cloud.oracle.com/Content/Network/Concepts/networksecuritygroups.htm) OCIDs used to define network access for a deployment.
+   * An array of Network Security Group OCIDs used to define network access for either Deployments or Connections.
    *
    */
   "nsgIds"?: Array<string>;
@@ -128,7 +134,8 @@ export interface Deployment {
    */
   "publicIpAddress"?: string;
   /**
-   * The private IP address in the customer's VCN representing the access point for the associated endpoint service in the GoldenGate service VCN.
+   * The private IP address in the customer's VCN representing the access point for the
+   * associated endpoint service in the GoldenGate service VCN.
    *
    */
   "privateIpAddress"?: string;
@@ -138,10 +145,13 @@ export interface Deployment {
    */
   "deploymentUrl"?: string;
   /**
-   * The system tags associated with this resource, if any. The system tags are set by Oracle Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
-   * Example: `{orcl-cloud: {free-tier-retain: true}}`
-   *
-   */
+    * The system tags associated with this resource, if any. The system tags are set by Oracle
+* Cloud Infrastructure services. Each key is predefined and scoped to namespaces.  For more
+* information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{orcl-cloud: {free-tier-retain: true}}`
+* 
+    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Indicates if the resource is the the latest available version.
@@ -149,7 +159,10 @@ export interface Deployment {
    */
   "isLatestVersion"?: boolean;
   /**
-   * The date the existing version in use will no longer be considered as usable and an upgrade will be required.  This date is typically 6 months after the version was released for use by GGS.  The format is defined by [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   * The date the existing version in use will no longer be considered as usable
+   * and an upgrade will be required.  This date is typically 6 months after the
+   * version was released for use by GGS.  The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
    *
    */
   "timeUpgradeRequired"?: Date;
@@ -164,8 +177,9 @@ export interface Deployment {
    */
   "isStorageUtilizationLimitExceeded"?: boolean;
   /**
-   * The type of deployment, the value determines the exact 'type' of service executed in the Deployment. NOTE: Use of the value OGG is maintained for backward compatibility purposes.  Its use is discouraged
-   *       in favor of the equivalent DATABASE_ORACLE value.
+   * The type of deployment, the value determines the exact 'type' of service executed in the Deployment.
+   * NOTE: Use of the value 'OGG' is maintained for backward compatibility purposes.  Its use is discouraged
+   *       in favor of the equivalent 'DATABASE_ORACLE' value.
    *
    */
   "deploymentType": model.DeploymentType;

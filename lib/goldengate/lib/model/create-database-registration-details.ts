@@ -36,16 +36,19 @@ export interface CreateDatabaseRegistrationDetails {
    */
   "compartmentId": string;
   /**
-   * A simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
-   * Example: `{\"bar-key\": \"value\"}`
-   *
-   */
+    * A simple key-value pair that is applied without any predefined name, type, or scope. Exists
+* for cross-compatibility only.
+* <p>
+Example: `{\"bar-key\": \"value\"}`
+* 
+    */
   "freeformTags"?: { [key: string]: string };
   /**
-   * Tags defined for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
-   *
-   */
+    * Tags defined for this resource. Each key is predefined and scoped to a namespace.
+* <p>
+Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+* 
+    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * A three-label Fully Qualified Domain Name (FQDN) for a resource.
@@ -53,7 +56,8 @@ export interface CreateDatabaseRegistrationDetails {
    */
   "fqdn": string;
   /**
-   * The private IP address in the customer's VCN of the customer's endpoint, typically a database.
+   * The private IP address in the customer's VCN of the customer's endpoint, typically a
+   * database.
    *
    */
   "ipAddress"?: string;
@@ -68,27 +72,36 @@ export interface CreateDatabaseRegistrationDetails {
    */
   "databaseId"?: string;
   /**
-   * The username Oracle GoldenGate uses to connect the associated RDBMS.  This username must already exist and be available for use by the database.  It must conform to the security requirements implemented by the database including length, case sensitivity, and so on.
+   * The username Oracle GoldenGate uses to connect the associated RDBMS.  This username must
+   * already exist and be available for use by the database.  It must conform to the security
+   * requirements implemented by the database including length, case sensitivity, and so on.
    *
    */
   "username": string;
   /**
-   * The password Oracle GoldenGate uses to connect the associated RDBMS.  It must conform to the specific security requirements implemented by the database including length, case sensitivity, and so on.
+   * The password Oracle GoldenGate uses to connect the associated RDBMS.  It must conform to the
+   * specific security requirements implemented by the database including length, case
+   * sensitivity, and so on.
    *
    */
   "password": string;
   /**
-   * Connect descriptor or Easy Connect Naming method that Oracle GoldenGate uses to connect to a database.
+   * Connect descriptor or Easy Connect Naming method that Oracle GoldenGate uses to connect to a
+   * database.
    *
    */
   "connectionString"?: string;
   /**
-   * The mode of the database connection session to be established by the data client. REDIRECT - for a RAC database, DIRECT - for a non-RAC database. Connection to a RAC database involves a redirection received from the SCAN listeners to the database node to connect to. By default the mode would be DIRECT.
+   * The mode of the database connection session to be established by the data client.
+   * 'REDIRECT' - for a RAC database, 'DIRECT' - for a non-RAC database.
+   * Connection to a RAC database involves a redirection received from the SCAN listeners
+   * to the database node to connect to. By default the mode would be DIRECT.
    *
    */
   "sessionMode"?: CreateDatabaseRegistrationDetails.SessionMode;
   /**
-   * The wallet contents Oracle GoldenGate uses to make connections to a database.  This attribute is expected to be base64 encoded.
+   * The wallet contents Oracle GoldenGate uses to make connections to a database.  This
+   * attribute is expected to be base64 encoded.
    *
    */
   "wallet"?: string;
@@ -98,17 +111,29 @@ export interface CreateDatabaseRegistrationDetails {
    */
   "aliasName": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer vault being referenced. If provided, this will reference a vault which the customer will be required to ensure the policies are established to permit the GoldenGate Service to manage secrets contained within this vault.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer vault being
+   * referenced.
+   * If provided, this will reference a vault which the customer will be required to ensure
+   * the policies are established to permit the GoldenGate Service to manage secrets contained
+   * within this vault.
    *
    */
   "vaultId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer \"Master\" key being referenced. If provided, this will reference a key which the customer will be required to ensure the policies are established to permit the GoldenGate Service to utilize this key to manage secrets.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer \"Master\" key being
+   * referenced.
+   * If provided, this will reference a key which the customer will be required to ensure
+   * the policies are established to permit the GoldenGate Service to utilize this key to
+   * manage secrets.
    *
    */
   "keyId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where the the GGS Secret will be created. If provided, this will reference a key which the customer will be required to ensure the policies are established to permit the GoldenGate Service to utilize this Compartment in which to create a Secret.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment where the
+   * the GGS Secret will be created.
+   * If provided, this will reference a key which the customer will be required to ensure
+   * the policies are established to permit the GoldenGate Service to utilize this Compartment
+   * in which to create a Secret.
    *
    */
   "secretCompartmentId"?: string;

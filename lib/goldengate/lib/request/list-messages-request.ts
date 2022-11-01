@@ -34,7 +34,8 @@ export interface ListMessagesRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+   * The page token representing the page at which to start retrieving results. This is usually
+   * retrieved from a previous list call.
    *
    */
   "page"?: string;

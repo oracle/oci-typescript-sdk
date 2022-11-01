@@ -28,7 +28,7 @@ export interface StorageWorkRequest {
   /**
    * Compartment Identifier [OCID] (https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
-  "compartmentId": string;
+  "compartmentId"?: string;
   /**
    * When the work request started.
    */
@@ -63,7 +63,7 @@ export interface StorageWorkRequest {
   /**
    * This is the end of the time interval
    */
-  "timeDataEnded": Date;
+  "timeDataEnded"?: Date;
   /**
    * This is the solr query used to filter data for purge, '*' means all
    */
@@ -71,7 +71,7 @@ export interface StorageWorkRequest {
   /**
    * Thie is the type of data to be purged
    */
-  "dataType": model.StorageDataType;
+  "dataType"?: model.StorageDataType;
   /**
    * This provides more detailed status if applicable
    */
@@ -101,6 +101,15 @@ export interface StorageWorkRequest {
    *
    */
   "operationType": model.StorageOperationType;
+  /**
+   * This is the key ID for encryption key.
+   */
+  "keyId"?: string;
+  /**
+   * The type of customer encryption key. It can be archival, active or all.
+   *
+   */
+  "keyType"?: model.EncryptionKeyType;
 }
 
 export namespace StorageWorkRequest {

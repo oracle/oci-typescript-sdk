@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Definiton of the additional attributes for default deployment start.
+ * Definition of the additional attributes for default deployment start.
  */
 export interface DefaultStartDeploymentDetails extends model.StartDeploymentDetails {
   "type": string;

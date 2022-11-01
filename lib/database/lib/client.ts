@@ -20678,6 +20678,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
 
   /**
    * Clones a pluggable database (PDB) to a different database from the source PDB. The cloned PDB will be started upon completion of the clone operation. The source PDB must be in the `READ_WRITE` openMode when performing the clone.
+   * For Exadata Cloud@Customer instances, the source pluggable database (PDB) must be on the same Exadata Infrastructure as the target container database (CDB) to create a remote clone.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoteClonePluggableDatabaseRequest
@@ -22853,7 +22854,7 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
-   * Updates the properties of an Autonomous Container Database, such as the OCPU core count and storage size.
+   * Updates the properties of an Autonomous Container Database, such as display name, maintenance preference, backup retention, and tags.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateAutonomousContainerDatabaseRequest
    * @return UpdateAutonomousContainerDatabaseResponse

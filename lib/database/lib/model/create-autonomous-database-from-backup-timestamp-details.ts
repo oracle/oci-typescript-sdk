@@ -28,11 +28,16 @@ export interface CreateAutonomousDatabaseFromBackupTimestampDetails
   /**
    * The timestamp specified for the point-in-time clone of the source Autonomous Database. The timestamp must be in the past.
    */
-  "timestamp": Date;
+  "timestamp"?: Date;
   /**
    * The Autonomous Database clone type.
    */
   "cloneType": CreateAutonomousDatabaseFromBackupTimestampDetails.CloneType;
+  /**
+   * Clone from latest available backup timestamp.
+   *
+   */
+  "useLatestAvailableBackupTimeStamp"?: boolean;
 
   "source": string;
 }

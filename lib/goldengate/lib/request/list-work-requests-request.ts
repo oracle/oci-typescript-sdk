@@ -19,12 +19,12 @@ import common = require("oci-common");
  */
 export interface ListWorkRequestsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    *
    */
   "compartmentId": string;
   /**
-   * The ID of the resource in which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the resource in which to list resources.
    *
    */
   "resourceId"?: string;
@@ -34,7 +34,8 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+   * The page token representing the page at which to start retrieving results. This is usually
+   * retrieved from a previous list call.
    *
    */
   "page"?: string;

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Definiton of the additional attributes for a Current Release upgrade.
+ * Definition of the additional attributes for a Current Release upgrade.
  */
 export interface UpgradeDeploymentCurrentReleaseDetails extends model.UpgradeDeploymentDetails {
   "type": string;

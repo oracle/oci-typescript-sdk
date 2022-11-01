@@ -18,6 +18,8 @@ import * as AddSourceEventTypesResponse from "./add-source-event-types-response"
 export import AddSourceEventTypesResponse = AddSourceEventTypesResponse.AddSourceEventTypesResponse;
 import * as AppendLookupDataResponse from "./append-lookup-data-response";
 export import AppendLookupDataResponse = AppendLookupDataResponse.AppendLookupDataResponse;
+import * as AssignEncryptionKeyResponse from "./assign-encryption-key-response";
+export import AssignEncryptionKeyResponse = AssignEncryptionKeyResponse.AssignEncryptionKeyResponse;
 import * as BatchGetBasicInfoResponse from "./batch-get-basic-info-response";
 export import BatchGetBasicInfoResponse = BatchGetBasicInfoResponse.BatchGetBasicInfoResponse;
 import * as CancelQueryWorkRequestResponse from "./cancel-query-work-request-response";
@@ -198,6 +200,8 @@ import * as ListCategoriesResponse from "./list-categories-response";
 export import ListCategoriesResponse = ListCategoriesResponse.ListCategoriesResponse;
 import * as ListConfigWorkRequestsResponse from "./list-config-work-requests-response";
 export import ListConfigWorkRequestsResponse = ListConfigWorkRequestsResponse.ListConfigWorkRequestsResponse;
+import * as ListEncryptionKeyInfoResponse from "./list-encryption-key-info-response";
+export import ListEncryptionKeyInfoResponse = ListEncryptionKeyInfoResponse.ListEncryptionKeyInfoResponse;
 import * as ListEntityAssociationsResponse from "./list-entity-associations-response";
 export import ListEntityAssociationsResponse = ListEntityAssociationsResponse.ListEntityAssociationsResponse;
 import * as ListEntitySourceAssociationsResponse from "./list-entity-source-associations-response";
