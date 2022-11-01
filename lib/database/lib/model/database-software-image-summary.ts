@@ -85,7 +85,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "databaseSoftwareImageIncludedPatches"?: Array<string>;
   /**
-   * The patches included in the image and the version of the image
+   * The patches included in the image and the version of the image.
    */
   "includedPatchesSummary"?: string;
   /**

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Definiton of the additional attributes for default deployment stop.
+ * Definition of the additional attributes for default deployment stop.
  */
 export interface DefaultStopDeploymentDetails extends model.StopDeploymentDetails {
   "type": string;

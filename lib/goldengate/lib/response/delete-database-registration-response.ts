@@ -16,13 +16,20 @@ import common = require("oci-common");
 
 export interface DeleteDatabaseRegistrationResponse {
   /**
-   * A unique Oracle-assigned identifier for an asynchronous request. You can use this to query status of the asynchronous operation.
+   * A unique Oracle-assigned identifier for an asynchronous request. You can use this to query
+   * status of the asynchronous operation.
    *
    */
   "opcWorkRequestId": string;
   /**
-   * A unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please include the request ID.
+   * A unique Oracle-assigned identifier for the request. If you need to contact Oracle about a
+   * particular request, please include the request ID.
    *
    */
   "opcRequestId": string;
+  /**
+   * Deprecation date of this API version.
+   *
+   */
+  "sunset": string;
 }

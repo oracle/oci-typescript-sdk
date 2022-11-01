@@ -114,11 +114,11 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "dataStorageSizeInGBs"?: number;
   /**
-   * The number of CPU cores enabled on the cloud Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of CPU cores on the cloud Autonomous VM cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
   /**
-   * The number of CPU cores enabled on the cloud Autonomous VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of CPU cores on the cloud Autonomous VM cluster. Only 1 decimal place is allowed for the fractional part. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpuCount"?: number;
   /**

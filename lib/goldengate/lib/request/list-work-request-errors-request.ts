@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
   /**
-   * The ID of the asynchronous request.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the asynchronous request.
    *
    */
   "workRequestId": string;
@@ -29,7 +29,8 @@ export interface ListWorkRequestErrorsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+   * The page token representing the page at which to start retrieving results. This is usually
+   * retrieved from a previous list call.
    *
    */
   "page"?: string;

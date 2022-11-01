@@ -121,7 +121,8 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The role of the Autonomous Data Guard-enabled Autonomous Container Database.
+   * The Data Guard role of the Autonomous Container Database or Autonomous Database, if Autonomous Data Guard is enabled.
+   *
    */
   "role"?: AutonomousContainerDatabase.Role;
   /**
@@ -146,7 +147,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
-   * Sum of OCPUs available on the Autonomous VM Cluster + Sum of fractional OCPUs available in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Sum of OCPUs available on the Autonomous VM Cluster + Sum of reclaimable OCPUs available in the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCpus"?: number;
   /**

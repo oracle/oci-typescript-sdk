@@ -82,7 +82,7 @@ export interface AutonomousVmCluster {
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
-   * The number of OCPU cores enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of CPU cores enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCountPerNode"?: number;
   /**

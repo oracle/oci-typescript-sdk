@@ -21,10 +21,16 @@ export interface GetDatabaseRegistrationResponse {
    */
   "etag": string;
   /**
-   * A unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please include the request ID.
+   * A unique Oracle-assigned identifier for the request. If you need to contact Oracle about a
+   * particular request, please include the request ID.
    *
    */
   "opcRequestId": string;
+  /**
+   * Deprecation date of this API version.
+   *
+   */
+  "sunset": string;
   /**
    * The returned model.DatabaseRegistration instance.
    */

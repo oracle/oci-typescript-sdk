@@ -25,7 +25,7 @@ export interface CreateAutonomousDatabaseBackupDetails {
   /**
    * The user-friendly name for the backup. The name does not have to be unique.
    */
-  "displayName": string;
+  "displayName"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Database backup.
    */

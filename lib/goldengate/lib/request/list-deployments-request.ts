@@ -19,10 +19,25 @@ import common = require("oci-common");
  */
 export interface ListDeploymentsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    *
    */
   "compartmentId": string;
+  /**
+   * The connection type which the deployment must support.
+   *
+   */
+  "supportedConnectionType"?: model.ConnectionType;
+  /**
+   * The OCID of the connection which for the deployment must be assigned.
+   *
+   */
+  "assignedConnectionId"?: string;
+  /**
+   * Filters for compatible deployments which can be, but currently not assigned to the connection specified by its id.
+   *
+   */
+  "assignableConnectionId"?: string;
   /**
    * A filter to return only the resources that match the 'lifecycleState' given.
    *
@@ -49,7 +64,8 @@ export interface ListDeploymentsRequest extends common.BaseRequest {
    */
   "limit"?: number;
   /**
-   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+   * The page token representing the page at which to start retrieving results. This is usually
+   * retrieved from a previous list call.
    *
    */
   "page"?: string;
@@ -59,7 +75,9 @@ export interface ListDeploymentsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order can be provided. Default order for 'timeCreated' is descending.  Default order for 'displayName' is ascending. If no value is specified timeCreated is the default.
+   * The field to sort by. Only one sort order can be provided. Default order for 'timeCreated' is
+   * descending.  Default order for 'displayName' is ascending. If no value is specified
+   * timeCreated is the default.
    *
    */
   "sortBy"?: ListDeploymentsRequest.SortBy;
