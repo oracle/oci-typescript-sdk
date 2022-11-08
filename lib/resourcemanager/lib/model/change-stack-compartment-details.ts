@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the requirements and properties of changeStackCompartment operation.
+ * Compartment details for moving a stack.
  */
 export interface ChangeStackCompartmentDetails {
   /**

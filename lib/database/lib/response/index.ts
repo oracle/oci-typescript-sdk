@@ -14,8 +14,12 @@
 
 import * as ActivateExadataInfrastructureResponse from "./activate-exadata-infrastructure-response";
 export import ActivateExadataInfrastructureResponse = ActivateExadataInfrastructureResponse.ActivateExadataInfrastructureResponse;
+import * as AddStorageCapacityCloudExadataInfrastructureResponse from "./add-storage-capacity-cloud-exadata-infrastructure-response";
+export import AddStorageCapacityCloudExadataInfrastructureResponse = AddStorageCapacityCloudExadataInfrastructureResponse.AddStorageCapacityCloudExadataInfrastructureResponse;
 import * as AddStorageCapacityExadataInfrastructureResponse from "./add-storage-capacity-exadata-infrastructure-response";
 export import AddStorageCapacityExadataInfrastructureResponse = AddStorageCapacityExadataInfrastructureResponse.AddStorageCapacityExadataInfrastructureResponse;
+import * as AddVirtualMachineToCloudVmClusterResponse from "./add-virtual-machine-to-cloud-vm-cluster-response";
+export import AddVirtualMachineToCloudVmClusterResponse = AddVirtualMachineToCloudVmClusterResponse.AddVirtualMachineToCloudVmClusterResponse;
 import * as AddVirtualMachineToVmClusterResponse from "./add-virtual-machine-to-vm-cluster-response";
 export import AddVirtualMachineToVmClusterResponse = AddVirtualMachineToVmClusterResponse.AddVirtualMachineToVmClusterResponse;
 import * as AutonomousDatabaseManualRefreshResponse from "./autonomous-database-manual-refresh-response";
@@ -332,6 +336,8 @@ import * as ListAutonomousDatabaseClonesResponse from "./list-autonomous-databas
 export import ListAutonomousDatabaseClonesResponse = ListAutonomousDatabaseClonesResponse.ListAutonomousDatabaseClonesResponse;
 import * as ListAutonomousDatabaseDataguardAssociationsResponse from "./list-autonomous-database-dataguard-associations-response";
 export import ListAutonomousDatabaseDataguardAssociationsResponse = ListAutonomousDatabaseDataguardAssociationsResponse.ListAutonomousDatabaseDataguardAssociationsResponse;
+import * as ListAutonomousDatabaseRefreshableClonesResponse from "./list-autonomous-database-refreshable-clones-response";
+export import ListAutonomousDatabaseRefreshableClonesResponse = ListAutonomousDatabaseRefreshableClonesResponse.ListAutonomousDatabaseRefreshableClonesResponse;
 import * as ListAutonomousDatabasesResponse from "./list-autonomous-databases-response";
 export import ListAutonomousDatabasesResponse = ListAutonomousDatabasesResponse.ListAutonomousDatabasesResponse;
 import * as ListAutonomousDbPreviewVersionsResponse from "./list-autonomous-db-preview-versions-response";
@@ -448,6 +454,8 @@ import * as ReinstateDataGuardAssociationResponse from "./reinstate-data-guard-a
 export import ReinstateDataGuardAssociationResponse = ReinstateDataGuardAssociationResponse.ReinstateDataGuardAssociationResponse;
 import * as RemoteClonePluggableDatabaseResponse from "./remote-clone-pluggable-database-response";
 export import RemoteClonePluggableDatabaseResponse = RemoteClonePluggableDatabaseResponse.RemoteClonePluggableDatabaseResponse;
+import * as RemoveVirtualMachineFromCloudVmClusterResponse from "./remove-virtual-machine-from-cloud-vm-cluster-response";
+export import RemoveVirtualMachineFromCloudVmClusterResponse = RemoveVirtualMachineFromCloudVmClusterResponse.RemoveVirtualMachineFromCloudVmClusterResponse;
 import * as RemoveVirtualMachineFromVmClusterResponse from "./remove-virtual-machine-from-vm-cluster-response";
 export import RemoveVirtualMachineFromVmClusterResponse = RemoveVirtualMachineFromVmClusterResponse.RemoveVirtualMachineFromVmClusterResponse;
 import * as ResizeVmClusterNetworkResponse from "./resize-vm-cluster-network-response";

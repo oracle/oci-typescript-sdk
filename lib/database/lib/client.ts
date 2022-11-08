@@ -246,6 +246,95 @@ export class DatabaseClient {
   }
 
   /**
+   * Makes the storage capacity from additional storage servers available for Cloud VM Cluster consumption. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddStorageCapacityCloudExadataInfrastructureRequest
+   * @return AddStorageCapacityCloudExadataInfrastructureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddStorageCapacityCloudExadataInfrastructure.ts.html |here} to see how to use AddStorageCapacityCloudExadataInfrastructure API.
+   */
+  public async addStorageCapacityCloudExadataInfrastructure(
+    addStorageCapacityCloudExadataInfrastructureRequest: requests.AddStorageCapacityCloudExadataInfrastructureRequest
+  ): Promise<responses.AddStorageCapacityCloudExadataInfrastructureResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#addStorageCapacityCloudExadataInfrastructure."
+      );
+    const operationName = "addStorageCapacityCloudExadataInfrastructure";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructure/AddStorageCapacityCloudExadataInfrastructure";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        addStorageCapacityCloudExadataInfrastructureRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addStorageCapacityCloudExadataInfrastructureRequest.ifMatch,
+      "opc-request-id": addStorageCapacityCloudExadataInfrastructureRequest.opcRequestId,
+      "opc-retry-token": addStorageCapacityCloudExadataInfrastructureRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addStorageCapacityCloudExadataInfrastructureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/actions/addStorageCapacity",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddStorageCapacityCloudExadataInfrastructureResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructure",
+        bodyModel: model.CloudExadataInfrastructure,
+        type: "model.CloudExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Makes the storage capacity from additional storage servers available for VM Cluster consumption. Applies to Exadata Cloud@Customer instances only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -308,6 +397,96 @@ export class DatabaseClient {
         bodyKey: "exadataInfrastructure",
         bodyModel: model.ExadataInfrastructure,
         type: "model.ExadataInfrastructure",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Add Virtual Machines to the Cloud VM cluster. Applies to Exadata Cloud instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddVirtualMachineToCloudVmClusterRequest
+   * @return AddVirtualMachineToCloudVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/AddVirtualMachineToCloudVmCluster.ts.html |here} to see how to use AddVirtualMachineToCloudVmCluster API.
+   */
+  public async addVirtualMachineToCloudVmCluster(
+    addVirtualMachineToCloudVmClusterRequest: requests.AddVirtualMachineToCloudVmClusterRequest
+  ): Promise<responses.AddVirtualMachineToCloudVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#addVirtualMachineToCloudVmCluster.");
+    const operationName = "addVirtualMachineToCloudVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/AddVirtualMachineToCloudVmCluster";
+    const pathParams = {
+      "{cloudVmClusterId}": addVirtualMachineToCloudVmClusterRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": addVirtualMachineToCloudVmClusterRequest.opcRetryToken,
+      "opc-request-id": addVirtualMachineToCloudVmClusterRequest.opcRequestId,
+      "if-match": addVirtualMachineToCloudVmClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addVirtualMachineToCloudVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/actions/addVirtualMachine",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addVirtualMachineToCloudVmClusterRequest.addVirtualMachineToCloudVmClusterDetails,
+        "AddVirtualMachineToCloudVmClusterDetails",
+        model.AddVirtualMachineToCloudVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddVirtualMachineToCloudVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudVmCluster",
+        bodyModel: model.CloudVmCluster,
+        type: "model.CloudVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -13530,6 +13709,89 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
   }
 
   /**
+   * Lists the OCIDs of the Autonomous Database local and connected remote refreshable clones with the region where they exist for the specified source database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousDatabaseRefreshableClonesRequest
+   * @return ListAutonomousDatabaseRefreshableClonesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousDatabaseRefreshableClones.ts.html |here} to see how to use ListAutonomousDatabaseRefreshableClones API.
+   */
+  public async listAutonomousDatabaseRefreshableClones(
+    listAutonomousDatabaseRefreshableClonesRequest: requests.ListAutonomousDatabaseRefreshableClonesRequest
+  ): Promise<responses.ListAutonomousDatabaseRefreshableClonesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousDatabaseRefreshableClones."
+      );
+    const operationName = "listAutonomousDatabaseRefreshableClones";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ListAutonomousDatabaseRefreshableClones";
+    const pathParams = {
+      "{autonomousDatabaseId}": listAutonomousDatabaseRefreshableClonesRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {
+      "limit": listAutonomousDatabaseRefreshableClonesRequest.limit,
+      "page": listAutonomousDatabaseRefreshableClonesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutonomousDatabaseRefreshableClonesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousDatabaseRefreshableClonesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/{autonomousDatabaseId}/refreshableClones",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousDatabaseRefreshableClonesResponse>{},
+        body: await response.json(),
+        bodyKey: "refreshableCloneCollection",
+        bodyModel: model.RefreshableCloneCollection,
+        type: "model.RefreshableCloneCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of Autonomous Databases based on the query parameters specified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -20742,6 +21004,96 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyKey: "pluggableDatabase",
         bodyModel: model.PluggableDatabase,
         type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove Virtual Machines from the Cloud VM cluster. Applies to Exadata Cloud instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveVirtualMachineFromCloudVmClusterRequest
+   * @return RemoveVirtualMachineFromCloudVmClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RemoveVirtualMachineFromCloudVmCluster.ts.html |here} to see how to use RemoveVirtualMachineFromCloudVmCluster API.
+   */
+  public async removeVirtualMachineFromCloudVmCluster(
+    removeVirtualMachineFromCloudVmClusterRequest: requests.RemoveVirtualMachineFromCloudVmClusterRequest
+  ): Promise<responses.RemoveVirtualMachineFromCloudVmClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#removeVirtualMachineFromCloudVmCluster.");
+    const operationName = "removeVirtualMachineFromCloudVmCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudVmCluster/RemoveVirtualMachineFromCloudVmCluster";
+    const pathParams = {
+      "{cloudVmClusterId}": removeVirtualMachineFromCloudVmClusterRequest.cloudVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": removeVirtualMachineFromCloudVmClusterRequest.opcRetryToken,
+      "opc-request-id": removeVirtualMachineFromCloudVmClusterRequest.opcRequestId,
+      "if-match": removeVirtualMachineFromCloudVmClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeVirtualMachineFromCloudVmClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudVmClusters/{cloudVmClusterId}/actions/removeVirtualMachine",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeVirtualMachineFromCloudVmClusterRequest.removeVirtualMachineFromCloudVmClusterDetails,
+        "RemoveVirtualMachineFromCloudVmClusterDetails",
+        model.RemoveVirtualMachineFromCloudVmClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveVirtualMachineFromCloudVmClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudVmCluster",
+        bodyModel: model.CloudVmCluster,
+        type: "model.CloudVmCluster",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

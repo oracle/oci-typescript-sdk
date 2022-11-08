@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the cancellation details of the job.
+ * Cancellation details for a job.
  *
  */
 export interface CancellationDetails {

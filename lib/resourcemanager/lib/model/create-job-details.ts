@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Defines the requirements and properties of a job to create and run against the specified stack.
+ * Creation details for a job for running inside the specified stack.
  *
  */
 export interface CreateJobDetails {
@@ -37,6 +37,8 @@ export interface CreateJobDetails {
   "operation"?: string;
   "jobOperationDetails"?:
     | model.CreateImportTfStateJobOperationDetails
+    | model.CreatePlanRollbackJobOperationDetails
+    | model.CreateApplyRollbackJobOperationDetails
     | model.CreateApplyJobOperationDetails
     | model.CreatePlanJobOperationDetails
     | model.CreateDestroyJobOperationDetails;

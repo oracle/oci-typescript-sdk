@@ -50,11 +50,26 @@ export interface ListApplicationDependencyVulnerabilitiesRequest extends common.
   "sortOrder"?: model.SortOrder;
   /**
    * The field to sort by. Only one sort order may be provided.
+   * If sort order is dfs, the nodes are returned by going through the application dependency tree in a depth-first manner. Children are sorted based on their GAV property alphabetically (either ascending or descending, depending on the order parameter). Default order is ascending.
+   * If sort order is bfs, the nodes are returned by going through the application dependency tree in a breadth-first manner. Children are sorted based on their GAV property alphabetically (either ascending or descending, depending on the order parameter). Default order is ascending.
    * Default order for gav is ascending where ascending corresponds to alphanumerical order.
    * Default order for nodeId is ascending where ascending corresponds to alphanumerical order.
+   * Sorting by DFS or BFS cannot be used in conjunction with the following query parameters: \"gav\", \"cvssV2GreaterThanOrEqual\", \"cvssV3GreaterThanOrEqual\" and \"vulnerabilityId\".
    *
    */
   "sortBy"?: ListApplicationDependencyVulnerabilitiesRequest.SortBy;
+  /**
+   * A filter to override the top level root identifier with the new given value. The application dependency tree will only be traversed from the given node.
+   * Query parameters \"cvssV2GreaterThanOrEqual\", \"cvssV3GreaterThanOrEqual\", \"gav\" and \"vulnerabilityId\" cannot be used in conjunction with this parameter.
+   *
+   */
+  "rootNodeId"?: string;
+  /**
+   * A filter to limit depth of the application dependencies tree traversal.
+   * Additionally query parameters such as \"cvssV2GreaterThanOrEqual\", \"cvssV3GreaterThanOrEqual\", \"gav\" and \"vulnerabilityId\" can't be used in conjunction with this latter.
+   *
+   */
+  "depth"?: number;
   /**
    * A filter to return only resources that match the entire GAV (Group Artifact Version) identifier given.
    */
@@ -68,6 +83,8 @@ export interface ListApplicationDependencyVulnerabilitiesRequest extends common.
 export namespace ListApplicationDependencyVulnerabilitiesRequest {
   export enum SortBy {
     Gav = "gav",
-    NodeId = "nodeId"
+    NodeId = "nodeId",
+    Dfs = "dfs",
+    Bfs = "bfs"
   }
 }

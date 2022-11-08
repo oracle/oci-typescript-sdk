@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Job details that are specific to the operation type.
+ * A summary of job details that is specific to the operation type.
  *
  */
 export interface JobOperationDetailsSummary {
@@ -32,9 +32,19 @@ export namespace JobOperationDetailsSummary {
 
     if (obj && "operation" in obj && obj.operation) {
       switch (obj.operation) {
+        case "APPLY_ROLLBACK":
+          return model.ApplyRollbackJobOperationDetailsSummary.getJsonObj(
+            <model.ApplyRollbackJobOperationDetailsSummary>(<object>jsonObj),
+            true
+          );
         case "IMPORT_TF_STATE":
           return model.ImportTfStateJobOperationDetailsSummary.getJsonObj(
             <model.ImportTfStateJobOperationDetailsSummary>(<object>jsonObj),
+            true
+          );
+        case "PLAN_ROLLBACK":
+          return model.PlanRollbackJobOperationDetailsSummary.getJsonObj(
+            <model.PlanRollbackJobOperationDetailsSummary>(<object>jsonObj),
             true
           );
         case "PLAN":
@@ -63,9 +73,19 @@ export namespace JobOperationDetailsSummary {
 
     if (obj && "operation" in obj && obj.operation) {
       switch (obj.operation) {
+        case "APPLY_ROLLBACK":
+          return model.ApplyRollbackJobOperationDetailsSummary.getDeserializedJsonObj(
+            <model.ApplyRollbackJobOperationDetailsSummary>(<object>jsonObj),
+            true
+          );
         case "IMPORT_TF_STATE":
           return model.ImportTfStateJobOperationDetailsSummary.getDeserializedJsonObj(
             <model.ImportTfStateJobOperationDetailsSummary>(<object>jsonObj),
+            true
+          );
+        case "PLAN_ROLLBACK":
+          return model.PlanRollbackJobOperationDetailsSummary.getDeserializedJsonObj(
+            <model.PlanRollbackJobOperationDetailsSummary>(<object>jsonObj),
             true
           );
         case "PLAN":

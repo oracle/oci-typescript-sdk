@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates property details for the configuration .zip file.
+ * Update details for a configuration zip file.
  */
 export interface UpdateTemplateZipUploadConfigSourceDetails
   extends model.UpdateTemplateConfigSourceDetails {

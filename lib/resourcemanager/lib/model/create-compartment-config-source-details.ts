@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Property details for uploading the specified compartment as the configuration source.
+ * Creation details for a configuration source based on the specified compartment.
  *
  */
 export interface CreateCompartmentConfigSourceDetails extends model.CreateConfigSourceDetails {

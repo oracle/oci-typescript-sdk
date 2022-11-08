@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Property details for uploading the zip file for template.
+ * Creation details for a zip file used for a template.
  *
  */
 export interface CreateTemplateZipUploadConfigSourceDetails

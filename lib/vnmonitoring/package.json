@@ -1,6 +1,6 @@
 {
   "name": "oci-vnmonitoring",
-  "version": "2.47.0",
+  "version": "2.48.0",
   "description": "OCI NodeJS client for Vn Monitoring Service",
   "repository": {
     "type": "git",

@@ -44,6 +44,11 @@ export interface ChangeShapeNodes {
    */
   "cloudsql"?: string;
   "cloudsqlShapeConfig"?: model.ShapeConfigDetails;
+  /**
+   * Change shape of edge nodes to the desired target shape. Both VM_STANDARD and E4 Flex shapes are allowed here.
+   */
+  "edge"?: string;
+  "edgeShapeConfig"?: model.ShapeConfigDetails;
 }
 
 export namespace ChangeShapeNodes {
@@ -69,6 +74,10 @@ export namespace ChangeShapeNodes {
 
         "cloudsqlShapeConfig": obj.cloudsqlShapeConfig
           ? model.ShapeConfigDetails.getJsonObj(obj.cloudsqlShapeConfig)
+          : undefined,
+
+        "edgeShapeConfig": obj.edgeShapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.edgeShapeConfig)
           : undefined
       }
     };
@@ -97,6 +106,10 @@ export namespace ChangeShapeNodes {
 
         "cloudsqlShapeConfig": obj.cloudsqlShapeConfig
           ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.cloudsqlShapeConfig)
+          : undefined,
+
+        "edgeShapeConfig": obj.edgeShapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.edgeShapeConfig)
           : undefined
       }
     };

@@ -32,7 +32,7 @@ export interface PrivateServerConfigDetails {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of a certificate associated with the configuration source provider.
    *
    */
-  "certificateId"?: string;
+  "certificateId": string;
 }
 
 export namespace PrivateServerConfigDetails {

@@ -14,6 +14,8 @@
 
 import * as ActivateExadataInfrastructureDetails from "./activate-exadata-infrastructure-details";
 export import ActivateExadataInfrastructureDetails = ActivateExadataInfrastructureDetails.ActivateExadataInfrastructureDetails;
+import * as AddVirtualMachineToCloudVmClusterDetails from "./add-virtual-machine-to-cloud-vm-cluster-details";
+export import AddVirtualMachineToCloudVmClusterDetails = AddVirtualMachineToCloudVmClusterDetails.AddVirtualMachineToCloudVmClusterDetails;
 import * as AddVirtualMachineToVmClusterDetails from "./add-virtual-machine-to-vm-cluster-details";
 export import AddVirtualMachineToVmClusterDetails = AddVirtualMachineToVmClusterDetails.AddVirtualMachineToVmClusterDetails;
 import * as AssociatedDatabaseDetails from "./associated-database-details";
@@ -112,6 +114,8 @@ import * as CloudAutonomousVmClusterSummary from "./cloud-autonomous-vm-cluster-
 export import CloudAutonomousVmClusterSummary = CloudAutonomousVmClusterSummary.CloudAutonomousVmClusterSummary;
 import * as CloudDatabaseManagementConfig from "./cloud-database-management-config";
 export import CloudDatabaseManagementConfig = CloudDatabaseManagementConfig.CloudDatabaseManagementConfig;
+import * as CloudDbServerDetails from "./cloud-db-server-details";
+export import CloudDbServerDetails = CloudDbServerDetails.CloudDbServerDetails;
 import * as CloudExadataInfrastructure from "./cloud-exadata-infrastructure";
 export import CloudExadataInfrastructure = CloudExadataInfrastructure.CloudExadataInfrastructure;
 import * as CloudExadataInfrastructureSummary from "./cloud-exadata-infrastructure-summary";
@@ -420,12 +424,18 @@ import * as PluggableDatabaseConnectionStrings from "./pluggable-database-connec
 export import PluggableDatabaseConnectionStrings = PluggableDatabaseConnectionStrings.PluggableDatabaseConnectionStrings;
 import * as PluggableDatabaseSummary from "./pluggable-database-summary";
 export import PluggableDatabaseSummary = PluggableDatabaseSummary.PluggableDatabaseSummary;
+import * as RefreshableCloneCollection from "./refreshable-clone-collection";
+export import RefreshableCloneCollection = RefreshableCloneCollection.RefreshableCloneCollection;
+import * as RefreshableCloneSummary from "./refreshable-clone-summary";
+export import RefreshableCloneSummary = RefreshableCloneSummary.RefreshableCloneSummary;
 import * as RegisterAutonomousDatabaseDataSafeDetails from "./register-autonomous-database-data-safe-details";
 export import RegisterAutonomousDatabaseDataSafeDetails = RegisterAutonomousDatabaseDataSafeDetails.RegisterAutonomousDatabaseDataSafeDetails;
 import * as ReinstateDataGuardAssociationDetails from "./reinstate-data-guard-association-details";
 export import ReinstateDataGuardAssociationDetails = ReinstateDataGuardAssociationDetails.ReinstateDataGuardAssociationDetails;
 import * as RemoteClonePluggableDatabaseDetails from "./remote-clone-pluggable-database-details";
 export import RemoteClonePluggableDatabaseDetails = RemoteClonePluggableDatabaseDetails.RemoteClonePluggableDatabaseDetails;
+import * as RemoveVirtualMachineFromCloudVmClusterDetails from "./remove-virtual-machine-from-cloud-vm-cluster-details";
+export import RemoveVirtualMachineFromCloudVmClusterDetails = RemoveVirtualMachineFromCloudVmClusterDetails.RemoveVirtualMachineFromCloudVmClusterDetails;
 import * as RemoveVirtualMachineFromVmClusterDetails from "./remove-virtual-machine-from-vm-cluster-details";
 export import RemoveVirtualMachineFromVmClusterDetails = RemoveVirtualMachineFromVmClusterDetails.RemoveVirtualMachineFromVmClusterDetails;
 import * as ResizeVmClusterNetworkDetails from "./resize-vm-cluster-network-details";

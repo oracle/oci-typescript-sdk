@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Metadata about the user-provided Terraform configuration.
+ * Metadata about the zip file containing the Terraform configuration for the template.
  *
  */
 export interface TemplateZipUploadConfigSource extends model.TemplateConfigSource {

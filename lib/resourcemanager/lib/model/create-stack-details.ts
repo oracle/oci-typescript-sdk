@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for creating a stack.
+ * Creation details for a stack.
  *
  */
 export interface CreateStackDetails {

@@ -23,7 +23,7 @@ export interface UpdateStackRequest extends common.BaseRequest {
    */
   "stackId": string;
   /**
-   * Updated information provided for the stack.
+   * The details for updating a stack.
    *
    */
   "updateStackDetails": model.UpdateStackDetails;

@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for moving a template to a different compartment.
+ * Compartment details for moving a template.
  *
  */
 export interface ChangeTemplateCompartmentDetails {

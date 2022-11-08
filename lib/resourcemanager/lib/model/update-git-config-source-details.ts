@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates property details for the configuration git information.
+ * Update details for a Git configuration source.
  */
 export interface UpdateGitConfigSourceDetails extends model.UpdateConfigSourceDetails {
   /**
