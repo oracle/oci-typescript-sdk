@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specifies which fields and the data for each to update on the specified stack.
+ * Update  details for a stack.
  *
  */
 export interface UpdateStackDetails {
@@ -40,8 +40,7 @@ export interface UpdateStackDetails {
    * When `true`, changes the stack's sourcing of third-party Terraform providers to
    * [Terraform Registry](https://registry.terraform.io/browse/providers) and allows
    * {@link #customTerraformProvider(CustomTerraformProviderRequest) customTerraformProvider}.
-   * Applies to older stacks that use Terraform version 0.12.x and 0.13.x only.
-   * (Older stacks that use other Terraform versions are automatically updated.)
+   * Applies to older stacks.
    * Once set to `true`, cannot be reverted.
    * For more information about stack sourcing of third-party Terraform providers, see
    * [Third-party Provider Configuration](https://docs.cloud.oracle.com/iaas/Content/ResourceManager/Concepts/terraformconfigresourcemanager.htm#third-party-providers).

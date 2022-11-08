@@ -52,6 +52,22 @@ export interface CreateCloudVmClusterDetails {
    */
   "ocpuCount"?: number;
   /**
+   * The memory to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The local node storage to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The data disk group size to be allocated in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInTBs"?: number;
+  /**
+   * The list of Db servers.
+   */
+  "dbServers"?: Array<string>;
+  /**
    * The cluster name for cloud VM cluster. The cluster name must begin with an alphabetic character, and may contain hyphens (-). Underscores (_) are not permitted. The cluster name can be no longer than 11 characters and is not case sensitive.
    *
    */

@@ -956,6 +956,8 @@ export class ApplicationDependencyManagementClient {
       "page": listApplicationDependencyVulnerabilitiesRequest.page,
       "sortOrder": listApplicationDependencyVulnerabilitiesRequest.sortOrder,
       "sortBy": listApplicationDependencyVulnerabilitiesRequest.sortBy,
+      "rootNodeId": listApplicationDependencyVulnerabilitiesRequest.rootNodeId,
+      "depth": listApplicationDependencyVulnerabilitiesRequest.depth,
       "gav": listApplicationDependencyVulnerabilitiesRequest.gav
     };
 

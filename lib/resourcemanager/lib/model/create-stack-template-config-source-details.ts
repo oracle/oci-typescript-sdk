@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The template to use as the source of the Terraform configuration.
+ * Creation details for a template to use as the source of the Terraform configuration.
  *
  */
 export interface CreateStackTemplateConfigSourceDetails extends model.CreateConfigSourceDetails {

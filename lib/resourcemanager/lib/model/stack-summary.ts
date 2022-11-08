@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Returns a list of properties and the defining property values for the specified stack.
+ * Summary information for a stack.
  *
  */
 export interface StackSummary {

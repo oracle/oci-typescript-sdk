@@ -53,6 +53,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAddStorageCapacityCloudExadataInfrastructure
+   *
+   * @param request the request to send
+   * @return response returns AddStorageCapacityCloudExadataInfrastructureResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddStorageCapacityCloudExadataInfrastructure(
+    request: serviceRequests.AddStorageCapacityCloudExadataInfrastructureRequest
+  ): Promise<{
+    response: serviceResponses.AddStorageCapacityCloudExadataInfrastructureResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addStorageCapacityCloudExadataInfrastructureResponse = await this.client.addStorageCapacityCloudExadataInfrastructure(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addStorageCapacityCloudExadataInfrastructureResponse.opcWorkRequestId
+    );
+    return {
+      response: addStorageCapacityCloudExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forAddStorageCapacityExadataInfrastructure
    *
    * @param request the request to send
@@ -74,6 +100,32 @@ export class DatabaseWaiter {
     );
     return {
       response: addStorageCapacityExadataInfrastructureResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forAddVirtualMachineToCloudVmCluster
+   *
+   * @param request the request to send
+   * @return response returns AddVirtualMachineToCloudVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forAddVirtualMachineToCloudVmCluster(
+    request: serviceRequests.AddVirtualMachineToCloudVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.AddVirtualMachineToCloudVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const addVirtualMachineToCloudVmClusterResponse = await this.client.addVirtualMachineToCloudVmCluster(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      addVirtualMachineToCloudVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: addVirtualMachineToCloudVmClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -3216,6 +3268,32 @@ export class DatabaseWaiter {
     );
     return {
       response: remoteClonePluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRemoveVirtualMachineFromCloudVmCluster
+   *
+   * @param request the request to send
+   * @return response returns RemoveVirtualMachineFromCloudVmClusterResponse, GetWorkRequestResponse tuple
+   */
+  public async forRemoveVirtualMachineFromCloudVmCluster(
+    request: serviceRequests.RemoveVirtualMachineFromCloudVmClusterRequest
+  ): Promise<{
+    response: serviceResponses.RemoveVirtualMachineFromCloudVmClusterResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const removeVirtualMachineFromCloudVmClusterResponse = await this.client.removeVirtualMachineFromCloudVmCluster(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      removeVirtualMachineFromCloudVmClusterResponse.opcWorkRequestId
+    );
+    return {
+      response: removeVirtualMachineFromCloudVmClusterResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

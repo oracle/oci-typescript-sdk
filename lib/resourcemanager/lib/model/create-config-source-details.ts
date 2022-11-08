@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Property details for the configuration source used for the stack.
+ * Creation details for a configuration source used with the stack.
  *
  */
 export interface CreateConfigSourceDetails {

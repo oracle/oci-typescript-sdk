@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates property details for the Object Storage bucket that contains Terraform configuration files.
+ * Update details for an Object Storage bucket that contains Terraform configuration files.
  */
 export interface UpdateObjectStorageConfigSourceDetails extends model.UpdateConfigSourceDetails {
   /**

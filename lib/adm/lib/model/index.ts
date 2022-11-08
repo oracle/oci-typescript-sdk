@@ -51,6 +51,8 @@ import * as VulnerabilityAuditCollection from "./vulnerability-audit-collection"
 export import VulnerabilityAuditCollection = VulnerabilityAuditCollection.VulnerabilityAuditCollection;
 import * as VulnerabilityAuditConfiguration from "./vulnerability-audit-configuration";
 export import VulnerabilityAuditConfiguration = VulnerabilityAuditConfiguration.VulnerabilityAuditConfiguration;
+import * as VulnerabilityAuditSource from "./vulnerability-audit-source";
+export import VulnerabilityAuditSource = VulnerabilityAuditSource.VulnerabilityAuditSource;
 import * as VulnerabilityAuditSummary from "./vulnerability-audit-summary";
 export import VulnerabilityAuditSummary = VulnerabilityAuditSummary.VulnerabilityAuditSummary;
 import * as WorkRequest from "./work-request";
@@ -71,3 +73,10 @@ import * as WorkRequestSummary from "./work-request-summary";
 export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 import * as WorkRequestSummaryCollection from "./work-request-summary-collection";
 export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRequestSummaryCollection;
+
+import * as ExternalResourceVulnerabilityAuditSource from "./external-resource-vulnerability-audit-source";
+export import ExternalResourceVulnerabilityAuditSource = ExternalResourceVulnerabilityAuditSource.ExternalResourceVulnerabilityAuditSource;
+import * as OciResourceVulnerabilityAuditSource from "./oci-resource-vulnerability-audit-source";
+export import OciResourceVulnerabilityAuditSource = OciResourceVulnerabilityAuditSource.OciResourceVulnerabilityAuditSource;
+import * as UnknownSourceVulnerabilityAuditSource from "./unknown-source-vulnerability-audit-source";
+export import UnknownSourceVulnerabilityAuditSource = UnknownSourceVulnerabilityAuditSource.UnknownSourceVulnerabilityAuditSource;

@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates the display name, free-form tags, and/or defined tag properties of the job.
+ * Update details for a job.
  *
  */
 export interface UpdateJobDetails {

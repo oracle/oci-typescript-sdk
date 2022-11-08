@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for detecting drift in a stack
+ * Details for detecting drift in a stack.
  *
  */
 export interface DetectStackDriftDetails {

@@ -42,6 +42,16 @@ export namespace JobOperationDetails {
             <model.PlanJobOperationDetails>(<object>jsonObj),
             true
           );
+        case "APPLY_ROLLBACK":
+          return model.ApplyRollbackJobOperationDetails.getJsonObj(
+            <model.ApplyRollbackJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "PLAN_ROLLBACK":
+          return model.PlanRollbackJobOperationDetails.getJsonObj(
+            <model.PlanRollbackJobOperationDetails>(<object>jsonObj),
+            true
+          );
         case "APPLY":
           return model.ApplyJobOperationDetails.getJsonObj(
             <model.ApplyJobOperationDetails>(<object>jsonObj),
@@ -71,6 +81,16 @@ export namespace JobOperationDetails {
         case "PLAN":
           return model.PlanJobOperationDetails.getDeserializedJsonObj(
             <model.PlanJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "APPLY_ROLLBACK":
+          return model.ApplyRollbackJobOperationDetails.getDeserializedJsonObj(
+            <model.ApplyRollbackJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "PLAN_ROLLBACK":
+          return model.PlanRollbackJobOperationDetails.getDeserializedJsonObj(
+            <model.PlanRollbackJobOperationDetails>(<object>jsonObj),
             true
           );
         case "APPLY":

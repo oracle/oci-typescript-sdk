@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Property details for uploading the configuration zip file.
+ * Creation details for a Terraform configuration zip file.
  *
  */
 export interface CreateZipUploadConfigSourceDetails extends model.CreateConfigSourceDetails {

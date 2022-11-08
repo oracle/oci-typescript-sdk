@@ -46,7 +46,8 @@ export interface AddWorkerNodesDetails {
 export namespace AddWorkerNodesDetails {
   export enum NodeType {
     Worker = "WORKER",
-    ComputeOnlyWorker = "COMPUTE_ONLY_WORKER"
+    ComputeOnlyWorker = "COMPUTE_ONLY_WORKER",
+    Edge = "EDGE"
   }
 
   export function getJsonObj(obj: AddWorkerNodesDetails): object {

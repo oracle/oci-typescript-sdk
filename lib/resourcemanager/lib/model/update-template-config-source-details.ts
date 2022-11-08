@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Updates the property details for the configuration source for the template.
+ * Update details for a configuration source for a template.
  *
  */
 export interface UpdateTemplateConfigSourceDetails {

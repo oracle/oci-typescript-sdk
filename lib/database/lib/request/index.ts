@@ -14,8 +14,12 @@
 
 import * as ActivateExadataInfrastructureRequest from "./activate-exadata-infrastructure-request";
 export import ActivateExadataInfrastructureRequest = ActivateExadataInfrastructureRequest.ActivateExadataInfrastructureRequest;
+import * as AddStorageCapacityCloudExadataInfrastructureRequest from "./add-storage-capacity-cloud-exadata-infrastructure-request";
+export import AddStorageCapacityCloudExadataInfrastructureRequest = AddStorageCapacityCloudExadataInfrastructureRequest.AddStorageCapacityCloudExadataInfrastructureRequest;
 import * as AddStorageCapacityExadataInfrastructureRequest from "./add-storage-capacity-exadata-infrastructure-request";
 export import AddStorageCapacityExadataInfrastructureRequest = AddStorageCapacityExadataInfrastructureRequest.AddStorageCapacityExadataInfrastructureRequest;
+import * as AddVirtualMachineToCloudVmClusterRequest from "./add-virtual-machine-to-cloud-vm-cluster-request";
+export import AddVirtualMachineToCloudVmClusterRequest = AddVirtualMachineToCloudVmClusterRequest.AddVirtualMachineToCloudVmClusterRequest;
 import * as AddVirtualMachineToVmClusterRequest from "./add-virtual-machine-to-vm-cluster-request";
 export import AddVirtualMachineToVmClusterRequest = AddVirtualMachineToVmClusterRequest.AddVirtualMachineToVmClusterRequest;
 import * as AutonomousDatabaseManualRefreshRequest from "./autonomous-database-manual-refresh-request";
@@ -332,6 +336,8 @@ import * as ListAutonomousDatabaseClonesRequest from "./list-autonomous-database
 export import ListAutonomousDatabaseClonesRequest = ListAutonomousDatabaseClonesRequest.ListAutonomousDatabaseClonesRequest;
 import * as ListAutonomousDatabaseDataguardAssociationsRequest from "./list-autonomous-database-dataguard-associations-request";
 export import ListAutonomousDatabaseDataguardAssociationsRequest = ListAutonomousDatabaseDataguardAssociationsRequest.ListAutonomousDatabaseDataguardAssociationsRequest;
+import * as ListAutonomousDatabaseRefreshableClonesRequest from "./list-autonomous-database-refreshable-clones-request";
+export import ListAutonomousDatabaseRefreshableClonesRequest = ListAutonomousDatabaseRefreshableClonesRequest.ListAutonomousDatabaseRefreshableClonesRequest;
 import * as ListAutonomousDatabasesRequest from "./list-autonomous-databases-request";
 export import ListAutonomousDatabasesRequest = ListAutonomousDatabasesRequest.ListAutonomousDatabasesRequest;
 import * as ListAutonomousDbPreviewVersionsRequest from "./list-autonomous-db-preview-versions-request";
@@ -448,6 +454,8 @@ import * as ReinstateDataGuardAssociationRequest from "./reinstate-data-guard-as
 export import ReinstateDataGuardAssociationRequest = ReinstateDataGuardAssociationRequest.ReinstateDataGuardAssociationRequest;
 import * as RemoteClonePluggableDatabaseRequest from "./remote-clone-pluggable-database-request";
 export import RemoteClonePluggableDatabaseRequest = RemoteClonePluggableDatabaseRequest.RemoteClonePluggableDatabaseRequest;
+import * as RemoveVirtualMachineFromCloudVmClusterRequest from "./remove-virtual-machine-from-cloud-vm-cluster-request";
+export import RemoveVirtualMachineFromCloudVmClusterRequest = RemoveVirtualMachineFromCloudVmClusterRequest.RemoveVirtualMachineFromCloudVmClusterRequest;
 import * as RemoveVirtualMachineFromVmClusterRequest from "./remove-virtual-machine-from-vm-cluster-request";
 export import RemoveVirtualMachineFromVmClusterRequest = RemoveVirtualMachineFromVmClusterRequest.RemoveVirtualMachineFromVmClusterRequest;
 import * as ResizeVmClusterNetworkRequest from "./resize-vm-cluster-network-request";

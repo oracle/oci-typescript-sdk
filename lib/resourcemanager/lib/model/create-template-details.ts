@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for creating a template.
+ * Creation details for a template.
  *
  */
 export interface CreateTemplateDetails {

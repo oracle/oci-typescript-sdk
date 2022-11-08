@@ -68,6 +68,12 @@ export interface CreatePrivateEndpointDetails {
    */
   "nsgIds"?: Array<string>;
   /**
+   * An array of fqdn/port pairs used to create private endpoint. Each object is a simple key-value pair with FQDN as key and port number as value.
+   * [ { fqdn: \"scan1.oracle.com\", port: \"1521\"}, { fqdn: \"scan2.oracle.com\", port: \"1521\" } ]
+   *
+   */
+  "scanDetails"?: Array<model.Scan>;
+  /**
    * The OCID of a subnet.
    *
    */
@@ -76,12 +82,30 @@ export interface CreatePrivateEndpointDetails {
 
 export namespace CreatePrivateEndpointDetails {
   export function getJsonObj(obj: CreatePrivateEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scanDetails": obj.scanDetails
+          ? obj.scanDetails.map(item => {
+              return model.Scan.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreatePrivateEndpointDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "scanDetails": obj.scanDetails
+          ? obj.scanDetails.map(item => {
+              return model.Scan.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

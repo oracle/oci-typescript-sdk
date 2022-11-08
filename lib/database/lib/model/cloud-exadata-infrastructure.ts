@@ -62,6 +62,47 @@ export interface CloudExadataInfrastructure {
    */
   "availableStorageSizeInGBs"?: number;
   /**
+   * The total number of CPU cores allocated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCount"?: number;
+  /**
+   * The total number of CPU cores available. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxCpuCount"?: number;
+  /**
+   * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The total memory available in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxMemoryInGBs"?: number;
+  /**
+   * The local node storage allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The total local node storage available in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxDbNodeStorageInGBs"?: number;
+  /**
+   * Size, in terabytes, of the DATA disk group.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInTBs"?: number;
+  /**
+   * The total available DATA disk group size. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxDataStorageInTBs"?: number;
+  /**
+   * The requested number of additional storage servers for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "additionalStorageCount"?: number;
+  /**
+   * The requested number of additional storage servers activated for the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "activatedStorageCount"?: number;
+  /**
    * The date and time the cloud Exadata infrastructure resource was created.
    */
   "timeCreated"?: Date;

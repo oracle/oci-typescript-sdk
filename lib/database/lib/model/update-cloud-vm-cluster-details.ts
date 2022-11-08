@@ -34,6 +34,18 @@ export interface UpdateCloudVmClusterDetails {
    */
   "ocpuCount"?: number;
   /**
+   * The memory to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memorySizeInGBs"?: number;
+  /**
+   * The local node storage to be allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dbNodeStorageSizeInGBs"?: number;
+  /**
+   * The data disk group size to be allocated in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "dataStorageSizeInTBs"?: number;
+  /**
    * The Oracle license model that applies to the cloud VM cluster. The default is BRING_YOUR_OWN_LICENSE. Applies to Exadata Cloud Service instances only.
    *
    */

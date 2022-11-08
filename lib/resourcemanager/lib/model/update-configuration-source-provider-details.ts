@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for updating a configuration source provider.
+ * Update details for a configuration source provider.
  *
  */
 export interface UpdateConfigurationSourceProviderDetails {

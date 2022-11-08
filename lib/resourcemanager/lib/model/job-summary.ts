@@ -19,7 +19,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Returns a listing of all of the specified job's properties and their values.
+ * Summary information for a job.
  */
 export interface JobSummary {
   /**
@@ -43,7 +43,9 @@ export interface JobSummary {
    */
   "operation"?: string;
   "jobOperationDetails"?:
+    | model.ApplyRollbackJobOperationDetailsSummary
     | model.ImportTfStateJobOperationDetailsSummary
+    | model.PlanRollbackJobOperationDetailsSummary
     | model.PlanJobOperationDetailsSummary
     | model.DestroyJobOperationDetailsSummary
     | model.ApplyJobOperationDetailsSummary;

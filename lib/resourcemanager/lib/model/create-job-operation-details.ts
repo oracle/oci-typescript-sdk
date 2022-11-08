@@ -45,6 +45,16 @@ export namespace CreateJobOperationDetails {
             <model.CreateImportTfStateJobOperationDetails>(<object>jsonObj),
             true
           );
+        case "PLAN_ROLLBACK":
+          return model.CreatePlanRollbackJobOperationDetails.getJsonObj(
+            <model.CreatePlanRollbackJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "APPLY_ROLLBACK":
+          return model.CreateApplyRollbackJobOperationDetails.getJsonObj(
+            <model.CreateApplyRollbackJobOperationDetails>(<object>jsonObj),
+            true
+          );
         case "APPLY":
           return model.CreateApplyJobOperationDetails.getJsonObj(
             <model.CreateApplyJobOperationDetails>(<object>jsonObj),
@@ -74,6 +84,16 @@ export namespace CreateJobOperationDetails {
         case "IMPORT_TF_STATE":
           return model.CreateImportTfStateJobOperationDetails.getDeserializedJsonObj(
             <model.CreateImportTfStateJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "PLAN_ROLLBACK":
+          return model.CreatePlanRollbackJobOperationDetails.getDeserializedJsonObj(
+            <model.CreatePlanRollbackJobOperationDetails>(<object>jsonObj),
+            true
+          );
+        case "APPLY_ROLLBACK":
+          return model.CreateApplyRollbackJobOperationDetails.getDeserializedJsonObj(
+            <model.CreateApplyRollbackJobOperationDetails>(<object>jsonObj),
             true
           );
         case "APPLY":

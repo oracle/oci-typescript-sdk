@@ -56,6 +56,8 @@ import * as RunLogSummary from "./run-log-summary";
 export import RunLogSummary = RunLogSummary.RunLogSummary;
 import * as RunSummary from "./run-summary";
 export import RunSummary = RunSummary.RunSummary;
+import * as Scan from "./scan";
+export import Scan = Scan.Scan;
 import * as ShapeConfig from "./shape-config";
 export import ShapeConfig = ShapeConfig.ShapeConfig;
 import * as Statement from "./statement";
