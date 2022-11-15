@@ -28,6 +28,7 @@ export interface UpdateCloudAutonomousVmClusterDetails {
    *
    */
   "displayName"?: string;
+  "maintenanceWindowDetails"?: model.MaintenanceWindow;
   /**
    * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
    * License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
@@ -66,12 +67,26 @@ export namespace UpdateCloudAutonomousVmClusterDetails {
   }
 
   export function getJsonObj(obj: UpdateCloudAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateCloudAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

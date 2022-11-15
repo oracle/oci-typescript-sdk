@@ -2742,6 +2742,168 @@ export class ResourceManagerClient {
   }
 
   /**
+   * Gets the list of resources associated with the specified job.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListJobAssociatedResourcesRequest
+   * @return ListJobAssociatedResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobAssociatedResources.ts.html |here} to see how to use ListJobAssociatedResources API.
+   */
+  public async listJobAssociatedResources(
+    listJobAssociatedResourcesRequest: requests.ListJobAssociatedResourcesRequest
+  ): Promise<responses.ListJobAssociatedResourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listJobAssociatedResources.");
+    const operationName = "listJobAssociatedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/AssociatedResourceSummary/ListJobAssociatedResources";
+    const pathParams = {
+      "{jobId}": listJobAssociatedResourcesRequest.jobId
+    };
+
+    const queryParams = {
+      "compartmentId": listJobAssociatedResourcesRequest.compartmentId,
+      "terraformResourceType": listJobAssociatedResourcesRequest.terraformResourceType,
+      "limit": listJobAssociatedResourcesRequest.limit,
+      "page": listJobAssociatedResourcesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJobAssociatedResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobAssociatedResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/associatedResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJobAssociatedResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "associatedResourcesCollection",
+        bodyModel: model.AssociatedResourcesCollection,
+        type: "model.AssociatedResourcesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of outputs associated with the specified job.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListJobOutputsRequest
+   * @return ListJobOutputsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListJobOutputs.ts.html |here} to see how to use ListJobOutputs API.
+   */
+  public async listJobOutputs(
+    listJobOutputsRequest: requests.ListJobOutputsRequest
+  ): Promise<responses.ListJobOutputsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ResourceManagerClient#listJobOutputs.");
+    const operationName = "listJobOutputs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/JobOutputSummary/ListJobOutputs";
+    const pathParams = {
+      "{jobId}": listJobOutputsRequest.jobId
+    };
+
+    const queryParams = {
+      "compartmentId": listJobOutputsRequest.compartmentId,
+      "limit": listJobOutputsRequest.limit,
+      "page": listJobOutputsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJobOutputsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJobOutputsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/jobs/{jobId}/outputs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJobOutputsResponse>{},
+        body: await response.json(),
+        bodyKey: "jobOutputsCollection",
+        bodyModel: model.JobOutputsCollection,
+        type: "model.JobOutputsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Lists jobs according to the specified filter. By default, the list is ordered by time created.
 * <p>
 - To list all jobs in a stack, provide the stack [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
@@ -3030,6 +3192,88 @@ export class ResourceManagerClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the list of resources associated with the specified stack.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListStackAssociatedResourcesRequest
+   * @return ListStackAssociatedResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/resourcemanager/ListStackAssociatedResources.ts.html |here} to see how to use ListStackAssociatedResources API.
+   */
+  public async listStackAssociatedResources(
+    listStackAssociatedResourcesRequest: requests.ListStackAssociatedResourcesRequest
+  ): Promise<responses.ListStackAssociatedResourcesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ResourceManagerClient#listStackAssociatedResources.");
+    const operationName = "listStackAssociatedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/resourcemanager/20180917/AssociatedResourceSummary/ListStackAssociatedResources";
+    const pathParams = {
+      "{stackId}": listStackAssociatedResourcesRequest.stackId
+    };
+
+    const queryParams = {
+      "terraformResourceType": listStackAssociatedResourcesRequest.terraformResourceType,
+      "compartmentId": listStackAssociatedResourcesRequest.compartmentId,
+      "limit": listStackAssociatedResourcesRequest.limit,
+      "page": listStackAssociatedResourcesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listStackAssociatedResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listStackAssociatedResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/stacks/{stackId}/associatedResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListStackAssociatedResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "associatedResourcesCollection",
+        bodyModel: model.AssociatedResourcesCollection,
+        type: "model.AssociatedResourcesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
