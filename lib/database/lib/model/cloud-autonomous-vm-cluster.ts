@@ -122,6 +122,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "ocpuCount"?: number;
   /**
+   * The number of OCPU cores enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCoreCountPerNode"?: number;
+  /**
    * The memory allocated in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memorySizeInGBs"?: number;
@@ -141,6 +145,7 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the next maintenance run.
    */
   "nextMaintenanceRunId"?: string;
+  "maintenanceWindow"?: model.MaintenanceWindow;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -216,12 +221,26 @@ export namespace CloudAutonomousVmCluster {
   }
 
   export function getJsonObj(obj: CloudAutonomousVmCluster): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CloudAutonomousVmCluster): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

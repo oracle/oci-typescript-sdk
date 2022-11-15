@@ -244,6 +244,8 @@ import * as GetCloudAutonomousVmClusterResponse from "./get-cloud-autonomous-vm-
 export import GetCloudAutonomousVmClusterResponse = GetCloudAutonomousVmClusterResponse.GetCloudAutonomousVmClusterResponse;
 import * as GetCloudExadataInfrastructureResponse from "./get-cloud-exadata-infrastructure-response";
 export import GetCloudExadataInfrastructureResponse = GetCloudExadataInfrastructureResponse.GetCloudExadataInfrastructureResponse;
+import * as GetCloudExadataInfrastructureUnallocatedResourcesResponse from "./get-cloud-exadata-infrastructure-unallocated-resources-response";
+export import GetCloudExadataInfrastructureUnallocatedResourcesResponse = GetCloudExadataInfrastructureUnallocatedResourcesResponse.GetCloudExadataInfrastructureUnallocatedResourcesResponse;
 import * as GetCloudVmClusterResponse from "./get-cloud-vm-cluster-response";
 export import GetCloudVmClusterResponse = GetCloudVmClusterResponse.GetCloudVmClusterResponse;
 import * as GetCloudVmClusterIormConfigResponse from "./get-cloud-vm-cluster-iorm-config-response";

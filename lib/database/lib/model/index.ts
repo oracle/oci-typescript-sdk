@@ -110,6 +110,8 @@ import * as ChangeVmClusterCompartmentDetails from "./change-vm-cluster-compartm
 export import ChangeVmClusterCompartmentDetails = ChangeVmClusterCompartmentDetails.ChangeVmClusterCompartmentDetails;
 import * as CloudAutonomousVmCluster from "./cloud-autonomous-vm-cluster";
 export import CloudAutonomousVmCluster = CloudAutonomousVmCluster.CloudAutonomousVmCluster;
+import * as CloudAutonomousVmClusterResourceDetails from "./cloud-autonomous-vm-cluster-resource-details";
+export import CloudAutonomousVmClusterResourceDetails = CloudAutonomousVmClusterResourceDetails.CloudAutonomousVmClusterResourceDetails;
 import * as CloudAutonomousVmClusterSummary from "./cloud-autonomous-vm-cluster-summary";
 export import CloudAutonomousVmClusterSummary = CloudAutonomousVmClusterSummary.CloudAutonomousVmClusterSummary;
 import * as CloudDatabaseManagementConfig from "./cloud-database-management-config";
@@ -120,6 +122,8 @@ import * as CloudExadataInfrastructure from "./cloud-exadata-infrastructure";
 export import CloudExadataInfrastructure = CloudExadataInfrastructure.CloudExadataInfrastructure;
 import * as CloudExadataInfrastructureSummary from "./cloud-exadata-infrastructure-summary";
 export import CloudExadataInfrastructureSummary = CloudExadataInfrastructureSummary.CloudExadataInfrastructureSummary;
+import * as CloudExadataInfrastructureUnallocatedResources from "./cloud-exadata-infrastructure-unallocated-resources";
+export import CloudExadataInfrastructureUnallocatedResources = CloudExadataInfrastructureUnallocatedResources.CloudExadataInfrastructureUnallocatedResources;
 import * as CloudVmCluster from "./cloud-vm-cluster";
 export import CloudVmCluster = CloudVmCluster.CloudVmCluster;
 import * as CloudVmClusterSummary from "./cloud-vm-cluster-summary";

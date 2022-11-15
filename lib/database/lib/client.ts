@@ -9839,6 +9839,87 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets un allocated resources information for the specified Cloud Exadata infrastructure.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCloudExadataInfrastructureUnallocatedResourcesRequest
+   * @return GetCloudExadataInfrastructureUnallocatedResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudExadataInfrastructureUnallocatedResources.ts.html |here} to see how to use GetCloudExadataInfrastructureUnallocatedResources API.
+   */
+  public async getCloudExadataInfrastructureUnallocatedResources(
+    getCloudExadataInfrastructureUnallocatedResourcesRequest: requests.GetCloudExadataInfrastructureUnallocatedResourcesRequest
+  ): Promise<responses.GetCloudExadataInfrastructureUnallocatedResourcesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getCloudExadataInfrastructureUnallocatedResources."
+      );
+    const operationName = "getCloudExadataInfrastructureUnallocatedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudExadataInfrastructureUnallocatedResources/GetCloudExadataInfrastructureUnallocatedResources";
+    const pathParams = {
+      "{cloudExadataInfrastructureId}":
+        getCloudExadataInfrastructureUnallocatedResourcesRequest.cloudExadataInfrastructureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudExadataInfrastructureUnallocatedResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudExadataInfrastructureUnallocatedResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudExadataInfrastructures/{cloudExadataInfrastructureId}/unAllocatedResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudExadataInfrastructureUnallocatedResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudExadataInfrastructureUnallocatedResources",
+        bodyModel: model.CloudExadataInfrastructureUnallocatedResources,
+        type: "model.CloudExadataInfrastructureUnallocatedResources",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified cloud VM cluster. Applies to Exadata Cloud Service instances and Autonomous Database on dedicated Exadata infrastructure only.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.

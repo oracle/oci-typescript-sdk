@@ -17,6 +17,10 @@ For more information, see
 
 import * as ApplyJobPlanResolution from "./apply-job-plan-resolution";
 export import ApplyJobPlanResolution = ApplyJobPlanResolution.ApplyJobPlanResolution;
+import * as AssociatedResourceSummary from "./associated-resource-summary";
+export import AssociatedResourceSummary = AssociatedResourceSummary.AssociatedResourceSummary;
+import * as AssociatedResourcesCollection from "./associated-resources-collection";
+export import AssociatedResourcesCollection = AssociatedResourcesCollection.AssociatedResourcesCollection;
 import * as CancellationDetails from "./cancellation-details";
 export import CancellationDetails = CancellationDetails.CancellationDetails;
 import * as ChangeConfigurationSourceProviderCompartmentDetails from "./change-configuration-source-provider-compartment-details";
@@ -65,6 +69,10 @@ import * as JobOperationDetails from "./job-operation-details";
 export import JobOperationDetails = JobOperationDetails.JobOperationDetails;
 import * as JobOperationDetailsSummary from "./job-operation-details-summary";
 export import JobOperationDetailsSummary = JobOperationDetailsSummary.JobOperationDetailsSummary;
+import * as JobOutputSummary from "./job-output-summary";
+export import JobOutputSummary = JobOutputSummary.JobOutputSummary;
+import * as JobOutputsCollection from "./job-outputs-collection";
+export import JobOutputsCollection = JobOutputsCollection.JobOutputsCollection;
 import * as JobSummary from "./job-summary";
 export import JobSummary = JobSummary.JobSummary;
 import * as LogEntry from "./log-entry";

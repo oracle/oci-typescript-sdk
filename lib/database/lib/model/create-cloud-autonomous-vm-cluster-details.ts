@@ -42,9 +42,30 @@ export interface CreateCloudAutonomousVmClusterDetails {
    */
   "cloudExadataInfrastructureId": string;
   /**
+   * The total number of Autonomous Container Databases that can be created. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalContainerDatabases"?: number;
+  /**
+   * The number of OCPU cores to enable per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "cpuCoreCountPerNode"?: number;
+  /**
+   * The amount of memory (in GBs) to be enabled per each OCPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The data disk group size to be allocated for Autonomous Databases, in TBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "autonomousDataStorageSizeInTBs"?: number;
+  /**
    * The time zone to use for the Cloud Autonomous VM cluster. For details, see [DB System Time Zones](https://docs.cloud.oracle.com/Content/Database/References/timezones.htm).
    */
   "clusterTimeZone"?: string;
+  /**
+   * The list of Db server.
+   */
+  "dbServers"?: Array<string>;
+  "maintenanceWindowDetails"?: model.MaintenanceWindow;
   /**
    * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
    * License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
@@ -83,12 +104,26 @@ export namespace CreateCloudAutonomousVmClusterDetails {
   }
 
   export function getJsonObj(obj: CreateCloudAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateCloudAutonomousVmClusterDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "maintenanceWindowDetails": obj.maintenanceWindowDetails
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindowDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

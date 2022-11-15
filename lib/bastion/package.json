@@ -1,6 +1,6 @@
 {
   "name": "oci-bastion",
-  "version": "2.48.0",
+  "version": "2.48.1",
   "description": "OCI NodeJS client for Bastion Service",
   "repository": {
     "type": "git",

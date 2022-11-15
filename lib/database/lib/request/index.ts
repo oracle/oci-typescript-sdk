@@ -244,6 +244,8 @@ import * as GetCloudAutonomousVmClusterRequest from "./get-cloud-autonomous-vm-c
 export import GetCloudAutonomousVmClusterRequest = GetCloudAutonomousVmClusterRequest.GetCloudAutonomousVmClusterRequest;
 import * as GetCloudExadataInfrastructureRequest from "./get-cloud-exadata-infrastructure-request";
 export import GetCloudExadataInfrastructureRequest = GetCloudExadataInfrastructureRequest.GetCloudExadataInfrastructureRequest;
+import * as GetCloudExadataInfrastructureUnallocatedResourcesRequest from "./get-cloud-exadata-infrastructure-unallocated-resources-request";
+export import GetCloudExadataInfrastructureUnallocatedResourcesRequest = GetCloudExadataInfrastructureUnallocatedResourcesRequest.GetCloudExadataInfrastructureUnallocatedResourcesRequest;
 import * as GetCloudVmClusterRequest from "./get-cloud-vm-cluster-request";
 export import GetCloudVmClusterRequest = GetCloudVmClusterRequest.GetCloudVmClusterRequest;
 import * as GetCloudVmClusterIormConfigRequest from "./get-cloud-vm-cluster-iorm-config-request";

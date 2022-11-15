@@ -120,6 +120,7 @@ export namespace BdsInstance {
     Cdh6 = "CDH6",
     Odh1 = "ODH1",
     Odh09 = "ODH0_9",
+    Odh20 = "ODH2_0",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

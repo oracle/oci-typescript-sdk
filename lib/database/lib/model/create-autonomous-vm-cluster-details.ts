@@ -81,6 +81,18 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The SCAN Listener TLS port number. Default value is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTls"?: number;
+  /**
+   * The SCAN Listener Non TLS port number. Default value is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortNonTls"?: number;
+  /**
+   * Enable mutual TLS(mTLS) authentication for database at time of provisioning a VMCluster.Default is TLS.
+   */
+  "isMtlsEnabled"?: boolean;
 }
 
 export namespace CreateAutonomousVmClusterDetails {
