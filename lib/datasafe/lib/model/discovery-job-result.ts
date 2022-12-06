@@ -112,6 +112,10 @@ export interface DiscoveryJobResult {
    *
    */
   "isResultApplied": boolean;
+  /**
+   * The OCID of the discovery job.
+   */
+  "discoveryJobId": string;
   "modifiedAttributes"?: model.ModifiedAttributes;
 }
 

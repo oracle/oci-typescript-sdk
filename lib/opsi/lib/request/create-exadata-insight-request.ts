@@ -21,7 +21,9 @@ export interface CreateExadataInsightRequest extends common.BaseRequest {
   /**
    * Details for the Exadata system for which an Exadata insight resource will be created in Operations Insights.
    */
-  "createExadataInsightDetails": model.CreateEmManagedExternalExadataInsightDetails;
+  "createExadataInsightDetails":
+    | model.CreateEmManagedExternalExadataInsightDetails
+    | model.CreatePeComanagedExadataInsightDetails;
   /**
    * A token that uniquely identifies a request that can be retried in case of a timeout or
    * server error without risk of executing the same action again. Retry tokens expire after 24

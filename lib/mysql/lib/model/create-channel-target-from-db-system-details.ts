@@ -33,6 +33,11 @@ export interface CreateChannelTargetFromDbSystemDetails extends model.CreateChan
    * The username for the replication applier of the target MySQL DB System.
    */
   "applierUsername"?: string;
+  /**
+   * Replication filter rules to be applied at the DB System Channel target.
+   *
+   */
+  "filters"?: Array<model.ChannelFilter>;
 
   "targetType": string;
 }
@@ -48,7 +53,13 @@ export namespace CreateChannelTargetFromDbSystemDetails {
         : (model.CreateChannelTargetDetails.getJsonObj(
             obj
           ) as CreateChannelTargetFromDbSystemDetails)),
-      ...{}
+      ...{
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.ChannelFilter.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -64,7 +75,13 @@ export namespace CreateChannelTargetFromDbSystemDetails {
         : (model.CreateChannelTargetDetails.getDeserializedJsonObj(
             obj
           ) as CreateChannelTargetFromDbSystemDetails)),
-      ...{}
+      ...{
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.ChannelFilter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

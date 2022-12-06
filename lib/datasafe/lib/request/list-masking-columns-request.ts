@@ -138,7 +138,8 @@ export namespace ListMaskingColumnsRequest {
   export enum SortBy {
     TimeCreated = "timeCreated",
     SchemaName = "schemaName",
-    ObjectName = "objectName"
+    ObjectName = "objectName",
+    DataType = "dataType"
   }
 
   export enum DataType {

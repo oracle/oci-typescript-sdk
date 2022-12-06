@@ -43,6 +43,16 @@ export namespace UpdateConfigSourceDetails {
 
     if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.UpdateBitbucketCloudConfigSourceDetails.getJsonObj(
+            <model.UpdateBitbucketCloudConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.UpdateBitbucketServerConfigSourceDetails.getJsonObj(
+            <model.UpdateBitbucketServerConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         case "GIT_CONFIG_SOURCE":
           return model.UpdateGitConfigSourceDetails.getJsonObj(
             <model.UpdateGitConfigSourceDetails>(<object>jsonObj),
@@ -58,6 +68,11 @@ export namespace UpdateConfigSourceDetails {
             <model.UpdateZipUploadConfigSourceDetails>(<object>jsonObj),
             true
           );
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.UpdateDevOpsConfigSourceDetails.getJsonObj(
+            <model.UpdateDevOpsConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.configSourceType}`);
@@ -70,6 +85,16 @@ export namespace UpdateConfigSourceDetails {
 
     if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.UpdateBitbucketCloudConfigSourceDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketCloudConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.UpdateBitbucketServerConfigSourceDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketServerConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         case "GIT_CONFIG_SOURCE":
           return model.UpdateGitConfigSourceDetails.getDeserializedJsonObj(
             <model.UpdateGitConfigSourceDetails>(<object>jsonObj),
@@ -83,6 +108,11 @@ export namespace UpdateConfigSourceDetails {
         case "ZIP_UPLOAD":
           return model.UpdateZipUploadConfigSourceDetails.getDeserializedJsonObj(
             <model.UpdateZipUploadConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.UpdateDevOpsConfigSourceDetails.getDeserializedJsonObj(
+            <model.UpdateDevOpsConfigSourceDetails>(<object>jsonObj),
             true
           );
         default:

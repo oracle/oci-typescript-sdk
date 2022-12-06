@@ -23,6 +23,10 @@ export interface SummarizeJreUsageRequest extends common.BaseRequest {
    */
   "fleetId": string;
   /**
+   * The Fleet-unique identifier of the related Java Runtime.
+   */
+  "jreId"?: string;
+  /**
    * The vendor of the Java Runtime.
    */
   "jreVendor"?: string;

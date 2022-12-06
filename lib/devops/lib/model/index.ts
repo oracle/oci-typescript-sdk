@@ -181,6 +181,10 @@ import * as DeployStageExecutionProgressDetails from "./deploy-stage-execution-p
 export import DeployStageExecutionProgressDetails = DeployStageExecutionProgressDetails.DeployStageExecutionProgressDetails;
 import * as DeployStageExecutionStep from "./deploy-stage-execution-step";
 export import DeployStageExecutionStep = DeployStageExecutionStep.DeployStageExecutionStep;
+import * as DeployStageOverrideArgument from "./deploy-stage-override-argument";
+export import DeployStageOverrideArgument = DeployStageOverrideArgument.DeployStageOverrideArgument;
+import * as DeployStageOverrideArgumentCollection from "./deploy-stage-override-argument-collection";
+export import DeployStageOverrideArgumentCollection = DeployStageOverrideArgumentCollection.DeployStageOverrideArgumentCollection;
 import * as DeployStagePredecessor from "./deploy-stage-predecessor";
 export import DeployStagePredecessor = DeployStagePredecessor.DeployStagePredecessor;
 import * as DeployStagePredecessorCollection from "./deploy-stage-predecessor-collection";

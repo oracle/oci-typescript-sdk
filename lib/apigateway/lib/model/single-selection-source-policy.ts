@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information around selector used for branching among routes/ authentication servers in dynamic routing/ authentication where we are allowed to specify only a single context variable as selector.
+ * The single context variable in an incoming request to match against specified selection keys when dynamically routing and dynamically authenticating requests.
  */
 export interface SingleSelectionSourcePolicy extends model.SelectionSourcePolicy {
   /**

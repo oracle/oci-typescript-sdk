@@ -32,9 +32,12 @@ export interface UpdateStackDetails {
    */
   "description"?: string;
   "configSource"?:
+    | model.UpdateBitbucketCloudConfigSourceDetails
+    | model.UpdateBitbucketServerConfigSourceDetails
     | model.UpdateGitConfigSourceDetails
     | model.UpdateObjectStorageConfigSourceDetails
-    | model.UpdateZipUploadConfigSourceDetails;
+    | model.UpdateZipUploadConfigSourceDetails
+    | model.UpdateDevOpsConfigSourceDetails;
   "customTerraformProvider"?: model.CustomTerraformProvider;
   /**
    * When `true`, changes the stack's sourcing of third-party Terraform providers to

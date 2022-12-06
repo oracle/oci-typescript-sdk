@@ -43,6 +43,11 @@ export namespace UpdateExadataInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "PE_COMANAGED_EXADATA":
+          return model.UpdatePeComanagedExadataInsightDetails.getJsonObj(
+            <model.UpdatePeComanagedExadataInsightDetails>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.UpdateEmManagedExternalExadataInsightDetails.getJsonObj(
             <model.UpdateEmManagedExternalExadataInsightDetails>(<object>jsonObj),
@@ -59,6 +64,11 @@ export namespace UpdateExadataInsightDetails {
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
+        case "PE_COMANAGED_EXADATA":
+          return model.UpdatePeComanagedExadataInsightDetails.getDeserializedJsonObj(
+            <model.UpdatePeComanagedExadataInsightDetails>(<object>jsonObj),
+            true
+          );
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.UpdateEmManagedExternalExadataInsightDetails.getDeserializedJsonObj(
             <model.UpdateEmManagedExternalExadataInsightDetails>(<object>jsonObj),

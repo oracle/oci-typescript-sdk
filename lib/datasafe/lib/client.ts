@@ -309,6 +309,86 @@ export class DataSafeClient {
   }
 
   /**
+   * Update alerts within a given compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AlertsUpdateRequest
+   * @return AlertsUpdateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/AlertsUpdate.ts.html |here} to see how to use AlertsUpdate API.
+   */
+  public async alertsUpdate(
+    alertsUpdateRequest: requests.AlertsUpdateRequest
+  ): Promise<responses.AlertsUpdateResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#alertsUpdate.");
+    const operationName = "alertsUpdate";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/AlertsUpdate";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentIdInSubtree": alertsUpdateRequest.compartmentIdInSubtree,
+      "accessLevel": alertsUpdateRequest.accessLevel
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": alertsUpdateRequest.opcRequestId,
+      "if-match": alertsUpdateRequest.ifMatch,
+      "opc-retry-token": alertsUpdateRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      alertsUpdateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/alerts/actions/updateAll",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        alertsUpdateRequest.alertsUpdateDetails,
+        "AlertsUpdateDetails",
+        model.AlertsUpdateDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AlertsUpdateResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Applies the results of a discovery job to the specified sensitive data model. Note that the plannedAction attribute
    * of discovery results is used for processing them. You should first use PatchDiscoveryJobResults to set the plannedAction
    * attribute of the discovery results you want to process. ApplyDiscoveryJobResults automatically reads the plannedAction
@@ -10418,6 +10498,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets consolidated discovery analytics data based on the specified query parameters.
+   * If CompartmentIdInSubtreeQueryParam is specified as true, the behaviour
+   * is equivalent to accessLevel \"ACCESSIBLE\" by default.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDiscoveryAnalyticsRequest
    * @return ListDiscoveryAnalyticsResponse
@@ -11169,6 +11252,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
   /**
    * Gets consolidated masking analytics data based on the specified query parameters.
+   * If CompartmentIdInSubtreeQueryParam is specified as true, the behaviour
+   * is equivalent to accessLevel \"ACCESSIBLE\" by default.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskingAnalyticsRequest
    * @return ListMaskingAnalyticsResponse
@@ -11793,7 +11879,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
       "sortOrder": listReportsRequest.sortOrder,
       "sortBy": listReportsRequest.sortBy,
       "reportDefinitionId": listReportsRequest.reportDefinitionId,
-      "lifecycleState": listReportsRequest.lifecycleState
+      "lifecycleState": listReportsRequest.lifecycleState,
+      "type": listReportsRequest.type
     };
 
     let headerParams = {
@@ -14048,7 +14135,10 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Alert/PatchAlerts";
     const pathParams = {};
 
-    const queryParams = {};
+    const queryParams = {
+      "compartmentIdInSubtree": patchAlertsRequest.compartmentIdInSubtree,
+      "accessLevel": patchAlertsRequest.accessLevel
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -14351,6 +14441,84 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Creates new target-alert policy associations that will be applied on target.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchTargetAlertPolicyAssociationRequest
+   * @return PatchTargetAlertPolicyAssociationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchTargetAlertPolicyAssociation.ts.html |here} to see how to use PatchTargetAlertPolicyAssociation API.
+   */
+  public async patchTargetAlertPolicyAssociation(
+    patchTargetAlertPolicyAssociationRequest: requests.PatchTargetAlertPolicyAssociationRequest
+  ): Promise<responses.PatchTargetAlertPolicyAssociationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#patchTargetAlertPolicyAssociation.");
+    const operationName = "patchTargetAlertPolicyAssociation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/TargetAlertPolicyAssociation/PatchTargetAlertPolicyAssociation";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": patchTargetAlertPolicyAssociationRequest.opcRequestId,
+      "if-match": patchTargetAlertPolicyAssociationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchTargetAlertPolicyAssociationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/targetAlertPolicyAssociations",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchTargetAlertPolicyAssociationRequest.patchTargetAlertPolicyAssociationDetails,
+        "PatchTargetAlertPolicyAssociationDetails",
+        model.PatchTargetAlertPolicyAssociationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchTargetAlertPolicyAssociationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Provision audit policy.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ProvisionAuditPolicyRequest
@@ -14594,6 +14762,80 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Deletes schedule of a PDF or XLS report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RemoveScheduleReportRequest
+   * @return RemoveScheduleReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/RemoveScheduleReport.ts.html |here} to see how to use RemoveScheduleReport API.
+   */
+  public async removeScheduleReport(
+    removeScheduleReportRequest: requests.RemoveScheduleReportRequest
+  ): Promise<responses.RemoveScheduleReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#removeScheduleReport.");
+    const operationName = "removeScheduleReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/RemoveScheduleReport";
+    const pathParams = {
+      "{reportDefinitionId}": removeScheduleReportRequest.reportDefinitionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeScheduleReportRequest.ifMatch,
+      "opc-request-id": removeScheduleReportRequest.opcRequestId,
+      "opc-retry-token": removeScheduleReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeScheduleReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions/{reportDefinitionId}/actions/removeScheduleReport",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveScheduleReportResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Resumes the specified audit trail once it got stopped.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeAuditTrailRequest
@@ -14795,6 +15037,85 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RetrieveAuditPoliciesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Schedules a PDF or XLS report based on parameters and report definition.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ScheduleReportRequest
+   * @return ScheduleReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ScheduleReport.ts.html |here} to see how to use ScheduleReport API.
+   */
+  public async scheduleReport(
+    scheduleReportRequest: requests.ScheduleReportRequest
+  ): Promise<responses.ScheduleReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#scheduleReport.");
+    const operationName = "scheduleReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/ReportDefinition/ScheduleReport";
+    const pathParams = {
+      "{reportDefinitionId}": scheduleReportRequest.reportDefinitionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": scheduleReportRequest.ifMatch,
+      "opc-request-id": scheduleReportRequest.opcRequestId,
+      "opc-retry-token": scheduleReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/reportDefinitions/{reportDefinitionId}/actions/scheduleReport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        scheduleReportRequest.scheduleReportDetails,
+        "ScheduleReportDetails",
+        model.ScheduleReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScheduleReportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

@@ -60,7 +60,10 @@ export interface Stack {
   "lifecycleState"?: Stack.LifecycleState;
   "configSource"?:
     | model.GitConfigSource
+    | model.DevOpsConfigSource
     | model.ObjectStorageConfigSource
+    | model.BitbucketServerConfigSource
+    | model.BitbucketCloudConfigSource
     | model.CompartmentConfigSource
     | model.ZipUploadConfigSource;
   "customTerraformProvider"?: model.CustomTerraformProvider;

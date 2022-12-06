@@ -110,12 +110,6 @@ export default class CircuitBreaker {
     CircuitBreaker.DefaultCircuitBreakerOverriden = true;
   }
 
-  static internalCircuit = new Breaker(FetchWrapper, {
-    timeout: 10000, // If our function takes longer than 10 seconds, trigger a failure
-    errorThresholdPercentage: 50, // When 50% of requests fail, trip the circuit
-    resetTimeout: 30000 // After 30 seconds, try again.
-  });
-
   constructor(options?: CircuitBreakerOptions) {
     if (options?.disableClientCircuitBreaker) {
       this.noCircuit = true;

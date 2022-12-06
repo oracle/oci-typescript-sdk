@@ -52,9 +52,24 @@ export interface JavaReleaseSummary {
    * Release notes associated with the Java version.
    */
   "releaseNotesUrl": string;
+  /**
+   * Artifact content types for the Java version.
+   */
+  "artifactContentTypes": Array<JavaReleaseSummary.ArtifactContentTypes>;
 }
 
 export namespace JavaReleaseSummary {
+  export enum ArtifactContentTypes {
+    Jdk = "JDK",
+    Jre = "JRE",
+    ServerJre = "SERVER_JRE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: JavaReleaseSummary): object {
     const jsonObj = {
       ...obj,

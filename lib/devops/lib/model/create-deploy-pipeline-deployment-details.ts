@@ -19,6 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateDeployPipelineDeploymentDetails extends model.CreateDeploymentDetails {
   "deploymentArguments"?: model.DeploymentArgumentCollection;
+  "deployStageOverrideArguments"?: model.DeployStageOverrideArgumentCollection;
   "deployArtifactOverrideArguments"?: model.DeployArtifactOverrideArgumentCollection;
 
   "deploymentType": string;
@@ -36,6 +37,9 @@ export namespace CreateDeployPipelineDeploymentDetails {
       ...{
         "deploymentArguments": obj.deploymentArguments
           ? model.DeploymentArgumentCollection.getJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployStageOverrideArguments": obj.deployStageOverrideArguments
+          ? model.DeployStageOverrideArgumentCollection.getJsonObj(obj.deployStageOverrideArguments)
           : undefined,
         "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
           ? model.DeployArtifactOverrideArgumentCollection.getJsonObj(
@@ -61,6 +65,11 @@ export namespace CreateDeployPipelineDeploymentDetails {
       ...{
         "deploymentArguments": obj.deploymentArguments
           ? model.DeploymentArgumentCollection.getDeserializedJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployStageOverrideArguments": obj.deployStageOverrideArguments
+          ? model.DeployStageOverrideArgumentCollection.getDeserializedJsonObj(
+              obj.deployStageOverrideArguments
+            )
           : undefined,
         "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
           ? model.DeployArtifactOverrideArgumentCollection.getDeserializedJsonObj(

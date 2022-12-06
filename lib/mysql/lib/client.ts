@@ -20,6 +20,7 @@ import { ChannelsWaiter } from "./channels-waiter";
 import { DbBackupsWaiter } from "./dbbackups-waiter";
 import { DbSystemWaiter } from "./dbsystem-waiter";
 import { MysqlaasWaiter } from "./mysqlaas-waiter";
+import { ReplicasWaiter } from "./replicas-waiter";
 import { WorkRequestsWaiter } from "./workrequests-waiter";
 import { composeResponse, composeRequest, GenericRetrier } from "oci-common";
 
@@ -4397,6 +4398,586 @@ The list is sorted by version family.
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
+export enum ReplicasApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class ReplicasClient {
+  protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_waiters": ReplicasWaiter;
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
+  public targetService = "Replicas";
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20190415";
+    if (this.logger) this.logger.info(`ReplicasClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      ReplicasClient.serviceEndpointTemplate,
+      region,
+      ReplicasClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      ReplicasClient.serviceEndpointTemplate,
+      regionId,
+      ReplicasClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Creates a new ReplicasWaiter for resources for this service.
+   *
+   * @param config The waiter configuration for termination and delay strategy
+   * @return The service waiters.
+   */
+  public createWaiters(config?: common.WaiterConfiguration): ReplicasWaiter {
+    this._waiters = new ReplicasWaiter(this, config);
+    return this._waiters;
+  }
+
+  /**
+   * Gets the waiters available for resources for this service.
+   *
+   * @return The service waiters.
+   */
+  public getWaiters(): ReplicasWaiter {
+    if (this._waiters) {
+      return this._waiters;
+    }
+    throw Error("Waiters do not exist. Please create waiters.");
+  }
+
+  /**
+   * Creates a DB System read replica.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateReplicaRequest
+   * @return CreateReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/CreateReplica.ts.html |here} to see how to use CreateReplica API.
+   */
+  public async createReplica(
+    createReplicaRequest: requests.CreateReplicaRequest
+  ): Promise<responses.CreateReplicaResponse> {
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#createReplica.");
+    const operationName = "createReplica";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createReplicaRequest.opcRequestId,
+      "opc-retry-token": createReplicaRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicas",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createReplicaRequest.createReplicaDetails,
+        "CreateReplicaDetails",
+        model.CreateReplicaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateReplicaResponse>{},
+        body: await response.json(),
+        bodyKey: "replica",
+        bodyModel: model.Replica,
+        type: "model.Replica",
+        responseHeaders: [
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified read replica.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteReplicaRequest
+   * @return DeleteReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteReplica.ts.html |here} to see how to use DeleteReplica API.
+   */
+  public async deleteReplica(
+    deleteReplicaRequest: requests.DeleteReplicaRequest
+  ): Promise<responses.DeleteReplicaResponse> {
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#deleteReplica.");
+    const operationName = "deleteReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Replica/DeleteReplica";
+    const pathParams = {
+      "{replicaId}": deleteReplicaRequest.replicaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteReplicaRequest.ifMatch,
+      "opc-request-id": deleteReplicaRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicas/{replicaId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteReplicaResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the full details of the specified read replica.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetReplicaRequest
+   * @return GetReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetReplica.ts.html |here} to see how to use GetReplica API.
+   */
+  public async getReplica(
+    getReplicaRequest: requests.GetReplicaRequest
+  ): Promise<responses.GetReplicaResponse> {
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#getReplica.");
+    const operationName = "getReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Replica/GetReplica";
+    const pathParams = {
+      "{replicaId}": getReplicaRequest.replicaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getReplicaRequest.opcRequestId,
+      "if-none-match": getReplicaRequest.ifNoneMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicas/{replicaId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetReplicaResponse>{},
+        body: await response.json(),
+        bodyKey: "replica",
+        bodyModel: model.Replica,
+        type: "model.Replica",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists all the read replicas that match the specified filters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListReplicasRequest
+   * @return ListReplicasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/ListReplicas.ts.html |here} to see how to use ListReplicas API.
+   */
+  public async listReplicas(
+    listReplicasRequest: requests.ListReplicasRequest
+  ): Promise<responses.ListReplicasResponse> {
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#listReplicas.");
+    const operationName = "listReplicas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/ReplicaSummary/ListReplicas";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": listReplicasRequest.limit,
+      "page": listReplicasRequest.page,
+      "displayName": listReplicasRequest.displayName,
+      "dbSystemId": listReplicasRequest.dbSystemId,
+      "compartmentId": listReplicasRequest.compartmentId,
+      "lifecycleState": listReplicasRequest.lifecycleState,
+      "replicaId": listReplicasRequest.replicaId,
+      "sortBy": listReplicasRequest.sortBy,
+      "sortOrder": listReplicasRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listReplicasRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listReplicasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListReplicasResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ReplicaSummary,
+        type: "Array<model.ReplicaSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listReplicasRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ReplicaSummary objects
+   * contained in responses from the listReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllReplicas(
+    request: requests.ListReplicasRequest
+  ): AsyncIterableIterator<model.ReplicaSummary> {
+    return paginateRecords(request, req => this.listReplicas(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listReplicasResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllReplicasResponses(
+    request: requests.ListReplicasRequest
+  ): AsyncIterableIterator<responses.ListReplicasResponse> {
+    return paginateResponses(request, req => this.listReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ReplicaSummary objects
+   * contained in responses from the listReplicas operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listReplicasRecordIterator(
+    request: requests.ListReplicasRequest
+  ): AsyncIterableIterator<model.ReplicaSummary> {
+    return paginateRecords(request, req => this.listReplicas(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listReplicas operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listReplicasResponseIterator(
+    request: requests.ListReplicasRequest
+  ): AsyncIterableIterator<responses.ListReplicasResponse> {
+    return paginateResponses(request, req => this.listReplicas(req));
+  }
+
+  /**
+   * Updates the properties of the specified read replica.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateReplicaRequest
+   * @return UpdateReplicaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateReplica.ts.html |here} to see how to use UpdateReplica API.
+   */
+  public async updateReplica(
+    updateReplicaRequest: requests.UpdateReplicaRequest
+  ): Promise<responses.UpdateReplicaResponse> {
+    if (this.logger) this.logger.debug("Calling operation ReplicasClient#updateReplica.");
+    const operationName = "updateReplica";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/Replica/UpdateReplica";
+    const pathParams = {
+      "{replicaId}": updateReplicaRequest.replicaId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateReplicaRequest.ifMatch,
+      "opc-request-id": updateReplicaRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateReplicaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/replicas/{replicaId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateReplicaRequest.updateReplicaDetails,
+        "UpdateReplicaDetails",
+        model.UpdateReplicaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateReplicaResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

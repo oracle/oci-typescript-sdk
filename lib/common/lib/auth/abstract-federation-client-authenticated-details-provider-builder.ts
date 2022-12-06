@@ -70,6 +70,12 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
   // intermediate certificate supplier
   protected _intermediateCertificateSuppliers!: X509CertificateSupplier[];
 
+  protected _circuitBreaker = new CircuitBreaker({
+    timeout: 10000, // If our function takes longer than 10 seconds, trigger a failure
+    errorThresholdPercentage: 50, // When 50% of requests fail, trip the circuit
+    resetTimeout: 30000 // After 30 seconds, try again.
+  }).circuit;
+
   // metadataBaseUrl getter
   get metadataBaseUrl(): string {
     return this._metadataBaseUrl;
@@ -88,6 +94,10 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
   // tenancyId getter
   get tenancyId(): string {
     return this._tenancyId;
+  }
+
+  get circuitBreaker(): CircuitBreaker {
+    return this._circuitBreaker;
   }
 
   // region getter
@@ -166,7 +176,8 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
       this._leafCertificateSupplier,
       sessionKeySupplier,
       this._intermediateCertificateSuppliers,
-      this._purpose
+      this._purpose,
+      this.circuitBreaker
     );
   }
 
@@ -189,7 +200,7 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
       headers.append("accept", "text/plain");
       headers.append("Content-Type", "application/json");
       headers.append(this.AUTHORIZATION, this.METADATA_AUTH_HEADERS);
-      const httpClient = new FetchHttpClient(null, CircuitBreaker.internalCircuit);
+      const httpClient = new FetchHttpClient(null, this.circuitBreaker);
       const response = await httpClient.send({
         uri: url,
         method: "GET",
@@ -232,8 +243,8 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
     try {
       if (!this._leafCertificateSupplier) {
         this._leafCertificateSupplier = await new URLBasedX509CertificateSupplier(
-          this.getMetaDataResourceDetail("identity/cert.pem"),
-          this.getMetaDataResourceDetail("identity/key.pem"),
+          this.getMetaDataResourceDetail("identity/cert.pem", this.circuitBreaker),
+          this.getMetaDataResourceDetail("identity/key.pem", this.circuitBreaker),
           null
         ).refresh();
       }
@@ -247,7 +258,7 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
       if (!this._intermediateCertificateSuppliers) {
         this._intermediateCertificateSuppliers = [
           await new URLBasedX509CertificateSupplier(
-            this.getMetaDataResourceDetail("identity/intermediate.pem"),
+            this.getMetaDataResourceDetail("identity/intermediate.pem", this.circuitBreaker),
             null,
             null
           ).refresh()
@@ -260,10 +271,10 @@ export default abstract class AbstractFederationClientAuthenticationDetailsProvi
     }
   }
 
-  getMetaDataResourceDetail(path: string) {
+  getMetaDataResourceDetail(path: string, circuitBreaker: CircuitBreaker) {
     const url: string = this._metadataBaseUrl + path;
     let headers = new Headers();
     headers.append(this.AUTHORIZATION, this.METADATA_AUTH_HEADERS);
-    return new ResourceDetails(url, headers);
+    return new ResourceDetails(url, headers, circuitBreaker);
   }
 }

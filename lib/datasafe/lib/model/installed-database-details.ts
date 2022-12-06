@@ -30,11 +30,11 @@ export interface InstalledDatabaseDetails extends model.DatabaseDetails {
   /**
    * The port number of the database listener. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "listenerPort"?: number;
+  "listenerPort": number;
   /**
    * The service name of the database registered as target database.
    */
-  "serviceName"?: string;
+  "serviceName": string;
 
   "databaseType": string;
 }

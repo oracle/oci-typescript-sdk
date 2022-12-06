@@ -45,9 +45,24 @@ export namespace ConfigSource {
       switch (obj.configSourceType) {
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSource.getJsonObj(<model.GitConfigSource>(<object>jsonObj), true);
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.DevOpsConfigSource.getJsonObj(
+            <model.DevOpsConfigSource>(<object>jsonObj),
+            true
+          );
         case "OBJECT_STORAGE_CONFIG_SOURCE":
           return model.ObjectStorageConfigSource.getJsonObj(
             <model.ObjectStorageConfigSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.BitbucketServerConfigSource.getJsonObj(
+            <model.BitbucketServerConfigSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.BitbucketCloudConfigSource.getJsonObj(
+            <model.BitbucketCloudConfigSource>(<object>jsonObj),
             true
           );
         case "COMPARTMENT_CONFIG_SOURCE":
@@ -77,9 +92,24 @@ export namespace ConfigSource {
             <model.GitConfigSource>(<object>jsonObj),
             true
           );
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.DevOpsConfigSource.getDeserializedJsonObj(
+            <model.DevOpsConfigSource>(<object>jsonObj),
+            true
+          );
         case "OBJECT_STORAGE_CONFIG_SOURCE":
           return model.ObjectStorageConfigSource.getDeserializedJsonObj(
             <model.ObjectStorageConfigSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.BitbucketServerConfigSource.getDeserializedJsonObj(
+            <model.BitbucketServerConfigSource>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.BitbucketCloudConfigSource.getDeserializedJsonObj(
+            <model.BitbucketCloudConfigSource>(<object>jsonObj),
             true
           );
         case "COMPARTMENT_CONFIG_SOURCE":

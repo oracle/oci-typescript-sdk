@@ -29,6 +29,11 @@ export interface UpdateChannelTargetFromDbSystemDetails extends model.UpdateChan
    * The username for the replication applier of the target MySQL DB System.
    */
   "applierUsername"?: string;
+  /**
+   * Replication filter rules to be applied at the DB System Channel target.
+   *
+   */
+  "filters"?: Array<model.ChannelFilter>;
 
   "targetType": string;
 }
@@ -44,7 +49,13 @@ export namespace UpdateChannelTargetFromDbSystemDetails {
         : (model.UpdateChannelTargetDetails.getJsonObj(
             obj
           ) as UpdateChannelTargetFromDbSystemDetails)),
-      ...{}
+      ...{
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.ChannelFilter.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -60,7 +71,13 @@ export namespace UpdateChannelTargetFromDbSystemDetails {
         : (model.UpdateChannelTargetDetails.getDeserializedJsonObj(
             obj
           ) as UpdateChannelTargetFromDbSystemDetails)),
-      ...{}
+      ...{
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.ChannelFilter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

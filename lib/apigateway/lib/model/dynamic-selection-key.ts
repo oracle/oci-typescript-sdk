@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information around the values for selector of an authentication/ routing branch.
+ * Base policy for defining how to match the context variable in an incoming request with selection keys when dynamically routing and dynamically authenticating requests.
  */
 export interface DynamicSelectionKey {
   /**
-   * Information regarding whether this is the default branch.
+   * Specifies whether to use the route or authentication server associated with this selection key as the default. The default is used if the value of a context variable in an incoming request does not match any of the other selection key values when dynamically routing and dynamically authenticating requests.
    */
   "isDefault"?: boolean;
   /**

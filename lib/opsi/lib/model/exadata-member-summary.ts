@@ -45,6 +45,7 @@ export namespace ExadataMemberSummary {
     InfinibandSwitch = "INFINIBAND_SWITCH",
     EthernetSwitch = "ETHERNET_SWITCH",
     Host = "HOST",
+    VmCluster = "VM_CLUSTER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

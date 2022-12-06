@@ -43,6 +43,14 @@ export interface PeComanagedDatabaseInsight extends model.DatabaseInsight {
    * OCI database resource type
    */
   "databaseResourceType": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VM Cluster or DB System ID, depending on which configuration the resource belongs to.
+   */
+  "parentId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Exadata Infrastructure.
+   */
+  "rootId"?: string;
 
   "entitySource": string;
 }

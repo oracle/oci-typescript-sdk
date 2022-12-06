@@ -24,7 +24,8 @@ export enum OnPremConnectorLifecycleState {
   Inactive = "INACTIVE",
   Deleting = "DELETING",
   Deleted = "DELETED",
-  Failed = "FAILED"
+  Failed = "FAILED",
+  NeedsAttention = "NEEDS_ATTENTION"
 }
 
 export namespace OnPremConnectorLifecycleState {

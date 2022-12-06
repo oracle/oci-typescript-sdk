@@ -21,7 +21,11 @@ export interface PatchAlertsDetails {
   /**
    * Array of patch instructions.
    */
-  "items"?: Array<model.PatchInstruction>;
+  "items": Array<model.PatchInstruction>;
+  /**
+   * The OCID of the compartment that contains the alerts.
+   */
+  "compartmentId": string;
 }
 
 export namespace PatchAlertsDetails {

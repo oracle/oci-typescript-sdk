@@ -204,3 +204,5 @@ export import opensearch = require("oci-opensearch");
 export import cloudbridge = require("oci-cloudbridge");
 export import cloudmigrations = require("oci-cloudmigrations");
 export import disasterrecovery = require("oci-disasterrecovery");
+export import containerinstances = require("oci-containerinstances");
+export import aidocument = require("oci-aidocument");

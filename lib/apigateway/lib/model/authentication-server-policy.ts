@@ -18,11 +18,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information around an authentication server for dynamic authentication.
+ * Policy for the details regarding each authentication server under dynamic authentication. We specify the value of selectors for which this authentication server must be selected for a request under keys. We specify the configuration details of authentication server under authenticationServerDetail.
  */
 export interface AuthenticationServerPolicy {
   "key": model.WildcardSelectionKey | model.AnyOfSelectionKey;
-  "authenticationServerDetail": model.JwtAuthenticationPolicy | model.CustomAuthenticationPolicy;
+  "authenticationServerDetail":
+    | model.TokenAuthenticationPolicy
+    | model.JwtAuthenticationPolicy
+    | model.CustomAuthenticationPolicy;
 }
 
 export namespace AuthenticationServerPolicy {

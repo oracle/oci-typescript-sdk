@@ -18,11 +18,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information around a routing backend for dynamic routing.
+ * Policy for the details regarding each routing backend under dynamic routing. We specify the value of selectors for which this routing backend must be selected for a request under keys. We specify the configuration details of routing backend under backend.
  */
 export interface DynamicRoutingTypeRoutingBackend {
   "key": model.WildcardSelectionKey | model.AnyOfSelectionKey;
   "backend":
+    | model.OAuth2LogoutBackend
     | model.HTTPBackend
     | model.OracleFunctionBackend
     | model.StockResponseBackend

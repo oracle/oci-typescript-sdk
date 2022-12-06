@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information around selector used for branching among routes/ authentication servers while dynamic routing/ authentication.
+ * The type of selector to use when dynamically routing and dynamically authenticating requests.
  */
 export interface SelectionSourcePolicy {
   "type": string;

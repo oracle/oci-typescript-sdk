@@ -103,7 +103,7 @@ export interface AuditEventSummary {
    */
   "clientIp"?: string;
   /**
-   * The OCID of the audit trail that generated this audit event.
+   * The OCID of the audit trail that generated this audit event. To be noted, this field has been deprecated.
    */
   "auditTrailId"?: string;
   /**

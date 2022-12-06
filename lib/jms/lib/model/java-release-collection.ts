@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of information about the Java releases.
+ * Collection of Java releases information.
  */
 export interface JavaReleaseCollection {
   /**

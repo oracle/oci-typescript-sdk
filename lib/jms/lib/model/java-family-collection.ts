@@ -15,11 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Contains summary of the Java release family details.
+ * Collection of the Java release family summary.
+ * A Java release family is typically a major version in the Java version identifier.
+ *
  */
 export interface JavaFamilyCollection {
   /**
-   * A list of the Java Release family details.
+   * A list of the Java Release family summary.
    */
   "items": Array<model.JavaFamilySummary>;
 }

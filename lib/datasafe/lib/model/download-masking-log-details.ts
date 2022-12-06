@@ -22,6 +22,10 @@ export interface DownloadMaskingLogDetails {
    * The OCID of the target database for which the masking log is to be downloaded.
    */
   "targetId"?: string;
+  /**
+   * The OCID of the masking work request that resulted in this masking log.
+   */
+  "maskingWorkRequestId"?: string;
 }
 
 export namespace DownloadMaskingLogDetails {

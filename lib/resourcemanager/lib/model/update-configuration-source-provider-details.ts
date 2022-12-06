@@ -63,6 +63,20 @@ export namespace UpdateConfigurationSourceProviderDetails {
 
     if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.UpdateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails.getJsonObj(
+            <model.UpdateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.UpdateBitbucketServerAccessTokenConfigurationSourceProviderDetails.getJsonObj(
+            <model.UpdateBitbucketServerAccessTokenConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "GITLAB_ACCESS_TOKEN":
           return model.UpdateGitlabAccessTokenConfigurationSourceProviderDetails.getJsonObj(
             <model.UpdateGitlabAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
@@ -92,6 +106,20 @@ export namespace UpdateConfigurationSourceProviderDetails {
 
     if (obj && "configSourceProviderType" in obj && obj.configSourceProviderType) {
       switch (obj.configSourceProviderType) {
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.UpdateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.UpdateBitbucketServerAccessTokenConfigurationSourceProviderDetails.getDeserializedJsonObj(
+            <model.UpdateBitbucketServerAccessTokenConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "GITLAB_ACCESS_TOKEN":
           return model.UpdateGitlabAccessTokenConfigurationSourceProviderDetails.getDeserializedJsonObj(
             <model.UpdateGitlabAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),

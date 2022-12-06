@@ -169,6 +169,11 @@ export interface SummarizeHostInsightResourceStatisticsRequest extends common.Ba
    *
    */
   "hostId"?: string;
+  /**
+   * Optional list of Exadata Insight VM cluster name.
+   *
+   */
+  "vmclusterName"?: Array<string>;
 }
 
 export namespace SummarizeHostInsightResourceStatisticsRequest {

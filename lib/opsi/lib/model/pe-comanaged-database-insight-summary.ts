@@ -29,6 +29,14 @@ export interface PeComanagedDatabaseInsightSummary extends model.DatabaseInsight
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
    */
   "opsiPrivateEndpointId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VM Cluster or DB System ID, depending on which configuration the resource belongs to.
+   */
+  "parentId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the root resource for a composite target. e.g. for ExaCS members the rootId will be the OCID of the Exadata Infrastructure resource.
+   */
+  "rootId"?: string;
 
   "entitySource": string;
 }

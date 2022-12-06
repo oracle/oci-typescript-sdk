@@ -125,6 +125,11 @@ export interface ListHostConfigurationsRequest extends common.BaseRequest {
    *
    */
   "hostId"?: string;
+  /**
+   * Optional list of Exadata Insight VM cluster name.
+   *
+   */
+  "vmclusterName"?: Array<string>;
 }
 
 export namespace ListHostConfigurationsRequest {

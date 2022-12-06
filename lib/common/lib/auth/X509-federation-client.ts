@@ -37,7 +37,8 @@ export default class X509FederationClient implements FederationClient {
     private _leafCertificateSupplier: X509CertificateSupplier,
     private sessionKeySupplier: SessionKeySupplier,
     private intermediateCertificateSuppliers: X509CertificateSupplier[],
-    private purpose: string
+    private purpose: string,
+    private circuitBreaker: CircuitBreaker
   ) {
     this.securityTokenAdapter = new SecurityTokenAdapter("", this.sessionKeySupplier);
   }
@@ -200,7 +201,7 @@ export default class X509FederationClient implements FederationClient {
       const privateKey = certificateAndKeyPair.getPrivateKey() as PrivateKey;
       // Instantiate AuthTokenRequestSigner to sign the request
       const signer = new AuthTokenRequestSigner(this.tenancyId, fingerprint, privateKey);
-      const httpClient = new FetchHttpClient(signer, CircuitBreaker.internalCircuit);
+      const httpClient = new FetchHttpClient(signer, this.circuitBreaker);
 
       // Call Auth Service to get a JSON object which contains the auth token
       const response = await httpClient.send(requestObj);

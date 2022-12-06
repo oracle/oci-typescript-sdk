@@ -93,6 +93,18 @@ export namespace ConfigurationSourceProviderSummary {
             <model.GitlabAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary.getJsonObj(
+            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerAccessTokenConfigurationSourceProviderSummary.getJsonObj(
+            <model.BitbucketServerAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.GithubAccessTokenConfigurationSourceProviderSummary.getJsonObj(
             <model.GithubAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
@@ -120,6 +132,18 @@ export namespace ConfigurationSourceProviderSummary {
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConfigurationSourceProviderSummary.getDeserializedJsonObj(
             <model.GitlabAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary.getDeserializedJsonObj(
+            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProviderSummary>(
+              (<object>jsonObj)
+            ),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerAccessTokenConfigurationSourceProviderSummary.getDeserializedJsonObj(
+            <model.BitbucketServerAccessTokenConfigurationSourceProviderSummary>(<object>jsonObj),
             true
           );
         case "GITHUB_ACCESS_TOKEN":

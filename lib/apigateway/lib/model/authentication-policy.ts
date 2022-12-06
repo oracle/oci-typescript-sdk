@@ -37,6 +37,11 @@ export namespace AuthenticationPolicy {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "TOKEN_AUTHENTICATION":
+          return model.TokenAuthenticationPolicy.getJsonObj(
+            <model.TokenAuthenticationPolicy>(<object>jsonObj),
+            true
+          );
         case "JWT_AUTHENTICATION":
           return model.JwtAuthenticationPolicy.getJsonObj(
             <model.JwtAuthenticationPolicy>(<object>jsonObj),
@@ -58,6 +63,11 @@ export namespace AuthenticationPolicy {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "TOKEN_AUTHENTICATION":
+          return model.TokenAuthenticationPolicy.getDeserializedJsonObj(
+            <model.TokenAuthenticationPolicy>(<object>jsonObj),
+            true
+          );
         case "JWT_AUTHENTICATION":
           return model.JwtAuthenticationPolicy.getDeserializedJsonObj(
             <model.JwtAuthenticationPolicy>(<object>jsonObj),

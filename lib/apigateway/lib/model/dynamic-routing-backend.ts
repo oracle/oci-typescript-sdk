@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Send the request to a Dynamic Routing backend.
+ * Send the request to the backend dynamically selected based on the incoming request's context.
  *
  */
 export interface DynamicRoutingBackend extends model.ApiSpecificationRouteBackend {

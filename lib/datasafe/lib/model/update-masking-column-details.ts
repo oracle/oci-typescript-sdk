@@ -32,7 +32,9 @@ export interface UpdateMaskingColumnDetails {
    */
   "maskingColumnGroup"?: string;
   /**
-   * The OCID of the sensitive type to be associated with the masking column.
+   * The OCID of the sensitive type to be associated with the masking column. Note that there will be no change in
+   * assigned masking format when sensitive type is changed.
+   *
    */
   "sensitiveTypeId"?: string;
   /**

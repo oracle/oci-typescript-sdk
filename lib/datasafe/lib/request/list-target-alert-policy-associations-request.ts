@@ -51,9 +51,7 @@ export interface ListTargetAlertPolicyAssociationsRequest extends common.BaseReq
    */
   "sortOrder"?: ListTargetAlertPolicyAssociationsRequest.SortOrder;
   /**
-   * The field used for sorting. Only one sorting order (sortOrder) can be specified.
-   * The default order for TIMECREATED is descending. The default order for DISPLAYNAME is ascending.
-   * The DISPLAYNAME sort order is case sensitive.
+   * The field to sort by. Only one sort order may be provided.
    *
    */
   "sortBy"?: ListTargetAlertPolicyAssociationsRequest.SortBy;
@@ -103,8 +101,9 @@ export namespace ListTargetAlertPolicyAssociationsRequest {
   }
 
   export enum SortBy {
+    Displayname = "DISPLAYNAME",
     Timecreated = "TIMECREATED",
-    Displayname = "DISPLAYNAME"
+    Timeupdated = "TIMEUPDATED"
   }
 
   export enum AccessLevel {

@@ -21,7 +21,10 @@ import common = require("oci-common");
  * Global behavior applied to all requests received by the API.
  */
 export interface ApiSpecificationRequestPolicies {
-  "authentication"?: model.JwtAuthenticationPolicy | model.CustomAuthenticationPolicy;
+  "authentication"?:
+    | model.TokenAuthenticationPolicy
+    | model.JwtAuthenticationPolicy
+    | model.CustomAuthenticationPolicy;
   "rateLimiting"?: model.RateLimitingPolicy;
   "cors"?: model.CorsPolicy;
   "mutualTls"?: model.MutualTlsDetails;

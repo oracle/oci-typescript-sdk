@@ -37,6 +37,7 @@ export interface ApiSpecificationRoute {
   "responsePolicies"?: model.ApiSpecificationRouteResponsePolicies;
   "loggingPolicies"?: model.ApiSpecificationLoggingPolicies;
   "backend":
+    | model.OAuth2LogoutBackend
     | model.HTTPBackend
     | model.OracleFunctionBackend
     | model.StockResponseBackend

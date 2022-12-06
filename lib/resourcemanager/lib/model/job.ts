@@ -120,8 +120,11 @@ export interface Job {
    */
   "variables"?: { [key: string]: string };
   "configSource"?:
+    | model.DevOpsConfigSourceRecord
     | model.GitConfigSourceRecord
     | model.ZipUploadConfigSourceRecord
+    | model.BitbucketCloudConfigSourceRecord
+    | model.BitbucketServerConfigSourceRecord
     | model.ObjectStorageConfigSourceRecord;
   /**
    * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.

@@ -103,4 +103,9 @@ export interface SummarizeApplicationUsageRequest extends common.BaseRequest {
    *
    */
   "displayNameContains"?: string;
+  /**
+   * The library key.
+   *
+   */
+  "libraryKey"?: string;
 }

@@ -4704,7 +4704,8 @@ export class OperationsInsightsClient {
       "freeformTagEquals": listDatabaseConfigurationsRequest.freeformTagEquals,
       "definedTagExists": listDatabaseConfigurationsRequest.definedTagExists,
       "freeformTagExists": listDatabaseConfigurationsRequest.freeformTagExists,
-      "compartmentIdInSubtree": listDatabaseConfigurationsRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": listDatabaseConfigurationsRequest.compartmentIdInSubtree,
+      "vmclusterName": listDatabaseConfigurationsRequest.vmclusterName
     };
 
     let headerParams = {
@@ -5174,7 +5175,8 @@ export class OperationsInsightsClient {
       "freeformTagExists": listHostConfigurationsRequest.freeformTagExists,
       "compartmentIdInSubtree": listHostConfigurationsRequest.compartmentIdInSubtree,
       "hostType": listHostConfigurationsRequest.hostType,
-      "hostId": listHostConfigurationsRequest.hostId
+      "hostId": listHostConfigurationsRequest.hostId,
+      "vmclusterName": listHostConfigurationsRequest.vmclusterName
     };
 
     let headerParams = {
@@ -7718,7 +7720,8 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.definedTagExists,
       "freeformTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeDatabaseInsightResourceCapacityTrendRequest.compartmentIdInSubtree
+        summarizeDatabaseInsightResourceCapacityTrendRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeDatabaseInsightResourceCapacityTrendRequest.vmclusterName
     };
 
     let headerParams = {
@@ -7825,7 +7828,8 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.definedTagExists,
       "freeformTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeDatabaseInsightResourceForecastTrendRequest.compartmentIdInSubtree
+        summarizeDatabaseInsightResourceForecastTrendRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeDatabaseInsightResourceForecastTrendRequest.vmclusterName
     };
 
     let headerParams = {
@@ -7932,7 +7936,8 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeDatabaseInsightResourceStatisticsRequest.definedTagExists,
       "freeformTagExists": summarizeDatabaseInsightResourceStatisticsRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeDatabaseInsightResourceStatisticsRequest.compartmentIdInSubtree
+        summarizeDatabaseInsightResourceStatisticsRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeDatabaseInsightResourceStatisticsRequest.vmclusterName
     };
 
     let headerParams = {
@@ -8033,7 +8038,8 @@ Note that this API does not return information on the number of times each datab
       "freeformTagEquals": summarizeDatabaseInsightResourceUsageRequest.freeformTagEquals,
       "definedTagExists": summarizeDatabaseInsightResourceUsageRequest.definedTagExists,
       "freeformTagExists": summarizeDatabaseInsightResourceUsageRequest.freeformTagExists,
-      "compartmentIdInSubtree": summarizeDatabaseInsightResourceUsageRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": summarizeDatabaseInsightResourceUsageRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeDatabaseInsightResourceUsageRequest.vmclusterName
     };
 
     let headerParams = {
@@ -8136,7 +8142,8 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.definedTagExists,
       "freeformTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeDatabaseInsightResourceUsageTrendRequest.compartmentIdInSubtree
+        summarizeDatabaseInsightResourceUsageTrendRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeDatabaseInsightResourceUsageTrendRequest.vmclusterName
     };
 
     let headerParams = {
@@ -8243,7 +8250,8 @@ Note that this API does not return information on the number of times each datab
       "freeformTagExists":
         summarizeDatabaseInsightResourceUtilizationInsightRequest.freeformTagExists,
       "compartmentIdInSubtree":
-        summarizeDatabaseInsightResourceUtilizationInsightRequest.compartmentIdInSubtree
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeDatabaseInsightResourceUtilizationInsightRequest.vmclusterName
     };
 
     let headerParams = {
@@ -9369,7 +9377,8 @@ Note that this API does not return information on the number of times each datab
       "compartmentIdInSubtree":
         summarizeHostInsightResourceCapacityTrendRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceCapacityTrendRequest.hostType,
-      "hostId": summarizeHostInsightResourceCapacityTrendRequest.hostId
+      "hostId": summarizeHostInsightResourceCapacityTrendRequest.hostId,
+      "vmclusterName": summarizeHostInsightResourceCapacityTrendRequest.vmclusterName
     };
 
     let headerParams = {
@@ -9471,7 +9480,8 @@ Note that this API does not return information on the number of times each datab
       "compartmentIdInSubtree":
         summarizeHostInsightResourceForecastTrendRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceForecastTrendRequest.hostType,
-      "hostId": summarizeHostInsightResourceForecastTrendRequest.hostId
+      "hostId": summarizeHostInsightResourceForecastTrendRequest.hostId,
+      "vmclusterName": summarizeHostInsightResourceForecastTrendRequest.vmclusterName
     };
 
     let headerParams = {
@@ -9569,7 +9579,8 @@ Note that this API does not return information on the number of times each datab
       "compartmentIdInSubtree":
         summarizeHostInsightResourceStatisticsRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceStatisticsRequest.hostType,
-      "hostId": summarizeHostInsightResourceStatisticsRequest.hostId
+      "hostId": summarizeHostInsightResourceStatisticsRequest.hostId,
+      "vmclusterName": summarizeHostInsightResourceStatisticsRequest.vmclusterName
     };
 
     let headerParams = {
@@ -9668,7 +9679,8 @@ Note that this API does not return information on the number of times each datab
       "freeformTagExists": summarizeHostInsightResourceUsageRequest.freeformTagExists,
       "compartmentIdInSubtree": summarizeHostInsightResourceUsageRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceUsageRequest.hostType,
-      "hostId": summarizeHostInsightResourceUsageRequest.hostId
+      "hostId": summarizeHostInsightResourceUsageRequest.hostId,
+      "vmclusterName": summarizeHostInsightResourceUsageRequest.vmclusterName
     };
 
     let headerParams = {
@@ -9763,7 +9775,8 @@ Note that this API does not return information on the number of times each datab
       "compartmentIdInSubtree":
         summarizeHostInsightResourceUsageTrendRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceUsageTrendRequest.hostType,
-      "hostId": summarizeHostInsightResourceUsageTrendRequest.hostId
+      "hostId": summarizeHostInsightResourceUsageTrendRequest.hostId,
+      "vmclusterName": summarizeHostInsightResourceUsageTrendRequest.vmclusterName
     };
 
     let headerParams = {
@@ -9862,7 +9875,8 @@ Note that this API does not return information on the number of times each datab
       "compartmentIdInSubtree":
         summarizeHostInsightResourceUtilizationInsightRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceUtilizationInsightRequest.hostType,
-      "hostId": summarizeHostInsightResourceUtilizationInsightRequest.hostId
+      "hostId": summarizeHostInsightResourceUtilizationInsightRequest.hostId,
+      "vmclusterName": summarizeHostInsightResourceUtilizationInsightRequest.vmclusterName
     };
 
     let headerParams = {
@@ -10493,7 +10507,8 @@ Note that this API does not return information on the number of times each datab
       "freeformTagEquals": summarizeSqlStatisticsRequest.freeformTagEquals,
       "definedTagExists": summarizeSqlStatisticsRequest.definedTagExists,
       "freeformTagExists": summarizeSqlStatisticsRequest.freeformTagExists,
-      "compartmentIdInSubtree": summarizeSqlStatisticsRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": summarizeSqlStatisticsRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeSqlStatisticsRequest.vmclusterName
     };
 
     let headerParams = {
@@ -10589,7 +10604,8 @@ Note that this API does not return information on the number of times each datab
       "freeformTagEquals": summarizeSqlStatisticsTimeSeriesRequest.freeformTagEquals,
       "definedTagExists": summarizeSqlStatisticsTimeSeriesRequest.definedTagExists,
       "freeformTagExists": summarizeSqlStatisticsTimeSeriesRequest.freeformTagExists,
-      "compartmentIdInSubtree": summarizeSqlStatisticsTimeSeriesRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": summarizeSqlStatisticsTimeSeriesRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeSqlStatisticsTimeSeriesRequest.vmclusterName
     };
 
     let headerParams = {

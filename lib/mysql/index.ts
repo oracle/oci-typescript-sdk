@@ -19,6 +19,7 @@ import * as channels_waiter from "./lib/channels-waiter";
 import * as dbbackups_waiter from "./lib/dbbackups-waiter";
 import * as dbsystem_waiter from "./lib/dbsystem-waiter";
 import * as mysqlaas_waiter from "./lib/mysqlaas-waiter";
+import * as replicas_waiter from "./lib/replicas-waiter";
 import * as workrequests_waiter from "./lib/workrequests-waiter";
 
 export { models };
@@ -32,5 +33,7 @@ export import DbSystemClient = client.DbSystemClient;
 export import DbSystemWaiter = dbsystem_waiter.DbSystemWaiter;
 export import MysqlaasClient = client.MysqlaasClient;
 export import MysqlaasWaiter = mysqlaas_waiter.MysqlaasWaiter;
+export import ReplicasClient = client.ReplicasClient;
+export import ReplicasWaiter = replicas_waiter.ReplicasWaiter;
 export import WorkRequestsClient = client.WorkRequestsClient;
 export import WorkRequestsWaiter = workrequests_waiter.WorkRequestsWaiter;

@@ -127,6 +127,11 @@ export interface ListDatabaseConfigurationsRequest extends common.BaseRequest {
    *
    */
   "compartmentIdInSubtree"?: boolean;
+  /**
+   * Optional list of Exadata Insight VM cluster name.
+   *
+   */
+  "vmclusterName"?: Array<string>;
 }
 
 export namespace ListDatabaseConfigurationsRequest {

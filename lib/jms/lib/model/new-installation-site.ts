@@ -27,6 +27,10 @@ export interface NewInstallationSite {
    * The release version of the Java Runtime.
    */
   "releaseVersion": string;
+  /**
+   * Artifact content type for the Java version.
+   */
+  "artifactContentType"?: model.ArtifactContentType;
 }
 
 export namespace NewInstallationSite {

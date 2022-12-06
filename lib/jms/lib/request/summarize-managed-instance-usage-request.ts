@@ -99,4 +99,9 @@ export interface SummarizeManagedInstanceUsageRequest extends common.BaseRequest
    *
    */
   "hostnameContains"?: string;
+  /**
+   * The library key.
+   *
+   */
+  "libraryKey"?: string;
 }

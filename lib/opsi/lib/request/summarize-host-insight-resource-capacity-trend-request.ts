@@ -152,6 +152,11 @@ export interface SummarizeHostInsightResourceCapacityTrendRequest extends common
    *
    */
   "hostId"?: string;
+  /**
+   * Optional list of Exadata Insight VM cluster name.
+   *
+   */
+  "vmclusterName"?: Array<string>;
 }
 
 export namespace SummarizeHostInsightResourceCapacityTrendRequest {

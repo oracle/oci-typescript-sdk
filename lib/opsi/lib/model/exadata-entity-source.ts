@@ -22,6 +22,7 @@ import common = require("oci-common");
  **/
 export enum ExadataEntitySource {
   EmManagedExternalExadata = "EM_MANAGED_EXTERNAL_EXADATA",
+  PeComanagedExadata = "PE_COMANAGED_EXADATA",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this
