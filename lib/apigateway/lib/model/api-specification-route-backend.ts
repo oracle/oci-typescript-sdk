@@ -31,6 +31,11 @@ export namespace ApiSpecificationRouteBackend {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "OAUTH2_LOGOUT_BACKEND":
+          return model.OAuth2LogoutBackend.getJsonObj(
+            <model.OAuth2LogoutBackend>(<object>jsonObj),
+            true
+          );
         case "HTTP_BACKEND":
           return model.HTTPBackend.getJsonObj(<model.HTTPBackend>(<object>jsonObj), true);
         case "ORACLE_FUNCTIONS_BACKEND":
@@ -59,6 +64,11 @@ export namespace ApiSpecificationRouteBackend {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "OAUTH2_LOGOUT_BACKEND":
+          return model.OAuth2LogoutBackend.getDeserializedJsonObj(
+            <model.OAuth2LogoutBackend>(<object>jsonObj),
+            true
+          );
         case "HTTP_BACKEND":
           return model.HTTPBackend.getDeserializedJsonObj(
             <model.HTTPBackend>(<object>jsonObj),

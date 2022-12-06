@@ -57,6 +57,10 @@ export interface BackupSummary {
    */
   "dbSystemId": string;
   /**
+   * The OCID of the compartment the backup exists in.
+   */
+  "compartmentId": string;
+  /**
    * Size of the data volume in GiBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "dataStorageSizeInGBs"?: number;

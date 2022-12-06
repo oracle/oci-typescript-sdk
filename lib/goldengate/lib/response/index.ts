@@ -22,6 +22,8 @@ import * as ChangeDeploymentBackupCompartmentResponse from "./change-deployment-
 export import ChangeDeploymentBackupCompartmentResponse = ChangeDeploymentBackupCompartmentResponse.ChangeDeploymentBackupCompartmentResponse;
 import * as ChangeDeploymentCompartmentResponse from "./change-deployment-compartment-response";
 export import ChangeDeploymentCompartmentResponse = ChangeDeploymentCompartmentResponse.ChangeDeploymentCompartmentResponse;
+import * as CollectDeploymentDiagnosticResponse from "./collect-deployment-diagnostic-response";
+export import CollectDeploymentDiagnosticResponse = CollectDeploymentDiagnosticResponse.CollectDeploymentDiagnosticResponse;
 import * as CreateConnectionResponse from "./create-connection-response";
 export import CreateConnectionResponse = CreateConnectionResponse.CreateConnectionResponse;
 import * as CreateConnectionAssignmentResponse from "./create-connection-assignment-response";

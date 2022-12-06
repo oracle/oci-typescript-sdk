@@ -21,7 +21,7 @@ export interface AutonomousDatabaseDetails extends model.DatabaseDetails {
   /**
    * The OCID of the autonomous database registered as a target database in Data Safe.
    */
-  "autonomousDatabaseId"?: string;
+  "autonomousDatabaseId": string;
 
   "databaseType": string;
 }

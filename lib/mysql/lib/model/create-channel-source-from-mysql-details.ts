@@ -48,6 +48,10 @@ export interface CreateChannelSourceFromMysqlDetails extends model.CreateChannel
    */
   "sslMode": string;
   "sslCaCertificate"?: model.PemCaCertificate;
+  "anonymousTransactionsHandling"?:
+    | model.ErrorOnAnonymousHandling
+    | model.AssignManualUuidHandling
+    | model.AssignTargetUuidHandling;
 
   "sourceType": string;
 }
@@ -66,6 +70,9 @@ export namespace CreateChannelSourceFromMysqlDetails {
       ...{
         "sslCaCertificate": obj.sslCaCertificate
           ? model.CaCertificate.getJsonObj(obj.sslCaCertificate)
+          : undefined,
+        "anonymousTransactionsHandling": obj.anonymousTransactionsHandling
+          ? model.AnonymousTransactionsHandling.getJsonObj(obj.anonymousTransactionsHandling)
           : undefined
       }
     };
@@ -86,6 +93,11 @@ export namespace CreateChannelSourceFromMysqlDetails {
       ...{
         "sslCaCertificate": obj.sslCaCertificate
           ? model.CaCertificate.getDeserializedJsonObj(obj.sslCaCertificate)
+          : undefined,
+        "anonymousTransactionsHandling": obj.anonymousTransactionsHandling
+          ? model.AnonymousTransactionsHandling.getDeserializedJsonObj(
+              obj.anonymousTransactionsHandling
+            )
           : undefined
       }
     };

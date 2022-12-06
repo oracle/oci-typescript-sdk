@@ -29,6 +29,7 @@ export interface PeComanagedHostConfigurationSummary extends model.HostConfigura
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the database.
    */
   "parentId": string;
+  "exadataDetails": model.ExadataDetails;
 
   "entitySource": string;
 }
@@ -42,7 +43,11 @@ export namespace PeComanagedHostConfigurationSummary {
       ...(isParentJsonObj
         ? obj
         : (model.HostConfigurationSummary.getJsonObj(obj) as PeComanagedHostConfigurationSummary)),
-      ...{}
+      ...{
+        "exadataDetails": obj.exadataDetails
+          ? model.ExadataDetails.getJsonObj(obj.exadataDetails)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -58,7 +63,11 @@ export namespace PeComanagedHostConfigurationSummary {
         : (model.HostConfigurationSummary.getDeserializedJsonObj(
             obj
           ) as PeComanagedHostConfigurationSummary)),
-      ...{}
+      ...{
+        "exadataDetails": obj.exadataDetails
+          ? model.ExadataDetails.getDeserializedJsonObj(obj.exadataDetails)
+          : undefined
+      }
     };
 
     return jsonObj;

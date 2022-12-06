@@ -96,6 +96,10 @@ export interface DiscoveryJobResultSummary {
    *
    */
   "isResultApplied": boolean;
+  /**
+   * The OCID of the discovery job.
+   */
+  "discoveryJobId": string;
 }
 
 export namespace DiscoveryJobResultSummary {

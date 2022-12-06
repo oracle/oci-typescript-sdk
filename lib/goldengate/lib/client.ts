@@ -571,6 +571,87 @@ export class GoldenGateClient {
   }
 
   /**
+   * Collects the diagnostic of a Deployment. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CollectDeploymentDiagnosticRequest
+   * @return CollectDeploymentDiagnosticResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CollectDeploymentDiagnostic.ts.html |here} to see how to use CollectDeploymentDiagnostic API.
+   */
+  public async collectDeploymentDiagnostic(
+    collectDeploymentDiagnosticRequest: requests.CollectDeploymentDiagnosticRequest
+  ): Promise<responses.CollectDeploymentDiagnosticResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#collectDeploymentDiagnostic.");
+    const operationName = "collectDeploymentDiagnostic";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/CollectDeploymentDiagnostic";
+    const pathParams = {
+      "{deploymentId}": collectDeploymentDiagnosticRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": collectDeploymentDiagnosticRequest.ifMatch,
+      "opc-request-id": collectDeploymentDiagnosticRequest.opcRequestId,
+      "opc-retry-token": collectDeploymentDiagnosticRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      collectDeploymentDiagnosticRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/collectDiagnostics",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        collectDeploymentDiagnosticRequest.collectDeploymentDiagnosticDetails,
+        "CollectDeploymentDiagnosticDetails",
+        model.CollectDeploymentDiagnosticDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CollectDeploymentDiagnosticResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Connection.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

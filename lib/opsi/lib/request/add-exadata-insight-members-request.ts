@@ -21,7 +21,9 @@ export interface AddExadataInsightMembersRequest extends common.BaseRequest {
   /**
    * Details for the members (e.g. databases and hosts) of an Exadata system to be added in Operations Insights.
    */
-  "addExadataInsightMembersDetails": model.AddEmManagedExternalExadataInsightMembersDetails;
+  "addExadataInsightMembersDetails":
+    | model.AddPeComanagedExadataInsightMembersDetails
+    | model.AddEmManagedExternalExadataInsightMembersDetails;
   /**
    * Unique Exadata insight identifier
    */

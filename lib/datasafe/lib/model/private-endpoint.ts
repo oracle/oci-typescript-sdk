@@ -21,7 +21,7 @@ export interface PrivateEndpoint extends model.ConnectionOption {
   /**
    * The OCID of the Data Safe private endpoint.
    */
-  "datasafePrivateEndpointId"?: string;
+  "datasafePrivateEndpointId": string;
 
   "connectionType": string;
 }

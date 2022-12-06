@@ -126,7 +126,8 @@ export namespace BaseAnnouncement {
 
   export enum TimeTwoType {
     EndTime = "END_TIME",
-    NewEndTime = "NEW_END_TIME"
+    NewEndTime = "NEW_END_TIME",
+    EstimatedEndTime = "ESTIMATED_END_TIME"
   }
 
   export enum AnnouncementType {

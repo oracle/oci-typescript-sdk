@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.48.1",
+  "version": "2.49.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -139,7 +139,9 @@
     "oci-opensearch": "file:lib/opensearch",
     "oci-cloudbridge": "file:lib/cloudbridge",
     "oci-cloudmigrations": "file:lib/cloudmigrations",
-    "oci-disasterrecovery": "file:lib/disasterrecovery"
+    "oci-disasterrecovery": "file:lib/disasterrecovery",
+    "oci-containerinstances": "file:lib/containerinstances",
+    "oci-aidocument": "file:lib/aidocument"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"
@@ -172,7 +174,7 @@
     "isomorphic-fetch": "3.0.0",
     "jsonwebtoken": "8.5.1",
     "jssha": "2.4.1",
-    "karma": "^4.1.0",
+    "karma": "^6.4.1",
     "karma-chai": "^0.1.0",
     "karma-chrome-launcher": "^2.2.0",
     "karma-firefox-launcher": "^1.1.0",
@@ -184,7 +186,6 @@
     "prettier": "^1.18.2",
     "pretty-quick": "^1.11.1",
     "random-number-csprng": "^1.0.2",
-    "rm-local-modules": "0.0.2",
     "source-map-loader": "0.2.1",
     "sshpk": "1.16.1",
     "ts-node": "^8.0.2",

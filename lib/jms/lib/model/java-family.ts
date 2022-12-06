@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Complete information of a specific Java release family.
+ * Metadata associated with a specific Java release family.
+ * A Java release family is typically a major version in the Java version identifier.
  *
  */
 export interface JavaFamily {

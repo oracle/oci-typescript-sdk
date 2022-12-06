@@ -35,6 +35,11 @@ export namespace ValidationFailurePolicy {
             <model.ModifyResponseValidationFailurePolicy>(<object>jsonObj),
             true
           );
+        case "OAUTH2":
+          return model.OAuth2ResponseValidationFailurePolicy.getJsonObj(
+            <model.OAuth2ResponseValidationFailurePolicy>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -49,6 +54,11 @@ export namespace ValidationFailurePolicy {
         case "MODIFY_RESPONSE":
           return model.ModifyResponseValidationFailurePolicy.getDeserializedJsonObj(
             <model.ModifyResponseValidationFailurePolicy>(<object>jsonObj),
+            true
+          );
+        case "OAUTH2":
+          return model.OAuth2ResponseValidationFailurePolicy.getDeserializedJsonObj(
+            <model.OAuth2ResponseValidationFailurePolicy>(<object>jsonObj),
             true
           );
         default:

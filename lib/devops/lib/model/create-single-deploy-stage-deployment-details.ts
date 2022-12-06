@@ -23,6 +23,7 @@ export interface CreateSingleDeployStageDeploymentDetails extends model.CreateDe
    */
   "deployStageId": string;
   "deploymentArguments"?: model.DeploymentArgumentCollection;
+  "deployStageOverrideArguments"?: model.DeployStageOverrideArgumentCollection;
   "deployArtifactOverrideArguments"?: model.DeployArtifactOverrideArgumentCollection;
 
   "deploymentType": string;
@@ -42,6 +43,9 @@ export namespace CreateSingleDeployStageDeploymentDetails {
       ...{
         "deploymentArguments": obj.deploymentArguments
           ? model.DeploymentArgumentCollection.getJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployStageOverrideArguments": obj.deployStageOverrideArguments
+          ? model.DeployStageOverrideArgumentCollection.getJsonObj(obj.deployStageOverrideArguments)
           : undefined,
         "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
           ? model.DeployArtifactOverrideArgumentCollection.getJsonObj(
@@ -67,6 +71,11 @@ export namespace CreateSingleDeployStageDeploymentDetails {
       ...{
         "deploymentArguments": obj.deploymentArguments
           ? model.DeploymentArgumentCollection.getDeserializedJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployStageOverrideArguments": obj.deployStageOverrideArguments
+          ? model.DeployStageOverrideArgumentCollection.getDeserializedJsonObj(
+              obj.deployStageOverrideArguments
+            )
           : undefined,
         "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
           ? model.DeployArtifactOverrideArgumentCollection.getDeserializedJsonObj(

@@ -69,6 +69,10 @@ export interface ListReportsRequest extends common.BaseRequest {
    * An optional filter to return only resources that match the specified lifecycle state.
    */
   "lifecycleState"?: model.ReportLifecycleState;
+  /**
+   * An optional filter to return only resources that match the specified type.
+   */
+  "type"?: model.ReportType;
 }
 
 export namespace ListReportsRequest {

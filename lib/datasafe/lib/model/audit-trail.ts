@@ -89,6 +89,12 @@ export interface AuditTrail {
    */
   "compartmentId": string;
   /**
+   * The date and time until which the audit events are collected from target database by Data Safe audit trail
+   * collection process, in the format defined by RFC3339.
+   *
+   */
+  "timeLastCollected"?: Date;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm)
 * <p>
 Example: `{\"Department\": \"Finance\"}`

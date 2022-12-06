@@ -22,6 +22,10 @@ export interface AddFleetInstallationSitesDetails {
    * The list of installation sites to add.
    */
   "installationSites": Array<model.NewInstallationSite>;
+  /**
+   * Optional list of post java installation actions
+   */
+  "postInstallationActions"?: Array<model.PostInstallationActions>;
 }
 
 export namespace AddFleetInstallationSitesDetails {
@@ -32,6 +36,11 @@ export namespace AddFleetInstallationSitesDetails {
         "installationSites": obj.installationSites
           ? obj.installationSites.map(item => {
               return model.NewInstallationSite.getJsonObj(item);
+            })
+          : undefined,
+        "postInstallationActions": obj.postInstallationActions
+          ? obj.postInstallationActions.map(item => {
+              return model.PostInstallationActions.getJsonObj(item);
             })
           : undefined
       }
@@ -46,6 +55,11 @@ export namespace AddFleetInstallationSitesDetails {
         "installationSites": obj.installationSites
           ? obj.installationSites.map(item => {
               return model.NewInstallationSite.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "postInstallationActions": obj.postInstallationActions
+          ? obj.postInstallationActions.map(item => {
+              return model.PostInstallationActions.getDeserializedJsonObj(item);
             })
           : undefined
       }

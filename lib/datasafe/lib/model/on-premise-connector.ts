@@ -21,7 +21,7 @@ export interface OnPremiseConnector extends model.ConnectionOption {
   /**
    * The OCID of the on-premises connector.
    */
-  "onPremConnectorId"?: string;
+  "onPremConnectorId": string;
 
   "connectionType": string;
 }

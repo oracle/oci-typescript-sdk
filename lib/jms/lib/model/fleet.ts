@@ -60,10 +60,17 @@ export interface Fleet {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateManagedInstanceCount": number;
+  /**
+   * The approximate count of all unique Java servers in the Fleet in the past seven days.
+   * This metric is provided on a best-effort manner, and is not taken into account when computing the resource ETag.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "approximateJavaServerCount": number;
   "inventoryLog"?: model.CustomLog;
   "operationLog"?: model.CustomLog;
   /**
-   * Whether or not advanced features are enabled in this fleet.  By default, this is set to false.
+   * Whether or not advanced features are enabled in this fleet.
+   * Deprecated, use `/fleets/{fleetId}/advanceFeatureConfiguration` api instead.
    *
    */
   "isAdvancedFeaturesEnabled"?: boolean;

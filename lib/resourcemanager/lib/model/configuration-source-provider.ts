@@ -57,6 +57,14 @@ export interface ConfigurationSourceProvider {
   "lifecycleState"?: ConfigurationSourceProvider.LifecycleState;
   "privateServerConfigDetails"?: model.PrivateServerConfigDetails;
   /**
+   * Username which is used to authorize the user.
+   */
+  "username"?: string;
+  /**
+   * Secret ocid which is used to authorize the user.
+   */
+  "secretId"?: string;
+  /**
    * Free-form tags associated with this resource. Each tag is a key-value pair with no predefined name, type, or namespace.
    * For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`
@@ -106,6 +114,16 @@ export namespace ConfigurationSourceProvider {
             <model.GitlabAccessTokenConfigurationSourceProvider>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerAccessTokenConfigurationSourceProvider.getJsonObj(
+            <model.BitbucketServerAccessTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider.getJsonObj(
+            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger)
             common.LOG.logger.info(`Unknown value for: ${obj.configSourceProviderType}`);
@@ -133,6 +151,16 @@ export namespace ConfigurationSourceProvider {
         case "GITLAB_ACCESS_TOKEN":
           return model.GitlabAccessTokenConfigurationSourceProvider.getDeserializedJsonObj(
             <model.GitlabAccessTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.BitbucketServerAccessTokenConfigurationSourceProvider.getDeserializedJsonObj(
+            <model.BitbucketServerAccessTokenConfigurationSourceProvider>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider.getDeserializedJsonObj(
+            <model.BitbucketCloudUsernameAppPasswordConfigurationSourceProvider>(<object>jsonObj),
             true
           );
         default:

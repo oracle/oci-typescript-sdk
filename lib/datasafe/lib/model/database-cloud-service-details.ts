@@ -27,9 +27,13 @@ export interface DatabaseCloudServiceDetails extends model.DatabaseDetails {
    */
   "dbSystemId"?: string;
   /**
+   * The port number of the database listener. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "listenerPort"?: number;
+  /**
    * The database service name.
    */
-  "serviceName"?: string;
+  "serviceName": string;
 
   "databaseType": string;
 }

@@ -51,6 +51,7 @@ export interface DeploymentSummary {
    */
   "lifecycleState"?: string;
   "deploymentArguments"?: model.DeploymentArgumentCollection;
+  "deployStageOverrideArguments"?: model.DeployStageOverrideArgumentCollection;
   "deployArtifactOverrideArguments"?: model.DeployArtifactOverrideArgumentCollection;
   /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
@@ -79,6 +80,9 @@ export namespace DeploymentSummary {
       ...{
         "deploymentArguments": obj.deploymentArguments
           ? model.DeploymentArgumentCollection.getJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployStageOverrideArguments": obj.deployStageOverrideArguments
+          ? model.DeployStageOverrideArgumentCollection.getJsonObj(obj.deployStageOverrideArguments)
           : undefined,
         "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
           ? model.DeployArtifactOverrideArgumentCollection.getJsonObj(
@@ -122,6 +126,11 @@ export namespace DeploymentSummary {
       ...{
         "deploymentArguments": obj.deploymentArguments
           ? model.DeploymentArgumentCollection.getDeserializedJsonObj(obj.deploymentArguments)
+          : undefined,
+        "deployStageOverrideArguments": obj.deployStageOverrideArguments
+          ? model.DeployStageOverrideArgumentCollection.getDeserializedJsonObj(
+              obj.deployStageOverrideArguments
+            )
           : undefined,
         "deployArtifactOverrideArguments": obj.deployArtifactOverrideArguments
           ? model.DeployArtifactOverrideArgumentCollection.getDeserializedJsonObj(

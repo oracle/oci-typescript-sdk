@@ -102,6 +102,11 @@ export namespace ExadataInsight {
             <model.EmManagedExternalExadataInsight>(<object>jsonObj),
             true
           );
+        case "PE_COMANAGED_EXADATA":
+          return model.PeComanagedExadataInsight.getJsonObj(
+            <model.PeComanagedExadataInsight>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.entitySource}`);
       }
@@ -116,6 +121,11 @@ export namespace ExadataInsight {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.EmManagedExternalExadataInsight.getDeserializedJsonObj(
             <model.EmManagedExternalExadataInsight>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_EXADATA":
+          return model.PeComanagedExadataInsight.getDeserializedJsonObj(
+            <model.PeComanagedExadataInsight>(<object>jsonObj),
             true
           );
         default:

@@ -74,9 +74,23 @@ export namespace CreateConfigurationSourceProviderDetails {
             <model.CreateGitlabAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails.getJsonObj(
+            <model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.CreateGithubAccessTokenConfigurationSourceProviderDetails.getJsonObj(
             <model.CreateGithubAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.CreateBitbucketServerAccessTokenConfigurationSourceProviderDetails.getJsonObj(
+            <model.CreateBitbucketServerAccessTokenConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
             true
           );
         default:
@@ -103,9 +117,23 @@ export namespace CreateConfigurationSourceProviderDetails {
             <model.CreateGitlabAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
             true
           );
+        case "BITBUCKET_CLOUD_USERNAME_APPPASSWORD":
+          return model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails.getDeserializedJsonObj(
+            <model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
+            true
+          );
         case "GITHUB_ACCESS_TOKEN":
           return model.CreateGithubAccessTokenConfigurationSourceProviderDetails.getDeserializedJsonObj(
             <model.CreateGithubAccessTokenConfigurationSourceProviderDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_ACCESS_TOKEN":
+          return model.CreateBitbucketServerAccessTokenConfigurationSourceProviderDetails.getDeserializedJsonObj(
+            <model.CreateBitbucketServerAccessTokenConfigurationSourceProviderDetails>(
+              (<object>jsonObj)
+            ),
             true
           );
         default:

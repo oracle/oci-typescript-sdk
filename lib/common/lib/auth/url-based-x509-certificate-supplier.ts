@@ -80,10 +80,14 @@ export class URLBasedX509CertificateSupplier implements X509CertificateSupplier,
 }
 
 export class ResourceDetails {
-  constructor(private url: string, private headers: Headers) {}
+  constructor(
+    private url: string,
+    private headers: Headers,
+    private circuitBreaker: CircuitBreaker
+  ) {}
 
   async send(): Promise<Response> {
-    const httpClient = new FetchHttpClient(null, CircuitBreaker.internalCircuit);
+    const httpClient = new FetchHttpClient(null, this.circuitBreaker);
     const response = await httpClient.send({
       uri: this.url,
       method: "GET",

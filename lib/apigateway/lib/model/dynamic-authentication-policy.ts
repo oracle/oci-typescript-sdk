@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information on how to authenticate requests when multiple authentication options are configured for a deployment.
+ * Policy on how to authenticate requests when multiple authentication options are configured for a deployment. For an incoming request, the value of selector specified under selectionSource will be matched against the keys specified for each authentication server. The authentication server whose key matches the value of selector will be used for authentication.
  */
 export interface DynamicAuthenticationPolicy {
   "selectionSource": model.SingleSelectionSourcePolicy;

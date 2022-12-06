@@ -28,6 +28,8 @@ export interface UpdateConfigurationSourceProviderRequest extends common.BaseReq
    *
    */
   "updateConfigurationSourceProviderDetails":
+    | model.UpdateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails
+    | model.UpdateBitbucketServerAccessTokenConfigurationSourceProviderDetails
     | model.UpdateGitlabAccessTokenConfigurationSourceProviderDetails
     | model.UpdateGithubAccessTokenConfigurationSourceProviderDetails;
   /**

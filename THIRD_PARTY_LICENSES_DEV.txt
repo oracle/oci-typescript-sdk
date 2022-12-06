@@ -346,11 +346,6 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
 SOFTWARE.
 
-------------------rm-local-modules-------------------
-* Source Code : https://github.com/ArnaudRinquin/rm-local-modules
-* Homepage : https://github.com/ArnaudRinquin/rm-local-modules#readme
-* License : MIT License
-
 ------------------source-map-loader------------------
 * Source Code : https://github.com/webpack-contrib/source-map-loader
 * Homepage : https://github.com/webpack-contrib/source-map-loader

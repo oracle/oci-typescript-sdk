@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Complete information of a specific release of Java. Includes the artifact details.
+ * Metadata associated with a specific release of Java. Includes the artifact details.
  *
  */
 export interface JavaRelease {
@@ -57,9 +57,24 @@ export interface JavaRelease {
    * Release notes associated with the Java version.
    */
   "releaseNotesUrl": string;
+  /**
+   * Artifact content types for the Java version.
+   */
+  "artifactContentTypes": Array<JavaRelease.ArtifactContentTypes>;
 }
 
 export namespace JavaRelease {
+  export enum ArtifactContentTypes {
+    Jdk = "JDK",
+    Jre = "JRE",
+    ServerJre = "SERVER_JRE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: JavaRelease): object {
     const jsonObj = {
       ...obj,

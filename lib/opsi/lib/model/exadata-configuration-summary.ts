@@ -57,19 +57,37 @@ export interface ExadataConfigurationSummary {
    *
    */
   "freeformTags": { [key: string]: string };
+  /**
+   * Array of objects containing VM cluster information.
+   */
+  "vmclusterDetails"?: Array<model.VmClusterSummary>;
 
   "entitySource": string;
 }
 
 export namespace ExadataConfigurationSummary {
   export function getJsonObj(obj: ExadataConfigurationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "vmclusterDetails": obj.vmclusterDetails
+          ? obj.vmclusterDetails.map(item => {
+              return model.VmClusterSummary.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.ExadataDatabaseMachineConfigurationSummary.getJsonObj(
             <model.ExadataDatabaseMachineConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_EXADATA":
+          return model.ExadataExacsConfigurationSummary.getJsonObj(
+            <model.ExadataExacsConfigurationSummary>(<object>jsonObj),
             true
           );
         default:
@@ -79,13 +97,27 @@ export namespace ExadataConfigurationSummary {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ExadataConfigurationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "vmclusterDetails": obj.vmclusterDetails
+          ? obj.vmclusterDetails.map(item => {
+              return model.VmClusterSummary.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     if (obj && "entitySource" in obj && obj.entitySource) {
       switch (obj.entitySource) {
         case "EM_MANAGED_EXTERNAL_EXADATA":
           return model.ExadataDatabaseMachineConfigurationSummary.getDeserializedJsonObj(
             <model.ExadataDatabaseMachineConfigurationSummary>(<object>jsonObj),
+            true
+          );
+        case "PE_COMANAGED_EXADATA":
+          return model.ExadataExacsConfigurationSummary.getDeserializedJsonObj(
+            <model.ExadataExacsConfigurationSummary>(<object>jsonObj),
             true
           );
         default:

@@ -183,6 +183,11 @@ export interface SummarizeDatabaseInsightResourceForecastTrendRequest extends co
    *
    */
   "compartmentIdInSubtree"?: boolean;
+  /**
+   * Optional list of Exadata Insight VM cluster name.
+   *
+   */
+  "vmclusterName"?: Array<string>;
 }
 
 export namespace SummarizeDatabaseInsightResourceForecastTrendRequest {

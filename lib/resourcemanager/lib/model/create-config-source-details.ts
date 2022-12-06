@@ -43,9 +43,24 @@ export namespace CreateConfigSourceDetails {
 
     if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.CreateDevOpsConfigSourceDetails.getJsonObj(
+            <model.CreateDevOpsConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.CreateBitbucketCloudConfigSourceDetails.getJsonObj(
+            <model.CreateBitbucketCloudConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         case "ZIP_UPLOAD":
           return model.CreateZipUploadConfigSourceDetails.getJsonObj(
             <model.CreateZipUploadConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.CreateBitbucketServerConfigSourceDetails.getJsonObj(
+            <model.CreateBitbucketServerConfigSourceDetails>(<object>jsonObj),
             true
           );
         case "GIT_CONFIG_SOURCE":
@@ -80,9 +95,24 @@ export namespace CreateConfigSourceDetails {
 
     if (obj && "configSourceType" in obj && obj.configSourceType) {
       switch (obj.configSourceType) {
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.CreateDevOpsConfigSourceDetails.getDeserializedJsonObj(
+            <model.CreateDevOpsConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.CreateBitbucketCloudConfigSourceDetails.getDeserializedJsonObj(
+            <model.CreateBitbucketCloudConfigSourceDetails>(<object>jsonObj),
+            true
+          );
         case "ZIP_UPLOAD":
           return model.CreateZipUploadConfigSourceDetails.getDeserializedJsonObj(
             <model.CreateZipUploadConfigSourceDetails>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.CreateBitbucketServerConfigSourceDetails.getDeserializedJsonObj(
+            <model.CreateBitbucketServerConfigSourceDetails>(<object>jsonObj),
             true
           );
         case "GIT_CONFIG_SOURCE":

@@ -29,6 +29,16 @@ export interface FleetAgentConfiguration {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "javaUsageTrackerProcessingFrequencyInMinutes": number;
+  /**
+   * The validity period in days for work requests.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "workRequestValidityPeriodInDays"?: number;
+  /**
+   * Agent polling interval in minutes
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "agentPollingIntervalInMinutes"?: number;
   "linuxConfiguration": model.FleetAgentOsConfiguration;
   "windowsConfiguration": model.FleetAgentOsConfiguration;
   /**

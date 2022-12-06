@@ -33,6 +33,11 @@ export interface ChannelTargetDbSystem extends model.ChannelTarget {
    * The username for the replication applier of the target MySQL DB System.
    */
   "applierUsername": string;
+  /**
+   * Replication filter rules to be applied at the DB System Channel target.
+   *
+   */
+  "filters"?: Array<model.ChannelFilter>;
 
   "targetType": string;
 }
@@ -41,7 +46,13 @@ export namespace ChannelTargetDbSystem {
   export function getJsonObj(obj: ChannelTargetDbSystem, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.ChannelTarget.getJsonObj(obj) as ChannelTargetDbSystem)),
-      ...{}
+      ...{
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.ChannelFilter.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -55,7 +66,13 @@ export namespace ChannelTargetDbSystem {
       ...(isParentJsonObj
         ? obj
         : (model.ChannelTarget.getDeserializedJsonObj(obj) as ChannelTargetDbSystem)),
-      ...{}
+      ...{
+        "filters": obj.filters
+          ? obj.filters.map(item => {
+              return model.ChannelFilter.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

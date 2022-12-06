@@ -32,6 +32,11 @@ export namespace ConfigSourceRecord {
 
     if (obj && "configSourceRecordType" in obj && obj.configSourceRecordType) {
       switch (obj.configSourceRecordType) {
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.DevOpsConfigSourceRecord.getJsonObj(
+            <model.DevOpsConfigSourceRecord>(<object>jsonObj),
+            true
+          );
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSourceRecord.getJsonObj(
             <model.GitConfigSourceRecord>(<object>jsonObj),
@@ -40,6 +45,16 @@ export namespace ConfigSourceRecord {
         case "ZIP_UPLOAD":
           return model.ZipUploadConfigSourceRecord.getJsonObj(
             <model.ZipUploadConfigSourceRecord>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.BitbucketCloudConfigSourceRecord.getJsonObj(
+            <model.BitbucketCloudConfigSourceRecord>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.BitbucketServerConfigSourceRecord.getJsonObj(
+            <model.BitbucketServerConfigSourceRecord>(<object>jsonObj),
             true
           );
         case "OBJECT_STORAGE_CONFIG_SOURCE":
@@ -59,6 +74,11 @@ export namespace ConfigSourceRecord {
 
     if (obj && "configSourceRecordType" in obj && obj.configSourceRecordType) {
       switch (obj.configSourceRecordType) {
+        case "DEVOPS_CONFIG_SOURCE":
+          return model.DevOpsConfigSourceRecord.getDeserializedJsonObj(
+            <model.DevOpsConfigSourceRecord>(<object>jsonObj),
+            true
+          );
         case "GIT_CONFIG_SOURCE":
           return model.GitConfigSourceRecord.getDeserializedJsonObj(
             <model.GitConfigSourceRecord>(<object>jsonObj),
@@ -67,6 +87,16 @@ export namespace ConfigSourceRecord {
         case "ZIP_UPLOAD":
           return model.ZipUploadConfigSourceRecord.getDeserializedJsonObj(
             <model.ZipUploadConfigSourceRecord>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_CLOUD_CONFIG_SOURCE":
+          return model.BitbucketCloudConfigSourceRecord.getDeserializedJsonObj(
+            <model.BitbucketCloudConfigSourceRecord>(<object>jsonObj),
+            true
+          );
+        case "BITBUCKET_SERVER_CONFIG_SOURCE":
+          return model.BitbucketServerConfigSourceRecord.getDeserializedJsonObj(
+            <model.BitbucketServerConfigSourceRecord>(<object>jsonObj),
             true
           );
         case "OBJECT_STORAGE_CONFIG_SOURCE":

@@ -38,6 +38,12 @@ export interface JwtAuthenticationPolicy extends model.AuthenticationPolicy {
    */
   "tokenAuthScheme"?: string;
   /**
+   * The maximum expected time difference between the system clocks
+   * of the token issuer and the API Gateway.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxClockSkewInSeconds"?: number;
+  /**
    * A list of parties that could have issued the token.
    */
   "issuers": Array<string>;
@@ -49,12 +55,6 @@ export interface JwtAuthenticationPolicy extends model.AuthenticationPolicy {
    * A list of claims which should be validated to consider the token valid.
    */
   "verifyClaims"?: Array<model.JsonWebTokenClaim>;
-  /**
-   * The maximum expected time difference between the system clocks
-   * of the token issuer and the API Gateway.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "maxClockSkewInSeconds"?: number;
   "publicKeys": model.StaticPublicKeySet | model.RemoteJsonWebKeySet;
 
   "type": string;
@@ -72,7 +72,6 @@ export namespace JwtAuthenticationPolicy {
               return model.JsonWebTokenClaim.getJsonObj(item);
             })
           : undefined,
-
         "publicKeys": obj.publicKeys ? model.PublicKeySet.getJsonObj(obj.publicKeys) : undefined
       }
     };
@@ -94,7 +93,6 @@ export namespace JwtAuthenticationPolicy {
               return model.JsonWebTokenClaim.getDeserializedJsonObj(item);
             })
           : undefined,
-
         "publicKeys": obj.publicKeys
           ? model.PublicKeySet.getDeserializedJsonObj(obj.publicKeys)
           : undefined

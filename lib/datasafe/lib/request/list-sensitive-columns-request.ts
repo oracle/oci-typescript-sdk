@@ -159,6 +159,7 @@ export namespace ListSensitiveColumnsRequest {
     TimeCreated = "timeCreated",
     SchemaName = "schemaName",
     ObjectName = "objectName",
-    ColumnName = "columnName"
+    ColumnName = "columnName",
+    DataType = "dataType"
   }
 }

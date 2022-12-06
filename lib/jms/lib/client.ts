@@ -619,6 +619,83 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Deletes only the metadata of the Crypto Event Analysis result, but the file remains in the object storage.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteCryptoAnalysisResultRequest
+   * @return DeleteCryptoAnalysisResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteCryptoAnalysisResult.ts.html |here} to see how to use DeleteCryptoAnalysisResult API.
+   */
+  public async deleteCryptoAnalysisResult(
+    deleteCryptoAnalysisResultRequest: requests.DeleteCryptoAnalysisResultRequest
+  ): Promise<responses.DeleteCryptoAnalysisResultResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#deleteCryptoAnalysisResult."
+      );
+    const operationName = "deleteCryptoAnalysisResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/DeleteCryptoAnalysisResult";
+    const pathParams = {
+      "{fleetId}": deleteCryptoAnalysisResultRequest.fleetId,
+      "{cryptoAnalysisResultId}": deleteCryptoAnalysisResultRequest.cryptoAnalysisResultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteCryptoAnalysisResultRequest.ifMatch,
+      "opc-request-id": deleteCryptoAnalysisResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteCryptoAnalysisResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/cryptoAnalysisResults/{cryptoAnalysisResultId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteCryptoAnalysisResultResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the Fleet specified by an identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFleetRequest
@@ -780,6 +857,84 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Retrieve metadata of the Crypto Event Analysis result.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCryptoAnalysisResultRequest
+   * @return GetCryptoAnalysisResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetCryptoAnalysisResult.ts.html |here} to see how to use GetCryptoAnalysisResult API.
+   */
+  public async getCryptoAnalysisResult(
+    getCryptoAnalysisResultRequest: requests.GetCryptoAnalysisResultRequest
+  ): Promise<responses.GetCryptoAnalysisResultResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#getCryptoAnalysisResult.");
+    const operationName = "getCryptoAnalysisResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/GetCryptoAnalysisResult";
+    const pathParams = {
+      "{fleetId}": getCryptoAnalysisResultRequest.fleetId,
+      "{cryptoAnalysisResultId}": getCryptoAnalysisResultRequest.cryptoAnalysisResultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCryptoAnalysisResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCryptoAnalysisResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/cryptoAnalysisResults/{cryptoAnalysisResultId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCryptoAnalysisResultResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAnalysisResult",
+        bodyModel: model.CryptoAnalysisResult,
+        type: "model.CryptoAnalysisResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieve a Fleet with the specified identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFleetRequest
@@ -843,6 +998,87 @@ export class JavaManagementServiceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns fleet level advanced feature configuration
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetFleetAdvancedFeatureConfigurationRequest
+   * @return GetFleetAdvancedFeatureConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetFleetAdvancedFeatureConfiguration.ts.html |here} to see how to use GetFleetAdvancedFeatureConfiguration API.
+   */
+  public async getFleetAdvancedFeatureConfiguration(
+    getFleetAdvancedFeatureConfigurationRequest: requests.GetFleetAdvancedFeatureConfigurationRequest
+  ): Promise<responses.GetFleetAdvancedFeatureConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#getFleetAdvancedFeatureConfiguration."
+      );
+    const operationName = "getFleetAdvancedFeatureConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAdvancedFeatureConfiguration/GetFleetAdvancedFeatureConfiguration";
+    const pathParams = {
+      "{fleetId}": getFleetAdvancedFeatureConfigurationRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": getFleetAdvancedFeatureConfigurationRequest.ifMatch,
+      "opc-request-id": getFleetAdvancedFeatureConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFleetAdvancedFeatureConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/advancedFeatureConfiguration",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetFleetAdvancedFeatureConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "fleetAdvancedFeatureConfiguration",
+        bodyModel: model.FleetAdvancedFeatureConfiguration,
+        type: "model.FleetAdvancedFeatureConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -934,7 +1170,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Returns details of a Java release family based on specified version.
+   * Returns metadata associated with a specific Java release family.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJavaFamilyRequest
@@ -1246,6 +1482,92 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * List Crypto Event Analysis results.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCryptoAnalysisResultsRequest
+   * @return ListCryptoAnalysisResultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListCryptoAnalysisResults.ts.html |here} to see how to use ListCryptoAnalysisResults API.
+   */
+  public async listCryptoAnalysisResults(
+    listCryptoAnalysisResultsRequest: requests.ListCryptoAnalysisResultsRequest
+  ): Promise<responses.ListCryptoAnalysisResultsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listCryptoAnalysisResults.");
+    const operationName = "listCryptoAnalysisResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/CryptoAnalysisResult/ListCryptoAnalysisResults";
+    const pathParams = {
+      "{fleetId}": listCryptoAnalysisResultsRequest.fleetId
+    };
+
+    const queryParams = {
+      "aggregationMode": listCryptoAnalysisResultsRequest.aggregationMode,
+      "managedInstanceId": listCryptoAnalysisResultsRequest.managedInstanceId,
+      "limit": listCryptoAnalysisResultsRequest.limit,
+      "page": listCryptoAnalysisResultsRequest.page,
+      "sortOrder": listCryptoAnalysisResultsRequest.sortOrder,
+      "sortBy": listCryptoAnalysisResultsRequest.sortBy,
+      "timeStart": listCryptoAnalysisResultsRequest.timeStart,
+      "timeEnd": listCryptoAnalysisResultsRequest.timeEnd
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCryptoAnalysisResultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCryptoAnalysisResultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/cryptoAnalysisResults",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCryptoAnalysisResultsResponse>{},
+        body: await response.json(),
+        bodyKey: "cryptoAnalysisResultCollection",
+        bodyModel: model.CryptoAnalysisResultCollection,
+        type: "model.CryptoAnalysisResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of all the Fleets contained by a compartment. The query parameter `compartmentId`
    * is required unless the query parameter `id` is specified.
    *
@@ -1440,7 +1762,7 @@ export class JavaManagementServiceClient {
       this.logger.debug("Calling operation JavaManagementServiceClient#listJavaFamilies.");
     const operationName = "listJavaFamilies";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamilyCollection/ListJavaFamilies";
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaFamily/ListJavaFamilies";
     const pathParams = {};
 
     const queryParams = {
@@ -2087,6 +2409,326 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Request to perform crypto analyses. The result of crypto analysis will be uploaded to the
+   * object storage bucket desiginated when enable Crypto Event Analysis feature.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestCryptoAnalysesRequest
+   * @return RequestCryptoAnalysesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestCryptoAnalyses.ts.html |here} to see how to use RequestCryptoAnalyses API.
+   */
+  public async requestCryptoAnalyses(
+    requestCryptoAnalysesRequest: requests.RequestCryptoAnalysesRequest
+  ): Promise<responses.RequestCryptoAnalysesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#requestCryptoAnalyses.");
+    const operationName = "requestCryptoAnalyses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestCryptoAnalyses";
+    const pathParams = {
+      "{fleetId}": requestCryptoAnalysesRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestCryptoAnalysesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestCryptoAnalysesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/requestCryptoAnalyses",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestCryptoAnalysesRequest.requestCryptoAnalysesDetails,
+        "RequestCryptoAnalysesDetails",
+        model.RequestCryptoAnalysesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestCryptoAnalysesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Request to collect the JFR recordings on the selected target. The JFR files are uploaded
+   * to the object storage bucket that you designated when you enabled the recording feature.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestJfrRecordingsRequest
+   * @return RequestJfrRecordingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestJfrRecordings.ts.html |here} to see how to use RequestJfrRecordings API.
+   */
+  public async requestJfrRecordings(
+    requestJfrRecordingsRequest: requests.RequestJfrRecordingsRequest
+  ): Promise<responses.RequestJfrRecordingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#requestJfrRecordings.");
+    const operationName = "requestJfrRecordings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestJfrRecordings";
+    const pathParams = {
+      "{fleetId}": requestJfrRecordingsRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestJfrRecordingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestJfrRecordingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/requestJfrRecordings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestJfrRecordingsRequest.requestJfrRecordingsDetails,
+        "RequestJfrRecordingsDetails",
+        model.RequestJfrRecordingsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestJfrRecordingsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Scan Java server usage in a fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ScanJavaServerUsageRequest
+   * @return ScanJavaServerUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ScanJavaServerUsage.ts.html |here} to see how to use ScanJavaServerUsage API.
+   */
+  public async scanJavaServerUsage(
+    scanJavaServerUsageRequest: requests.ScanJavaServerUsageRequest
+  ): Promise<responses.ScanJavaServerUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#scanJavaServerUsage.");
+    const operationName = "scanJavaServerUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerUsage/ScanJavaServerUsage";
+    const pathParams = {
+      "{fleetId}": scanJavaServerUsageRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": scanJavaServerUsageRequest.ifMatch,
+      "opc-retry-token": scanJavaServerUsageRequest.opcRetryToken,
+      "opc-request-id": scanJavaServerUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scanJavaServerUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/scanJavaServerUsage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        scanJavaServerUsageRequest.scanJavaServerUsageDetails,
+        "ScanJavaServerUsageDetails",
+        model.ScanJavaServerUsageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScanJavaServerUsageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Scan library usage in a fleet.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ScanLibraryUsageRequest
+   * @return ScanLibraryUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ScanLibraryUsage.ts.html |here} to see how to use ScanLibraryUsage API.
+   */
+  public async scanLibraryUsage(
+    scanLibraryUsageRequest: requests.ScanLibraryUsageRequest
+  ): Promise<responses.ScanLibraryUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#scanLibraryUsage.");
+    const operationName = "scanLibraryUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/LibraryUsage/ScanLibraryUsage";
+    const pathParams = {
+      "{fleetId}": scanLibraryUsageRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": scanLibraryUsageRequest.ifMatch,
+      "opc-retry-token": scanLibraryUsageRequest.opcRetryToken,
+      "opc-request-id": scanLibraryUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scanLibraryUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/scanLibraryUsage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        scanLibraryUsageRequest.scanLibraryUsageDetails,
+        "ScanLibraryUsageDetails",
+        model.ScanLibraryUsageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScanLibraryUsageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List application usage in a Fleet filtered by query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeApplicationUsageRequest
@@ -2123,7 +2765,8 @@ export class JavaManagementServiceClient {
       "sortOrder": summarizeApplicationUsageRequest.sortOrder,
       "sortBy": summarizeApplicationUsageRequest.sortBy,
       "osFamily": summarizeApplicationUsageRequest.osFamily,
-      "displayNameContains": summarizeApplicationUsageRequest.displayNameContains
+      "displayNameContains": summarizeApplicationUsageRequest.displayNameContains,
+      "libraryKey": summarizeApplicationUsageRequest.libraryKey
     };
 
     let headerParams = {
@@ -2161,6 +2804,100 @@ export class JavaManagementServiceClient {
         bodyKey: "applicationUsageCollection",
         bodyModel: model.ApplicationUsageCollection,
         type: "model.ApplicationUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List deployed applications in a fleet filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeDeployedApplicationUsageRequest
+   * @return SummarizeDeployedApplicationUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeDeployedApplicationUsage.ts.html |here} to see how to use SummarizeDeployedApplicationUsage API.
+   */
+  public async summarizeDeployedApplicationUsage(
+    summarizeDeployedApplicationUsageRequest: requests.SummarizeDeployedApplicationUsageRequest
+  ): Promise<responses.SummarizeDeployedApplicationUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationUsage."
+      );
+    const operationName = "summarizeDeployedApplicationUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DeployedApplicationUsage/SummarizeDeployedApplicationUsage";
+    const pathParams = {
+      "{fleetId}": summarizeDeployedApplicationUsageRequest.fleetId
+    };
+
+    const queryParams = {
+      "serverKey": summarizeDeployedApplicationUsageRequest.serverKey,
+      "serverInstanceKey": summarizeDeployedApplicationUsageRequest.serverInstanceKey,
+      "managedInstanceId": summarizeDeployedApplicationUsageRequest.managedInstanceId,
+      "libraryKey": summarizeDeployedApplicationUsageRequest.libraryKey,
+      "applicationKey": summarizeDeployedApplicationUsageRequest.applicationKey,
+      "applicationNameContains": summarizeDeployedApplicationUsageRequest.applicationNameContains,
+      "applicationName": summarizeDeployedApplicationUsageRequest.applicationName,
+      "timeStart": summarizeDeployedApplicationUsageRequest.timeStart,
+      "timeEnd": summarizeDeployedApplicationUsageRequest.timeEnd,
+      "limit": summarizeDeployedApplicationUsageRequest.limit,
+      "page": summarizeDeployedApplicationUsageRequest.page,
+      "sortOrder": summarizeDeployedApplicationUsageRequest.sortOrder,
+      "sortBy": summarizeDeployedApplicationUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeDeployedApplicationUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDeployedApplicationUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/summarizeDeployedApplicationUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeDeployedApplicationUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "deployedApplicationUsageCollection",
+        bodyModel: model.DeployedApplicationUsageCollection,
+        type: "model.DeployedApplicationUsageCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2277,6 +3014,190 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * List Java server instances in a fleet filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeJavaServerInstanceUsageRequest
+   * @return SummarizeJavaServerInstanceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJavaServerInstanceUsage.ts.html |here} to see how to use SummarizeJavaServerInstanceUsage API.
+   */
+  public async summarizeJavaServerInstanceUsage(
+    summarizeJavaServerInstanceUsageRequest: requests.SummarizeJavaServerInstanceUsageRequest
+  ): Promise<responses.SummarizeJavaServerInstanceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeJavaServerInstanceUsage."
+      );
+    const operationName = "summarizeJavaServerInstanceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerInstanceUsage/SummarizeJavaServerInstanceUsage";
+    const pathParams = {
+      "{fleetId}": summarizeJavaServerInstanceUsageRequest.fleetId
+    };
+
+    const queryParams = {
+      "serverKey": summarizeJavaServerInstanceUsageRequest.serverKey,
+      "serverInstanceKey": summarizeJavaServerInstanceUsageRequest.serverInstanceKey,
+      "managedInstanceId": summarizeJavaServerInstanceUsageRequest.managedInstanceId,
+      "applicationKey": summarizeJavaServerInstanceUsageRequest.applicationKey,
+      "libraryKey": summarizeJavaServerInstanceUsageRequest.libraryKey,
+      "serverInstanceNameContains":
+        summarizeJavaServerInstanceUsageRequest.serverInstanceNameContains,
+      "serverInstanceName": summarizeJavaServerInstanceUsageRequest.serverInstanceName,
+      "timeStart": summarizeJavaServerInstanceUsageRequest.timeStart,
+      "timeEnd": summarizeJavaServerInstanceUsageRequest.timeEnd,
+      "limit": summarizeJavaServerInstanceUsageRequest.limit,
+      "page": summarizeJavaServerInstanceUsageRequest.page,
+      "sortOrder": summarizeJavaServerInstanceUsageRequest.sortOrder,
+      "sortBy": summarizeJavaServerInstanceUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeJavaServerInstanceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeJavaServerInstanceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/summarizeJavaServerInstanceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeJavaServerInstanceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "javaServerInstanceUsageCollection",
+        bodyModel: model.JavaServerInstanceUsageCollection,
+        type: "model.JavaServerInstanceUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List Java servers in a fleet filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeJavaServerUsageRequest
+   * @return SummarizeJavaServerUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeJavaServerUsage.ts.html |here} to see how to use SummarizeJavaServerUsage API.
+   */
+  public async summarizeJavaServerUsage(
+    summarizeJavaServerUsageRequest: requests.SummarizeJavaServerUsageRequest
+  ): Promise<responses.SummarizeJavaServerUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeJavaServerUsage.");
+    const operationName = "summarizeJavaServerUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaServerUsage/SummarizeJavaServerUsage";
+    const pathParams = {
+      "{fleetId}": summarizeJavaServerUsageRequest.fleetId
+    };
+
+    const queryParams = {
+      "serverKey": summarizeJavaServerUsageRequest.serverKey,
+      "serverNameContains": summarizeJavaServerUsageRequest.serverNameContains,
+      "serverName": summarizeJavaServerUsageRequest.serverName,
+      "serverVersion": summarizeJavaServerUsageRequest.serverVersion,
+      "timeStart": summarizeJavaServerUsageRequest.timeStart,
+      "timeEnd": summarizeJavaServerUsageRequest.timeEnd,
+      "limit": summarizeJavaServerUsageRequest.limit,
+      "page": summarizeJavaServerUsageRequest.page,
+      "sortOrder": summarizeJavaServerUsageRequest.sortOrder,
+      "sortBy": summarizeJavaServerUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeJavaServerUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeJavaServerUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/summarizeJavaServerUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeJavaServerUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "javaServerUsageCollection",
+        bodyModel: model.JavaServerUsageCollection,
+        type: "model.JavaServerUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List Java Runtime usage in a specified Fleet filtered by query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeJreUsageRequest
@@ -2297,6 +3218,7 @@ export class JavaManagementServiceClient {
     };
 
     const queryParams = {
+      "jreId": summarizeJreUsageRequest.jreId,
       "jreVendor": summarizeJreUsageRequest.jreVendor,
       "jreDistribution": summarizeJreUsageRequest.jreDistribution,
       "jreVersion": summarizeJreUsageRequest.jreVersion,
@@ -2369,6 +3291,97 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * List libraries in a fleet filtered by query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeLibraryUsageRequest
+   * @return SummarizeLibraryUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeLibraryUsage.ts.html |here} to see how to use SummarizeLibraryUsage API.
+   */
+  public async summarizeLibraryUsage(
+    summarizeLibraryUsageRequest: requests.SummarizeLibraryUsageRequest
+  ): Promise<responses.SummarizeLibraryUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#summarizeLibraryUsage.");
+    const operationName = "summarizeLibraryUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/LibraryUsage/SummarizeLibraryUsage";
+    const pathParams = {
+      "{fleetId}": summarizeLibraryUsageRequest.fleetId
+    };
+
+    const queryParams = {
+      "serverInstanceKey": summarizeLibraryUsageRequest.serverInstanceKey,
+      "managedInstanceId": summarizeLibraryUsageRequest.managedInstanceId,
+      "applicationKey": summarizeLibraryUsageRequest.applicationKey,
+      "libraryKey": summarizeLibraryUsageRequest.libraryKey,
+      "libraryNameContains": summarizeLibraryUsageRequest.libraryNameContains,
+      "libraryName": summarizeLibraryUsageRequest.libraryName,
+      "timeStart": summarizeLibraryUsageRequest.timeStart,
+      "timeEnd": summarizeLibraryUsageRequest.timeEnd,
+      "limit": summarizeLibraryUsageRequest.limit,
+      "page": summarizeLibraryUsageRequest.page,
+      "sortOrder": summarizeLibraryUsageRequest.sortOrder,
+      "sortBy": summarizeLibraryUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeLibraryUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeLibraryUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/summarizeLibraryUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeLibraryUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "libraryUsageCollection",
+        bodyModel: model.LibraryUsageCollection,
+        type: "model.LibraryUsageCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List managed instance usage in a Fleet filtered by query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeManagedInstanceUsageRequest
@@ -2406,7 +3419,8 @@ export class JavaManagementServiceClient {
       "sortOrder": summarizeManagedInstanceUsageRequest.sortOrder,
       "sortBy": summarizeManagedInstanceUsageRequest.sortBy,
       "osFamily": summarizeManagedInstanceUsageRequest.osFamily,
-      "hostnameContains": summarizeManagedInstanceUsageRequest.hostnameContains
+      "hostnameContains": summarizeManagedInstanceUsageRequest.hostnameContains,
+      "libraryKey": summarizeManagedInstanceUsageRequest.libraryKey
     };
 
     let headerParams = {
@@ -2608,6 +3622,94 @@ export class JavaManagementServiceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update advanced feature configurations for the fleet
+   * Ensure that the namespace and bucket storage are created prior to turning on the JfrRecording or CryptoEventAnalysis feature
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateFleetAdvancedFeatureConfigurationRequest
+   * @return UpdateFleetAdvancedFeatureConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/UpdateFleetAdvancedFeatureConfiguration.ts.html |here} to see how to use UpdateFleetAdvancedFeatureConfiguration API.
+   */
+  public async updateFleetAdvancedFeatureConfiguration(
+    updateFleetAdvancedFeatureConfigurationRequest: requests.UpdateFleetAdvancedFeatureConfigurationRequest
+  ): Promise<responses.UpdateFleetAdvancedFeatureConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#updateFleetAdvancedFeatureConfiguration."
+      );
+    const operationName = "updateFleetAdvancedFeatureConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetAdvancedFeatureConfiguration/UpdateFleetAdvancedFeatureConfiguration";
+    const pathParams = {
+      "{fleetId}": updateFleetAdvancedFeatureConfigurationRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateFleetAdvancedFeatureConfigurationRequest.opcRetryToken,
+      "if-match": updateFleetAdvancedFeatureConfigurationRequest.ifMatch,
+      "opc-request-id": updateFleetAdvancedFeatureConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFleetAdvancedFeatureConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/advancedFeatureConfiguration",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateFleetAdvancedFeatureConfigurationRequest.updateFleetAdvancedFeatureConfigurationDetails,
+        "UpdateFleetAdvancedFeatureConfigurationDetails",
+        model.UpdateFleetAdvancedFeatureConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateFleetAdvancedFeatureConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "fleetAdvancedFeatureConfiguration",
+        bodyModel: model.FleetAdvancedFeatureConfiguration,
+        type: "model.FleetAdvancedFeatureConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

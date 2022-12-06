@@ -47,7 +47,9 @@ export interface CustomAuthenticationPolicy extends model.AuthenticationPolicy {
    *
    */
   "cacheKey"?: Array<string>;
-  "validationFailurePolicy"?: model.ModifyResponseValidationFailurePolicy;
+  "validationFailurePolicy"?:
+    | model.ModifyResponseValidationFailurePolicy
+    | model.OAuth2ResponseValidationFailurePolicy;
 
   "type": string;
 }

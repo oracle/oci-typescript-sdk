@@ -68,6 +68,15 @@ export interface MaskingReport {
    * The date and time data masking finished, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339)
    */
   "timeMaskingFinished": Date;
+  /**
+   * The current state of the masking report.
+   */
+  "lifecycleState": model.MaskingLifecycleState;
+  /**
+   * The date and time the masking report was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   *
+   */
+  "timeCreated"?: Date;
 }
 
 export namespace MaskingReport {

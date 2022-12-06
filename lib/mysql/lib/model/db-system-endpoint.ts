@@ -49,6 +49,14 @@ export interface DbSystemEndpoint {
    * Additional information about the current endpoint status.
    */
   "statusDetails"?: string;
+  /**
+   * The type of endpoint that clients and connectors can connect to.
+   */
+  "resourceType"?: DbSystemEndpoint.ResourceType;
+  /**
+   * The OCID of the resource that this endpoint is attached to.
+   */
+  "resourceId"?: string;
 }
 
 export namespace DbSystemEndpoint {
@@ -66,6 +74,17 @@ export namespace DbSystemEndpoint {
     Active = "ACTIVE",
     Inactive = "INACTIVE",
     Updating = "UPDATING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ResourceType {
+    Dbsystem = "DBSYSTEM",
+    ReadReplica = "READ_REPLICA",
+    LoadBalancer = "LOAD_BALANCER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

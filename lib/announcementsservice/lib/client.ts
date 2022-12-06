@@ -28,8 +28,7 @@ export enum AnnouncementApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AnnouncementClient {
-  protected static serviceEndpointTemplate =
-    "https://announcements.{region}.oci.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -474,8 +473,7 @@ export enum AnnouncementSubscriptionApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AnnouncementSubscriptionClient {
-  protected static serviceEndpointTemplate =
-    "https://announcements.{region}.oci.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -1363,8 +1361,7 @@ export enum AnnouncementsPreferencesApiKeys {}
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
  */
 export class AnnouncementsPreferencesClient {
-  protected static serviceEndpointTemplate =
-    "https://announcements.{region}.oci.{secondLevelDomain}";
+  protected static serviceEndpointTemplate = "https://announcements.{region}.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};

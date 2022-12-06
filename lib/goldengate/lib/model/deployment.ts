@@ -184,6 +184,7 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "deploymentType": model.DeploymentType;
   "oggData"?: model.OggDeployment;
+  "deploymentDiagnosticData"?: model.DeploymentDiagnosticData;
 }
 
 export namespace Deployment {
@@ -191,7 +192,10 @@ export namespace Deployment {
     const jsonObj = {
       ...obj,
       ...{
-        "oggData": obj.oggData ? model.OggDeployment.getJsonObj(obj.oggData) : undefined
+        "oggData": obj.oggData ? model.OggDeployment.getJsonObj(obj.oggData) : undefined,
+        "deploymentDiagnosticData": obj.deploymentDiagnosticData
+          ? model.DeploymentDiagnosticData.getJsonObj(obj.deploymentDiagnosticData)
+          : undefined
       }
     };
 
@@ -201,7 +205,12 @@ export namespace Deployment {
     const jsonObj = {
       ...obj,
       ...{
-        "oggData": obj.oggData ? model.OggDeployment.getDeserializedJsonObj(obj.oggData) : undefined
+        "oggData": obj.oggData
+          ? model.OggDeployment.getDeserializedJsonObj(obj.oggData)
+          : undefined,
+        "deploymentDiagnosticData": obj.deploymentDiagnosticData
+          ? model.DeploymentDiagnosticData.getDeserializedJsonObj(obj.deploymentDiagnosticData)
+          : undefined
       }
     };
 

@@ -36,7 +36,10 @@ export interface CreateStackDetails {
    */
   "description"?: string;
   "configSource":
+    | model.CreateDevOpsConfigSourceDetails
+    | model.CreateBitbucketCloudConfigSourceDetails
     | model.CreateZipUploadConfigSourceDetails
+    | model.CreateBitbucketServerConfigSourceDetails
     | model.CreateGitConfigSourceDetails
     | model.CreateObjectStorageConfigSourceDetails
     | model.CreateCompartmentConfigSourceDetails

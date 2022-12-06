@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Partial information about the exadata which includes id and name.
+ * Partial information about the exadata which includes id, name and vmclusterNames.
  */
 export interface ExadataDetails {
   /**
@@ -29,6 +29,10 @@ export interface ExadataDetails {
    * Name of exadata insight resource.
    */
   "name": string;
+  /**
+   * Array of vm cluster names. Applicable for ExaCC and ExaCS.
+   */
+  "vmclusterNames"?: Array<string>;
 }
 
 export namespace ExadataDetails {

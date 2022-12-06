@@ -1,0 +1,28 @@
+{
+  "name": "oci-containerinstances",
+  "version": "2.49.0",
+  "description": "OCI NodeJS client for Container Instances Service",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/oracle/oci-typescript-sdk"
+  },
+  "main": "../../target/lib/containerinstances/index.js",
+  "typings": "../../target/lib/containerinstances/index.d.ts",
+  "scripts": {},
+  "author": {
+    "name": "Oracle Cloud Infrastructure",
+    "email": ""
+  },
+  "license": "(UPL-1.0 OR Apache-2.0)",
+  "dependencies": {
+    "oci-common": "../common"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org"
+  },
+  "contributors": [
+    "Jyoti Saini <jyoti.s.saini@oracle.com>",
+    "Joe Levy <joe.levy@oracle.com>",
+    "Walt Tran <walt.tran@oracle.com>"
+  ]
+}

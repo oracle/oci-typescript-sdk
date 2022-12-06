@@ -23,7 +23,9 @@ export interface CreateConfigurationSourceProviderRequest extends common.BaseReq
    */
   "createConfigurationSourceProviderDetails":
     | model.CreateGitlabAccessTokenConfigurationSourceProviderDetails
-    | model.CreateGithubAccessTokenConfigurationSourceProviderDetails;
+    | model.CreateBitbucketCloudUsernameAppPasswordConfigurationSourceProviderDetails
+    | model.CreateGithubAccessTokenConfigurationSourceProviderDetails
+    | model.CreateBitbucketServerAccessTokenConfigurationSourceProviderDetails;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a
    * particular request, please provide the request ID.
