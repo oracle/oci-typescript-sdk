@@ -88,6 +88,26 @@ export namespace CreateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "POSTGRESQL":
+          return model.CreatePostgresqlConnectionDetails.getJsonObj(
+            <model.CreatePostgresqlConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.CreateKafkaSchemaRegistryConnectionDetails.getJsonObj(
+            <model.CreateKafkaSchemaRegistryConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.CreateAzureSynapseConnectionDetails.getJsonObj(
+            <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.CreateAzureDataLakeStorageConnectionDetails.getJsonObj(
+            <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.CreateMysqlConnectionDetails.getJsonObj(
             <model.CreateMysqlConnectionDetails>(<object>jsonObj),
@@ -124,6 +144,26 @@ export namespace CreateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "POSTGRESQL":
+          return model.CreatePostgresqlConnectionDetails.getDeserializedJsonObj(
+            <model.CreatePostgresqlConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.CreateKafkaSchemaRegistryConnectionDetails.getDeserializedJsonObj(
+            <model.CreateKafkaSchemaRegistryConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.CreateAzureSynapseConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.CreateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "MYSQL":
           return model.CreateMysqlConnectionDetails.getDeserializedJsonObj(
             <model.CreateMysqlConnectionDetails>(<object>jsonObj),

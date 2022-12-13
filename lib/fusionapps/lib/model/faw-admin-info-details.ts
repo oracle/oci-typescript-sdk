@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Admin information to provision Analytics Warehouse Servcie.
+ * Admin information to provision Analytics Warehouse Service.
  */
 export interface FawAdminInfoDetails {
   /**
    * Password for the ADW to be created in User Tenancy
    */
-  "adwAdminPass"?: string;
+  "adwAdminPass": string;
   /**
    * Password for the auto-created FAWService user
    */
@@ -29,7 +29,7 @@ export interface FawAdminInfoDetails {
   /**
    * Email ID to send notification for Analytics Warehouse updates.
    */
-  "notificationEmail"?: string;
+  "notificationEmail": string;
 }
 
 export namespace FawAdminInfoDetails {

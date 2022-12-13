@@ -152,7 +152,7 @@ export class DatabaseMigrationClient {
   /**
    * Aborts a Migration Job (either Evaluation or Migration).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AbortJobRequest
    * @return AbortJobResponse
    * @throws OciError when an error occurs
@@ -178,7 +178,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": abortJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       abortJobRequest.retryConfiguration,
@@ -231,7 +231,7 @@ export class DatabaseMigrationClient {
   /**
    * Add excluded/included object to the list.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AddMigrationObjectsRequest
    * @return AddMigrationObjectsResponse
    * @throws OciError when an error occurs
@@ -257,7 +257,7 @@ export class DatabaseMigrationClient {
       "if-match": addMigrationObjectsRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       addMigrationObjectsRequest.retryConfiguration,
@@ -306,7 +306,7 @@ export class DatabaseMigrationClient {
   /**
    * Used to configure an ODMS Agent Compartment ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAgentCompartmentRequest
    * @return ChangeAgentCompartmentResponse
    * @throws OciError when an error occurs
@@ -333,7 +333,7 @@ export class DatabaseMigrationClient {
       "if-match": changeAgentCompartmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAgentCompartmentRequest.retryConfiguration,
@@ -382,7 +382,7 @@ export class DatabaseMigrationClient {
   /**
    * Used to change the Database Connection compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeConnectionCompartmentRequest
    * @return ChangeConnectionCompartmentResponse
    * @throws OciError when an error occurs
@@ -409,7 +409,7 @@ export class DatabaseMigrationClient {
       "if-match": changeConnectionCompartmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeConnectionCompartmentRequest.retryConfiguration,
@@ -458,7 +458,7 @@ export class DatabaseMigrationClient {
   /**
    * Used to change the Migration compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeMigrationCompartmentRequest
    * @return ChangeMigrationCompartmentResponse
    * @throws OciError when an error occurs
@@ -485,7 +485,7 @@ export class DatabaseMigrationClient {
       "if-match": changeMigrationCompartmentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeMigrationCompartmentRequest.retryConfiguration,
@@ -534,7 +534,7 @@ export class DatabaseMigrationClient {
   /**
    * Clone a configuration from an existing Migration.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CloneMigrationRequest
    * @return CloneMigrationResponse
    * @throws OciError when an error occurs
@@ -560,7 +560,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": cloneMigrationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cloneMigrationRequest.retryConfiguration,
@@ -624,7 +624,7 @@ export class DatabaseMigrationClient {
    * Create a Database Connection resource that contains the details to connect to either a Source or Target Database
    * in the migration.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateConnectionRequest
    * @return CreateConnectionResponse
    * @throws OciError when an error occurs
@@ -647,7 +647,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": createConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createConnectionRequest.retryConfiguration,
@@ -712,7 +712,7 @@ export class DatabaseMigrationClient {
    * database migration operation, such as source and destination database
    * details, credentials, etc.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateMigrationRequest
    * @return CreateMigrationResponse
    * @throws OciError when an error occurs
@@ -735,7 +735,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": createMigrationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createMigrationRequest.retryConfiguration,
@@ -798,7 +798,7 @@ export class DatabaseMigrationClient {
   /**
    * Delete the ODMS Agent represented by the specified ODMS Agent ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAgentRequest
    * @return DeleteAgentResponse
    * @throws OciError when an error occurs
@@ -823,7 +823,7 @@ export class DatabaseMigrationClient {
       "if-match": deleteAgentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAgentRequest.retryConfiguration,
@@ -872,7 +872,7 @@ export class DatabaseMigrationClient {
   /**
    * Deletes the Database Connection represented by the specified connection ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteConnectionRequest
    * @return DeleteConnectionResponse
    * @throws OciError when an error occurs
@@ -898,7 +898,7 @@ export class DatabaseMigrationClient {
       "if-match": deleteConnectionRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteConnectionRequest.retryConfiguration,
@@ -947,7 +947,7 @@ export class DatabaseMigrationClient {
   /**
    * Deletes the migration job represented by the given job ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteJobRequest
    * @return DeleteJobResponse
    * @throws OciError when an error occurs
@@ -972,7 +972,7 @@ export class DatabaseMigrationClient {
       "if-match": deleteJobRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteJobRequest.retryConfiguration,
@@ -1016,7 +1016,7 @@ export class DatabaseMigrationClient {
   /**
    * Deletes the Migration represented by the specified migration ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMigrationRequest
    * @return DeleteMigrationResponse
    * @throws OciError when an error occurs
@@ -1042,7 +1042,7 @@ export class DatabaseMigrationClient {
       "if-match": deleteMigrationRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteMigrationRequest.retryConfiguration,
@@ -1091,7 +1091,7 @@ export class DatabaseMigrationClient {
   /**
    * Start Validate Migration job.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param EvaluateMigrationRequest
    * @return EvaluateMigrationResponse
    * @throws OciError when an error occurs
@@ -1118,7 +1118,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": evaluateMigrationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       evaluateMigrationRequest.retryConfiguration,
@@ -1176,7 +1176,7 @@ export class DatabaseMigrationClient {
   /**
    * Get the Pre-Migration Advisor report details
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAdvisorReportRequest
    * @return GetAdvisorReportResponse
    * @throws OciError when an error occurs
@@ -1201,7 +1201,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": getAdvisorReportRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAdvisorReportRequest.retryConfiguration,
@@ -1254,7 +1254,7 @@ export class DatabaseMigrationClient {
   /**
    * Display the ODMS Agent configuration.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAgentRequest
    * @return GetAgentResponse
    * @throws OciError when an error occurs
@@ -1278,7 +1278,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": getAgentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAgentRequest.retryConfiguration,
@@ -1331,7 +1331,7 @@ export class DatabaseMigrationClient {
   /**
    * Display Database Connection details.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetConnectionRequest
    * @return GetConnectionResponse
    * @throws OciError when an error occurs
@@ -1355,7 +1355,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": getConnectionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getConnectionRequest.retryConfiguration,
@@ -1408,7 +1408,7 @@ export class DatabaseMigrationClient {
   /**
    * Get a migration job.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobRequest
    * @return GetJobResponse
    * @throws OciError when an error occurs
@@ -1430,7 +1430,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": getJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobRequest.retryConfiguration,
@@ -1483,7 +1483,7 @@ export class DatabaseMigrationClient {
   /**
    * Get the migration Job Output content as a String.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJobOutputContentRequest
    * @return GetJobOutputContentResponse
    * @throws OciError when an error occurs
@@ -1508,7 +1508,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": getJobOutputContentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getJobOutputContentRequest.retryConfiguration,
@@ -1556,7 +1556,7 @@ export class DatabaseMigrationClient {
   /**
    * Display Migration details.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMigrationRequest
    * @return GetMigrationResponse
    * @throws OciError when an error occurs
@@ -1581,7 +1581,7 @@ export class DatabaseMigrationClient {
       "if-match": getMigrationRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMigrationRequest.retryConfiguration,
@@ -1634,7 +1634,7 @@ export class DatabaseMigrationClient {
   /**
    * Gets the details of a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1658,7 +1658,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1706,7 +1706,7 @@ export class DatabaseMigrationClient {
   /**
    * Get details of the ODMS Agent Images available to install on-premises.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAgentImagesRequest
    * @return ListAgentImagesResponse
    * @throws OciError when an error occurs
@@ -1733,7 +1733,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listAgentImagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAgentImagesRequest.retryConfiguration,
@@ -1786,7 +1786,7 @@ export class DatabaseMigrationClient {
   /**
    * Display the name of all the existing ODMS Agents in the server.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAgentsRequest
    * @return ListAgentsResponse
    * @throws OciError when an error occurs
@@ -1816,7 +1816,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listAgentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAgentsRequest.retryConfiguration,
@@ -1869,7 +1869,7 @@ export class DatabaseMigrationClient {
   /**
    * List all Database Connections.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListConnectionsRequest
    * @return ListConnectionsResponse
    * @throws OciError when an error occurs
@@ -1900,7 +1900,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listConnectionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listConnectionsRequest.retryConfiguration,
@@ -1953,7 +1953,7 @@ export class DatabaseMigrationClient {
   /**
    * List the excluded database objects.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExcludedObjectsRequest
    * @return ListExcludedObjectsResponse
    * @throws OciError when an error occurs
@@ -1990,7 +1990,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listExcludedObjectsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listExcludedObjectsRequest.retryConfiguration,
@@ -2043,7 +2043,7 @@ export class DatabaseMigrationClient {
   /**
    * List the Job Outputs
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJobOutputsRequest
    * @return ListJobOutputsResponse
    * @throws OciError when an error occurs
@@ -2070,7 +2070,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listJobOutputsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobOutputsRequest.retryConfiguration,
@@ -2124,7 +2124,7 @@ export class DatabaseMigrationClient {
    * List all the names of the Migration jobs associated to the specified
    * migration site.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListJobsRequest
    * @return ListJobsResponse
    * @throws OciError when an error occurs
@@ -2154,7 +2154,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listJobsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listJobsRequest.retryConfiguration,
@@ -2207,7 +2207,7 @@ export class DatabaseMigrationClient {
   /**
    * Display sample object types to exclude or include for a Migration.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMigrationObjectTypesRequest
    * @return ListMigrationObjectTypesResponse
    * @throws OciError when an error occurs
@@ -2235,7 +2235,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listMigrationObjectTypesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMigrationObjectTypesRequest.retryConfiguration,
@@ -2288,7 +2288,7 @@ export class DatabaseMigrationClient {
   /**
    * Display excluded/included objects.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMigrationObjectsRequest
    * @return ListMigrationObjectsResponse
    * @throws OciError when an error occurs
@@ -2317,7 +2317,7 @@ export class DatabaseMigrationClient {
       "if-match": listMigrationObjectsRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMigrationObjectsRequest.retryConfiguration,
@@ -2370,7 +2370,7 @@ export class DatabaseMigrationClient {
   /**
    * List all Migrations.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMigrationsRequest
    * @return ListMigrationsResponse
    * @throws OciError when an error occurs
@@ -2401,7 +2401,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listMigrationsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listMigrationsRequest.retryConfiguration,
@@ -2454,7 +2454,7 @@ export class DatabaseMigrationClient {
   /**
    * Gets the errors for a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2484,7 +2484,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -2537,7 +2537,7 @@ export class DatabaseMigrationClient {
   /**
    * Gets the logs for a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2567,7 +2567,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -2620,7 +2620,7 @@ export class DatabaseMigrationClient {
   /**
    * Lists the work requests in a compartment or for a specified resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2651,7 +2651,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -2704,7 +2704,7 @@ export class DatabaseMigrationClient {
   /**
    * Remove excluded/included objects.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveMigrationObjectsRequest
    * @return RemoveMigrationObjectsResponse
    * @throws OciError when an error occurs
@@ -2730,7 +2730,7 @@ export class DatabaseMigrationClient {
       "if-match": removeMigrationObjectsRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removeMigrationObjectsRequest.retryConfiguration,
@@ -2779,7 +2779,7 @@ export class DatabaseMigrationClient {
   /**
    * Resume a migration Job.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeJobRequest
    * @return ResumeJobResponse
    * @throws OciError when an error occurs
@@ -2805,7 +2805,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": resumeJobRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resumeJobRequest.retryConfiguration,
@@ -2863,7 +2863,7 @@ export class DatabaseMigrationClient {
   /**
    * Display Migration Phases for a specified migration.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RetrieveSupportedPhasesRequest
    * @return RetrieveSupportedPhasesResponse
    * @throws OciError when an error occurs
@@ -2888,7 +2888,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": retrieveSupportedPhasesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       retrieveSupportedPhasesRequest.retryConfiguration,
@@ -2936,7 +2936,7 @@ export class DatabaseMigrationClient {
   /**
    * Start Migration job.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartMigrationRequest
    * @return StartMigrationResponse
    * @throws OciError when an error occurs
@@ -2962,7 +2962,7 @@ export class DatabaseMigrationClient {
       "opc-request-id": startMigrationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startMigrationRequest.retryConfiguration,
@@ -3025,7 +3025,7 @@ export class DatabaseMigrationClient {
   /**
    * Modifies the ODMS Agent represented by the given ODMS Agent ID.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAgentRequest
    * @return UpdateAgentResponse
    * @throws OciError when an error occurs
@@ -3051,7 +3051,7 @@ export class DatabaseMigrationClient {
       "if-match": updateAgentRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAgentRequest.retryConfiguration,
@@ -3109,7 +3109,7 @@ export class DatabaseMigrationClient {
   /**
    * Update Database Connection resource details.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateConnectionRequest
    * @return UpdateConnectionResponse
    * @throws OciError when an error occurs
@@ -3135,7 +3135,7 @@ export class DatabaseMigrationClient {
       "if-match": updateConnectionRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateConnectionRequest.retryConfiguration,
@@ -3189,7 +3189,7 @@ export class DatabaseMigrationClient {
   /**
    * Update Migration Job resource details.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateJobRequest
    * @return UpdateJobResponse
    * @throws OciError when an error occurs
@@ -3214,7 +3214,7 @@ export class DatabaseMigrationClient {
       "if-match": updateJobRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateJobRequest.retryConfiguration,
@@ -3272,7 +3272,7 @@ export class DatabaseMigrationClient {
   /**
    * Update Migration resource details.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMigrationRequest
    * @return UpdateMigrationResponse
    * @throws OciError when an error occurs
@@ -3298,7 +3298,7 @@ export class DatabaseMigrationClient {
       "if-match": updateMigrationRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateMigrationRequest.retryConfiguration,

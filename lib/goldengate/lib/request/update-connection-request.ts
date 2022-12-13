@@ -28,11 +28,15 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
    *
    */
   "updateConnectionDetails":
+    | model.UpdatePostgresqlConnectionDetails
     | model.UpdateOracleConnectionDetails
+    | model.UpdateKafkaSchemaRegistryConnectionDetails
     | model.UpdateOciObjectStorageConnectionDetails
     | model.UpdateMysqlConnectionDetails
     | model.UpdateKafkaConnectionDetails
-    | model.UpdateGoldenGateConnectionDetails;
+    | model.UpdateAzureDataLakeStorageConnectionDetails
+    | model.UpdateGoldenGateConnectionDetails
+    | model.UpdateAzureSynapseConnectionDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the
    * `if-match` parameter to the value of the etag from a previous GET or POST response for that

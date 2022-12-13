@@ -47,6 +47,10 @@ export interface DeployPipelineSummary {
    */
   "timeUpdated"?: Date;
   /**
+   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * The current state of the deployment pipeline.
    */
   "lifecycleState"?: string;

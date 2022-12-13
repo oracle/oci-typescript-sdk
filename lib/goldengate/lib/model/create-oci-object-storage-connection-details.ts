@@ -47,6 +47,11 @@ export interface CreateOciObjectStorageConnectionDetails extends model.CreateCon
    */
   "privateKeyFile": string;
   /**
+   * The passphrase of the private key.
+   *
+   */
+  "privateKeyPassphrase"?: string;
+  /**
    * The fingerprint of the API Key of the user specified by the userId.
    * See documentation: https://docs.oracle.com/en-us/iaas/Content/Identity/Tasks/managingcredentials.htm
    *

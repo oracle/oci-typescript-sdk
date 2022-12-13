@@ -145,6 +145,16 @@ export namespace ConnectionSummary {
             <model.GoldenGateConnectionSummary>(<object>jsonObj),
             true
           );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.KafkaSchemaRegistryConnectionSummary.getJsonObj(
+            <model.KafkaSchemaRegistryConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.PostgresqlConnectionSummary.getJsonObj(
+            <model.PostgresqlConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.OracleConnectionSummary.getJsonObj(
             <model.OracleConnectionSummary>(<object>jsonObj),
@@ -163,6 +173,16 @@ export namespace ConnectionSummary {
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnectionSummary.getJsonObj(
             <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.AzureDataLakeStorageConnectionSummary.getJsonObj(
+            <model.AzureDataLakeStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.AzureSynapseConnectionSummary.getJsonObj(
+            <model.AzureSynapseConnectionSummary>(<object>jsonObj),
             true
           );
         default:
@@ -190,6 +210,16 @@ export namespace ConnectionSummary {
             <model.GoldenGateConnectionSummary>(<object>jsonObj),
             true
           );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.KafkaSchemaRegistryConnectionSummary.getDeserializedJsonObj(
+            <model.KafkaSchemaRegistryConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.PostgresqlConnectionSummary.getDeserializedJsonObj(
+            <model.PostgresqlConnectionSummary>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.OracleConnectionSummary.getDeserializedJsonObj(
             <model.OracleConnectionSummary>(<object>jsonObj),
@@ -208,6 +238,16 @@ export namespace ConnectionSummary {
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnectionSummary.getDeserializedJsonObj(
             <model.OciObjectStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.AzureDataLakeStorageConnectionSummary.getDeserializedJsonObj(
+            <model.AzureDataLakeStorageConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.AzureSynapseConnectionSummary.getDeserializedJsonObj(
+            <model.AzureSynapseConnectionSummary>(<object>jsonObj),
             true
           );
         default:

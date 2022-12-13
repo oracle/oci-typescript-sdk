@@ -63,7 +63,8 @@ export interface Monitor {
    */
   "isRunOnce": boolean;
   /**
-   * Timeout in seconds. Timeout cannot be more than 30% of repeatIntervalInSeconds time for monitors.
+   * Timeout in seconds. If isFailureRetried is true, then timeout cannot be more than 30% of repeatIntervalInSeconds time for monitors.
+   * If isFailureRetried is false, then timeout cannot be more than 50% of repeatIntervalInSeconds time for monitors.
    * Also, timeoutInSeconds should be a multiple of 60 for Scripted REST, Scripted Browser and Browser monitors.
    * Monitor will be allowed to run only for timeoutInSeconds time. It would be terminated after that.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -87,6 +88,8 @@ export interface Monitor {
     | model.ScriptedBrowserMonitorConfiguration
     | model.RestMonitorConfiguration
     | model.BrowserMonitorConfiguration;
+  "availabilityConfiguration"?: model.AvailabilityConfiguration;
+  "maintenanceWindowSchedule"?: model.MaintenanceWindowSchedule;
   /**
    * The time the resource was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
    * timestamp format.
@@ -145,6 +148,12 @@ export namespace Monitor {
           : undefined,
         "configuration": obj.configuration
           ? model.MonitorConfiguration.getJsonObj(obj.configuration)
+          : undefined,
+        "availabilityConfiguration": obj.availabilityConfiguration
+          ? model.AvailabilityConfiguration.getJsonObj(obj.availabilityConfiguration)
+          : undefined,
+        "maintenanceWindowSchedule": obj.maintenanceWindowSchedule
+          ? model.MaintenanceWindowSchedule.getJsonObj(obj.maintenanceWindowSchedule)
           : undefined
       }
     };
@@ -168,6 +177,12 @@ export namespace Monitor {
           : undefined,
         "configuration": obj.configuration
           ? model.MonitorConfiguration.getDeserializedJsonObj(obj.configuration)
+          : undefined,
+        "availabilityConfiguration": obj.availabilityConfiguration
+          ? model.AvailabilityConfiguration.getDeserializedJsonObj(obj.availabilityConfiguration)
+          : undefined,
+        "maintenanceWindowSchedule": obj.maintenanceWindowSchedule
+          ? model.MaintenanceWindowSchedule.getDeserializedJsonObj(obj.maintenanceWindowSchedule)
           : undefined
       }
     };

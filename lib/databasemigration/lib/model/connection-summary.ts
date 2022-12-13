@@ -93,6 +93,11 @@ export interface ConnectionSummary {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * An array of Network Security Group OCIDs used to define network access for Connections.
+   *
+   */
+  "nsgIds"?: Array<string>;
 }
 
 export namespace ConnectionSummary {

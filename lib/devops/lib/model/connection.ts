@@ -47,6 +47,10 @@ export interface Connection {
    */
   "timeUpdated"?: Date;
   /**
+   * A detailed message describing the current state. For example, can be used to provide actionable information for a resource in Failed state.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * The current state of the connection.
    */
   "lifecycleState"?: Connection.LifecycleState;
@@ -69,6 +73,7 @@ export interface Connection {
 export namespace Connection {
   export enum LifecycleState {
     Active = "ACTIVE",
+    Deleting = "DELETING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

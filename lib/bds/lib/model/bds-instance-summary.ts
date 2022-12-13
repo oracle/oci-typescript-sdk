@@ -56,6 +56,10 @@ export interface BdsInstanceSummary {
    */
   "isCloudSqlConfigured": boolean;
   /**
+   * Profile of the Big Data Service cluster.
+   */
+  "clusterProfile"?: string;
+  /**
    * The time the cluster was created, shown as an RFC 3339 formatted datetime string.
    */
   "timeCreated": Date;

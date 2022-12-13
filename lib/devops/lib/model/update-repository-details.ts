@@ -31,7 +31,10 @@ export interface UpdateRepositoryDetails {
    */
   "defaultBranch"?: string;
   /**
-   * Type of repository.
+   * Type of repository. Allowed values:
+   * `MIRRORED`
+   * `HOSTED`
+   *
    */
   "repositoryType"?: string;
   "mirrorRepositoryConfig"?: model.MirrorRepositoryConfig;

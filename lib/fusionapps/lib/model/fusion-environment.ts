@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -83,6 +83,14 @@ export interface FusionEnvironment {
    * Language packs
    */
   "additionalLanguagePacks"?: Array<string>;
+  /**
+   * The lockbox Id of this fusion environment. If there's no lockbox id, this field will be null
+   */
+  "lockboxId"?: string;
+  /**
+   * If it's true, then the Break Glass feature is enabled
+   */
+  "isBreakGlassEnabled"?: boolean;
   "refresh"?: model.RefreshDetails;
   /**
    * Network Access Control Rules

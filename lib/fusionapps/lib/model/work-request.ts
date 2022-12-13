@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -87,6 +87,7 @@ export namespace WorkRequest {
     ChangeFusionEnvironmentFamilyCompartment = "CHANGE_FUSION_ENVIRONMENT_FAMILY_COMPARTMENT",
     RefreshFusionEnvironment = "REFRESH_FUSION_ENVIRONMENT",
     ExecuteColdPatch = "EXECUTE_COLD_PATCH",
+    DataMaskFusionEnvironment = "DATA_MASK_FUSION_ENVIRONMENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

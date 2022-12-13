@@ -73,9 +73,13 @@ export namespace DeploymentTypeSummary {
   export enum ConnectionTypes {
     Goldengate = "GOLDENGATE",
     Kafka = "KAFKA",
+    KafkaSchemaRegistry = "KAFKA_SCHEMA_REGISTRY",
     Mysql = "MYSQL",
     OciObjectStorage = "OCI_OBJECT_STORAGE",
     Oracle = "ORACLE",
+    AzureDataLakeStorage = "AZURE_DATA_LAKE_STORAGE",
+    Postgresql = "POSTGRESQL",
+    AzureSynapseAnalytics = "AZURE_SYNAPSE_ANALYTICS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

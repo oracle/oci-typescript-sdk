@@ -40,6 +40,16 @@ export interface PhaseStatus {
    */
   "isAdvisorReportAvailable"?: boolean;
   /**
+   * The text describing the root cause of the reported issue
+   *
+   */
+  "issue"?: string;
+  /**
+   * The text describing the action required to fix the issue
+   *
+   */
+  "action"?: string;
+  /**
    * Summary of phase status results.
    *
    */

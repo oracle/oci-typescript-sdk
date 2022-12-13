@@ -60,6 +60,14 @@ Example: `50`
  */
   "page"?: string;
   /**
+   * A filter to return the monitors whose maintenance window is currently active.
+   */
+  "isMaintenanceWindowActive"?: boolean;
+  /**
+   * A filter to return the monitors whose maintenance window is set.
+   */
+  "isMaintenanceWindowSet"?: boolean;
+  /**
    * The sort order to use, either ascending (`ASC`) or descending (`DESC`). Default sort order is ascending.
    *
    */
@@ -86,6 +94,7 @@ export namespace ListMonitorsRequest {
     TimeCreated = "timeCreated",
     TimeUpdated = "timeUpdated",
     Status = "status",
-    MonitorType = "monitorType"
+    MonitorType = "monitorType",
+    MaintenanceWindowTimeStarted = "maintenanceWindowTimeStarted"
   }
 }

@@ -3,6 +3,44 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.50.0 - 2022-12-13
+### Added
+- Support for the Queue service
+- Support for Intel X9 shapes when launching VM database systems in the Database service
+- Support for enabling, disabling, and editing Database Management service connections on pluggable databases in the Database service
+- Support for availability configurations and maintenance window schedules on synthetic monitors in the Application Performance Monitoring service
+- Support for scheduling cascading deletes on a project in the DevOps service
+- Support for cancelling a scheduled cascading delete on a project in the DevOps service
+- Support for issue and action fields on job phases of validation and migration processes in the Database Migration service
+- Support for cluster profiles in the Big Data service
+- Support for egress-only services in the Service Mesh service
+- Support for optional listeners and service discovery metadata on virtual deployments in the Service Mesh service
+- Support for canceling work requests in the accepted state in the Service Mesh service
+- Support for filtering work requests on associated resource id and operation status in the Service Mesh service
+- Support for sorting while listing work requests, listing work request logs, and listing work request errors in the Service Mesh service
+- Support for Oracle Managed Access integration in the Fusion Apps as a Service service
+- Support for refresh scheduling in the Fusion Apps as a Service service
+- Support for additional connections types on database resources in the GoldenGate service
+- Support for retries by default on operations of the Fusion Apps as a Service service
+- Support for retries by default on operations of the Database Migration service
+- Support for retries by default on operations of the Service Mesh service
+ 
+### Breaking Changes
+- Support for default retries on operations of the Service Mesh service
+- Support for default retries on operations of the Database Migration service
+- Support for default retries on operations of the Fusion Apps as a Service service - The property `attributeValue` changed from optional to required in the model `SourceIpAddressCondition` in Fusion Applications Environment Management service
+- The property `mtls` changed from type `model.CreateIngressGatewayMutualTransportLayerSecurityDetails` to `model.IngressGatewayMutualTransportLayerSecurityDetails` in the models `CreateIngressGatewayDetails` and `UpdateIngressGatewayDetails` from Service Mesh service
+- The property `mtls` changed from type `model.CreateMutualTransportLayerSecurityDetails` to `model.VirtualServiceMutualTransportLayerSecurityDetails` in the model `UpdateVirtualServiceDetails` from Service Mesh service
+- The property `routeRules` changed from type Array of `model.IngressGatewayTrafficRouteRule` to Array of `model.IngressGatewayTrafficRouteRuleDetails` in the models `CreateIngressGatewayRouteTableDetails` and `UpdateIngressGatewayRouteTableDetails` from Service Mesh service
+- The property `routeRules` changed from required to optional in the models `IngressGateWayRouteTable` and `VirtualServiceRouteTable` from Service Mesh service
+- The property `hosts` changed from required to optional in the model `IngressGateWayHost` from Service Mesh service
+- The property `certificateAuthorities` changed from required to optional in the model `Mesh` from Service Mesh service
+- The property `rules` changed from type Array of `model.AccessPolicyRule` to Array of `model.AccessPolicyRuleDetails` in the model `UpdateAccessPolicyDetails` from Service Mesh service
+- The property `routeRules` changed from type Array of `model.VirtualServiceTrafficRouteRule` to Array of `model.VirtualServiceTrafficRouteRuleDetails` in the model `UpdateVirtualServiceRouteTableDetails` from Service Mesh service
+- The property `serviceDiscovery` changed from required to optional in the model `VirtualDeployment` from Service Mesh service
+
+
+
 ## 2.49.0 - 2022-12-06
 ### Added
 - Support for the Container Instances service

@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -21,11 +21,11 @@ export interface AttachExistingInstanceDetails extends model.CreateServiceAttach
   /**
    * Type of the ServiceInstance being attached.
    */
-  "serviceInstanceType"?: AttachExistingInstanceDetails.ServiceInstanceType;
+  "serviceInstanceType": AttachExistingInstanceDetails.ServiceInstanceType;
   /**
    * The service instance OCID of the instance being attached
    */
-  "instanceId"?: string;
+  "instanceId": string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

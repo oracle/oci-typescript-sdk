@@ -47,6 +47,10 @@ export interface ConnectionSummary {
    */
   "timeUpdated"?: Date;
   /**
+   * A detailed message describing the current state. For example, can be used to provide actionable information for a resource in Failed state.
+   */
+  "lifecycleDetails"?: string;
+  /**
    * The current state of the connection.
    *
    */

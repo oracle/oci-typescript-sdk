@@ -30,7 +30,7 @@ export interface CreateDirectoryObject {
    * Absolute path of directory on database server
    *
    */
-  "path": string;
+  "path"?: string;
 }
 
 export namespace CreateDirectoryObject {

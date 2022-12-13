@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -21,14 +21,11 @@ export interface CreateOaxServiceInstanceDetails extends model.CreateServiceInst
   /**
    * A unique Name for Analytics Warehouse.
    */
-  "name"?: string;
+  "name": string;
   /**
    * This is the description for Analytics Warehouse Service.
    */
   "description"?: string;
-  /**
-   * Admin information to provision Analytics Warehouse Servcie
-   */
   "fawAdminInfo"?: model.FawAdminInfoDetails;
 
   "serviceInstanceType": string;

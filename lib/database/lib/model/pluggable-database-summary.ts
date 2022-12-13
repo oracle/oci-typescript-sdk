@@ -77,6 +77,7 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  "pluggableDatabaseManagementConfig"?: model.PluggableDatabaseManagementConfig;
 }
 
 export namespace PluggableDatabaseSummary {
@@ -112,6 +113,12 @@ export namespace PluggableDatabaseSummary {
       ...{
         "connectionStrings": obj.connectionStrings
           ? model.PluggableDatabaseConnectionStrings.getJsonObj(obj.connectionStrings)
+          : undefined,
+
+        "pluggableDatabaseManagementConfig": obj.pluggableDatabaseManagementConfig
+          ? model.PluggableDatabaseManagementConfig.getJsonObj(
+              obj.pluggableDatabaseManagementConfig
+            )
           : undefined
       }
     };
@@ -124,6 +131,12 @@ export namespace PluggableDatabaseSummary {
       ...{
         "connectionStrings": obj.connectionStrings
           ? model.PluggableDatabaseConnectionStrings.getDeserializedJsonObj(obj.connectionStrings)
+          : undefined,
+
+        "pluggableDatabaseManagementConfig": obj.pluggableDatabaseManagementConfig
+          ? model.PluggableDatabaseManagementConfig.getDeserializedJsonObj(
+              obj.pluggableDatabaseManagementConfig
+            )
           : undefined
       }
     };

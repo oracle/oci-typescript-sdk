@@ -57,6 +57,8 @@ export interface KafkaConnection extends model.Connection {
 export namespace KafkaConnection {
   export enum TechnologyType {
     ApacheKafka = "APACHE_KAFKA",
+    AzureEventHubs = "AZURE_EVENT_HUBS",
+    ConfluentKafka = "CONFLUENT_KAFKA",
     OciStreaming = "OCI_STREAMING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

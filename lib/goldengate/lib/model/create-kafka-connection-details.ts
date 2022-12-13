@@ -78,7 +78,7 @@ export interface CreateKafkaConnectionDetails extends model.CreateConnectionDeta
    */
   "keyStorePassword"?: string;
   /**
-   * The password for the cert inside of of the KeyStore.
+   * The password for the cert inside of the KeyStore.
    * In case it differs from the KeyStore password, it should be provided.
    *
    */

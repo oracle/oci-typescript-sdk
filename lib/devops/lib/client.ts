@@ -399,6 +399,81 @@ export class DevopsClient {
   }
 
   /**
+   * Cascading operation that restores Project and child resources from a DELETING state to an active state
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelScheduledCascadingProjectDeletionRequest
+   * @return CancelScheduledCascadingProjectDeletionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/CancelScheduledCascadingProjectDeletion.ts.html |here} to see how to use CancelScheduledCascadingProjectDeletion API.
+   */
+  public async cancelScheduledCascadingProjectDeletion(
+    cancelScheduledCascadingProjectDeletionRequest: requests.CancelScheduledCascadingProjectDeletionRequest
+  ): Promise<responses.CancelScheduledCascadingProjectDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#cancelScheduledCascadingProjectDeletion.");
+    const operationName = "cancelScheduledCascadingProjectDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/CancelScheduledCascadingProjectDeletion";
+    const pathParams = {
+      "{projectId}": cancelScheduledCascadingProjectDeletionRequest.projectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelScheduledCascadingProjectDeletionRequest.ifMatch,
+      "opc-request-id": cancelScheduledCascadingProjectDeletionRequest.opcRequestId,
+      "opc-retry-token": cancelScheduledCascadingProjectDeletionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelScheduledCascadingProjectDeletionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/actions/cancelScheduledCascadingProjectDeletion",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelScheduledCascadingProjectDeletionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a project resource from one compartment OCID to another.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeProjectCompartmentRequest
@@ -5954,7 +6029,8 @@ export class DevopsClient {
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit,
       "sortOrder": listWorkRequestsRequest.sortOrder,
-      "sortBy": listWorkRequestsRequest.sortBy
+      "sortBy": listWorkRequestsRequest.sortBy,
+      "operationTypeMultiValueQuery": listWorkRequestsRequest.operationTypeMultiValueQuery
     };
 
     let headerParams = {
@@ -6162,6 +6238,81 @@ export class DevopsClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cascading operation that marks Project and child DevOps resources in a DELETING state for a retention period
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ScheduleCascadingProjectDeletionRequest
+   * @return ScheduleCascadingProjectDeletionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ScheduleCascadingProjectDeletion.ts.html |here} to see how to use ScheduleCascadingProjectDeletion API.
+   */
+  public async scheduleCascadingProjectDeletion(
+    scheduleCascadingProjectDeletionRequest: requests.ScheduleCascadingProjectDeletionRequest
+  ): Promise<responses.ScheduleCascadingProjectDeletionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DevopsClient#scheduleCascadingProjectDeletion.");
+    const operationName = "scheduleCascadingProjectDeletion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Project/ScheduleCascadingProjectDeletion";
+    const pathParams = {
+      "{projectId}": scheduleCascadingProjectDeletionRequest.projectId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": scheduleCascadingProjectDeletionRequest.ifMatch,
+      "opc-request-id": scheduleCascadingProjectDeletionRequest.opcRequestId,
+      "opc-retry-token": scheduleCascadingProjectDeletionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      scheduleCascadingProjectDeletionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/projects/{projectId}/actions/scheduleCascadingProjectDeletion",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ScheduleCascadingProjectDeletionResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",

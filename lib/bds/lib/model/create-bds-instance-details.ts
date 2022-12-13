@@ -76,6 +76,10 @@ export interface CreateBdsInstanceDetails {
    * The OCID of the Key Management master encryption key.
    */
   "kmsKeyId"?: string;
+  /**
+   * Profile of the Big Data Service cluster.
+   */
+  "clusterProfile"?: string;
 }
 
 export namespace CreateBdsInstanceDetails {

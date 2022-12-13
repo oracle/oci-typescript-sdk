@@ -78,9 +78,19 @@ export namespace UpdateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "POSTGRESQL":
+          return model.UpdatePostgresqlConnectionDetails.getJsonObj(
+            <model.UpdatePostgresqlConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.UpdateOracleConnectionDetails.getJsonObj(
             <model.UpdateOracleConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.UpdateKafkaSchemaRegistryConnectionDetails.getJsonObj(
+            <model.UpdateKafkaSchemaRegistryConnectionDetails>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
@@ -98,9 +108,19 @@ export namespace UpdateConnectionDetails {
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.UpdateAzureDataLakeStorageConnectionDetails.getJsonObj(
+            <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GOLDENGATE":
           return model.UpdateGoldenGateConnectionDetails.getJsonObj(
             <model.UpdateGoldenGateConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.UpdateAzureSynapseConnectionDetails.getJsonObj(
+            <model.UpdateAzureSynapseConnectionDetails>(<object>jsonObj),
             true
           );
         default:
@@ -114,9 +134,19 @@ export namespace UpdateConnectionDetails {
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
+        case "POSTGRESQL":
+          return model.UpdatePostgresqlConnectionDetails.getDeserializedJsonObj(
+            <model.UpdatePostgresqlConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.UpdateOracleConnectionDetails.getDeserializedJsonObj(
             <model.UpdateOracleConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.UpdateKafkaSchemaRegistryConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateKafkaSchemaRegistryConnectionDetails>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
@@ -134,9 +164,19 @@ export namespace UpdateConnectionDetails {
             <model.UpdateKafkaConnectionDetails>(<object>jsonObj),
             true
           );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.UpdateAzureDataLakeStorageConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
         case "GOLDENGATE":
           return model.UpdateGoldenGateConnectionDetails.getDeserializedJsonObj(
             <model.UpdateGoldenGateConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.UpdateAzureSynapseConnectionDetails.getDeserializedJsonObj(
+            <model.UpdateAzureSynapseConnectionDetails>(<object>jsonObj),
             true
           );
         default:

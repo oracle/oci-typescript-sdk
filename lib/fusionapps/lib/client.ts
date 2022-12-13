@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -153,7 +153,7 @@ export class FusionApplicationsClient {
    * Moves a FusionEnvironment into a different compartment. When provided, If-Match is checked against ETag
    * values of the resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeFusionEnvironmentCompartmentRequest
    * @return ChangeFusionEnvironmentCompartmentResponse
    * @throws OciError when an error occurs
@@ -181,7 +181,7 @@ export class FusionApplicationsClient {
       "opc-retry-token": changeFusionEnvironmentCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeFusionEnvironmentCompartmentRequest.retryConfiguration,
@@ -236,7 +236,7 @@ export class FusionApplicationsClient {
    * Moves a FusionEnvironmentFamily into a different compartment. When provided, If-Match is checked against ETag
    * values of the resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeFusionEnvironmentFamilyCompartmentRequest
    * @return ChangeFusionEnvironmentFamilyCompartmentResponse
    * @throws OciError when an error occurs
@@ -265,7 +265,7 @@ export class FusionApplicationsClient {
       "opc-retry-token": changeFusionEnvironmentFamilyCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeFusionEnvironmentFamilyCompartmentRequest.retryConfiguration,
@@ -319,7 +319,7 @@ export class FusionApplicationsClient {
   /**
    * Creates a new DataMaskingActivity.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDataMaskingActivityRequest
    * @return CreateDataMaskingActivityResponse
    * @throws OciError when an error occurs
@@ -344,7 +344,7 @@ export class FusionApplicationsClient {
       "opc-request-id": createDataMaskingActivityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDataMaskingActivityRequest.retryConfiguration,
@@ -398,7 +398,7 @@ export class FusionApplicationsClient {
   /**
    * Creates a new FusionEnvironment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFusionEnvironmentRequest
    * @return CreateFusionEnvironmentResponse
    * @throws OciError when an error occurs
@@ -421,7 +421,7 @@ export class FusionApplicationsClient {
       "opc-request-id": createFusionEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createFusionEnvironmentRequest.retryConfiguration,
@@ -474,7 +474,7 @@ export class FusionApplicationsClient {
 
   /**
    * Create a FusionEnvironment admin user
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFusionEnvironmentAdminUserRequest
    * @return CreateFusionEnvironmentAdminUserResponse
    * @throws OciError when an error occurs
@@ -501,7 +501,7 @@ export class FusionApplicationsClient {
       "opc-request-id": createFusionEnvironmentAdminUserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createFusionEnvironmentAdminUserRequest.retryConfiguration,
@@ -555,7 +555,7 @@ export class FusionApplicationsClient {
   /**
    * Creates a new FusionEnvironmentFamily.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateFusionEnvironmentFamilyRequest
    * @return CreateFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
@@ -580,7 +580,7 @@ export class FusionApplicationsClient {
       "opc-request-id": createFusionEnvironmentFamilyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createFusionEnvironmentFamilyRequest.retryConfiguration,
@@ -634,7 +634,7 @@ export class FusionApplicationsClient {
   /**
    * Creates a new RefreshActivity.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateRefreshActivityRequest
    * @return CreateRefreshActivityResponse
    * @throws OciError when an error occurs
@@ -659,7 +659,7 @@ export class FusionApplicationsClient {
       "opc-request-id": createRefreshActivityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createRefreshActivityRequest.retryConfiguration,
@@ -712,7 +712,7 @@ export class FusionApplicationsClient {
 
   /**
    * Deletes the Fusion environment identified by it's OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFusionEnvironmentRequest
    * @return DeleteFusionEnvironmentResponse
    * @throws OciError when an error occurs
@@ -737,7 +737,7 @@ export class FusionApplicationsClient {
       "opc-request-id": deleteFusionEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteFusionEnvironmentRequest.retryConfiguration,
@@ -785,7 +785,7 @@ export class FusionApplicationsClient {
 
   /**
    * Deletes the FusionEnvironment administrator user identified by the username.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFusionEnvironmentAdminUserRequest
    * @return DeleteFusionEnvironmentAdminUserResponse
    * @throws OciError when an error occurs
@@ -813,7 +813,7 @@ export class FusionApplicationsClient {
       "opc-request-id": deleteFusionEnvironmentAdminUserRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteFusionEnvironmentAdminUserRequest.retryConfiguration,
@@ -861,7 +861,7 @@ export class FusionApplicationsClient {
 
   /**
    * Deletes a FusionEnvironmentFamily resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFusionEnvironmentFamilyRequest
    * @return DeleteFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
@@ -888,7 +888,7 @@ export class FusionApplicationsClient {
       "opc-request-id": deleteFusionEnvironmentFamilyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteFusionEnvironmentFamilyRequest.retryConfiguration,
@@ -935,8 +935,82 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Deletes a scheduled RefreshActivity resource by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteRefreshActivityRequest
+   * @return DeleteRefreshActivityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteRefreshActivity.ts.html |here} to see how to use DeleteRefreshActivity API.
+   */
+  public async deleteRefreshActivity(
+    deleteRefreshActivityRequest: requests.DeleteRefreshActivityRequest
+  ): Promise<responses.DeleteRefreshActivityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteRefreshActivity.");
+    const operationName = "deleteRefreshActivity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": deleteRefreshActivityRequest.fusionEnvironmentId,
+      "{refreshActivityId}": deleteRefreshActivityRequest.refreshActivityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteRefreshActivityRequest.ifMatch,
+      "opc-request-id": deleteRefreshActivityRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteRefreshActivityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/refreshActivities/{refreshActivityId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteRefreshActivityResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a DataMaskingActivity by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataMaskingActivityRequest
    * @return GetDataMaskingActivityResponse
    * @throws OciError when an error occurs
@@ -961,7 +1035,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getDataMaskingActivityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataMaskingActivityRequest.retryConfiguration,
@@ -1014,7 +1088,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets a FusionEnvironment by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFusionEnvironmentRequest
    * @return GetFusionEnvironmentResponse
    * @throws OciError when an error occurs
@@ -1038,7 +1112,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getFusionEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFusionEnvironmentRequest.retryConfiguration,
@@ -1090,7 +1164,7 @@ export class FusionApplicationsClient {
 
   /**
    * Retrieves a fusion environment family identified by its OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFusionEnvironmentFamilyRequest
    * @return GetFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
@@ -1114,7 +1188,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getFusionEnvironmentFamilyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFusionEnvironmentFamilyRequest.retryConfiguration,
@@ -1166,7 +1240,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets the number of environments (usage) of each type in the fusion environment family, as well as the limit that's allowed to be created based on the group's associated subscriptions.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFusionEnvironmentFamilyLimitsAndUsageRequest
    * @return GetFusionEnvironmentFamilyLimitsAndUsageResponse
    * @throws OciError when an error occurs
@@ -1193,7 +1267,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getFusionEnvironmentFamilyLimitsAndUsageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFusionEnvironmentFamilyLimitsAndUsageRequest.retryConfiguration,
@@ -1245,7 +1319,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets the subscription details of an fusion environment family.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFusionEnvironmentFamilySubscriptionDetailRequest
    * @return GetFusionEnvironmentFamilySubscriptionDetailResponse
    * @throws OciError when an error occurs
@@ -1272,7 +1346,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getFusionEnvironmentFamilySubscriptionDetailRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFusionEnvironmentFamilySubscriptionDetailRequest.retryConfiguration,
@@ -1324,7 +1398,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets the status of a Fusion environment identified by its OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFusionEnvironmentStatusRequest
    * @return GetFusionEnvironmentStatusResponse
    * @throws OciError when an error occurs
@@ -1348,7 +1422,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getFusionEnvironmentStatusRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getFusionEnvironmentStatusRequest.retryConfiguration,
@@ -1395,7 +1469,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets a RefreshActivity by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRefreshActivityRequest
    * @return GetRefreshActivityResponse
    * @throws OciError when an error occurs
@@ -1420,7 +1494,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getRefreshActivityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRefreshActivityRequest.retryConfiguration,
@@ -1472,7 +1546,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets a ScheduledActivity by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetScheduledActivityRequest
    * @return GetScheduledActivityResponse
    * @throws OciError when an error occurs
@@ -1497,7 +1571,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getScheduledActivityRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getScheduledActivityRequest.retryConfiguration,
@@ -1549,7 +1623,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets a Service Attachment by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetServiceAttachmentRequest
    * @return GetServiceAttachmentResponse
    * @throws OciError when an error occurs
@@ -1574,7 +1648,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getServiceAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getServiceAttachmentRequest.retryConfiguration,
@@ -1626,7 +1700,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1650,7 +1724,7 @@ export class FusionApplicationsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1702,7 +1776,7 @@ export class FusionApplicationsClient {
 
   /**
    * List all FusionEnvironment admin users
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAdminUsersRequest
    * @return ListAdminUsersResponse
    * @throws OciError when an error occurs
@@ -1726,7 +1800,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listAdminUsersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAdminUsersRequest.retryConfiguration,
@@ -1779,7 +1853,7 @@ export class FusionApplicationsClient {
   /**
    * Returns a list of DataMaskingActivities.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataMaskingActivitiesRequest
    * @return ListDataMaskingActivitiesResponse
    * @throws OciError when an error occurs
@@ -1809,7 +1883,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listDataMaskingActivitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataMaskingActivitiesRequest.retryConfiguration,
@@ -1862,7 +1936,7 @@ export class FusionApplicationsClient {
   /**
    * Returns a list of FusionEnvironmentFamilies.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFusionEnvironmentFamiliesRequest
    * @return ListFusionEnvironmentFamiliesResponse
    * @throws OciError when an error occurs
@@ -1895,7 +1969,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listFusionEnvironmentFamiliesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFusionEnvironmentFamiliesRequest.retryConfiguration,
@@ -1948,7 +2022,7 @@ export class FusionApplicationsClient {
   /**
    * Returns a list of FusionEnvironments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListFusionEnvironmentsRequest
    * @return ListFusionEnvironmentsResponse
    * @throws OciError when an error occurs
@@ -1979,7 +2053,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listFusionEnvironmentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listFusionEnvironmentsRequest.retryConfiguration,
@@ -2032,7 +2106,7 @@ export class FusionApplicationsClient {
   /**
    * Returns a list of RefreshActivities.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRefreshActivitiesRequest
    * @return ListRefreshActivitiesResponse
    * @throws OciError when an error occurs
@@ -2067,7 +2141,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listRefreshActivitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRefreshActivitiesRequest.retryConfiguration,
@@ -2120,7 +2194,7 @@ export class FusionApplicationsClient {
   /**
    * Returns a list of ScheduledActivities.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListScheduledActivitiesRequest
    * @return ListScheduledActivitiesResponse
    * @throws OciError when an error occurs
@@ -2156,7 +2230,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listScheduledActivitiesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listScheduledActivitiesRequest.retryConfiguration,
@@ -2209,7 +2283,7 @@ export class FusionApplicationsClient {
   /**
    * Returns a list of service attachments.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListServiceAttachmentsRequest
    * @return ListServiceAttachmentsResponse
    * @throws OciError when an error occurs
@@ -2241,7 +2315,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listServiceAttachmentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listServiceAttachmentsRequest.retryConfiguration,
@@ -2293,7 +2367,7 @@ export class FusionApplicationsClient {
 
   /**
    * Gets available refresh time for this fusion environment
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListTimeAvailableForRefreshesRequest
    * @return ListTimeAvailableForRefreshesResponse
    * @throws OciError when an error occurs
@@ -2324,7 +2398,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listTimeAvailableForRefreshesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTimeAvailableForRefreshesRequest.retryConfiguration,
@@ -2377,7 +2451,7 @@ export class FusionApplicationsClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -2406,7 +2480,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -2459,7 +2533,7 @@ export class FusionApplicationsClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2488,7 +2562,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -2541,7 +2615,7 @@ export class FusionApplicationsClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2571,7 +2645,7 @@ export class FusionApplicationsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -2623,7 +2697,7 @@ export class FusionApplicationsClient {
 
   /**
    * Resets the password of the Fusion Environment Administrator.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResetFusionEnvironmentPasswordRequest
    * @return ResetFusionEnvironmentPasswordResponse
    * @throws OciError when an error occurs
@@ -2652,7 +2726,7 @@ export class FusionApplicationsClient {
       "if-match": resetFusionEnvironmentPasswordRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resetFusionEnvironmentPasswordRequest.retryConfiguration,
@@ -2706,7 +2780,7 @@ export class FusionApplicationsClient {
 
   /**
    * Updates the FusionEnvironment
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFusionEnvironmentRequest
    * @return UpdateFusionEnvironmentResponse
    * @throws OciError when an error occurs
@@ -2731,7 +2805,7 @@ export class FusionApplicationsClient {
       "opc-request-id": updateFusionEnvironmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateFusionEnvironmentRequest.retryConfiguration,
@@ -2784,7 +2858,7 @@ export class FusionApplicationsClient {
 
   /**
    * Updates the FusionEnvironmentFamily
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFusionEnvironmentFamilyRequest
    * @return UpdateFusionEnvironmentFamilyResponse
    * @throws OciError when an error occurs
@@ -2811,7 +2885,7 @@ export class FusionApplicationsClient {
       "opc-request-id": updateFusionEnvironmentFamilyRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateFusionEnvironmentFamilyRequest.retryConfiguration,
@@ -2846,6 +2920,90 @@ export class FusionApplicationsClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates a scheduled RefreshActivity.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateRefreshActivityRequest
+   * @return UpdateRefreshActivityResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/UpdateRefreshActivity.ts.html |here} to see how to use UpdateRefreshActivity API.
+   */
+  public async updateRefreshActivity(
+    updateRefreshActivityRequest: requests.UpdateRefreshActivityRequest
+  ): Promise<responses.UpdateRefreshActivityResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#updateRefreshActivity.");
+    const operationName = "updateRefreshActivity";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": updateRefreshActivityRequest.fusionEnvironmentId,
+      "{refreshActivityId}": updateRefreshActivityRequest.refreshActivityId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateRefreshActivityRequest.opcRequestId,
+      "if-match": updateRefreshActivityRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateRefreshActivityRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/refreshActivities/{refreshActivityId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateRefreshActivityRequest.updateRefreshActivityDetails,
+        "UpdateRefreshActivityDetails",
+        model.UpdateRefreshActivityDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateRefreshActivityResponse>{},
+        body: await response.json(),
+        bodyKey: "refreshActivity",
+        bodyModel: model.RefreshActivity,
+        type: "model.RefreshActivity",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
