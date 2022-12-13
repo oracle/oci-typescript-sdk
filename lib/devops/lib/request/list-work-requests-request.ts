@@ -54,6 +54,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    * The field to sort by. Only one sort order can be provided. Default sort order is descending and is based on the timeAccepted field.
    */
   "sortBy"?: ListWorkRequestsRequest.SortBy;
+  /**
+   * A filter to return only resources where their Operation Types matches the parameter operation types
+   */
+  "operationTypeMultiValueQuery"?: Array<string>;
 }
 
 export namespace ListWorkRequestsRequest {

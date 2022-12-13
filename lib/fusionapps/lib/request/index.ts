@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -31,6 +31,8 @@ import * as DeleteFusionEnvironmentAdminUserRequest from "./delete-fusion-enviro
 export import DeleteFusionEnvironmentAdminUserRequest = DeleteFusionEnvironmentAdminUserRequest.DeleteFusionEnvironmentAdminUserRequest;
 import * as DeleteFusionEnvironmentFamilyRequest from "./delete-fusion-environment-family-request";
 export import DeleteFusionEnvironmentFamilyRequest = DeleteFusionEnvironmentFamilyRequest.DeleteFusionEnvironmentFamilyRequest;
+import * as DeleteRefreshActivityRequest from "./delete-refresh-activity-request";
+export import DeleteRefreshActivityRequest = DeleteRefreshActivityRequest.DeleteRefreshActivityRequest;
 import * as GetDataMaskingActivityRequest from "./get-data-masking-activity-request";
 export import GetDataMaskingActivityRequest = GetDataMaskingActivityRequest.GetDataMaskingActivityRequest;
 import * as GetFusionEnvironmentRequest from "./get-fusion-environment-request";
@@ -79,3 +81,5 @@ import * as UpdateFusionEnvironmentRequest from "./update-fusion-environment-req
 export import UpdateFusionEnvironmentRequest = UpdateFusionEnvironmentRequest.UpdateFusionEnvironmentRequest;
 import * as UpdateFusionEnvironmentFamilyRequest from "./update-fusion-environment-family-request";
 export import UpdateFusionEnvironmentFamilyRequest = UpdateFusionEnvironmentFamilyRequest.UpdateFusionEnvironmentFamilyRequest;
+import * as UpdateRefreshActivityRequest from "./update-refresh-activity-request";
+export import UpdateRefreshActivityRequest = UpdateRefreshActivityRequest.UpdateRefreshActivityRequest;

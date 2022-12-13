@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -31,6 +31,8 @@ import * as DeleteFusionEnvironmentAdminUserResponse from "./delete-fusion-envir
 export import DeleteFusionEnvironmentAdminUserResponse = DeleteFusionEnvironmentAdminUserResponse.DeleteFusionEnvironmentAdminUserResponse;
 import * as DeleteFusionEnvironmentFamilyResponse from "./delete-fusion-environment-family-response";
 export import DeleteFusionEnvironmentFamilyResponse = DeleteFusionEnvironmentFamilyResponse.DeleteFusionEnvironmentFamilyResponse;
+import * as DeleteRefreshActivityResponse from "./delete-refresh-activity-response";
+export import DeleteRefreshActivityResponse = DeleteRefreshActivityResponse.DeleteRefreshActivityResponse;
 import * as GetDataMaskingActivityResponse from "./get-data-masking-activity-response";
 export import GetDataMaskingActivityResponse = GetDataMaskingActivityResponse.GetDataMaskingActivityResponse;
 import * as GetFusionEnvironmentResponse from "./get-fusion-environment-response";
@@ -79,3 +81,5 @@ import * as UpdateFusionEnvironmentResponse from "./update-fusion-environment-re
 export import UpdateFusionEnvironmentResponse = UpdateFusionEnvironmentResponse.UpdateFusionEnvironmentResponse;
 import * as UpdateFusionEnvironmentFamilyResponse from "./update-fusion-environment-family-response";
 export import UpdateFusionEnvironmentFamilyResponse = UpdateFusionEnvironmentFamilyResponse.UpdateFusionEnvironmentFamilyResponse;
+import * as UpdateRefreshActivityResponse from "./update-refresh-activity-response";
+export import UpdateRefreshActivityResponse = UpdateRefreshActivityResponse.UpdateRefreshActivityResponse;

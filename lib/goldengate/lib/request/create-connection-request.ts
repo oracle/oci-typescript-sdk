@@ -23,6 +23,10 @@ export interface CreateConnectionRequest extends common.BaseRequest {
    *
    */
   "createConnectionDetails":
+    | model.CreatePostgresqlConnectionDetails
+    | model.CreateKafkaSchemaRegistryConnectionDetails
+    | model.CreateAzureSynapseConnectionDetails
+    | model.CreateAzureDataLakeStorageConnectionDetails
     | model.CreateMysqlConnectionDetails
     | model.CreateOciObjectStorageConnectionDetails
     | model.CreateKafkaConnectionDetails

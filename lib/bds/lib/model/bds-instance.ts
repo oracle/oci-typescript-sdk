@@ -94,6 +94,10 @@ export interface BdsInstance {
    * The OCID of the Key Management master encryption key.
    */
   "kmsKeyId"?: string;
+  /**
+   * Profile of the Big Data Service cluster.
+   */
+  "clusterProfile"?: BdsInstance.ClusterProfile;
 }
 
 export namespace BdsInstance {
@@ -121,6 +125,20 @@ export namespace BdsInstance {
     Odh1 = "ODH1",
     Odh09 = "ODH0_9",
     Odh20 = "ODH2_0",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ClusterProfile {
+    HadoopExtended = "HADOOP_EXTENDED",
+    Hadoop = "HADOOP",
+    Hive = "HIVE",
+    Spark = "SPARK",
+    Hbase = "HBASE",
+    Trino = "TRINO",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

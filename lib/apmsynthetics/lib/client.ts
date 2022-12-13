@@ -1097,6 +1097,8 @@ export class ApmSyntheticClient {
       "status": listMonitorsRequest.status,
       "limit": listMonitorsRequest.limit,
       "page": listMonitorsRequest.page,
+      "isMaintenanceWindowActive": listMonitorsRequest.isMaintenanceWindowActive,
+      "isMaintenanceWindowSet": listMonitorsRequest.isMaintenanceWindowSet,
       "sortOrder": listMonitorsRequest.sortOrder,
       "sortBy": listMonitorsRequest.sortBy
     };

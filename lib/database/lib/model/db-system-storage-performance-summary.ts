@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface DbSystemStoragePerformanceSummary {
   /**
-   * ShapeType of the DbSystems,INTEL or AMD
+   * ShapeType of the DbSystems INTEL , AMD or INTEL_FLEX_X9
    */
   "shapeType": DbSystemStoragePerformanceSummary.ShapeType;
   /**
@@ -38,6 +38,7 @@ export namespace DbSystemStoragePerformanceSummary {
   export enum ShapeType {
     Amd = "AMD",
     Intel = "INTEL",
+    IntelFlexX9 = "INTEL_FLEX_X9",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

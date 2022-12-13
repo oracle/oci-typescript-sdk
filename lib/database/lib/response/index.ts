@@ -178,6 +178,8 @@ import * as DisableExternalPluggableDatabaseOperationsInsightsResponse from "./d
 export import DisableExternalPluggableDatabaseOperationsInsightsResponse = DisableExternalPluggableDatabaseOperationsInsightsResponse.DisableExternalPluggableDatabaseOperationsInsightsResponse;
 import * as DisableExternalPluggableDatabaseStackMonitoringResponse from "./disable-external-pluggable-database-stack-monitoring-response";
 export import DisableExternalPluggableDatabaseStackMonitoringResponse = DisableExternalPluggableDatabaseStackMonitoringResponse.DisableExternalPluggableDatabaseStackMonitoringResponse;
+import * as DisablePluggableDatabaseManagementResponse from "./disable-pluggable-database-management-response";
+export import DisablePluggableDatabaseManagementResponse = DisablePluggableDatabaseManagementResponse.DisablePluggableDatabaseManagementResponse;
 import * as DownloadExadataInfrastructureConfigFileResponse from "./download-exadata-infrastructure-config-file-response";
 export import DownloadExadataInfrastructureConfigFileResponse = DownloadExadataInfrastructureConfigFileResponse.DownloadExadataInfrastructureConfigFileResponse;
 import * as DownloadValidationReportResponse from "./download-validation-report-response";
@@ -206,6 +208,8 @@ import * as EnableExternalPluggableDatabaseOperationsInsightsResponse from "./en
 export import EnableExternalPluggableDatabaseOperationsInsightsResponse = EnableExternalPluggableDatabaseOperationsInsightsResponse.EnableExternalPluggableDatabaseOperationsInsightsResponse;
 import * as EnableExternalPluggableDatabaseStackMonitoringResponse from "./enable-external-pluggable-database-stack-monitoring-response";
 export import EnableExternalPluggableDatabaseStackMonitoringResponse = EnableExternalPluggableDatabaseStackMonitoringResponse.EnableExternalPluggableDatabaseStackMonitoringResponse;
+import * as EnablePluggableDatabaseManagementResponse from "./enable-pluggable-database-management-response";
+export import EnablePluggableDatabaseManagementResponse = EnablePluggableDatabaseManagementResponse.EnablePluggableDatabaseManagementResponse;
 import * as FailOverAutonomousDatabaseResponse from "./fail-over-autonomous-database-response";
 export import FailOverAutonomousDatabaseResponse = FailOverAutonomousDatabaseResponse.FailOverAutonomousDatabaseResponse;
 import * as FailoverAutonomousContainerDatabaseDataguardAssociationResponse from "./failover-autonomous-container-database-dataguard-association-response";
@@ -448,6 +452,8 @@ import * as MigrateVaultKeyResponse from "./migrate-vault-key-response";
 export import MigrateVaultKeyResponse = MigrateVaultKeyResponse.MigrateVaultKeyResponse;
 import * as ModifyDatabaseManagementResponse from "./modify-database-management-response";
 export import ModifyDatabaseManagementResponse = ModifyDatabaseManagementResponse.ModifyDatabaseManagementResponse;
+import * as ModifyPluggableDatabaseManagementResponse from "./modify-pluggable-database-management-response";
+export import ModifyPluggableDatabaseManagementResponse = ModifyPluggableDatabaseManagementResponse.ModifyPluggableDatabaseManagementResponse;
 import * as RegisterAutonomousDatabaseDataSafeResponse from "./register-autonomous-database-data-safe-response";
 export import RegisterAutonomousDatabaseDataSafeResponse = RegisterAutonomousDatabaseDataSafeResponse.RegisterAutonomousDatabaseDataSafeResponse;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationResponse from "./reinstate-autonomous-container-database-dataguard-association-response";

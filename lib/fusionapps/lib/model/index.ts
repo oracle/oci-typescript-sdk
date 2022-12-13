@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -81,6 +81,8 @@ import * as RefreshActivitySummary from "./refresh-activity-summary";
 export import RefreshActivitySummary = RefreshActivitySummary.RefreshActivitySummary;
 import * as RefreshDetails from "./refresh-details";
 export import RefreshDetails = RefreshDetails.RefreshDetails;
+import * as RefreshIssueDetails from "./refresh-issue-details";
+export import RefreshIssueDetails = RefreshIssueDetails.RefreshIssueDetails;
 import * as ResetFusionEnvironmentPasswordDetails from "./reset-fusion-environment-password-details";
 export import ResetFusionEnvironmentPasswordDetails = ResetFusionEnvironmentPasswordDetails.ResetFusionEnvironmentPasswordDetails;
 import * as Rule from "./rule";
@@ -117,6 +119,8 @@ import * as UpdateFusionEnvironmentDetails from "./update-fusion-environment-det
 export import UpdateFusionEnvironmentDetails = UpdateFusionEnvironmentDetails.UpdateFusionEnvironmentDetails;
 import * as UpdateFusionEnvironmentFamilyDetails from "./update-fusion-environment-family-details";
 export import UpdateFusionEnvironmentFamilyDetails = UpdateFusionEnvironmentFamilyDetails.UpdateFusionEnvironmentFamilyDetails;
+import * as UpdateRefreshActivityDetails from "./update-refresh-activity-details";
+export import UpdateRefreshActivityDetails = UpdateRefreshActivityDetails.UpdateRefreshActivityDetails;
 import * as WorkRequest from "./work-request";
 export import WorkRequest = WorkRequest.WorkRequest;
 import * as WorkRequestError from "./work-request-error";

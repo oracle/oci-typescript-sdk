@@ -33,7 +33,7 @@ export interface DbSystemShapeSummary {
    */
   "shapeFamily"?: string;
   /**
-   * The shape type for the virtual machine DB system. Shape type is determined by CPU hardware. Valid values are `AMD` and `INTEL`.
+   * The shape type for the virtual machine DB system. Shape type is determined by CPU hardware. Valid values are `AMD` , `INTEL` or `INTEL_FLEX_X9`.
    */
   "shapeType"?: DbSystemShapeSummary.ShapeType;
   /**
@@ -118,6 +118,7 @@ export namespace DbSystemShapeSummary {
   export enum ShapeType {
     Amd = "AMD",
     Intel = "INTEL",
+    IntelFlexX9 = "INTEL_FLEX_X9",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

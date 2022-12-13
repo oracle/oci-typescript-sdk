@@ -156,9 +156,19 @@ export namespace Connection {
       switch (obj.connectionType) {
         case "KAFKA":
           return model.KafkaConnection.getJsonObj(<model.KafkaConnection>(<object>jsonObj), true);
+        case "POSTGRESQL":
+          return model.PostgresqlConnection.getJsonObj(
+            <model.PostgresqlConnection>(<object>jsonObj),
+            true
+          );
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnection.getJsonObj(
             <model.OciObjectStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.KafkaSchemaRegistryConnection.getJsonObj(
+            <model.KafkaSchemaRegistryConnection>(<object>jsonObj),
             true
           );
         case "GOLDENGATE":
@@ -170,6 +180,16 @@ export namespace Connection {
           return model.MysqlConnection.getJsonObj(<model.MysqlConnection>(<object>jsonObj), true);
         case "ORACLE":
           return model.OracleConnection.getJsonObj(<model.OracleConnection>(<object>jsonObj), true);
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.AzureDataLakeStorageConnection.getJsonObj(
+            <model.AzureDataLakeStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.AzureSynapseConnection.getJsonObj(
+            <model.AzureSynapseConnection>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.connectionType}`);
       }
@@ -195,9 +215,19 @@ export namespace Connection {
             <model.KafkaConnection>(<object>jsonObj),
             true
           );
+        case "POSTGRESQL":
+          return model.PostgresqlConnection.getDeserializedJsonObj(
+            <model.PostgresqlConnection>(<object>jsonObj),
+            true
+          );
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnection.getDeserializedJsonObj(
             <model.OciObjectStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.KafkaSchemaRegistryConnection.getDeserializedJsonObj(
+            <model.KafkaSchemaRegistryConnection>(<object>jsonObj),
             true
           );
         case "GOLDENGATE":
@@ -213,6 +243,16 @@ export namespace Connection {
         case "ORACLE":
           return model.OracleConnection.getDeserializedJsonObj(
             <model.OracleConnection>(<object>jsonObj),
+            true
+          );
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.AzureDataLakeStorageConnection.getDeserializedJsonObj(
+            <model.AzureDataLakeStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.AzureSynapseConnection.getDeserializedJsonObj(
+            <model.AzureSynapseConnection>(<object>jsonObj),
             true
           );
         default:

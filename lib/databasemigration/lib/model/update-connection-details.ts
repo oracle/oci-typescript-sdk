@@ -60,6 +60,11 @@ export interface UpdateConnectionDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * An array of Network Security Group OCIDs used to define network access for Connections.
+   *
+   */
+  "nsgIds"?: Array<string>;
 }
 
 export namespace UpdateConnectionDetails {

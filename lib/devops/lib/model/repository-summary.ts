@@ -51,7 +51,10 @@ export interface RepositorySummary {
    */
   "defaultBranch"?: string;
   /**
-   * Type of repository.
+   * Type of repository. Allowed values:
+   * `MIRRORED`
+   * `HOSTED`
+   *
    */
   "repositoryType"?: string;
   /**

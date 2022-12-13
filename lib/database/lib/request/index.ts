@@ -178,6 +178,8 @@ import * as DisableExternalPluggableDatabaseOperationsInsightsRequest from "./di
 export import DisableExternalPluggableDatabaseOperationsInsightsRequest = DisableExternalPluggableDatabaseOperationsInsightsRequest.DisableExternalPluggableDatabaseOperationsInsightsRequest;
 import * as DisableExternalPluggableDatabaseStackMonitoringRequest from "./disable-external-pluggable-database-stack-monitoring-request";
 export import DisableExternalPluggableDatabaseStackMonitoringRequest = DisableExternalPluggableDatabaseStackMonitoringRequest.DisableExternalPluggableDatabaseStackMonitoringRequest;
+import * as DisablePluggableDatabaseManagementRequest from "./disable-pluggable-database-management-request";
+export import DisablePluggableDatabaseManagementRequest = DisablePluggableDatabaseManagementRequest.DisablePluggableDatabaseManagementRequest;
 import * as DownloadExadataInfrastructureConfigFileRequest from "./download-exadata-infrastructure-config-file-request";
 export import DownloadExadataInfrastructureConfigFileRequest = DownloadExadataInfrastructureConfigFileRequest.DownloadExadataInfrastructureConfigFileRequest;
 import * as DownloadValidationReportRequest from "./download-validation-report-request";
@@ -206,6 +208,8 @@ import * as EnableExternalPluggableDatabaseOperationsInsightsRequest from "./ena
 export import EnableExternalPluggableDatabaseOperationsInsightsRequest = EnableExternalPluggableDatabaseOperationsInsightsRequest.EnableExternalPluggableDatabaseOperationsInsightsRequest;
 import * as EnableExternalPluggableDatabaseStackMonitoringRequest from "./enable-external-pluggable-database-stack-monitoring-request";
 export import EnableExternalPluggableDatabaseStackMonitoringRequest = EnableExternalPluggableDatabaseStackMonitoringRequest.EnableExternalPluggableDatabaseStackMonitoringRequest;
+import * as EnablePluggableDatabaseManagementRequest from "./enable-pluggable-database-management-request";
+export import EnablePluggableDatabaseManagementRequest = EnablePluggableDatabaseManagementRequest.EnablePluggableDatabaseManagementRequest;
 import * as FailOverAutonomousDatabaseRequest from "./fail-over-autonomous-database-request";
 export import FailOverAutonomousDatabaseRequest = FailOverAutonomousDatabaseRequest.FailOverAutonomousDatabaseRequest;
 import * as FailoverAutonomousContainerDatabaseDataguardAssociationRequest from "./failover-autonomous-container-database-dataguard-association-request";
@@ -448,6 +452,8 @@ import * as MigrateVaultKeyRequest from "./migrate-vault-key-request";
 export import MigrateVaultKeyRequest = MigrateVaultKeyRequest.MigrateVaultKeyRequest;
 import * as ModifyDatabaseManagementRequest from "./modify-database-management-request";
 export import ModifyDatabaseManagementRequest = ModifyDatabaseManagementRequest.ModifyDatabaseManagementRequest;
+import * as ModifyPluggableDatabaseManagementRequest from "./modify-pluggable-database-management-request";
+export import ModifyPluggableDatabaseManagementRequest = ModifyPluggableDatabaseManagementRequest.ModifyPluggableDatabaseManagementRequest;
 import * as RegisterAutonomousDatabaseDataSafeRequest from "./register-autonomous-database-data-safe-request";
 export import RegisterAutonomousDatabaseDataSafeRequest = RegisterAutonomousDatabaseDataSafeRequest.RegisterAutonomousDatabaseDataSafeRequest;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationRequest from "./reinstate-autonomous-container-database-dataguard-association-request";

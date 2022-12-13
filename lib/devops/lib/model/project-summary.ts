@@ -48,7 +48,11 @@ export interface ProjectSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The current state of the deployment.
+   * A detailed message describing the current state. For example, can be used to provide actionable information for a resource in Failed state.
+   */
+  "lifecycleDetails"?: string;
+  /**
+   * The current state of the project.
    */
   "lifecycleState"?: string;
   /**

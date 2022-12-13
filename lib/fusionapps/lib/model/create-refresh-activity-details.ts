@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -23,6 +23,10 @@ export interface CreateRefreshActivityDetails {
    *
    */
   "sourceFusionEnvironmentId": string;
+  /**
+   * Current time the refresh activity is scheduled to start. An RFC3339 formatted datetime string.
+   */
+  "timeScheduledStart"?: Date;
 }
 
 export namespace CreateRefreshActivityDetails {

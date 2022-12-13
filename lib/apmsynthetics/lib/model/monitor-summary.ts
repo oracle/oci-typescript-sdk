@@ -63,7 +63,8 @@ export interface MonitorSummary {
    */
   "isRunOnce": boolean;
   /**
-   * Timeout in seconds. Timeout cannot be more than 30% of repeatIntervalInSeconds time for monitors.
+   * Timeout in seconds. If isFailureRetried is true, then timeout cannot be more than 30% of repeatIntervalInSeconds time for monitors.
+   * If isFailureRetried is false, then timeout cannot be more than 50% of repeatIntervalInSeconds time for monitors.
    * Also, timeoutInSeconds should be a multiple of 60 for Scripted REST, Scripted Browser and Browser monitors.
    * Monitor will be allowed to run only for timeoutInSeconds time. It would be terminated after that.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -77,6 +78,7 @@ export interface MonitorSummary {
    *
    */
   "target"?: string;
+  "maintenanceWindowSchedule"?: model.MaintenanceWindowSchedule;
   /**
    * The time the resource was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339)
    * timestamp format.
@@ -126,6 +128,10 @@ export namespace MonitorSummary {
           ? obj.vantagePoints.map(item => {
               return model.VantagePointInfo.getJsonObj(item);
             })
+          : undefined,
+
+        "maintenanceWindowSchedule": obj.maintenanceWindowSchedule
+          ? model.MaintenanceWindowSchedule.getJsonObj(obj.maintenanceWindowSchedule)
           : undefined
       }
     };
@@ -140,6 +146,10 @@ export namespace MonitorSummary {
           ? obj.vantagePoints.map(item => {
               return model.VantagePointInfo.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "maintenanceWindowSchedule": obj.maintenanceWindowSchedule
+          ? model.MaintenanceWindowSchedule.getDeserializedJsonObj(obj.maintenanceWindowSchedule)
           : undefined
       }
     };

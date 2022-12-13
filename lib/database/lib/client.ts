@@ -7078,6 +7078,91 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Disables the Database Management service for the pluggable database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisablePluggableDatabaseManagementRequest
+   * @return DisablePluggableDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DisablePluggableDatabaseManagement.ts.html |here} to see how to use DisablePluggableDatabaseManagement API.
+   */
+  public async disablePluggableDatabaseManagement(
+    disablePluggableDatabaseManagementRequest: requests.DisablePluggableDatabaseManagementRequest
+  ): Promise<responses.DisablePluggableDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#disablePluggableDatabaseManagement.");
+    const operationName = "disablePluggableDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/DisablePluggableDatabaseManagement";
+    const pathParams = {
+      "{pluggableDatabaseId}": disablePluggableDatabaseManagementRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": disablePluggableDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": disablePluggableDatabaseManagementRequest.opcRequestId,
+      "if-match": disablePluggableDatabaseManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disablePluggableDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/disablePluggableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisablePluggableDatabaseManagementResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Downloads the configuration file for the specified Exadata Cloud@Customer infrastructure.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -8284,6 +8369,95 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
       const sdkResponse = composeResponse({
         responseObject: <responses.EnableExternalPluggableDatabaseStackMonitoringResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables the Database Management service for an Oracle Pluggable Database located in Oracle Cloud Infrastructure. This service allows the pluggable database to access tools including Metrics and Performance hub. Database Management is enabled at the pluggable database (PDB) level.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnablePluggableDatabaseManagementRequest
+   * @return EnablePluggableDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/EnablePluggableDatabaseManagement.ts.html |here} to see how to use EnablePluggableDatabaseManagement API.
+   */
+  public async enablePluggableDatabaseManagement(
+    enablePluggableDatabaseManagementRequest: requests.EnablePluggableDatabaseManagementRequest
+  ): Promise<responses.EnablePluggableDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#enablePluggableDatabaseManagement.");
+    const operationName = "enablePluggableDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/EnablePluggableDatabaseManagement";
+    const pathParams = {
+      "{pluggableDatabaseId}": enablePluggableDatabaseManagementRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": enablePluggableDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": enablePluggableDatabaseManagementRequest.opcRequestId,
+      "if-match": enablePluggableDatabaseManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enablePluggableDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/enablePluggableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enablePluggableDatabaseManagementRequest.enablePluggableDatabaseManagementDetails,
+        "EnablePluggableDatabaseManagementDetails",
+        model.EnablePluggableDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnablePluggableDatabaseManagementResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
@@ -20734,6 +20908,95 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyKey: "database",
         bodyModel: model.Database,
         type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the Database Management service for the pluggable database.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ModifyPluggableDatabaseManagementRequest
+   * @return ModifyPluggableDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ModifyPluggableDatabaseManagement.ts.html |here} to see how to use ModifyPluggableDatabaseManagement API.
+   */
+  public async modifyPluggableDatabaseManagement(
+    modifyPluggableDatabaseManagementRequest: requests.ModifyPluggableDatabaseManagementRequest
+  ): Promise<responses.ModifyPluggableDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#modifyPluggableDatabaseManagement.");
+    const operationName = "modifyPluggableDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/ModifyPluggableDatabaseManagement";
+    const pathParams = {
+      "{pluggableDatabaseId}": modifyPluggableDatabaseManagementRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": modifyPluggableDatabaseManagementRequest.opcRetryToken,
+      "opc-request-id": modifyPluggableDatabaseManagementRequest.opcRequestId,
+      "if-match": modifyPluggableDatabaseManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifyPluggableDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/modifyPluggableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifyPluggableDatabaseManagementRequest.modifyPluggableDatabaseManagementDetails,
+        "ModifyPluggableDatabaseManagementDetails",
+        model.ModifyPluggableDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifyPluggableDatabaseManagementResponse>{},
+        body: await response.json(),
+        bodyKey: "pluggableDatabase",
+        bodyModel: model.PluggableDatabase,
+        type: "model.PluggableDatabase",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

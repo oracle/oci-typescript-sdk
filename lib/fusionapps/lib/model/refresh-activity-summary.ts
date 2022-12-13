@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -66,16 +66,38 @@ export interface RefreshActivitySummary {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Details of refresh investigation information, each item represents a different issue.
+   */
+  "refreshIssueDetailsList"?: Array<model.RefreshIssueDetails>;
 }
 
 export namespace RefreshActivitySummary {
   export function getJsonObj(obj: RefreshActivitySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "refreshIssueDetailsList": obj.refreshIssueDetailsList
+          ? obj.refreshIssueDetailsList.map(item => {
+              return model.RefreshIssueDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: RefreshActivitySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "refreshIssueDetailsList": obj.refreshIssueDetailsList
+          ? obj.refreshIssueDetailsList.map(item => {
+              return model.RefreshIssueDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

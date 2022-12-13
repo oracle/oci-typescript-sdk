@@ -1,6 +1,6 @@
 /**
  * Fusion Applications Environment Management API
- * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/Identity/fusion-applications/home.htm).
+ * Use the Fusion Applications Environment Management API to manage the environments where your Fusion Applications run. For more information, see the [Fusion Applications Environment Management documentation](/iaas/Content/fusion-applications/home.htm).
  * OpenAPI spec version: 20211201
  *
  *
@@ -63,6 +63,10 @@ export interface RefreshActivity {
    */
   "timeUpdated"?: Date;
   /**
+   * Details of refresh investigation information, each item represents a different issue.
+   */
+  "refreshIssueDetailsList"?: Array<model.RefreshIssueDetails>;
+  /**
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: RefreshActivity.LifecycleDetails;
@@ -72,6 +76,7 @@ export namespace RefreshActivity {
   export enum LifecycleState {
     Accepted = "ACCEPTED",
     InProgress = "IN_PROGRESS",
+    NeedsAttention = "NEEDS_ATTENTION",
     Failed = "FAILED",
     Succeeded = "SUCCEEDED",
     Canceled = "CANCELED",
@@ -106,12 +111,30 @@ export namespace RefreshActivity {
   }
 
   export function getJsonObj(obj: RefreshActivity): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "refreshIssueDetailsList": obj.refreshIssueDetailsList
+          ? obj.refreshIssueDetailsList.map(item => {
+              return model.RefreshIssueDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: RefreshActivity): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "refreshIssueDetailsList": obj.refreshIssueDetailsList
+          ? obj.refreshIssueDetailsList.map(item => {
+              return model.RefreshIssueDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

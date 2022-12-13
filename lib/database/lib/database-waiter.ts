@@ -1943,6 +1943,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDisablePluggableDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns DisablePluggableDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forDisablePluggableDatabaseManagement(
+    request: serviceRequests.DisablePluggableDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.DisablePluggableDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const disablePluggableDatabaseManagementResponse = await this.client.disablePluggableDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      disablePluggableDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: disablePluggableDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forEnableAutonomousDatabaseManagement
    *
    * @param request the request to send
@@ -2222,6 +2248,32 @@ export class DatabaseWaiter {
     );
     return {
       response: enableExternalPluggableDatabaseStackMonitoringResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forEnablePluggableDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns EnablePluggableDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forEnablePluggableDatabaseManagement(
+    request: serviceRequests.EnablePluggableDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.EnablePluggableDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const enablePluggableDatabaseManagementResponse = await this.client.enablePluggableDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      enablePluggableDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: enablePluggableDatabaseManagementResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
@@ -3164,6 +3216,32 @@ export class DatabaseWaiter {
     );
     return {
       response: modifyDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forModifyPluggableDatabaseManagement
+   *
+   * @param request the request to send
+   * @return response returns ModifyPluggableDatabaseManagementResponse, GetWorkRequestResponse tuple
+   */
+  public async forModifyPluggableDatabaseManagement(
+    request: serviceRequests.ModifyPluggableDatabaseManagementRequest
+  ): Promise<{
+    response: serviceResponses.ModifyPluggableDatabaseManagementResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const modifyPluggableDatabaseManagementResponse = await this.client.modifyPluggableDatabaseManagement(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      modifyPluggableDatabaseManagementResponse.opcWorkRequestId
+    );
+    return {
+      response: modifyPluggableDatabaseManagementResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
