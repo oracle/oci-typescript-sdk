@@ -49,6 +49,13 @@ export class Range {
     }
     let range: Range = new Range(startByte, endByte, contentLength);
     return range;
-    return;
+  }
+
+  toHeaderValue() {
+    if (this.startByte === null && this.endByte === null) {
+      throw Error("Failed to parse range object to a valid header value: " + JSON.stringify(this));
+    }
+
+    return `bytes=${this.startByte ?? ""}-${this.endByte ?? ""}`;
   }
 }
