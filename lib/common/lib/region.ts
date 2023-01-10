@@ -36,9 +36,8 @@ export class Region {
   }
 
   private static KNOWN_REGIONS: Map<string, Region> = new Map();
-
   private static hasCalledForImds: boolean = false;
-  private static hasUsedConfigFile: boolean = false;
+  private static _hasUsedConfigFile: boolean = false;
   private static hasUsedEnvVar: boolean = false;
   private static imdsRegionMetadata: RegionMetadataSchema | undefined;
   private static hasWarnedAboutValuesWithoutInstanceMetadataService: boolean = false;
@@ -92,6 +91,7 @@ export class Region {
   public static EU_PARIS_1: Region = Region.register("eu-paris-1", Realm.OC1, "cdg");
   public static MX_QUERETARO_1: Region = Region.register("mx-queretaro-1", Realm.OC1, "qro");
   public static EU_MADRID_1: Region = Region.register("eu-madrid-1", Realm.OC1, "mad");
+  public static US_CHICAGO_1: Region = Region.register("us-chicago-1", Realm.OC1, "ord");
 
   // OC2
   public static US_LANGLEY_1: Region = Region.register("us-langley-1", Realm.OC2, "lfi");
@@ -143,7 +143,7 @@ export class Region {
    *  Register all regions and sets status
    */
   private static registerAllRegions(): void {
-    if (!Region.hasUsedConfigFile) {
+    if (!Region._hasUsedConfigFile) {
       Region.addRegionsFromConfigFile();
     }
 
@@ -184,8 +184,8 @@ export class Region {
 
   // Adds regions from the config file
   private static addRegionsFromConfigFile(): void {
-    if (!Region.hasUsedConfigFile) {
-      Region.hasUsedConfigFile = true;
+    if (!Region._hasUsedConfigFile) {
+      Region._hasUsedConfigFile = true;
       let expandedRegionConfigFilePath = ConfigFileReader.expandUserHome(
         Region.REGIONS_CONFIG_FILE_PATH
       );
@@ -285,10 +285,10 @@ export class Region {
       if (region.realm.secondLevelDomain !== realm.secondLevelDomain) {
         throw Error(
           " Region " +
-            regionId +
-            " is already associated with another Realm " +
-            region.realm +
-            " It cannot be re-registered with a different realm."
+          regionId +
+          " is already associated with another Realm " +
+          region.realm +
+          " It cannot be re-registered with a different realm."
         );
       }
       return region;
@@ -334,5 +334,9 @@ export class Region {
     }
 
     return regionStr;
+  }
+
+  public static set hasUsedConfigFile(bool: boolean) {
+    Region._hasUsedConfigFile = bool;
   }
 }

@@ -3,6 +3,10 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.50.1 - 2023-01-10
+### Added
+- Add static method in Region class for the ability to toggle config file check for regions
+
 ## 2.50.0 - 2022-12-13
 ### Added
 - Support for the Queue service
