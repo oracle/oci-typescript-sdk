@@ -1,6 +1,6 @@
 {
   "name": "oci-apmcontrolplane",
-  "version": "2.50.0",
+  "version": "2.50.1",
   "description": "OCI NodeJS client for Apm Control Plane Service",
   "repository": {
     "type": "git",
