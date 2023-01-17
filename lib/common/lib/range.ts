@@ -11,13 +11,21 @@ export class Range {
    * @param contentLength The content length as returned by the server, or null if unknown.
    */
   constructor(
-    private startByte: number | null,
-    private endByte: number | null,
-    private contentLength: number | null
-  ) {
-    this.startByte = startByte;
-    this.endByte = endByte;
-    this.contentLength = contentLength;
+    private _startByte: number | null,
+    private _endByte: number | null,
+    private _contentLength: number | null
+  ) {}
+
+  public get startByte() {
+    return this._startByte;
+  }
+
+  public get endByte() {
+    return this._endByte;
+  }
+
+  public get contentLength() {
+    return this._contentLength;
   }
 
   /**

@@ -112,7 +112,13 @@ function computeHeaders(params: RequestParams): Headers {
   if (params.headerParams) {
     for (const [key, value] of Object.entries(params.headerParams)) {
       if (value) {
-        headers.append(key, String(value));
+        if (key == "range") {
+          const { startByte, endByte } = value as Range;
+          const rangeValue = `bytes=${startByte}-${endByte}`;
+          headers.append(key, rangeValue);
+        } else {
+          headers.append(key, String(value));
+        }
       }
     }
   }

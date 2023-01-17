@@ -1,6 +1,6 @@
 {
   "name": "oci-visualbuilder",
-  "version": "2.50.1",
+  "version": "2.50.2",
   "description": "OCI NodeJS client for Visual Builder Service",
   "repository": {
     "type": "git",
