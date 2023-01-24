@@ -1,6 +1,6 @@
 {
   "name": "oci-osubbillingschedule",
-  "version": "2.50.2",
+  "version": "2.50.3",
   "description": "OCI NodeJS client for Osub Billing Schedule Service",
   "repository": {
     "type": "git",

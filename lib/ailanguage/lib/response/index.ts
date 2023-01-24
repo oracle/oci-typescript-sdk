@@ -20,6 +20,8 @@ import * as BatchDetectLanguageEntitiesResponse from "./batch-detect-language-en
 export import BatchDetectLanguageEntitiesResponse = BatchDetectLanguageEntitiesResponse.BatchDetectLanguageEntitiesResponse;
 import * as BatchDetectLanguageKeyPhrasesResponse from "./batch-detect-language-key-phrases-response";
 export import BatchDetectLanguageKeyPhrasesResponse = BatchDetectLanguageKeyPhrasesResponse.BatchDetectLanguageKeyPhrasesResponse;
+import * as BatchDetectLanguagePiiEntitiesResponse from "./batch-detect-language-pii-entities-response";
+export import BatchDetectLanguagePiiEntitiesResponse = BatchDetectLanguagePiiEntitiesResponse.BatchDetectLanguagePiiEntitiesResponse;
 import * as BatchDetectLanguageSentimentsResponse from "./batch-detect-language-sentiments-response";
 export import BatchDetectLanguageSentimentsResponse = BatchDetectLanguageSentimentsResponse.BatchDetectLanguageSentimentsResponse;
 import * as BatchDetectLanguageTextClassificationResponse from "./batch-detect-language-text-classification-response";

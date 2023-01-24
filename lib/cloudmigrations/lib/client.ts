@@ -240,6 +240,7 @@ export class MigrationClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeMigrationCompartmentRequest.opcRetryToken,
       "if-match": changeMigrationCompartmentRequest.ifMatch,
       "opc-request-id": changeMigrationCompartmentRequest.opcRequestId
     };
@@ -3321,6 +3322,7 @@ export class MigrationClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateMigrationPlanRequest.opcRetryToken,
       "if-match": updateMigrationPlanRequest.ifMatch,
       "opc-request-id": updateMigrationPlanRequest.opcRequestId
     };
@@ -3399,6 +3401,7 @@ export class MigrationClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateReplicationScheduleRequest.opcRetryToken,
       "if-match": updateReplicationScheduleRequest.ifMatch,
       "opc-request-id": updateReplicationScheduleRequest.opcRequestId
     };
@@ -3476,6 +3479,7 @@ export class MigrationClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateTargetAssetRequest.opcRetryToken,
       "if-match": updateTargetAssetRequest.ifMatch,
       "opc-request-id": updateTargetAssetRequest.opcRequestId
     };

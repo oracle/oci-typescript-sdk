@@ -27,6 +27,15 @@ export interface ChangeMigrationCompartmentRequest extends common.BaseRequest {
    */
   "changeMigrationCompartmentDetails": model.ChangeMigrationCompartmentDetails;
   /**
+   * A token that uniquely identifies a request so it can be retried in case of a timeout or
+   * server error without risk of executing that same action again. Retry tokens expire after 24
+   * hours, but can be invalidated before that due to conflicting operations. For example, if a resource
+   * has been deleted and purged from the system, then a retry of the original creation request
+   * might be rejected.
+   *
+   */
+  "opcRetryToken"?: string;
+  /**
    * For optimistic concurrency control. In the PUT or DELETE call
    * for a resource, set the `if-match` parameter to the value of the
    * etag from a previous GET or POST response for that resource.

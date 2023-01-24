@@ -401,6 +401,89 @@ Limitations:
   }
 
   /**
+     * The API extracts pii entities in text records. For each entity, its type and confidence score (between 0 and 1) is returned.  It supports passing a batch of records.
+* <p>
+Limitations:
+* - A batch may have up to 100 records.
+* - A record may be up to 5000 characters long.
+* - The total of characters to process in a request can be up to 20,000 characters.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param BatchDetectLanguagePiiEntitiesRequest
+     * @return BatchDetectLanguagePiiEntitiesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ailanguage/BatchDetectLanguagePiiEntities.ts.html |here} to see how to use BatchDetectLanguagePiiEntities API.
+     */
+  public async batchDetectLanguagePiiEntities(
+    batchDetectLanguagePiiEntitiesRequest: requests.BatchDetectLanguagePiiEntitiesRequest
+  ): Promise<responses.BatchDetectLanguagePiiEntitiesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AIServiceLanguageClient#batchDetectLanguagePiiEntities."
+      );
+    const operationName = "batchDetectLanguagePiiEntities";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguagePiiEntities/BatchDetectLanguagePiiEntities";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": batchDetectLanguagePiiEntitiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      batchDetectLanguagePiiEntitiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/batchDetectLanguagePiiEntities",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        batchDetectLanguagePiiEntitiesRequest.batchDetectLanguagePiiEntitiesDetails,
+        "BatchDetectLanguagePiiEntitiesDetails",
+        model.BatchDetectLanguagePiiEntitiesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.BatchDetectLanguagePiiEntitiesResponse>{},
+        body: await response.json(),
+        bodyKey: "batchDetectLanguagePiiEntitiesResult",
+        bodyModel: model.BatchDetectLanguagePiiEntitiesResult,
+        type: "model.BatchDetectLanguagePiiEntitiesResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * The API extracts aspect-based and sentence level sentiment in text records.
 * <p>
 For aspect-based sentiment analysis, a set of aspects and their respective sentiment is returned for each record. Similarly, for sentence-level sentiment analysis, the sentiment is returned at the sentence level.
@@ -1370,9 +1453,12 @@ Limitations:
   }
 
   /**
-     * The API returns the detected language and a related confidence score (between 0 and 1).
+     * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
+* We recommend you replace this API with the batch API, [BatchDetectDominantLanguage](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectDominantLanguage/BatchDetectDominantLanguage).
 * <p>
-[List of supported languages.](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#lang-detect)
+The DetectDominantLanguage API returns the detected language and a related confidence score (between 0 and 1).
+* <p>
+[List of supported languages](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#lang-detect)
 * <p>
 Limitations:
 * - A record may be up to 1000 characters long.
@@ -1456,7 +1542,10 @@ Limitations:
   }
 
   /**
-     * The API extracts entities in text records. For each entity, its type and confidence score (between 0 and 1) is returned.
+     * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
+* We recommend you replace this API with the batch API, [BatchDetectLanguageEntities](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageEntities/BatchDetectLanguageEntities).
+* <p>
+The DetectLanguageEntities API extracts entities in text records. For each entity, its type and confidence score (between 0 and 1) is returned.
 * <p>
 Limitations:
 * - A text may be up to 1000 characters long.
@@ -1543,7 +1632,10 @@ Limitations:
   }
 
   /**
-     * The API extracts key-phrases in text records. For each key-phrase, a score (between 0 and 1) is returned that highlights the importance of the key-phrase in the context of the text.
+     * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
+* We recommend you replace this API with the batch API, [BatchDetectLanguageKeyPhrases](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageKeyPhrases/BatchDetectLanguageKeyPhrases).
+* <p>
+The DetectLanguageKeyPhrases API extracts key-phrases in text records. For each key-phrase, a score (between 0 and 1) is returned that highlights the importance of the key-phrase in the context of the text.
 * <p>
 Limitations:
 * - A record may be up to 1000 characters long.
@@ -1627,7 +1719,10 @@ Limitations:
   }
 
   /**
-     * The API extracts aspect-based in text records.
+     * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
+* We recommend you replace this API with the batch API, [BatchDetectLanguageSentiments](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageSentiments/BatchDetectLanguageSentiments).
+* <p>
+The DetectLanguageSentiments API extracts aspect-based in text records.
 * <p>
 For aspect-based sentiment analysis, a set of aspects and their respective sentiment is returned.
 * <p>
@@ -1717,7 +1812,10 @@ Limitations:
   }
 
   /**
-     * The API automatically classifies text into a set of pre-determined classes and sub-classes. A single class/subclass is returned for each record classified.
+     * **Deprecated**: This API will be retired Tuesday, 10 Oct 2023 00:00:00 GMT.
+* We recommend you replace this API with the batch API, [BatchDetectLanguageTextClassification](https://docs.cloud.oracle.com/iaas/api/#/en/language/20221001/BatchDetectLanguageTextClassification/BatchDetectLanguageTextClassification).
+* <p>
+The DetectLanguageTextClassification API automatically classifies text into a set of pre-determined classes and sub-classes. A single class/subclass is returned for each record classified.
 * <p>
 Learn more about text classification [here](https://docs.cloud.oracle.com/iaas/language/using/pretrain-models.htm#text-class).
 * <p>

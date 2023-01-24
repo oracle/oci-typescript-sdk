@@ -445,6 +445,75 @@ export class DataScienceClient {
   }
 
   /**
+   * Cancel a PipelineRun.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelPipelineRunRequest
+   * @return CancelPipelineRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CancelPipelineRun.ts.html |here} to see how to use CancelPipelineRun API.
+   */
+  public async cancelPipelineRun(
+    cancelPipelineRunRequest: requests.CancelPipelineRunRequest
+  ): Promise<responses.CancelPipelineRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#cancelPipelineRun.");
+    const operationName = "cancelPipelineRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/CancelPipelineRun";
+    const pathParams = {
+      "{pipelineRunId}": cancelPipelineRunRequest.pipelineRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": cancelPipelineRunRequest.opcRequestId,
+      "opc-retry-token": cancelPipelineRunRequest.opcRetryToken,
+      "if-match": cancelPipelineRunRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelPipelineRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelineRuns/{pipelineRunId}/actions/cancelPipelineRun",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelPipelineRunResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancels a work request that has not started.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CancelWorkRequestRequest
@@ -949,6 +1018,154 @@ export class DataScienceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeNotebookSessionCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangePipelineCompartmentRequest
+   * @return ChangePipelineCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangePipelineCompartment.ts.html |here} to see how to use ChangePipelineCompartment API.
+   */
+  public async changePipelineCompartment(
+    changePipelineCompartmentRequest: requests.ChangePipelineCompartmentRequest
+  ): Promise<responses.ChangePipelineCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changePipelineCompartment.");
+    const operationName = "changePipelineCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/ChangePipelineCompartment";
+    const pathParams = {
+      "{pipelineId}": changePipelineCompartmentRequest.pipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changePipelineCompartmentRequest.opcRequestId,
+      "if-match": changePipelineCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePipelineCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePipelineCompartmentRequest.changePipelineCompartmentDetails,
+        "ChangePipelineCompartmentDetails",
+        model.ChangePipelineCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePipelineCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a resource into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangePipelineRunCompartmentRequest
+   * @return ChangePipelineRunCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangePipelineRunCompartment.ts.html |here} to see how to use ChangePipelineRunCompartment API.
+   */
+  public async changePipelineRunCompartment(
+    changePipelineRunCompartmentRequest: requests.ChangePipelineRunCompartmentRequest
+  ): Promise<responses.ChangePipelineRunCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#changePipelineRunCompartment.");
+    const operationName = "changePipelineRunCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/ChangePipelineRunCompartment";
+    const pathParams = {
+      "{pipelineRunId}": changePipelineRunCompartmentRequest.pipelineRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changePipelineRunCompartmentRequest.opcRequestId,
+      "if-match": changePipelineRunCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePipelineRunCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelineRuns/{pipelineRunId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePipelineRunCompartmentRequest.changePipelineRunCompartmentDetails,
+        "ChangePipelineRunCompartmentDetails",
+        model.ChangePipelineRunCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePipelineRunCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1781,6 +1998,173 @@ export class DataScienceClient {
   }
 
   /**
+   * Creates a new Pipeline.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePipelineRequest
+   * @return CreatePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreatePipeline.ts.html |here} to see how to use CreatePipeline API.
+   */
+  public async createPipeline(
+    createPipelineRequest: requests.CreatePipelineRequest
+  ): Promise<responses.CreatePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createPipeline.");
+    const operationName = "createPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/CreatePipeline";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPipelineRequest.opcRetryToken,
+      "opc-request-id": createPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPipelineRequest.createPipelineDetails,
+        "CreatePipelineDetails",
+        model.CreatePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new PipelineRun.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreatePipelineRunRequest
+   * @return CreatePipelineRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreatePipelineRun.ts.html |here} to see how to use CreatePipelineRun API.
+   */
+  public async createPipelineRun(
+    createPipelineRunRequest: requests.CreatePipelineRunRequest
+  ): Promise<responses.CreatePipelineRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createPipelineRun.");
+    const operationName = "createPipelineRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/CreatePipelineRun";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createPipelineRunRequest.opcRetryToken,
+      "opc-request-id": createPipelineRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createPipelineRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelineRuns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createPipelineRunRequest.createPipelineRunDetails,
+        "CreatePipelineRunDetails",
+        model.CreatePipelineRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreatePipelineRunResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineRun",
+        bodyModel: model.PipelineRun,
+        type: "model.PipelineRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new project.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateProjectRequest
@@ -1846,6 +2230,79 @@ export class DataScienceClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upload the artifact for a step in the pipeline.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateStepArtifactRequest
+   * @return CreateStepArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateStepArtifact.ts.html |here} to see how to use CreateStepArtifact API.
+   */
+  public async createStepArtifact(
+    createStepArtifactRequest: requests.CreateStepArtifactRequest
+  ): Promise<responses.CreateStepArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#createStepArtifact.");
+    const operationName = "createStepArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/CreateStepArtifact";
+    const pathParams = {
+      "{pipelineId}": createStepArtifactRequest.pipelineId,
+      "{stepName}": createStepArtifactRequest.stepName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "opc-request-id": createStepArtifactRequest.opcRequestId,
+      "opc-retry-token": createStepArtifactRequest.opcRetryToken,
+      "content-length": createStepArtifactRequest.contentLength,
+      "content-disposition": createStepArtifactRequest.contentDisposition
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createStepArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/steps/{stepName}/artifact",
+      method: "POST",
+      bodyContent: createStepArtifactRequest.stepArtifact,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateStepArtifactResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -2506,6 +2963,152 @@ export class DataScienceClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a Pipeline resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeletePipelineRequest
+   * @return DeletePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeletePipeline.ts.html |here} to see how to use DeletePipeline API.
+   */
+  public async deletePipeline(
+    deletePipelineRequest: requests.DeletePipelineRequest
+  ): Promise<responses.DeletePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deletePipeline.");
+    const operationName = "deletePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/DeletePipeline";
+    const pathParams = {
+      "{pipelineId}": deletePipelineRequest.pipelineId
+    };
+
+    const queryParams = {
+      "deleteRelatedPipelineRuns": deletePipelineRequest.deleteRelatedPipelineRuns,
+      "deleteRelatedJobRuns": deletePipelineRequest.deleteRelatedJobRuns
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePipelineRequest.ifMatch,
+      "opc-request-id": deletePipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePipelineResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a PipelineRun resource by identifier.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeletePipelineRunRequest
+   * @return DeletePipelineRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeletePipelineRun.ts.html |here} to see how to use DeletePipelineRun API.
+   */
+  public async deletePipelineRun(
+    deletePipelineRunRequest: requests.DeletePipelineRunRequest
+  ): Promise<responses.DeletePipelineRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#deletePipelineRun.");
+    const operationName = "deletePipelineRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/DeletePipelineRun";
+    const pathParams = {
+      "{pipelineRunId}": deletePipelineRunRequest.pipelineRunId
+    };
+
+    const queryParams = {
+      "deleteRelatedJobRuns": deletePipelineRunRequest.deleteRelatedJobRuns
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePipelineRunRequest.ifMatch,
+      "opc-request-id": deletePipelineRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePipelineRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelineRuns/{pipelineRunId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePipelineRunResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3399,6 +4002,158 @@ export class DataScienceClient {
   }
 
   /**
+   * Gets a Pipeline by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPipelineRequest
+   * @return GetPipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetPipeline.ts.html |here} to see how to use GetPipeline API.
+   */
+  public async getPipeline(
+    getPipelineRequest: requests.GetPipelineRequest
+  ): Promise<responses.GetPipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getPipeline.");
+    const operationName = "getPipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/GetPipeline";
+    const pathParams = {
+      "{pipelineId}": getPipelineRequest.pipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a PipelineRun by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPipelineRunRequest
+   * @return GetPipelineRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetPipelineRun.ts.html |here} to see how to use GetPipelineRun API.
+   */
+  public async getPipelineRun(
+    getPipelineRunRequest: requests.GetPipelineRunRequest
+  ): Promise<responses.GetPipelineRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#getPipelineRun.");
+    const operationName = "getPipelineRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/GetPipelineRun";
+    const pathParams = {
+      "{pipelineRunId}": getPipelineRunRequest.pipelineRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPipelineRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPipelineRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelineRuns/{pipelineRunId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPipelineRunResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineRun",
+        bodyModel: model.PipelineRun,
+        type: "model.PipelineRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified project's information.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetProjectRequest
@@ -3463,6 +4218,106 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Download the artifact for a step in the pipeline.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetStepArtifactContentRequest
+   * @return GetStepArtifactContentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetStepArtifactContent.ts.html |here} to see how to use GetStepArtifactContent API.
+   */
+  public async getStepArtifactContent(
+    getStepArtifactContentRequest: requests.GetStepArtifactContentRequest
+  ): Promise<responses.GetStepArtifactContentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getStepArtifactContent.");
+    const operationName = "getStepArtifactContent";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/GetStepArtifactContent";
+    const pathParams = {
+      "{pipelineId}": getStepArtifactContentRequest.pipelineId,
+      "{stepName}": getStepArtifactContentRequest.stepName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getStepArtifactContentRequest.opcRequestId,
+      "range": getStepArtifactContentRequest.range
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getStepArtifactContentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/steps/{stepName}/artifact/content",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink,
+        true
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetStepArtifactContentResponse>{},
+
+        body: response.body!,
+        bodyKey: "value",
+        bodyModel: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
             dataType: "string"
           }
         ]
@@ -3723,6 +4578,99 @@ export class DataScienceClient {
           {
             value: response.headers.get("content-md5"),
             key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("last-modified"),
+            key: "lastModified",
+            dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the artifact metadata for a step in the pipeline.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param HeadStepArtifactRequest
+   * @return HeadStepArtifactResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/HeadStepArtifact.ts.html |here} to see how to use HeadStepArtifact API.
+   */
+  public async headStepArtifact(
+    headStepArtifactRequest: requests.HeadStepArtifactRequest
+  ): Promise<responses.HeadStepArtifactResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#headStepArtifact.");
+    const operationName = "headStepArtifact";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/HeadStepArtifact";
+    const pathParams = {
+      "{pipelineId}": headStepArtifactRequest.pipelineId,
+      "{stepName}": headStepArtifactRequest.stepName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": headStepArtifactRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      headStepArtifactRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}/steps/{stepName}/artifact/content",
+      method: "HEAD",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.HeadStepArtifactResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-length"),
+            key: "contentLength",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("content-md5"),
+            key: "contentMd5",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-disposition"),
+            key: "contentDisposition",
             dataType: "string"
           },
           {
@@ -5214,6 +6162,290 @@ export class DataScienceClient {
   }
 
   /**
+   * Returns a list of PipelineRuns.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPipelineRunsRequest
+   * @return ListPipelineRunsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListPipelineRuns.ts.html |here} to see how to use ListPipelineRuns API.
+   */
+  public async listPipelineRuns(
+    listPipelineRunsRequest: requests.ListPipelineRunsRequest
+  ): Promise<responses.ListPipelineRunsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listPipelineRuns.");
+    const operationName = "listPipelineRuns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/ListPipelineRuns";
+    const pathParams = {};
+
+    const queryParams = {
+      "id": listPipelineRunsRequest.id,
+      "pipelineId": listPipelineRunsRequest.pipelineId,
+      "compartmentId": listPipelineRunsRequest.compartmentId,
+      "displayName": listPipelineRunsRequest.displayName,
+      "lifecycleState": listPipelineRunsRequest.lifecycleState,
+      "createdBy": listPipelineRunsRequest.createdBy,
+      "limit": listPipelineRunsRequest.limit,
+      "page": listPipelineRunsRequest.page,
+      "sortOrder": listPipelineRunsRequest.sortOrder,
+      "sortBy": listPipelineRunsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelineRunsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelineRunsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelineRuns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelineRunsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PipelineRunSummary,
+        type: "Array<model.PipelineRunSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPipelineRunsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PipelineRunSummary objects
+   * contained in responses from the listPipelineRuns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPipelineRuns(
+    request: requests.ListPipelineRunsRequest
+  ): AsyncIterableIterator<model.PipelineRunSummary> {
+    return paginateRecords(request, req => this.listPipelineRuns(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPipelineRunsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPipelineRuns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPipelineRunsResponses(
+    request: requests.ListPipelineRunsRequest
+  ): AsyncIterableIterator<responses.ListPipelineRunsResponse> {
+    return paginateResponses(request, req => this.listPipelineRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PipelineRunSummary objects
+   * contained in responses from the listPipelineRuns operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPipelineRunsRecordIterator(
+    request: requests.ListPipelineRunsRequest
+  ): AsyncIterableIterator<model.PipelineRunSummary> {
+    return paginateRecords(request, req => this.listPipelineRuns(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPipelineRuns operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPipelineRunsResponseIterator(
+    request: requests.ListPipelineRunsRequest
+  ): AsyncIterableIterator<responses.ListPipelineRunsResponse> {
+    return paginateResponses(request, req => this.listPipelineRuns(req));
+  }
+
+  /**
+   * Returns a list of Pipelines.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPipelinesRequest
+   * @return ListPipelinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListPipelines.ts.html |here} to see how to use ListPipelines API.
+   */
+  public async listPipelines(
+    listPipelinesRequest: requests.ListPipelinesRequest
+  ): Promise<responses.ListPipelinesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#listPipelines.");
+    const operationName = "listPipelines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/ListPipelines";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPipelinesRequest.compartmentId,
+      "projectId": listPipelinesRequest.projectId,
+      "id": listPipelinesRequest.id,
+      "displayName": listPipelinesRequest.displayName,
+      "lifecycleState": listPipelinesRequest.lifecycleState,
+      "createdBy": listPipelinesRequest.createdBy,
+      "limit": listPipelinesRequest.limit,
+      "page": listPipelinesRequest.page,
+      "sortOrder": listPipelinesRequest.sortOrder,
+      "sortBy": listPipelinesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPipelinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPipelinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPipelinesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PipelineSummary,
+        type: "Array<model.PipelineSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPipelinesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PipelineSummary objects
+   * contained in responses from the listPipelines operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPipelines(
+    request: requests.ListPipelinesRequest
+  ): AsyncIterableIterator<model.PipelineSummary> {
+    return paginateRecords(request, req => this.listPipelines(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPipelinesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPipelines operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPipelinesResponses(
+    request: requests.ListPipelinesRequest
+  ): AsyncIterableIterator<responses.ListPipelinesResponse> {
+    return paginateResponses(request, req => this.listPipelines(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PipelineSummary objects
+   * contained in responses from the listPipelines operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPipelinesRecordIterator(
+    request: requests.ListPipelinesRequest
+  ): AsyncIterableIterator<model.PipelineSummary> {
+    return paginateRecords(request, req => this.listPipelines(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPipelines operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPipelinesResponseIterator(
+    request: requests.ListPipelinesRequest
+  ): AsyncIterableIterator<responses.ListPipelinesResponse> {
+    return paginateResponses(request, req => this.listPipelines(req));
+  }
+
+  /**
    * Lists projects in the specified compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListProjectsRequest
@@ -6198,6 +7430,170 @@ export class DataScienceClient {
         bodyKey: "notebookSession",
         bodyModel: model.NotebookSession,
         type: "model.NotebookSession",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Pipeline.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdatePipelineRequest
+   * @return UpdatePipelineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdatePipeline.ts.html |here} to see how to use UpdatePipeline API.
+   */
+  public async updatePipeline(
+    updatePipelineRequest: requests.UpdatePipelineRequest
+  ): Promise<responses.UpdatePipelineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updatePipeline.");
+    const operationName = "updatePipeline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/Pipeline/UpdatePipeline";
+    const pathParams = {
+      "{pipelineId}": updatePipelineRequest.pipelineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePipelineRequest.ifMatch,
+      "opc-request-id": updatePipelineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePipelineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelines/{pipelineId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePipelineRequest.updatePipelineDetails,
+        "UpdatePipelineDetails",
+        model.UpdatePipelineDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePipelineResponse>{},
+        body: await response.json(),
+        bodyKey: "pipeline",
+        bodyModel: model.Pipeline,
+        type: "model.Pipeline",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the PipelineRun.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdatePipelineRunRequest
+   * @return UpdatePipelineRunResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdatePipelineRun.ts.html |here} to see how to use UpdatePipelineRun API.
+   */
+  public async updatePipelineRun(
+    updatePipelineRunRequest: requests.UpdatePipelineRunRequest
+  ): Promise<responses.UpdatePipelineRunResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataScienceClient#updatePipelineRun.");
+    const operationName = "updatePipelineRun";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/PipelineRun/UpdatePipelineRun";
+    const pathParams = {
+      "{pipelineRunId}": updatePipelineRunRequest.pipelineRunId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updatePipelineRunRequest.ifMatch,
+      "opc-request-id": updatePipelineRunRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updatePipelineRunRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pipelineRuns/{pipelineRunId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updatePipelineRunRequest.updatePipelineRunDetails,
+        "UpdatePipelineRunDetails",
+        model.UpdatePipelineRunDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdatePipelineRunResponse>{},
+        body: await response.json(),
+        bodyKey: "pipelineRun",
+        bodyModel: model.PipelineRun,
+        type: "model.PipelineRun",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

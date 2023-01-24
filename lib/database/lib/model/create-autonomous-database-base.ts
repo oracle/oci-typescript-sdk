@@ -241,6 +241,10 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The private endpoint Ip address for the resource.
+   */
+  "privateEndpointIp"?: string;
+  /**
    * A valid Oracle Database version for Autonomous Database.
    */
   "dbVersion"?: string;
