@@ -20,6 +20,8 @@ import * as BatchDetectLanguageEntitiesRequest from "./batch-detect-language-ent
 export import BatchDetectLanguageEntitiesRequest = BatchDetectLanguageEntitiesRequest.BatchDetectLanguageEntitiesRequest;
 import * as BatchDetectLanguageKeyPhrasesRequest from "./batch-detect-language-key-phrases-request";
 export import BatchDetectLanguageKeyPhrasesRequest = BatchDetectLanguageKeyPhrasesRequest.BatchDetectLanguageKeyPhrasesRequest;
+import * as BatchDetectLanguagePiiEntitiesRequest from "./batch-detect-language-pii-entities-request";
+export import BatchDetectLanguagePiiEntitiesRequest = BatchDetectLanguagePiiEntitiesRequest.BatchDetectLanguagePiiEntitiesRequest;
 import * as BatchDetectLanguageSentimentsRequest from "./batch-detect-language-sentiments-request";
 export import BatchDetectLanguageSentimentsRequest = BatchDetectLanguageSentimentsRequest.BatchDetectLanguageSentimentsRequest;
 import * as BatchDetectLanguageTextClassificationRequest from "./batch-detect-language-text-classification-request";

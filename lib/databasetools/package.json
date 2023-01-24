@@ -1,6 +1,6 @@
 {
   "name": "oci-databasetools",
-  "version": "2.50.2",
+  "version": "2.50.3",
   "description": "OCI NodeJS client for Database Tools Service",
   "repository": {
     "type": "git",

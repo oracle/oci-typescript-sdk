@@ -22,7 +22,7 @@ export interface DetectLanguageEntitiesResponse {
    */
   "opcRequestId": string;
   /**
-   * This API will be retired on Monday, 10 Oct 2022 00:00:00 GMT
+   * This API will be retired on Monday, 10 Oct 2023 00:00:00 GMT
    *
    */
   "sunset": string;
