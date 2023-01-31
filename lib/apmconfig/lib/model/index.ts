@@ -43,6 +43,8 @@ import * as RetrieveNamespaceMetricsDetails from "./retrieve-namespace-metrics-d
 export import RetrieveNamespaceMetricsDetails = RetrieveNamespaceMetricsDetails.RetrieveNamespaceMetricsDetails;
 import * as SortOrders from "./sort-orders";
 export import SortOrders = SortOrders.SortOrders;
+import * as SpanFilterReference from "./span-filter-reference";
+export import SpanFilterReference = SpanFilterReference.SpanFilterReference;
 import * as UpdateConfigDetails from "./update-config-details";
 export import UpdateConfigDetails = UpdateConfigDetails.UpdateConfigDetails;
 import * as ValidateSpanFilterPatternDetails from "./validate-span-filter-pattern-details";

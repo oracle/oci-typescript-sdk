@@ -46,6 +46,11 @@ export interface InstanceConfigurationLaunchInstancePlatformConfig {
    *
    */
   "isMeasuredBootEnabled"?: boolean;
+  /**
+   * Whether the instance is a confidential instance. If this value is `true`, the instance is a confidential instance. The default value is `false`.
+   *
+   */
+  "isMemoryEncryptionEnabled"?: boolean;
 
   "type": string;
 }

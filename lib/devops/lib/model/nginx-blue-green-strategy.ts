@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface NginxBlueGreenStrategy extends model.OkeBlueGreenStrategy {
   /**
-   * Namespace A for deployment.
+   * Namespace A for deployment. Example: namespaceA - first Namespace name.
    */
   "namespaceA": string;
   /**
-   * Namespace B for deployment.
+   * Namespace B for deployment. Example: namespaceB - second Namespace name.
    */
   "namespaceB": string;
   /**

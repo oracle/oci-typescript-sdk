@@ -59,6 +59,14 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "cpuCoreCount"?: number;
   /**
+   * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value.
+   */
+  "computeModel"?: CreateAutonomousDatabaseBase.ComputeModel;
+  /**
+   * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is on Shared or Dedicated infrastructure. For an Autonomous Database on Shared infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
+  /**
     * The number of OCPU cores to be made available to the database. 
 * <p>
 The following points apply:
@@ -281,11 +289,28 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "databaseEdition"?: string;
+  /**
+   * List of database tools details.
+   */
+  "dbToolsDetails"?: Array<model.DatabaseTool>;
+  /**
+   * The OCI vault secret [/Content/General/Concepts/identifiers.htm]OCID.
+   */
+  "secretId"?: string;
+  /**
+   * The version of the vault secret. If no version is specified, the latest version will be used. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "secretVersionNumber"?: number;
 
   "source": string;
 }
 
 export namespace CreateAutonomousDatabaseBase {
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU"
+  }
+
   export enum DbWorkload {
     Oltp = "OLTP",
     Dw = "DW",
@@ -316,6 +341,12 @@ export namespace CreateAutonomousDatabaseBase {
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
+            })
+          : undefined,
+
+        "dbToolsDetails": obj.dbToolsDetails
+          ? obj.dbToolsDetails.map(item => {
+              return model.DatabaseTool.getJsonObj(item);
             })
           : undefined
       }
@@ -372,6 +403,12 @@ export namespace CreateAutonomousDatabaseBase {
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "dbToolsDetails": obj.dbToolsDetails
+          ? obj.dbToolsDetails.map(item => {
+              return model.DatabaseTool.getDeserializedJsonObj(item);
             })
           : undefined
       }

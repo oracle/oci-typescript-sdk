@@ -15,7 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration to update on an existing OpenSearch cluster.
+ * The configuration to update on an existing OpenSearch cluster. Software version
+ * and security config are not allowed to be updated at the same time.
+ *
  */
 export interface UpdateOpensearchClusterDetails {
   /**
@@ -23,6 +25,18 @@ export interface UpdateOpensearchClusterDetails {
    */
   "displayName": string;
   "softwareVersion"?: string;
+  /**
+   * The security mode of the cluster.
+   */
+  "securityMode"?: model.SecurityMode;
+  /**
+   * The name of the master user that are used to manage security config
+   */
+  "securityMasterUserName"?: string;
+  /**
+   * The password hash of the master user that are used to manage security config
+   */
+  "securityMasterUserPasswordHash"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

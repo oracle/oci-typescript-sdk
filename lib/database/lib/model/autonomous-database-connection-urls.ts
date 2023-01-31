@@ -38,6 +38,18 @@ export interface AutonomousDatabaseConnectionUrls {
    * The URL of the Graph Studio for the Autonomous Database.
    */
   "graphStudioUrl"?: string;
+  /**
+   * The URL of the MongoDB API for the Autonomous Database.
+   */
+  "mongoDbUrl"?: string;
+  /**
+   * The Oracle REST Data Services (ORDS) URL of the Web Access for the Autonomous Database.
+   */
+  "ordsUrl"?: string;
+  /**
+   * The URL of the Database Transforms for the Autonomous Database.
+   */
+  "databaseTransformsUrl"?: string;
 }
 
 export namespace AutonomousDatabaseConnectionUrls {

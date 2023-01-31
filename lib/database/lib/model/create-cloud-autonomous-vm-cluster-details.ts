@@ -62,6 +62,10 @@ export interface CreateCloudAutonomousVmClusterDetails {
    */
   "clusterTimeZone"?: string;
   /**
+   * The compute model of the Cloud Autonomous VM Cluster.
+   */
+  "computeModel"?: CreateCloudAutonomousVmClusterDetails.ComputeModel;
+  /**
    * The list of database servers.
    */
   "dbServers"?: Array<string>;
@@ -98,6 +102,11 @@ Example: `{\"Department\": \"Finance\"}`
 }
 
 export namespace CreateCloudAutonomousVmClusterDetails {
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU"
+  }
+
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"

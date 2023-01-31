@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface OkeBlueGreenTrafficShiftDeployStageExecutionProgress
   extends model.DeployStageExecutionProgress {
   /**
-   * Namespace where traffic is going.
+   * Namespace where traffic is going. Example:  blue - Traffic is going to blue namespace. green - Traffic is going to green namespace.
    */
   "namespace"?: string;
 

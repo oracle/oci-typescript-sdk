@@ -81,6 +81,11 @@ export namespace CreateDeployStageDetails {
             <model.CreateLoadBalancerTrafficShiftDeployStageDetails>(<object>jsonObj),
             true
           );
+        case "SHELL":
+          return model.CreateShellDeployStageDetails.getJsonObj(
+            <model.CreateShellDeployStageDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":
           return model.CreateComputeInstanceGroupBlueGreenTrafficShiftDeployStageDetails.getJsonObj(
             <model.CreateComputeInstanceGroupBlueGreenTrafficShiftDeployStageDetails>(
@@ -192,6 +197,11 @@ export namespace CreateDeployStageDetails {
         case "LOAD_BALANCER_TRAFFIC_SHIFT":
           return model.CreateLoadBalancerTrafficShiftDeployStageDetails.getDeserializedJsonObj(
             <model.CreateLoadBalancerTrafficShiftDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "SHELL":
+          return model.CreateShellDeployStageDetails.getDeserializedJsonObj(
+            <model.CreateShellDeployStageDetails>(<object>jsonObj),
             true
           );
         case "COMPUTE_INSTANCE_GROUP_BLUE_GREEN_TRAFFIC_SHIFT":

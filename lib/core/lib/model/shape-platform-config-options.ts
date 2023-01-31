@@ -33,6 +33,7 @@ export interface ShapePlatformConfigOptions {
   "measuredBootOptions"?: model.ShapeMeasuredBootOptions;
   "trustedPlatformModuleOptions"?: model.ShapeTrustedPlatformModuleOptions;
   "numaNodesPerSocketPlatformOptions"?: model.ShapeNumaNodesPerSocketPlatformOptions;
+  "memoryEncryptionOptions"?: model.ShapeMemoryEncryptionOptions;
   "symmetricMultiThreadingOptions"?: model.ShapeSymmetricMultiThreadingEnabledPlatformOptions;
   "accessControlServiceOptions"?: model.ShapeAccessControlServiceEnabledPlatformOptions;
   "virtualInstructionsOptions"?: model.ShapeVirtualInstructionsEnabledPlatformOptions;
@@ -73,6 +74,9 @@ export namespace ShapePlatformConfigOptions {
           ? model.ShapeNumaNodesPerSocketPlatformOptions.getJsonObj(
               obj.numaNodesPerSocketPlatformOptions
             )
+          : undefined,
+        "memoryEncryptionOptions": obj.memoryEncryptionOptions
+          ? model.ShapeMemoryEncryptionOptions.getJsonObj(obj.memoryEncryptionOptions)
           : undefined,
         "symmetricMultiThreadingOptions": obj.symmetricMultiThreadingOptions
           ? model.ShapeSymmetricMultiThreadingEnabledPlatformOptions.getJsonObj(
@@ -121,6 +125,9 @@ export namespace ShapePlatformConfigOptions {
           ? model.ShapeNumaNodesPerSocketPlatformOptions.getDeserializedJsonObj(
               obj.numaNodesPerSocketPlatformOptions
             )
+          : undefined,
+        "memoryEncryptionOptions": obj.memoryEncryptionOptions
+          ? model.ShapeMemoryEncryptionOptions.getDeserializedJsonObj(obj.memoryEncryptionOptions)
           : undefined,
         "symmetricMultiThreadingOptions": obj.symmetricMultiThreadingOptions
           ? model.ShapeSymmetricMultiThreadingEnabledPlatformOptions.getDeserializedJsonObj(

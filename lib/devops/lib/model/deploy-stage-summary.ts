@@ -128,6 +128,11 @@ export namespace DeployStageSummary {
             <model.OkeHelmChartDeployStageSummary>(<object>jsonObj),
             true
           );
+        case "SHELL":
+          return model.ShellDeployStageSummary.getJsonObj(
+            <model.ShellDeployStageSummary>(<object>jsonObj),
+            true
+          );
         case "OKE_CANARY_TRAFFIC_SHIFT":
           return model.OkeCanaryTrafficShiftDeployStageSummary.getJsonObj(
             <model.OkeCanaryTrafficShiftDeployStageSummary>(<object>jsonObj),
@@ -237,6 +242,11 @@ export namespace DeployStageSummary {
         case "OKE_HELM_CHART_DEPLOYMENT":
           return model.OkeHelmChartDeployStageSummary.getDeserializedJsonObj(
             <model.OkeHelmChartDeployStageSummary>(<object>jsonObj),
+            true
+          );
+        case "SHELL":
+          return model.ShellDeployStageSummary.getDeserializedJsonObj(
+            <model.ShellDeployStageSummary>(<object>jsonObj),
             true
           );
         case "OKE_CANARY_TRAFFIC_SHIFT":

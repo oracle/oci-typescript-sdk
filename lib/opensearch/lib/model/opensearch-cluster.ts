@@ -174,6 +174,18 @@ export interface OpensearchCluster {
    * The availability domains to distribute the cluser nodes across.
    */
   "availabilityDomains": Array<string>;
+  /**
+   * The security mode of the cluster.
+   */
+  "securityMode"?: model.SecurityMode;
+  /**
+   * The name of the master user that are used to manage security config
+   */
+  "securityMasterUserName"?: string;
+  /**
+   * The password hash of the master user that are used to manage security config
+   */
+  "securityMasterUserPasswordHash"?: string;
 }
 
 export namespace OpensearchCluster {

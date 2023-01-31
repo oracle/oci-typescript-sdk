@@ -27,12 +27,16 @@ import common = require("oci-common");
  */
 export interface UpdateAutonomousDatabaseDetails {
   /**
-   * The number of OCPU cores to be made available to the Autonomous Database.
+   * The number of CPUs to be made available to the Autonomous Database.
    * <p>
-   **Note:** This parameter cannot be used with the `ocpuCount` parameter.
+   **Note:** This parameter cannot be used with the `ocpuCount` or `computeCount` parameter.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
+  /**
+   * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is on Shared or Dedicated infrastructure. For an Autonomous Database on Shared infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
   /**
     * The number of OCPU cores to be made available to the Autonomous Database. 
 * <p>
@@ -270,6 +274,18 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    *
    */
   "databaseEdition"?: string;
+  /**
+   * List of database tools details.
+   */
+  "dbToolsDetails"?: Array<model.DatabaseTool>;
+  /**
+   * The OCI vault secret [/Content/General/Concepts/identifiers.htm]OCID.
+   */
+  "secretId"?: string;
+  /**
+   * The version of the vault secret. If no version is specified, the latest version will be used. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "secretVersionNumber"?: number;
 }
 
 export namespace UpdateAutonomousDatabaseDetails {
@@ -314,6 +330,12 @@ export namespace UpdateAutonomousDatabaseDetails {
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "dbToolsDetails": obj.dbToolsDetails
+          ? obj.dbToolsDetails.map(item => {
+              return model.DatabaseTool.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -333,6 +355,12 @@ export namespace UpdateAutonomousDatabaseDetails {
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "dbToolsDetails": obj.dbToolsDetails
+          ? obj.dbToolsDetails.map(item => {
+              return model.DatabaseTool.getDeserializedJsonObj(item);
             })
           : undefined
       }

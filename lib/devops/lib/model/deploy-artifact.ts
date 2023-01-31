@@ -89,6 +89,7 @@ export namespace DeployArtifact {
     GenericFile = "GENERIC_FILE",
     DockerImage = "DOCKER_IMAGE",
     HelmChart = "HELM_CHART",
+    CommandSpec = "COMMAND_SPEC",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

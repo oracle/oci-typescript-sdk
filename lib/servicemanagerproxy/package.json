@@ -1,6 +1,6 @@
 {
   "name": "oci-servicemanagerproxy",
-  "version": "2.50.3",
+  "version": "2.50.4",
   "description": "OCI NodeJS client for Service Manager Proxy Service",
   "repository": {
     "type": "git",

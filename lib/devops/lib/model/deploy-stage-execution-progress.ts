@@ -104,6 +104,11 @@ export namespace DeployStageExecutionProgress {
             <model.ComputeInstanceGroupDeployStageExecutionProgress>(<object>jsonObj),
             true
           );
+        case "SHELL":
+          return model.ShellDeployStageExecutionProgress.getJsonObj(
+            <model.ShellDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
         case "OKE_CANARY_DEPLOYMENT":
           return model.OkeCanaryDeployStageExecutionProgress.getJsonObj(
             <model.OkeCanaryDeployStageExecutionProgress>(<object>jsonObj),
@@ -222,6 +227,11 @@ export namespace DeployStageExecutionProgress {
         case "COMPUTE_INSTANCE_GROUP_ROLLING_DEPLOYMENT":
           return model.ComputeInstanceGroupDeployStageExecutionProgress.getDeserializedJsonObj(
             <model.ComputeInstanceGroupDeployStageExecutionProgress>(<object>jsonObj),
+            true
+          );
+        case "SHELL":
+          return model.ShellDeployStageExecutionProgress.getDeserializedJsonObj(
+            <model.ShellDeployStageExecutionProgress>(<object>jsonObj),
             true
           );
         case "OKE_CANARY_DEPLOYMENT":

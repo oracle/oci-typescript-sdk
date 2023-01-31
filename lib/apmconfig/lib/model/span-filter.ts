@@ -30,6 +30,10 @@ export interface SpanFilter extends model.Config {
    */
   "filterText"?: string;
   /**
+   * The list of configuration items that reference the span filter.
+   */
+  "inUseBy"?: Array<model.SpanFilterReference>;
+  /**
    * An optional string that describes what the span filter is intended or used for.
    */
   "description"?: string;
@@ -41,7 +45,13 @@ export namespace SpanFilter {
   export function getJsonObj(obj: SpanFilter, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Config.getJsonObj(obj) as SpanFilter)),
-      ...{}
+      ...{
+        "inUseBy": obj.inUseBy
+          ? obj.inUseBy.map(item => {
+              return model.SpanFilterReference.getJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -50,7 +60,13 @@ export namespace SpanFilter {
   export function getDeserializedJsonObj(obj: SpanFilter, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Config.getDeserializedJsonObj(obj) as SpanFilter)),
-      ...{}
+      ...{
+        "inUseBy": obj.inUseBy
+          ? obj.inUseBy.map(item => {
+              return model.SpanFilterReference.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
     };
 
     return jsonObj;

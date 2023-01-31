@@ -103,6 +103,18 @@ export interface CreateOpensearchClusterDetails {
    */
   "subnetCompartmentId": string;
   /**
+   * The security mode of the cluster.
+   */
+  "securityMode"?: model.SecurityMode;
+  /**
+   * The name of the master user that are used to manage security config
+   */
+  "securityMasterUserName"?: string;
+  /**
+   * The password hash of the master user that are used to manage security config
+   */
+  "securityMasterUserPasswordHash"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
