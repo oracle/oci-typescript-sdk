@@ -112,6 +112,8 @@ export namespace DeployStage {
             <model.LoadBalancerTrafficShiftDeployStage>(<object>jsonObj),
             true
           );
+        case "SHELL":
+          return model.ShellDeployStage.getJsonObj(<model.ShellDeployStage>(<object>jsonObj), true);
         case "INVOKE_FUNCTION":
           return model.InvokeFunctionDeployStage.getJsonObj(
             <model.InvokeFunctionDeployStage>(<object>jsonObj),
@@ -215,6 +217,11 @@ export namespace DeployStage {
         case "LOAD_BALANCER_TRAFFIC_SHIFT":
           return model.LoadBalancerTrafficShiftDeployStage.getDeserializedJsonObj(
             <model.LoadBalancerTrafficShiftDeployStage>(<object>jsonObj),
+            true
+          );
+        case "SHELL":
+          return model.ShellDeployStage.getDeserializedJsonObj(
+            <model.ShellDeployStage>(<object>jsonObj),
             true
           );
         case "INVOKE_FUNCTION":

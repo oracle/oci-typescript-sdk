@@ -77,6 +77,11 @@ export namespace UpdateDeployStageDetails {
             <model.UpdateOkeCanaryApprovalDeployStageDetails>(<object>jsonObj),
             true
           );
+        case "SHELL":
+          return model.UpdateShellDeployStageDetails.getJsonObj(
+            <model.UpdateShellDeployStageDetails>(<object>jsonObj),
+            true
+          );
         case "OKE_DEPLOYMENT":
           return model.UpdateOkeDeployStageDetails.getJsonObj(
             <model.UpdateOkeDeployStageDetails>(<object>jsonObj),
@@ -188,6 +193,11 @@ export namespace UpdateDeployStageDetails {
         case "OKE_CANARY_APPROVAL":
           return model.UpdateOkeCanaryApprovalDeployStageDetails.getDeserializedJsonObj(
             <model.UpdateOkeCanaryApprovalDeployStageDetails>(<object>jsonObj),
+            true
+          );
+        case "SHELL":
+          return model.UpdateShellDeployStageDetails.getDeserializedJsonObj(
+            <model.UpdateShellDeployStageDetails>(<object>jsonObj),
             true
           );
         case "OKE_DEPLOYMENT":

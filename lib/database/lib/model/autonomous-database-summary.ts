@@ -106,6 +106,14 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "cpuCoreCount": number;
   /**
+   * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value.
+   */
+  "computeModel"?: AutonomousDatabaseSummary.ComputeModel;
+  /**
+   * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is on Shared or Dedicated infrastructure. For an Autonomous Database on Shared infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
+  /**
     * The number of OCPU cores to be made available to the database. 
 * <p>
 The following points apply:
@@ -474,6 +482,10 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    *
    */
   "databaseEdition"?: AutonomousDatabaseSummary.DatabaseEdition;
+  /**
+   * List of database tools details.
+   */
+  "dbToolsDetails"?: Array<model.DatabaseTool>;
 }
 
 export namespace AutonomousDatabaseSummary {
@@ -499,6 +511,16 @@ export namespace AutonomousDatabaseSummary {
     Upgrading = "UPGRADING",
     Inaccessible = "INACCESSIBLE",
     Standby = "STANDBY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -702,6 +724,12 @@ export namespace AutonomousDatabaseSummary {
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "dbToolsDetails": obj.dbToolsDetails
+          ? obj.dbToolsDetails.map(item => {
+              return model.DatabaseTool.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -749,6 +777,12 @@ export namespace AutonomousDatabaseSummary {
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "dbToolsDetails": obj.dbToolsDetails
+          ? obj.dbToolsDetails.map(item => {
+              return model.DatabaseTool.getDeserializedJsonObj(item);
             })
           : undefined
       }

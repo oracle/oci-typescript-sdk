@@ -20,7 +20,7 @@ import common = require("oci-common");
 export interface OkeBlueGreenDeployStageExecutionProgress
   extends model.DeployStageExecutionProgress {
   /**
-   * Namespace either environment A or environment B where artifacts are deployed.
+   * Namespace either environment A or environment B where artifacts are deployed. Example:  blue - Name of the namespace where blue artifacts were deployed. green - Name of the namespace where green artifacts were deployed.
    */
   "namespace"?: string;
 

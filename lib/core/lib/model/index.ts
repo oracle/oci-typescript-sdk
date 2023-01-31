@@ -666,6 +666,8 @@ import * as ShapeMaxVnicAttachmentOptions from "./shape-max-vnic-attachment-opti
 export import ShapeMaxVnicAttachmentOptions = ShapeMaxVnicAttachmentOptions.ShapeMaxVnicAttachmentOptions;
 import * as ShapeMeasuredBootOptions from "./shape-measured-boot-options";
 export import ShapeMeasuredBootOptions = ShapeMeasuredBootOptions.ShapeMeasuredBootOptions;
+import * as ShapeMemoryEncryptionOptions from "./shape-memory-encryption-options";
+export import ShapeMemoryEncryptionOptions = ShapeMemoryEncryptionOptions.ShapeMemoryEncryptionOptions;
 import * as ShapeMemoryOptions from "./shape-memory-options";
 export import ShapeMemoryOptions = ShapeMemoryOptions.ShapeMemoryOptions;
 import * as ShapeNetworkingBandwidthOptions from "./shape-networking-bandwidth-options";

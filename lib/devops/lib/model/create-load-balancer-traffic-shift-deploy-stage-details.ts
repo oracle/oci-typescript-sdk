@@ -22,7 +22,7 @@ export interface CreateLoadBalancerTrafficShiftDeployStageDetails
   "blueBackendIps": model.BackendSetIpCollection;
   "greenBackendIps": model.BackendSetIpCollection;
   /**
-   * Specifies the target or destination backend set.
+   * Specifies the target or destination backend set. Example: BLUE - Traffic from the existing backends of managed Load Balance Listener to blue Backend IPs, as per rolloutPolicy. GREEN - Traffic from the existing backends of managed Load Balance Listener to blue Backend IPs ser as per rolloutPolicy.
    */
   "trafficShiftTarget": string;
   "rolloutPolicy": model.LoadBalancerTrafficShiftRolloutPolicy;

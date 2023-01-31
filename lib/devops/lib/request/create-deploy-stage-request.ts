@@ -27,6 +27,7 @@ export interface CreateDeployStageRequest extends common.BaseRequest {
     | model.CreateComputeInstanceGroupCanaryDeployStageDetails
     | model.CreateWaitDeployStageDetails
     | model.CreateLoadBalancerTrafficShiftDeployStageDetails
+    | model.CreateShellDeployStageDetails
     | model.CreateComputeInstanceGroupBlueGreenTrafficShiftDeployStageDetails
     | model.CreateOkeBlueGreenDeployStageDetails
     | model.CreateComputeInstanceGroupDeployStageDetails

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface NginxCanaryStrategy extends model.OkeCanaryStrategy {
   /**
-   * Canary namespace to be used for Kubernetes canary deployment.
+   * Canary namespace to be used for Kubernetes canary deployment. Example: canary - Name of the Canary namespace.
    */
   "namespace": string;
   /**

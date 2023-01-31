@@ -59,6 +59,10 @@ export interface CreateAutonomousVmClusterDetails {
    */
   "cpuCoreCountPerNode"?: number;
   /**
+   * The compute model of the Autonomous VM Cluster.
+   */
+  "computeModel"?: CreateAutonomousVmClusterDetails.ComputeModel;
+  /**
    * The amount of memory (in GBs) to be enabled per each OCPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
@@ -99,6 +103,11 @@ export namespace CreateAutonomousVmClusterDetails {
   export enum LicenseModel {
     LicenseIncluded = "LICENSE_INCLUDED",
     BringYourOwnLicense = "BRING_YOUR_OWN_LICENSE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU"
   }
 
   export function getJsonObj(obj: CreateAutonomousVmClusterDetails): object {

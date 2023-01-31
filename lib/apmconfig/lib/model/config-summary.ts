@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A description of a configuration item. It specifes all the properties that define the configuration item.
+ * A description of a configuration item. It specifies all the properties that define the configuration item.
  *
  */
 export interface ConfigSummary {
@@ -41,6 +41,21 @@ export interface ConfigSummary {
    *
    */
   "timeUpdated"?: Date;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a user.
+   *
+   */
+  "createdBy"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of a user.
+   *
+   */
+  "updatedBy"?: string;
+  /**
+   * For optimistic concurrency control. See `if-match`.
+   *
+   */
+  "etag"?: string;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

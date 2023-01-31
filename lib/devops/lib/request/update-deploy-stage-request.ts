@@ -31,6 +31,7 @@ export interface UpdateDeployStageRequest extends common.BaseRequest {
     | model.UpdateOkeHelmChartDeployStageDetails
     | model.UpdateComputeInstanceGroupDeployStageDetails
     | model.UpdateOkeCanaryApprovalDeployStageDetails
+    | model.UpdateShellDeployStageDetails
     | model.UpdateOkeDeployStageDetails
     | model.UpdateComputeInstanceGroupCanaryApprovalDeployStageDetails
     | model.UpdateLoadBalancerTrafficShiftDeployStageDetails

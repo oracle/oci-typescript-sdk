@@ -61,6 +61,8 @@ import * as RestoreOpensearchClusterBackupDetails from "./restore-opensearch-clu
 export import RestoreOpensearchClusterBackupDetails = RestoreOpensearchClusterBackupDetails.RestoreOpensearchClusterBackupDetails;
 import * as RestoreOpensearchClusterDetails from "./restore-opensearch-cluster-details";
 export import RestoreOpensearchClusterDetails = RestoreOpensearchClusterDetails.RestoreOpensearchClusterDetails;
+import * as SecurityMode from "./security-mode";
+export import SecurityMode = SecurityMode.SecurityMode;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
 import * as UpdateCheckinDetails from "./update-checkin-details";

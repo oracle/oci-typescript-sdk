@@ -80,6 +80,10 @@ export interface OpensearchClusterSummary {
    * The availability domains to distribute the cluser nodes across.
    */
   "availabilityDomains"?: Array<string>;
+  /**
+   * The security mode of the cluster.
+   */
+  "securityMode"?: model.SecurityMode;
 }
 
 export namespace OpensearchClusterSummary {

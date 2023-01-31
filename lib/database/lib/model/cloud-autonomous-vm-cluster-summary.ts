@@ -122,6 +122,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "ocpuCount"?: number;
   /**
+   * The compute model of the Cloud Autonomous VM Cluster.
+   */
+  "computeModel"?: CloudAutonomousVmClusterSummary.ComputeModel;
+  /**
    * The number of OCPU cores enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCountPerNode"?: number;
@@ -203,6 +207,16 @@ export namespace CloudAutonomousVmClusterSummary {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

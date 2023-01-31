@@ -19,6 +19,9 @@ import common = require("oci-common");
  */
 export interface OkeCanaryApprovalDeployStageExecutionProgress
   extends model.DeployStageExecutionProgress {
+  /**
+   * Specifies the Canary approval actions.
+   */
   "approvalActions"?: Array<model.ApprovalAction>;
 
   "deployStageType": string;

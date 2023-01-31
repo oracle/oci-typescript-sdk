@@ -234,6 +234,8 @@ import * as DatabaseSoftwareImageSummary from "./database-software-image-summary
 export import DatabaseSoftwareImageSummary = DatabaseSoftwareImageSummary.DatabaseSoftwareImageSummary;
 import * as DatabaseSummary from "./database-summary";
 export import DatabaseSummary = DatabaseSummary.DatabaseSummary;
+import * as DatabaseTool from "./database-tool";
+export import DatabaseTool = DatabaseTool.DatabaseTool;
 import * as DatabaseUpgradeHistoryEntry from "./database-upgrade-history-entry";
 export import DatabaseUpgradeHistoryEntry = DatabaseUpgradeHistoryEntry.DatabaseUpgradeHistoryEntry;
 import * as DatabaseUpgradeHistoryEntrySummary from "./database-upgrade-history-entry-summary";

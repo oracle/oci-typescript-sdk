@@ -66,6 +66,10 @@ export interface AutonomousVmClusterSummary {
    */
   "cpusEnabled"?: number;
   /**
+   * The compute model of the Autonomous VM Cluster.
+   */
+  "computeModel"?: AutonomousVmClusterSummary.ComputeModel;
+  /**
    * The number of enabled OCPU cores. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpusEnabled"?: number;
@@ -173,6 +177,16 @@ export namespace AutonomousVmClusterSummary {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
