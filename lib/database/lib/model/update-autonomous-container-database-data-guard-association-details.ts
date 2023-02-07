@@ -25,9 +25,25 @@ export interface UpdateAutonomousContainerDatabaseDataGuardAssociationDetails {
    *
    */
   "isAutomaticFailoverEnabled"?: boolean;
+  /**
+   * The protection mode of this Autonomous Data Guard association. For more information, see
+   * [Oracle Data Guard Protection Modes](http://docs.oracle.com/database/122/SBYDB/oracle-data-guard-protection-modes.htm#SBYDB02000)
+   * in the Oracle Data Guard documentation.
+   *
+   */
+  "protectionMode"?: UpdateAutonomousContainerDatabaseDataGuardAssociationDetails.ProtectionMode;
+  /**
+   * The lag time for my preference based on data loss tolerance in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "fastStartFailOverLagLimitInSeconds"?: number;
 }
 
 export namespace UpdateAutonomousContainerDatabaseDataGuardAssociationDetails {
+  export enum ProtectionMode {
+    MaximumAvailability = "MAXIMUM_AVAILABILITY",
+    MaximumPerformance = "MAXIMUM_PERFORMANCE"
+  }
+
   export function getJsonObj(
     obj: UpdateAutonomousContainerDatabaseDataGuardAssociationDetails
   ): object {

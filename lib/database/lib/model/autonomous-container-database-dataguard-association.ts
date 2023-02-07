@@ -69,6 +69,10 @@ export interface AutonomousContainerDatabaseDataguardAssociation {
    */
   "protectionMode"?: AutonomousContainerDatabaseDataguardAssociation.ProtectionMode;
   /**
+   * The lag time for my preference based on data loss tolerance in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "fastStartFailOverLagLimitInSeconds"?: number;
+  /**
     * The lag time between updates to the primary Autonomous Container Database and application of the redo data on the standby Autonomous Container Database,
 * as computed by the reporting database.
 * <p>
@@ -115,6 +119,7 @@ export namespace AutonomousContainerDatabaseDataguardAssociation {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -130,6 +135,7 @@ export namespace AutonomousContainerDatabaseDataguardAssociation {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     Unavailable = "UNAVAILABLE",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -141,6 +147,7 @@ export namespace AutonomousContainerDatabaseDataguardAssociation {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -156,6 +163,7 @@ export namespace AutonomousContainerDatabaseDataguardAssociation {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     Unavailable = "UNAVAILABLE",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

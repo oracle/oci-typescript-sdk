@@ -644,6 +644,88 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Moves an OpsiConfiguration resource from one compartment to another.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeOpsiConfigurationCompartmentRequest
+   * @return ChangeOpsiConfigurationCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeOpsiConfigurationCompartment.ts.html |here} to see how to use ChangeOpsiConfigurationCompartment API.
+   */
+  public async changeOpsiConfigurationCompartment(
+    changeOpsiConfigurationCompartmentRequest: requests.ChangeOpsiConfigurationCompartmentRequest
+  ): Promise<responses.ChangeOpsiConfigurationCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeOpsiConfigurationCompartment."
+      );
+    const operationName = "changeOpsiConfigurationCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/ChangeOpsiConfigurationCompartment";
+    const pathParams = {
+      "{opsiConfigurationId}": changeOpsiConfigurationCompartmentRequest.opsiConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeOpsiConfigurationCompartmentRequest.ifMatch,
+      "opc-request-id": changeOpsiConfigurationCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeOpsiConfigurationCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOpsiConfigurationCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiConfigurations/{opsiConfigurationId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOpsiConfigurationCompartmentRequest.changeOpsiConfigurationCompartmentDetails,
+        "ChangeOpsiConfigurationCompartmentDetails",
+        model.ChangeOpsiConfigurationCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOpsiConfigurationCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Change the connection details of a co-managed  database insight. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangePeComanagedDatabaseInsightRequest
@@ -1514,6 +1596,98 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Create an OPSI configuration resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateOpsiConfigurationRequest
+   * @return CreateOpsiConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateOpsiConfiguration.ts.html |here} to see how to use CreateOpsiConfiguration API.
+   */
+  public async createOpsiConfiguration(
+    createOpsiConfigurationRequest: requests.CreateOpsiConfigurationRequest
+  ): Promise<responses.CreateOpsiConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createOpsiConfiguration.");
+    const operationName = "createOpsiConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/CreateOpsiConfiguration";
+    const pathParams = {};
+
+    const queryParams = {
+      "opsiConfigField": createOpsiConfigurationRequest.opsiConfigField,
+      "configItemCustomStatus": createOpsiConfigurationRequest.configItemCustomStatus,
+      "configItemsApplicableContext": createOpsiConfigurationRequest.configItemsApplicableContext,
+      "configItemField": createOpsiConfigurationRequest.configItemField
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOpsiConfigurationRequest.opcRetryToken,
+      "opc-request-id": createOpsiConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOpsiConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiConfigurations",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOpsiConfigurationRequest.createOpsiConfigurationDetails,
+        "CreateOpsiConfigurationDetails",
+        model.CreateOpsiConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOpsiConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "opsiConfiguration",
+        bodyModel: model.OpsiConfiguration,
+        type: "model.OpsiConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an AWR hub.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAwrHubRequest
@@ -2099,6 +2273,80 @@ export class OperationsInsightsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteOperationsInsightsWarehouseUserResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes an OPSI configuration resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOpsiConfigurationRequest
+   * @return DeleteOpsiConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteOpsiConfiguration.ts.html |here} to see how to use DeleteOpsiConfiguration API.
+   */
+  public async deleteOpsiConfiguration(
+    deleteOpsiConfigurationRequest: requests.DeleteOpsiConfigurationRequest
+  ): Promise<responses.DeleteOpsiConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteOpsiConfiguration.");
+    const operationName = "deleteOpsiConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/DeleteOpsiConfiguration";
+    const pathParams = {
+      "{opsiConfigurationId}": deleteOpsiConfigurationRequest.opsiConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOpsiConfigurationRequest.ifMatch,
+      "opc-request-id": deleteOpsiConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOpsiConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiConfigurations/{opsiConfigurationId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOpsiConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3538,6 +3786,91 @@ export class OperationsInsightsClient {
         bodyKey: "operationsInsightsWarehouseUser",
         bodyModel: model.OperationsInsightsWarehouseUser,
         type: "model.OperationsInsightsWarehouseUser",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of an OPSI configuration resource.
+   * Values specified in configItemField and configItemCustomStatus query params will be considered, only if configItems field is requested as part of opsiConfigField query param.
+   * Values specified in configItemCustomStatus will determine whether only customized configuration items or only non-customized configuration items or both have to be returned.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOpsiConfigurationRequest
+   * @return GetOpsiConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetOpsiConfiguration.ts.html |here} to see how to use GetOpsiConfiguration API.
+   */
+  public async getOpsiConfiguration(
+    getOpsiConfigurationRequest: requests.GetOpsiConfigurationRequest
+  ): Promise<responses.GetOpsiConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#getOpsiConfiguration.");
+    const operationName = "getOpsiConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/GetOpsiConfiguration";
+    const pathParams = {
+      "{opsiConfigurationId}": getOpsiConfigurationRequest.opsiConfigurationId
+    };
+
+    const queryParams = {
+      "opsiConfigField": getOpsiConfigurationRequest.opsiConfigField,
+      "configItemCustomStatus": getOpsiConfigurationRequest.configItemCustomStatus,
+      "configItemsApplicableContext": getOpsiConfigurationRequest.configItemsApplicableContext,
+      "configItemField": getOpsiConfigurationRequest.configItemField
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOpsiConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOpsiConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiConfigurations/{opsiConfigurationId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOpsiConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "opsiConfiguration",
+        bodyModel: model.OpsiConfiguration,
+        type: "model.OpsiConfiguration",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -5959,6 +6292,91 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets a list of OPSI configuration resources based on the query parameters specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOpsiConfigurationsRequest
+   * @return ListOpsiConfigurationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListOpsiConfigurations.ts.html |here} to see how to use ListOpsiConfigurations API.
+   */
+  public async listOpsiConfigurations(
+    listOpsiConfigurationsRequest: requests.ListOpsiConfigurationsRequest
+  ): Promise<responses.ListOpsiConfigurationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listOpsiConfigurations.");
+    const operationName = "listOpsiConfigurations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/ListOpsiConfigurations";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOpsiConfigurationsRequest.compartmentId,
+      "displayName": listOpsiConfigurationsRequest.displayName,
+      "lifecycleState": listOpsiConfigurationsRequest.lifecycleState,
+      "opsiConfigType": listOpsiConfigurationsRequest.opsiConfigType,
+      "limit": listOpsiConfigurationsRequest.limit,
+      "page": listOpsiConfigurationsRequest.page,
+      "sortOrder": listOpsiConfigurationsRequest.sortOrder,
+      "sortBy": listOpsiConfigurationsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOpsiConfigurationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOpsiConfigurationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiConfigurations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOpsiConfigurationsResponse>{},
+        body: await response.json(),
+        bodyKey: "opsiConfigurationsCollection",
+        bodyModel: model.OpsiConfigurationsCollection,
+        type: "model.OpsiConfigurationsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of OPSI data objects based on the query parameters specified. CompartmentId id query parameter must be specified.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -7652,6 +8070,92 @@ Note that this API does not return information on the number of times each datab
         bodyKey: "summarizeAwrSourcesSummariesCollection",
         bodyModel: model.SummarizeAwrSourcesSummariesCollection,
         type: "model.SummarizeAwrSourcesSummariesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the applicable configuration items based on the query parameters specified. Configuration items for an opsiConfigType with respect to a compartmentId can be fetched.
+   * Values specified in configItemField param will determine what fields for each configuration items have to be returned.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeConfigurationItemsRequest
+   * @return SummarizeConfigurationItemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeConfigurationItems.ts.html |here} to see how to use SummarizeConfigurationItems API.
+   */
+  public async summarizeConfigurationItems(
+    summarizeConfigurationItemsRequest: requests.SummarizeConfigurationItemsRequest
+  ): Promise<responses.SummarizeConfigurationItemsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeConfigurationItems.");
+    const operationName = "summarizeConfigurationItems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/SummarizeConfigurationItems";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeConfigurationItemsRequest.compartmentId,
+      "opsiConfigType": summarizeConfigurationItemsRequest.opsiConfigType,
+      "limit": summarizeConfigurationItemsRequest.limit,
+      "page": summarizeConfigurationItemsRequest.page,
+      "configItemsApplicableContext":
+        summarizeConfigurationItemsRequest.configItemsApplicableContext,
+      "configItemField": summarizeConfigurationItemsRequest.configItemField,
+      "name": summarizeConfigurationItemsRequest.name
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeConfigurationItemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeConfigurationItemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiConfigurations/configurationItems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeConfigurationItemsResponse>{},
+        body: await response.json(),
+        bodyKey: "configurationItemsCollection",
+        bodyModel: model.ConfigurationItemsCollection,
+        type: "model.ConfigurationItemsCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -11375,6 +11879,85 @@ Note that this API does not return information on the number of times each datab
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateOperationsInsightsWarehouseUserResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates an OPSI configuration resource with the given ID.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOpsiConfigurationRequest
+   * @return UpdateOpsiConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateOpsiConfiguration.ts.html |here} to see how to use UpdateOpsiConfiguration API.
+   */
+  public async updateOpsiConfiguration(
+    updateOpsiConfigurationRequest: requests.UpdateOpsiConfigurationRequest
+  ): Promise<responses.UpdateOpsiConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateOpsiConfiguration.");
+    const operationName = "updateOpsiConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiConfigurations/UpdateOpsiConfiguration";
+    const pathParams = {
+      "{opsiConfigurationId}": updateOpsiConfigurationRequest.opsiConfigurationId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOpsiConfigurationRequest.ifMatch,
+      "opc-request-id": updateOpsiConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOpsiConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/opsiConfigurations/{opsiConfigurationId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOpsiConfigurationRequest.updateOpsiConfigurationDetails,
+        "UpdateOpsiConfigurationDetails",
+        model.UpdateOpsiConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOpsiConfigurationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

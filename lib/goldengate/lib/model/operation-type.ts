@@ -42,6 +42,8 @@ export enum OperationType {
   GoldengateConnectionAssignmentCreate = "GOLDENGATE_CONNECTION_ASSIGNMENT_CREATE",
   GoldengateConnectionAssigmnentDelete = "GOLDENGATE_CONNECTION_ASSIGMNENT_DELETE",
   GoldengateDeploymentDiagnosticCollect = "GOLDENGATE_DEPLOYMENT_DIAGNOSTIC_COLLECT",
+  GoldengateDeploymentWalletExport = "GOLDENGATE_DEPLOYMENT_WALLET_EXPORT",
+  GoldengateDeploymentWalletImport = "GOLDENGATE_DEPLOYMENT_WALLET_IMPORT",
   GoldengateDeploymentPatch = "GOLDENGATE_DEPLOYMENT_PATCH",
 
   /**

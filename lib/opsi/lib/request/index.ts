@@ -26,6 +26,8 @@ import * as ChangeHostInsightCompartmentRequest from "./change-host-insight-comp
 export import ChangeHostInsightCompartmentRequest = ChangeHostInsightCompartmentRequest.ChangeHostInsightCompartmentRequest;
 import * as ChangeOperationsInsightsPrivateEndpointCompartmentRequest from "./change-operations-insights-private-endpoint-compartment-request";
 export import ChangeOperationsInsightsPrivateEndpointCompartmentRequest = ChangeOperationsInsightsPrivateEndpointCompartmentRequest.ChangeOperationsInsightsPrivateEndpointCompartmentRequest;
+import * as ChangeOpsiConfigurationCompartmentRequest from "./change-opsi-configuration-compartment-request";
+export import ChangeOpsiConfigurationCompartmentRequest = ChangeOpsiConfigurationCompartmentRequest.ChangeOpsiConfigurationCompartmentRequest;
 import * as ChangePeComanagedDatabaseInsightRequest from "./change-pe-comanaged-database-insight-request";
 export import ChangePeComanagedDatabaseInsightRequest = ChangePeComanagedDatabaseInsightRequest.ChangePeComanagedDatabaseInsightRequest;
 import * as CreateAwrHubRequest from "./create-awr-hub-request";
@@ -44,6 +46,8 @@ import * as CreateOperationsInsightsWarehouseRequest from "./create-operations-i
 export import CreateOperationsInsightsWarehouseRequest = CreateOperationsInsightsWarehouseRequest.CreateOperationsInsightsWarehouseRequest;
 import * as CreateOperationsInsightsWarehouseUserRequest from "./create-operations-insights-warehouse-user-request";
 export import CreateOperationsInsightsWarehouseUserRequest = CreateOperationsInsightsWarehouseUserRequest.CreateOperationsInsightsWarehouseUserRequest;
+import * as CreateOpsiConfigurationRequest from "./create-opsi-configuration-request";
+export import CreateOpsiConfigurationRequest = CreateOpsiConfigurationRequest.CreateOpsiConfigurationRequest;
 import * as DeleteAwrHubRequest from "./delete-awr-hub-request";
 export import DeleteAwrHubRequest = DeleteAwrHubRequest.DeleteAwrHubRequest;
 import * as DeleteDatabaseInsightRequest from "./delete-database-insight-request";
@@ -60,6 +64,8 @@ import * as DeleteOperationsInsightsWarehouseRequest from "./delete-operations-i
 export import DeleteOperationsInsightsWarehouseRequest = DeleteOperationsInsightsWarehouseRequest.DeleteOperationsInsightsWarehouseRequest;
 import * as DeleteOperationsInsightsWarehouseUserRequest from "./delete-operations-insights-warehouse-user-request";
 export import DeleteOperationsInsightsWarehouseUserRequest = DeleteOperationsInsightsWarehouseUserRequest.DeleteOperationsInsightsWarehouseUserRequest;
+import * as DeleteOpsiConfigurationRequest from "./delete-opsi-configuration-request";
+export import DeleteOpsiConfigurationRequest = DeleteOpsiConfigurationRequest.DeleteOpsiConfigurationRequest;
 import * as DisableDatabaseInsightRequest from "./disable-database-insight-request";
 export import DisableDatabaseInsightRequest = DisableDatabaseInsightRequest.DisableDatabaseInsightRequest;
 import * as DisableExadataInsightRequest from "./disable-exadata-insight-request";
@@ -96,6 +102,8 @@ import * as GetOperationsInsightsWarehouseRequest from "./get-operations-insight
 export import GetOperationsInsightsWarehouseRequest = GetOperationsInsightsWarehouseRequest.GetOperationsInsightsWarehouseRequest;
 import * as GetOperationsInsightsWarehouseUserRequest from "./get-operations-insights-warehouse-user-request";
 export import GetOperationsInsightsWarehouseUserRequest = GetOperationsInsightsWarehouseUserRequest.GetOperationsInsightsWarehouseUserRequest;
+import * as GetOpsiConfigurationRequest from "./get-opsi-configuration-request";
+export import GetOpsiConfigurationRequest = GetOpsiConfigurationRequest.GetOpsiConfigurationRequest;
 import * as GetOpsiDataObjectRequest from "./get-opsi-data-object-request";
 export import GetOpsiDataObjectRequest = GetOpsiDataObjectRequest.GetOpsiDataObjectRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
@@ -150,6 +158,8 @@ import * as ListOperationsInsightsWarehouseUsersRequest from "./list-operations-
 export import ListOperationsInsightsWarehouseUsersRequest = ListOperationsInsightsWarehouseUsersRequest.ListOperationsInsightsWarehouseUsersRequest;
 import * as ListOperationsInsightsWarehousesRequest from "./list-operations-insights-warehouses-request";
 export import ListOperationsInsightsWarehousesRequest = ListOperationsInsightsWarehousesRequest.ListOperationsInsightsWarehousesRequest;
+import * as ListOpsiConfigurationsRequest from "./list-opsi-configurations-request";
+export import ListOpsiConfigurationsRequest = ListOpsiConfigurationsRequest.ListOpsiConfigurationsRequest;
 import * as ListOpsiDataObjectsRequest from "./list-opsi-data-objects-request";
 export import ListOpsiDataObjectsRequest = ListOpsiDataObjectsRequest.ListOpsiDataObjectsRequest;
 import * as ListSqlPlansRequest from "./list-sql-plans-request";
@@ -188,6 +198,8 @@ import * as SummarizeAwrDatabaseWaitEventsRequest from "./summarize-awr-database
 export import SummarizeAwrDatabaseWaitEventsRequest = SummarizeAwrDatabaseWaitEventsRequest.SummarizeAwrDatabaseWaitEventsRequest;
 import * as SummarizeAwrSourcesSummariesRequest from "./summarize-awr-sources-summaries-request";
 export import SummarizeAwrSourcesSummariesRequest = SummarizeAwrSourcesSummariesRequest.SummarizeAwrSourcesSummariesRequest;
+import * as SummarizeConfigurationItemsRequest from "./summarize-configuration-items-request";
+export import SummarizeConfigurationItemsRequest = SummarizeConfigurationItemsRequest.SummarizeConfigurationItemsRequest;
 import * as SummarizeDatabaseInsightResourceCapacityTrendRequest from "./summarize-database-insight-resource-capacity-trend-request";
 export import SummarizeDatabaseInsightResourceCapacityTrendRequest = SummarizeDatabaseInsightResourceCapacityTrendRequest.SummarizeDatabaseInsightResourceCapacityTrendRequest;
 import * as SummarizeDatabaseInsightResourceForecastTrendRequest from "./summarize-database-insight-resource-forecast-trend-request";
@@ -266,3 +278,5 @@ import * as UpdateOperationsInsightsWarehouseRequest from "./update-operations-i
 export import UpdateOperationsInsightsWarehouseRequest = UpdateOperationsInsightsWarehouseRequest.UpdateOperationsInsightsWarehouseRequest;
 import * as UpdateOperationsInsightsWarehouseUserRequest from "./update-operations-insights-warehouse-user-request";
 export import UpdateOperationsInsightsWarehouseUserRequest = UpdateOperationsInsightsWarehouseUserRequest.UpdateOperationsInsightsWarehouseUserRequest;
+import * as UpdateOpsiConfigurationRequest from "./update-opsi-configuration-request";
+export import UpdateOpsiConfigurationRequest = UpdateOpsiConfigurationRequest.UpdateOpsiConfigurationRequest;

@@ -417,6 +417,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeDataguardRole
+   *
+   * @param request the request to send
+   * @return response returns ChangeDataguardRoleResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeDataguardRole(
+    request: serviceRequests.ChangeDataguardRoleRequest
+  ): Promise<{
+    response: serviceResponses.ChangeDataguardRoleResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeDataguardRoleResponse = await this.client.changeDataguardRole(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeDataguardRoleResponse.opcWorkRequestId
+    );
+    return { response: changeDataguardRoleResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forChangeDbSystemCompartment
    *
    * @param request the request to send

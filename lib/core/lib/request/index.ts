@@ -160,6 +160,8 @@ import * as ChangeInstanceCompartmentRequest from "./change-instance-compartment
 export import ChangeInstanceCompartmentRequest = ChangeInstanceCompartmentRequest.ChangeInstanceCompartmentRequest;
 import * as CreateAppCatalogSubscriptionRequest from "./create-app-catalog-subscription-request";
 export import CreateAppCatalogSubscriptionRequest = CreateAppCatalogSubscriptionRequest.CreateAppCatalogSubscriptionRequest;
+import * as CreateComputeCapacityReportRequest from "./create-compute-capacity-report-request";
+export import CreateComputeCapacityReportRequest = CreateComputeCapacityReportRequest.CreateComputeCapacityReportRequest;
 import * as CreateComputeCapacityReservationRequest from "./create-compute-capacity-reservation-request";
 export import CreateComputeCapacityReservationRequest = CreateComputeCapacityReservationRequest.CreateComputeCapacityReservationRequest;
 import * as CreateComputeImageCapabilitySchemaRequest from "./create-compute-image-capability-schema-request";

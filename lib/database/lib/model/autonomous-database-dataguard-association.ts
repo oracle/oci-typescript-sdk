@@ -113,6 +113,7 @@ export namespace AutonomousDatabaseDataguardAssociation {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -128,6 +129,7 @@ export namespace AutonomousDatabaseDataguardAssociation {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     Unavailable = "UNAVAILABLE",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -139,6 +141,7 @@ export namespace AutonomousDatabaseDataguardAssociation {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -154,6 +157,7 @@ export namespace AutonomousDatabaseDataguardAssociation {
     Terminated = "TERMINATED",
     Failed = "FAILED",
     Unavailable = "UNAVAILABLE",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

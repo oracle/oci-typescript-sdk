@@ -1,6 +1,6 @@
 {
   "name": "oci-fusionapps",
-  "version": "2.50.4",
+  "version": "2.51.0",
   "description": "OCI NodeJS client for Fusion Apps Service",
   "repository": {
     "type": "git",

@@ -179,6 +179,25 @@ export class OperationsInsightsWaiter {
   }
 
   /**
+   * Waits forOpsiConfiguration till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOpsiConfigurationResponse | null (null in case of 404 response)
+   */
+  public async forOpsiConfiguration(
+    request: serviceRequests.GetOpsiConfigurationRequest,
+    ...targetStates: models.OpsiConfigurationLifecycleState[]
+  ): Promise<serviceResponses.GetOpsiConfigurationResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOpsiConfiguration(request),
+      response => targetStates.includes(response.opsiConfiguration.lifecycleState!),
+      targetStates.includes(models.OpsiConfigurationLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

@@ -43,6 +43,48 @@ export interface OkeHelmChartDeployStage extends model.DeployStage {
    */
   "timeoutInSeconds"?: number;
   "rollbackPolicy"?: model.NoDeployStageRollbackPolicy | model.AutomatedDeployStageRollbackPolicy;
+  "setValues"?: model.HelmSetValueCollection;
+  "setString"?: model.HelmSetValueCollection;
+  /**
+   * Disable pre/post upgrade hooks. Set to false by default.
+   */
+  "areHooksEnabled"?: boolean;
+  /**
+   * During upgrade, reuse the values of the last release and merge overrides from the command line. Set to false by default.
+   */
+  "shouldReuseValues"?: boolean;
+  /**
+   * During upgrade, reset the values to the ones built into the chart. It overrides shouldReuseValues. Set to false by default.
+   */
+  "shouldResetValues"?: boolean;
+  /**
+   * Force resource update through delete; or if required, recreate. Set to false by default.
+   */
+  "isForceEnabled"?: boolean;
+  /**
+   * Allow deletion of new resources created during when an upgrade fails. Set to false by default.
+   */
+  "shouldCleanupOnFail"?: boolean;
+  /**
+   * Limit the maximum number of revisions saved per release. Use 0 for no limit. Set to 10 by default Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxHistory"?: number;
+  /**
+   * If set, no CRDs are installed. By default, CRDs are installed only if they are not present already. Set to false by default.
+   */
+  "shouldSkipCrds"?: boolean;
+  /**
+   * If set, renders subchart notes along with the parent. Set to false by default.
+   */
+  "shouldSkipRenderSubchartNotes"?: boolean;
+  /**
+   * Waits until all the resources are in a ready state to mark the release as successful. Set to false by default.
+   */
+  "shouldNotWait"?: boolean;
+  /**
+   * Enables helm --debug option to stream output to tf stdout. Set to false by default.
+   */
+  "isDebugEnabled"?: boolean;
 
   "deployStageType": string;
 }
@@ -54,6 +96,12 @@ export namespace OkeHelmChartDeployStage {
       ...{
         "rollbackPolicy": obj.rollbackPolicy
           ? model.DeployStageRollbackPolicy.getJsonObj(obj.rollbackPolicy)
+          : undefined,
+        "setValues": obj.setValues
+          ? model.HelmSetValueCollection.getJsonObj(obj.setValues)
+          : undefined,
+        "setString": obj.setString
+          ? model.HelmSetValueCollection.getJsonObj(obj.setString)
           : undefined
       }
     };
@@ -72,6 +120,12 @@ export namespace OkeHelmChartDeployStage {
       ...{
         "rollbackPolicy": obj.rollbackPolicy
           ? model.DeployStageRollbackPolicy.getDeserializedJsonObj(obj.rollbackPolicy)
+          : undefined,
+        "setValues": obj.setValues
+          ? model.HelmSetValueCollection.getDeserializedJsonObj(obj.setValues)
+          : undefined,
+        "setString": obj.setString
+          ? model.HelmSetValueCollection.getDeserializedJsonObj(obj.setString)
           : undefined
       }
     };

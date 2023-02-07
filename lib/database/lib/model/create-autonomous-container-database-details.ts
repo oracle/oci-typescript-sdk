@@ -39,6 +39,10 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "autonomousExadataInfrastructureId"?: string;
   /**
+   * The base version for the Autonomous Container Database.
+   */
+  "dbVersion"?: string;
+  /**
    * *No longer used.* This parameter is no longer used for Autonomous Database on dedicated Exadata infrasture. Specify a `peerCloudAutonomousVmClusterId` instead. Using this parameter will cause the operation to fail.
    *
    */
@@ -54,6 +58,10 @@ export interface CreateAutonomousContainerDatabaseDetails {
    *
    */
   "protectionMode"?: CreateAutonomousContainerDatabaseDetails.ProtectionMode;
+  /**
+   * The lag time for my preference based on data loss tolerance in seconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "fastStartFailOverLagLimitInSeconds"?: number;
   /**
    * Indicates whether Automatic Failover is enabled for Autonomous Container Database Dataguard Association
    *
@@ -104,6 +112,11 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "standbyMaintenanceBufferInDays"?: number;
   /**
+   * The next maintenance version preference.
+   *
+   */
+  "versionPreference"?: CreateAutonomousContainerDatabaseDetails.VersionPreference;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -151,6 +164,11 @@ export namespace CreateAutonomousContainerDatabaseDetails {
   export enum PatchModel {
     ReleaseUpdates = "RELEASE_UPDATES",
     ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS"
+  }
+
+  export enum VersionPreference {
+    NextReleaseUpdate = "NEXT_RELEASE_UPDATE",
+    LatestReleaseUpdate = "LATEST_RELEASE_UPDATE"
   }
 
   export function getJsonObj(obj: CreateAutonomousContainerDatabaseDetails): object {

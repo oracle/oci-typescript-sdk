@@ -35,6 +35,16 @@ export interface OkeHelmChartDeploymentStageExecutionProgress
    * Default namespace to be used for Kubernetes deployment when not specified in the manifest.
    */
   "namespace"?: string;
+  /**
+   * Helm Diff output
+   * Example:
+   * Helm diff was successful
+   * data:
+   * - greeting: Version 1.0
+   * + greeting: Version 1.1
+   *
+   */
+  "helmDiff"?: string;
 
   "deployStageType": string;
 }

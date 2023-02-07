@@ -43,6 +43,10 @@ export interface AutonomousDatabaseConnectionUrls {
    */
   "mongoDbUrl"?: string;
   /**
+   * The URL of the Oracle Machine Learning (OML) Notebook for the Autonomous Database.
+   */
+  "machineLearningNotebookUrl"?: string;
+  /**
    * The Oracle REST Data Services (ORDS) URL of the Web Access for the Autonomous Database.
    */
   "ordsUrl"?: string;

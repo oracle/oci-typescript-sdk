@@ -88,6 +88,10 @@ export interface AutonomousContainerDatabaseSummary {
    */
   "timeCreated"?: Date;
   /**
+   * The date and time the Autonomous Container Database will be reverted to Standby from Snapshot Standby.
+   */
+  "timeSnapshotStandbyRevert"?: Date;
+  /**
    * Database patch model preference.
    */
   "patchModel": AutonomousContainerDatabaseSummary.PatchModel;
@@ -110,6 +114,11 @@ export interface AutonomousContainerDatabaseSummary {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "standbyMaintenanceBufferInDays"?: number;
+  /**
+   * The next maintenance version preference.
+   *
+   */
+  "versionPreference"?: AutonomousContainerDatabaseSummary.VersionPreference;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -225,10 +234,21 @@ export namespace AutonomousContainerDatabaseSummary {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum VersionPreference {
+    NextReleaseUpdate = "NEXT_RELEASE_UPDATE",
+    LatestReleaseUpdate = "LATEST_RELEASE_UPDATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum Role {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

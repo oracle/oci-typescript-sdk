@@ -26,6 +26,10 @@ export interface HelmRepositoryDeployArtifactSource extends model.DeployArtifact
    * Users can set this as a placeholder value that refers to a pipeline parameter, for example, ${appVersion}.
    */
   "deployArtifactVersion": string;
+  "helmVerificationKeySource"?:
+    | model.InlinePublicKeyVerificationKeySource
+    | model.VaultSecretVerificationKeySource
+    | model.NoneVerificationKeySource;
 
   "deployArtifactSourceType": string;
 }
@@ -39,7 +43,11 @@ export namespace HelmRepositoryDeployArtifactSource {
       ...(isParentJsonObj
         ? obj
         : (model.DeployArtifactSource.getJsonObj(obj) as HelmRepositoryDeployArtifactSource)),
-      ...{}
+      ...{
+        "helmVerificationKeySource": obj.helmVerificationKeySource
+          ? model.VerificationKeySource.getJsonObj(obj.helmVerificationKeySource)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -55,7 +63,11 @@ export namespace HelmRepositoryDeployArtifactSource {
         : (model.DeployArtifactSource.getDeserializedJsonObj(
             obj
           ) as HelmRepositoryDeployArtifactSource)),
-      ...{}
+      ...{
+        "helmVerificationKeySource": obj.helmVerificationKeySource
+          ? model.VerificationKeySource.getDeserializedJsonObj(obj.helmVerificationKeySource)
+          : undefined
+      }
     };
 
     return jsonObj;
