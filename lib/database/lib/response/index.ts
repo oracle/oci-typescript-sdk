@@ -42,6 +42,8 @@ import * as ChangeCloudVmClusterCompartmentResponse from "./change-cloud-vm-clus
 export import ChangeCloudVmClusterCompartmentResponse = ChangeCloudVmClusterCompartmentResponse.ChangeCloudVmClusterCompartmentResponse;
 import * as ChangeDatabaseSoftwareImageCompartmentResponse from "./change-database-software-image-compartment-response";
 export import ChangeDatabaseSoftwareImageCompartmentResponse = ChangeDatabaseSoftwareImageCompartmentResponse.ChangeDatabaseSoftwareImageCompartmentResponse;
+import * as ChangeDataguardRoleResponse from "./change-dataguard-role-response";
+export import ChangeDataguardRoleResponse = ChangeDataguardRoleResponse.ChangeDataguardRoleResponse;
 import * as ChangeDbSystemCompartmentResponse from "./change-db-system-compartment-response";
 export import ChangeDbSystemCompartmentResponse = ChangeDbSystemCompartmentResponse.ChangeDbSystemCompartmentResponse;
 import * as ChangeExadataInfrastructureCompartmentResponse from "./change-exadata-infrastructure-compartment-response";
@@ -332,6 +334,8 @@ import * as LaunchDbSystemResponse from "./launch-db-system-response";
 export import LaunchDbSystemResponse = LaunchDbSystemResponse.LaunchDbSystemResponse;
 import * as ListAutonomousContainerDatabaseDataguardAssociationsResponse from "./list-autonomous-container-database-dataguard-associations-response";
 export import ListAutonomousContainerDatabaseDataguardAssociationsResponse = ListAutonomousContainerDatabaseDataguardAssociationsResponse.ListAutonomousContainerDatabaseDataguardAssociationsResponse;
+import * as ListAutonomousContainerDatabaseVersionsResponse from "./list-autonomous-container-database-versions-response";
+export import ListAutonomousContainerDatabaseVersionsResponse = ListAutonomousContainerDatabaseVersionsResponse.ListAutonomousContainerDatabaseVersionsResponse;
 import * as ListAutonomousContainerDatabasesResponse from "./list-autonomous-container-databases-response";
 export import ListAutonomousContainerDatabasesResponse = ListAutonomousContainerDatabasesResponse.ListAutonomousContainerDatabasesResponse;
 import * as ListAutonomousDatabaseBackupsResponse from "./list-autonomous-database-backups-response";

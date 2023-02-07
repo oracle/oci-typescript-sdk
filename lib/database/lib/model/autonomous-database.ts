@@ -102,7 +102,7 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    **Note:** This parameter cannot be used with the `ocpuCount` parameter.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "cpuCoreCount": number;
+  "cpuCoreCount"?: number;
   /**
    * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value.
    */
@@ -111,6 +111,14 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is on Shared or Dedicated infrastructure. For an Autonomous Database on Shared infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computeCount"?: number;
+  /**
+   * Retention period, in days, for backups. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "backupRetentionPeriodInDays"?: number;
+  /**
+   * The backup storage to the database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "totalBackupStorageSizeInGBs"?: number;
   /**
     * The number of OCPU cores to be made available to the database. 
 * <p>
@@ -643,6 +651,7 @@ export namespace AutonomousDatabase {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

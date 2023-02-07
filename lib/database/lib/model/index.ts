@@ -18,6 +18,8 @@ import * as AddVirtualMachineToCloudVmClusterDetails from "./add-virtual-machine
 export import AddVirtualMachineToCloudVmClusterDetails = AddVirtualMachineToCloudVmClusterDetails.AddVirtualMachineToCloudVmClusterDetails;
 import * as AddVirtualMachineToVmClusterDetails from "./add-virtual-machine-to-vm-cluster-details";
 export import AddVirtualMachineToVmClusterDetails = AddVirtualMachineToVmClusterDetails.AddVirtualMachineToVmClusterDetails;
+import * as AppVersionSummary from "./app-version-summary";
+export import AppVersionSummary = AppVersionSummary.AppVersionSummary;
 import * as AssociatedDatabaseDetails from "./associated-database-details";
 export import AssociatedDatabaseDetails = AssociatedDatabaseDetails.AssociatedDatabaseDetails;
 import * as AutonomousContainerDatabase from "./autonomous-container-database";
@@ -28,6 +30,8 @@ import * as AutonomousContainerDatabaseDataguardAssociation from "./autonomous-c
 export import AutonomousContainerDatabaseDataguardAssociation = AutonomousContainerDatabaseDataguardAssociation.AutonomousContainerDatabaseDataguardAssociation;
 import * as AutonomousContainerDatabaseSummary from "./autonomous-container-database-summary";
 export import AutonomousContainerDatabaseSummary = AutonomousContainerDatabaseSummary.AutonomousContainerDatabaseSummary;
+import * as AutonomousContainerDatabaseVersionSummary from "./autonomous-container-database-version-summary";
+export import AutonomousContainerDatabaseVersionSummary = AutonomousContainerDatabaseVersionSummary.AutonomousContainerDatabaseVersionSummary;
 import * as AutonomousDataWarehouse from "./autonomous-data-warehouse";
 export import AutonomousDataWarehouse = AutonomousDataWarehouse.AutonomousDataWarehouse;
 import * as AutonomousDataWarehouseConnectionStrings from "./autonomous-data-warehouse-connection-strings";
@@ -102,6 +106,8 @@ import * as ChangeCloudVmClusterCompartmentDetails from "./change-cloud-vm-clust
 export import ChangeCloudVmClusterCompartmentDetails = ChangeCloudVmClusterCompartmentDetails.ChangeCloudVmClusterCompartmentDetails;
 import * as ChangeCompartmentDetails from "./change-compartment-details";
 export import ChangeCompartmentDetails = ChangeCompartmentDetails.ChangeCompartmentDetails;
+import * as ChangeDataguardRoleDetails from "./change-dataguard-role-details";
+export import ChangeDataguardRoleDetails = ChangeDataguardRoleDetails.ChangeDataguardRoleDetails;
 import * as ChangeExadataInfrastructureCompartmentDetails from "./change-exadata-infrastructure-compartment-details";
 export import ChangeExadataInfrastructureCompartmentDetails = ChangeExadataInfrastructureCompartmentDetails.ChangeExadataInfrastructureCompartmentDetails;
 import * as ChangeKeyStoreCompartmentDetails from "./change-key-store-compartment-details";

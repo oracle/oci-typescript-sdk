@@ -42,6 +42,8 @@ import * as ChangeCloudVmClusterCompartmentRequest from "./change-cloud-vm-clust
 export import ChangeCloudVmClusterCompartmentRequest = ChangeCloudVmClusterCompartmentRequest.ChangeCloudVmClusterCompartmentRequest;
 import * as ChangeDatabaseSoftwareImageCompartmentRequest from "./change-database-software-image-compartment-request";
 export import ChangeDatabaseSoftwareImageCompartmentRequest = ChangeDatabaseSoftwareImageCompartmentRequest.ChangeDatabaseSoftwareImageCompartmentRequest;
+import * as ChangeDataguardRoleRequest from "./change-dataguard-role-request";
+export import ChangeDataguardRoleRequest = ChangeDataguardRoleRequest.ChangeDataguardRoleRequest;
 import * as ChangeDbSystemCompartmentRequest from "./change-db-system-compartment-request";
 export import ChangeDbSystemCompartmentRequest = ChangeDbSystemCompartmentRequest.ChangeDbSystemCompartmentRequest;
 import * as ChangeExadataInfrastructureCompartmentRequest from "./change-exadata-infrastructure-compartment-request";
@@ -332,6 +334,8 @@ import * as LaunchDbSystemRequest from "./launch-db-system-request";
 export import LaunchDbSystemRequest = LaunchDbSystemRequest.LaunchDbSystemRequest;
 import * as ListAutonomousContainerDatabaseDataguardAssociationsRequest from "./list-autonomous-container-database-dataguard-associations-request";
 export import ListAutonomousContainerDatabaseDataguardAssociationsRequest = ListAutonomousContainerDatabaseDataguardAssociationsRequest.ListAutonomousContainerDatabaseDataguardAssociationsRequest;
+import * as ListAutonomousContainerDatabaseVersionsRequest from "./list-autonomous-container-database-versions-request";
+export import ListAutonomousContainerDatabaseVersionsRequest = ListAutonomousContainerDatabaseVersionsRequest.ListAutonomousContainerDatabaseVersionsRequest;
 import * as ListAutonomousContainerDatabasesRequest from "./list-autonomous-container-databases-request";
 export import ListAutonomousContainerDatabasesRequest = ListAutonomousContainerDatabasesRequest.ListAutonomousContainerDatabasesRequest;
 import * as ListAutonomousDatabaseBackupsRequest from "./list-autonomous-database-backups-request";

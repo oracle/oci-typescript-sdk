@@ -1458,6 +1458,172 @@ export class GoldenGateClient {
   }
 
   /**
+   * Checks if a wallet is already present in the deployment. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeploymentWalletExistsRequest
+   * @return DeploymentWalletExistsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/DeploymentWalletExists.ts.html |here} to see how to use DeploymentWalletExists API.
+   */
+  public async deploymentWalletExists(
+    deploymentWalletExistsRequest: requests.DeploymentWalletExistsRequest
+  ): Promise<responses.DeploymentWalletExistsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#deploymentWalletExists.");
+    const operationName = "deploymentWalletExists";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/DeploymentWalletExists";
+    const pathParams = {
+      "{deploymentId}": deploymentWalletExistsRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deploymentWalletExistsRequest.ifMatch,
+      "opc-request-id": deploymentWalletExistsRequest.opcRequestId,
+      "opc-retry-token": deploymentWalletExistsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deploymentWalletExistsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/walletExists",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        deploymentWalletExistsRequest.deploymentWalletExistsDetails,
+        "DeploymentWalletExistsDetails",
+        model.DeploymentWalletExistsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeploymentWalletExistsResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentWalletExistsResponseDetails",
+        bodyModel: model.DeploymentWalletExistsResponseDetails,
+        type: "model.DeploymentWalletExistsResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Export the OGG wallet from the deployment to OCI vault. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportDeploymentWalletRequest
+   * @return ExportDeploymentWalletResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ExportDeploymentWallet.ts.html |here} to see how to use ExportDeploymentWallet API.
+   */
+  public async exportDeploymentWallet(
+    exportDeploymentWalletRequest: requests.ExportDeploymentWalletRequest
+  ): Promise<responses.ExportDeploymentWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#exportDeploymentWallet.");
+    const operationName = "exportDeploymentWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ExportDeploymentWallet";
+    const pathParams = {
+      "{deploymentId}": exportDeploymentWalletRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": exportDeploymentWalletRequest.ifMatch,
+      "opc-request-id": exportDeploymentWalletRequest.opcRequestId,
+      "opc-retry-token": exportDeploymentWalletRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportDeploymentWalletRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/exportWallet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportDeploymentWalletRequest.exportDeploymentWalletDetails,
+        "ExportDeploymentWalletDetails",
+        model.ExportDeploymentWalletDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportDeploymentWalletResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a Connection.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2005,6 +2171,87 @@ export class GoldenGateClient {
   }
 
   /**
+   * Imports an OGG wallet from the OCI Vault to the Deployment. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ImportDeploymentWalletRequest
+   * @return ImportDeploymentWalletResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ImportDeploymentWallet.ts.html |here} to see how to use ImportDeploymentWallet API.
+   */
+  public async importDeploymentWallet(
+    importDeploymentWalletRequest: requests.ImportDeploymentWalletRequest
+  ): Promise<responses.ImportDeploymentWalletResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#importDeploymentWallet.");
+    const operationName = "importDeploymentWallet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/Deployment/ImportDeploymentWallet";
+    const pathParams = {
+      "{deploymentId}": importDeploymentWalletRequest.deploymentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": importDeploymentWalletRequest.ifMatch,
+      "opc-request-id": importDeploymentWalletRequest.opcRequestId,
+      "opc-retry-token": importDeploymentWalletRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importDeploymentWalletRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/actions/importWallet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importDeploymentWalletRequest.importDeploymentWalletDetails,
+        "ImportDeploymentWalletDetails",
+        model.ImportDeploymentWalletDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportDeploymentWalletResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the Connection Assignments in the compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListConnectionAssignmentsRequest
@@ -2498,6 +2745,90 @@ export class GoldenGateClient {
         bodyKey: "deploymentUpgradeCollection",
         bodyModel: model.DeploymentUpgradeCollection,
         type: "model.DeploymentUpgradeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the wallets export/import operations to/from a deployment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDeploymentWalletsOperationsRequest
+   * @return ListDeploymentWalletsOperationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentWalletsOperations.ts.html |here} to see how to use ListDeploymentWalletsOperations API.
+   */
+  public async listDeploymentWalletsOperations(
+    listDeploymentWalletsOperationsRequest: requests.ListDeploymentWalletsOperationsRequest
+  ): Promise<responses.ListDeploymentWalletsOperationsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDeploymentWalletsOperations.");
+    const operationName = "listDeploymentWalletsOperations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentWalletsOperationSummary/ListDeploymentWalletsOperations";
+    const pathParams = {
+      "{deploymentId}": listDeploymentWalletsOperationsRequest.deploymentId
+    };
+
+    const queryParams = {
+      "displayName": listDeploymentWalletsOperationsRequest.displayName,
+      "limit": listDeploymentWalletsOperationsRequest.limit,
+      "page": listDeploymentWalletsOperationsRequest.page,
+      "sortBy": listDeploymentWalletsOperationsRequest.sortBy,
+      "sortOrder": listDeploymentWalletsOperationsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDeploymentWalletsOperationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentWalletsOperationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deployments/{deploymentId}/deploymentWalletsOperations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDeploymentWalletsOperationsResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentWalletsOperationCollection",
+        bodyModel: model.DeploymentWalletsOperationCollection,
+        type: "model.DeploymentWalletsOperationCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

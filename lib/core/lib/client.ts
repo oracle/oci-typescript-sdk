@@ -6640,6 +6640,84 @@ When you move an instance to a different compartment, associated resources such 
   }
 
   /**
+   * Generates a new compute capacity availability report for the availability domain.
+   * A compute capacity report lets you review capacity availability for the provided shapes.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateComputeCapacityReportRequest
+   * @return CreateComputeCapacityReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReport.ts.html |here} to see how to use CreateComputeCapacityReport API.
+   */
+  public async createComputeCapacityReport(
+    createComputeCapacityReportRequest: requests.CreateComputeCapacityReportRequest
+  ): Promise<responses.CreateComputeCapacityReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeCapacityReport.");
+    const operationName = "createComputeCapacityReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReport/CreateComputeCapacityReport";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createComputeCapacityReportRequest.opcRequestId,
+      "opc-retry-token": createComputeCapacityReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeCapacityReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReports",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeCapacityReportRequest.createComputeCapacityReportDetails,
+        "CreateComputeCapacityReportDetails",
+        model.CreateComputeCapacityReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeCapacityReportResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCapacityReport",
+        bodyModel: model.ComputeCapacityReport,
+        type: "model.ComputeCapacityReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new compute capacity reservation in the specified compartment and availability domain.
    * Compute capacity reservations let you reserve instances in a compartment.
    * When you launch an instance using this reservation, you are assured that you have enough space for your instance,

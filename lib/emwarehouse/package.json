@@ -1,6 +1,6 @@
 {
   "name": "oci-emwarehouse",
-  "version": "2.50.4",
+  "version": "2.51.0",
   "description": "OCI NodeJS client for Em Warehouse Service",
   "repository": {
     "type": "git",

@@ -24,7 +24,6 @@ export interface SummarizeHostInsightResourceForecastTrendRequest extends common
   "compartmentId": string;
   /**
    * Filter by host resource metric.
-   * Supported values are CPU, MEMORY, and LOGICAL_MEMORY.
    *
    */
   "resourceMetric": string;

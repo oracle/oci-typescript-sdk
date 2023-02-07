@@ -27,6 +27,14 @@ export interface DatabaseTool {
    * Indicates whether tool is enabled.
    */
   "isEnabled"?: boolean;
+  /**
+   * Compute used by database tools. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "computeCount"?: number;
+  /**
+   * The max idle time, in minutes, after which the VM used by database tools will be terminated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxIdleTimeInMinutes"?: number;
 }
 
 export namespace DatabaseTool {

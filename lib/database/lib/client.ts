@@ -1472,6 +1472,98 @@ export class DatabaseClient {
   }
 
   /**
+   * Switch the Autonomous Container Database role between Standby and Snapshot Standby.
+   * For more information about changing Autonomous Container Databases Dataguard Role, see
+   * [Change Database Role to Snapshot Standby](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#changeRole).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDataguardRoleRequest
+   * @return ChangeDataguardRoleResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDataguardRole.ts.html |here} to see how to use ChangeDataguardRole API.
+   */
+  public async changeDataguardRole(
+    changeDataguardRoleRequest: requests.ChangeDataguardRoleRequest
+  ): Promise<responses.ChangeDataguardRoleResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#changeDataguardRole.");
+    const operationName = "changeDataguardRole";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/ChangeDataguardRole";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}": changeDataguardRoleRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeDataguardRoleRequest.opcRequestId,
+      "opc-retry-token": changeDataguardRoleRequest.opcRetryToken,
+      "if-match": changeDataguardRoleRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDataguardRoleRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/actions/changeDataguardRole",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDataguardRoleRequest.changeDataguardRoleDetails,
+        "ChangeDataguardRoleDetails",
+        model.ChangeDataguardRoleDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDataguardRoleResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabase",
+        bodyModel: model.AutonomousContainerDatabase,
+        type: "model.AutonomousContainerDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the DB system and its dependent resources to the specified compartment.
    * For more information about moving DB systems, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).
@@ -13330,6 +13422,141 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     return paginateResponses(request, req =>
       this.listAutonomousContainerDatabaseDataguardAssociations(req)
     );
+  }
+
+  /**
+   * Gets a list of supported Autonomous Container Database versions.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousContainerDatabaseVersionsRequest
+   * @return ListAutonomousContainerDatabaseVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousContainerDatabaseVersions.ts.html |here} to see how to use ListAutonomousContainerDatabaseVersions API.
+   */
+  public async listAutonomousContainerDatabaseVersions(
+    listAutonomousContainerDatabaseVersionsRequest: requests.ListAutonomousContainerDatabaseVersionsRequest
+  ): Promise<responses.ListAutonomousContainerDatabaseVersionsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listAutonomousContainerDatabaseVersions."
+      );
+    const operationName = "listAutonomousContainerDatabaseVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabaseVersionSummary/ListAutonomousContainerDatabaseVersions";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAutonomousContainerDatabaseVersionsRequest.compartmentId,
+      "limit": listAutonomousContainerDatabaseVersionsRequest.limit,
+      "page": listAutonomousContainerDatabaseVersionsRequest.page,
+      "sortOrder": listAutonomousContainerDatabaseVersionsRequest.sortOrder,
+      "serviceComponent": listAutonomousContainerDatabaseVersionsRequest.serviceComponent
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutonomousContainerDatabaseVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousContainerDatabaseVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabaseVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousContainerDatabaseVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AutonomousContainerDatabaseVersionSummary,
+        type: "Array<model.AutonomousContainerDatabaseVersionSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAutonomousContainerDatabaseVersionsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseVersionSummary objects
+   * contained in responses from the listAutonomousContainerDatabaseVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousContainerDatabaseVersions(
+    request: requests.ListAutonomousContainerDatabaseVersionsRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseVersionSummary> {
+    return paginateRecords(request, req => this.listAutonomousContainerDatabaseVersions(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAutonomousContainerDatabaseVersionsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousContainerDatabaseVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousContainerDatabaseVersionsResponses(
+    request: requests.ListAutonomousContainerDatabaseVersionsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousContainerDatabaseVersionsResponse> {
+    return paginateResponses(request, req => this.listAutonomousContainerDatabaseVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseVersionSummary objects
+   * contained in responses from the listAutonomousContainerDatabaseVersions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousContainerDatabaseVersionsRecordIterator(
+    request: requests.ListAutonomousContainerDatabaseVersionsRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseVersionSummary> {
+    return paginateRecords(request, req => this.listAutonomousContainerDatabaseVersions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousContainerDatabaseVersions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousContainerDatabaseVersionsResponseIterator(
+    request: requests.ListAutonomousContainerDatabaseVersionsRequest
+  ): AsyncIterableIterator<responses.ListAutonomousContainerDatabaseVersionsResponse> {
+    return paginateResponses(request, req => this.listAutonomousContainerDatabaseVersions(req));
   }
 
   /**

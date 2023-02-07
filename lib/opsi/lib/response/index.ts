@@ -26,6 +26,8 @@ import * as ChangeHostInsightCompartmentResponse from "./change-host-insight-com
 export import ChangeHostInsightCompartmentResponse = ChangeHostInsightCompartmentResponse.ChangeHostInsightCompartmentResponse;
 import * as ChangeOperationsInsightsPrivateEndpointCompartmentResponse from "./change-operations-insights-private-endpoint-compartment-response";
 export import ChangeOperationsInsightsPrivateEndpointCompartmentResponse = ChangeOperationsInsightsPrivateEndpointCompartmentResponse.ChangeOperationsInsightsPrivateEndpointCompartmentResponse;
+import * as ChangeOpsiConfigurationCompartmentResponse from "./change-opsi-configuration-compartment-response";
+export import ChangeOpsiConfigurationCompartmentResponse = ChangeOpsiConfigurationCompartmentResponse.ChangeOpsiConfigurationCompartmentResponse;
 import * as ChangePeComanagedDatabaseInsightResponse from "./change-pe-comanaged-database-insight-response";
 export import ChangePeComanagedDatabaseInsightResponse = ChangePeComanagedDatabaseInsightResponse.ChangePeComanagedDatabaseInsightResponse;
 import * as CreateAwrHubResponse from "./create-awr-hub-response";
@@ -44,6 +46,8 @@ import * as CreateOperationsInsightsWarehouseResponse from "./create-operations-
 export import CreateOperationsInsightsWarehouseResponse = CreateOperationsInsightsWarehouseResponse.CreateOperationsInsightsWarehouseResponse;
 import * as CreateOperationsInsightsWarehouseUserResponse from "./create-operations-insights-warehouse-user-response";
 export import CreateOperationsInsightsWarehouseUserResponse = CreateOperationsInsightsWarehouseUserResponse.CreateOperationsInsightsWarehouseUserResponse;
+import * as CreateOpsiConfigurationResponse from "./create-opsi-configuration-response";
+export import CreateOpsiConfigurationResponse = CreateOpsiConfigurationResponse.CreateOpsiConfigurationResponse;
 import * as DeleteAwrHubResponse from "./delete-awr-hub-response";
 export import DeleteAwrHubResponse = DeleteAwrHubResponse.DeleteAwrHubResponse;
 import * as DeleteDatabaseInsightResponse from "./delete-database-insight-response";
@@ -60,6 +64,8 @@ import * as DeleteOperationsInsightsWarehouseResponse from "./delete-operations-
 export import DeleteOperationsInsightsWarehouseResponse = DeleteOperationsInsightsWarehouseResponse.DeleteOperationsInsightsWarehouseResponse;
 import * as DeleteOperationsInsightsWarehouseUserResponse from "./delete-operations-insights-warehouse-user-response";
 export import DeleteOperationsInsightsWarehouseUserResponse = DeleteOperationsInsightsWarehouseUserResponse.DeleteOperationsInsightsWarehouseUserResponse;
+import * as DeleteOpsiConfigurationResponse from "./delete-opsi-configuration-response";
+export import DeleteOpsiConfigurationResponse = DeleteOpsiConfigurationResponse.DeleteOpsiConfigurationResponse;
 import * as DisableDatabaseInsightResponse from "./disable-database-insight-response";
 export import DisableDatabaseInsightResponse = DisableDatabaseInsightResponse.DisableDatabaseInsightResponse;
 import * as DisableExadataInsightResponse from "./disable-exadata-insight-response";
@@ -96,6 +102,8 @@ import * as GetOperationsInsightsWarehouseResponse from "./get-operations-insigh
 export import GetOperationsInsightsWarehouseResponse = GetOperationsInsightsWarehouseResponse.GetOperationsInsightsWarehouseResponse;
 import * as GetOperationsInsightsWarehouseUserResponse from "./get-operations-insights-warehouse-user-response";
 export import GetOperationsInsightsWarehouseUserResponse = GetOperationsInsightsWarehouseUserResponse.GetOperationsInsightsWarehouseUserResponse;
+import * as GetOpsiConfigurationResponse from "./get-opsi-configuration-response";
+export import GetOpsiConfigurationResponse = GetOpsiConfigurationResponse.GetOpsiConfigurationResponse;
 import * as GetOpsiDataObjectResponse from "./get-opsi-data-object-response";
 export import GetOpsiDataObjectResponse = GetOpsiDataObjectResponse.GetOpsiDataObjectResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
@@ -150,6 +158,8 @@ import * as ListOperationsInsightsWarehouseUsersResponse from "./list-operations
 export import ListOperationsInsightsWarehouseUsersResponse = ListOperationsInsightsWarehouseUsersResponse.ListOperationsInsightsWarehouseUsersResponse;
 import * as ListOperationsInsightsWarehousesResponse from "./list-operations-insights-warehouses-response";
 export import ListOperationsInsightsWarehousesResponse = ListOperationsInsightsWarehousesResponse.ListOperationsInsightsWarehousesResponse;
+import * as ListOpsiConfigurationsResponse from "./list-opsi-configurations-response";
+export import ListOpsiConfigurationsResponse = ListOpsiConfigurationsResponse.ListOpsiConfigurationsResponse;
 import * as ListOpsiDataObjectsResponse from "./list-opsi-data-objects-response";
 export import ListOpsiDataObjectsResponse = ListOpsiDataObjectsResponse.ListOpsiDataObjectsResponse;
 import * as ListSqlPlansResponse from "./list-sql-plans-response";
@@ -188,6 +198,8 @@ import * as SummarizeAwrDatabaseWaitEventsResponse from "./summarize-awr-databas
 export import SummarizeAwrDatabaseWaitEventsResponse = SummarizeAwrDatabaseWaitEventsResponse.SummarizeAwrDatabaseWaitEventsResponse;
 import * as SummarizeAwrSourcesSummariesResponse from "./summarize-awr-sources-summaries-response";
 export import SummarizeAwrSourcesSummariesResponse = SummarizeAwrSourcesSummariesResponse.SummarizeAwrSourcesSummariesResponse;
+import * as SummarizeConfigurationItemsResponse from "./summarize-configuration-items-response";
+export import SummarizeConfigurationItemsResponse = SummarizeConfigurationItemsResponse.SummarizeConfigurationItemsResponse;
 import * as SummarizeDatabaseInsightResourceCapacityTrendResponse from "./summarize-database-insight-resource-capacity-trend-response";
 export import SummarizeDatabaseInsightResourceCapacityTrendResponse = SummarizeDatabaseInsightResourceCapacityTrendResponse.SummarizeDatabaseInsightResourceCapacityTrendResponse;
 import * as SummarizeDatabaseInsightResourceForecastTrendResponse from "./summarize-database-insight-resource-forecast-trend-response";
@@ -266,3 +278,5 @@ import * as UpdateOperationsInsightsWarehouseResponse from "./update-operations-
 export import UpdateOperationsInsightsWarehouseResponse = UpdateOperationsInsightsWarehouseResponse.UpdateOperationsInsightsWarehouseResponse;
 import * as UpdateOperationsInsightsWarehouseUserResponse from "./update-operations-insights-warehouse-user-response";
 export import UpdateOperationsInsightsWarehouseUserResponse = UpdateOperationsInsightsWarehouseUserResponse.UpdateOperationsInsightsWarehouseUserResponse;
+import * as UpdateOpsiConfigurationResponse from "./update-opsi-configuration-response";
+export import UpdateOpsiConfigurationResponse = UpdateOpsiConfigurationResponse.UpdateOpsiConfigurationResponse;

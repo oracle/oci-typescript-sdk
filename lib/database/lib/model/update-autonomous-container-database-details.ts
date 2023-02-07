@@ -36,6 +36,11 @@ export interface UpdateAutonomousContainerDatabaseDetails {
    */
   "standbyMaintenanceBufferInDays"?: number;
   /**
+   * The next maintenance version preference.
+   *
+   */
+  "versionPreference"?: UpdateAutonomousContainerDatabaseDetails.VersionPreference;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -56,6 +61,11 @@ export namespace UpdateAutonomousContainerDatabaseDetails {
   export enum PatchModel {
     ReleaseUpdates = "RELEASE_UPDATES",
     ReleaseUpdateRevisions = "RELEASE_UPDATE_REVISIONS"
+  }
+
+  export enum VersionPreference {
+    NextReleaseUpdate = "NEXT_RELEASE_UPDATE",
+    LatestReleaseUpdate = "LATEST_RELEASE_UPDATE"
   }
 
   export function getJsonObj(obj: UpdateAutonomousContainerDatabaseDetails): object {
