@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -114,10 +116,6 @@ import * as ByoipRangeVcnIpv6AllocationSummary from "./byoip-range-vcn-ipv6-allo
 export import ByoipRangeVcnIpv6AllocationSummary = ByoipRangeVcnIpv6AllocationSummary.ByoipRangeVcnIpv6AllocationSummary;
 import * as Byoipv6CidrDetails from "./byoipv6-cidr-details";
 export import Byoipv6CidrDetails = Byoipv6CidrDetails.Byoipv6CidrDetails;
-import * as CapacityReportInstanceShapeConfig from "./capacity-report-instance-shape-config";
-export import CapacityReportInstanceShapeConfig = CapacityReportInstanceShapeConfig.CapacityReportInstanceShapeConfig;
-import * as CapacityReportShapeAvailability from "./capacity-report-shape-availability";
-export import CapacityReportShapeAvailability = CapacityReportShapeAvailability.CapacityReportShapeAvailability;
 import * as CapacityReservationInstanceSummary from "./capacity-reservation-instance-summary";
 export import CapacityReservationInstanceSummary = CapacityReservationInstanceSummary.CapacityReservationInstanceSummary;
 import * as CaptureConsoleHistoryDetails from "./capture-console-history-details";
@@ -206,8 +204,6 @@ import * as ClusterNetworkSummary from "./cluster-network-summary";
 export import ClusterNetworkSummary = ClusterNetworkSummary.ClusterNetworkSummary;
 import * as CompartmentInternal from "./compartment-internal";
 export import CompartmentInternal = CompartmentInternal.CompartmentInternal;
-import * as ComputeCapacityReport from "./compute-capacity-report";
-export import ComputeCapacityReport = ComputeCapacityReport.ComputeCapacityReport;
 import * as ComputeCapacityReservation from "./compute-capacity-reservation";
 export import ComputeCapacityReservation = ComputeCapacityReservation.ComputeCapacityReservation;
 import * as ComputeCapacityReservationInstanceShapeSummary from "./compute-capacity-reservation-instance-shape-summary";
@@ -258,16 +254,12 @@ import * as CreateBootVolumeDetails from "./create-boot-volume-details";
 export import CreateBootVolumeDetails = CreateBootVolumeDetails.CreateBootVolumeDetails;
 import * as CreateByoipRangeDetails from "./create-byoip-range-details";
 export import CreateByoipRangeDetails = CreateByoipRangeDetails.CreateByoipRangeDetails;
-import * as CreateCapacityReportShapeAvailabilityDetails from "./create-capacity-report-shape-availability-details";
-export import CreateCapacityReportShapeAvailabilityDetails = CreateCapacityReportShapeAvailabilityDetails.CreateCapacityReportShapeAvailabilityDetails;
 import * as CreateCaptureFilterDetails from "./create-capture-filter-details";
 export import CreateCaptureFilterDetails = CreateCaptureFilterDetails.CreateCaptureFilterDetails;
 import * as CreateClusterNetworkDetails from "./create-cluster-network-details";
 export import CreateClusterNetworkDetails = CreateClusterNetworkDetails.CreateClusterNetworkDetails;
 import * as CreateClusterNetworkInstancePoolDetails from "./create-cluster-network-instance-pool-details";
 export import CreateClusterNetworkInstancePoolDetails = CreateClusterNetworkInstancePoolDetails.CreateClusterNetworkInstancePoolDetails;
-import * as CreateComputeCapacityReportDetails from "./create-compute-capacity-report-details";
-export import CreateComputeCapacityReportDetails = CreateComputeCapacityReportDetails.CreateComputeCapacityReportDetails;
 import * as CreateComputeCapacityReservationDetails from "./create-compute-capacity-reservation-details";
 export import CreateComputeCapacityReservationDetails = CreateComputeCapacityReservationDetails.CreateComputeCapacityReservationDetails;
 import * as CreateComputeImageCapabilitySchemaDetails from "./create-compute-image-capability-schema-details";

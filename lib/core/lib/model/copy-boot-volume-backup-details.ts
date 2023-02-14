@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -34,13 +36,13 @@ Example: `us-ashburn-1`
    */
   "displayName"?: string;
   /**
-    * The OCID of the Key Management key in the destination region which will be the master encryption key
+    * The OCID of the Vault service key in the destination region which will be the master encryption key
 * for the copied boot volume backup. If you do not specify this attribute the boot volume backup
 * will be encrypted with the Oracle-provided encryption key when it is copied to the destination region.
 * <p>
 
-* For more information about the Key Management service and encryption keys, see
-* [Overview of Key Management](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) and
+* For more information about the Vault service and encryption keys, see
+* [Overview of Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) and
 * [Using Keys](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Tasks/usingkeys.htm).
 * 
     */

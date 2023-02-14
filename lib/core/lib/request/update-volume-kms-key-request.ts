@@ -23,7 +23,7 @@ export interface UpdateVolumeKmsKeyRequest extends common.BaseRequest {
    */
   "volumeId": string;
   /**
-   * Updates the Key Management master encryption key assigned to the specified volume.
+   * Updates the Vault service master encryption key assigned to the specified volume.
    */
   "updateVolumeKmsKeyDetails": model.UpdateVolumeKmsKeyDetails;
   /**

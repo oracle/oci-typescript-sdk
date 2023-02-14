@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -45,7 +47,7 @@ Example: `{\"Department\": \"Finance\"}`
   /**
     * The hostname for the VNIC's primary private IP. Used for DNS. The value is the hostname
 * portion of the primary private IP's fully qualified domain name (FQDN)
-* (for example, `bminstance-1` in FQDN `bminstance-1.subnet123.vcn1.oraclevcn.com`).
+* (for example, `bminstance1` in FQDN `bminstance1.subnet123.vcn1.oraclevcn.com`).
 * Must be unique across all VNICs in the subnet and comply with
 * [RFC 952](https://tools.ietf.org/html/rfc952) and
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).

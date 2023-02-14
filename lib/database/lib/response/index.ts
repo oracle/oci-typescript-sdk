@@ -240,6 +240,8 @@ import * as GetAutonomousExadataInfrastructureResponse from "./get-autonomous-ex
 export import GetAutonomousExadataInfrastructureResponse = GetAutonomousExadataInfrastructureResponse.GetAutonomousExadataInfrastructureResponse;
 import * as GetAutonomousPatchResponse from "./get-autonomous-patch-response";
 export import GetAutonomousPatchResponse = GetAutonomousPatchResponse.GetAutonomousPatchResponse;
+import * as GetAutonomousVirtualMachineResponse from "./get-autonomous-virtual-machine-response";
+export import GetAutonomousVirtualMachineResponse = GetAutonomousVirtualMachineResponse.GetAutonomousVirtualMachineResponse;
 import * as GetAutonomousVmClusterResponse from "./get-autonomous-vm-cluster-response";
 export import GetAutonomousVmClusterResponse = GetAutonomousVmClusterResponse.GetAutonomousVmClusterResponse;
 import * as GetBackupResponse from "./get-backup-response";
@@ -358,6 +360,8 @@ import * as ListAutonomousExadataInfrastructureShapesResponse from "./list-auton
 export import ListAutonomousExadataInfrastructureShapesResponse = ListAutonomousExadataInfrastructureShapesResponse.ListAutonomousExadataInfrastructureShapesResponse;
 import * as ListAutonomousExadataInfrastructuresResponse from "./list-autonomous-exadata-infrastructures-response";
 export import ListAutonomousExadataInfrastructuresResponse = ListAutonomousExadataInfrastructuresResponse.ListAutonomousExadataInfrastructuresResponse;
+import * as ListAutonomousVirtualMachinesResponse from "./list-autonomous-virtual-machines-response";
+export import ListAutonomousVirtualMachinesResponse = ListAutonomousVirtualMachinesResponse.ListAutonomousVirtualMachinesResponse;
 import * as ListAutonomousVmClustersResponse from "./list-autonomous-vm-clusters-response";
 export import ListAutonomousVmClustersResponse = ListAutonomousVmClustersResponse.ListAutonomousVmClustersResponse;
 import * as ListBackupDestinationResponse from "./list-backup-destination-response";

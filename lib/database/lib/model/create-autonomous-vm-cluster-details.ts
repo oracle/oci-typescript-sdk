@@ -72,6 +72,10 @@ export interface CreateAutonomousVmClusterDetails {
   "autonomousDataStorageSizeInTBs"?: number;
   "maintenanceWindowDetails"?: model.MaintenanceWindow;
   /**
+   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Db servers.
+   */
+  "dbServers"?: Array<string>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

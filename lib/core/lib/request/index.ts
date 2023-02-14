@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -160,8 +162,6 @@ import * as ChangeInstanceCompartmentRequest from "./change-instance-compartment
 export import ChangeInstanceCompartmentRequest = ChangeInstanceCompartmentRequest.ChangeInstanceCompartmentRequest;
 import * as CreateAppCatalogSubscriptionRequest from "./create-app-catalog-subscription-request";
 export import CreateAppCatalogSubscriptionRequest = CreateAppCatalogSubscriptionRequest.CreateAppCatalogSubscriptionRequest;
-import * as CreateComputeCapacityReportRequest from "./create-compute-capacity-report-request";
-export import CreateComputeCapacityReportRequest = CreateComputeCapacityReportRequest.CreateComputeCapacityReportRequest;
 import * as CreateComputeCapacityReservationRequest from "./create-compute-capacity-reservation-request";
 export import CreateComputeCapacityReservationRequest = CreateComputeCapacityReservationRequest.CreateComputeCapacityReservationRequest;
 import * as CreateComputeImageCapabilitySchemaRequest from "./create-compute-image-capability-schema-request";

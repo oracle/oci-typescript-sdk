@@ -54,6 +54,16 @@ export interface DbServer {
    */
   "vmClusterIds"?: Array<string>;
   /**
+   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous VM Clusters associated with the Db server.
+   *
+   */
+  "autonomousVmClusterIds"?: Array<string>;
+  /**
+   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Virtual Machines associated with the Db server.
+   *
+   */
+  "autonomousVirtualMachineIds"?: Array<string>;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Db nodes associated with the Db server.
    *
    */

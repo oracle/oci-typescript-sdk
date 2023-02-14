@@ -23,7 +23,7 @@ export interface UpdateBootVolumeKmsKeyRequest extends common.BaseRequest {
    */
   "bootVolumeId": string;
   /**
-   * Updates the Key Management master encryption key assigned to the specified boot volume.
+   * Updates the Vault service master encryption key assigned to the specified boot volume.
    */
   "updateBootVolumeKmsKeyDetails": model.UpdateBootVolumeKmsKeyDetails;
   /**

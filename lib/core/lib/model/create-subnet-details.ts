@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -74,7 +76,7 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
   /**
     * A DNS label for the subnet, used in conjunction with the VNIC's hostname and
 * VCN's DNS label to form a fully qualified domain name (FQDN) for each VNIC
-* within this subnet (for example, `bminstance-1.subnet123.vcn1.oraclevcn.com`).
+* within this subnet (for example, `bminstance1.subnet123.vcn1.oraclevcn.com`).
 * Must be an alphanumeric string that begins with a letter and is unique within the VCN.
 * The value cannot be changed.
 * <p>

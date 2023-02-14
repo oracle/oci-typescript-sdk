@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -20,12 +22,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Key Management master encryption key associated with this volume.
+ * The Vault service master encryption key associated with this volume.
  *
  */
 export interface BootVolumeKmsKey {
   /**
-   * The OCID of the Key Management key assigned to this volume. If the volume is not using Key Management, then the `kmsKeyId` will be a null string.
+   * The OCID of the Vault service key assigned to this volume. If the volume is not using Vault service, then the `kmsKeyId` will be a null string.
    *
    */
   "kmsKeyId"?: string;

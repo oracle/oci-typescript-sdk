@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -20,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Parameters for the rebootMigrate {@link #instanceAction(InstanceActionRequest) instanceAction}.
+ * Parameters for the `rebootMigrate` {@link #instanceAction(InstanceActionRequest) instanceAction}.
  *
  */
 export interface RebootMigrateActionDetails extends model.InstancePowerActionDetails {
@@ -31,12 +33,13 @@ export interface RebootMigrateActionDetails extends model.InstancePowerActionDet
    */
   "deleteLocalStorage"?: boolean;
   /**
-   * If present, this parameter will set (or re-set) the scheduled time that the instance will be reboot
-   * migrated in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).  This will also change
-   * the timeRebootMigrationDue field on the instance.
-   * If not present, the reboot migration will be triggered immediately.
-   *
-   */
+    * If present, this parameter will set (or reset) the scheduled time that the instance will be reboot
+* migrated in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).  This will also change
+* the `timeMaintenanceRebootDue` field on the instance.
+* <p>
+If not present, the reboot migration will be triggered immediately.
+* 
+    */
   "timeScheduled"?: Date;
 
   "actionType": string;

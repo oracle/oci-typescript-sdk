@@ -2534,6 +2534,25 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forAutonomousVirtualMachine till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAutonomousVirtualMachineResponse | null (null in case of 404 response)
+   */
+  public async forAutonomousVirtualMachine(
+    request: serviceRequests.GetAutonomousVirtualMachineRequest,
+    ...targetStates: models.AutonomousVirtualMachine.LifecycleState[]
+  ): Promise<serviceResponses.GetAutonomousVirtualMachineResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAutonomousVirtualMachine(request),
+      response => targetStates.includes(response.autonomousVirtualMachine.lifecycleState!),
+      targetStates.includes(models.AutonomousVirtualMachine.LifecycleState.Terminated)
+    );
+  }
+
+  /**
    * Waits forAutonomousVmCluster till it reaches any of the provided states
    *
    * @param request the request to send
