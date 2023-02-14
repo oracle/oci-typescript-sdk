@@ -124,6 +124,11 @@ export interface AutonomousVmCluster {
    */
   "availableDataStorageSizeInTBs"?: number;
   /**
+   * The number of nodes in the Autonomous VM Cluster.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "nodeCount"?: number;
+  /**
    * The Oracle license model that applies to the Autonomous VM cluster. The default is LICENSE_INCLUDED.
    *
    */
@@ -142,6 +147,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Db servers.
+   */
+  "dbServers"?: Array<string>;
   /**
    * CPU cores that continue to be included in the count of OCPUs available to the Autonomous Container Database even after one of its Autonomous Database is terminated or scaled down. You can release them to the available OCPUs at its parent AVMC level by restarting the Autonomous Container Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

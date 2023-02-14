@@ -9719,6 +9719,84 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets the details of specific Autonomous Virtual Machine.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAutonomousVirtualMachineRequest
+   * @return GetAutonomousVirtualMachineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousVirtualMachine.ts.html |here} to see how to use GetAutonomousVirtualMachine API.
+   */
+  public async getAutonomousVirtualMachine(
+    getAutonomousVirtualMachineRequest: requests.GetAutonomousVirtualMachineRequest
+  ): Promise<responses.GetAutonomousVirtualMachineResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#getAutonomousVirtualMachine.");
+    const operationName = "getAutonomousVirtualMachine";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVirtualMachine/GetAutonomousVirtualMachine";
+    const pathParams = {
+      "{autonomousVirtualMachineId}": getAutonomousVirtualMachineRequest.autonomousVirtualMachineId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutonomousVirtualMachineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousVirtualMachineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVirtualMachines/{autonomousVirtualMachineId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousVirtualMachineResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousVirtualMachine",
+        bodyModel: model.AutonomousVirtualMachine,
+        type: "model.AutonomousVirtualMachine",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified Autonomous VM cluster for an Exadata Cloud@Customer system. To get information about an Autonomous VM Cluster in the Oracle cloud, see {@link #getCloudAutonomousVmCluster(GetCloudAutonomousVmClusterRequest) getCloudAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -14954,6 +15032,140 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListAutonomousExadataInfrastructuresRequest
   ): AsyncIterableIterator<responses.ListAutonomousExadataInfrastructuresResponse> {
     return paginateResponses(request, req => this.listAutonomousExadataInfrastructures(req));
+  }
+
+  /**
+   * Lists the Autonomous Virtual Machines in the specified Autonomous VM Cluster and Compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListAutonomousVirtualMachinesRequest
+   * @return ListAutonomousVirtualMachinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListAutonomousVirtualMachines.ts.html |here} to see how to use ListAutonomousVirtualMachines API.
+   */
+  public async listAutonomousVirtualMachines(
+    listAutonomousVirtualMachinesRequest: requests.ListAutonomousVirtualMachinesRequest
+  ): Promise<responses.ListAutonomousVirtualMachinesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#listAutonomousVirtualMachines.");
+    const operationName = "listAutonomousVirtualMachines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVirtualMachine/ListAutonomousVirtualMachines";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAutonomousVirtualMachinesRequest.compartmentId,
+      "autonomousVmClusterId": listAutonomousVirtualMachinesRequest.autonomousVmClusterId,
+      "limit": listAutonomousVirtualMachinesRequest.limit,
+      "page": listAutonomousVirtualMachinesRequest.page,
+      "lifecycleState": listAutonomousVirtualMachinesRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAutonomousVirtualMachinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAutonomousVirtualMachinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVirtualMachines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAutonomousVirtualMachinesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AutonomousVirtualMachineSummary,
+        type: "Array<model.AutonomousVirtualMachineSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAutonomousVirtualMachinesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.AutonomousVirtualMachineSummary objects
+   * contained in responses from the listAutonomousVirtualMachines operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousVirtualMachines(
+    request: requests.ListAutonomousVirtualMachinesRequest
+  ): AsyncIterableIterator<model.AutonomousVirtualMachineSummary> {
+    return paginateRecords(request, req => this.listAutonomousVirtualMachines(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAutonomousVirtualMachinesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousVirtualMachines operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAutonomousVirtualMachinesResponses(
+    request: requests.ListAutonomousVirtualMachinesRequest
+  ): AsyncIterableIterator<responses.ListAutonomousVirtualMachinesResponse> {
+    return paginateResponses(request, req => this.listAutonomousVirtualMachines(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousVirtualMachineSummary objects
+   * contained in responses from the listAutonomousVirtualMachines operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousVirtualMachinesRecordIterator(
+    request: requests.ListAutonomousVirtualMachinesRequest
+  ): AsyncIterableIterator<model.AutonomousVirtualMachineSummary> {
+    return paginateRecords(request, req => this.listAutonomousVirtualMachines(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAutonomousVirtualMachines operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAutonomousVirtualMachinesResponseIterator(
+    request: requests.ListAutonomousVirtualMachinesRequest
+  ): AsyncIterableIterator<responses.ListAutonomousVirtualMachinesResponse> {
+    return paginateResponses(request, req => this.listAutonomousVirtualMachines(req));
   }
 
   /**

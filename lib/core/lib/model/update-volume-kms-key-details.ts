@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -21,8 +23,8 @@ import common = require("oci-common");
 
 export interface UpdateVolumeKmsKeyDetails {
   /**
-   * The OCID of the new Key Management key to assign to protect the specified volume.
-   * This key has to be a valid Key Management key, and policies must exist to allow the user and the Block Volume service to access this key.
+   * The OCID of the new Vault service key to assign to protect the specified volume.
+   * This key has to be a valid Vault service key, and policies must exist to allow the user and the Block Volume service to access this key.
    * If you specify the same OCID as the previous key's OCID, the Block Volume service will use it to regenerate a volume encryption key.
    *
    */

@@ -207,3 +207,5 @@ export import disasterrecovery = require("oci-disasterrecovery");
 export import containerinstances = require("oci-containerinstances");
 export import aidocument = require("oci-aidocument");
 export import queue = require("oci-queue");
+export import recovery = require("oci-recovery");
+export import vbsinst = require("oci-vbsinst");

@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -82,7 +84,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "isHydrated"?: boolean;
   /**
-   * The OCID of the Key Management key which is the master encryption key for the volume.
+   * The OCID of the Vault service key which is the master encryption key for the volume.
    *
    */
   "kmsKeyId"?: string;

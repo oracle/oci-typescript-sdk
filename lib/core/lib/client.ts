@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -1753,7 +1755,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
-   * Removes the specified boot volume's assigned Key Management encryption key.
+   * Removes the specified boot volume's assigned Vault Service encryption key.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteBootVolumeKmsKeyRequest
@@ -2234,7 +2236,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
-   * Removes the specified volume's assigned Key Management encryption key.
+   * Removes the specified volume's assigned Vault service encryption key.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteVolumeKmsKeyRequest
@@ -2527,7 +2529,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
-   * Gets the Key Management encryption key assigned to the specified boot volume.
+   * Gets the Vault service encryption key assigned to the specified boot volume.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetBootVolumeKmsKeyRequest
@@ -3343,7 +3345,7 @@ For more information, see [Volume Groups](https://docs.cloud.oracle.com/iaas/Con
   }
 
   /**
-   * Gets the Key Management encryption key assigned to the specified volume.
+   * Gets the Vault service encryption key assigned to the specified volume.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetVolumeKmsKeyRequest
@@ -4936,7 +4938,7 @@ For more information about Oracle defined backup policies and user defined backu
   }
 
   /**
-   * Updates the specified volume with a new Key Management master encryption key.
+   * Updates the specified volume with a new Vault service master encryption key.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateBootVolumeKmsKeyRequest
@@ -6223,7 +6225,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
    * For information about moving resources between compartments, see
    *         [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeComputeImageCapabilitySchemaCompartmentRequest
    * @return ChangeComputeImageCapabilitySchemaCompartmentResponse
    * @throws OciError when an error occurs
@@ -6253,7 +6255,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       "opc-retry-token": changeComputeImageCapabilitySchemaCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeComputeImageCapabilitySchemaCompartmentRequest.retryConfiguration,
@@ -6390,7 +6392,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
    * resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeImageCompartmentRequest
    * @return ChangeImageCompartmentResponse
    * @throws OciError when an error occurs
@@ -6416,7 +6418,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
       "opc-retry-token": changeImageCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeImageCompartmentRequest.retryConfiguration,
@@ -6561,7 +6563,7 @@ When you move an instance to a different compartment, associated resources such 
   /**
    * Create a subscription for listing resource version for a compartment. It will take some time to propagate to all regions.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAppCatalogSubscriptionRequest
    * @return CreateAppCatalogSubscriptionResponse
    * @throws OciError when an error occurs
@@ -6584,7 +6586,7 @@ When you move an instance to a different compartment, associated resources such 
       "opc-retry-token": createAppCatalogSubscriptionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAppCatalogSubscriptionRequest.retryConfiguration,
@@ -6625,84 +6627,6 @@ When you move an instance to a different compartment, associated resources such 
             key: "etag",
             dataType: "string"
           },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * Generates a new compute capacity availability report for the availability domain.
-   * A compute capacity report lets you review capacity availability for the provided shapes.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param CreateComputeCapacityReportRequest
-   * @return CreateComputeCapacityReportResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReport.ts.html |here} to see how to use CreateComputeCapacityReport API.
-   */
-  public async createComputeCapacityReport(
-    createComputeCapacityReportRequest: requests.CreateComputeCapacityReportRequest
-  ): Promise<responses.CreateComputeCapacityReportResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation ComputeClient#createComputeCapacityReport.");
-    const operationName = "createComputeCapacityReport";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReport/CreateComputeCapacityReport";
-    const pathParams = {};
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": createComputeCapacityReportRequest.opcRequestId,
-      "opc-retry-token": createComputeCapacityReportRequest.opcRetryToken
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      createComputeCapacityReportRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/computeCapacityReports",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        createComputeCapacityReportRequest.createComputeCapacityReportDetails,
-        "CreateComputeCapacityReportDetails",
-        model.CreateComputeCapacityReportDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.CreateComputeCapacityReportResponse>{},
-        body: await response.json(),
-        bodyKey: "computeCapacityReport",
-        bodyModel: model.ComputeCapacityReport,
-        type: "model.ComputeCapacityReport",
-        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -6815,7 +6739,7 @@ When you move an instance to a different compartment, associated resources such 
   /**
    * Creates compute image capability schema.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateComputeImageCapabilitySchemaRequest
    * @return CreateComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -6838,7 +6762,7 @@ When you move an instance to a different compartment, associated resources such 
       "opc-retry-token": createComputeImageCapabilitySchemaRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createComputeImageCapabilitySchemaRequest.retryConfiguration,
@@ -7007,7 +6931,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
 * It does not have to be unique, and you can change it. See {@link #updateImage(UpdateImageRequest) updateImage}.
 * Avoid entering confidential information.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateImageRequest
      * @return CreateImageResponse
      * @throws OciError when an error occurs
@@ -7029,7 +6953,7 @@ You may optionally specify a *display name* for the image, which is simply a fri
       "opc-retry-token": createImageRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createImageRequest.retryConfiguration,
@@ -7895,7 +7819,7 @@ To perform an image export, you need write access to the Object Storage bucket f
 See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/imageimportexport.htm#URLs) and [Using Pre-Authenticated Requests](https://docs.cloud.oracle.com/iaas/Content/Object/Tasks/usingpreauthenticatedrequests.htm)
 * for constructing URLs for image import/export.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ExportImageRequest
      * @return ExportImageResponse
      * @throws OciError when an error occurs
@@ -7920,7 +7844,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "if-match": exportImageRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       exportImageRequest.retryConfiguration,
@@ -7982,7 +7906,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified listing.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAppCatalogListingRequest
    * @return GetAppCatalogListingResponse
    * @throws OciError when an error occurs
@@ -8005,7 +7929,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAppCatalogListingRequest.retryConfiguration,
@@ -8057,7 +7981,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Retrieves the agreements for a particular resource version of a listing.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAppCatalogListingAgreementsRequest
    * @return GetAppCatalogListingAgreementsResponse
    * @throws OciError when an error occurs
@@ -8082,7 +8006,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAppCatalogListingAgreementsRequest.retryConfiguration,
@@ -8134,7 +8058,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified listing resource version.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAppCatalogListingResourceVersionRequest
    * @return GetAppCatalogListingResourceVersionResponse
    * @throws OciError when an error occurs
@@ -8159,7 +8083,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAppCatalogListingResourceVersionRequest.retryConfiguration,
@@ -8363,7 +8287,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified Compute Global Image Capability Schema
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetComputeGlobalImageCapabilitySchemaRequest
    * @return GetComputeGlobalImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -8388,7 +8312,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getComputeGlobalImageCapabilitySchemaRequest.retryConfiguration,
@@ -8440,7 +8364,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified Compute Global Image Capability Schema Version
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetComputeGlobalImageCapabilitySchemaVersionRequest
    * @return GetComputeGlobalImageCapabilitySchemaVersionResponse
    * @throws OciError when an error occurs
@@ -8469,7 +8393,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getComputeGlobalImageCapabilitySchemaVersionRequest.retryConfiguration,
@@ -8523,7 +8447,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   /**
    * Gets the specified Compute Image Capability Schema
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetComputeImageCapabilitySchemaRequest
    * @return GetComputeImageCapabilitySchemaResponse
    * @throws OciError when an error occurs
@@ -8550,7 +8474,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getComputeImageCapabilitySchemaRequest.retryConfiguration,
@@ -8837,7 +8761,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets the specified image.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetImageRequest
    * @return GetImageResponse
    * @throws OciError when an error occurs
@@ -8859,7 +8783,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getImageRequest.retryConfiguration,
@@ -8911,7 +8835,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Retrieves an image shape compatibility entry.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetImageShapeCompatibilityEntryRequest
    * @return GetImageShapeCompatibilityEntryResponse
    * @throws OciError when an error occurs
@@ -8937,7 +8861,7 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
       "opc-request-id": getImageShapeCompatibilityEntryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getImageShapeCompatibilityEntryRequest.retryConfiguration,
@@ -8984,6 +8908,10 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 
   /**
    * Gets information about the specified instance.
+   * <p>
+   **Note:** To retrieve public and private IP addresses for an instance, use the {@link #listVnicAttachments(ListVnicAttachmentsRequest) listVnicAttachments}
+   * operation to get the VNIC ID for the instance, and then call {@link #getVnic(GetVnicRequest) getVnic} with the VNIC ID.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceRequest
    * @return GetInstanceResponse
@@ -9130,7 +9058,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   }
 
   /**
-   * Gets the maximum possible date that a maintenance reboot can be extended.
+   * Gets the maximum possible date that a maintenance reboot can be extended. For more information, see
+   * [Infrastructure Maintenance](https://docs.cloud.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetInstanceMaintenanceRebootRequest
    * @return GetInstanceMaintenanceRebootResponse
@@ -9537,7 +9467,8 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
 * For more information, see [Performing a Diagnostic Reboot](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/diagnostic-reboot.htm).
 * <p>
 
-* - **REBOOTMIGRATE** - Powers off the instance, moves it to new hardware, and then powers it back on.
+* - **REBOOTMIGRATE** - Powers off the instance, moves it to new hardware, and then powers it back on. For more information, see
+* [Infrastructure Maintenance](https://docs.cloud.oracle.com/iaas/Content/Compute/References/infrastructure-maintenance.htm).
 * <p>
 
 * For more information about managing instance lifecycle states, see
@@ -9750,7 +9681,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 
   /**
    * Gets all resource versions for a particular listing.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAppCatalogListingResourceVersionsRequest
    * @return ListAppCatalogListingResourceVersionsResponse
    * @throws OciError when an error occurs
@@ -9778,7 +9709,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAppCatalogListingResourceVersionsRequest.retryConfiguration,
@@ -9882,7 +9813,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 
   /**
    * Lists the published listings.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAppCatalogListingsRequest
    * @return ListAppCatalogListingsResponse
    * @throws OciError when an error occurs
@@ -9910,7 +9841,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAppCatalogListingsRequest.retryConfiguration,
@@ -10014,7 +9945,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 
   /**
    * Lists subscriptions for a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAppCatalogSubscriptionsRequest
    * @return ListAppCatalogSubscriptionsResponse
    * @throws OciError when an error occurs
@@ -10043,7 +9974,7 @@ To launch an instance from a Marketplace image listing, you must provide the ima
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAppCatalogSubscriptionsRequest.retryConfiguration,
@@ -10703,7 +10634,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists Compute Global Image Capability Schema versions in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListComputeGlobalImageCapabilitySchemaVersionsRequest
    * @return ListComputeGlobalImageCapabilitySchemaVersionsResponse
    * @throws OciError when an error occurs
@@ -10736,7 +10667,7 @@ You can limit the list by specifying a compute capacity reservation display name
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listComputeGlobalImageCapabilitySchemaVersionsRequest.retryConfiguration,
@@ -10849,7 +10780,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists Compute Global Image Capability Schema in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListComputeGlobalImageCapabilitySchemasRequest
    * @return ListComputeGlobalImageCapabilitySchemasResponse
    * @throws OciError when an error occurs
@@ -10878,7 +10809,7 @@ You can limit the list by specifying a compute capacity reservation display name
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listComputeGlobalImageCapabilitySchemasRequest.retryConfiguration,
@@ -10983,7 +10914,7 @@ You can limit the list by specifying a compute capacity reservation display name
   /**
    * Lists Compute Image Capability Schema in the specified compartment. You can also query by a specific imageId.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListComputeImageCapabilitySchemasRequest
    * @return ListComputeImageCapabilitySchemasResponse
    * @throws OciError when an error occurs
@@ -11013,7 +10944,7 @@ You can limit the list by specifying a compute capacity reservation display name
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listComputeImageCapabilitySchemasRequest.retryConfiguration,
@@ -11802,7 +11733,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
 
   /**
    * Lists the compatible shapes for the specified image.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListImageShapeCompatibilityEntriesRequest
    * @return ListImageShapeCompatibilityEntriesResponse
    * @throws OciError when an error occurs
@@ -11830,7 +11761,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
       "opc-request-id": listImageShapeCompatibilityEntriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listImageShapeCompatibilityEntriesRequest.retryConfiguration,
@@ -11937,7 +11868,7 @@ You can limit the list by specifying a dedicated virtual machine host display na
 * [platform images](https://docs.cloud.oracle.com/iaas/Content/Compute/References/images.htm) and
 * [custom images](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingcustomimages.htm).
 * The list of platform images includes the three most recently published versions
-* of each major distribution.
+* of each major distribution. The list does not support filtering based on image tags.
 * <p>
 The list of images returned is ordered to first show the recent platform images,
 * then all of the custom images.
@@ -11945,7 +11876,7 @@ The list of images returned is ordered to first show the recent platform images,
 **Caution:** Platform images are refreshed regularly. When new images are released, older versions are replaced.
 * The image OCIDs remain available, but when the platform image is replaced, the image OCIDs are no longer returned as part of the platform image list.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListImagesRequest
      * @return ListImagesResponse
      * @throws OciError when an error occurs
@@ -11976,7 +11907,7 @@ The list of images returned is ordered to first show the recent platform images,
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listImagesRequest.retryConfiguration,
@@ -12349,6 +12280,9 @@ For more information about instance console connections, see [Troubleshooting In
    * Lists the instances in the specified compartment and the specified availability domain.
    * You can filter the results by specifying an instance name (the list will include all the identically-named
    * instances in the compartment).
+   * <p>
+   **Note:** To retrieve public and private IP addresses for an instance, use the {@link #listVnicAttachments(ListVnicAttachmentsRequest) listVnicAttachments}
+   * operation to get the VNIC ID for the instance, and then call {@link #getVnic(GetVnicRequest) getVnic} with the VNIC ID.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListInstancesRequest
@@ -12954,14 +12888,15 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   }
 
   /**
-     * Terminates the specified instance. Any attached VNICs and volumes are automatically detached
+     * Terminates (deletes) the specified instance. Any attached VNICs and volumes are automatically detached
 * when the instance terminates.
-*   
-* To preserve the boot volume associated with the instance, specify `true` for `PreserveBootVolumeQueryParam`.
+* <p>
+To preserve the boot volume associated with the instance, specify `true` for `PreserveBootVolumeQueryParam`.
 * To delete the boot volume when the instance is deleted, specify `false` or do not specify a value for `PreserveBootVolumeQueryParam`.
 * <p>
-This is an asynchronous operation. The instance's `lifecycleState` will change to TERMINATING temporarily
-* until the instance is completely removed.
+This is an asynchronous operation. The instance's `lifecycleState` changes to TERMINATING temporarily
+* until the instance is completely deleted. After the instance is deleted, the record remains visible in the list of instances
+* with the state TERMINATED for at least 12 hours, but no further action is needed.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param TerminateInstanceRequest
@@ -14453,7 +14388,8 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-   * Create an instance pool.
+   * Creates an instance pool.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateInstancePoolRequest
    * @return CreateInstancePoolResponse
@@ -15145,11 +15081,11 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-     * Launches an instance from an instance configuration.
+     * Creates an instance from an instance configuration.
 * <p>
 If the instance configuration does not include all of the parameters that are
-* required to launch an instance, such as the availability domain and subnet ID, you must
-* provide these parameters when you launch an instance from the instance configuration.
+* required to create an instance, such as the availability domain and subnet ID, you must
+* provide these parameters when you create an instance from the instance configuration.
 * For more information, see the {@link InstanceConfiguration}
 * resource.
 * 
@@ -23976,16 +23912,19 @@ This is an asynchronous operation. The security list's `lifecycleState` will cha
   }
 
   /**
-   * Deletes the specified VCN. The VCN must be empty and have no attached gateways. This is an asynchronous
-   * operation. The VCN's `lifecycleState` will change to TERMINATING temporarily until the VCN is completely
-   * removed.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteVcnRequest
-   * @return DeleteVcnResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVcn.ts.html |here} to see how to use DeleteVcn API.
-   */
+     * Deletes the specified VCN. The VCN must be completely empty and have no attached gateways. This is an asynchronous
+* operation.
+* <p>
+A deleted VCN's `lifecycleState` changes to TERMINATING and then TERMINATED temporarily until the VCN is completely
+* removed. A completely removed VCN does not appear in the results of a `ListVcns` operation and can't be used in a
+* `GetVcn` operation.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteVcnRequest
+     * @return DeleteVcnResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteVcn.ts.html |here} to see how to use DeleteVcn API.
+     */
   public async deleteVcn(
     deleteVcnRequest: requests.DeleteVcnRequest
   ): Promise<responses.DeleteVcnResponse> {

@@ -240,6 +240,8 @@ import * as GetAutonomousExadataInfrastructureRequest from "./get-autonomous-exa
 export import GetAutonomousExadataInfrastructureRequest = GetAutonomousExadataInfrastructureRequest.GetAutonomousExadataInfrastructureRequest;
 import * as GetAutonomousPatchRequest from "./get-autonomous-patch-request";
 export import GetAutonomousPatchRequest = GetAutonomousPatchRequest.GetAutonomousPatchRequest;
+import * as GetAutonomousVirtualMachineRequest from "./get-autonomous-virtual-machine-request";
+export import GetAutonomousVirtualMachineRequest = GetAutonomousVirtualMachineRequest.GetAutonomousVirtualMachineRequest;
 import * as GetAutonomousVmClusterRequest from "./get-autonomous-vm-cluster-request";
 export import GetAutonomousVmClusterRequest = GetAutonomousVmClusterRequest.GetAutonomousVmClusterRequest;
 import * as GetBackupRequest from "./get-backup-request";
@@ -358,6 +360,8 @@ import * as ListAutonomousExadataInfrastructureShapesRequest from "./list-autono
 export import ListAutonomousExadataInfrastructureShapesRequest = ListAutonomousExadataInfrastructureShapesRequest.ListAutonomousExadataInfrastructureShapesRequest;
 import * as ListAutonomousExadataInfrastructuresRequest from "./list-autonomous-exadata-infrastructures-request";
 export import ListAutonomousExadataInfrastructuresRequest = ListAutonomousExadataInfrastructuresRequest.ListAutonomousExadataInfrastructuresRequest;
+import * as ListAutonomousVirtualMachinesRequest from "./list-autonomous-virtual-machines-request";
+export import ListAutonomousVirtualMachinesRequest = ListAutonomousVirtualMachinesRequest.ListAutonomousVirtualMachinesRequest;
 import * as ListAutonomousVmClustersRequest from "./list-autonomous-vm-clusters-request";
 export import ListAutonomousVmClustersRequest = ListAutonomousVmClustersRequest.ListAutonomousVmClustersRequest;
 import * as ListBackupDestinationRequest from "./list-backup-destination-request";

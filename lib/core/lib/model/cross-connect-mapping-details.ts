@@ -5,6 +5,8 @@ compute instances, and block storage volumes. For more information, see the cons
 documentation for the [Networking](/iaas/Content/Network/Concepts/overview.htm),
 [Compute](/iaas/Content/Compute/Concepts/computeoverview.htm), and
 [Block Volume](/iaas/Content/Block/Concepts/overview.htm) services.
+The required permissions are documented in the
+[Details for the Core Services](/iaas/Content/Identity/Reference/corepolicyreference.htm) article.
 
  * OpenAPI spec version: 20160918
  * 
@@ -51,7 +53,7 @@ export interface CrossConnectMappingDetails {
 * Oracle. Specified by the owner of that router. If the session goes from Oracle
 * to a customer, this is the BGP IPv4 address of the customer's edge router. If the
 * session goes from Oracle to a provider, this is the BGP IPv4 address of the
-* provider's edge router. Must use a /30 or /31 subnet mask.
+* provider's edge router. Must use a subnet mask from /28 to /31.
 * <p>
 There's one exception: for a public virtual circuit, Oracle specifies the BGP IPv4 addresses.
 * <p>
@@ -60,8 +62,8 @@ Example: `10.0.0.18/31`
     */
   "customerBgpPeeringIp"?: string;
   /**
-    * The IPv4 address for Oracle's end of the BGP session. Must use a /30 or /31
-* subnet mask. If the session goes from Oracle to a customer's edge router,
+    * The IPv4 address for Oracle's end of the BGP session. Must use a subnet mask from /28 to /31.
+* If the session goes from Oracle to a customer's edge router,
 * the customer specifies this information. If the session goes from Oracle to
 * a provider's edge router, the provider specifies this.
 * <p>
