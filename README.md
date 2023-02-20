@@ -5,7 +5,7 @@
 This is Oracle Cloud Infrastructure SDK for TypeScript and JavaScript. This project is open source and maintained by Oracle Corp.
 The home page for the project is [Oracle Cloud Infrastructure SDK for TypeScript and JavaScript](https://github.com/oracle/oci-typescript-sdk/).
 
-## Installing
+## Installation
 
 Use the following command to install this SDK:
 
