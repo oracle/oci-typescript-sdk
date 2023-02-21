@@ -70,6 +70,16 @@ export interface ManagedDatabase {
    */
   "managedDatabaseGroups"?: Array<model.ParentGroup>;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the external
+   * DB system that this Managed Database is part of.
+   *
+   */
+  "dbSystemId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the storage DB system.
+   */
+  "storageSystemId"?: string;
+  /**
    * The date and time the Managed Database was created.
    */
   "timeCreated": Date;

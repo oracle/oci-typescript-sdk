@@ -568,6 +568,87 @@ export class DbManagementClient {
   }
 
   /**
+   * Moves the external DB system and its related resources (excluding databases) to the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeExternalDbSystemCompartmentRequest
+   * @return ChangeExternalDbSystemCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeExternalDbSystemCompartment.ts.html |here} to see how to use ChangeExternalDbSystemCompartment API.
+   */
+  public async changeExternalDbSystemCompartment(
+    changeExternalDbSystemCompartmentRequest: requests.ChangeExternalDbSystemCompartmentRequest
+  ): Promise<responses.ChangeExternalDbSystemCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeExternalDbSystemCompartment.");
+    const operationName = "changeExternalDbSystemCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/ChangeExternalDbSystemCompartment";
+    const pathParams = {
+      "{externalDbSystemId}": changeExternalDbSystemCompartmentRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeExternalDbSystemCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeExternalDbSystemCompartmentRequest.opcRetryToken,
+      "if-match": changeExternalDbSystemCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeExternalDbSystemCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeExternalDbSystemCompartmentRequest.changeExternalDbSystemCompartmentDetails,
+        "ChangeExternalDbSystemCompartmentDetails",
+        model.ChangeExternalDbSystemCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeExternalDbSystemCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -725,6 +806,91 @@ export class DbManagementClient {
   }
 
   /**
+   * Checks the status of the external DB system component connection specified in this connector.
+   * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CheckExternalDbSystemConnectorConnectionStatusRequest
+   * @return CheckExternalDbSystemConnectorConnectionStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CheckExternalDbSystemConnectorConnectionStatus.ts.html |here} to see how to use CheckExternalDbSystemConnectorConnectionStatus API.
+   */
+  public async checkExternalDbSystemConnectorConnectionStatus(
+    checkExternalDbSystemConnectorConnectionStatusRequest: requests.CheckExternalDbSystemConnectorConnectionStatusRequest
+  ): Promise<responses.CheckExternalDbSystemConnectorConnectionStatusResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#checkExternalDbSystemConnectorConnectionStatus."
+      );
+    const operationName = "checkExternalDbSystemConnectorConnectionStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/CheckExternalDbSystemConnectorConnectionStatus";
+    const pathParams = {
+      "{externalDbSystemConnectorId}":
+        checkExternalDbSystemConnectorConnectionStatusRequest.externalDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": checkExternalDbSystemConnectorConnectionStatusRequest.ifMatch,
+      "opc-request-id": checkExternalDbSystemConnectorConnectionStatusRequest.opcRequestId,
+      "opc-retry-token": checkExternalDbSystemConnectorConnectionStatusRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      checkExternalDbSystemConnectorConnectionStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/externalDbSystemConnectors/{externalDbSystemConnectorId}/actions/checkConnectionStatus",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CheckExternalDbSystemConnectorConnectionStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemConnector",
+        bodyModel: model.ExternalDbSystemConnector,
+        type: "model.ExternalDbSystemConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Database Management private endpoint.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -805,6 +971,281 @@ export class DbManagementClient {
           {
             value: response.headers.get("location"),
             key: "location",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an external DB system and its related resources.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateExternalDbSystemRequest
+   * @return CreateExternalDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystem.ts.html |here} to see how to use CreateExternalDbSystem API.
+   */
+  public async createExternalDbSystem(
+    createExternalDbSystemRequest: requests.CreateExternalDbSystemRequest
+  ): Promise<responses.CreateExternalDbSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createExternalDbSystem.");
+    const operationName = "createExternalDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/CreateExternalDbSystem";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExternalDbSystemRequest.opcRequestId,
+      "opc-retry-token": createExternalDbSystemRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalDbSystemRequest.createExternalDbSystemDetails,
+        "CreateExternalDbSystemDetails",
+        model.CreateExternalDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalDbSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystem",
+        bodyModel: model.ExternalDbSystem,
+        type: "model.ExternalDbSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new external connector.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateExternalDbSystemConnectorRequest
+   * @return CreateExternalDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystemConnector.ts.html |here} to see how to use CreateExternalDbSystemConnector API.
+   */
+  public async createExternalDbSystemConnector(
+    createExternalDbSystemConnectorRequest: requests.CreateExternalDbSystemConnectorRequest
+  ): Promise<responses.CreateExternalDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createExternalDbSystemConnector.");
+    const operationName = "createExternalDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/CreateExternalDbSystemConnector";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExternalDbSystemConnectorRequest.opcRequestId,
+      "opc-retry-token": createExternalDbSystemConnectorRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemConnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalDbSystemConnectorRequest.createExternalDbSystemConnectorDetails,
+        "CreateExternalDbSystemConnectorDetails",
+        model.CreateExternalDbSystemConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalDbSystemConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemConnector",
+        bodyModel: model.ExternalDbSystemConnector,
+        type: "model.ExternalDbSystemConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates an external DB system discovery resource and initiates the discovery process.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateExternalDbSystemDiscoveryRequest
+   * @return CreateExternalDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateExternalDbSystemDiscovery.ts.html |here} to see how to use CreateExternalDbSystemDiscovery API.
+   */
+  public async createExternalDbSystemDiscovery(
+    createExternalDbSystemDiscoveryRequest: requests.CreateExternalDbSystemDiscoveryRequest
+  ): Promise<responses.CreateExternalDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#createExternalDbSystemDiscovery.");
+    const operationName = "createExternalDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/CreateExternalDbSystemDiscovery";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExternalDbSystemDiscoveryRequest.opcRequestId,
+      "opc-retry-token": createExternalDbSystemDiscoveryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExternalDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemDiscoveries",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExternalDbSystemDiscoveryRequest.createExternalDbSystemDiscoveryDetails,
+        "CreateExternalDbSystemDiscoveryDetails",
+        model.CreateExternalDbSystemDiscoveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExternalDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemDiscovery",
+        bodyModel: model.ExternalDbSystemDiscovery,
+        type: "model.ExternalDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
             dataType: "string"
           }
         ]
@@ -1146,6 +1587,223 @@ export class DbManagementClient {
   }
 
   /**
+   * Deletes the external DB system specified by `externalDbSystemId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExternalDbSystemRequest
+   * @return DeleteExternalDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystem.ts.html |here} to see how to use DeleteExternalDbSystem API.
+   */
+  public async deleteExternalDbSystem(
+    deleteExternalDbSystemRequest: requests.DeleteExternalDbSystemRequest
+  ): Promise<responses.DeleteExternalDbSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteExternalDbSystem.");
+    const operationName = "deleteExternalDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/DeleteExternalDbSystem";
+    const pathParams = {
+      "{externalDbSystemId}": deleteExternalDbSystemRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteExternalDbSystemRequest.opcRequestId,
+      "if-match": deleteExternalDbSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalDbSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the external connector specified by `externalDbSystemConnectorId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExternalDbSystemConnectorRequest
+   * @return DeleteExternalDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemConnector.ts.html |here} to see how to use DeleteExternalDbSystemConnector API.
+   */
+  public async deleteExternalDbSystemConnector(
+    deleteExternalDbSystemConnectorRequest: requests.DeleteExternalDbSystemConnectorRequest
+  ): Promise<responses.DeleteExternalDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteExternalDbSystemConnector.");
+    const operationName = "deleteExternalDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/DeleteExternalDbSystemConnector";
+    const pathParams = {
+      "{externalDbSystemConnectorId}":
+        deleteExternalDbSystemConnectorRequest.externalDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteExternalDbSystemConnectorRequest.opcRequestId,
+      "if-match": deleteExternalDbSystemConnectorRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemConnectors/{externalDbSystemConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalDbSystemConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the external DB system discovery resource specified by `externalDbSystemDiscoveryId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExternalDbSystemDiscoveryRequest
+   * @return DeleteExternalDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DeleteExternalDbSystemDiscovery.ts.html |here} to see how to use DeleteExternalDbSystemDiscovery API.
+   */
+  public async deleteExternalDbSystemDiscovery(
+    deleteExternalDbSystemDiscoveryRequest: requests.DeleteExternalDbSystemDiscoveryRequest
+  ): Promise<responses.DeleteExternalDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#deleteExternalDbSystemDiscovery.");
+    const operationName = "deleteExternalDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/DeleteExternalDbSystemDiscovery";
+    const pathParams = {
+      "{externalDbSystemDiscoveryId}":
+        deleteExternalDbSystemDiscoveryRequest.externalDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteExternalDbSystemDiscoveryRequest.opcRequestId,
+      "if-match": deleteExternalDbSystemDiscoveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExternalDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemDiscoveries/{externalDbSystemDiscoveryId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExternalDbSystemDiscoveryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the job specified by jobId.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteJobRequest
@@ -1355,6 +2013,85 @@ export class DbManagementClient {
   }
 
   /**
+   * Disables Database Management service for all the components of the specified
+   * external DB system (except databases).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableExternalDbSystemDatabaseManagementRequest
+   * @return DisableExternalDbSystemDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalDbSystemDatabaseManagement.ts.html |here} to see how to use DisableExternalDbSystemDatabaseManagement API.
+   */
+  public async disableExternalDbSystemDatabaseManagement(
+    disableExternalDbSystemDatabaseManagementRequest: requests.DisableExternalDbSystemDatabaseManagementRequest
+  ): Promise<responses.DisableExternalDbSystemDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalDbSystemDatabaseManagement."
+      );
+    const operationName = "disableExternalDbSystemDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/DisableExternalDbSystemDatabaseManagement";
+    const pathParams = {
+      "{externalDbSystemId}": disableExternalDbSystemDatabaseManagementRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableExternalDbSystemDatabaseManagementRequest.opcRequestId,
+      "opc-retry-token": disableExternalDbSystemDatabaseManagementRequest.opcRetryToken,
+      "if-match": disableExternalDbSystemDatabaseManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalDbSystemDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}/actions/disableDatabaseManagement",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalDbSystemDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Drops the tablespace specified by tablespaceName within the Managed Database specified by managedDatabaseId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1423,6 +2160,90 @@ export class DbManagementClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables Database Management service for all the components of the specified
+   * external DB system (except databases).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableExternalDbSystemDatabaseManagementRequest
+   * @return EnableExternalDbSystemDatabaseManagementResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalDbSystemDatabaseManagement.ts.html |here} to see how to use EnableExternalDbSystemDatabaseManagement API.
+   */
+  public async enableExternalDbSystemDatabaseManagement(
+    enableExternalDbSystemDatabaseManagementRequest: requests.EnableExternalDbSystemDatabaseManagementRequest
+  ): Promise<responses.EnableExternalDbSystemDatabaseManagementResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalDbSystemDatabaseManagement."
+      );
+    const operationName = "enableExternalDbSystemDatabaseManagement";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/EnableExternalDbSystemDatabaseManagement";
+    const pathParams = {
+      "{externalDbSystemId}": enableExternalDbSystemDatabaseManagementRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableExternalDbSystemDatabaseManagementRequest.opcRequestId,
+      "opc-retry-token": enableExternalDbSystemDatabaseManagementRequest.opcRetryToken,
+      "if-match": enableExternalDbSystemDatabaseManagementRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalDbSystemDatabaseManagementRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}/actions/enableDatabaseManagement",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalDbSystemDatabaseManagementRequest.enableExternalDbSystemDatabaseManagementDetails,
+        "EnableExternalDbSystemDatabaseManagementDetails",
+        model.EnableExternalDbSystemDatabaseManagementDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalDbSystemDatabaseManagementResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1967,6 +2788,845 @@ export class DbManagementClient {
         bodyKey: "dbManagementPrivateEndpoint",
         bodyModel: model.DbManagementPrivateEndpoint,
         type: "model.DbManagementPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external ASM specified by `externalAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalAsmRequest
+   * @return GetExternalAsmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsm.ts.html |here} to see how to use GetExternalAsm API.
+   */
+  public async getExternalAsm(
+    getExternalAsmRequest: requests.GetExternalAsmRequest
+  ): Promise<responses.GetExternalAsmResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalAsm.");
+    const operationName = "getExternalAsm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/GetExternalAsm";
+    const pathParams = {
+      "{externalAsmId}": getExternalAsmRequest.externalAsmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalAsmRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalAsmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsms/{externalAsmId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalAsmResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsm",
+        bodyModel: model.ExternalAsm,
+        type: "model.ExternalAsm",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets configuration details including disk groups for the external ASM specified by `externalAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalAsmConfigurationRequest
+   * @return GetExternalAsmConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsmConfiguration.ts.html |here} to see how to use GetExternalAsmConfiguration API.
+   */
+  public async getExternalAsmConfiguration(
+    getExternalAsmConfigurationRequest: requests.GetExternalAsmConfigurationRequest
+  ): Promise<responses.GetExternalAsmConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalAsmConfiguration.");
+    const operationName = "getExternalAsmConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/GetExternalAsmConfiguration";
+    const pathParams = {
+      "{externalAsmId}": getExternalAsmConfigurationRequest.externalAsmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalAsmConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalAsmConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsms/{externalAsmId}/configuration",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalAsmConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsmConfiguration",
+        bodyModel: model.ExternalAsmConfiguration,
+        type: "model.ExternalAsmConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external ASM instance specified by `externalAsmInstanceId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalAsmInstanceRequest
+   * @return GetExternalAsmInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalAsmInstance.ts.html |here} to see how to use GetExternalAsmInstance API.
+   */
+  public async getExternalAsmInstance(
+    getExternalAsmInstanceRequest: requests.GetExternalAsmInstanceRequest
+  ): Promise<responses.GetExternalAsmInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalAsmInstance.");
+    const operationName = "getExternalAsmInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsmInstance/GetExternalAsmInstance";
+    const pathParams = {
+      "{externalAsmInstanceId}": getExternalAsmInstanceRequest.externalAsmInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalAsmInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalAsmInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsmInstances/{externalAsmInstanceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalAsmInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsmInstance",
+        bodyModel: model.ExternalAsmInstance,
+        type: "model.ExternalAsmInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external cluster specified by `externalClusterId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalClusterRequest
+   * @return GetExternalClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalCluster.ts.html |here} to see how to use GetExternalCluster API.
+   */
+  public async getExternalCluster(
+    getExternalClusterRequest: requests.GetExternalClusterRequest
+  ): Promise<responses.GetExternalClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalCluster.");
+    const operationName = "getExternalCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/GetExternalCluster";
+    const pathParams = {
+      "{externalClusterId}": getExternalClusterRequest.externalClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalClusters/{externalClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "externalCluster",
+        bodyModel: model.ExternalCluster,
+        type: "model.ExternalCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external cluster instance specified by `externalClusterInstanceId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalClusterInstanceRequest
+   * @return GetExternalClusterInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalClusterInstance.ts.html |here} to see how to use GetExternalClusterInstance API.
+   */
+  public async getExternalClusterInstance(
+    getExternalClusterInstanceRequest: requests.GetExternalClusterInstanceRequest
+  ): Promise<responses.GetExternalClusterInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalClusterInstance.");
+    const operationName = "getExternalClusterInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalClusterInstance/GetExternalClusterInstance";
+    const pathParams = {
+      "{externalClusterInstanceId}": getExternalClusterInstanceRequest.externalClusterInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalClusterInstanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalClusterInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalClusterInstances/{externalClusterInstanceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalClusterInstanceResponse>{},
+        body: await response.json(),
+        bodyKey: "externalClusterInstance",
+        bodyModel: model.ExternalClusterInstance,
+        type: "model.ExternalClusterInstance",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external DB home specified by `externalDbHomeId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalDbHomeRequest
+   * @return GetExternalDbHomeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbHome.ts.html |here} to see how to use GetExternalDbHome API.
+   */
+  public async getExternalDbHome(
+    getExternalDbHomeRequest: requests.GetExternalDbHomeRequest
+  ): Promise<responses.GetExternalDbHomeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalDbHome.");
+    const operationName = "getExternalDbHome";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbHome/GetExternalDbHome";
+    const pathParams = {
+      "{externalDbHomeId}": getExternalDbHomeRequest.externalDbHomeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalDbHomeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalDbHomeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbHomes/{externalDbHomeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalDbHomeResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbHome",
+        bodyModel: model.ExternalDbHome,
+        type: "model.ExternalDbHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external DB node specified by `externalDbNodeId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalDbNodeRequest
+   * @return GetExternalDbNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbNode.ts.html |here} to see how to use GetExternalDbNode API.
+   */
+  public async getExternalDbNode(
+    getExternalDbNodeRequest: requests.GetExternalDbNodeRequest
+  ): Promise<responses.GetExternalDbNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalDbNode.");
+    const operationName = "getExternalDbNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/GetExternalDbNode";
+    const pathParams = {
+      "{externalDbNodeId}": getExternalDbNodeRequest.externalDbNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalDbNodeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalDbNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbNodes/{externalDbNodeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalDbNodeResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbNode",
+        bodyModel: model.ExternalDbNode,
+        type: "model.ExternalDbNode",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external DB system specified by `externalDbSystemId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalDbSystemRequest
+   * @return GetExternalDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystem.ts.html |here} to see how to use GetExternalDbSystem API.
+   */
+  public async getExternalDbSystem(
+    getExternalDbSystemRequest: requests.GetExternalDbSystemRequest
+  ): Promise<responses.GetExternalDbSystemResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalDbSystem.");
+    const operationName = "getExternalDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/GetExternalDbSystem";
+    const pathParams = {
+      "{externalDbSystemId}": getExternalDbSystemRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalDbSystemRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalDbSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystem",
+        bodyModel: model.ExternalDbSystem,
+        type: "model.ExternalDbSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external connector specified by `externalDbSystemConnectorId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalDbSystemConnectorRequest
+   * @return GetExternalDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystemConnector.ts.html |here} to see how to use GetExternalDbSystemConnector API.
+   */
+  public async getExternalDbSystemConnector(
+    getExternalDbSystemConnectorRequest: requests.GetExternalDbSystemConnectorRequest
+  ): Promise<responses.GetExternalDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalDbSystemConnector.");
+    const operationName = "getExternalDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/GetExternalDbSystemConnector";
+    const pathParams = {
+      "{externalDbSystemConnectorId}":
+        getExternalDbSystemConnectorRequest.externalDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalDbSystemConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemConnectors/{externalDbSystemConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalDbSystemConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemConnector",
+        bodyModel: model.ExternalDbSystemConnector,
+        type: "model.ExternalDbSystemConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external DB system discovery resource specified by `externalDbSystemDiscoveryId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalDbSystemDiscoveryRequest
+   * @return GetExternalDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalDbSystemDiscovery.ts.html |here} to see how to use GetExternalDbSystemDiscovery API.
+   */
+  public async getExternalDbSystemDiscovery(
+    getExternalDbSystemDiscoveryRequest: requests.GetExternalDbSystemDiscoveryRequest
+  ): Promise<responses.GetExternalDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getExternalDbSystemDiscovery.");
+    const operationName = "getExternalDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/GetExternalDbSystemDiscovery";
+    const pathParams = {
+      "{externalDbSystemDiscoveryId}":
+        getExternalDbSystemDiscoveryRequest.externalDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalDbSystemDiscoveryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemDiscoveries/{externalDbSystemDiscoveryId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemDiscovery",
+        bodyModel: model.ExternalDbSystemDiscovery,
+        type: "model.ExternalDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details for the external listener specified by `externalListenerId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetExternalListenerRequest
+   * @return GetExternalListenerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetExternalListener.ts.html |here} to see how to use GetExternalListener API.
+   */
+  public async getExternalListener(
+    getExternalListenerRequest: requests.GetExternalListenerRequest
+  ): Promise<responses.GetExternalListenerResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getExternalListener.");
+    const operationName = "getExternalListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/GetExternalListener";
+    const pathParams = {
+      "{externalListenerId}": getExternalListenerRequest.externalListenerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExternalListenerRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExternalListenerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalListeners/{externalListenerId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExternalListenerResponse>{},
+        body: await response.json(),
+        bodyKey: "externalListener",
+        bodyModel: model.ExternalListener,
+        type: "model.ExternalListener",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -3736,6 +5396,1165 @@ export class DbManagementClient {
   }
 
   /**
+   * Lists ASM disk groups for the external ASM specified by `externalAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalAsmDiskGroupsRequest
+   * @return ListExternalAsmDiskGroupsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmDiskGroups.ts.html |here} to see how to use ListExternalAsmDiskGroups API.
+   */
+  public async listExternalAsmDiskGroups(
+    listExternalAsmDiskGroupsRequest: requests.ListExternalAsmDiskGroupsRequest
+  ): Promise<responses.ListExternalAsmDiskGroupsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalAsmDiskGroups.");
+    const operationName = "listExternalAsmDiskGroups";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/ListExternalAsmDiskGroups";
+    const pathParams = {
+      "{externalAsmId}": listExternalAsmDiskGroupsRequest.externalAsmId
+    };
+
+    const queryParams = {
+      "page": listExternalAsmDiskGroupsRequest.page,
+      "limit": listExternalAsmDiskGroupsRequest.limit,
+      "sortBy": listExternalAsmDiskGroupsRequest.sortBy,
+      "sortOrder": listExternalAsmDiskGroupsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalAsmDiskGroupsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalAsmDiskGroupsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsms/{externalAsmId}/diskGroups",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalAsmDiskGroupsResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsmDiskGroupCollection",
+        bodyModel: model.ExternalAsmDiskGroupCollection,
+        type: "model.ExternalAsmDiskGroupCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the ASM instances in the specified external ASM.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalAsmInstancesRequest
+   * @return ListExternalAsmInstancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmInstances.ts.html |here} to see how to use ListExternalAsmInstances API.
+   */
+  public async listExternalAsmInstances(
+    listExternalAsmInstancesRequest: requests.ListExternalAsmInstancesRequest
+  ): Promise<responses.ListExternalAsmInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalAsmInstances.");
+    const operationName = "listExternalAsmInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsmInstance/ListExternalAsmInstances";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalAsmInstancesRequest.compartmentId,
+      "externalAsmId": listExternalAsmInstancesRequest.externalAsmId,
+      "displayName": listExternalAsmInstancesRequest.displayName,
+      "page": listExternalAsmInstancesRequest.page,
+      "limit": listExternalAsmInstancesRequest.limit,
+      "sortBy": listExternalAsmInstancesRequest.sortBy,
+      "sortOrder": listExternalAsmInstancesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalAsmInstancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalAsmInstancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsmInstances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalAsmInstancesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsmInstanceCollection",
+        bodyModel: model.ExternalAsmInstanceCollection,
+        type: "model.ExternalAsmInstanceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists ASM users for the external ASM specified by `externalAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalAsmUsersRequest
+   * @return ListExternalAsmUsersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsmUsers.ts.html |here} to see how to use ListExternalAsmUsers API.
+   */
+  public async listExternalAsmUsers(
+    listExternalAsmUsersRequest: requests.ListExternalAsmUsersRequest
+  ): Promise<responses.ListExternalAsmUsersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalAsmUsers.");
+    const operationName = "listExternalAsmUsers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/ListExternalAsmUsers";
+    const pathParams = {
+      "{externalAsmId}": listExternalAsmUsersRequest.externalAsmId
+    };
+
+    const queryParams = {
+      "page": listExternalAsmUsersRequest.page,
+      "limit": listExternalAsmUsersRequest.limit,
+      "sortBy": listExternalAsmUsersRequest.sortBy,
+      "sortOrder": listExternalAsmUsersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalAsmUsersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalAsmUsersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsms/{externalAsmId}/users",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalAsmUsersResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsmUserCollection",
+        bodyModel: model.ExternalAsmUserCollection,
+        type: "model.ExternalAsmUserCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the ASMs in the specified external DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalAsmsRequest
+   * @return ListExternalAsmsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalAsms.ts.html |here} to see how to use ListExternalAsms API.
+   */
+  public async listExternalAsms(
+    listExternalAsmsRequest: requests.ListExternalAsmsRequest
+  ): Promise<responses.ListExternalAsmsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listExternalAsms.");
+    const operationName = "listExternalAsms";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/ListExternalAsms";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalAsmsRequest.compartmentId,
+      "externalDbSystemId": listExternalAsmsRequest.externalDbSystemId,
+      "displayName": listExternalAsmsRequest.displayName,
+      "page": listExternalAsmsRequest.page,
+      "limit": listExternalAsmsRequest.limit,
+      "sortBy": listExternalAsmsRequest.sortBy,
+      "sortOrder": listExternalAsmsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalAsmsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalAsmsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsms",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalAsmsResponse>{},
+        body: await response.json(),
+        bodyKey: "externalAsmCollection",
+        bodyModel: model.ExternalAsmCollection,
+        type: "model.ExternalAsmCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the cluster instances in the specified external cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalClusterInstancesRequest
+   * @return ListExternalClusterInstancesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalClusterInstances.ts.html |here} to see how to use ListExternalClusterInstances API.
+   */
+  public async listExternalClusterInstances(
+    listExternalClusterInstancesRequest: requests.ListExternalClusterInstancesRequest
+  ): Promise<responses.ListExternalClusterInstancesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalClusterInstances.");
+    const operationName = "listExternalClusterInstances";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalClusterInstance/ListExternalClusterInstances";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalClusterInstancesRequest.compartmentId,
+      "externalClusterId": listExternalClusterInstancesRequest.externalClusterId,
+      "displayName": listExternalClusterInstancesRequest.displayName,
+      "page": listExternalClusterInstancesRequest.page,
+      "limit": listExternalClusterInstancesRequest.limit,
+      "sortBy": listExternalClusterInstancesRequest.sortBy,
+      "sortOrder": listExternalClusterInstancesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalClusterInstancesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalClusterInstancesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalClusterInstances",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalClusterInstancesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalClusterInstanceCollection",
+        bodyModel: model.ExternalClusterInstanceCollection,
+        type: "model.ExternalClusterInstanceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the clusters in the specified external DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalClustersRequest
+   * @return ListExternalClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalClusters.ts.html |here} to see how to use ListExternalClusters API.
+   */
+  public async listExternalClusters(
+    listExternalClustersRequest: requests.ListExternalClustersRequest
+  ): Promise<responses.ListExternalClustersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalClusters.");
+    const operationName = "listExternalClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/ListExternalClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalClustersRequest.compartmentId,
+      "externalDbSystemId": listExternalClustersRequest.externalDbSystemId,
+      "displayName": listExternalClustersRequest.displayName,
+      "page": listExternalClustersRequest.page,
+      "limit": listExternalClustersRequest.limit,
+      "sortBy": listExternalClustersRequest.sortBy,
+      "sortOrder": listExternalClustersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "externalClusterCollection",
+        bodyModel: model.ExternalClusterCollection,
+        type: "model.ExternalClusterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the external databases in the specified compartment or in the specified DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalDatabasesRequest
+   * @return ListExternalDatabasesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDatabases.ts.html |here} to see how to use ListExternalDatabases API.
+   */
+  public async listExternalDatabases(
+    listExternalDatabasesRequest: requests.ListExternalDatabasesRequest
+  ): Promise<responses.ListExternalDatabasesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDatabases.");
+    const operationName = "listExternalDatabases";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDatabaseCollection/ListExternalDatabases";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalDatabasesRequest.compartmentId,
+      "externalDbSystemId": listExternalDatabasesRequest.externalDbSystemId,
+      "displayName": listExternalDatabasesRequest.displayName,
+      "page": listExternalDatabasesRequest.page,
+      "limit": listExternalDatabasesRequest.limit,
+      "sortBy": listExternalDatabasesRequest.sortBy,
+      "sortOrder": listExternalDatabasesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalDatabasesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalDatabasesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDatabases",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalDatabasesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDatabaseCollection",
+        bodyModel: model.ExternalDatabaseCollection,
+        type: "model.ExternalDatabaseCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the DB homes in the specified external DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalDbHomesRequest
+   * @return ListExternalDbHomesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbHomes.ts.html |here} to see how to use ListExternalDbHomes API.
+   */
+  public async listExternalDbHomes(
+    listExternalDbHomesRequest: requests.ListExternalDbHomesRequest
+  ): Promise<responses.ListExternalDbHomesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listExternalDbHomes.");
+    const operationName = "listExternalDbHomes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbHome/ListExternalDbHomes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalDbHomesRequest.compartmentId,
+      "externalDbSystemId": listExternalDbHomesRequest.externalDbSystemId,
+      "displayName": listExternalDbHomesRequest.displayName,
+      "page": listExternalDbHomesRequest.page,
+      "limit": listExternalDbHomesRequest.limit,
+      "sortBy": listExternalDbHomesRequest.sortBy,
+      "sortOrder": listExternalDbHomesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalDbHomesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalDbHomesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbHomes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalDbHomesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbHomeCollection",
+        bodyModel: model.ExternalDbHomeCollection,
+        type: "model.ExternalDbHomeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the external DB nodes in the specified external DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalDbNodesRequest
+   * @return ListExternalDbNodesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbNodes.ts.html |here} to see how to use ListExternalDbNodes API.
+   */
+  public async listExternalDbNodes(
+    listExternalDbNodesRequest: requests.ListExternalDbNodesRequest
+  ): Promise<responses.ListExternalDbNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#listExternalDbNodes.");
+    const operationName = "listExternalDbNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/ListExternalDbNodes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalDbNodesRequest.compartmentId,
+      "externalDbSystemId": listExternalDbNodesRequest.externalDbSystemId,
+      "displayName": listExternalDbNodesRequest.displayName,
+      "page": listExternalDbNodesRequest.page,
+      "limit": listExternalDbNodesRequest.limit,
+      "sortBy": listExternalDbNodesRequest.sortBy,
+      "sortOrder": listExternalDbNodesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalDbNodesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalDbNodesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbNodes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalDbNodesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbNodeCollection",
+        bodyModel: model.ExternalDbNodeCollection,
+        type: "model.ExternalDbNodeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the external connectors in the specified external DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalDbSystemConnectorsRequest
+   * @return ListExternalDbSystemConnectorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystemConnectors.ts.html |here} to see how to use ListExternalDbSystemConnectors API.
+   */
+  public async listExternalDbSystemConnectors(
+    listExternalDbSystemConnectorsRequest: requests.ListExternalDbSystemConnectorsRequest
+  ): Promise<responses.ListExternalDbSystemConnectorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDbSystemConnectors.");
+    const operationName = "listExternalDbSystemConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/ListExternalDbSystemConnectors";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalDbSystemConnectorsRequest.compartmentId,
+      "externalDbSystemId": listExternalDbSystemConnectorsRequest.externalDbSystemId,
+      "displayName": listExternalDbSystemConnectorsRequest.displayName,
+      "page": listExternalDbSystemConnectorsRequest.page,
+      "limit": listExternalDbSystemConnectorsRequest.limit,
+      "sortBy": listExternalDbSystemConnectorsRequest.sortBy,
+      "sortOrder": listExternalDbSystemConnectorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalDbSystemConnectorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalDbSystemConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemConnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalDbSystemConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemConnectorCollection",
+        bodyModel: model.ExternalDbSystemConnectorCollection,
+        type: "model.ExternalDbSystemConnectorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the external DB system discovery resources in the specified compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalDbSystemDiscoveriesRequest
+   * @return ListExternalDbSystemDiscoveriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystemDiscoveries.ts.html |here} to see how to use ListExternalDbSystemDiscoveries API.
+   */
+  public async listExternalDbSystemDiscoveries(
+    listExternalDbSystemDiscoveriesRequest: requests.ListExternalDbSystemDiscoveriesRequest
+  ): Promise<responses.ListExternalDbSystemDiscoveriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDbSystemDiscoveries.");
+    const operationName = "listExternalDbSystemDiscoveries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/ListExternalDbSystemDiscoveries";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalDbSystemDiscoveriesRequest.compartmentId,
+      "displayName": listExternalDbSystemDiscoveriesRequest.displayName,
+      "page": listExternalDbSystemDiscoveriesRequest.page,
+      "limit": listExternalDbSystemDiscoveriesRequest.limit,
+      "sortBy": listExternalDbSystemDiscoveriesRequest.sortBy,
+      "sortOrder": listExternalDbSystemDiscoveriesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalDbSystemDiscoveriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalDbSystemDiscoveriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemDiscoveries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalDbSystemDiscoveriesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemDiscoveryCollection",
+        bodyModel: model.ExternalDbSystemDiscoveryCollection,
+        type: "model.ExternalDbSystemDiscoveryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the external DB systems in the specified compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalDbSystemsRequest
+   * @return ListExternalDbSystemsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalDbSystems.ts.html |here} to see how to use ListExternalDbSystems API.
+   */
+  public async listExternalDbSystems(
+    listExternalDbSystemsRequest: requests.ListExternalDbSystemsRequest
+  ): Promise<responses.ListExternalDbSystemsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalDbSystems.");
+    const operationName = "listExternalDbSystems";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/ListExternalDbSystems";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalDbSystemsRequest.compartmentId,
+      "displayName": listExternalDbSystemsRequest.displayName,
+      "page": listExternalDbSystemsRequest.page,
+      "limit": listExternalDbSystemsRequest.limit,
+      "sortBy": listExternalDbSystemsRequest.sortBy,
+      "sortOrder": listExternalDbSystemsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalDbSystemsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalDbSystemsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalDbSystemsResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemCollection",
+        bodyModel: model.ExternalDbSystemCollection,
+        type: "model.ExternalDbSystemCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the database services registered with the specified external listener
+   * for the specified Managed Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalListenerServicesRequest
+   * @return ListExternalListenerServicesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalListenerServices.ts.html |here} to see how to use ListExternalListenerServices API.
+   */
+  public async listExternalListenerServices(
+    listExternalListenerServicesRequest: requests.ListExternalListenerServicesRequest
+  ): Promise<responses.ListExternalListenerServicesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalListenerServices.");
+    const operationName = "listExternalListenerServices";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/ListExternalListenerServices";
+    const pathParams = {
+      "{externalListenerId}": listExternalListenerServicesRequest.externalListenerId
+    };
+
+    const queryParams = {
+      "managedDatabaseId": listExternalListenerServicesRequest.managedDatabaseId,
+      "page": listExternalListenerServicesRequest.page,
+      "limit": listExternalListenerServicesRequest.limit,
+      "sortBy": listExternalListenerServicesRequest.sortBy,
+      "sortOrder": listExternalListenerServicesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalListenerServicesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalListenerServicesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalListeners/{externalListenerId}/services",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalListenerServicesResponse>{},
+        body: await response.json(),
+        bodyKey: "externalListenerServiceCollection",
+        bodyModel: model.ExternalListenerServiceCollection,
+        type: "model.ExternalListenerServiceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the listeners in the specified external DB system.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListExternalListenersRequest
+   * @return ListExternalListenersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListExternalListeners.ts.html |here} to see how to use ListExternalListeners API.
+   */
+  public async listExternalListeners(
+    listExternalListenersRequest: requests.ListExternalListenersRequest
+  ): Promise<responses.ListExternalListenersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listExternalListeners.");
+    const operationName = "listExternalListeners";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/ListExternalListeners";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listExternalListenersRequest.compartmentId,
+      "externalDbSystemId": listExternalListenersRequest.externalDbSystemId,
+      "displayName": listExternalListenersRequest.displayName,
+      "page": listExternalListenersRequest.page,
+      "limit": listExternalListenersRequest.limit,
+      "sortBy": listExternalListenersRequest.sortBy,
+      "sortOrder": listExternalListenersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExternalListenersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExternalListenersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalListeners",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExternalListenersResponse>{},
+        body: await response.json(),
+        bodyKey: "externalListenerCollection",
+        bodyModel: model.ExternalListenerCollection,
+        type: "model.ExternalListenerCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the job execution for a specific ID or the list of job executions for a job, job run, Managed Database or Managed Database Group
    * in a specific compartment. Only one of the parameters, ID, jobId, jobRunId, managedDatabaseId or managedDatabaseGroupId should be provided.
    * If none of these parameters is provided, all the job executions in the compartment are listed. Job executions can also be filtered
@@ -5439,6 +8258,91 @@ export class DbManagementClient {
   }
 
   /**
+   * Patches the external DB system discovery specified by `externalDbSystemDiscoveryId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchExternalDbSystemDiscoveryRequest
+   * @return PatchExternalDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/PatchExternalDbSystemDiscovery.ts.html |here} to see how to use PatchExternalDbSystemDiscovery API.
+   */
+  public async patchExternalDbSystemDiscovery(
+    patchExternalDbSystemDiscoveryRequest: requests.PatchExternalDbSystemDiscoveryRequest
+  ): Promise<responses.PatchExternalDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#patchExternalDbSystemDiscovery.");
+    const operationName = "patchExternalDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/PatchExternalDbSystemDiscovery";
+    const pathParams = {
+      "{externalDbSystemDiscoveryId}":
+        patchExternalDbSystemDiscoveryRequest.externalDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": patchExternalDbSystemDiscoveryRequest.opcRequestId,
+      "if-match": patchExternalDbSystemDiscoveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchExternalDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemDiscoveries/{externalDbSystemDiscoveryId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchExternalDbSystemDiscoveryRequest.patchExternalDbSystemDiscoveryDetails,
+        "PatchExternalDbSystemDiscoveryDetails",
+        model.PatchExternalDbSystemDiscoveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchExternalDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemDiscovery",
+        bodyModel: model.ExternalDbSystemDiscovery,
+        type: "model.ExternalDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a data file or temp file from the tablespace.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -6687,6 +9591,429 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Gets metrics for the external ASM specified by `externalAsmId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeExternalAsmMetricsRequest
+   * @return SummarizeExternalAsmMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalAsmMetrics.ts.html |here} to see how to use SummarizeExternalAsmMetrics API.
+   */
+  public async summarizeExternalAsmMetrics(
+    summarizeExternalAsmMetricsRequest: requests.SummarizeExternalAsmMetricsRequest
+  ): Promise<responses.SummarizeExternalAsmMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalAsmMetrics.");
+    const operationName = "summarizeExternalAsmMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/SummarizeExternalAsmMetrics";
+    const pathParams = {
+      "{externalAsmId}": summarizeExternalAsmMetricsRequest.externalAsmId
+    };
+
+    const queryParams = {
+      "page": summarizeExternalAsmMetricsRequest.page,
+      "limit": summarizeExternalAsmMetricsRequest.limit,
+      "startTime": summarizeExternalAsmMetricsRequest.startTime,
+      "endTime": summarizeExternalAsmMetricsRequest.endTime,
+      "filterByMetricNames": summarizeExternalAsmMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExternalAsmMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExternalAsmMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsms/{externalAsmId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExternalAsmMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metrics for the external cluster specified by `externalClusterId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeExternalClusterMetricsRequest
+   * @return SummarizeExternalClusterMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalClusterMetrics.ts.html |here} to see how to use SummarizeExternalClusterMetrics API.
+   */
+  public async summarizeExternalClusterMetrics(
+    summarizeExternalClusterMetricsRequest: requests.SummarizeExternalClusterMetricsRequest
+  ): Promise<responses.SummarizeExternalClusterMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalClusterMetrics.");
+    const operationName = "summarizeExternalClusterMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/SummarizeExternalClusterMetrics";
+    const pathParams = {
+      "{externalClusterId}": summarizeExternalClusterMetricsRequest.externalClusterId
+    };
+
+    const queryParams = {
+      "page": summarizeExternalClusterMetricsRequest.page,
+      "limit": summarizeExternalClusterMetricsRequest.limit,
+      "startTime": summarizeExternalClusterMetricsRequest.startTime,
+      "endTime": summarizeExternalClusterMetricsRequest.endTime,
+      "filterByMetricNames": summarizeExternalClusterMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExternalClusterMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExternalClusterMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalClusters/{externalClusterId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExternalClusterMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metrics for the external DB node specified by `externalDbNodeId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeExternalDbNodeMetricsRequest
+   * @return SummarizeExternalDbNodeMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalDbNodeMetrics.ts.html |here} to see how to use SummarizeExternalDbNodeMetrics API.
+   */
+  public async summarizeExternalDbNodeMetrics(
+    summarizeExternalDbNodeMetricsRequest: requests.SummarizeExternalDbNodeMetricsRequest
+  ): Promise<responses.SummarizeExternalDbNodeMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalDbNodeMetrics.");
+    const operationName = "summarizeExternalDbNodeMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/SummarizeExternalDbNodeMetrics";
+    const pathParams = {
+      "{externalDbNodeId}": summarizeExternalDbNodeMetricsRequest.externalDbNodeId
+    };
+
+    const queryParams = {
+      "page": summarizeExternalDbNodeMetricsRequest.page,
+      "limit": summarizeExternalDbNodeMetricsRequest.limit,
+      "startTime": summarizeExternalDbNodeMetricsRequest.startTime,
+      "endTime": summarizeExternalDbNodeMetricsRequest.endTime,
+      "filterByMetricNames": summarizeExternalDbNodeMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExternalDbNodeMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExternalDbNodeMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbNodes/{externalDbNodeId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExternalDbNodeMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets availability metrics for the components present in the external DB system specified by `externalDbSystemId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeExternalDbSystemAvailabilityMetricsRequest
+   * @return SummarizeExternalDbSystemAvailabilityMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalDbSystemAvailabilityMetrics.ts.html |here} to see how to use SummarizeExternalDbSystemAvailabilityMetrics API.
+   */
+  public async summarizeExternalDbSystemAvailabilityMetrics(
+    summarizeExternalDbSystemAvailabilityMetricsRequest: requests.SummarizeExternalDbSystemAvailabilityMetricsRequest
+  ): Promise<responses.SummarizeExternalDbSystemAvailabilityMetricsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#summarizeExternalDbSystemAvailabilityMetrics."
+      );
+    const operationName = "summarizeExternalDbSystemAvailabilityMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/SummarizeExternalDbSystemAvailabilityMetrics";
+    const pathParams = {
+      "{externalDbSystemId}": summarizeExternalDbSystemAvailabilityMetricsRequest.externalDbSystemId
+    };
+
+    const queryParams = {
+      "page": summarizeExternalDbSystemAvailabilityMetricsRequest.page,
+      "limit": summarizeExternalDbSystemAvailabilityMetricsRequest.limit,
+      "filterByComponentTypes":
+        summarizeExternalDbSystemAvailabilityMetricsRequest.filterByComponentTypes,
+      "startTime": summarizeExternalDbSystemAvailabilityMetricsRequest.startTime,
+      "endTime": summarizeExternalDbSystemAvailabilityMetricsRequest.endTime
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExternalDbSystemAvailabilityMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExternalDbSystemAvailabilityMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}/availabilityMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExternalDbSystemAvailabilityMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets metrics for the external listener specified by `externalListenerId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeExternalListenerMetricsRequest
+   * @return SummarizeExternalListenerMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeExternalListenerMetrics.ts.html |here} to see how to use SummarizeExternalListenerMetrics API.
+   */
+  public async summarizeExternalListenerMetrics(
+    summarizeExternalListenerMetricsRequest: requests.SummarizeExternalListenerMetricsRequest
+  ): Promise<responses.SummarizeExternalListenerMetricsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeExternalListenerMetrics.");
+    const operationName = "summarizeExternalListenerMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/SummarizeExternalListenerMetrics";
+    const pathParams = {
+      "{externalListenerId}": summarizeExternalListenerMetricsRequest.externalListenerId
+    };
+
+    const queryParams = {
+      "page": summarizeExternalListenerMetricsRequest.page,
+      "limit": summarizeExternalListenerMetricsRequest.limit,
+      "startTime": summarizeExternalListenerMetricsRequest.startTime,
+      "endTime": summarizeExternalListenerMetricsRequest.endTime,
+      "filterByMetricNames": summarizeExternalListenerMetricsRequest.filterByMetricNames
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeExternalListenerMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeExternalListenerMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalListeners/{externalListenerId}/metrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeExternalListenerMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the number of job executions grouped by status for a job, Managed Database, or Database Group in a specific compartment. Only one of the parameters, jobId, managedDatabaseId, or managedDatabaseGroupId should be provided.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param SummarizeJobExecutionsStatusesRequest
@@ -6755,6 +10082,92 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the availability metrics related to managed database for the Oracle
+   * database specified by managedDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeManagedDatabaseAvailabilityMetricsRequest
+   * @return SummarizeManagedDatabaseAvailabilityMetricsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeManagedDatabaseAvailabilityMetrics.ts.html |here} to see how to use SummarizeManagedDatabaseAvailabilityMetrics API.
+   */
+  public async summarizeManagedDatabaseAvailabilityMetrics(
+    summarizeManagedDatabaseAvailabilityMetricsRequest: requests.SummarizeManagedDatabaseAvailabilityMetricsRequest
+  ): Promise<responses.SummarizeManagedDatabaseAvailabilityMetricsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#summarizeManagedDatabaseAvailabilityMetrics."
+      );
+    const operationName = "summarizeManagedDatabaseAvailabilityMetrics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeManagedDatabaseAvailabilityMetrics";
+    const pathParams = {
+      "{managedDatabaseId}": summarizeManagedDatabaseAvailabilityMetricsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "page": summarizeManagedDatabaseAvailabilityMetricsRequest.page,
+      "limit": summarizeManagedDatabaseAvailabilityMetricsRequest.limit,
+      "startTime": summarizeManagedDatabaseAvailabilityMetricsRequest.startTime,
+      "endTime": summarizeManagedDatabaseAvailabilityMetricsRequest.endTime
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeManagedDatabaseAvailabilityMetricsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeManagedDatabaseAvailabilityMetricsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/availabilityMetrics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeManagedDatabaseAvailabilityMetricsResponse>{},
+        body: await response.json(),
+        bodyKey: "metricsAggregationRangeCollection",
+        bodyModel: model.MetricsAggregationRangeCollection,
+        type: "model.MetricsAggregationRangeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -6919,6 +10332,654 @@ Note that this API does not return information on the number of times each datab
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external ASM specified by `externalAsmId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalAsmRequest
+   * @return UpdateExternalAsmResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalAsm.ts.html |here} to see how to use UpdateExternalAsm API.
+   */
+  public async updateExternalAsm(
+    updateExternalAsmRequest: requests.UpdateExternalAsmRequest
+  ): Promise<responses.UpdateExternalAsmResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#updateExternalAsm.");
+    const operationName = "updateExternalAsm";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalAsm/UpdateExternalAsm";
+    const pathParams = {
+      "{externalAsmId}": updateExternalAsmRequest.externalAsmId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalAsmRequest.opcRequestId,
+      "if-match": updateExternalAsmRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalAsmRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalAsms/{externalAsmId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalAsmRequest.updateExternalAsmDetails,
+        "UpdateExternalAsmDetails",
+        model.UpdateExternalAsmDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalAsmResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external cluster specified by `externalClusterId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalClusterRequest
+   * @return UpdateExternalClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalCluster.ts.html |here} to see how to use UpdateExternalCluster API.
+   */
+  public async updateExternalCluster(
+    updateExternalClusterRequest: requests.UpdateExternalClusterRequest
+  ): Promise<responses.UpdateExternalClusterResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalCluster.");
+    const operationName = "updateExternalCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalCluster/UpdateExternalCluster";
+    const pathParams = {
+      "{externalClusterId}": updateExternalClusterRequest.externalClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalClusterRequest.opcRequestId,
+      "if-match": updateExternalClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalClusters/{externalClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalClusterRequest.updateExternalClusterDetails,
+        "UpdateExternalClusterDetails",
+        model.UpdateExternalClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external cluster instance specified by `externalClusterInstanceId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalClusterInstanceRequest
+   * @return UpdateExternalClusterInstanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalClusterInstance.ts.html |here} to see how to use UpdateExternalClusterInstance API.
+   */
+  public async updateExternalClusterInstance(
+    updateExternalClusterInstanceRequest: requests.UpdateExternalClusterInstanceRequest
+  ): Promise<responses.UpdateExternalClusterInstanceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalClusterInstance.");
+    const operationName = "updateExternalClusterInstance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalClusterInstance/UpdateExternalClusterInstance";
+    const pathParams = {
+      "{externalClusterInstanceId}": updateExternalClusterInstanceRequest.externalClusterInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalClusterInstanceRequest.opcRequestId,
+      "if-match": updateExternalClusterInstanceRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalClusterInstanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalClusterInstances/{externalClusterInstanceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalClusterInstanceRequest.updateExternalClusterInstanceDetails,
+        "UpdateExternalClusterInstanceDetails",
+        model.UpdateExternalClusterInstanceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalClusterInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external DB node specified by `externalDbNodeId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalDbNodeRequest
+   * @return UpdateExternalDbNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbNode.ts.html |here} to see how to use UpdateExternalDbNode API.
+   */
+  public async updateExternalDbNode(
+    updateExternalDbNodeRequest: requests.UpdateExternalDbNodeRequest
+  ): Promise<responses.UpdateExternalDbNodeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbNode.");
+    const operationName = "updateExternalDbNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbNode/UpdateExternalDbNode";
+    const pathParams = {
+      "{externalDbNodeId}": updateExternalDbNodeRequest.externalDbNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalDbNodeRequest.opcRequestId,
+      "if-match": updateExternalDbNodeRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalDbNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbNodes/{externalDbNodeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalDbNodeRequest.updateExternalDbNodeDetails,
+        "UpdateExternalDbNodeDetails",
+        model.UpdateExternalDbNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalDbNodeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external DB system specified by `externalDbSystemId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalDbSystemRequest
+   * @return UpdateExternalDbSystemResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystem.ts.html |here} to see how to use UpdateExternalDbSystem API.
+   */
+  public async updateExternalDbSystem(
+    updateExternalDbSystemRequest: requests.UpdateExternalDbSystemRequest
+  ): Promise<responses.UpdateExternalDbSystemResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbSystem.");
+    const operationName = "updateExternalDbSystem";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/UpdateExternalDbSystem";
+    const pathParams = {
+      "{externalDbSystemId}": updateExternalDbSystemRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalDbSystemRequest.opcRequestId,
+      "if-match": updateExternalDbSystemRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalDbSystemRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalDbSystemRequest.updateExternalDbSystemDetails,
+        "UpdateExternalDbSystemDetails",
+        model.UpdateExternalDbSystemDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalDbSystemResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystem",
+        bodyModel: model.ExternalDbSystem,
+        type: "model.ExternalDbSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external connector specified by `externalDbSystemConnectorId`.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalDbSystemConnectorRequest
+   * @return UpdateExternalDbSystemConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystemConnector.ts.html |here} to see how to use UpdateExternalDbSystemConnector API.
+   */
+  public async updateExternalDbSystemConnector(
+    updateExternalDbSystemConnectorRequest: requests.UpdateExternalDbSystemConnectorRequest
+  ): Promise<responses.UpdateExternalDbSystemConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbSystemConnector.");
+    const operationName = "updateExternalDbSystemConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemConnector/UpdateExternalDbSystemConnector";
+    const pathParams = {
+      "{externalDbSystemConnectorId}":
+        updateExternalDbSystemConnectorRequest.externalDbSystemConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateExternalDbSystemConnectorRequest.ifMatch,
+      "opc-request-id": updateExternalDbSystemConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalDbSystemConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemConnectors/{externalDbSystemConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalDbSystemConnectorRequest.updateExternalDbSystemConnectorDetails,
+        "UpdateExternalDbSystemConnectorDetails",
+        model.UpdateExternalDbSystemConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalDbSystemConnectorResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external DB system discovery specified by `externalDbSystemDiscoveryId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalDbSystemDiscoveryRequest
+   * @return UpdateExternalDbSystemDiscoveryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalDbSystemDiscovery.ts.html |here} to see how to use UpdateExternalDbSystemDiscovery API.
+   */
+  public async updateExternalDbSystemDiscovery(
+    updateExternalDbSystemDiscoveryRequest: requests.UpdateExternalDbSystemDiscoveryRequest
+  ): Promise<responses.UpdateExternalDbSystemDiscoveryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalDbSystemDiscovery.");
+    const operationName = "updateExternalDbSystemDiscovery";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystemDiscovery/UpdateExternalDbSystemDiscovery";
+    const pathParams = {
+      "{externalDbSystemDiscoveryId}":
+        updateExternalDbSystemDiscoveryRequest.externalDbSystemDiscoveryId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalDbSystemDiscoveryRequest.opcRequestId,
+      "if-match": updateExternalDbSystemDiscoveryRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalDbSystemDiscoveryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystemDiscoveries/{externalDbSystemDiscoveryId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalDbSystemDiscoveryRequest.updateExternalDbSystemDiscoveryDetails,
+        "UpdateExternalDbSystemDiscoveryDetails",
+        model.UpdateExternalDbSystemDiscoveryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalDbSystemDiscoveryResponse>{},
+        body: await response.json(),
+        bodyKey: "externalDbSystemDiscovery",
+        bodyModel: model.ExternalDbSystemDiscovery,
+        type: "model.ExternalDbSystemDiscovery",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the external listener specified by `externalListenerId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExternalListenerRequest
+   * @return UpdateExternalListenerResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/UpdateExternalListener.ts.html |here} to see how to use UpdateExternalListener API.
+   */
+  public async updateExternalListener(
+    updateExternalListenerRequest: requests.UpdateExternalListenerRequest
+  ): Promise<responses.UpdateExternalListenerResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#updateExternalListener.");
+    const operationName = "updateExternalListener";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalListener/UpdateExternalListener";
+    const pathParams = {
+      "{externalListenerId}": updateExternalListenerRequest.externalListenerId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExternalListenerRequest.opcRequestId,
+      "if-match": updateExternalListenerRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExternalListenerRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalListeners/{externalListenerId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExternalListenerRequest.updateExternalListenerDetails,
+        "UpdateExternalListenerDetails",
+        model.UpdateExternalListenerDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExternalListenerResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

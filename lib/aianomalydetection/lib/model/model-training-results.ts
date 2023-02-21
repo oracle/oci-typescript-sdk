@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -30,6 +30,14 @@ export interface ModelTrainingResults {
    */
   "multivariateFap"?: number;
   /**
+   * Actual algorithm used to train the model
+   */
+  "algorithm"?: ModelTrainingResults.Algorithm;
+  /**
+   * Window size defined during training or deduced by the algorithm. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "windowSize"?: number;
+  /**
    * A boolean value to indicate if train goal/targetFap is achieved for trained model
    */
   "isTrainingGoalAchieved"?: boolean;
@@ -45,6 +53,16 @@ export interface ModelTrainingResults {
 }
 
 export namespace ModelTrainingResults {
+  export enum Algorithm {
+    MultivariateMset = "MULTIVARIATE_MSET",
+    UnivariateOcsvm = "UNIVARIATE_OCSVM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ModelTrainingResults): object {
     const jsonObj = {
       ...obj,

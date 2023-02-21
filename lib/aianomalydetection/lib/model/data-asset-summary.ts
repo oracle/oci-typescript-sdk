@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -75,10 +75,10 @@ export interface DataAssetSummary {
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: `{ \"orcl-cloud\": { \"free-tier-retained\": \"true\" } }`
    *
    */
-  "systemTags"?: { [key: string]: { [key: string]: any } };
+  "systemTags"?: { [key: string]: any };
 }
 
 export namespace DataAssetSummary {

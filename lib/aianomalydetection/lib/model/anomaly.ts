@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -34,11 +34,11 @@ export interface Anomaly {
    */
   "estimatedValue": number;
   /**
-   * The value imputed by one of IDP step for missing values in origin data Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The value imputed by an IDP step for missing values in origin data. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "imputedValue"?: number;
   /**
-   * A significant score ranged from 0 to 1 to each anomaly point Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * A significant score ranged from 0 to 1 to each anomaly point. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "anomalyScore": number;
 }

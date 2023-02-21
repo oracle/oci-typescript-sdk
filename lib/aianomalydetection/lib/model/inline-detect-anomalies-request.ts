@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -18,8 +18,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This is the specialised JSON format that we accept as Training data, with an additional
- * field for 'requestType' which is a required field used deciding whether it is an inline
+ * This is the specialised JSON format that is accepted as training data, with an additional
+ * field for 'requestType'. This is a required field used deciding whether it is an inline
  * request or contains embedded data.
  *
  */
