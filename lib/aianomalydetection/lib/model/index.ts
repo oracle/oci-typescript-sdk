@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -30,6 +30,8 @@ import * as ChangeAiPrivateEndpointCompartmentDetails from "./change-ai-private-
 export import ChangeAiPrivateEndpointCompartmentDetails = ChangeAiPrivateEndpointCompartmentDetails.ChangeAiPrivateEndpointCompartmentDetails;
 import * as ChangeDataAssetCompartmentDetails from "./change-data-asset-compartment-details";
 export import ChangeDataAssetCompartmentDetails = ChangeDataAssetCompartmentDetails.ChangeDataAssetCompartmentDetails;
+import * as ChangeDetectAnomalyJobCompartmentDetails from "./change-detect-anomaly-job-compartment-details";
+export import ChangeDetectAnomalyJobCompartmentDetails = ChangeDetectAnomalyJobCompartmentDetails.ChangeDetectAnomalyJobCompartmentDetails;
 import * as ChangeModelCompartmentDetails from "./change-model-compartment-details";
 export import ChangeModelCompartmentDetails = ChangeModelCompartmentDetails.ChangeModelCompartmentDetails;
 import * as ChangeProjectCompartmentDetails from "./change-project-compartment-details";
@@ -38,6 +40,8 @@ import * as CreateAiPrivateEndpointDetails from "./create-ai-private-endpoint-de
 export import CreateAiPrivateEndpointDetails = CreateAiPrivateEndpointDetails.CreateAiPrivateEndpointDetails;
 import * as CreateDataAssetDetails from "./create-data-asset-details";
 export import CreateDataAssetDetails = CreateDataAssetDetails.CreateDataAssetDetails;
+import * as CreateDetectAnomalyJobDetails from "./create-detect-anomaly-job-details";
+export import CreateDetectAnomalyJobDetails = CreateDetectAnomalyJobDetails.CreateDetectAnomalyJobDetails;
 import * as CreateModelDetails from "./create-model-details";
 export import CreateModelDetails = CreateModelDetails.CreateModelDetails;
 import * as CreateProjectDetails from "./create-project-details";
@@ -56,12 +60,22 @@ import * as DataSourceType from "./data-source-type";
 export import DataSourceType = DataSourceType.DataSourceType;
 import * as DetectAnomaliesDetails from "./detect-anomalies-details";
 export import DetectAnomaliesDetails = DetectAnomaliesDetails.DetectAnomaliesDetails;
+import * as DetectAnomalyJob from "./detect-anomaly-job";
+export import DetectAnomalyJob = DetectAnomalyJob.DetectAnomalyJob;
+import * as DetectAnomalyJobCollection from "./detect-anomaly-job-collection";
+export import DetectAnomalyJobCollection = DetectAnomalyJobCollection.DetectAnomalyJobCollection;
+import * as DetectAnomalyJobSummary from "./detect-anomaly-job-summary";
+export import DetectAnomalyJobSummary = DetectAnomalyJobSummary.DetectAnomalyJobSummary;
 import * as DetectionResultItem from "./detection-result-item";
 export import DetectionResultItem = DetectionResultItem.DetectionResultItem;
 import * as InfluxDetails from "./influx-details";
 export import InfluxDetails = InfluxDetails.InfluxDetails;
 import * as InfluxVersion from "./influx-version";
 export import InfluxVersion = InfluxVersion.InfluxVersion;
+import * as InputDetails from "./input-details";
+export import InputDetails = InputDetails.InputDetails;
+import * as InputJobDetails from "./input-job-details";
+export import InputJobDetails = InputJobDetails.InputJobDetails;
 import * as Model from "./model";
 export import Model = Model.Model;
 import * as ModelCollection from "./model-collection";
@@ -72,10 +86,16 @@ import * as ModelTrainingDetails from "./model-training-details";
 export import ModelTrainingDetails = ModelTrainingDetails.ModelTrainingDetails;
 import * as ModelTrainingResults from "./model-training-results";
 export import ModelTrainingResults = ModelTrainingResults.ModelTrainingResults;
+import * as ObjectLocation from "./object-location";
+export import ObjectLocation = ObjectLocation.ObjectLocation;
 import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";
 export import OperationType = OperationType.OperationType;
+import * as OutputDetails from "./output-details";
+export import OutputDetails = OutputDetails.OutputDetails;
+import * as OutputJobDetails from "./output-job-details";
+export import OutputJobDetails = OutputJobDetails.OutputJobDetails;
 import * as PerSignalDetails from "./per-signal-details";
 export import PerSignalDetails = PerSignalDetails.PerSignalDetails;
 import * as Project from "./project";
@@ -92,6 +112,8 @@ import * as UpdateAiPrivateEndpointDetails from "./update-ai-private-endpoint-de
 export import UpdateAiPrivateEndpointDetails = UpdateAiPrivateEndpointDetails.UpdateAiPrivateEndpointDetails;
 import * as UpdateDataAssetDetails from "./update-data-asset-details";
 export import UpdateDataAssetDetails = UpdateDataAssetDetails.UpdateDataAssetDetails;
+import * as UpdateDetectAnomalyJobDetails from "./update-detect-anomaly-job-details";
+export import UpdateDetectAnomalyJobDetails = UpdateDetectAnomalyJobDetails.UpdateDetectAnomalyJobDetails;
 import * as UpdateModelDetails from "./update-model-details";
 export import UpdateModelDetails = UpdateModelDetails.UpdateModelDetails;
 import * as UpdateProjectDetails from "./update-project-details";
@@ -121,9 +143,23 @@ import * as DataSourceDetailsObjectStorage from "./data-source-details-object-st
 export import DataSourceDetailsObjectStorage = DataSourceDetailsObjectStorage.DataSourceDetailsObjectStorage;
 import * as EmbeddedDetectAnomaliesRequest from "./embedded-detect-anomalies-request";
 export import EmbeddedDetectAnomaliesRequest = EmbeddedDetectAnomaliesRequest.EmbeddedDetectAnomaliesRequest;
+import * as EmbeddedInputDetails from "./embedded-input-details";
+export import EmbeddedInputDetails = EmbeddedInputDetails.EmbeddedInputDetails;
 import * as InfluxDetailsV1v8 from "./influx-details-v1v8";
 export import InfluxDetailsV1v8 = InfluxDetailsV1v8.InfluxDetailsV1v8;
 import * as InfluxDetailsV2v0 from "./influx-details-v2v0";
 export import InfluxDetailsV2v0 = InfluxDetailsV2v0.InfluxDetailsV2v0;
 import * as InlineDetectAnomaliesRequest from "./inline-detect-anomalies-request";
 export import InlineDetectAnomaliesRequest = InlineDetectAnomaliesRequest.InlineDetectAnomaliesRequest;
+import * as InlineInputDetails from "./inline-input-details";
+export import InlineInputDetails = InlineInputDetails.InlineInputDetails;
+import * as InlineInputJobDetails from "./inline-input-job-details";
+export import InlineInputJobDetails = InlineInputJobDetails.InlineInputJobDetails;
+import * as ObjectListInputDetails from "./object-list-input-details";
+export import ObjectListInputDetails = ObjectListInputDetails.ObjectListInputDetails;
+import * as ObjectListInputJobDetails from "./object-list-input-job-details";
+export import ObjectListInputJobDetails = ObjectListInputJobDetails.ObjectListInputJobDetails;
+import * as ObjectStorageLocation from "./object-storage-location";
+export import ObjectStorageLocation = ObjectStorageLocation.ObjectStorageLocation;
+import * as ObjectStoreOutputDetails from "./object-store-output-details";
+export import ObjectStoreOutputDetails = ObjectStoreOutputDetails.ObjectStoreOutputDetails;

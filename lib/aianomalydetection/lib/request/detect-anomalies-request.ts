@@ -22,11 +22,11 @@ export interface DetectAnomaliesRequest extends common.BaseRequest {
    * The input is either:
    *   - JSON object in the request. This object is defined and SDK will generate the
    *     object for it
-   *   - Data embedded as base64 string in format of either
+   *   - Data embedded as Base64 string in format of either
    *     - CSV
    *     - JSON
    *     If this option is chosen then customer has to provide the content of specified
-   *     CSV or JSON in base64 encoded string. The Embedded JSON will still has to be
+   *     CSV or JSON in Base64 encoded string. The Embedded JSON will still has to be
    *     in same format as inline request JSON
    *
    */

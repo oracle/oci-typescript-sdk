@@ -41,16 +41,44 @@ export interface WorkRequestResource {
    * The URI path that is used in a GET request to access the resource metadata.
    */
   "entityUri"?: string;
+  /**
+   * The name of the WorkRequest resource entity.
+   */
+  "entityName"?: string;
+  /**
+   * The dependent resources of this work request resource, these can only be provisioned
+   * when primary resource successfully completes.
+   *
+   */
+  "entityDependencies"?: Array<model.WorkRequestSubResource>;
 }
 
 export namespace WorkRequestResource {
   export function getJsonObj(obj: WorkRequestResource): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "entityDependencies": obj.entityDependencies
+          ? obj.entityDependencies.map(item => {
+              return model.WorkRequestSubResource.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: WorkRequestResource): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "entityDependencies": obj.entityDependencies
+          ? obj.entityDependencies.map(item => {
+              return model.WorkRequestSubResource.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

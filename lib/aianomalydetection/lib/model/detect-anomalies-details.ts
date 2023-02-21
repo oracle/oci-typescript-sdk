@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -18,15 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Base class for the DetectAnomalies call. It contains the identifier that will
- * be used for deciding what type of request this is.
+ * Base class for the DetectAnomalies call. It contains the identifier that is
+ * used for deciding what type of request this is.
  *
  */
 export interface DetectAnomaliesDetails {
   /**
-   * The OCID of the trained model\u3002
+   * The OCID of the trained model.
    */
   "modelId": string;
+  /**
+   * Sensitivity of the algorithm to detect anomalies - higher the value, more anomalies get flagged. The value estimated during training is used by default. You can choose to provide a custom value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sensitivity"?: number;
 
   "requestType": string;
 }

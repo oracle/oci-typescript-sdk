@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -155,7 +155,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Cancel work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -167,7 +167,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#cancelWorkRequest.");
     const operationName = "cancelWorkRequest";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequest/CancelWorkRequest";
     const pathParams = {
       "{workRequestId}": cancelWorkRequestRequest.workRequestId
     };
@@ -180,7 +181,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelWorkRequestRequest.retryConfiguration,
@@ -223,7 +224,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Moves a resource into a different compartment. When provided, 'If-Match' is checked against 'ETag' values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAiPrivateEndpointCompartmentRequest
    * @return ChangeAiPrivateEndpointCompartmentResponse
    * @throws OciError when an error occurs
@@ -237,7 +238,8 @@ export class AnomalyDetectionClient {
         "Calling operation AnomalyDetectionClient#changeAiPrivateEndpointCompartment."
       );
     const operationName = "changeAiPrivateEndpointCompartment";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/ChangeAiPrivateEndpointCompartment";
     const pathParams = {
       "{aiPrivateEndpointId}": changeAiPrivateEndpointCompartmentRequest.aiPrivateEndpointId
     };
@@ -251,7 +253,7 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeAiPrivateEndpointCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAiPrivateEndpointCompartmentRequest.retryConfiguration,
@@ -304,7 +306,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Changing the compartment of a data asset.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDataAssetCompartmentRequest
    * @return ChangeDataAssetCompartmentResponse
    * @throws OciError when an error occurs
@@ -316,7 +318,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#changeDataAssetCompartment.");
     const operationName = "changeDataAssetCompartment";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/ChangeDataAssetCompartment";
     const pathParams = {
       "{dataAssetId}": changeDataAssetCompartmentRequest.dataAssetId
     };
@@ -330,7 +333,7 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeDataAssetCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeDataAssetCompartmentRequest.retryConfiguration,
@@ -386,8 +389,84 @@ export class AnomalyDetectionClient {
   }
 
   /**
+   * Moves a asynchronous anomaly detect job resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeDetectAnomalyJobCompartmentRequest
+   * @return ChangeDetectAnomalyJobCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ChangeDetectAnomalyJobCompartment.ts.html |here} to see how to use ChangeDetectAnomalyJobCompartment API.
+   */
+  public async changeDetectAnomalyJobCompartment(
+    changeDetectAnomalyJobCompartmentRequest: requests.ChangeDetectAnomalyJobCompartmentRequest
+  ): Promise<responses.ChangeDetectAnomalyJobCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation AnomalyDetectionClient#changeDetectAnomalyJobCompartment."
+      );
+    const operationName = "changeDetectAnomalyJobCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/ChangeDetectAnomalyJobCompartment";
+    const pathParams = {
+      "{detectAnomalyJobId}": changeDetectAnomalyJobCompartmentRequest.detectAnomalyJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDetectAnomalyJobCompartmentRequest.ifMatch,
+      "opc-request-id": changeDetectAnomalyJobCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDetectAnomalyJobCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectAnomalyJobs/{detectAnomalyJobId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDetectAnomalyJobCompartmentRequest.changeDetectAnomalyJobCompartmentDetails,
+        "ChangeDetectAnomalyJobCompartmentDetails",
+        model.ChangeDetectAnomalyJobCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDetectAnomalyJobCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a Model resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeModelCompartmentRequest
    * @return ChangeModelCompartmentResponse
    * @throws OciError when an error occurs
@@ -399,7 +478,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#changeModelCompartment.");
     const operationName = "changeModelCompartment";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/ChangeModelCompartment";
     const pathParams = {
       "{modelId}": changeModelCompartmentRequest.modelId
     };
@@ -413,7 +493,7 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeModelCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeModelCompartmentRequest.retryConfiguration,
@@ -461,7 +541,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Moves a Project resource from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeProjectCompartmentRequest
    * @return ChangeProjectCompartmentResponse
    * @throws OciError when an error occurs
@@ -473,7 +553,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#changeProjectCompartment.");
     const operationName = "changeProjectCompartment";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/ChangeProjectCompartment";
     const pathParams = {
       "{projectId}": changeProjectCompartmentRequest.projectId
     };
@@ -487,7 +568,7 @@ export class AnomalyDetectionClient {
       "opc-retry-token": changeProjectCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeProjectCompartmentRequest.retryConfiguration,
@@ -535,7 +616,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Create a new private reverse connection endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAiPrivateEndpointRequest
    * @return CreateAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -547,7 +628,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#createAiPrivateEndpoint.");
     const operationName = "createAiPrivateEndpoint";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/CreateAiPrivateEndpoint";
     const pathParams = {};
 
     const queryParams = {};
@@ -558,7 +640,7 @@ export class AnomalyDetectionClient {
       "opc-retry-token": createAiPrivateEndpointRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAiPrivateEndpointRequest.retryConfiguration,
@@ -612,7 +694,7 @@ export class AnomalyDetectionClient {
   /**
    * Creates a new DataAsset.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDataAssetRequest
    * @return CreateDataAssetResponse
    * @throws OciError when an error occurs
@@ -623,7 +705,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.CreateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createDataAsset.");
     const operationName = "createDataAsset";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/CreateDataAsset";
     const pathParams = {};
 
     const queryParams = {};
@@ -634,7 +717,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": createDataAssetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDataAssetRequest.retryConfiguration,
@@ -690,9 +773,90 @@ export class AnomalyDetectionClient {
   }
 
   /**
+   * Creates a job to perform anomaly detection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDetectAnomalyJobRequest
+   * @return CreateDetectAnomalyJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/CreateDetectAnomalyJob.ts.html |here} to see how to use CreateDetectAnomalyJob API.
+   */
+  public async createDetectAnomalyJob(
+    createDetectAnomalyJobRequest: requests.CreateDetectAnomalyJobRequest
+  ): Promise<responses.CreateDetectAnomalyJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#createDetectAnomalyJob.");
+    const operationName = "createDetectAnomalyJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/CreateDetectAnomalyJob";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createDetectAnomalyJobRequest.opcRequestId,
+      "opc-retry-token": createDetectAnomalyJobRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDetectAnomalyJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectAnomalyJobs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDetectAnomalyJobRequest.createDetectAnomalyJobDetails,
+        "CreateDetectAnomalyJobDetails",
+        model.CreateDetectAnomalyJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDetectAnomalyJobResponse>{},
+        body: await response.json(),
+        bodyKey: "detectAnomalyJob",
+        bodyModel: model.DetectAnomalyJob,
+        type: "model.DetectAnomalyJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Model.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateModelRequest
    * @return CreateModelResponse
    * @throws OciError when an error occurs
@@ -703,7 +867,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.CreateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createModel.");
     const operationName = "createModel";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/CreateModel";
     const pathParams = {};
 
     const queryParams = {};
@@ -714,7 +879,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": createModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createModelRequest.retryConfiguration,
@@ -782,7 +947,7 @@ export class AnomalyDetectionClient {
   /**
    * Creates a new Project.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateProjectRequest
    * @return CreateProjectResponse
    * @throws OciError when an error occurs
@@ -793,7 +958,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.CreateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#createProject.");
     const operationName = "createProject";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/CreateProject";
     const pathParams = {};
 
     const queryParams = {};
@@ -804,7 +970,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": createProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createProjectRequest.retryConfiguration,
@@ -861,7 +1027,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Deletes a private reverse connection endpoint by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAiPrivateEndpointRequest
    * @return DeleteAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -873,7 +1039,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#deleteAiPrivateEndpoint.");
     const operationName = "deleteAiPrivateEndpoint";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/DeleteAiPrivateEndpoint";
     const pathParams = {
       "{aiPrivateEndpointId}": deleteAiPrivateEndpointRequest.aiPrivateEndpointId
     };
@@ -886,7 +1053,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteAiPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAiPrivateEndpointRequest.retryConfiguration,
@@ -934,7 +1101,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Deletes a DataAsset resource by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDataAssetRequest
    * @return DeleteDataAssetResponse
    * @throws OciError when an error occurs
@@ -945,7 +1112,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.DeleteDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteDataAsset.");
     const operationName = "deleteDataAsset";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/DeleteDataAsset";
     const pathParams = {
       "{dataAssetId}": deleteDataAssetRequest.dataAssetId
     };
@@ -958,7 +1126,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteDataAssetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDataAssetRequest.retryConfiguration,
@@ -1000,8 +1168,77 @@ export class AnomalyDetectionClient {
   }
 
   /**
+   * Deletes an accepted, but not started detect anomaly asynchronous job.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteDetectAnomalyJobRequest
+   * @return DeleteDetectAnomalyJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/DeleteDetectAnomalyJob.ts.html |here} to see how to use DeleteDetectAnomalyJob API.
+   */
+  public async deleteDetectAnomalyJob(
+    deleteDetectAnomalyJobRequest: requests.DeleteDetectAnomalyJobRequest
+  ): Promise<responses.DeleteDetectAnomalyJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#deleteDetectAnomalyJob.");
+    const operationName = "deleteDetectAnomalyJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/DeleteDetectAnomalyJob";
+    const pathParams = {
+      "{detectAnomalyJobId}": deleteDetectAnomalyJobRequest.detectAnomalyJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteDetectAnomalyJobRequest.ifMatch,
+      "opc-request-id": deleteDetectAnomalyJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDetectAnomalyJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectAnomalyJobs/{detectAnomalyJobId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDetectAnomalyJobResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes an ai model resource by identifier. This operation fails with a 409 error unless all associated resources are in a DELETED state. You must delete all associated resources before deleting a project.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteModelRequest
    * @return DeleteModelResponse
    * @throws OciError when an error occurs
@@ -1012,7 +1249,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.DeleteModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteModel.");
     const operationName = "deleteModel";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/DeleteModel";
     const pathParams = {
       "{modelId}": deleteModelRequest.modelId
     };
@@ -1025,7 +1263,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteModelRequest.retryConfiguration,
@@ -1073,7 +1311,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Deletes a Project resource by identifier. This operation fails with a 409 error unless all associated resources (models deployments or data assets) are in a DELETED state. You must delete all associated resources before deleting a project.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteProjectRequest
    * @return DeleteProjectResponse
    * @throws OciError when an error occurs
@@ -1084,7 +1322,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.DeleteProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#deleteProject.");
     const operationName = "deleteProject";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/DeleteProject";
     const pathParams = {
       "{projectId}": deleteProjectRequest.projectId
     };
@@ -1097,7 +1336,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": deleteProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteProjectRequest.retryConfiguration,
@@ -1145,7 +1384,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Make a detect call with an anomaly model and detection data
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DetectAnomaliesRequest
    * @return DetectAnomaliesResponse
    * @throws OciError when an error occurs
@@ -1156,7 +1395,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.DetectAnomaliesResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#detectAnomalies.");
     const operationName = "detectAnomalies";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/DetectAnomalies";
     const pathParams = {};
 
     const queryParams = {};
@@ -1168,7 +1408,7 @@ export class AnomalyDetectionClient {
       "opc-retry-token": detectAnomaliesRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       detectAnomaliesRequest.retryConfiguration,
@@ -1220,7 +1460,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets a specific private reverse connection by identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAiPrivateEndpointRequest
    * @return GetAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -1232,7 +1472,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#getAiPrivateEndpoint.");
     const operationName = "getAiPrivateEndpoint";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/GetAiPrivateEndpoint";
     const pathParams = {
       "{aiPrivateEndpointId}": getAiPrivateEndpointRequest.aiPrivateEndpointId
     };
@@ -1244,7 +1485,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": getAiPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAiPrivateEndpointRequest.retryConfiguration,
@@ -1296,7 +1537,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets a DataAsset by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDataAssetRequest
    * @return GetDataAssetResponse
    * @throws OciError when an error occurs
@@ -1307,7 +1548,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.GetDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getDataAsset.");
     const operationName = "getDataAsset";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/GetDataAsset";
     const pathParams = {
       "{dataAssetId}": getDataAssetRequest.dataAssetId
     };
@@ -1319,7 +1561,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": getDataAssetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDataAssetRequest.retryConfiguration,
@@ -1370,8 +1612,85 @@ export class AnomalyDetectionClient {
   }
 
   /**
+   * Gets a detect anomaly asynchronous job by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDetectAnomalyJobRequest
+   * @return GetDetectAnomalyJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/GetDetectAnomalyJob.ts.html |here} to see how to use GetDetectAnomalyJob API.
+   */
+  public async getDetectAnomalyJob(
+    getDetectAnomalyJobRequest: requests.GetDetectAnomalyJobRequest
+  ): Promise<responses.GetDetectAnomalyJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#getDetectAnomalyJob.");
+    const operationName = "getDetectAnomalyJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/GetDetectAnomalyJob";
+    const pathParams = {
+      "{detectAnomalyJobId}": getDetectAnomalyJobRequest.detectAnomalyJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDetectAnomalyJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDetectAnomalyJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectAnomalyJobs/{detectAnomalyJobId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDetectAnomalyJobResponse>{},
+        body: await response.json(),
+        bodyKey: "detectAnomalyJob",
+        bodyModel: model.DetectAnomalyJob,
+        type: "model.DetectAnomalyJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a Model by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetModelRequest
    * @return GetModelResponse
    * @throws OciError when an error occurs
@@ -1382,7 +1701,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.GetModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getModel.");
     const operationName = "getModel";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/GetModel";
     const pathParams = {
       "{modelId}": getModelRequest.modelId
     };
@@ -1394,7 +1714,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": getModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getModelRequest.retryConfiguration,
@@ -1446,7 +1766,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets a Project by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetProjectRequest
    * @return GetProjectResponse
    * @throws OciError when an error occurs
@@ -1457,7 +1777,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.GetProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getProject.");
     const operationName = "getProject";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/GetProject";
     const pathParams = {
       "{projectId}": getProjectRequest.projectId
     };
@@ -1469,7 +1790,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": getProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getProjectRequest.retryConfiguration,
@@ -1521,7 +1842,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Gets the status of the work request with the given ID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1532,7 +1853,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.GetWorkRequestResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#getWorkRequest.");
     const operationName = "getWorkRequest";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequest/GetWorkRequest";
     const pathParams = {
       "{workRequestId}": getWorkRequestRequest.workRequestId
     };
@@ -1544,7 +1866,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1602,7 +1924,7 @@ export class AnomalyDetectionClient {
   /**
    * Returns a list of all the AI private endpoints in the specified compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAiPrivateEndpointsRequest
    * @return ListAiPrivateEndpointsResponse
    * @throws OciError when an error occurs
@@ -1614,7 +1936,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listAiPrivateEndpoints.");
     const operationName = "listAiPrivateEndpoints";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpointCollection/ListAiPrivateEndpoints";
     const pathParams = {};
 
     const queryParams = {
@@ -1633,7 +1956,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": listAiPrivateEndpointsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAiPrivateEndpointsRequest.retryConfiguration,
@@ -1686,7 +2009,7 @@ export class AnomalyDetectionClient {
   /**
    * Returns a list of DataAssets.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDataAssetsRequest
    * @return ListDataAssetsResponse
    * @throws OciError when an error occurs
@@ -1697,7 +2020,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ListDataAssetsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listDataAssets.");
     const operationName = "listDataAssets";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAssetCollection/ListDataAssets";
     const pathParams = {};
 
     const queryParams = {
@@ -1716,7 +2040,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": listDataAssetsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDataAssetsRequest.retryConfiguration,
@@ -1767,9 +2091,101 @@ export class AnomalyDetectionClient {
   }
 
   /**
+   * Returns a list of all the Anomaly Detection jobs in the specified compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDetectAnomalyJobsRequest
+   * @return ListDetectAnomalyJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/ListDetectAnomalyJobs.ts.html |here} to see how to use ListDetectAnomalyJobs API.
+   */
+  public async listDetectAnomalyJobs(
+    listDetectAnomalyJobsRequest: requests.ListDetectAnomalyJobsRequest
+  ): Promise<responses.ListDetectAnomalyJobsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#listDetectAnomalyJobs.");
+    const operationName = "listDetectAnomalyJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJobCollection/ListDetectAnomalyJobs";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDetectAnomalyJobsRequest.compartmentId,
+      "modelId": listDetectAnomalyJobsRequest.modelId,
+      "projectId": listDetectAnomalyJobsRequest.projectId,
+      "detectAnomalyJobId": listDetectAnomalyJobsRequest.detectAnomalyJobId,
+      "lifecycleState": listDetectAnomalyJobsRequest.lifecycleState,
+      "displayName": listDetectAnomalyJobsRequest.displayName,
+      "limit": listDetectAnomalyJobsRequest.limit,
+      "page": listDetectAnomalyJobsRequest.page,
+      "sortOrder": listDetectAnomalyJobsRequest.sortOrder,
+      "sortBy": listDetectAnomalyJobsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDetectAnomalyJobsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDetectAnomalyJobsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectAnomalyJobs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDetectAnomalyJobsResponse>{},
+        body: await response.json(),
+        bodyKey: "detectAnomalyJobCollection",
+        bodyModel: model.DetectAnomalyJobCollection,
+        type: "model.DetectAnomalyJobCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of Models.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListModelsRequest
    * @return ListModelsResponse
    * @throws OciError when an error occurs
@@ -1780,7 +2196,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ListModelsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listModels.");
     const operationName = "listModels";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/ListModels";
     const pathParams = {};
 
     const queryParams = {
@@ -1799,7 +2216,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": listModelsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listModelsRequest.retryConfiguration,
@@ -1852,7 +2269,7 @@ export class AnomalyDetectionClient {
   /**
    * Returns a list of  Projects.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListProjectsRequest
    * @return ListProjectsResponse
    * @throws OciError when an error occurs
@@ -1863,7 +2280,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.ListProjectsResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#listProjects.");
     const operationName = "listProjects";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/ListProjects";
     const pathParams = {};
 
     const queryParams = {
@@ -1881,7 +2299,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": listProjectsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listProjectsRequest.retryConfiguration,
@@ -1934,7 +2352,7 @@ export class AnomalyDetectionClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1946,7 +2364,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestErrors.");
     const operationName = "listWorkRequestErrors";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequestError/ListWorkRequestErrors";
     const pathParams = {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
@@ -1961,7 +2380,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -2014,7 +2433,7 @@ export class AnomalyDetectionClient {
   /**
    * Return a (paginated) list of logs for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -2026,7 +2445,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequestLogs.");
     const operationName = "listWorkRequestLogs";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequestLogEntry/ListWorkRequestLogs";
     const pathParams = {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
@@ -2041,7 +2461,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -2094,7 +2514,7 @@ export class AnomalyDetectionClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -2106,7 +2526,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#listWorkRequests.");
     const operationName = "listWorkRequests";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/WorkRequest/ListWorkRequests";
     const pathParams = {};
 
     const queryParams = {
@@ -2121,7 +2542,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -2173,7 +2594,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Updates the private reverse connection endpoint.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAiPrivateEndpointRequest
    * @return UpdateAiPrivateEndpointResponse
    * @throws OciError when an error occurs
@@ -2185,7 +2606,8 @@ export class AnomalyDetectionClient {
     if (this.logger)
       this.logger.debug("Calling operation AnomalyDetectionClient#updateAiPrivateEndpoint.");
     const operationName = "updateAiPrivateEndpoint";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/AiPrivateEndpoint/UpdateAiPrivateEndpoint";
     const pathParams = {
       "{aiPrivateEndpointId}": updateAiPrivateEndpointRequest.aiPrivateEndpointId
     };
@@ -2198,7 +2620,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateAiPrivateEndpointRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAiPrivateEndpointRequest.retryConfiguration,
@@ -2251,7 +2673,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Updates the DataAsset
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDataAssetRequest
    * @return UpdateDataAssetResponse
    * @throws OciError when an error occurs
@@ -2262,7 +2684,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.UpdateDataAssetResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateDataAsset.");
     const operationName = "updateDataAsset";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DataAsset/UpdateDataAsset";
     const pathParams = {
       "{dataAssetId}": updateDataAssetRequest.dataAssetId
     };
@@ -2275,7 +2698,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateDataAssetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDataAssetRequest.retryConfiguration,
@@ -2331,8 +2754,91 @@ export class AnomalyDetectionClient {
   }
 
   /**
+   * Updates the detect anomaly asynchronous job by identifier.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateDetectAnomalyJobRequest
+   * @return UpdateDetectAnomalyJobResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aianomalydetection/UpdateDetectAnomalyJob.ts.html |here} to see how to use UpdateDetectAnomalyJob API.
+   */
+  public async updateDetectAnomalyJob(
+    updateDetectAnomalyJobRequest: requests.UpdateDetectAnomalyJobRequest
+  ): Promise<responses.UpdateDetectAnomalyJobResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AnomalyDetectionClient#updateDetectAnomalyJob.");
+    const operationName = "updateDetectAnomalyJob";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/DetectAnomalyJob/UpdateDetectAnomalyJob";
+    const pathParams = {
+      "{detectAnomalyJobId}": updateDetectAnomalyJobRequest.detectAnomalyJobId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDetectAnomalyJobRequest.ifMatch,
+      "opc-request-id": updateDetectAnomalyJobRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDetectAnomalyJobRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/detectAnomalyJobs/{detectAnomalyJobId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDetectAnomalyJobRequest.updateDetectAnomalyJobDetails,
+        "UpdateDetectAnomalyJobDetails",
+        model.UpdateDetectAnomalyJobDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDetectAnomalyJobResponse>{},
+        body: await response.json(),
+        bodyKey: "detectAnomalyJob",
+        bodyModel: model.DetectAnomalyJob,
+        type: "model.DetectAnomalyJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the Model
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateModelRequest
    * @return UpdateModelResponse
    * @throws OciError when an error occurs
@@ -2343,7 +2849,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.UpdateModelResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateModel.");
     const operationName = "updateModel";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Model/UpdateModel";
     const pathParams = {
       "{modelId}": updateModelRequest.modelId
     };
@@ -2356,7 +2863,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateModelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateModelRequest.retryConfiguration,
@@ -2409,7 +2916,7 @@ export class AnomalyDetectionClient {
 
   /**
    * Updates the Project
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateProjectRequest
    * @return UpdateProjectResponse
    * @throws OciError when an error occurs
@@ -2420,7 +2927,8 @@ export class AnomalyDetectionClient {
   ): Promise<responses.UpdateProjectResponse> {
     if (this.logger) this.logger.debug("Calling operation AnomalyDetectionClient#updateProject.");
     const operationName = "updateProject";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/anomalydetection/20210101/Project/UpdateProject";
     const pathParams = {
       "{projectId}": updateProjectRequest.projectId
     };
@@ -2433,7 +2941,7 @@ export class AnomalyDetectionClient {
       "opc-request-id": updateProjectRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateProjectRequest.retryConfiguration,

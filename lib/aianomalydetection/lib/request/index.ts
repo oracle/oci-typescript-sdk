@@ -1,5 +1,5 @@
 /**
- * Oracle Cloud AI Services API
+ * Anomaly Detection API
  * OCI AI Service solutions can help Enterprise customers integrate AI into their products immediately by using our proven,
 pre-trained/custom models or containers, and without a need to set up in house team of AI and ML experts.
 This allows enterprises to focus on business drivers and development work rather than AI/ML operations, shortening the time to market.
@@ -20,6 +20,8 @@ import * as ChangeAiPrivateEndpointCompartmentRequest from "./change-ai-private-
 export import ChangeAiPrivateEndpointCompartmentRequest = ChangeAiPrivateEndpointCompartmentRequest.ChangeAiPrivateEndpointCompartmentRequest;
 import * as ChangeDataAssetCompartmentRequest from "./change-data-asset-compartment-request";
 export import ChangeDataAssetCompartmentRequest = ChangeDataAssetCompartmentRequest.ChangeDataAssetCompartmentRequest;
+import * as ChangeDetectAnomalyJobCompartmentRequest from "./change-detect-anomaly-job-compartment-request";
+export import ChangeDetectAnomalyJobCompartmentRequest = ChangeDetectAnomalyJobCompartmentRequest.ChangeDetectAnomalyJobCompartmentRequest;
 import * as ChangeModelCompartmentRequest from "./change-model-compartment-request";
 export import ChangeModelCompartmentRequest = ChangeModelCompartmentRequest.ChangeModelCompartmentRequest;
 import * as ChangeProjectCompartmentRequest from "./change-project-compartment-request";
@@ -28,6 +30,8 @@ import * as CreateAiPrivateEndpointRequest from "./create-ai-private-endpoint-re
 export import CreateAiPrivateEndpointRequest = CreateAiPrivateEndpointRequest.CreateAiPrivateEndpointRequest;
 import * as CreateDataAssetRequest from "./create-data-asset-request";
 export import CreateDataAssetRequest = CreateDataAssetRequest.CreateDataAssetRequest;
+import * as CreateDetectAnomalyJobRequest from "./create-detect-anomaly-job-request";
+export import CreateDetectAnomalyJobRequest = CreateDetectAnomalyJobRequest.CreateDetectAnomalyJobRequest;
 import * as CreateModelRequest from "./create-model-request";
 export import CreateModelRequest = CreateModelRequest.CreateModelRequest;
 import * as CreateProjectRequest from "./create-project-request";
@@ -36,6 +40,8 @@ import * as DeleteAiPrivateEndpointRequest from "./delete-ai-private-endpoint-re
 export import DeleteAiPrivateEndpointRequest = DeleteAiPrivateEndpointRequest.DeleteAiPrivateEndpointRequest;
 import * as DeleteDataAssetRequest from "./delete-data-asset-request";
 export import DeleteDataAssetRequest = DeleteDataAssetRequest.DeleteDataAssetRequest;
+import * as DeleteDetectAnomalyJobRequest from "./delete-detect-anomaly-job-request";
+export import DeleteDetectAnomalyJobRequest = DeleteDetectAnomalyJobRequest.DeleteDetectAnomalyJobRequest;
 import * as DeleteModelRequest from "./delete-model-request";
 export import DeleteModelRequest = DeleteModelRequest.DeleteModelRequest;
 import * as DeleteProjectRequest from "./delete-project-request";
@@ -46,6 +52,8 @@ import * as GetAiPrivateEndpointRequest from "./get-ai-private-endpoint-request"
 export import GetAiPrivateEndpointRequest = GetAiPrivateEndpointRequest.GetAiPrivateEndpointRequest;
 import * as GetDataAssetRequest from "./get-data-asset-request";
 export import GetDataAssetRequest = GetDataAssetRequest.GetDataAssetRequest;
+import * as GetDetectAnomalyJobRequest from "./get-detect-anomaly-job-request";
+export import GetDetectAnomalyJobRequest = GetDetectAnomalyJobRequest.GetDetectAnomalyJobRequest;
 import * as GetModelRequest from "./get-model-request";
 export import GetModelRequest = GetModelRequest.GetModelRequest;
 import * as GetProjectRequest from "./get-project-request";
@@ -56,6 +64,8 @@ import * as ListAiPrivateEndpointsRequest from "./list-ai-private-endpoints-requ
 export import ListAiPrivateEndpointsRequest = ListAiPrivateEndpointsRequest.ListAiPrivateEndpointsRequest;
 import * as ListDataAssetsRequest from "./list-data-assets-request";
 export import ListDataAssetsRequest = ListDataAssetsRequest.ListDataAssetsRequest;
+import * as ListDetectAnomalyJobsRequest from "./list-detect-anomaly-jobs-request";
+export import ListDetectAnomalyJobsRequest = ListDetectAnomalyJobsRequest.ListDetectAnomalyJobsRequest;
 import * as ListModelsRequest from "./list-models-request";
 export import ListModelsRequest = ListModelsRequest.ListModelsRequest;
 import * as ListProjectsRequest from "./list-projects-request";
@@ -70,6 +80,8 @@ import * as UpdateAiPrivateEndpointRequest from "./update-ai-private-endpoint-re
 export import UpdateAiPrivateEndpointRequest = UpdateAiPrivateEndpointRequest.UpdateAiPrivateEndpointRequest;
 import * as UpdateDataAssetRequest from "./update-data-asset-request";
 export import UpdateDataAssetRequest = UpdateDataAssetRequest.UpdateDataAssetRequest;
+import * as UpdateDetectAnomalyJobRequest from "./update-detect-anomaly-job-request";
+export import UpdateDetectAnomalyJobRequest = UpdateDetectAnomalyJobRequest.UpdateDetectAnomalyJobRequest;
 import * as UpdateModelRequest from "./update-model-request";
 export import UpdateModelRequest = UpdateModelRequest.UpdateModelRequest;
 import * as UpdateProjectRequest from "./update-project-request";
