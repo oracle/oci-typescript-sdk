@@ -118,6 +118,11 @@ export class Region {
 
   // OC14
   public static EU_DCC_MILAN_1: Region = Region.register("eu-dcc-milan-1", Realm.OC14, "bgy");
+  public static EU_DCC_MILAN_2: Region = Region.register("eu-dcc-milan-2", Realm.OC14, "mxp");
+  public static EU_DCC_DUBLIN_2: Region = Region.register("eu-dcc-dublin-2", Realm.OC14, "snn");
+  public static EU_DCC_RATING_2: Region = Region.register("eu-dcc-rating-2", Realm.OC14, "dtm");
+  public static EU_DCC_RATING_1: Region = Region.register("eu-dcc-rating-1", Realm.OC14, "dus");
+  public static EU_DCC_DUBLIN_1: Region = Region.register("eu-dcc-dublin-1", Realm.OC14, "ork");
 
   /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata
