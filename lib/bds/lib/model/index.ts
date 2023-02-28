@@ -70,6 +70,8 @@ import * as CreateNodeDetails from "./create-node-details";
 export import CreateNodeDetails = CreateNodeDetails.CreateNodeDetails;
 import * as DefaultError from "./default-error";
 export import DefaultError = DefaultError.DefaultError;
+import * as ExecuteBootstrapScriptDetails from "./execute-bootstrap-script-details";
+export import ExecuteBootstrapScriptDetails = ExecuteBootstrapScriptDetails.ExecuteBootstrapScriptDetails;
 import * as HorizontalScalingScheduleDetails from "./horizontal-scaling-schedule-details";
 export import HorizontalScalingScheduleDetails = HorizontalScalingScheduleDetails.HorizontalScalingScheduleDetails;
 import * as InstallPatchDetails from "./install-patch-details";

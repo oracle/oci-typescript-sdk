@@ -38,6 +38,8 @@ import * as DeleteBdsInstanceResponse from "./delete-bds-instance-response";
 export import DeleteBdsInstanceResponse = DeleteBdsInstanceResponse.DeleteBdsInstanceResponse;
 import * as DeleteBdsMetastoreConfigurationResponse from "./delete-bds-metastore-configuration-response";
 export import DeleteBdsMetastoreConfigurationResponse = DeleteBdsMetastoreConfigurationResponse.DeleteBdsMetastoreConfigurationResponse;
+import * as ExecuteBootstrapScriptResponse from "./execute-bootstrap-script-response";
+export import ExecuteBootstrapScriptResponse = ExecuteBootstrapScriptResponse.ExecuteBootstrapScriptResponse;
 import * as GetAutoScalingConfigurationResponse from "./get-auto-scaling-configuration-response";
 export import GetAutoScalingConfigurationResponse = GetAutoScalingConfigurationResponse.GetAutoScalingConfigurationResponse;
 import * as GetBdsApiKeyResponse from "./get-bds-api-key-response";
