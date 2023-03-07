@@ -147,6 +147,11 @@ export interface SummarizeDatabaseInsightResourceUsageRequest extends common.Bas
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Filter by one or more cdb name.
+   *
+   */
+  "cdbName"?: Array<string>;
 }
 
 export namespace SummarizeDatabaseInsightResourceUsageRequest {

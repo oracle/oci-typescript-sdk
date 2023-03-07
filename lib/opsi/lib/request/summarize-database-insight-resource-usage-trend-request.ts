@@ -152,6 +152,11 @@ export interface SummarizeDatabaseInsightResourceUsageTrendRequest extends commo
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Filter by one or more cdb name.
+   *
+   */
+  "cdbName"?: Array<string>;
 }
 
 export namespace SummarizeDatabaseInsightResourceUsageTrendRequest {

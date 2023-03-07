@@ -33,6 +33,7 @@ export interface UpdateAutonomousDatabaseDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount"?: number;
+  "longTermBackupSchedule"?: model.LongTermBackUpScheduleDetails;
   /**
    * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is on Shared or Dedicated infrastructure. For an Autonomous Database on Shared infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value.@endif Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -320,6 +321,10 @@ export namespace UpdateAutonomousDatabaseDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "longTermBackupSchedule": obj.longTermBackupSchedule
+          ? model.LongTermBackUpScheduleDetails.getJsonObj(obj.longTermBackupSchedule)
+          : undefined,
+
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getJsonObj(item);
@@ -346,6 +351,10 @@ export namespace UpdateAutonomousDatabaseDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "longTermBackupSchedule": obj.longTermBackupSchedule
+          ? model.LongTermBackUpScheduleDetails.getDeserializedJsonObj(obj.longTermBackupSchedule)
+          : undefined,
+
         "customerContacts": obj.customerContacts
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);

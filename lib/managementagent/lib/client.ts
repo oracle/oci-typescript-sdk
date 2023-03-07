@@ -1501,6 +1501,7 @@ export class ManagementAgentClient {
       "platformType": listManagementAgentsRequest.platformType,
       "isCustomerDeployed": listManagementAgentsRequest.isCustomerDeployed,
       "installType": listManagementAgentsRequest.installType,
+      "gatewayId": listManagementAgentsRequest.gatewayId,
       "limit": listManagementAgentsRequest.limit,
       "page": listManagementAgentsRequest.page,
       "sortOrder": listManagementAgentsRequest.sortOrder,
@@ -2126,6 +2127,7 @@ export class ManagementAgentClient {
       "groupBy": summarizeManagementAgentCountsRequest.groupBy,
       "hasPlugins": summarizeManagementAgentCountsRequest.hasPlugins,
       "installType": summarizeManagementAgentCountsRequest.installType,
+      "compartmentIdInSubtree": summarizeManagementAgentCountsRequest.compartmentIdInSubtree,
       "page": summarizeManagementAgentCountsRequest.page
     };
 
@@ -2209,6 +2211,7 @@ export class ManagementAgentClient {
     const queryParams = {
       "compartmentId": summarizeManagementAgentPluginCountsRequest.compartmentId,
       "groupBy": summarizeManagementAgentPluginCountsRequest.groupBy,
+      "compartmentIdInSubtree": summarizeManagementAgentPluginCountsRequest.compartmentIdInSubtree,
       "page": summarizeManagementAgentPluginCountsRequest.page
     };
 

@@ -16,6 +16,8 @@ see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.o
 
 import * as AddExadataInsightMembersResponse from "./add-exadata-insight-members-response";
 export import AddExadataInsightMembersResponse = AddExadataInsightMembersResponse.AddExadataInsightMembersResponse;
+import * as ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse from "./change-autonomous-database-insight-advanced-features-response";
+export import ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse = ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse.ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse;
 import * as ChangeDatabaseInsightCompartmentResponse from "./change-database-insight-compartment-response";
 export import ChangeDatabaseInsightCompartmentResponse = ChangeDatabaseInsightCompartmentResponse.ChangeDatabaseInsightCompartmentResponse;
 import * as ChangeEnterpriseManagerBridgeCompartmentResponse from "./change-enterprise-manager-bridge-compartment-response";
@@ -66,6 +68,8 @@ import * as DeleteOperationsInsightsWarehouseUserResponse from "./delete-operati
 export import DeleteOperationsInsightsWarehouseUserResponse = DeleteOperationsInsightsWarehouseUserResponse.DeleteOperationsInsightsWarehouseUserResponse;
 import * as DeleteOpsiConfigurationResponse from "./delete-opsi-configuration-response";
 export import DeleteOpsiConfigurationResponse = DeleteOpsiConfigurationResponse.DeleteOpsiConfigurationResponse;
+import * as DisableAutonomousDatabaseInsightAdvancedFeaturesResponse from "./disable-autonomous-database-insight-advanced-features-response";
+export import DisableAutonomousDatabaseInsightAdvancedFeaturesResponse = DisableAutonomousDatabaseInsightAdvancedFeaturesResponse.DisableAutonomousDatabaseInsightAdvancedFeaturesResponse;
 import * as DisableDatabaseInsightResponse from "./disable-database-insight-response";
 export import DisableDatabaseInsightResponse = DisableDatabaseInsightResponse.DisableDatabaseInsightResponse;
 import * as DisableExadataInsightResponse from "./disable-exadata-insight-response";
@@ -74,6 +78,8 @@ import * as DisableHostInsightResponse from "./disable-host-insight-response";
 export import DisableHostInsightResponse = DisableHostInsightResponse.DisableHostInsightResponse;
 import * as DownloadOperationsInsightsWarehouseWalletResponse from "./download-operations-insights-warehouse-wallet-response";
 export import DownloadOperationsInsightsWarehouseWalletResponse = DownloadOperationsInsightsWarehouseWalletResponse.DownloadOperationsInsightsWarehouseWalletResponse;
+import * as EnableAutonomousDatabaseInsightAdvancedFeaturesResponse from "./enable-autonomous-database-insight-advanced-features-response";
+export import EnableAutonomousDatabaseInsightAdvancedFeaturesResponse = EnableAutonomousDatabaseInsightAdvancedFeaturesResponse.EnableAutonomousDatabaseInsightAdvancedFeaturesResponse;
 import * as EnableDatabaseInsightResponse from "./enable-database-insight-response";
 export import EnableDatabaseInsightResponse = EnableDatabaseInsightResponse.EnableDatabaseInsightResponse;
 import * as EnableExadataInsightResponse from "./enable-exadata-insight-response";

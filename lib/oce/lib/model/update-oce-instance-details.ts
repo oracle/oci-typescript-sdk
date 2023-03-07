@@ -39,6 +39,14 @@ export interface UpdateOceInstanceDetails {
    */
   "addOnFeatures"?: Array<string>;
   /**
+   * Details of the current state of the instance lifecycle
+   */
+  "lifecycleDetails"?: model.LifecycleDetails;
+  /**
+   * disaster recovery paired ragion name
+   */
+  "drRegion"?: string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *

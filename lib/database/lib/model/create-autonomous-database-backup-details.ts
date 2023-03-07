@@ -30,6 +30,14 @@ export interface CreateAutonomousDatabaseBackupDetails {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Autonomous Database backup.
    */
   "autonomousDatabaseId": string;
+  /**
+   * Retention period, in days, for long-term backups Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "retentionPeriodInDays"?: number;
+  /**
+   * Indicates whether the backup is long-term
+   */
+  "isLongTermBackup"?: boolean;
 }
 
 export namespace CreateAutonomousDatabaseBackupDetails {

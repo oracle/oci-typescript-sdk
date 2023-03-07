@@ -27,6 +27,10 @@ export interface SummarizeManagementAgentPluginCountsRequest extends common.Base
    */
   "groupBy": model.ManagementAgentPluginGroupBy;
   /**
+   * if set to true then it fetches resources for all compartments where user has access to else only on the compartment specified.
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
    * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
    */
   "page"?: string;

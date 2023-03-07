@@ -118,6 +118,8 @@ import * as DbNodeActionResponse from "./db-node-action-response";
 export import DbNodeActionResponse = DbNodeActionResponse.DbNodeActionResponse;
 import * as DeleteAutonomousDatabaseResponse from "./delete-autonomous-database-response";
 export import DeleteAutonomousDatabaseResponse = DeleteAutonomousDatabaseResponse.DeleteAutonomousDatabaseResponse;
+import * as DeleteAutonomousDatabaseBackupResponse from "./delete-autonomous-database-backup-response";
+export import DeleteAutonomousDatabaseBackupResponse = DeleteAutonomousDatabaseBackupResponse.DeleteAutonomousDatabaseBackupResponse;
 import * as DeleteAutonomousVmClusterResponse from "./delete-autonomous-vm-cluster-response";
 export import DeleteAutonomousVmClusterResponse = DeleteAutonomousVmClusterResponse.DeleteAutonomousVmClusterResponse;
 import * as DeleteBackupResponse from "./delete-backup-response";
@@ -528,6 +530,8 @@ import * as UpdateAutonomousContainerDatabaseDataguardAssociationResponse from "
 export import UpdateAutonomousContainerDatabaseDataguardAssociationResponse = UpdateAutonomousContainerDatabaseDataguardAssociationResponse.UpdateAutonomousContainerDatabaseDataguardAssociationResponse;
 import * as UpdateAutonomousDatabaseResponse from "./update-autonomous-database-response";
 export import UpdateAutonomousDatabaseResponse = UpdateAutonomousDatabaseResponse.UpdateAutonomousDatabaseResponse;
+import * as UpdateAutonomousDatabaseBackupResponse from "./update-autonomous-database-backup-response";
+export import UpdateAutonomousDatabaseBackupResponse = UpdateAutonomousDatabaseBackupResponse.UpdateAutonomousDatabaseBackupResponse;
 import * as UpdateAutonomousDatabaseRegionalWalletResponse from "./update-autonomous-database-regional-wallet-response";
 export import UpdateAutonomousDatabaseRegionalWalletResponse = UpdateAutonomousDatabaseRegionalWalletResponse.UpdateAutonomousDatabaseRegionalWalletResponse;
 import * as UpdateAutonomousDatabaseWalletResponse from "./update-autonomous-database-wallet-response";

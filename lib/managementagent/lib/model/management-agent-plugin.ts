@@ -58,7 +58,8 @@ export namespace ManagementAgentPlugin {
   export enum SupportedPlatformTypes {
     Linux = "LINUX",
     Windows = "WINDOWS",
-    Solaris = "SOLARIS"
+    Solaris = "SOLARIS",
+    Macosx = "MACOSX"
   }
 
   export function getJsonObj(obj: ManagementAgentPlugin): object {

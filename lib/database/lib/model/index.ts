@@ -396,6 +396,8 @@ import * as LaunchDbSystemBase from "./launch-db-system-base";
 export import LaunchDbSystemBase = LaunchDbSystemBase.LaunchDbSystemBase;
 import * as LocalClonePluggableDatabaseDetails from "./local-clone-pluggable-database-details";
 export import LocalClonePluggableDatabaseDetails = LocalClonePluggableDatabaseDetails.LocalClonePluggableDatabaseDetails;
+import * as LongTermBackUpScheduleDetails from "./long-term-back-up-schedule-details";
+export import LongTermBackUpScheduleDetails = LongTermBackUpScheduleDetails.LongTermBackUpScheduleDetails;
 import * as MaintenanceRun from "./maintenance-run";
 export import MaintenanceRun = MaintenanceRun.MaintenanceRun;
 import * as MaintenanceRunHistory from "./maintenance-run-history";
@@ -482,6 +484,8 @@ import * as UpdateAutonomousContainerDatabaseDataGuardAssociationDetails from ".
 export import UpdateAutonomousContainerDatabaseDataGuardAssociationDetails = UpdateAutonomousContainerDatabaseDataGuardAssociationDetails.UpdateAutonomousContainerDatabaseDataGuardAssociationDetails;
 import * as UpdateAutonomousContainerDatabaseDetails from "./update-autonomous-container-database-details";
 export import UpdateAutonomousContainerDatabaseDetails = UpdateAutonomousContainerDatabaseDetails.UpdateAutonomousContainerDatabaseDetails;
+import * as UpdateAutonomousDatabaseBackupDetails from "./update-autonomous-database-backup-details";
+export import UpdateAutonomousDatabaseBackupDetails = UpdateAutonomousDatabaseBackupDetails.UpdateAutonomousDatabaseBackupDetails;
 import * as UpdateAutonomousDatabaseDetails from "./update-autonomous-database-details";
 export import UpdateAutonomousDatabaseDetails = UpdateAutonomousDatabaseDetails.UpdateAutonomousDatabaseDetails;
 import * as UpdateAutonomousDatabaseWalletDetails from "./update-autonomous-database-wallet-details";

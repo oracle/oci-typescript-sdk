@@ -16,6 +16,8 @@ see [About Oracle Cloud Infrastructure Operations Insights](https://docs.cloud.o
 
 import * as AddExadataInsightMembersRequest from "./add-exadata-insight-members-request";
 export import AddExadataInsightMembersRequest = AddExadataInsightMembersRequest.AddExadataInsightMembersRequest;
+import * as ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest from "./change-autonomous-database-insight-advanced-features-request";
+export import ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest = ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest.ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest;
 import * as ChangeDatabaseInsightCompartmentRequest from "./change-database-insight-compartment-request";
 export import ChangeDatabaseInsightCompartmentRequest = ChangeDatabaseInsightCompartmentRequest.ChangeDatabaseInsightCompartmentRequest;
 import * as ChangeEnterpriseManagerBridgeCompartmentRequest from "./change-enterprise-manager-bridge-compartment-request";
@@ -66,6 +68,8 @@ import * as DeleteOperationsInsightsWarehouseUserRequest from "./delete-operatio
 export import DeleteOperationsInsightsWarehouseUserRequest = DeleteOperationsInsightsWarehouseUserRequest.DeleteOperationsInsightsWarehouseUserRequest;
 import * as DeleteOpsiConfigurationRequest from "./delete-opsi-configuration-request";
 export import DeleteOpsiConfigurationRequest = DeleteOpsiConfigurationRequest.DeleteOpsiConfigurationRequest;
+import * as DisableAutonomousDatabaseInsightAdvancedFeaturesRequest from "./disable-autonomous-database-insight-advanced-features-request";
+export import DisableAutonomousDatabaseInsightAdvancedFeaturesRequest = DisableAutonomousDatabaseInsightAdvancedFeaturesRequest.DisableAutonomousDatabaseInsightAdvancedFeaturesRequest;
 import * as DisableDatabaseInsightRequest from "./disable-database-insight-request";
 export import DisableDatabaseInsightRequest = DisableDatabaseInsightRequest.DisableDatabaseInsightRequest;
 import * as DisableExadataInsightRequest from "./disable-exadata-insight-request";
@@ -74,6 +78,8 @@ import * as DisableHostInsightRequest from "./disable-host-insight-request";
 export import DisableHostInsightRequest = DisableHostInsightRequest.DisableHostInsightRequest;
 import * as DownloadOperationsInsightsWarehouseWalletRequest from "./download-operations-insights-warehouse-wallet-request";
 export import DownloadOperationsInsightsWarehouseWalletRequest = DownloadOperationsInsightsWarehouseWalletRequest.DownloadOperationsInsightsWarehouseWalletRequest;
+import * as EnableAutonomousDatabaseInsightAdvancedFeaturesRequest from "./enable-autonomous-database-insight-advanced-features-request";
+export import EnableAutonomousDatabaseInsightAdvancedFeaturesRequest = EnableAutonomousDatabaseInsightAdvancedFeaturesRequest.EnableAutonomousDatabaseInsightAdvancedFeaturesRequest;
 import * as EnableDatabaseInsightRequest from "./enable-database-insight-request";
 export import EnableDatabaseInsightRequest = EnableDatabaseInsightRequest.EnableDatabaseInsightRequest;
 import * as EnableExadataInsightRequest from "./enable-exadata-insight-request";

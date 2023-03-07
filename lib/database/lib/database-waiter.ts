@@ -1269,6 +1269,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forDeleteAutonomousDatabaseBackup
+   *
+   * @param request the request to send
+   * @return response returns DeleteAutonomousDatabaseBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteAutonomousDatabaseBackup(
+    request: serviceRequests.DeleteAutonomousDatabaseBackupRequest
+  ): Promise<{
+    response: serviceResponses.DeleteAutonomousDatabaseBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteAutonomousDatabaseBackupResponse = await this.client.deleteAutonomousDatabaseBackup(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteAutonomousDatabaseBackupResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteAutonomousDatabaseBackupResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forDeleteAutonomousVmCluster
    *
    * @param request the request to send
@@ -4094,6 +4120,32 @@ export class DatabaseWaiter {
     );
     return {
       response: updateAutonomousDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forUpdateAutonomousDatabaseBackup
+   *
+   * @param request the request to send
+   * @return response returns UpdateAutonomousDatabaseBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateAutonomousDatabaseBackup(
+    request: serviceRequests.UpdateAutonomousDatabaseBackupRequest
+  ): Promise<{
+    response: serviceResponses.UpdateAutonomousDatabaseBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateAutonomousDatabaseBackupResponse = await this.client.updateAutonomousDatabaseBackup(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateAutonomousDatabaseBackupResponse.opcWorkRequestId
+    );
+    return {
+      response: updateAutonomousDatabaseBackupResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }
