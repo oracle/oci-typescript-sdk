@@ -183,6 +183,14 @@ export interface SummarizeDatabaseInsightResourceStatisticsRequest extends commo
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Percent value in which a resource metric is considered highly utilized.
+   */
+  "highUtilizationThreshold"?: number;
+  /**
+   * Percent value in which a resource metric is considered low utilized.
+   */
+  "lowUtilizationThreshold"?: number;
 }
 
 export namespace SummarizeDatabaseInsightResourceStatisticsRequest {

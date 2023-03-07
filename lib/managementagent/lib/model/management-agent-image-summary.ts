@@ -56,6 +56,7 @@ export interface ManagementAgentImageSummary {
    * Object storage URL for download
    */
   "objectUrl"?: string;
+  "imageObjectStorageDetails"?: model.ObjectDetails;
   /**
    * The current state of Management Agent Image
    */
@@ -64,12 +65,26 @@ export interface ManagementAgentImageSummary {
 
 export namespace ManagementAgentImageSummary {
   export function getJsonObj(obj: ManagementAgentImageSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "imageObjectStorageDetails": obj.imageObjectStorageDetails
+          ? model.ObjectDetails.getJsonObj(obj.imageObjectStorageDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ManagementAgentImageSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "imageObjectStorageDetails": obj.imageObjectStorageDetails
+          ? model.ObjectDetails.getDeserializedJsonObj(obj.imageObjectStorageDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

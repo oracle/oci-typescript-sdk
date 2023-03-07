@@ -59,6 +59,10 @@ export interface ListManagementAgentsRequest extends common.BaseRequest {
    */
   "installType"?: model.InstallTypes;
   /**
+   * Filter to return only results having the particular gatewayId.
+   */
+  "gatewayId"?: Array<string>;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

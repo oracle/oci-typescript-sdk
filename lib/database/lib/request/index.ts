@@ -118,6 +118,8 @@ import * as DbNodeActionRequest from "./db-node-action-request";
 export import DbNodeActionRequest = DbNodeActionRequest.DbNodeActionRequest;
 import * as DeleteAutonomousDatabaseRequest from "./delete-autonomous-database-request";
 export import DeleteAutonomousDatabaseRequest = DeleteAutonomousDatabaseRequest.DeleteAutonomousDatabaseRequest;
+import * as DeleteAutonomousDatabaseBackupRequest from "./delete-autonomous-database-backup-request";
+export import DeleteAutonomousDatabaseBackupRequest = DeleteAutonomousDatabaseBackupRequest.DeleteAutonomousDatabaseBackupRequest;
 import * as DeleteAutonomousVmClusterRequest from "./delete-autonomous-vm-cluster-request";
 export import DeleteAutonomousVmClusterRequest = DeleteAutonomousVmClusterRequest.DeleteAutonomousVmClusterRequest;
 import * as DeleteBackupRequest from "./delete-backup-request";
@@ -528,6 +530,8 @@ import * as UpdateAutonomousContainerDatabaseDataguardAssociationRequest from ".
 export import UpdateAutonomousContainerDatabaseDataguardAssociationRequest = UpdateAutonomousContainerDatabaseDataguardAssociationRequest.UpdateAutonomousContainerDatabaseDataguardAssociationRequest;
 import * as UpdateAutonomousDatabaseRequest from "./update-autonomous-database-request";
 export import UpdateAutonomousDatabaseRequest = UpdateAutonomousDatabaseRequest.UpdateAutonomousDatabaseRequest;
+import * as UpdateAutonomousDatabaseBackupRequest from "./update-autonomous-database-backup-request";
+export import UpdateAutonomousDatabaseBackupRequest = UpdateAutonomousDatabaseBackupRequest.UpdateAutonomousDatabaseBackupRequest;
 import * as UpdateAutonomousDatabaseRegionalWalletRequest from "./update-autonomous-database-regional-wallet-request";
 export import UpdateAutonomousDatabaseRegionalWalletRequest = UpdateAutonomousDatabaseRegionalWalletRequest.UpdateAutonomousDatabaseRegionalWalletRequest;
 import * as UpdateAutonomousDatabaseWalletRequest from "./update-autonomous-database-wallet-request";

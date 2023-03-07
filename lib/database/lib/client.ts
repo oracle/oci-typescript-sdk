@@ -4769,6 +4769,81 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Deletes a long-term backup. You cannot delete other backups using this API.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteAutonomousDatabaseBackupRequest
+   * @return DeleteAutonomousDatabaseBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteAutonomousDatabaseBackup.ts.html |here} to see how to use DeleteAutonomousDatabaseBackup API.
+   */
+  public async deleteAutonomousDatabaseBackup(
+    deleteAutonomousDatabaseBackupRequest: requests.DeleteAutonomousDatabaseBackupRequest
+  ): Promise<responses.DeleteAutonomousDatabaseBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#deleteAutonomousDatabaseBackup.");
+    const operationName = "deleteAutonomousDatabaseBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/DeleteAutonomousDatabaseBackup";
+    const pathParams = {
+      "{autonomousDatabaseBackupId}":
+        deleteAutonomousDatabaseBackupRequest.autonomousDatabaseBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteAutonomousDatabaseBackupRequest.ifMatch,
+      "opc-request-id": deleteAutonomousDatabaseBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteAutonomousDatabaseBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseBackups/{autonomousDatabaseBackupId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteAutonomousDatabaseBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified Autonomous VM cluster in an Exadata Cloud@Customer system. To delete an Autonomous VM Cluster in the Oracle cloud, see {@link #deleteCloudAutonomousVmCluster(DeleteCloudAutonomousVmClusterRequest) deleteCloudAutonomousVmCluster}.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -24247,6 +24322,96 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the Autonomous Database backup of the specified database based on the request parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateAutonomousDatabaseBackupRequest
+   * @return UpdateAutonomousDatabaseBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateAutonomousDatabaseBackup.ts.html |here} to see how to use UpdateAutonomousDatabaseBackup API.
+   */
+  public async updateAutonomousDatabaseBackup(
+    updateAutonomousDatabaseBackupRequest: requests.UpdateAutonomousDatabaseBackupRequest
+  ): Promise<responses.UpdateAutonomousDatabaseBackupResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#updateAutonomousDatabaseBackup.");
+    const operationName = "updateAutonomousDatabaseBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabaseBackup/UpdateAutonomousDatabaseBackup";
+    const pathParams = {
+      "{autonomousDatabaseBackupId}":
+        updateAutonomousDatabaseBackupRequest.autonomousDatabaseBackupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAutonomousDatabaseBackupRequest.ifMatch,
+      "opc-request-id": updateAutonomousDatabaseBackupRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAutonomousDatabaseBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabaseBackups/{autonomousDatabaseBackupId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAutonomousDatabaseBackupRequest.updateAutonomousDatabaseBackupDetails,
+        "UpdateAutonomousDatabaseBackupDetails",
+        model.UpdateAutonomousDatabaseBackupDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAutonomousDatabaseBackupResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabaseBackup",
+        bodyModel: model.AutonomousDatabaseBackup,
+        type: "model.AutonomousDatabaseBackup",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

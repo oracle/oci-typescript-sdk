@@ -50,13 +50,13 @@ export interface WorkRequestSummary {
   "percentComplete": number;
   /**
    * The date and time the request was created, as described in
-   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 14.29.
+   * [RFC 3339](https://tools.ietf.org/rfc/rfc3339), section 5.6.
    *
    */
   "timeAccepted": Date;
   /**
    * The date and time the request was started, as described in [RFC 3339](https://tools.ietf.org/rfc/rfc3339),
-   * section 14.29.
+   * section 5.6.
    *
    */
   "timeStarted"?: Date;

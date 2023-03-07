@@ -21,6 +21,9 @@ import common = require("oci-common");
 export interface UpdateSingleModelDeploymentConfigurationDetails
   extends model.UpdateModelDeploymentConfigurationDetails {
   "modelConfigurationDetails"?: model.UpdateModelConfigurationDetails;
+  "environmentConfigurationDetails"?:
+    | model.UpdateDefaultModelDeploymentEnvironmentConfigurationDetails
+    | model.UpdateOcirModelDeploymentEnvironmentConfigurationDetails;
 
   "deploymentType": string;
 }
@@ -39,6 +42,11 @@ export namespace UpdateSingleModelDeploymentConfigurationDetails {
       ...{
         "modelConfigurationDetails": obj.modelConfigurationDetails
           ? model.UpdateModelConfigurationDetails.getJsonObj(obj.modelConfigurationDetails)
+          : undefined,
+        "environmentConfigurationDetails": obj.environmentConfigurationDetails
+          ? model.UpdateModelDeploymentEnvironmentConfigurationDetails.getJsonObj(
+              obj.environmentConfigurationDetails
+            )
           : undefined
       }
     };
@@ -60,6 +68,11 @@ export namespace UpdateSingleModelDeploymentConfigurationDetails {
         "modelConfigurationDetails": obj.modelConfigurationDetails
           ? model.UpdateModelConfigurationDetails.getDeserializedJsonObj(
               obj.modelConfigurationDetails
+            )
+          : undefined,
+        "environmentConfigurationDetails": obj.environmentConfigurationDetails
+          ? model.UpdateModelDeploymentEnvironmentConfigurationDetails.getDeserializedJsonObj(
+              obj.environmentConfigurationDetails
             )
           : undefined
       }

@@ -42,6 +42,16 @@ export interface AutonomousDatabaseInsight extends model.DatabaseInsight {
    *
    */
   "dbAdditionalDetails"?: any;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
+   */
+  "opsiPrivateEndpointId"?: string;
+  /**
+   * Flag is to identify if advanced features for autonomous database is enabled or not
+   */
+  "isAdvancedFeaturesEnabled"?: boolean;
+  "connectionDetails"?: model.ConnectionDetails;
+  "credentialDetails"?: model.CredentialsBySource | model.CredentialByVault;
 
   "entitySource": string;
 }
@@ -52,7 +62,14 @@ export namespace AutonomousDatabaseInsight {
       ...(isParentJsonObj
         ? obj
         : (model.DatabaseInsight.getJsonObj(obj) as AutonomousDatabaseInsight)),
-      ...{}
+      ...{
+        "connectionDetails": obj.connectionDetails
+          ? model.ConnectionDetails.getJsonObj(obj.connectionDetails)
+          : undefined,
+        "credentialDetails": obj.credentialDetails
+          ? model.CredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -66,7 +83,14 @@ export namespace AutonomousDatabaseInsight {
       ...(isParentJsonObj
         ? obj
         : (model.DatabaseInsight.getDeserializedJsonObj(obj) as AutonomousDatabaseInsight)),
-      ...{}
+      ...{
+        "connectionDetails": obj.connectionDetails
+          ? model.ConnectionDetails.getDeserializedJsonObj(obj.connectionDetails)
+          : undefined,
+        "credentialDetails": obj.credentialDetails
+          ? model.CredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined
+      }
     };
 
     return jsonObj;

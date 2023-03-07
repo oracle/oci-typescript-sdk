@@ -148,6 +148,19 @@ export interface SummarizeDatabaseInsightResourceUtilizationInsightRequest
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Filter by one or more cdb name.
+   *
+   */
+  "cdbName"?: Array<string>;
+  /**
+   * Percent value in which a resource metric is considered highly utilized.
+   */
+  "highUtilizationThreshold"?: number;
+  /**
+   * Percent value in which a resource metric is considered low utilized.
+   */
+  "lowUtilizationThreshold"?: number;
 }
 
 export namespace SummarizeDatabaseInsightResourceUtilizationInsightRequest {

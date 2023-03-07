@@ -35,6 +35,10 @@ export interface SummarizeManagementAgentCountsRequest extends common.BaseReques
    */
   "installType"?: model.InstallTypes;
   /**
+   * if set to true then it fetches resources for all compartments where user has access to else only on the compartment specified.
+   */
+  "compartmentIdInSubtree"?: boolean;
+  /**
    * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
    */
   "page"?: string;

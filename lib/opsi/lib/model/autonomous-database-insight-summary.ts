@@ -25,6 +25,10 @@ export interface AutonomousDatabaseInsightSummary extends model.DatabaseInsightS
    * OCI database resource type
    */
   "databaseResourceType"?: string;
+  /**
+   * Flag is to identify if advanced features for autonomous database is enabled or not
+   */
+  "isAdvancedFeaturesEnabled"?: boolean;
 
   "entitySource": string;
 }

@@ -114,6 +114,10 @@ export interface ManagementAgent {
    */
   "installType"?: model.InstallTypes;
   /**
+   * Additional properties for this Management Agent
+   */
+  "managementAgentProperties"?: Array<model.ManagementAgentProperty>;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *
@@ -136,6 +140,12 @@ export namespace ManagementAgent {
           ? obj.pluginList.map(item => {
               return model.ManagementAgentPluginDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "managementAgentProperties": obj.managementAgentProperties
+          ? obj.managementAgentProperties.map(item => {
+              return model.ManagementAgentProperty.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -149,6 +159,12 @@ export namespace ManagementAgent {
         "pluginList": obj.pluginList
           ? obj.pluginList.map(item => {
               return model.ManagementAgentPluginDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "managementAgentProperties": obj.managementAgentProperties
+          ? obj.managementAgentProperties.map(item => {
+              return model.ManagementAgentProperty.getDeserializedJsonObj(item);
             })
           : undefined
       }

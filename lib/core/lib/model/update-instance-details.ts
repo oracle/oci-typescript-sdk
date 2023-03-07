@@ -104,6 +104,16 @@ Example: `VM.Standard2.1`
     */
   "shape"?: string;
   "shapeConfig"?: model.UpdateInstanceShapeConfigDetails;
+  /**
+   * The parameter acts as a fail-safe to prevent unwanted downtime when updating a running instance.
+   * The default is ALLOW_DOWNTIME.
+   * * `ALLOW_DOWNTIME` - Compute might reboot the instance while updating the instance if a reboot is required.
+   * * `AVOID_DOWNTIME` - If the instance is in running state, Compute tries to update the instance without rebooting
+   *                   it. If the instance requires a reboot to be updated, an error is returned and the instance
+   *                   is not updated. If the instance is stopped, it is updated and remains in the stopped state.
+   *
+   */
+  "updateOperationConstraint"?: UpdateInstanceDetails.UpdateOperationConstraint;
   "instanceOptions"?: model.InstanceOptions;
   /**
     * A fault domain is a grouping of hardware and infrastructure within an availability domain.
@@ -146,6 +156,11 @@ Example: `2018-05-25T21:10:29.600Z`
 }
 
 export namespace UpdateInstanceDetails {
+  export enum UpdateOperationConstraint {
+    AllowDowntime = "ALLOW_DOWNTIME",
+    AvoidDowntime = "AVOID_DOWNTIME"
+  }
+
   export function getJsonObj(obj: UpdateInstanceDetails): object {
     const jsonObj = {
       ...obj,
@@ -157,6 +172,7 @@ export namespace UpdateInstanceDetails {
         "shapeConfig": obj.shapeConfig
           ? model.UpdateInstanceShapeConfigDetails.getJsonObj(obj.shapeConfig)
           : undefined,
+
         "instanceOptions": obj.instanceOptions
           ? model.InstanceOptions.getJsonObj(obj.instanceOptions)
           : undefined,
@@ -183,6 +199,7 @@ export namespace UpdateInstanceDetails {
         "shapeConfig": obj.shapeConfig
           ? model.UpdateInstanceShapeConfigDetails.getDeserializedJsonObj(obj.shapeConfig)
           : undefined,
+
         "instanceOptions": obj.instanceOptions
           ? model.InstanceOptions.getDeserializedJsonObj(obj.instanceOptions)
           : undefined,

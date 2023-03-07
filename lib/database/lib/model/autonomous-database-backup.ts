@@ -90,12 +90,29 @@ export interface AutonomousDatabaseBackup {
    *
    */
   "kmsKeyVersionId"?: string;
+  /**
+   * Retention period, in days, for long-term backups Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "retentionPeriodInDays"?: number;
+  /**
+   * Timestamp until when the backup will be available
+   */
+  "timeAvailableTill"?: Date;
+  /**
+   * A valid Oracle Database version for Autonomous Database.
+   */
+  "dbVersion"?: string;
+  /**
+   * The backup size in terrabytes (TB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sizeInTBs"?: number;
 }
 
 export namespace AutonomousDatabaseBackup {
   export enum Type {
     Incremental = "INCREMENTAL",
     Full = "FULL",
+    Longterm = "LONGTERM",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -109,6 +126,7 @@ export namespace AutonomousDatabaseBackup {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    Updating = "UPDATING",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

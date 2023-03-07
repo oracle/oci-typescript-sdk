@@ -155,7 +155,7 @@ export class AnalyticsClient {
    * Change the compartment of an Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAnalyticsInstanceCompartmentRequest
    * @return ChangeAnalyticsInstanceCompartmentResponse
    * @throws OciError when an error occurs
@@ -182,7 +182,7 @@ export class AnalyticsClient {
       "opc-retry-token": changeAnalyticsInstanceCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAnalyticsInstanceCompartmentRequest.retryConfiguration,
@@ -237,7 +237,7 @@ export class AnalyticsClient {
    * Change an Analytics instance network endpoint. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeAnalyticsInstanceNetworkEndpointRequest
    * @return ChangeAnalyticsInstanceNetworkEndpointResponse
    * @throws OciError when an error occurs
@@ -266,7 +266,7 @@ export class AnalyticsClient {
       "opc-retry-token": changeAnalyticsInstanceNetworkEndpointRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeAnalyticsInstanceNetworkEndpointRequest.retryConfiguration,
@@ -321,7 +321,7 @@ export class AnalyticsClient {
    * Create a new AnalyticsInstance in the specified compartment. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAnalyticsInstanceRequest
    * @return CreateAnalyticsInstanceResponse
    * @throws OciError when an error occurs
@@ -344,7 +344,7 @@ export class AnalyticsClient {
       "opc-retry-token": createAnalyticsInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAnalyticsInstanceRequest.retryConfiguration,
@@ -413,7 +413,7 @@ export class AnalyticsClient {
    * Create an Private access Channel for the Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreatePrivateAccessChannelRequest
    * @return CreatePrivateAccessChannelResponse
    * @throws OciError when an error occurs
@@ -439,7 +439,7 @@ export class AnalyticsClient {
       "opc-retry-token": createPrivateAccessChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createPrivateAccessChannelRequest.retryConfiguration,
@@ -494,7 +494,7 @@ export class AnalyticsClient {
    * Allows specifying a custom host name to be used to access the analytics instance.  This requires prior setup of DNS entry and certificate
    * for this host.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateVanityUrlRequest
    * @return CreateVanityUrlResponse
    * @throws OciError when an error occurs
@@ -519,7 +519,7 @@ export class AnalyticsClient {
       "opc-retry-token": createVanityUrlRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createVanityUrlRequest.retryConfiguration,
@@ -574,7 +574,7 @@ export class AnalyticsClient {
    * Terminates the specified Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAnalyticsInstanceRequest
    * @return DeleteAnalyticsInstanceResponse
    * @throws OciError when an error occurs
@@ -601,7 +601,7 @@ export class AnalyticsClient {
       "opc-retry-token": deleteAnalyticsInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAnalyticsInstanceRequest.retryConfiguration,
@@ -650,7 +650,7 @@ export class AnalyticsClient {
   /**
    * Delete an Analytics instance's Private access channel with the given unique identifier key.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeletePrivateAccessChannelRequest
    * @return DeletePrivateAccessChannelResponse
    * @throws OciError when an error occurs
@@ -678,7 +678,7 @@ export class AnalyticsClient {
       "opc-retry-token": deletePrivateAccessChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deletePrivateAccessChannelRequest.retryConfiguration,
@@ -728,7 +728,7 @@ export class AnalyticsClient {
   /**
    * Allows deleting a previously created vanity url.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteVanityUrlRequest
    * @return DeleteVanityUrlResponse
    * @throws OciError when an error occurs
@@ -755,7 +755,7 @@ export class AnalyticsClient {
       "opc-retry-token": deleteVanityUrlRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteVanityUrlRequest.retryConfiguration,
@@ -873,7 +873,7 @@ export class AnalyticsClient {
   /**
    * Info for a specific Analytics instance.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAnalyticsInstanceRequest
    * @return GetAnalyticsInstanceResponse
    * @throws OciError when an error occurs
@@ -897,7 +897,7 @@ export class AnalyticsClient {
       "opc-request-id": getAnalyticsInstanceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAnalyticsInstanceRequest.retryConfiguration,
@@ -950,7 +950,7 @@ export class AnalyticsClient {
   /**
    * Retrieve private access channel in the specified Analytics Instance.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPrivateAccessChannelRequest
    * @return GetPrivateAccessChannelResponse
    * @throws OciError when an error occurs
@@ -976,7 +976,7 @@ export class AnalyticsClient {
       "opc-request-id": getPrivateAccessChannelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getPrivateAccessChannelRequest.retryConfiguration,
@@ -1030,7 +1030,7 @@ export class AnalyticsClient {
   /**
    * Get the details of a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1054,7 +1054,7 @@ export class AnalyticsClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1112,7 +1112,7 @@ export class AnalyticsClient {
   /**
    * List Analytics instances.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAnalyticsInstancesRequest
    * @return ListAnalyticsInstancesResponse
    * @throws OciError when an error occurs
@@ -1144,7 +1144,7 @@ export class AnalyticsClient {
       "opc-request-id": listAnalyticsInstancesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAnalyticsInstancesRequest.retryConfiguration,
@@ -1249,7 +1249,7 @@ export class AnalyticsClient {
   /**
    * Get the errors of a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1276,7 +1276,7 @@ export class AnalyticsClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1381,7 +1381,7 @@ export class AnalyticsClient {
   /**
    * Get the logs of a work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1408,7 +1408,7 @@ export class AnalyticsClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1513,7 +1513,7 @@ export class AnalyticsClient {
   /**
    * List all work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1544,7 +1544,7 @@ export class AnalyticsClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1650,7 +1650,7 @@ export class AnalyticsClient {
    * Scale an Analytics instance up or down. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ScaleAnalyticsInstanceRequest
    * @return ScaleAnalyticsInstanceResponse
    * @throws OciError when an error occurs
@@ -1676,7 +1676,7 @@ export class AnalyticsClient {
       "opc-retry-token": scaleAnalyticsInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       scaleAnalyticsInstanceRequest.retryConfiguration,
@@ -1730,7 +1730,7 @@ export class AnalyticsClient {
   /**
    * Encrypts the customer data of this Analytics instance using either a customer OCI Vault Key or Oracle managed default key.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SetKmsKeyRequest
    * @return SetKmsKeyResponse
    * @throws OciError when an error occurs
@@ -1756,7 +1756,7 @@ export class AnalyticsClient {
       "opc-retry-token": setKmsKeyRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       setKmsKeyRequest.retryConfiguration,
@@ -1811,7 +1811,7 @@ export class AnalyticsClient {
    * Starts the specified Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartAnalyticsInstanceRequest
    * @return StartAnalyticsInstanceResponse
    * @throws OciError when an error occurs
@@ -1837,7 +1837,7 @@ export class AnalyticsClient {
       "opc-retry-token": startAnalyticsInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startAnalyticsInstanceRequest.retryConfiguration,
@@ -1887,7 +1887,7 @@ export class AnalyticsClient {
    * Stop the specified Analytics instance. The operation is long-running
    * and creates a new WorkRequest.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopAnalyticsInstanceRequest
    * @return StopAnalyticsInstanceResponse
    * @throws OciError when an error occurs
@@ -1913,7 +1913,7 @@ export class AnalyticsClient {
       "opc-retry-token": stopAnalyticsInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       stopAnalyticsInstanceRequest.retryConfiguration,
@@ -2047,7 +2047,7 @@ export class AnalyticsClient {
   /**
    * Update the Private Access Channel with the given unique identifier key in the specified Analytics Instance.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdatePrivateAccessChannelRequest
    * @return UpdatePrivateAccessChannelResponse
    * @throws OciError when an error occurs
@@ -2075,7 +2075,7 @@ export class AnalyticsClient {
       "opc-retry-token": updatePrivateAccessChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updatePrivateAccessChannelRequest.retryConfiguration,
@@ -2130,7 +2130,7 @@ export class AnalyticsClient {
   /**
    * Allows uploading a new certificate for a vanity url, which will have to be done when the current certificate is expiring.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateVanityUrlRequest
    * @return UpdateVanityUrlResponse
    * @throws OciError when an error occurs
@@ -2157,7 +2157,7 @@ export class AnalyticsClient {
       "opc-retry-token": updateVanityUrlRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateVanityUrlRequest.retryConfiguration,

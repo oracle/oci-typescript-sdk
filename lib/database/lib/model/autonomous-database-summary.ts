@@ -73,6 +73,11 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "ncharacterSet"?: string;
   /**
+   * The date and time when the next long-term backup would be created.
+   */
+  "nextLongTermBackupTimeStamp"?: Date;
+  "longTermBackupSchedule"?: model.LongTermBackUpScheduleDetails;
+  /**
    * Indicates if this is an Always Free resource. The default value is false. Note that Always Free Autonomous Databases have 1 CPU and 20GB of memory. For Always Free databases, memory and CPU cannot be scaled.
    *
    */
@@ -114,7 +119,7 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "computeCount"?: number;
   /**
-   * Retention period, in days, for backups. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Retention period, in days, for long-term backups Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "backupRetentionPeriodInDays"?: number;
   /**
@@ -695,6 +700,10 @@ export namespace AutonomousDatabaseSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "longTermBackupSchedule": obj.longTermBackupSchedule
+          ? model.LongTermBackUpScheduleDetails.getJsonObj(obj.longTermBackupSchedule)
+          : undefined,
+
         "backupConfig": obj.backupConfig
           ? model.AutonomousDatabaseBackupConfig.getJsonObj(obj.backupConfig)
           : undefined,
@@ -749,6 +758,10 @@ export namespace AutonomousDatabaseSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "longTermBackupSchedule": obj.longTermBackupSchedule
+          ? model.LongTermBackUpScheduleDetails.getDeserializedJsonObj(obj.longTermBackupSchedule)
+          : undefined,
+
         "backupConfig": obj.backupConfig
           ? model.AutonomousDatabaseBackupConfig.getDeserializedJsonObj(obj.backupConfig)
           : undefined,

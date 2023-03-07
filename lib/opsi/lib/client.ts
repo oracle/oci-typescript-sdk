@@ -234,6 +234,90 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Update connection detail for advanced features of Autonomous Database in Operations Insights.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest
+   * @return ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use ChangeAutonomousDatabaseInsightAdvancedFeatures API.
+   */
+  public async changeAutonomousDatabaseInsightAdvancedFeatures(
+    changeAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.ChangeAutonomousDatabaseInsightAdvancedFeaturesRequest
+  ): Promise<responses.ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#changeAutonomousDatabaseInsightAdvancedFeatures."
+      );
+    const operationName = "changeAutonomousDatabaseInsightAdvancedFeatures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ChangeAutonomousDatabaseInsightAdvancedFeatures";
+    const pathParams = {
+      "{databaseInsightId}":
+        changeAutonomousDatabaseInsightAdvancedFeaturesRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeAutonomousDatabaseInsightAdvancedFeaturesRequest.ifMatch,
+      "opc-request-id": changeAutonomousDatabaseInsightAdvancedFeaturesRequest.opcRequestId,
+      "opc-retry-token": changeAutonomousDatabaseInsightAdvancedFeaturesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeAutonomousDatabaseInsightAdvancedFeaturesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseInsights/{databaseInsightId}/actions/changeAutonomousDatabaseInsightAdvancedFeatures",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeAutonomousDatabaseInsightAdvancedFeaturesRequest.changeAutonomousDatabaseInsightAdvancedFeaturesDetails,
+        "ChangeAutonomousDatabaseInsightAdvancedFeaturesDetails",
+        model.ChangeAutonomousDatabaseInsightAdvancedFeaturesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeAutonomousDatabaseInsightAdvancedFeaturesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a DatabaseInsight resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDatabaseInsightCompartmentRequest
@@ -2368,6 +2452,85 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Disable advanced features for an Autonomous Database in Operations Insights. The connection detail and advanced features will be removed.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableAutonomousDatabaseInsightAdvancedFeaturesRequest
+   * @return DisableAutonomousDatabaseInsightAdvancedFeaturesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DisableAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use DisableAutonomousDatabaseInsightAdvancedFeatures API.
+   */
+  public async disableAutonomousDatabaseInsightAdvancedFeatures(
+    disableAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.DisableAutonomousDatabaseInsightAdvancedFeaturesRequest
+  ): Promise<responses.DisableAutonomousDatabaseInsightAdvancedFeaturesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#disableAutonomousDatabaseInsightAdvancedFeatures."
+      );
+    const operationName = "disableAutonomousDatabaseInsightAdvancedFeatures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/DisableAutonomousDatabaseInsightAdvancedFeatures";
+    const pathParams = {
+      "{databaseInsightId}":
+        disableAutonomousDatabaseInsightAdvancedFeaturesRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableAutonomousDatabaseInsightAdvancedFeaturesRequest.ifMatch,
+      "opc-request-id": disableAutonomousDatabaseInsightAdvancedFeaturesRequest.opcRequestId,
+      "opc-retry-token": disableAutonomousDatabaseInsightAdvancedFeaturesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAutonomousDatabaseInsightAdvancedFeaturesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseInsights/{databaseInsightId}/actions/disableAutonomousDatabaseInsightAdvancedFeatures",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAutonomousDatabaseInsightAdvancedFeaturesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables a database in Operations Insights. Database metric collection and analysis will be stopped.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisableDatabaseInsightRequest
@@ -2679,6 +2842,90 @@ export class OperationsInsightsClient {
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enables advanced features for an Autonomous Database in Operations Insights. A direct connection will be available for further collection.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param EnableAutonomousDatabaseInsightAdvancedFeaturesRequest
+   * @return EnableAutonomousDatabaseInsightAdvancedFeaturesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/EnableAutonomousDatabaseInsightAdvancedFeatures.ts.html |here} to see how to use EnableAutonomousDatabaseInsightAdvancedFeatures API.
+   */
+  public async enableAutonomousDatabaseInsightAdvancedFeatures(
+    enableAutonomousDatabaseInsightAdvancedFeaturesRequest: requests.EnableAutonomousDatabaseInsightAdvancedFeaturesRequest
+  ): Promise<responses.EnableAutonomousDatabaseInsightAdvancedFeaturesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#enableAutonomousDatabaseInsightAdvancedFeatures."
+      );
+    const operationName = "enableAutonomousDatabaseInsightAdvancedFeatures";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/EnableAutonomousDatabaseInsightAdvancedFeatures";
+    const pathParams = {
+      "{databaseInsightId}":
+        enableAutonomousDatabaseInsightAdvancedFeaturesRequest.databaseInsightId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableAutonomousDatabaseInsightAdvancedFeaturesRequest.ifMatch,
+      "opc-request-id": enableAutonomousDatabaseInsightAdvancedFeaturesRequest.opcRequestId,
+      "opc-retry-token": enableAutonomousDatabaseInsightAdvancedFeaturesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAutonomousDatabaseInsightAdvancedFeaturesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/databaseInsights/{databaseInsightId}/actions/enableAutonomousDatabaseInsightAdvancedFeatures",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableAutonomousDatabaseInsightAdvancedFeaturesRequest.enableAutonomousDatabaseInsightAdvancedFeaturesDetails,
+        "EnableAutonomousDatabaseInsightAdvancedFeaturesDetails",
+        model.EnableAutonomousDatabaseInsightAdvancedFeaturesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAutonomousDatabaseInsightAdvancedFeaturesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -8225,7 +8472,11 @@ Note that this API does not return information on the number of times each datab
       "freeformTagExists": summarizeDatabaseInsightResourceCapacityTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
         summarizeDatabaseInsightResourceCapacityTrendRequest.compartmentIdInSubtree,
-      "vmclusterName": summarizeDatabaseInsightResourceCapacityTrendRequest.vmclusterName
+      "vmclusterName": summarizeDatabaseInsightResourceCapacityTrendRequest.vmclusterName,
+      "highUtilizationThreshold":
+        summarizeDatabaseInsightResourceCapacityTrendRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeDatabaseInsightResourceCapacityTrendRequest.lowUtilizationThreshold
     };
 
     let headerParams = {
@@ -8333,7 +8584,11 @@ Note that this API does not return information on the number of times each datab
       "freeformTagExists": summarizeDatabaseInsightResourceForecastTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
         summarizeDatabaseInsightResourceForecastTrendRequest.compartmentIdInSubtree,
-      "vmclusterName": summarizeDatabaseInsightResourceForecastTrendRequest.vmclusterName
+      "vmclusterName": summarizeDatabaseInsightResourceForecastTrendRequest.vmclusterName,
+      "highUtilizationThreshold":
+        summarizeDatabaseInsightResourceForecastTrendRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeDatabaseInsightResourceForecastTrendRequest.lowUtilizationThreshold
     };
 
     let headerParams = {
@@ -8441,7 +8696,11 @@ Note that this API does not return information on the number of times each datab
       "freeformTagExists": summarizeDatabaseInsightResourceStatisticsRequest.freeformTagExists,
       "compartmentIdInSubtree":
         summarizeDatabaseInsightResourceStatisticsRequest.compartmentIdInSubtree,
-      "vmclusterName": summarizeDatabaseInsightResourceStatisticsRequest.vmclusterName
+      "vmclusterName": summarizeDatabaseInsightResourceStatisticsRequest.vmclusterName,
+      "highUtilizationThreshold":
+        summarizeDatabaseInsightResourceStatisticsRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeDatabaseInsightResourceStatisticsRequest.lowUtilizationThreshold
     };
 
     let headerParams = {
@@ -8543,7 +8802,8 @@ Note that this API does not return information on the number of times each datab
       "definedTagExists": summarizeDatabaseInsightResourceUsageRequest.definedTagExists,
       "freeformTagExists": summarizeDatabaseInsightResourceUsageRequest.freeformTagExists,
       "compartmentIdInSubtree": summarizeDatabaseInsightResourceUsageRequest.compartmentIdInSubtree,
-      "vmclusterName": summarizeDatabaseInsightResourceUsageRequest.vmclusterName
+      "vmclusterName": summarizeDatabaseInsightResourceUsageRequest.vmclusterName,
+      "cdbName": summarizeDatabaseInsightResourceUsageRequest.cdbName
     };
 
     let headerParams = {
@@ -8647,7 +8907,8 @@ Note that this API does not return information on the number of times each datab
       "freeformTagExists": summarizeDatabaseInsightResourceUsageTrendRequest.freeformTagExists,
       "compartmentIdInSubtree":
         summarizeDatabaseInsightResourceUsageTrendRequest.compartmentIdInSubtree,
-      "vmclusterName": summarizeDatabaseInsightResourceUsageTrendRequest.vmclusterName
+      "vmclusterName": summarizeDatabaseInsightResourceUsageTrendRequest.vmclusterName,
+      "cdbName": summarizeDatabaseInsightResourceUsageTrendRequest.cdbName
     };
 
     let headerParams = {
@@ -8755,7 +9016,12 @@ Note that this API does not return information on the number of times each datab
         summarizeDatabaseInsightResourceUtilizationInsightRequest.freeformTagExists,
       "compartmentIdInSubtree":
         summarizeDatabaseInsightResourceUtilizationInsightRequest.compartmentIdInSubtree,
-      "vmclusterName": summarizeDatabaseInsightResourceUtilizationInsightRequest.vmclusterName
+      "vmclusterName": summarizeDatabaseInsightResourceUtilizationInsightRequest.vmclusterName,
+      "cdbName": summarizeDatabaseInsightResourceUtilizationInsightRequest.cdbName,
+      "highUtilizationThreshold":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeDatabaseInsightResourceUtilizationInsightRequest.lowUtilizationThreshold
     };
 
     let headerParams = {
@@ -10737,7 +11003,8 @@ Note that this API does not return information on the number of times each datab
       "freeformTagEquals": summarizeSqlInsightsRequest.freeformTagEquals,
       "definedTagExists": summarizeSqlInsightsRequest.definedTagExists,
       "freeformTagExists": summarizeSqlInsightsRequest.freeformTagExists,
-      "compartmentIdInSubtree": summarizeSqlInsightsRequest.compartmentIdInSubtree
+      "compartmentIdInSubtree": summarizeSqlInsightsRequest.compartmentIdInSubtree,
+      "vmclusterName": summarizeSqlInsightsRequest.vmclusterName
     };
 
     let headerParams = {
