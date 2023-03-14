@@ -109,6 +109,7 @@ export interface AutonomousDatabaseBackupSummary {
    * The backup size in terrabytes (TB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "sizeInTBs"?: number;
+  "backupDestinationDetails"?: model.BackupDestinationDetails;
 }
 
 export namespace AutonomousDatabaseBackupSummary {
@@ -138,12 +139,26 @@ export namespace AutonomousDatabaseBackupSummary {
   }
 
   export function getJsonObj(obj: AutonomousDatabaseBackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getJsonObj(obj.backupDestinationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: AutonomousDatabaseBackupSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getDeserializedJsonObj(obj.backupDestinationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

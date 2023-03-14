@@ -51,6 +51,16 @@ export namespace HostResourceStatistics {
 
     if (obj && "resourceName" in obj && obj.resourceName) {
       switch (obj.resourceName) {
+        case "HOST_NETWORK_STATISTICS":
+          return model.HostNetworkStatistics.getJsonObj(
+            <model.HostNetworkStatistics>(<object>jsonObj),
+            true
+          );
+        case "HOST_STORAGE_STATISTICS":
+          return model.HostStorageStatistics.getJsonObj(
+            <model.HostStorageStatistics>(<object>jsonObj),
+            true
+          );
         case "HOST_MEMORY_STATISTICS":
           return model.HostMemoryStatistics.getJsonObj(
             <model.HostMemoryStatistics>(<object>jsonObj),
@@ -72,6 +82,16 @@ export namespace HostResourceStatistics {
 
     if (obj && "resourceName" in obj && obj.resourceName) {
       switch (obj.resourceName) {
+        case "HOST_NETWORK_STATISTICS":
+          return model.HostNetworkStatistics.getDeserializedJsonObj(
+            <model.HostNetworkStatistics>(<object>jsonObj),
+            true
+          );
+        case "HOST_STORAGE_STATISTICS":
+          return model.HostStorageStatistics.getDeserializedJsonObj(
+            <model.HostStorageStatistics>(<object>jsonObj),
+            true
+          );
         case "HOST_MEMORY_STATISTICS":
           return model.HostMemoryStatistics.getDeserializedJsonObj(
             <model.HostMemoryStatistics>(<object>jsonObj),

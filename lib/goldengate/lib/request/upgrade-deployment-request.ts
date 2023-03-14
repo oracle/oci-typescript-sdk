@@ -27,7 +27,9 @@ export interface UpgradeDeploymentRequest extends common.BaseRequest {
    * A placeholder for any additional metadata to describe the deployment upgrade.
    *
    */
-  "upgradeDeploymentDetails": model.UpgradeDeploymentCurrentReleaseDetails;
+  "upgradeDeploymentDetails":
+    | model.UpgradeDeploymentSpecificReleaseDetails
+    | model.UpgradeDeploymentCurrentReleaseDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the
    * `if-match` parameter to the value of the etag from a previous GET or POST response for that

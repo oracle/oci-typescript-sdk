@@ -111,6 +111,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "version"?: string;
   /**
+   * The most recent OS Patch Version applied on the DB system.
+   */
+  "osVersion"?: string;
+  /**
    * The number of CPU cores enabled on the DB system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCount": number;

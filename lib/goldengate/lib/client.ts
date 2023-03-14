@@ -232,6 +232,82 @@ export class GoldenGateClient {
   }
 
   /**
+   * Cancel snooze of a DeploymentUpgrade. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelSnoozeDeploymentUpgradeRequest
+   * @return CancelSnoozeDeploymentUpgradeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelSnoozeDeploymentUpgrade.ts.html |here} to see how to use CancelSnoozeDeploymentUpgrade API.
+   */
+  public async cancelSnoozeDeploymentUpgrade(
+    cancelSnoozeDeploymentUpgradeRequest: requests.CancelSnoozeDeploymentUpgradeRequest
+  ): Promise<responses.CancelSnoozeDeploymentUpgradeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#cancelSnoozeDeploymentUpgrade.");
+    const operationName = "cancelSnoozeDeploymentUpgrade";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/CancelSnoozeDeploymentUpgrade";
+    const pathParams = {
+      "{deploymentUpgradeId}": cancelSnoozeDeploymentUpgradeRequest.deploymentUpgradeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelSnoozeDeploymentUpgradeRequest.ifMatch,
+      "opc-request-id": cancelSnoozeDeploymentUpgradeRequest.opcRequestId,
+      "opc-retry-token": cancelSnoozeDeploymentUpgradeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelSnoozeDeploymentUpgradeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades/{deploymentUpgradeId}/actions/cancelSnooze",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cancelSnoozeDeploymentUpgradeRequest.cancelSnoozeDeploymentUpgradeDetails,
+        "CancelSnoozeDeploymentUpgradeDetails",
+        model.CancelSnoozeDeploymentUpgradeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelSnoozeDeploymentUpgradeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves the Connection into a different compartment within the same tenancy. When
    * provided, If-Match is checked against ETag values of the resource.  For information about
    * moving resources between compartments, see [Moving Resources Between
@@ -2618,6 +2694,8 @@ export class GoldenGateClient {
 
     const queryParams = {
       "compartmentId": listDeploymentTypesRequest.compartmentId,
+      "deploymentType": listDeploymentTypesRequest.deploymentType,
+      "oggVersion": listDeploymentTypesRequest.oggVersion,
       "displayName": listDeploymentTypesRequest.displayName,
       "limit": listDeploymentTypesRequest.limit,
       "page": listDeploymentTypesRequest.page,
@@ -2745,6 +2823,90 @@ export class GoldenGateClient {
         bodyKey: "deploymentUpgradeCollection",
         bodyModel: model.DeploymentUpgradeCollection,
         type: "model.DeploymentUpgradeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the list of available deployment versions.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDeploymentVersionsRequest
+   * @return ListDeploymentVersionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/ListDeploymentVersions.ts.html |here} to see how to use ListDeploymentVersions API.
+   */
+  public async listDeploymentVersions(
+    listDeploymentVersionsRequest: requests.ListDeploymentVersionsRequest
+  ): Promise<responses.ListDeploymentVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#listDeploymentVersions.");
+    const operationName = "listDeploymentVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentVersionCollection/ListDeploymentVersions";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDeploymentVersionsRequest.compartmentId,
+      "deploymentId": listDeploymentVersionsRequest.deploymentId,
+      "deploymentType": listDeploymentVersionsRequest.deploymentType,
+      "limit": listDeploymentVersionsRequest.limit,
+      "page": listDeploymentVersionsRequest.page,
+      "sortOrder": listDeploymentVersionsRequest.sortOrder,
+      "sortBy": listDeploymentVersionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDeploymentVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDeploymentVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDeploymentVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentVersionCollection",
+        bodyModel: model.DeploymentVersionCollection,
+        type: "model.DeploymentVersionCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3654,6 +3816,163 @@ export class GoldenGateClient {
   }
 
   /**
+   * Rollback a deployment to it's previous version. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RollbackDeploymentUpgradeRequest
+   * @return RollbackDeploymentUpgradeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RollbackDeploymentUpgrade.ts.html |here} to see how to use RollbackDeploymentUpgrade API.
+   */
+  public async rollbackDeploymentUpgrade(
+    rollbackDeploymentUpgradeRequest: requests.RollbackDeploymentUpgradeRequest
+  ): Promise<responses.RollbackDeploymentUpgradeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#rollbackDeploymentUpgrade.");
+    const operationName = "rollbackDeploymentUpgrade";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/RollbackDeploymentUpgrade";
+    const pathParams = {
+      "{deploymentUpgradeId}": rollbackDeploymentUpgradeRequest.deploymentUpgradeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rollbackDeploymentUpgradeRequest.ifMatch,
+      "opc-request-id": rollbackDeploymentUpgradeRequest.opcRequestId,
+      "opc-retry-token": rollbackDeploymentUpgradeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rollbackDeploymentUpgradeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades/{deploymentUpgradeId}/actions/rollback",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rollbackDeploymentUpgradeRequest.rollbackDeploymentUpgradeDetails,
+        "RollbackDeploymentUpgradeDetails",
+        model.RollbackDeploymentUpgradeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RollbackDeploymentUpgradeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Snooze a DeploymentUpgrade. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SnoozeDeploymentUpgradeRequest
+   * @return SnoozeDeploymentUpgradeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/SnoozeDeploymentUpgrade.ts.html |here} to see how to use SnoozeDeploymentUpgrade API.
+   */
+  public async snoozeDeploymentUpgrade(
+    snoozeDeploymentUpgradeRequest: requests.SnoozeDeploymentUpgradeRequest
+  ): Promise<responses.SnoozeDeploymentUpgradeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#snoozeDeploymentUpgrade.");
+    const operationName = "snoozeDeploymentUpgrade";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/SnoozeDeploymentUpgrade";
+    const pathParams = {
+      "{deploymentUpgradeId}": snoozeDeploymentUpgradeRequest.deploymentUpgradeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": snoozeDeploymentUpgradeRequest.ifMatch,
+      "opc-request-id": snoozeDeploymentUpgradeRequest.opcRequestId,
+      "opc-retry-token": snoozeDeploymentUpgradeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      snoozeDeploymentUpgradeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades/{deploymentUpgradeId}/actions/snooze",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        snoozeDeploymentUpgradeRequest.snoozeDeploymentUpgradeDetails,
+        "SnoozeDeploymentUpgradeDetails",
+        model.SnoozeDeploymentUpgradeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SnoozeDeploymentUpgradeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Starts a Deployment. When provided, If-Match is checked against ETag values of the resource.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4201,6 +4520,87 @@ export class GoldenGateClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpgradeDeploymentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Upgrade a deployment. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpgradeDeploymentUpgradeRequest
+   * @return UpgradeDeploymentUpgradeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/UpgradeDeploymentUpgrade.ts.html |here} to see how to use UpgradeDeploymentUpgrade API.
+   */
+  public async upgradeDeploymentUpgrade(
+    upgradeDeploymentUpgradeRequest: requests.UpgradeDeploymentUpgradeRequest
+  ): Promise<responses.UpgradeDeploymentUpgradeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#upgradeDeploymentUpgrade.");
+    const operationName = "upgradeDeploymentUpgrade";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/UpgradeDeploymentUpgrade";
+    const pathParams = {
+      "{deploymentUpgradeId}": upgradeDeploymentUpgradeRequest.deploymentUpgradeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": upgradeDeploymentUpgradeRequest.ifMatch,
+      "opc-request-id": upgradeDeploymentUpgradeRequest.opcRequestId,
+      "opc-retry-token": upgradeDeploymentUpgradeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      upgradeDeploymentUpgradeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades/{deploymentUpgradeId}/actions/upgrade",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        upgradeDeploymentUpgradeRequest.upgradeDeploymentUpgradeDetails,
+        "UpgradeDeploymentUpgradeDetails",
+        model.UpgradeDeploymentUpgradeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpgradeDeploymentUpgradeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

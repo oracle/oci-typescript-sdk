@@ -1,6 +1,6 @@
 {
   "name": "oci-dts",
-  "version": "2.54.0",
+  "version": "2.54.1",
   "description": "OCI NodeJS client for Dts Service",
   "repository": {
     "type": "git",

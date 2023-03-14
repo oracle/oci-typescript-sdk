@@ -238,6 +238,8 @@ import * as SummarizeExadataInsightResourceUtilizationInsightRequest from "./sum
 export import SummarizeExadataInsightResourceUtilizationInsightRequest = SummarizeExadataInsightResourceUtilizationInsightRequest.SummarizeExadataInsightResourceUtilizationInsightRequest;
 import * as SummarizeExadataMembersRequest from "./summarize-exadata-members-request";
 export import SummarizeExadataMembersRequest = SummarizeExadataMembersRequest.SummarizeExadataMembersRequest;
+import * as SummarizeHostInsightNetworkUsageTrendRequest from "./summarize-host-insight-network-usage-trend-request";
+export import SummarizeHostInsightNetworkUsageTrendRequest = SummarizeHostInsightNetworkUsageTrendRequest.SummarizeHostInsightNetworkUsageTrendRequest;
 import * as SummarizeHostInsightResourceCapacityTrendRequest from "./summarize-host-insight-resource-capacity-trend-request";
 export import SummarizeHostInsightResourceCapacityTrendRequest = SummarizeHostInsightResourceCapacityTrendRequest.SummarizeHostInsightResourceCapacityTrendRequest;
 import * as SummarizeHostInsightResourceForecastTrendRequest from "./summarize-host-insight-resource-forecast-trend-request";
@@ -250,6 +252,8 @@ import * as SummarizeHostInsightResourceUsageTrendRequest from "./summarize-host
 export import SummarizeHostInsightResourceUsageTrendRequest = SummarizeHostInsightResourceUsageTrendRequest.SummarizeHostInsightResourceUsageTrendRequest;
 import * as SummarizeHostInsightResourceUtilizationInsightRequest from "./summarize-host-insight-resource-utilization-insight-request";
 export import SummarizeHostInsightResourceUtilizationInsightRequest = SummarizeHostInsightResourceUtilizationInsightRequest.SummarizeHostInsightResourceUtilizationInsightRequest;
+import * as SummarizeHostInsightStorageUsageTrendRequest from "./summarize-host-insight-storage-usage-trend-request";
+export import SummarizeHostInsightStorageUsageTrendRequest = SummarizeHostInsightStorageUsageTrendRequest.SummarizeHostInsightStorageUsageTrendRequest;
 import * as SummarizeHostInsightTopProcessesUsageRequest from "./summarize-host-insight-top-processes-usage-request";
 export import SummarizeHostInsightTopProcessesUsageRequest = SummarizeHostInsightTopProcessesUsageRequest.SummarizeHostInsightTopProcessesUsageRequest;
 import * as SummarizeHostInsightTopProcessesUsageTrendRequest from "./summarize-host-insight-top-processes-usage-trend-request";

@@ -27,6 +27,25 @@ export class ContainerEngineWaiter {
   ) {}
 
   /**
+   * Waits forAddon till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetAddonResponse | null (null in case of 404 response)
+   */
+  public async forAddon(
+    request: serviceRequests.GetAddonRequest,
+    ...targetStates: models.AddonLifecycleState[]
+  ): Promise<serviceResponses.GetAddonResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getAddon(request),
+      response => targetStates.includes(response.addon.lifecycleState!),
+      targetStates.includes(models.AddonLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forCluster till it reaches any of the provided states
    *
    * @param request the request to send
@@ -61,6 +80,44 @@ export class ContainerEngineWaiter {
       () => this.client.getNodePool(request),
       response => targetStates.includes(response.nodePool.lifecycleState!),
       targetStates.includes(models.NodePoolLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forVirtualNode till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVirtualNodeResponse | null (null in case of 404 response)
+   */
+  public async forVirtualNode(
+    request: serviceRequests.GetVirtualNodeRequest,
+    ...targetStates: models.VirtualNodeLifecycleState[]
+  ): Promise<serviceResponses.GetVirtualNodeResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVirtualNode(request),
+      response => targetStates.includes(response.virtualNode.lifecycleState!),
+      targetStates.includes(models.VirtualNodeLifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forVirtualNodePool till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetVirtualNodePoolResponse | null (null in case of 404 response)
+   */
+  public async forVirtualNodePool(
+    request: serviceRequests.GetVirtualNodePoolRequest,
+    ...targetStates: models.VirtualNodePoolLifecycleState[]
+  ): Promise<serviceResponses.GetVirtualNodePoolResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getVirtualNodePool(request),
+      response => targetStates.includes(response.virtualNodePool.lifecycleState!),
+      targetStates.includes(models.VirtualNodePoolLifecycleState.Deleted)
     );
   }
 

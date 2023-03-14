@@ -81,6 +81,7 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
    */
   "isAutoScalingEnabled"?: boolean;
   "oggData"?: model.UpdateOggDeploymentDetails;
+  "maintenanceWindow"?: model.UpdateMaintenanceWindowDetails;
 }
 
 export namespace UpdateDeploymentDetails {
@@ -90,6 +91,9 @@ export namespace UpdateDeploymentDetails {
       ...{
         "oggData": obj.oggData
           ? model.UpdateOggDeploymentDetails.getJsonObj(obj.oggData)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.UpdateMaintenanceWindowDetails.getJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };
@@ -102,6 +106,9 @@ export namespace UpdateDeploymentDetails {
       ...{
         "oggData": obj.oggData
           ? model.UpdateOggDeploymentDetails.getDeserializedJsonObj(obj.oggData)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.UpdateMaintenanceWindowDetails.getDeserializedJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };

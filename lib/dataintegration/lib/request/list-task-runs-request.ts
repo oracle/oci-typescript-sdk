@@ -78,6 +78,10 @@ export interface ListTaskRunsRequest extends common.BaseRequest {
    * This parameter can be used to filter objects by the names starting with the given value.
    */
   "nameStartsWith"?: string;
+  /**
+   * This parameter can be used to filter objects by the names that match partially or fully with the given value.
+   */
+  "nameContains"?: string;
 }
 
 export namespace ListTaskRunsRequest {

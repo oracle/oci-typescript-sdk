@@ -103,6 +103,10 @@ export interface Cluster {
    * Available CNIs and network options for existing and new node pools of the cluster
    */
   "clusterPodNetworkOptions"?: Array<model.ClusterPodNetworkOptionDetails>;
+  /**
+   * Type of cluster
+   */
+  "type"?: model.ClusterType;
 }
 
 export namespace Cluster {

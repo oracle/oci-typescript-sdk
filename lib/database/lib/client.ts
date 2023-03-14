@@ -13883,7 +13883,8 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "sortBy": listAutonomousDatabaseBackupsRequest.sortBy,
       "sortOrder": listAutonomousDatabaseBackupsRequest.sortOrder,
       "lifecycleState": listAutonomousDatabaseBackupsRequest.lifecycleState,
-      "displayName": listAutonomousDatabaseBackupsRequest.displayName
+      "displayName": listAutonomousDatabaseBackupsRequest.displayName,
+      "type": listAutonomousDatabaseBackupsRequest.type
     };
 
     let headerParams = {

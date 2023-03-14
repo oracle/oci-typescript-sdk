@@ -24,6 +24,7 @@ export interface SummarizeHostInsightResourceStatisticsRequest extends common.Ba
   "compartmentId": string;
   /**
    * Filter by host resource metric.
+   * Supported values are CPU, MEMORY, LOGICAL_MEMORY, STORAGE and NETWORK.
    *
    */
   "resourceMetric": string;
@@ -173,6 +174,14 @@ export interface SummarizeHostInsightResourceStatisticsRequest extends common.Ba
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Percent value in which a resource metric is considered highly utilized.
+   */
+  "highUtilizationThreshold"?: number;
+  /**
+   * Percent value in which a resource metric is considered low utilized.
+   */
+  "lowUtilizationThreshold"?: number;
 }
 
 export namespace SummarizeHostInsightResourceStatisticsRequest {

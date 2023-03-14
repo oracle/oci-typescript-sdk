@@ -119,6 +119,51 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
 * 
     */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * Version of OGG
+   *
+   */
+  "previousOggVersion"?: string;
+  /**
+   * The time of upgrade schedule. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   *
+   */
+  "timeSchedule"?: Date;
+  /**
+   * Indicates if upgrade notifications are snoozed or not.
+   *
+   */
+  "isSnoozed"?: boolean;
+  /**
+   * The time the upgrade notifications are snoozed until. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   *
+   */
+  "timeSnoozedUntil"?: Date;
+  /**
+   * The time the resource was released. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   *
+   */
+  "timeReleased"?: Date;
+  /**
+   * The type of release.
+   *
+   */
+  "releaseType"?: model.ReleaseType;
+  /**
+   * Indicates if OGG release contains security fix.
+   *
+   */
+  "isSecurityFix"?: boolean;
+  /**
+   * Indicates if rollback is allowed. In practice only the last upgrade can be rolled back.
+   * - Manual upgrade is allowed to rollback only until the old version isn't deprecated yet.
+   * - Automatic upgrade by default is not allowed, unless a serious issue does not justify.
+   *
+   */
+  "isRollbackAllowed"?: boolean;
 }
 
 export namespace DeploymentUpgrade {

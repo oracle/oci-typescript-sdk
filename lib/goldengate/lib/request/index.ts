@@ -14,6 +14,8 @@
 
 import * as CancelDeploymentBackupRequest from "./cancel-deployment-backup-request";
 export import CancelDeploymentBackupRequest = CancelDeploymentBackupRequest.CancelDeploymentBackupRequest;
+import * as CancelSnoozeDeploymentUpgradeRequest from "./cancel-snooze-deployment-upgrade-request";
+export import CancelSnoozeDeploymentUpgradeRequest = CancelSnoozeDeploymentUpgradeRequest.CancelSnoozeDeploymentUpgradeRequest;
 import * as ChangeConnectionCompartmentRequest from "./change-connection-compartment-request";
 export import ChangeConnectionCompartmentRequest = ChangeConnectionCompartmentRequest.ChangeConnectionCompartmentRequest;
 import * as ChangeDatabaseRegistrationCompartmentRequest from "./change-database-registration-compartment-request";
@@ -76,6 +78,8 @@ import * as ListDeploymentTypesRequest from "./list-deployment-types-request";
 export import ListDeploymentTypesRequest = ListDeploymentTypesRequest.ListDeploymentTypesRequest;
 import * as ListDeploymentUpgradesRequest from "./list-deployment-upgrades-request";
 export import ListDeploymentUpgradesRequest = ListDeploymentUpgradesRequest.ListDeploymentUpgradesRequest;
+import * as ListDeploymentVersionsRequest from "./list-deployment-versions-request";
+export import ListDeploymentVersionsRequest = ListDeploymentVersionsRequest.ListDeploymentVersionsRequest;
 import * as ListDeploymentWalletsOperationsRequest from "./list-deployment-wallets-operations-request";
 export import ListDeploymentWalletsOperationsRequest = ListDeploymentWalletsOperationsRequest.ListDeploymentWalletsOperationsRequest;
 import * as ListDeploymentsRequest from "./list-deployments-request";
@@ -94,6 +98,10 @@ import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as RestoreDeploymentRequest from "./restore-deployment-request";
 export import RestoreDeploymentRequest = RestoreDeploymentRequest.RestoreDeploymentRequest;
+import * as RollbackDeploymentUpgradeRequest from "./rollback-deployment-upgrade-request";
+export import RollbackDeploymentUpgradeRequest = RollbackDeploymentUpgradeRequest.RollbackDeploymentUpgradeRequest;
+import * as SnoozeDeploymentUpgradeRequest from "./snooze-deployment-upgrade-request";
+export import SnoozeDeploymentUpgradeRequest = SnoozeDeploymentUpgradeRequest.SnoozeDeploymentUpgradeRequest;
 import * as StartDeploymentRequest from "./start-deployment-request";
 export import StartDeploymentRequest = StartDeploymentRequest.StartDeploymentRequest;
 import * as StopDeploymentRequest from "./stop-deployment-request";
@@ -108,3 +116,5 @@ import * as UpdateDeploymentBackupRequest from "./update-deployment-backup-reque
 export import UpdateDeploymentBackupRequest = UpdateDeploymentBackupRequest.UpdateDeploymentBackupRequest;
 import * as UpgradeDeploymentRequest from "./upgrade-deployment-request";
 export import UpgradeDeploymentRequest = UpgradeDeploymentRequest.UpgradeDeploymentRequest;
+import * as UpgradeDeploymentUpgradeRequest from "./upgrade-deployment-upgrade-request";
+export import UpgradeDeploymentUpgradeRequest = UpgradeDeploymentUpgradeRequest.UpgradeDeploymentUpgradeRequest;

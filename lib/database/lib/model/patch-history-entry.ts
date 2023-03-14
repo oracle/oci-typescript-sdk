@@ -46,6 +46,10 @@ export interface PatchHistoryEntry {
    * The date and time when the patch action completed
    */
   "timeEnded"?: Date;
+  /**
+   * The type of Patch operation.
+   */
+  "patchType"?: PatchHistoryEntry.PatchType;
 }
 
 export namespace PatchHistoryEntry {
@@ -63,6 +67,17 @@ export namespace PatchHistoryEntry {
     InProgress = "IN_PROGRESS",
     Succeeded = "SUCCEEDED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PatchType {
+    Os = "OS",
+    Db = "DB",
+    Gi = "GI",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

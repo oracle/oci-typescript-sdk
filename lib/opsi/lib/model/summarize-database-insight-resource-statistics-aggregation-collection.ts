@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Returns list of the Databases with resource statistics like usage,capacity,utilization and usage change percent.
+ * Returns list of the Databases with resource statistics like usage, capacity, utilization and usage change percent.
  */
 export interface SummarizeDatabaseInsightResourceStatisticsAggregationCollection {
   /**

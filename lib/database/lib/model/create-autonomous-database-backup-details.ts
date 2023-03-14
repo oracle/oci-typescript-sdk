@@ -38,16 +38,31 @@ export interface CreateAutonomousDatabaseBackupDetails {
    * Indicates whether the backup is long-term
    */
   "isLongTermBackup"?: boolean;
+  "backupDestinationDetails"?: model.BackupDestinationDetails;
 }
 
 export namespace CreateAutonomousDatabaseBackupDetails {
   export function getJsonObj(obj: CreateAutonomousDatabaseBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getJsonObj(obj.backupDestinationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateAutonomousDatabaseBackupDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "backupDestinationDetails": obj.backupDestinationDetails
+          ? model.BackupDestinationDetails.getDeserializedJsonObj(obj.backupDestinationDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

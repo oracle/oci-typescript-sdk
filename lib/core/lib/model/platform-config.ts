@@ -91,6 +91,11 @@ export namespace PlatformConfig {
             <model.IntelVmPlatformConfig>(<object>jsonObj),
             true
           );
+        case "AMD_MILAN_BM_GPU":
+          return model.AmdMilanBmGpuPlatformConfig.getJsonObj(
+            <model.AmdMilanBmGpuPlatformConfig>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.type}`);
       }
@@ -135,6 +140,11 @@ export namespace PlatformConfig {
         case "INTEL_VM":
           return model.IntelVmPlatformConfig.getDeserializedJsonObj(
             <model.IntelVmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_MILAN_BM_GPU":
+          return model.AmdMilanBmGpuPlatformConfig.getDeserializedJsonObj(
+            <model.AmdMilanBmGpuPlatformConfig>(<object>jsonObj),
             true
           );
         default:

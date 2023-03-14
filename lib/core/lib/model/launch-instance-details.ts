@@ -235,7 +235,8 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.AmdVmLaunchInstancePlatformConfig
     | model.IntelVmLaunchInstancePlatformConfig
     | model.IntelSkylakeBmLaunchInstancePlatformConfig
-    | model.AmdMilanBmLaunchInstancePlatformConfig;
+    | model.AmdMilanBmLaunchInstancePlatformConfig
+    | model.AmdMilanBmGpuLaunchInstancePlatformConfig;
 }
 
 export namespace LaunchInstanceDetails {

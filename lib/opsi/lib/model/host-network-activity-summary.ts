@@ -23,6 +23,10 @@ import common = require("oci-common");
  */
 export interface HostNetworkActivitySummary extends model.HostPerformanceMetricGroup {
   /**
+   * Name of the network interface
+   */
+  "interfaceName"?: string;
+  /**
    * All network interfaces read rate in Mbps Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "allNetworkReadInMbps"?: number;

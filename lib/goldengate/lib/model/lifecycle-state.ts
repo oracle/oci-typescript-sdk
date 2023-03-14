@@ -32,6 +32,7 @@ export enum LifecycleState {
   Canceling = "CANCELING",
   Canceled = "CANCELED",
   Succeeded = "SUCCEEDED",
+  Waiting = "WAITING",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -96,4 +96,15 @@ export interface SummarizeHostInsightTopProcessesUsageTrendRequest extends commo
    *
    */
   "processHash"?: string;
+  /**
+   * Choose the type of statistic metric data to be used for forecasting.
+   */
+  "statistic"?: SummarizeHostInsightTopProcessesUsageTrendRequest.Statistic;
+}
+
+export namespace SummarizeHostInsightTopProcessesUsageTrendRequest {
+  export enum Statistic {
+    Avg = "AVG",
+    Max = "MAX"
+  }
 }

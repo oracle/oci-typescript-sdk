@@ -226,7 +226,8 @@ Example: `2016-08-25T21:10:29.600Z`
     | model.AmdRomeBmGpuPlatformConfig
     | model.IntelIcelakeBmPlatformConfig
     | model.AmdVmPlatformConfig
-    | model.IntelVmPlatformConfig;
+    | model.IntelVmPlatformConfig
+    | model.AmdMilanBmGpuPlatformConfig;
 }
 
 export namespace Instance {

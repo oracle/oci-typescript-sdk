@@ -24,6 +24,7 @@ export interface SummarizeHostInsightResourceCapacityTrendRequest extends common
   "compartmentId": string;
   /**
    * Filter by host resource metric.
+   * Supported values are CPU, MEMORY, LOGICAL_MEMORY, STORAGE and NETWORK.
    *
    */
   "resourceMetric": string;
@@ -156,6 +157,14 @@ export interface SummarizeHostInsightResourceCapacityTrendRequest extends common
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Percent value in which a resource metric is considered highly utilized.
+   */
+  "highUtilizationThreshold"?: number;
+  /**
+   * Percent value in which a resource metric is considered low utilized.
+   */
+  "lowUtilizationThreshold"?: number;
 }
 
 export namespace SummarizeHostInsightResourceCapacityTrendRequest {

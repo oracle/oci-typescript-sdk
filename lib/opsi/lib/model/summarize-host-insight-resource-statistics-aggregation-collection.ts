@@ -31,6 +31,14 @@ export interface SummarizeHostInsightResourceStatisticsAggregationCollection {
    */
   "timeIntervalEnd": Date;
   /**
+   * Percent value in which a resource metric is considered highly utilized. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "highUtilizationThreshold": number;
+  /**
+   * Percent value in which a resource metric is considered lowly utilized. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "lowUtilizationThreshold": number;
+  /**
    * Defines the type of resource metric (CPU, Physical Memory, Logical Memory)
    *
    */
@@ -50,6 +58,8 @@ export namespace SummarizeHostInsightResourceStatisticsAggregationCollection {
     Cpu = "CPU",
     Memory = "MEMORY",
     LogicalMemory = "LOGICAL_MEMORY",
+    Storage = "STORAGE",
+    Network = "NETWORK",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

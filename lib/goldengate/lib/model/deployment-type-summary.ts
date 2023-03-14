@@ -57,6 +57,11 @@ export interface DeploymentTypeSummary {
    *
    */
   "targetTechnologies"?: Array<string>;
+  /**
+   * Version of OGG
+   *
+   */
+  "oggVersion"?: string;
 }
 
 export namespace DeploymentTypeSummary {

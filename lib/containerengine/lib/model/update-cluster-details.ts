@@ -51,6 +51,10 @@ export interface UpdateClusterDetails {
    *
    */
   "imagePolicyConfig"?: model.UpdateImagePolicyConfigDetails;
+  /**
+   * Type of cluster
+   */
+  "type"?: model.ClusterType;
 }
 
 export namespace UpdateClusterDetails {

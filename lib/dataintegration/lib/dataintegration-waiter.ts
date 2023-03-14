@@ -81,6 +81,25 @@ export class DataIntegrationWaiter {
   }
 
   /**
+   * Waits forTemplate till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetTemplateResponse | null (null in case of 404 response)
+   */
+  public async forTemplate(
+    request: serviceRequests.GetTemplateRequest,
+    ...targetStates: models.Template.LifecycleState[]
+  ): Promise<serviceResponses.GetTemplateResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getTemplate(request),
+      response => targetStates.includes(response.template.lifecycleState!),
+      targetStates.includes(models.Template.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forWorkRequest
    *
    * @param request the request to send

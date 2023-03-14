@@ -14,6 +14,8 @@
 
 import * as CancelDeploymentBackupResponse from "./cancel-deployment-backup-response";
 export import CancelDeploymentBackupResponse = CancelDeploymentBackupResponse.CancelDeploymentBackupResponse;
+import * as CancelSnoozeDeploymentUpgradeResponse from "./cancel-snooze-deployment-upgrade-response";
+export import CancelSnoozeDeploymentUpgradeResponse = CancelSnoozeDeploymentUpgradeResponse.CancelSnoozeDeploymentUpgradeResponse;
 import * as ChangeConnectionCompartmentResponse from "./change-connection-compartment-response";
 export import ChangeConnectionCompartmentResponse = ChangeConnectionCompartmentResponse.ChangeConnectionCompartmentResponse;
 import * as ChangeDatabaseRegistrationCompartmentResponse from "./change-database-registration-compartment-response";
@@ -76,6 +78,8 @@ import * as ListDeploymentTypesResponse from "./list-deployment-types-response";
 export import ListDeploymentTypesResponse = ListDeploymentTypesResponse.ListDeploymentTypesResponse;
 import * as ListDeploymentUpgradesResponse from "./list-deployment-upgrades-response";
 export import ListDeploymentUpgradesResponse = ListDeploymentUpgradesResponse.ListDeploymentUpgradesResponse;
+import * as ListDeploymentVersionsResponse from "./list-deployment-versions-response";
+export import ListDeploymentVersionsResponse = ListDeploymentVersionsResponse.ListDeploymentVersionsResponse;
 import * as ListDeploymentWalletsOperationsResponse from "./list-deployment-wallets-operations-response";
 export import ListDeploymentWalletsOperationsResponse = ListDeploymentWalletsOperationsResponse.ListDeploymentWalletsOperationsResponse;
 import * as ListDeploymentsResponse from "./list-deployments-response";
@@ -94,6 +98,10 @@ import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
 import * as RestoreDeploymentResponse from "./restore-deployment-response";
 export import RestoreDeploymentResponse = RestoreDeploymentResponse.RestoreDeploymentResponse;
+import * as RollbackDeploymentUpgradeResponse from "./rollback-deployment-upgrade-response";
+export import RollbackDeploymentUpgradeResponse = RollbackDeploymentUpgradeResponse.RollbackDeploymentUpgradeResponse;
+import * as SnoozeDeploymentUpgradeResponse from "./snooze-deployment-upgrade-response";
+export import SnoozeDeploymentUpgradeResponse = SnoozeDeploymentUpgradeResponse.SnoozeDeploymentUpgradeResponse;
 import * as StartDeploymentResponse from "./start-deployment-response";
 export import StartDeploymentResponse = StartDeploymentResponse.StartDeploymentResponse;
 import * as StopDeploymentResponse from "./stop-deployment-response";
@@ -108,3 +116,5 @@ import * as UpdateDeploymentBackupResponse from "./update-deployment-backup-resp
 export import UpdateDeploymentBackupResponse = UpdateDeploymentBackupResponse.UpdateDeploymentBackupResponse;
 import * as UpgradeDeploymentResponse from "./upgrade-deployment-response";
 export import UpgradeDeploymentResponse = UpgradeDeploymentResponse.UpgradeDeploymentResponse;
+import * as UpgradeDeploymentUpgradeResponse from "./upgrade-deployment-upgrade-response";
+export import UpgradeDeploymentUpgradeResponse = UpgradeDeploymentUpgradeResponse.UpgradeDeploymentUpgradeResponse;

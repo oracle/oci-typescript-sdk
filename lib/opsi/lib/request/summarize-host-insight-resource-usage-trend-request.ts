@@ -24,6 +24,7 @@ export interface SummarizeHostInsightResourceUsageTrendRequest extends common.Ba
   "compartmentId": string;
   /**
    * Filter by host resource metric.
+   * Supported values are CPU, MEMORY, LOGICAL_MEMORY, STORAGE and NETWORK.
    *
    */
   "resourceMetric": string;
