@@ -24,6 +24,7 @@ export interface SummarizeHostInsightResourceForecastTrendRequest extends common
   "compartmentId": string;
   /**
    * Filter by host resource metric.
+   * Supported values are CPU, MEMORY, LOGICAL_MEMORY, STORAGE and NETWORK.
    *
    */
   "resourceMetric": string;
@@ -173,6 +174,24 @@ export interface SummarizeHostInsightResourceForecastTrendRequest extends common
    *
    */
   "vmclusterName"?: Array<string>;
+  /**
+   * Percent value in which a resource metric is considered highly utilized.
+   */
+  "highUtilizationThreshold"?: number;
+  /**
+   * Percent value in which a resource metric is considered low utilized.
+   */
+  "lowUtilizationThreshold"?: number;
+  /**
+   * Mount points are specialized NTFS filesystem objects.
+   *
+   */
+  "mountPoint"?: string;
+  /**
+   * Name of the network interface.
+   *
+   */
+  "interfaceName"?: string;
 }
 
 export namespace SummarizeHostInsightResourceForecastTrendRequest {

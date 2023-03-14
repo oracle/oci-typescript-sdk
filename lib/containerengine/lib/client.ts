@@ -462,6 +462,83 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Create a new virtual node pool.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateVirtualNodePoolRequest
+   * @return CreateVirtualNodePoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateVirtualNodePool.ts.html |here} to see how to use CreateVirtualNodePool API.
+   */
+  public async createVirtualNodePool(
+    createVirtualNodePoolRequest: requests.CreateVirtualNodePoolRequest
+  ): Promise<responses.CreateVirtualNodePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#createVirtualNodePool.");
+    const operationName = "createVirtualNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/CreateVirtualNodePool";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createVirtualNodePoolRequest.opcRetryToken,
+      "opc-request-id": createVirtualNodePoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createVirtualNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualNodePools",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createVirtualNodePoolRequest.createVirtualNodePoolDetails,
+        "CreateVirtualNodePoolDetails",
+        model.CreateVirtualNodePoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateVirtualNodePoolResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a cluster.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteClusterRequest
@@ -691,6 +768,85 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Delete a virtual node pool.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteVirtualNodePoolRequest
+   * @return DeleteVirtualNodePoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteVirtualNodePool.ts.html |here} to see how to use DeleteVirtualNodePool API.
+   */
+  public async deleteVirtualNodePool(
+    deleteVirtualNodePoolRequest: requests.DeleteVirtualNodePoolRequest
+  ): Promise<responses.DeleteVirtualNodePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#deleteVirtualNodePool.");
+    const operationName = "deleteVirtualNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/DeleteVirtualNodePool";
+    const pathParams = {
+      "{virtualNodePoolId}": deleteVirtualNodePoolRequest.virtualNodePoolId
+    };
+
+    const queryParams = {
+      "overrideEvictionGraceDurationVnp":
+        deleteVirtualNodePoolRequest.overrideEvictionGraceDurationVnp,
+      "isForceDeletionAfterOverrideGraceDurationVnp":
+        deleteVirtualNodePoolRequest.isForceDeletionAfterOverrideGraceDurationVnp
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteVirtualNodePoolRequest.ifMatch,
+      "opc-request-id": deleteVirtualNodePoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteVirtualNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualNodePools/{virtualNodePoolId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteVirtualNodePoolResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancel a work request that has not started.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteWorkRequestRequest
@@ -745,6 +901,159 @@ export class ContainerEngineClient {
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Disable addon for a provisioned cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DisableAddonRequest
+   * @return DisableAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DisableAddon.ts.html |here} to see how to use DisableAddon API.
+   */
+  public async disableAddon(
+    disableAddonRequest: requests.DisableAddonRequest
+  ): Promise<responses.DisableAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#disableAddon.");
+    const operationName = "disableAddon";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/DisableAddon";
+    const pathParams = {
+      "{clusterId}": disableAddonRequest.clusterId,
+      "{addonName}": disableAddonRequest.addonName
+    };
+
+    const queryParams = {
+      "isRemoveExistingAddOn": disableAddonRequest.isRemoveExistingAddOn
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": disableAddonRequest.ifMatch,
+      "opc-request-id": disableAddonRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/addons/{addonName}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAddonResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the specified addon for a cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetAddonRequest
+   * @return GetAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetAddon.ts.html |here} to see how to use GetAddon API.
+   */
+  public async getAddon(
+    getAddonRequest: requests.GetAddonRequest
+  ): Promise<responses.GetAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getAddon.");
+    const operationName = "getAddon";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/GetAddon";
+    const pathParams = {
+      "{clusterId}": getAddonRequest.clusterId,
+      "{addonName}": getAddonRequest.addonName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAddonRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/addons/{addonName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAddonResponse>{},
+        body: await response.json(),
+        bodyKey: "addon",
+        bodyModel: model.Addon,
+        type: "model.Addon",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1139,6 +1448,160 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Get the details of a virtual node.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVirtualNodeRequest
+   * @return GetVirtualNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetVirtualNode.ts.html |here} to see how to use GetVirtualNode API.
+   */
+  public async getVirtualNode(
+    getVirtualNodeRequest: requests.GetVirtualNodeRequest
+  ): Promise<responses.GetVirtualNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#getVirtualNode.");
+    const operationName = "getVirtualNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/GetVirtualNode";
+    const pathParams = {
+      "{virtualNodePoolId}": getVirtualNodeRequest.virtualNodePoolId,
+      "{virtualNodeId}": getVirtualNodeRequest.virtualNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVirtualNodeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVirtualNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualNodePools/{virtualNodePoolId}/virtualNodes/{virtualNodeId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVirtualNodeResponse>{},
+        body: await response.json(),
+        bodyKey: "virtualNode",
+        bodyModel: model.VirtualNode,
+        type: "model.VirtualNode",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the details of a virtual node pool.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetVirtualNodePoolRequest
+   * @return GetVirtualNodePoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetVirtualNodePool.ts.html |here} to see how to use GetVirtualNodePool API.
+   */
+  public async getVirtualNodePool(
+    getVirtualNodePoolRequest: requests.GetVirtualNodePoolRequest
+  ): Promise<responses.GetVirtualNodePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getVirtualNodePool.");
+    const operationName = "getVirtualNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/GetVirtualNodePool";
+    const pathParams = {
+      "{virtualNodePoolId}": getVirtualNodePoolRequest.virtualNodePoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getVirtualNodePoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getVirtualNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualNodePools/{virtualNodePoolId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetVirtualNodePoolResponse>{},
+        body: await response.json(),
+        bodyKey: "virtualNodePool",
+        bodyModel: model.VirtualNodePool,
+        type: "model.VirtualNodePool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Get the details of a work request.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
@@ -1217,6 +1680,351 @@ export class ContainerEngineClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * Install the specified addon for a cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param InstallAddonRequest
+   * @return InstallAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/InstallAddon.ts.html |here} to see how to use InstallAddon API.
+   */
+  public async installAddon(
+    installAddonRequest: requests.InstallAddonRequest
+  ): Promise<responses.InstallAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#installAddon.");
+    const operationName = "installAddon";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/InstallAddon";
+    const pathParams = {
+      "{clusterId}": installAddonRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": installAddonRequest.opcRetryToken,
+      "opc-request-id": installAddonRequest.opcRequestId,
+      "if-match": installAddonRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/addons",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        installAddonRequest.installAddonDetails,
+        "InstallAddonDetails",
+        model.InstallAddonDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InstallAddonResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get list of supported addons for a specific kubernetes version.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddonOptionsRequest
+   * @return ListAddonOptionsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListAddonOptions.ts.html |here} to see how to use ListAddonOptions API.
+   */
+  public async listAddonOptions(
+    listAddonOptionsRequest: requests.ListAddonOptionsRequest
+  ): Promise<responses.ListAddonOptionsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listAddonOptions.");
+    const operationName = "listAddonOptions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/AddonOptionSummary/ListAddonOptions";
+    const pathParams = {};
+
+    const queryParams = {
+      "kubernetesVersion": listAddonOptionsRequest.kubernetesVersion,
+      "addonName": listAddonOptionsRequest.addonName,
+      "limit": listAddonOptionsRequest.limit,
+      "page": listAddonOptionsRequest.page,
+      "sortOrder": listAddonOptionsRequest.sortOrder,
+      "sortBy": listAddonOptionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddonOptionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddonOptionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/addonOptions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddonOptionsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AddonOptionSummary,
+        type: "Array<model.AddonOptionSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAddonOptionsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.AddonOptionSummary objects
+   * contained in responses from the listAddonOptions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAddonOptions(
+    request: requests.ListAddonOptionsRequest
+  ): AsyncIterableIterator<model.AddonOptionSummary> {
+    return paginateRecords(request, req => this.listAddonOptions(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAddonOptionsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listAddonOptions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAddonOptionsResponses(
+    request: requests.ListAddonOptionsRequest
+  ): AsyncIterableIterator<responses.ListAddonOptionsResponse> {
+    return paginateResponses(request, req => this.listAddonOptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AddonOptionSummary objects
+   * contained in responses from the listAddonOptions operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAddonOptionsRecordIterator(
+    request: requests.ListAddonOptionsRequest
+  ): AsyncIterableIterator<model.AddonOptionSummary> {
+    return paginateRecords(request, req => this.listAddonOptions(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAddonOptions operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAddonOptionsResponseIterator(
+    request: requests.ListAddonOptionsRequest
+  ): AsyncIterableIterator<responses.ListAddonOptionsResponse> {
+    return paginateResponses(request, req => this.listAddonOptions(req));
+  }
+
+  /**
+   * List addon for a provisioned cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddonsRequest
+   * @return ListAddonsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListAddons.ts.html |here} to see how to use ListAddons API.
+   */
+  public async listAddons(
+    listAddonsRequest: requests.ListAddonsRequest
+  ): Promise<responses.ListAddonsResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listAddons.");
+    const operationName = "listAddons";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/ListAddons";
+    const pathParams = {
+      "{clusterId}": listAddonsRequest.clusterId
+    };
+
+    const queryParams = {
+      "limit": listAddonsRequest.limit,
+      "page": listAddonsRequest.page,
+      "sortOrder": listAddonsRequest.sortOrder,
+      "sortBy": listAddonsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddonsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddonsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/addons",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddonsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AddonSummary,
+        type: "Array<model.AddonSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAddonsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.AddonSummary objects
+   * contained in responses from the listAddons operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAddons(
+    request: requests.ListAddonsRequest
+  ): AsyncIterableIterator<model.AddonSummary> {
+    return paginateRecords(request, req => this.listAddons(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listAddonsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listAddons operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllAddonsResponses(
+    request: requests.ListAddonsRequest
+  ): AsyncIterableIterator<responses.ListAddonsResponse> {
+    return paginateResponses(request, req => this.listAddons(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AddonSummary objects
+   * contained in responses from the listAddons operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAddonsRecordIterator(
+    request: requests.ListAddonsRequest
+  ): AsyncIterableIterator<model.AddonSummary> {
+    return paginateRecords(request, req => this.listAddons(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listAddons operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAddonsResponseIterator(
+    request: requests.ListAddonsRequest
+  ): AsyncIterableIterator<responses.ListAddonsResponse> {
+    return paginateResponses(request, req => this.listAddons(req));
   }
 
   /**
@@ -1486,6 +2294,410 @@ export class ContainerEngineClient {
     request: requests.ListNodePoolsRequest
   ): AsyncIterableIterator<responses.ListNodePoolsResponse> {
     return paginateResponses(request, req => this.listNodePools(req));
+  }
+
+  /**
+   * List all the Pod Shapes in a compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPodShapesRequest
+   * @return ListPodShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListPodShapes.ts.html |here} to see how to use ListPodShapes API.
+   */
+  public async listPodShapes(
+    listPodShapesRequest: requests.ListPodShapesRequest
+  ): Promise<responses.ListPodShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listPodShapes.");
+    const operationName = "listPodShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/PodShapeSummary/ListPodShapes";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listPodShapesRequest.compartmentId,
+      "availabilityDomain": listPodShapesRequest.availabilityDomain,
+      "name": listPodShapesRequest.name,
+      "limit": listPodShapesRequest.limit,
+      "page": listPodShapesRequest.page,
+      "sortOrder": listPodShapesRequest.sortOrder,
+      "sortBy": listPodShapesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPodShapesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPodShapesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/podShapes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPodShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.PodShapeSummary,
+        type: "Array<model.PodShapeSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPodShapesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.PodShapeSummary objects
+   * contained in responses from the listPodShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPodShapes(
+    request: requests.ListPodShapesRequest
+  ): AsyncIterableIterator<model.PodShapeSummary> {
+    return paginateRecords(request, req => this.listPodShapes(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listPodShapesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listPodShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllPodShapesResponses(
+    request: requests.ListPodShapesRequest
+  ): AsyncIterableIterator<responses.ListPodShapesResponse> {
+    return paginateResponses(request, req => this.listPodShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.PodShapeSummary objects
+   * contained in responses from the listPodShapes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPodShapesRecordIterator(
+    request: requests.ListPodShapesRequest
+  ): AsyncIterableIterator<model.PodShapeSummary> {
+    return paginateRecords(request, req => this.listPodShapes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listPodShapes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listPodShapesResponseIterator(
+    request: requests.ListPodShapesRequest
+  ): AsyncIterableIterator<responses.ListPodShapesResponse> {
+    return paginateResponses(request, req => this.listPodShapes(req));
+  }
+
+  /**
+   * List all the virtual node pools in a compartment, and optionally filter by cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVirtualNodePoolsRequest
+   * @return ListVirtualNodePoolsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListVirtualNodePools.ts.html |here} to see how to use ListVirtualNodePools API.
+   */
+  public async listVirtualNodePools(
+    listVirtualNodePoolsRequest: requests.ListVirtualNodePoolsRequest
+  ): Promise<responses.ListVirtualNodePoolsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listVirtualNodePools.");
+    const operationName = "listVirtualNodePools";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePoolSummary/ListVirtualNodePools";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listVirtualNodePoolsRequest.compartmentId,
+      "clusterId": listVirtualNodePoolsRequest.clusterId,
+      "name": listVirtualNodePoolsRequest.name,
+      "limit": listVirtualNodePoolsRequest.limit,
+      "page": listVirtualNodePoolsRequest.page,
+      "sortOrder": listVirtualNodePoolsRequest.sortOrder,
+      "sortBy": listVirtualNodePoolsRequest.sortBy,
+      "lifecycleState": listVirtualNodePoolsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVirtualNodePoolsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVirtualNodePoolsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualNodePools",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVirtualNodePoolsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.VirtualNodePoolSummary,
+        type: "Array<model.VirtualNodePoolSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualNodePoolsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.VirtualNodePoolSummary objects
+   * contained in responses from the listVirtualNodePools operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualNodePools(
+    request: requests.ListVirtualNodePoolsRequest
+  ): AsyncIterableIterator<model.VirtualNodePoolSummary> {
+    return paginateRecords(request, req => this.listVirtualNodePools(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualNodePoolsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualNodePools operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualNodePoolsResponses(
+    request: requests.ListVirtualNodePoolsRequest
+  ): AsyncIterableIterator<responses.ListVirtualNodePoolsResponse> {
+    return paginateResponses(request, req => this.listVirtualNodePools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VirtualNodePoolSummary objects
+   * contained in responses from the listVirtualNodePools operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualNodePoolsRecordIterator(
+    request: requests.ListVirtualNodePoolsRequest
+  ): AsyncIterableIterator<model.VirtualNodePoolSummary> {
+    return paginateRecords(request, req => this.listVirtualNodePools(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualNodePools operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualNodePoolsResponseIterator(
+    request: requests.ListVirtualNodePoolsRequest
+  ): AsyncIterableIterator<responses.ListVirtualNodePoolsResponse> {
+    return paginateResponses(request, req => this.listVirtualNodePools(req));
+  }
+
+  /**
+   * List virtual nodes in a virtual node pool.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVirtualNodesRequest
+   * @return ListVirtualNodesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListVirtualNodes.ts.html |here} to see how to use ListVirtualNodes API.
+   */
+  public async listVirtualNodes(
+    listVirtualNodesRequest: requests.ListVirtualNodesRequest
+  ): Promise<responses.ListVirtualNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#listVirtualNodes.");
+    const operationName = "listVirtualNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/ListVirtualNodes";
+    const pathParams = {
+      "{virtualNodePoolId}": listVirtualNodesRequest.virtualNodePoolId
+    };
+
+    const queryParams = {
+      "name": listVirtualNodesRequest.name,
+      "limit": listVirtualNodesRequest.limit,
+      "page": listVirtualNodesRequest.page,
+      "sortOrder": listVirtualNodesRequest.sortOrder,
+      "sortBy": listVirtualNodesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listVirtualNodesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVirtualNodesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualNodePools/{virtualNodePoolId}/virtualNodes",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVirtualNodesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.VirtualNodeSummary,
+        type: "Array<model.VirtualNodeSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualNodesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.VirtualNodeSummary objects
+   * contained in responses from the listVirtualNodes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualNodes(
+    request: requests.ListVirtualNodesRequest
+  ): AsyncIterableIterator<model.VirtualNodeSummary> {
+    return paginateRecords(request, req => this.listVirtualNodes(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualNodesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualNodes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualNodesResponses(
+    request: requests.ListVirtualNodesRequest
+  ): AsyncIterableIterator<responses.ListVirtualNodesResponse> {
+    return paginateResponses(request, req => this.listVirtualNodes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VirtualNodeSummary objects
+   * contained in responses from the listVirtualNodes operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualNodesRecordIterator(
+    request: requests.ListVirtualNodesRequest
+  ): AsyncIterableIterator<model.VirtualNodeSummary> {
+    return paginateRecords(request, req => this.listVirtualNodes(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualNodes operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualNodesResponseIterator(
+    request: requests.ListVirtualNodesRequest
+  ): AsyncIterableIterator<responses.ListVirtualNodesResponse> {
+    return paginateResponses(request, req => this.listVirtualNodes(req));
   }
 
   /**
@@ -1773,6 +2985,85 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Update addon details for a cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAddonRequest
+   * @return UpdateAddonResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateAddon.ts.html |here} to see how to use UpdateAddon API.
+   */
+  public async updateAddon(
+    updateAddonRequest: requests.UpdateAddonRequest
+  ): Promise<responses.UpdateAddonResponse> {
+    if (this.logger) this.logger.debug("Calling operation ContainerEngineClient#updateAddon.");
+    const operationName = "updateAddon";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/UpdateAddon";
+    const pathParams = {
+      "{clusterId}": updateAddonRequest.clusterId,
+      "{addonName}": updateAddonRequest.addonName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateAddonRequest.ifMatch,
+      "opc-request-id": updateAddonRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAddonRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/addons/{addonName}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAddonRequest.updateAddonDetails,
+        "UpdateAddonDetails",
+        model.UpdateAddonDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAddonResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Update the details of a cluster.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateClusterRequest
@@ -1991,6 +3282,85 @@ export class ContainerEngineClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateNodePoolResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update the details of a virtual node pool.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateVirtualNodePoolRequest
+   * @return UpdateVirtualNodePoolResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateVirtualNodePool.ts.html |here} to see how to use UpdateVirtualNodePool API.
+   */
+  public async updateVirtualNodePool(
+    updateVirtualNodePoolRequest: requests.UpdateVirtualNodePoolRequest
+  ): Promise<responses.UpdateVirtualNodePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#updateVirtualNodePool.");
+    const operationName = "updateVirtualNodePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/VirtualNodePool/UpdateVirtualNodePool";
+    const pathParams = {
+      "{virtualNodePoolId}": updateVirtualNodePoolRequest.virtualNodePoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateVirtualNodePoolRequest.ifMatch,
+      "opc-request-id": updateVirtualNodePoolRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateVirtualNodePoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualNodePools/{virtualNodePoolId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateVirtualNodePoolRequest.updateVirtualNodePoolDetails,
+        "UpdateVirtualNodePoolDetails",
+        model.UpdateVirtualNodePoolDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateVirtualNodePoolResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

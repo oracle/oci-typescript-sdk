@@ -54,6 +54,10 @@ export interface ListAutonomousDatabaseBackupsRequest extends common.BaseRequest
    */
   "displayName"?: string;
   /**
+   * A filter to return only backups that matches with the given type of Backup.
+   */
+  "type"?: string;
+  /**
    * Unique identifier for the request.
    *
    */

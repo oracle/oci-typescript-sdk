@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information of the VM Cluster which contains databases.
+ * The information of the VM Cluster which contains databases. Either an opsiPrivateEndpointId or dbmPrivateEndpointId must be specified. If the dbmPrivateEndpointId is specified, a new Operations Insights private endpoint will be created.
  */
 export interface CreatePeComanagedExadataVmclusterDetails {
   /**
@@ -28,7 +28,7 @@ export interface CreatePeComanagedExadataVmclusterDetails {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
    */
-  "opsiPrivateEndpointId": string;
+  "opsiPrivateEndpointId"?: string;
   /**
    * The databases that belong to the VM Cluster
    */

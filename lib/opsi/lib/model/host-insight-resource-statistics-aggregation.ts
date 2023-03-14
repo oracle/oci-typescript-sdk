@@ -23,7 +23,11 @@ import common = require("oci-common");
  */
 export interface HostInsightResourceStatisticsAggregation {
   "hostDetails": model.HostDetails;
-  "currentStatistics": model.HostMemoryStatistics | model.HostCpuStatistics;
+  "currentStatistics":
+    | model.HostNetworkStatistics
+    | model.HostStorageStatistics
+    | model.HostMemoryStatistics
+    | model.HostCpuStatistics;
 }
 
 export namespace HostInsightResourceStatisticsAggregation {

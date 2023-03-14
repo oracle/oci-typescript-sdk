@@ -73,6 +73,11 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
             <model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
+        case "AMD_MILAN_BM_GPU":
+          return model.InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
         case "INTEL_ICELAKE_BM":
           return model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig.getJsonObj(
             <model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig>(
@@ -123,6 +128,11 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
         case "INTEL_VM":
           return model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig.getDeserializedJsonObj(
             <model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "AMD_MILAN_BM_GPU":
+          return model.InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
         case "INTEL_ICELAKE_BM":

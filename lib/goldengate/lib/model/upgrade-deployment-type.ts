@@ -20,7 +20,8 @@ import common = require("oci-common");
  *
  **/
 export enum UpgradeDeploymentType {
-  CurrentRelease = "CURRENT_RELEASE"
+  CurrentRelease = "CURRENT_RELEASE",
+  SpecificRelease = "SPECIFIC_RELEASE"
 }
 
 export namespace UpgradeDeploymentType {

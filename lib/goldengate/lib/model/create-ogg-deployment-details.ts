@@ -49,6 +49,11 @@ export interface CreateOggDeploymentDetails {
    *
    */
   "key"?: string;
+  /**
+   * Version of OGG
+   *
+   */
+  "oggVersion"?: string;
 }
 
 export namespace CreateOggDeploymentDetails {

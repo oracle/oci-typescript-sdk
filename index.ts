@@ -209,3 +209,4 @@ export import aidocument = require("oci-aidocument");
 export import queue = require("oci-queue");
 export import recovery = require("oci-recovery");
 export import vbsinst = require("oci-vbsinst");
+export import identitydomains = require("oci-identitydomains");

@@ -97,4 +97,15 @@ export interface SummarizeHostInsightTopProcessesUsageRequest extends common.Bas
    *
    */
   "hostId"?: string;
+  /**
+   * Choose the type of statistic metric data to be used for forecasting.
+   */
+  "statistic"?: SummarizeHostInsightTopProcessesUsageRequest.Statistic;
+}
+
+export namespace SummarizeHostInsightTopProcessesUsageRequest {
+  export enum Statistic {
+    Avg = "AVG",
+    Max = "MAX"
+  }
 }

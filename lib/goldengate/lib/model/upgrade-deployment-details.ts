@@ -28,6 +28,11 @@ export namespace UpgradeDeploymentDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "SPECIFIC_RELEASE":
+          return model.UpgradeDeploymentSpecificReleaseDetails.getJsonObj(
+            <model.UpgradeDeploymentSpecificReleaseDetails>(<object>jsonObj),
+            true
+          );
         case "CURRENT_RELEASE":
           return model.UpgradeDeploymentCurrentReleaseDetails.getJsonObj(
             <model.UpgradeDeploymentCurrentReleaseDetails>(<object>jsonObj),
@@ -44,6 +49,11 @@ export namespace UpgradeDeploymentDetails {
 
     if (obj && "type" in obj && obj.type) {
       switch (obj.type) {
+        case "SPECIFIC_RELEASE":
+          return model.UpgradeDeploymentSpecificReleaseDetails.getDeserializedJsonObj(
+            <model.UpgradeDeploymentSpecificReleaseDetails>(<object>jsonObj),
+            true
+          );
         case "CURRENT_RELEASE":
           return model.UpgradeDeploymentCurrentReleaseDetails.getDeserializedJsonObj(
             <model.UpgradeDeploymentCurrentReleaseDetails>(<object>jsonObj),

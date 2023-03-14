@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.54.0",
+  "version": "2.54.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -144,7 +144,8 @@
     "oci-aidocument": "file:lib/aidocument",
     "oci-queue": "file:lib/queue",
     "oci-recovery": "file:lib/recovery",
-    "oci-vbsinst": "file:lib/vbsinst"
+    "oci-vbsinst": "file:lib/vbsinst",
+    "oci-identitydomains": "file:lib/identitydomains"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

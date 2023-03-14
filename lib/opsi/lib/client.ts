@@ -10105,6 +10105,94 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Returns response with usage time series data with breakdown by network interface for the time period specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeHostInsightNetworkUsageTrendRequest
+   * @return SummarizeHostInsightNetworkUsageTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightNetworkUsageTrend.ts.html |here} to see how to use SummarizeHostInsightNetworkUsageTrend API.
+   */
+  public async summarizeHostInsightNetworkUsageTrend(
+    summarizeHostInsightNetworkUsageTrendRequest: requests.SummarizeHostInsightNetworkUsageTrendRequest
+  ): Promise<responses.SummarizeHostInsightNetworkUsageTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightNetworkUsageTrend."
+      );
+    const operationName = "summarizeHostInsightNetworkUsageTrend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightNetworkUsageTrend";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightNetworkUsageTrendRequest.compartmentId,
+      "id": summarizeHostInsightNetworkUsageTrendRequest.id,
+      "analysisTimeInterval": summarizeHostInsightNetworkUsageTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightNetworkUsageTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightNetworkUsageTrendRequest.timeIntervalEnd,
+      "hostId": summarizeHostInsightNetworkUsageTrendRequest.hostId,
+      "page": summarizeHostInsightNetworkUsageTrendRequest.page,
+      "limit": summarizeHostInsightNetworkUsageTrendRequest.limit,
+      "statistic": summarizeHostInsightNetworkUsageTrendRequest.statistic
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightNetworkUsageTrendRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightNetworkUsageTrendRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/networkUsageTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightNetworkUsageTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightNetworkUsageTrendAggregationCollection",
+        bodyModel: model.SummarizeHostInsightNetworkUsageTrendAggregationCollection,
+        type: "model.SummarizeHostInsightNetworkUsageTrendAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns response with time series data (endTimestamp, capacity) for the time period specified.
    * The maximum time range for analysis is 2 years, hence this is intentionally not paginated.
    * If compartmentIdInSubtree is specified, aggregates resources in a compartment and in all sub-compartments.
@@ -10148,7 +10236,11 @@ Note that this API does not return information on the number of times each datab
         summarizeHostInsightResourceCapacityTrendRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceCapacityTrendRequest.hostType,
       "hostId": summarizeHostInsightResourceCapacityTrendRequest.hostId,
-      "vmclusterName": summarizeHostInsightResourceCapacityTrendRequest.vmclusterName
+      "vmclusterName": summarizeHostInsightResourceCapacityTrendRequest.vmclusterName,
+      "highUtilizationThreshold":
+        summarizeHostInsightResourceCapacityTrendRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeHostInsightResourceCapacityTrendRequest.lowUtilizationThreshold
     };
 
     let headerParams = {
@@ -10251,7 +10343,13 @@ Note that this API does not return information on the number of times each datab
         summarizeHostInsightResourceForecastTrendRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceForecastTrendRequest.hostType,
       "hostId": summarizeHostInsightResourceForecastTrendRequest.hostId,
-      "vmclusterName": summarizeHostInsightResourceForecastTrendRequest.vmclusterName
+      "vmclusterName": summarizeHostInsightResourceForecastTrendRequest.vmclusterName,
+      "highUtilizationThreshold":
+        summarizeHostInsightResourceForecastTrendRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeHostInsightResourceForecastTrendRequest.lowUtilizationThreshold,
+      "mountPoint": summarizeHostInsightResourceForecastTrendRequest.mountPoint,
+      "interfaceName": summarizeHostInsightResourceForecastTrendRequest.interfaceName
     };
 
     let headerParams = {
@@ -10350,7 +10448,11 @@ Note that this API does not return information on the number of times each datab
         summarizeHostInsightResourceStatisticsRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceStatisticsRequest.hostType,
       "hostId": summarizeHostInsightResourceStatisticsRequest.hostId,
-      "vmclusterName": summarizeHostInsightResourceStatisticsRequest.vmclusterName
+      "vmclusterName": summarizeHostInsightResourceStatisticsRequest.vmclusterName,
+      "highUtilizationThreshold":
+        summarizeHostInsightResourceStatisticsRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeHostInsightResourceStatisticsRequest.lowUtilizationThreshold
     };
 
     let headerParams = {
@@ -10646,7 +10748,11 @@ Note that this API does not return information on the number of times each datab
         summarizeHostInsightResourceUtilizationInsightRequest.compartmentIdInSubtree,
       "hostType": summarizeHostInsightResourceUtilizationInsightRequest.hostType,
       "hostId": summarizeHostInsightResourceUtilizationInsightRequest.hostId,
-      "vmclusterName": summarizeHostInsightResourceUtilizationInsightRequest.vmclusterName
+      "vmclusterName": summarizeHostInsightResourceUtilizationInsightRequest.vmclusterName,
+      "highUtilizationThreshold":
+        summarizeHostInsightResourceUtilizationInsightRequest.highUtilizationThreshold,
+      "lowUtilizationThreshold":
+        summarizeHostInsightResourceUtilizationInsightRequest.lowUtilizationThreshold
     };
 
     let headerParams = {
@@ -10700,6 +10806,94 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Returns response with usage time series data with breakdown by filesystem for the time period specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeHostInsightStorageUsageTrendRequest
+   * @return SummarizeHostInsightStorageUsageTrendResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeHostInsightStorageUsageTrend.ts.html |here} to see how to use SummarizeHostInsightStorageUsageTrend API.
+   */
+  public async summarizeHostInsightStorageUsageTrend(
+    summarizeHostInsightStorageUsageTrendRequest: requests.SummarizeHostInsightStorageUsageTrendRequest
+  ): Promise<responses.SummarizeHostInsightStorageUsageTrendResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeHostInsightStorageUsageTrend."
+      );
+    const operationName = "summarizeHostInsightStorageUsageTrend";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/HostInsights/SummarizeHostInsightStorageUsageTrend";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeHostInsightStorageUsageTrendRequest.compartmentId,
+      "id": summarizeHostInsightStorageUsageTrendRequest.id,
+      "analysisTimeInterval": summarizeHostInsightStorageUsageTrendRequest.analysisTimeInterval,
+      "timeIntervalStart": summarizeHostInsightStorageUsageTrendRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeHostInsightStorageUsageTrendRequest.timeIntervalEnd,
+      "hostId": summarizeHostInsightStorageUsageTrendRequest.hostId,
+      "page": summarizeHostInsightStorageUsageTrendRequest.page,
+      "limit": summarizeHostInsightStorageUsageTrendRequest.limit,
+      "statistic": summarizeHostInsightStorageUsageTrendRequest.statistic
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeHostInsightStorageUsageTrendRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeHostInsightStorageUsageTrendRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/hostInsights/storageUsageTrend",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeHostInsightStorageUsageTrendResponse>{},
+        body: await response.json(),
+        bodyKey: "summarizeHostInsightStorageUsageTrendAggregationCollection",
+        bodyModel: model.SummarizeHostInsightStorageUsageTrendAggregationCollection,
+        type: "model.SummarizeHostInsightStorageUsageTrendAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns response with aggregated data (timestamp, usageData) for top processes on a specific date.
    * Data is aggregated for the time specified and processes are sorted descendent by the process metric specified (CPU, MEMORY, VIRTUAL_MEMORY).
    * hostInsightId, processMetric must be specified.
@@ -10733,7 +10927,8 @@ Note that this API does not return information on the number of times each datab
       "analysisTimeInterval": summarizeHostInsightTopProcessesUsageRequest.analysisTimeInterval,
       "hostType": summarizeHostInsightTopProcessesUsageRequest.hostType,
       "hostId": summarizeHostInsightTopProcessesUsageRequest.hostId,
-      "timestamp": summarizeHostInsightTopProcessesUsageRequest.timestamp
+      "timestamp": summarizeHostInsightTopProcessesUsageRequest.timestamp,
+      "statistic": summarizeHostInsightTopProcessesUsageRequest.statistic
     };
 
     let headerParams = {
@@ -10826,7 +11021,8 @@ Note that this API does not return information on the number of times each datab
       "limit": summarizeHostInsightTopProcessesUsageTrendRequest.limit,
       "hostType": summarizeHostInsightTopProcessesUsageTrendRequest.hostType,
       "hostId": summarizeHostInsightTopProcessesUsageTrendRequest.hostId,
-      "processHash": summarizeHostInsightTopProcessesUsageTrendRequest.processHash
+      "processHash": summarizeHostInsightTopProcessesUsageTrendRequest.processHash,
+      "statistic": summarizeHostInsightTopProcessesUsageTrendRequest.statistic
     };
 
     let headerParams = {

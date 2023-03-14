@@ -907,6 +907,10 @@ export import Vtap = Vtap.Vtap;
 import * as VtapCaptureFilterRuleDetails from "./vtap-capture-filter-rule-details";
 export import VtapCaptureFilterRuleDetails = VtapCaptureFilterRuleDetails.VtapCaptureFilterRuleDetails;
 
+import * as AmdMilanBmGpuLaunchInstancePlatformConfig from "./amd-milan-bm-gpu-launch-instance-platform-config";
+export import AmdMilanBmGpuLaunchInstancePlatformConfig = AmdMilanBmGpuLaunchInstancePlatformConfig.AmdMilanBmGpuLaunchInstancePlatformConfig;
+import * as AmdMilanBmGpuPlatformConfig from "./amd-milan-bm-gpu-platform-config";
+export import AmdMilanBmGpuPlatformConfig = AmdMilanBmGpuPlatformConfig.AmdMilanBmGpuPlatformConfig;
 import * as AmdMilanBmLaunchInstancePlatformConfig from "./amd-milan-bm-launch-instance-platform-config";
 export import AmdMilanBmLaunchInstancePlatformConfig = AmdMilanBmLaunchInstancePlatformConfig.AmdMilanBmLaunchInstancePlatformConfig;
 import * as AmdMilanBmPlatformConfig from "./amd-milan-bm-platform-config";
@@ -973,6 +977,8 @@ import * as ImageSourceViaObjectStorageTupleDetails from "./image-source-via-obj
 export import ImageSourceViaObjectStorageTupleDetails = ImageSourceViaObjectStorageTupleDetails.ImageSourceViaObjectStorageTupleDetails;
 import * as ImageSourceViaObjectStorageUriDetails from "./image-source-via-object-storage-uri-details";
 export import ImageSourceViaObjectStorageUriDetails = ImageSourceViaObjectStorageUriDetails.ImageSourceViaObjectStorageUriDetails;
+import * as InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig from "./instance-configuration-amd-milan-bm-gpu-launch-instance-platform-config";
+export import InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig = InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig.InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig;
 import * as InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig from "./instance-configuration-amd-milan-bm-launch-instance-platform-config";
 export import InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig = InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig.InstanceConfigurationAmdMilanBmLaunchInstancePlatformConfig;
 import * as InstanceConfigurationAmdRomeBmGpuLaunchInstancePlatformConfig from "./instance-configuration-amd-rome-bm-gpu-launch-instance-platform-config";

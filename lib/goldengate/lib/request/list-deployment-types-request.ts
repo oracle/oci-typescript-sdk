@@ -24,6 +24,16 @@ export interface ListDeploymentTypesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
+   * The type of deployment, the value determines the exact 'type' of the service executed in the deployment. Default value is DATABASE_ORACLE.
+   *
+   */
+  "deploymentType"?: model.DeploymentType;
+  /**
+   * Allows to query by a specific GoldenGate version.
+   *
+   */
+  "oggVersion"?: string;
+  /**
    * A filter to return only the resources that match the entire 'displayName' given.
    *
    */

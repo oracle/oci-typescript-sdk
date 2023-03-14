@@ -159,6 +159,9 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "isLatestVersion"?: boolean;
   /**
+   * Note: Deprecated: Use timeOfNextMaintenance instead, or related upgrade records
+   * to check, when deployment will be forced to upgrade to a newer version.
+   * Old description:
    * The date the existing version in use will no longer be considered as usable
    * and an upgrade will be required.  This date is typically 6 months after the
    * version was released for use by GGS.  The format is defined by
@@ -185,6 +188,23 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
   "deploymentType": model.DeploymentType;
   "oggData"?: model.OggDeployment;
   "deploymentDiagnosticData"?: model.DeploymentDiagnosticData;
+  "maintenanceWindow"?: model.MaintenanceWindow;
+  /**
+   * The time of next maintenance schedule. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   *
+   */
+  "timeOfNextMaintenance"?: Date;
+  /**
+   * Type of the next maintenance.
+   *
+   */
+  "nextMaintenanceActionType"?: model.MaintenanceActionType;
+  /**
+   * Description of the next maintenance.
+   *
+   */
+  "nextMaintenanceDescription"?: string;
 }
 
 export namespace Deployment {
@@ -195,6 +215,9 @@ export namespace Deployment {
         "oggData": obj.oggData ? model.OggDeployment.getJsonObj(obj.oggData) : undefined,
         "deploymentDiagnosticData": obj.deploymentDiagnosticData
           ? model.DeploymentDiagnosticData.getJsonObj(obj.deploymentDiagnosticData)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };
@@ -210,6 +233,9 @@ export namespace Deployment {
           : undefined,
         "deploymentDiagnosticData": obj.deploymentDiagnosticData
           ? model.DeploymentDiagnosticData.getDeserializedJsonObj(obj.deploymentDiagnosticData)
+          : undefined,
+        "maintenanceWindow": obj.maintenanceWindow
+          ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
           : undefined
       }
     };
