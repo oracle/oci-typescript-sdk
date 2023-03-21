@@ -43,6 +43,10 @@ Example: `SLOT_TWO`
    * Backup destination details.
    */
   "backupDestinationDetails"?: Array<model.BackupDestinationDetails>;
+  /**
+   * This defines when the backups will be deleted. - IMMEDIATE option keep the backup for predefined time i.e 72 hours and then delete permanently... - RETAIN will keep the backups as per the policy defined for database backups.
+   */
+  "backupDeletionPolicy"?: DbBackupConfig.BackupDeletionPolicy;
 }
 
 export namespace DbBackupConfig {
@@ -59,6 +63,16 @@ export namespace DbBackupConfig {
     SlotTen = "SLOT_TEN",
     SlotEleven = "SLOT_ELEVEN",
     SlotTwelve = "SLOT_TWELVE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BackupDeletionPolicy {
+    DeleteImmediately = "DELETE_IMMEDIATELY",
+    DeleteAfterRetentionPeriod = "DELETE_AFTER_RETENTION_PERIOD",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

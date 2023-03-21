@@ -78,6 +78,11 @@ export namespace CreateDataAssetDetails {
             <model.CreateDataAssetFromMySQL>(<object>jsonObj),
             true
           );
+        case "LAKE_DATA_ASSET":
+          return model.CreateDataAssetFromLake.getJsonObj(
+            <model.CreateDataAssetFromLake>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATA_ASSET":
           return model.CreateDataAssetFromOracle.getJsonObj(
             <model.CreateDataAssetFromOracle>(<object>jsonObj),
@@ -101,11 +106,6 @@ export namespace CreateDataAssetDetails {
         case "FUSION_APP_DATA_ASSET":
           return model.CreateDataAssetFromFusionApp.getJsonObj(
             <model.CreateDataAssetFromFusionApp>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.CreateDataAssetFromLakehouse.getJsonObj(
-            <model.CreateDataAssetFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_DATA_ASSET":
@@ -146,6 +146,11 @@ export namespace CreateDataAssetDetails {
             <model.CreateDataAssetFromMySQL>(<object>jsonObj),
             true
           );
+        case "LAKE_DATA_ASSET":
+          return model.CreateDataAssetFromLake.getDeserializedJsonObj(
+            <model.CreateDataAssetFromLake>(<object>jsonObj),
+            true
+          );
         case "ORACLE_DATA_ASSET":
           return model.CreateDataAssetFromOracle.getDeserializedJsonObj(
             <model.CreateDataAssetFromOracle>(<object>jsonObj),
@@ -169,11 +174,6 @@ export namespace CreateDataAssetDetails {
         case "FUSION_APP_DATA_ASSET":
           return model.CreateDataAssetFromFusionApp.getDeserializedJsonObj(
             <model.CreateDataAssetFromFusionApp>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.CreateDataAssetFromLakehouse.getDeserializedJsonObj(
-            <model.CreateDataAssetFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_DATA_ASSET":

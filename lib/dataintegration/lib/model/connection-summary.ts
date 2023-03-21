@@ -130,9 +130,9 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.ConnectionSummaryFromLakehouse.getJsonObj(
-            <model.ConnectionSummaryFromLakehouse>(<object>jsonObj),
+        case "LAKE_CONNECTION":
+          return model.ConnectionSummaryFromLake.getJsonObj(
+            <model.ConnectionSummaryFromLake>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":
@@ -221,9 +221,9 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromMySQL>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.ConnectionSummaryFromLakehouse.getDeserializedJsonObj(
-            <model.ConnectionSummaryFromLakehouse>(<object>jsonObj),
+        case "LAKE_CONNECTION":
+          return model.ConnectionSummaryFromLake.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromLake>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":

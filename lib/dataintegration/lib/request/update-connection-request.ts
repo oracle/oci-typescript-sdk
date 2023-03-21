@@ -30,6 +30,7 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
    * The information needed to update a connection.
    */
   "updateConnectionDetails":
+    | model.UpdateConnectionFromLake
     | model.UpdateConnectionFromJdbc
     | model.UpdateConnectionFromObjectStorage
     | model.UpdateConnectionFromBICC
@@ -37,7 +38,6 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
     | model.UpdateConnectionFromAmazonS3
     | model.UpdateConnectionFromAtp
     | model.UpdateConnectionFromRestBasicAuth
-    | model.UpdateConnectionFromLakehouse
     | model.UpdateConnectionFromOracle
     | model.UpdateConnectionFromAdwc
     | model.UpdateConnectionFromBIP

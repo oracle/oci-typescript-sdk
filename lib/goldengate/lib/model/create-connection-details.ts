@@ -51,20 +51,15 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
     */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer vault being
-   * referenced.
-   * If provided, this will reference a vault which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to manage secrets contained
-   * within this vault.
+   * Refers to the customer's vault OCID.
+   * If provided, it references a vault where GoldenGate can manage secrets. Customers must add policies to permit GoldenGate
+   * to manage secrets contained within this vault.
    *
    */
   "vaultId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer \"Master\" key being
-   * referenced.
-   * If provided, this will reference a key which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to utilize this key to
-   * manage secrets.
+   * Refers to the customer's master key OCID.
+   * If provided, it references a key to manage secrets. Customers must add policies to permit GoldenGate to use this key.
    *
    */
   "keyId"?: string;
@@ -98,9 +93,19 @@ export namespace CreateConnectionDetails {
             <model.CreateKafkaSchemaRegistryConnectionDetails>(<object>jsonObj),
             true
           );
-        case "AZURE_SYNAPSE_ANALYTICS":
-          return model.CreateAzureSynapseConnectionDetails.getJsonObj(
-            <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+        case "MICROSOFT_SQLSERVER":
+          return model.CreateMicrosoftSqlserverConnectionDetails.getJsonObj(
+            <model.CreateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "JAVA_MESSAGE_SERVICE":
+          return model.CreateJavaMessageServiceConnectionDetails.getJsonObj(
+            <model.CreateJavaMessageServiceConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "SNOWFLAKE":
+          return model.CreateSnowflakeConnectionDetails.getJsonObj(
+            <model.CreateSnowflakeConnectionDetails>(<object>jsonObj),
             true
           );
         case "AZURE_DATA_LAKE_STORAGE":
@@ -108,14 +113,34 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
             true
           );
-        case "MYSQL":
-          return model.CreateMysqlConnectionDetails.getJsonObj(
-            <model.CreateMysqlConnectionDetails>(<object>jsonObj),
+        case "MONGODB":
+          return model.CreateMongoDbConnectionDetails.getJsonObj(
+            <model.CreateMongoDbConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3":
+          return model.CreateAmazonS3ConnectionDetails.getJsonObj(
+            <model.CreateAmazonS3ConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.CreateHdfsConnectionDetails.getJsonObj(
+            <model.CreateHdfsConnectionDetails>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
           return model.CreateOciObjectStorageConnectionDetails.getJsonObj(
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.CreateAzureSynapseConnectionDetails.getJsonObj(
+            <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.CreateMysqlConnectionDetails.getJsonObj(
+            <model.CreateMysqlConnectionDetails>(<object>jsonObj),
             true
           );
         case "KAFKA":
@@ -131,6 +156,11 @@ export namespace CreateConnectionDetails {
         case "GOLDENGATE":
           return model.CreateGoldenGateConnectionDetails.getJsonObj(
             <model.CreateGoldenGateConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_NOSQL":
+          return model.CreateOracleNosqlConnectionDetails.getJsonObj(
+            <model.CreateOracleNosqlConnectionDetails>(<object>jsonObj),
             true
           );
         default:
@@ -154,9 +184,19 @@ export namespace CreateConnectionDetails {
             <model.CreateKafkaSchemaRegistryConnectionDetails>(<object>jsonObj),
             true
           );
-        case "AZURE_SYNAPSE_ANALYTICS":
-          return model.CreateAzureSynapseConnectionDetails.getDeserializedJsonObj(
-            <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+        case "MICROSOFT_SQLSERVER":
+          return model.CreateMicrosoftSqlserverConnectionDetails.getDeserializedJsonObj(
+            <model.CreateMicrosoftSqlserverConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "JAVA_MESSAGE_SERVICE":
+          return model.CreateJavaMessageServiceConnectionDetails.getDeserializedJsonObj(
+            <model.CreateJavaMessageServiceConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "SNOWFLAKE":
+          return model.CreateSnowflakeConnectionDetails.getDeserializedJsonObj(
+            <model.CreateSnowflakeConnectionDetails>(<object>jsonObj),
             true
           );
         case "AZURE_DATA_LAKE_STORAGE":
@@ -164,14 +204,34 @@ export namespace CreateConnectionDetails {
             <model.CreateAzureDataLakeStorageConnectionDetails>(<object>jsonObj),
             true
           );
-        case "MYSQL":
-          return model.CreateMysqlConnectionDetails.getDeserializedJsonObj(
-            <model.CreateMysqlConnectionDetails>(<object>jsonObj),
+        case "MONGODB":
+          return model.CreateMongoDbConnectionDetails.getDeserializedJsonObj(
+            <model.CreateMongoDbConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3":
+          return model.CreateAmazonS3ConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAmazonS3ConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.CreateHdfsConnectionDetails.getDeserializedJsonObj(
+            <model.CreateHdfsConnectionDetails>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
           return model.CreateOciObjectStorageConnectionDetails.getDeserializedJsonObj(
             <model.CreateOciObjectStorageConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "AZURE_SYNAPSE_ANALYTICS":
+          return model.CreateAzureSynapseConnectionDetails.getDeserializedJsonObj(
+            <model.CreateAzureSynapseConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.CreateMysqlConnectionDetails.getDeserializedJsonObj(
+            <model.CreateMysqlConnectionDetails>(<object>jsonObj),
             true
           );
         case "KAFKA":
@@ -187,6 +247,11 @@ export namespace CreateConnectionDetails {
         case "GOLDENGATE":
           return model.CreateGoldenGateConnectionDetails.getDeserializedJsonObj(
             <model.CreateGoldenGateConnectionDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_NOSQL":
+          return model.CreateOracleNosqlConnectionDetails.getDeserializedJsonObj(
+            <model.CreateOracleNosqlConnectionDetails>(<object>jsonObj),
             true
           );
         default:

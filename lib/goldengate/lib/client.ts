@@ -391,7 +391,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Note: Deprecated. Use the new resource model APIs instead.
+   * Note: Deprecated. Use the /connections API instead.
    * Moves the DatabaseRegistration into a different compartment within the same tenancy. When
    * provided, If-Match is checked against ETag values of the resource.  For information about
    * moving resources between compartments, see [Moving Resources Between
@@ -900,7 +900,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Note: Deprecated. Use the new resource model APIs instead.
+   * Note: Deprecated. Use the /connections API instead.
    * Creates a new DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1304,7 +1304,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Note: Deprecated. Use the new resource model APIs instead.
+   * Note: Deprecated. Use the /connections API instead.
    * Deletes a DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1855,7 +1855,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Note: Deprecated. Use the new resource model APIs instead.
+   * Note: Deprecated. Use the /connections API instead.
    * Retrieves a DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2501,7 +2501,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Note: Deprecated. Use the new resource model APIs instead.
+   * Note: Deprecated. Use the /connections API instead.
    * Lists the DatabaseRegistrations in the compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4212,7 +4212,7 @@ export class GoldenGateClient {
   }
 
   /**
-   * Note: Deprecated. Use the new resource model APIs instead.
+   * Note: Deprecated. Use the /connections API instead.
    * Updates the DatabaseRegistration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

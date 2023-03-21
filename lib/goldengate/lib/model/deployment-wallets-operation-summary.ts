@@ -27,10 +27,9 @@ export interface DeploymentWalletsOperationSummary {
    */
   "walletOperationId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer GGS Secret being
-   * referenced.
-   * If provided, this will reference a key which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to utilize this Secret
+   * The OCID of the customer's GoldenGate Service Secret.
+   * If provided, it references a key that customers will be required to ensure the policies are established
+   * to permit GoldenGate to use this Secret.
    *
    */
   "walletSecretId": string;

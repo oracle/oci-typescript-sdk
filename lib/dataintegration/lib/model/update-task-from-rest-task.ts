@@ -25,6 +25,9 @@ export interface UpdateTaskFromRestTask extends model.UpdateTaskDetails {
    * The REST method to use. This property is deprecated, use ExecuteRestCallConfig's methodType property instead.
    */
   "methodType"?: UpdateTaskFromRestTask.MethodType;
+  /**
+   * Headers data for the request.
+   */
   "headers"?: any;
   /**
    * Header value.

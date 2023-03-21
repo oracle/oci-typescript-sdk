@@ -15,56 +15,51 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for the Lakehouse data asset type.
+ * Details for the Lake data asset type.
  */
-export interface DataAssetFromLakehouseDetails extends model.DataAsset {
+export interface DataAssetFromLakeDetails extends model.DataAsset {
   /**
-   * The Lakehouse Ocid.
+   * The Lake Ocid.
    */
-  "lakehouseOcid": string;
+  "lakeId": string;
   /**
-   * The metastoreId for the specified Lakehouse Resource.
+   * The metastoreId for the specified Lake Resource.
    */
   "metastoreId"?: string;
   /**
-   * The rangerEndpoint for the specified Lakehouse Resource.
+   * The lakeProxyEndpoint for the specified Lake Resource.
    */
-  "rangerEndpoint"?: string;
-  "defaultConnection": model.ConnectionFromLakehouseDetails;
+  "lakeProxyEndpoint"?: string;
+  "defaultConnection": model.ConnectionFromLakeDetails;
 
   "modelType": string;
 }
 
-export namespace DataAssetFromLakehouseDetails {
-  export function getJsonObj(
-    obj: DataAssetFromLakehouseDetails,
-    isParentJsonObj?: boolean
-  ): object {
+export namespace DataAssetFromLakeDetails {
+  export function getJsonObj(obj: DataAssetFromLakeDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
-      ...(isParentJsonObj
-        ? obj
-        : (model.DataAsset.getJsonObj(obj) as DataAssetFromLakehouseDetails)),
+      ...(isParentJsonObj ? obj : (model.DataAsset.getJsonObj(obj) as DataAssetFromLakeDetails)),
       ...{
         "defaultConnection": obj.defaultConnection
-          ? model.ConnectionFromLakehouseDetails.getJsonObj(obj.defaultConnection)
+          ? model.ConnectionFromLakeDetails.getJsonObj(obj.defaultConnection)
           : undefined
       }
     };
 
     return jsonObj;
   }
-  export const modelType = "LAKE_HOUSE_DATA_ASSET";
+  export const modelType = "LAKE_DATA_ASSET";
   export function getDeserializedJsonObj(
-    obj: DataAssetFromLakehouseDetails,
+    obj: DataAssetFromLakeDetails,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.DataAsset.getDeserializedJsonObj(obj) as DataAssetFromLakehouseDetails)),
+        : (model.DataAsset.getDeserializedJsonObj(obj) as DataAssetFromLakeDetails)),
       ...{
         "defaultConnection": obj.defaultConnection
-          ? model.ConnectionFromLakehouseDetails.getDeserializedJsonObj(obj.defaultConnection)
+          ? model.ConnectionFromLakeDetails.getDeserializedJsonObj(obj.defaultConnection)
           : undefined
       }
     };

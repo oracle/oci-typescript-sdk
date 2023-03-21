@@ -1,6 +1,6 @@
 {
   "name": "oci-announcementsservice",
-  "version": "2.54.1",
+  "version": "2.55.0",
   "description": "OCI NodeJS client for Announcement Service",
   "repository": {
     "type": "git",

@@ -46,6 +46,8 @@ import * as ChangeDataguardRoleRequest from "./change-dataguard-role-request";
 export import ChangeDataguardRoleRequest = ChangeDataguardRoleRequest.ChangeDataguardRoleRequest;
 import * as ChangeDbSystemCompartmentRequest from "./change-db-system-compartment-request";
 export import ChangeDbSystemCompartmentRequest = ChangeDbSystemCompartmentRequest.ChangeDbSystemCompartmentRequest;
+import * as ChangeDisasterRecoveryConfigurationRequest from "./change-disaster-recovery-configuration-request";
+export import ChangeDisasterRecoveryConfigurationRequest = ChangeDisasterRecoveryConfigurationRequest.ChangeDisasterRecoveryConfigurationRequest;
 import * as ChangeExadataInfrastructureCompartmentRequest from "./change-exadata-infrastructure-compartment-request";
 export import ChangeExadataInfrastructureCompartmentRequest = ChangeExadataInfrastructureCompartmentRequest.ChangeExadataInfrastructureCompartmentRequest;
 import * as ChangeExternalContainerDatabaseCompartmentRequest from "./change-external-container-database-compartment-request";

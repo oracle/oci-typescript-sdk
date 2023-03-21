@@ -820,6 +820,161 @@ export class FunctionsManagementClient {
   }
 
   /**
+   * Fetches a Pre-built Function(PBF) Listing. Returns a PbfListing response model.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPbfListingRequest
+   * @return GetPbfListingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/GetPbfListing.ts.html |here} to see how to use GetPbfListing API.
+   */
+  public async getPbfListing(
+    getPbfListingRequest: requests.GetPbfListingRequest
+  ): Promise<responses.GetPbfListingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#getPbfListing.");
+    const operationName = "getPbfListing";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListing/GetPbfListing";
+    const pathParams = {
+      "{pbfListingId}": getPbfListingRequest.pbfListingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPbfListingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPbfListingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pbfListings/{pbfListingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPbfListingResponse>{},
+        body: await response.json(),
+        bodyKey: "pbfListing",
+        bodyModel: model.PbfListing,
+        type: "model.PbfListing",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a PbfListingVersion by identifier for a PbfListing.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPbfListingVersionRequest
+   * @return GetPbfListingVersionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/GetPbfListingVersion.ts.html |here} to see how to use GetPbfListingVersion API.
+   */
+  public async getPbfListingVersion(
+    getPbfListingVersionRequest: requests.GetPbfListingVersionRequest
+  ): Promise<responses.GetPbfListingVersionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#getPbfListingVersion.");
+    const operationName = "getPbfListingVersion";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListingVersion/GetPbfListingVersion";
+    const pathParams = {
+      "{pbfListingVersionId}": getPbfListingVersionRequest.pbfListingVersionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPbfListingVersionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPbfListingVersionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pbfListingVersions/{pbfListingVersionId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPbfListingVersionResponse>{},
+        body: await response.json(),
+        bodyKey: "pbfListingVersion",
+        bodyModel: model.PbfListingVersion,
+        type: "model.PbfListingVersion",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists applications for a compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListApplicationsRequest
@@ -1089,6 +1244,264 @@ export class FunctionsManagementClient {
     request: requests.ListFunctionsRequest
   ): AsyncIterableIterator<responses.ListFunctionsResponse> {
     return paginateResponses(request, req => this.listFunctions(req));
+  }
+
+  /**
+     * Fetches a wrapped list of all Pre-built Function(PBF) Listing versions. Returns a PbfListingVersionCollection 
+* containing an array of PbfListingVersionSummary response models.
+* <p>
+Note that the PbfListingIdentifier must be provided as a query parameter, otherwise an exception shall 
+* be thrown.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListPbfListingVersionsRequest
+     * @return ListPbfListingVersionsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/ListPbfListingVersions.ts.html |here} to see how to use ListPbfListingVersions API.
+     */
+  public async listPbfListingVersions(
+    listPbfListingVersionsRequest: requests.ListPbfListingVersionsRequest
+  ): Promise<responses.ListPbfListingVersionsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listPbfListingVersions.");
+    const operationName = "listPbfListingVersions";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListingVersion/ListPbfListingVersions";
+    const pathParams = {};
+
+    const queryParams = {
+      "pbfListingId": listPbfListingVersionsRequest.pbfListingId,
+      "pbfListingVersionId": listPbfListingVersionsRequest.pbfListingVersionId,
+      "name": listPbfListingVersionsRequest.name,
+      "isCurrentVersion": listPbfListingVersionsRequest.isCurrentVersion,
+      "lifecycleState": listPbfListingVersionsRequest.lifecycleState,
+      "limit": listPbfListingVersionsRequest.limit,
+      "page": listPbfListingVersionsRequest.page,
+      "sortOrder": listPbfListingVersionsRequest.sortOrder,
+      "sortBy": listPbfListingVersionsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPbfListingVersionsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPbfListingVersionsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pbfListingVersions",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPbfListingVersionsResponse>{},
+        body: await response.json(),
+        bodyKey: "pbfListingVersionsCollection",
+        bodyModel: model.PbfListingVersionsCollection,
+        type: "model.PbfListingVersionsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Fetches a wrapped list of all Pre-built Function(PBF) Listings. Returns a PbfListingCollection containing
+   * an array of PbfListingSummary response models.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPbfListingsRequest
+   * @return ListPbfListingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/ListPbfListings.ts.html |here} to see how to use ListPbfListings API.
+   */
+  public async listPbfListings(
+    listPbfListingsRequest: requests.ListPbfListingsRequest
+  ): Promise<responses.ListPbfListingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FunctionsManagementClient#listPbfListings.");
+    const operationName = "listPbfListings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/PbfListing/ListPbfListings";
+    const pathParams = {};
+
+    const queryParams = {
+      "pbfListingId": listPbfListingsRequest.pbfListingId,
+      "name": listPbfListingsRequest.name,
+      "nameContains": listPbfListingsRequest.nameContains,
+      "nameStartsWith": listPbfListingsRequest.nameStartsWith,
+      "trigger": listPbfListingsRequest.trigger,
+      "lifecycleState": listPbfListingsRequest.lifecycleState,
+      "limit": listPbfListingsRequest.limit,
+      "page": listPbfListingsRequest.page,
+      "sortOrder": listPbfListingsRequest.sortOrder,
+      "sortBy": listPbfListingsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPbfListingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPbfListingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pbfListings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPbfListingsResponse>{},
+        body: await response.json(),
+        bodyKey: "pbfListingsCollection",
+        bodyModel: model.PbfListingsCollection,
+        type: "model.PbfListingsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of Triggers.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListTriggersRequest
+   * @return ListTriggersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/functions/ListTriggers.ts.html |here} to see how to use ListTriggers API.
+   */
+  public async listTriggers(
+    listTriggersRequest: requests.ListTriggersRequest
+  ): Promise<responses.ListTriggersResponse> {
+    if (this.logger) this.logger.debug("Calling operation FunctionsManagementClient#listTriggers.");
+    const operationName = "listTriggers";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/functions/20181201/TriggersCollection/ListTriggers";
+    const pathParams = {};
+
+    const queryParams = {
+      "name": listTriggersRequest.name,
+      "limit": listTriggersRequest.limit,
+      "page": listTriggersRequest.page,
+      "sortOrder": listTriggersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listTriggersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listTriggersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pbfListings/triggers",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListTriggersResponse>{},
+        body: await response.json(),
+        bodyKey: "triggersCollection",
+        bodyModel: model.TriggersCollection,
+        type: "model.TriggersCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

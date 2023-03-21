@@ -101,11 +101,6 @@ export namespace DataAsset {
             <model.DataAssetFromAmazonS3>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.DataAssetFromLakehouseDetails.getJsonObj(
-            <model.DataAssetFromLakehouseDetails>(<object>jsonObj),
-            true
-          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetFromObjectStorageDetails.getJsonObj(
             <model.DataAssetFromObjectStorageDetails>(<object>jsonObj),
@@ -114,6 +109,11 @@ export namespace DataAsset {
         case "FUSION_APP_DATA_ASSET":
           return model.DataAssetFromFusionApp.getJsonObj(
             <model.DataAssetFromFusionApp>(<object>jsonObj),
+            true
+          );
+        case "LAKE_DATA_ASSET":
+          return model.DataAssetFromLakeDetails.getJsonObj(
+            <model.DataAssetFromLakeDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_DATA_ASSET":
@@ -176,11 +176,6 @@ export namespace DataAsset {
             <model.DataAssetFromAmazonS3>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.DataAssetFromLakehouseDetails.getDeserializedJsonObj(
-            <model.DataAssetFromLakehouseDetails>(<object>jsonObj),
-            true
-          );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
           return model.DataAssetFromObjectStorageDetails.getDeserializedJsonObj(
             <model.DataAssetFromObjectStorageDetails>(<object>jsonObj),
@@ -189,6 +184,11 @@ export namespace DataAsset {
         case "FUSION_APP_DATA_ASSET":
           return model.DataAssetFromFusionApp.getDeserializedJsonObj(
             <model.DataAssetFromFusionApp>(<object>jsonObj),
+            true
+          );
+        case "LAKE_DATA_ASSET":
+          return model.DataAssetFromLakeDetails.getDeserializedJsonObj(
+            <model.DataAssetFromLakeDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_DATA_ASSET":

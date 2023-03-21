@@ -28,14 +28,21 @@ export interface UpdateConnectionRequest extends common.BaseRequest {
    *
    */
   "updateConnectionDetails":
-    | model.UpdatePostgresqlConnectionDetails
     | model.UpdateOracleConnectionDetails
-    | model.UpdateKafkaSchemaRegistryConnectionDetails
     | model.UpdateOciObjectStorageConnectionDetails
+    | model.UpdateMongoDbConnectionDetails
+    | model.UpdateAzureDataLakeStorageConnectionDetails
+    | model.UpdateJavaMessageServiceConnectionDetails
+    | model.UpdateGoldenGateConnectionDetails
+    | model.UpdatePostgresqlConnectionDetails
+    | model.UpdateMicrosoftSqlserverConnectionDetails
+    | model.UpdateOracleNosqlConnectionDetails
+    | model.UpdateKafkaSchemaRegistryConnectionDetails
+    | model.UpdateAmazonS3ConnectionDetails
+    | model.UpdateSnowflakeConnectionDetails
+    | model.UpdateHdfsConnectionDetails
     | model.UpdateMysqlConnectionDetails
     | model.UpdateKafkaConnectionDetails
-    | model.UpdateAzureDataLakeStorageConnectionDetails
-    | model.UpdateGoldenGateConnectionDetails
     | model.UpdateAzureSynapseConnectionDetails;
   /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the

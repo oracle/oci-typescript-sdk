@@ -85,6 +85,14 @@ export interface DatabaseSummary {
    * The date and time when the latest database backup was created.
    */
   "lastBackupTimestamp"?: Date;
+  /**
+   * The duration when the latest database backup created. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "lastBackupDurationInSeconds"?: number;
+  /**
+   * The date and time when the latest database backup failed.
+   */
+  "lastFailedBackupTimestamp"?: Date;
   "dbBackupConfig"?: model.DbBackupConfig;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.

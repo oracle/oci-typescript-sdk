@@ -26,6 +26,9 @@ export interface MapType extends model.BaseType {
    * Seeded type
    */
   "valueElementType"?: string;
+  /**
+   * Defines whether null values are allowed.
+   */
   "containsNull"?: boolean;
 
   "modelType": string;

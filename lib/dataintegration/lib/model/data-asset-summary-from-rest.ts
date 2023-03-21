@@ -36,7 +36,7 @@ export interface DataAssetSummaryFromRest extends model.DataAssetSummary {
     | model.ConnectionSummaryFromRestBasicAuth
     | model.ConnectionSummaryFromAdwc
     | model.ConnectionSummaryFromMySQL
-    | model.ConnectionSummaryFromLakehouse
+    | model.ConnectionSummaryFromLake
     | model.ConnectionSummaryFromBIP
     | model.ConnectionSummaryFromObjectStorage;
 

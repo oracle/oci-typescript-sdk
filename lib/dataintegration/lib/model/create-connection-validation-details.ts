@@ -21,18 +21,17 @@ export interface CreateConnectionValidationDetails {
   "dataAsset"?:
     | model.CreateDataAssetFromJdbc
     | model.CreateDataAssetFromMySQL
+    | model.CreateDataAssetFromLake
     | model.CreateDataAssetFromOracle
     | model.CreateDataAssetFromAdwc
     | model.CreateDataAssetFromAmazonS3
     | model.CreateDataAssetFromRest
     | model.CreateDataAssetFromFusionApp
-    | model.CreateDataAssetFromLakehouse
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;
   "connection"?:
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromAmazonS3
-    | model.CreateConnectionFromLakehouse
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
@@ -41,7 +40,8 @@ export interface CreateConnectionValidationDetails {
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromOracle
-    | model.CreateConnectionFromObjectStorage;
+    | model.CreateConnectionFromObjectStorage
+    | model.CreateConnectionFromLake;
   "registryMetadata"?: model.RegistryMetadata;
 }
 

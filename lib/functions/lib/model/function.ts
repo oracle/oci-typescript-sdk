@@ -58,6 +58,7 @@ export interface Function {
    *
    */
   "imageDigest"?: string;
+  "sourceDetails"?: model.PreBuiltFunctionSourceDetails;
   /**
    * Maximum usable memory for the function (MiB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -138,6 +139,10 @@ export namespace Function {
     const jsonObj = {
       ...obj,
       ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.FunctionSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
         "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
           ? model.FunctionProvisionedConcurrencyConfig.getJsonObj(obj.provisionedConcurrencyConfig)
           : undefined,
@@ -153,6 +158,10 @@ export namespace Function {
     const jsonObj = {
       ...obj,
       ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.FunctionSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
         "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
           ? model.FunctionProvisionedConcurrencyConfig.getDeserializedJsonObj(
               obj.provisionedConcurrencyConfig

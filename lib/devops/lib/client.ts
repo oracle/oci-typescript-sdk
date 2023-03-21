@@ -735,7 +735,7 @@ export class DevopsClient {
   }
 
   /**
-   * Starts a build pipeline run for a predefined build pipeline.
+   * Starts a build pipeline run for a predefined build pipeline. Please ensure the completion of any work request for creation/updation of Build Pipeline before starting a Build Run.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateBuildRunRequest
