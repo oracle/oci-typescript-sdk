@@ -36,9 +36,9 @@ export interface DataAssetFromAdwcDetails extends model.DataAsset {
     | model.DataAssetFromOracleDetails
     | model.DataAssetFromAdwcDetails
     | model.DataAssetFromAmazonS3
-    | model.DataAssetFromLakehouseDetails
     | model.DataAssetFromObjectStorageDetails
     | model.DataAssetFromFusionApp
+    | model.DataAssetFromLakeDetails
     | model.DataAssetFromAtpDetails
     | model.DataAssetFromMySQL
     | model.DataAssetFromRestDetails;
@@ -47,13 +47,13 @@ export interface DataAssetFromAdwcDetails extends model.DataAsset {
     | model.ConnectionFromAdwc
     | model.ConnectionFromAtp
     | model.ConnectionFromOracle
-    | model.ConnectionFromLakehouse
     | model.ConnectionFromAmazonS3
     | model.ConnectionFromBIP
     | model.ConnectionFromMySQL
     | model.ConnectionFromJdbc
     | model.ConnectionFromBICC
     | model.ConnectionFromRestNoAuth
+    | model.ConnectionFromLake
     | model.ConnectionFromRestBasicAuth;
   "bucketSchema"?: model.Schema;
 

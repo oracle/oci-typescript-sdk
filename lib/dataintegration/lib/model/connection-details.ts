@@ -101,11 +101,6 @@ export namespace ConnectionDetails {
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.ConnectionFromLakehouseDetails.getJsonObj(
-            <model.ConnectionFromLakehouseDetails>(<object>jsonObj),
-            true
-          );
         case "BICC_CONNECTION":
           return model.ConnectionFromBICCDetails.getJsonObj(
             <model.ConnectionFromBICCDetails>(<object>jsonObj),
@@ -129,6 +124,11 @@ export namespace ConnectionDetails {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionFromOracleDetails.getJsonObj(
             <model.ConnectionFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "LAKE_CONNECTION":
+          return model.ConnectionFromLakeDetails.getJsonObj(
+            <model.ConnectionFromLakeDetails>(<object>jsonObj),
             true
           );
         case "REST_BASIC_AUTH_CONNECTION":
@@ -192,11 +192,6 @@ export namespace ConnectionDetails {
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.ConnectionFromLakehouseDetails.getDeserializedJsonObj(
-            <model.ConnectionFromLakehouseDetails>(<object>jsonObj),
-            true
-          );
         case "BICC_CONNECTION":
           return model.ConnectionFromBICCDetails.getDeserializedJsonObj(
             <model.ConnectionFromBICCDetails>(<object>jsonObj),
@@ -220,6 +215,11 @@ export namespace ConnectionDetails {
         case "ORACLEDB_CONNECTION":
           return model.ConnectionFromOracleDetails.getDeserializedJsonObj(
             <model.ConnectionFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "LAKE_CONNECTION":
+          return model.ConnectionFromLakeDetails.getDeserializedJsonObj(
+            <model.ConnectionFromLakeDetails>(<object>jsonObj),
             true
           );
         case "REST_BASIC_AUTH_CONNECTION":

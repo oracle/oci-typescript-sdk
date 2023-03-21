@@ -82,11 +82,6 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromAtp>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.UpdateDataAssetFromLakehouse.getJsonObj(
-            <model.UpdateDataAssetFromLakehouse>(<object>jsonObj),
-            true
-          );
         case "ORACLE_ADWC_DATA_ASSET":
           return model.UpdateDataAssetFromAdwc.getJsonObj(
             <model.UpdateDataAssetFromAdwc>(<object>jsonObj),
@@ -122,6 +117,11 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromOracle>(<object>jsonObj),
             true
           );
+        case "LAKE_DATA_ASSET":
+          return model.UpdateDataAssetFromLake.getJsonObj(
+            <model.UpdateDataAssetFromLake>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -148,11 +148,6 @@ export namespace UpdateDataAssetDetails {
         case "ORACLE_ATP_DATA_ASSET":
           return model.UpdateDataAssetFromAtp.getDeserializedJsonObj(
             <model.UpdateDataAssetFromAtp>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.UpdateDataAssetFromLakehouse.getDeserializedJsonObj(
-            <model.UpdateDataAssetFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_DATA_ASSET":
@@ -188,6 +183,11 @@ export namespace UpdateDataAssetDetails {
         case "ORACLE_DATA_ASSET":
           return model.UpdateDataAssetFromOracle.getDeserializedJsonObj(
             <model.UpdateDataAssetFromOracle>(<object>jsonObj),
+            true
+          );
+        case "LAKE_DATA_ASSET":
+          return model.UpdateDataAssetFromLake.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromLake>(<object>jsonObj),
             true
           );
         default:

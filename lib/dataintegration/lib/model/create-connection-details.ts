@@ -82,11 +82,6 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromAmazonS3>(<object>jsonObj),
             true
           );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.CreateConnectionFromLakehouse.getJsonObj(
-            <model.CreateConnectionFromLakehouse>(<object>jsonObj),
-            true
-          );
         case "GENERIC_JDBC_CONNECTION":
           return model.CreateConnectionFromJdbc.getJsonObj(
             <model.CreateConnectionFromJdbc>(<object>jsonObj),
@@ -132,6 +127,11 @@ export namespace CreateConnectionDetails {
             <model.CreateConnectionFromObjectStorage>(<object>jsonObj),
             true
           );
+        case "LAKE_CONNECTION":
+          return model.CreateConnectionFromLake.getJsonObj(
+            <model.CreateConnectionFromLake>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.modelType}`);
       }
@@ -167,11 +167,6 @@ export namespace CreateConnectionDetails {
         case "AMAZON_S3_CONNECTION":
           return model.CreateConnectionFromAmazonS3.getDeserializedJsonObj(
             <model.CreateConnectionFromAmazonS3>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.CreateConnectionFromLakehouse.getDeserializedJsonObj(
-            <model.CreateConnectionFromLakehouse>(<object>jsonObj),
             true
           );
         case "GENERIC_JDBC_CONNECTION":
@@ -217,6 +212,11 @@ export namespace CreateConnectionDetails {
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
           return model.CreateConnectionFromObjectStorage.getDeserializedJsonObj(
             <model.CreateConnectionFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "LAKE_CONNECTION":
+          return model.CreateConnectionFromLake.getDeserializedJsonObj(
+            <model.CreateConnectionFromLake>(<object>jsonObj),
             true
           );
         default:

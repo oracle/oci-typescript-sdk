@@ -21,20 +21,15 @@ import common = require("oci-common");
  */
 export interface ExportDeploymentWalletDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer vault being
-   * referenced.
-   * If provided, this will reference a vault which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to manage secrets contained
-   * within this vault.
+   * Refers to the customer's vault OCID.
+   * If provided, it references a vault where GoldenGate can manage secrets. Customers must add policies to permit GoldenGate
+   * to manage secrets contained within this vault.
    *
    */
   "vaultId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer \"Master\" key being
-   * referenced.
-   * If provided, this will reference a key which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to utilize this key to
-   * manage secrets.
+   * Refers to the customer's master key OCID.
+   * If provided, it references a key to manage secrets. Customers must add policies to permit GoldenGate to use this key.
    *
    */
   "masterEncryptionKeyId": string;

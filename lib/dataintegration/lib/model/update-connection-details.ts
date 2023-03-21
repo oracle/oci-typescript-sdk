@@ -76,6 +76,11 @@ export namespace UpdateConnectionDetails {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "LAKE_CONNECTION":
+          return model.UpdateConnectionFromLake.getJsonObj(
+            <model.UpdateConnectionFromLake>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_CONNECTION":
           return model.UpdateConnectionFromJdbc.getJsonObj(
             <model.UpdateConnectionFromJdbc>(<object>jsonObj),
@@ -109,11 +114,6 @@ export namespace UpdateConnectionDetails {
         case "REST_BASIC_AUTH_CONNECTION":
           return model.UpdateConnectionFromRestBasicAuth.getJsonObj(
             <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.UpdateConnectionFromLakehouse.getJsonObj(
-            <model.UpdateConnectionFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":
@@ -163,6 +163,11 @@ export namespace UpdateConnectionDetails {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "LAKE_CONNECTION":
+          return model.UpdateConnectionFromLake.getDeserializedJsonObj(
+            <model.UpdateConnectionFromLake>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_CONNECTION":
           return model.UpdateConnectionFromJdbc.getDeserializedJsonObj(
             <model.UpdateConnectionFromJdbc>(<object>jsonObj),
@@ -196,11 +201,6 @@ export namespace UpdateConnectionDetails {
         case "REST_BASIC_AUTH_CONNECTION":
           return model.UpdateConnectionFromRestBasicAuth.getDeserializedJsonObj(
             <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_CONNECTION":
-          return model.UpdateConnectionFromLakehouse.getDeserializedJsonObj(
-            <model.UpdateConnectionFromLakehouse>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":

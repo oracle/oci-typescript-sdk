@@ -40,6 +40,11 @@ export interface GoldenGateConnectionSummary extends model.ConnectionSummary {
    */
   "port"?: number;
   /**
+   * The username credential existing in the Oracle GoldenGate used to be connected to.
+   *
+   */
+  "username"?: string;
+  /**
    * The private IP address of the connection's endpoint in the customer's VCN, typically a
    * database endpoint or a big data endpoint (e.g. Kafka bootstrap server).
    * In case the privateIp is provided, the subnetId must also be provided.

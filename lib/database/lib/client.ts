@@ -1652,6 +1652,95 @@ export class DatabaseClient {
   }
 
   /**
+   * This operation updates the cross-region disaster recovery (DR) details of the standby Shared Autonomous Database, and must be run on the standby side.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeDisasterRecoveryConfigurationRequest
+   * @return ChangeDisasterRecoveryConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeDisasterRecoveryConfiguration.ts.html |here} to see how to use ChangeDisasterRecoveryConfiguration API.
+   */
+  public async changeDisasterRecoveryConfiguration(
+    changeDisasterRecoveryConfigurationRequest: requests.ChangeDisasterRecoveryConfigurationRequest
+  ): Promise<responses.ChangeDisasterRecoveryConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeDisasterRecoveryConfiguration.");
+    const operationName = "changeDisasterRecoveryConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ChangeDisasterRecoveryConfiguration";
+    const pathParams = {
+      "{autonomousDatabaseId}": changeDisasterRecoveryConfigurationRequest.autonomousDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeDisasterRecoveryConfigurationRequest.ifMatch,
+      "opc-request-id": changeDisasterRecoveryConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDisasterRecoveryConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/autonomousDatabases/{autonomousDatabaseId}/actions/changeDisasterRecoveryConfiguration",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDisasterRecoveryConfigurationRequest.changeDisasterRecoveryConfigurationDetails,
+        "ChangeDisasterRecoveryConfigurationDetails",
+        model.ChangeDisasterRecoveryConfigurationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDisasterRecoveryConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousDatabase",
+        bodyModel: model.AutonomousDatabase,
+        type: "model.AutonomousDatabase",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves an Exadata infrastructure resource and its dependent resources to another compartment. Applies to Exadata Cloud@Customer instances only.
    * To move an Exadata Cloud Service infrastructure resource to another compartment, use the  {@link #changeCloudExadataInfrastructureCompartment(ChangeCloudExadataInfrastructureCompartmentRequest) changeCloudExadataInfrastructureCompartment} operation.
    *

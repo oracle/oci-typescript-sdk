@@ -27,6 +27,7 @@ export interface UpdateDataAssetFromRest extends model.UpdateDataAssetDetails {
    */
   "manifestFileContent": string;
   "defaultConnection":
+    | model.UpdateConnectionFromLake
     | model.UpdateConnectionFromJdbc
     | model.UpdateConnectionFromObjectStorage
     | model.UpdateConnectionFromBICC
@@ -34,7 +35,6 @@ export interface UpdateDataAssetFromRest extends model.UpdateDataAssetDetails {
     | model.UpdateConnectionFromAmazonS3
     | model.UpdateConnectionFromAtp
     | model.UpdateConnectionFromRestBasicAuth
-    | model.UpdateConnectionFromLakehouse
     | model.UpdateConnectionFromOracle
     | model.UpdateConnectionFromAdwc
     | model.UpdateConnectionFromBIP

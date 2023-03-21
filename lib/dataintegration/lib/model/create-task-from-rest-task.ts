@@ -25,6 +25,9 @@ export interface CreateTaskFromRestTask extends model.CreateTaskDetails {
    * The REST method to use. This property is deprecated, use ExecuteRestCallConfig's methodType property instead.
    */
   "methodType"?: CreateTaskFromRestTask.MethodType;
+  /**
+   * Headers data for the request.
+   */
   "headers"?: any;
   /**
    * JSON data for payload body. This property is deprecated, use ExecuteRestCallConfig's payload config param instead.

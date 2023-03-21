@@ -25,6 +25,9 @@ export interface TaskSummaryFromRestTask extends model.TaskSummary {
    * The REST method to use. This property is deprecated, use ExecuteRestCallConfig's methodType property instead.
    */
   "methodType"?: TaskSummaryFromRestTask.MethodType;
+  /**
+   * Headers for payload.
+   */
   "headers"?: any;
   /**
    * JSON data for payload body. This property is deprecated, use ExecuteRestCallConfig's payload config param instead.

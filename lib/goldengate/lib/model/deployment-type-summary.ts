@@ -32,9 +32,9 @@ export interface DeploymentTypeSummary {
    */
   "displayName": string;
   /**
-   * The type of deployment, the value determines the exact 'type' of service executed in the Deployment.
-   * NOTE: Use of the value 'OGG' is maintained for backward compatibility purposes.  Its use is discouraged
-   *       in favor of the equivalent 'DATABASE_ORACLE' value.
+   * The type of deployment, which can be any one of the Allowed values.
+   * NOTE: Use of the value 'OGG' is maintained for backward compatibility purposes.
+   *     Its use is discouraged in favor of 'DATABASE_ORACLE'.
    *
    */
   "deploymentType": model.DeploymentType;
@@ -80,11 +80,18 @@ export namespace DeploymentTypeSummary {
     Kafka = "KAFKA",
     KafkaSchemaRegistry = "KAFKA_SCHEMA_REGISTRY",
     Mysql = "MYSQL",
+    JavaMessageService = "JAVA_MESSAGE_SERVICE",
+    MicrosoftSqlserver = "MICROSOFT_SQLSERVER",
     OciObjectStorage = "OCI_OBJECT_STORAGE",
     Oracle = "ORACLE",
     AzureDataLakeStorage = "AZURE_DATA_LAKE_STORAGE",
     Postgresql = "POSTGRESQL",
     AzureSynapseAnalytics = "AZURE_SYNAPSE_ANALYTICS",
+    Snowflake = "SNOWFLAKE",
+    AmazonS3 = "AMAZON_S3",
+    Hdfs = "HDFS",
+    OracleNosql = "ORACLE_NOSQL",
+    Mongodb = "MONGODB",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

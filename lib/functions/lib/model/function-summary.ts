@@ -43,7 +43,7 @@ export interface FunctionSummary {
    * The current state of the function.
    *
    */
-  "lifecycleState"?: FunctionSummary.LifecycleState;
+  "lifecycleState"?: string;
   /**
    * The qualified name of the Docker image to use in the function, including the image tag.
    * The image should be in the OCI Registry that is in the same region as the function itself.
@@ -58,6 +58,7 @@ export interface FunctionSummary {
    *
    */
   "imageDigest"?: string;
+  "sourceDetails"?: model.PreBuiltFunctionSourceDetails;
   /**
    * Maximum usable memory for the function (MiB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -109,25 +110,14 @@ Example: `2018-09-12T22:47:12.613Z`
 }
 
 export namespace FunctionSummary {
-  export enum LifecycleState {
-    Creating = "CREATING",
-    Active = "ACTIVE",
-    Inactive = "INACTIVE",
-    Updating = "UPDATING",
-    Deleting = "DELETING",
-    Deleted = "DELETED",
-    Failed = "FAILED",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
   export function getJsonObj(obj: FunctionSummary): object {
     const jsonObj = {
       ...obj,
       ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.FunctionSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
         "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
           ? model.FunctionProvisionedConcurrencyConfig.getJsonObj(obj.provisionedConcurrencyConfig)
           : undefined,
@@ -143,6 +133,10 @@ export namespace FunctionSummary {
     const jsonObj = {
       ...obj,
       ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.FunctionSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
         "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
           ? model.FunctionProvisionedConcurrencyConfig.getDeserializedJsonObj(
               obj.provisionedConcurrencyConfig

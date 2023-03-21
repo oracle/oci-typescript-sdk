@@ -61,4 +61,42 @@ export class FunctionsManagementWaiter {
       targetStates.includes(models.Function.LifecycleState.Deleted)
     );
   }
+
+  /**
+   * Waits forPbfListing till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPbfListingResponse | null (null in case of 404 response)
+   */
+  public async forPbfListing(
+    request: serviceRequests.GetPbfListingRequest,
+    ...targetStates: models.PbfListing.LifecycleState[]
+  ): Promise<serviceResponses.GetPbfListingResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPbfListing(request),
+      response => targetStates.includes(response.pbfListing.lifecycleState!),
+      targetStates.includes(models.PbfListing.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forPbfListingVersion till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPbfListingVersionResponse | null (null in case of 404 response)
+   */
+  public async forPbfListingVersion(
+    request: serviceRequests.GetPbfListingVersionRequest,
+    ...targetStates: models.PbfListingVersion.LifecycleState[]
+  ): Promise<serviceResponses.GetPbfListingVersionResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPbfListingVersion(request),
+      response => targetStates.includes(response.pbfListingVersion.lifecycleState!),
+      targetStates.includes(models.PbfListingVersion.LifecycleState.Deleted)
+    );
+  }
 }

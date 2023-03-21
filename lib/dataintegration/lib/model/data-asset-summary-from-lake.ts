@@ -15,36 +15,55 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The connection details for a Lakehouse connection.
+ * Summary details for the Lake data asset type.
  */
-export interface ConnectionFromLakehouseDetails extends model.ConnectionDetails {
+export interface DataAssetSummaryFromLake extends model.DataAssetSummary {
+  /**
+   * The Lake Ocid.
+   */
+  "lakeId": string;
+  /**
+   * The metastoreId for the specified Lake Resource.
+   */
+  "metastoreId"?: string;
+  /**
+   * The lakeProxyEndpoint for the specified Lake Resource.
+   */
+  "lakeProxyEndpoint"?: string;
+  "defaultConnection": model.ConnectionSummaryFromLake;
+
   "modelType": string;
 }
 
-export namespace ConnectionFromLakehouseDetails {
-  export function getJsonObj(
-    obj: ConnectionFromLakehouseDetails,
-    isParentJsonObj?: boolean
-  ): object {
+export namespace DataAssetSummaryFromLake {
+  export function getJsonObj(obj: DataAssetSummaryFromLake, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.ConnectionDetails.getJsonObj(obj) as ConnectionFromLakehouseDetails)),
-      ...{}
+        : (model.DataAssetSummary.getJsonObj(obj) as DataAssetSummaryFromLake)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionSummaryFromLake.getJsonObj(obj.defaultConnection)
+          : undefined
+      }
     };
 
     return jsonObj;
   }
-  export const modelType = "LAKE_HOUSE_CONNECTION";
+  export const modelType = "LAKE_DATA_ASSET";
   export function getDeserializedJsonObj(
-    obj: ConnectionFromLakehouseDetails,
+    obj: DataAssetSummaryFromLake,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.ConnectionDetails.getDeserializedJsonObj(obj) as ConnectionFromLakehouseDetails)),
-      ...{}
+        : (model.DataAssetSummary.getDeserializedJsonObj(obj) as DataAssetSummaryFromLake)),
+      ...{
+        "defaultConnection": obj.defaultConnection
+          ? model.ConnectionSummaryFromLake.getDeserializedJsonObj(obj.defaultConnection)
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -29,7 +29,6 @@ export interface CreateDataAssetFromRest extends model.CreateDataAssetDetails {
   "defaultConnection":
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromAmazonS3
-    | model.CreateConnectionFromLakehouse
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
@@ -38,7 +37,8 @@ export interface CreateDataAssetFromRest extends model.CreateDataAssetDetails {
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromOracle
-    | model.CreateConnectionFromObjectStorage;
+    | model.CreateConnectionFromObjectStorage
+    | model.CreateConnectionFromLake;
 
   "modelType": string;
 }

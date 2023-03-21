@@ -25,7 +25,6 @@ export interface CreateDataAssetFromFusionApp extends model.CreateDataAssetDetai
   "defaultConnection"?:
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromAmazonS3
-    | model.CreateConnectionFromLakehouse
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
@@ -34,7 +33,8 @@ export interface CreateDataAssetFromFusionApp extends model.CreateDataAssetDetai
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromOracle
-    | model.CreateConnectionFromObjectStorage;
+    | model.CreateConnectionFromObjectStorage
+    | model.CreateConnectionFromLake;
   "stagingDataAsset"?: model.DataAssetSummaryFromObjectStorage;
   "stagingConnection"?: model.ConnectionSummaryFromObjectStorage;
   "bucketSchema"?: model.Schema;

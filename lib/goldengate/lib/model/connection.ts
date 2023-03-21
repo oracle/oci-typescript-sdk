@@ -89,20 +89,15 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "timeUpdated": Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer vault being
-   * referenced.
-   * If provided, this will reference a vault which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to manage secrets contained
-   * within this vault.
+   * Refers to the customer's vault OCID.
+   * If provided, it references a vault where GoldenGate can manage secrets. Customers must add policies to permit GoldenGate
+   * to manage secrets contained within this vault.
    *
    */
   "vaultId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer \"Master\" key being
-   * referenced.
-   * If provided, this will reference a key which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to utilize this key to
-   * manage secrets.
+   * Refers to the customer's master key OCID.
+   * If provided, it references a key to manage secrets. Customers must add policies to permit GoldenGate to use this key.
    *
    */
   "keyId"?: string;
@@ -112,7 +107,8 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "subnetId"?: string;
   /**
-   * List of ingress IP addresses, from where the GoldenGate deployment connects to this connection's privateIp.
+   * List of ingress IP addresses from where the GoldenGate deployment connects to this connection's privateIp.
+   * Customers may optionally set up ingress security rules to restrict traffic from these IP addresses.
    *
    */
   "ingressIps"?: Array<model.IngressIpDetails>;
@@ -161,6 +157,42 @@ export namespace Connection {
             <model.PostgresqlConnection>(<object>jsonObj),
             true
           );
+        case "JAVA_MESSAGE_SERVICE":
+          return model.JavaMessageServiceConnection.getJsonObj(
+            <model.JavaMessageServiceConnection>(<object>jsonObj),
+            true
+          );
+        case "SNOWFLAKE":
+          return model.SnowflakeConnection.getJsonObj(
+            <model.SnowflakeConnection>(<object>jsonObj),
+            true
+          );
+        case "GOLDENGATE":
+          return model.GoldenGateConnection.getJsonObj(
+            <model.GoldenGateConnection>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.MysqlConnection.getJsonObj(<model.MysqlConnection>(<object>jsonObj), true);
+        case "AMAZON_S3":
+          return model.AmazonS3Connection.getJsonObj(
+            <model.AmazonS3Connection>(<object>jsonObj),
+            true
+          );
+        case "ORACLE":
+          return model.OracleConnection.getJsonObj(<model.OracleConnection>(<object>jsonObj), true);
+        case "AZURE_DATA_LAKE_STORAGE":
+          return model.AzureDataLakeStorageConnection.getJsonObj(
+            <model.AzureDataLakeStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "MONGODB":
+          return model.MongoDbConnection.getJsonObj(
+            <model.MongoDbConnection>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.HdfsConnection.getJsonObj(<model.HdfsConnection>(<object>jsonObj), true);
         case "OCI_OBJECT_STORAGE":
           return model.OciObjectStorageConnection.getJsonObj(
             <model.OciObjectStorageConnection>(<object>jsonObj),
@@ -171,18 +203,14 @@ export namespace Connection {
             <model.KafkaSchemaRegistryConnection>(<object>jsonObj),
             true
           );
-        case "GOLDENGATE":
-          return model.GoldenGateConnection.getJsonObj(
-            <model.GoldenGateConnection>(<object>jsonObj),
+        case "MICROSOFT_SQLSERVER":
+          return model.MicrosoftSqlserverConnection.getJsonObj(
+            <model.MicrosoftSqlserverConnection>(<object>jsonObj),
             true
           );
-        case "MYSQL":
-          return model.MysqlConnection.getJsonObj(<model.MysqlConnection>(<object>jsonObj), true);
-        case "ORACLE":
-          return model.OracleConnection.getJsonObj(<model.OracleConnection>(<object>jsonObj), true);
-        case "AZURE_DATA_LAKE_STORAGE":
-          return model.AzureDataLakeStorageConnection.getJsonObj(
-            <model.AzureDataLakeStorageConnection>(<object>jsonObj),
+        case "ORACLE_NOSQL":
+          return model.OracleNosqlConnection.getJsonObj(
+            <model.OracleNosqlConnection>(<object>jsonObj),
             true
           );
         case "AZURE_SYNAPSE_ANALYTICS":
@@ -220,14 +248,14 @@ export namespace Connection {
             <model.PostgresqlConnection>(<object>jsonObj),
             true
           );
-        case "OCI_OBJECT_STORAGE":
-          return model.OciObjectStorageConnection.getDeserializedJsonObj(
-            <model.OciObjectStorageConnection>(<object>jsonObj),
+        case "JAVA_MESSAGE_SERVICE":
+          return model.JavaMessageServiceConnection.getDeserializedJsonObj(
+            <model.JavaMessageServiceConnection>(<object>jsonObj),
             true
           );
-        case "KAFKA_SCHEMA_REGISTRY":
-          return model.KafkaSchemaRegistryConnection.getDeserializedJsonObj(
-            <model.KafkaSchemaRegistryConnection>(<object>jsonObj),
+        case "SNOWFLAKE":
+          return model.SnowflakeConnection.getDeserializedJsonObj(
+            <model.SnowflakeConnection>(<object>jsonObj),
             true
           );
         case "GOLDENGATE":
@@ -240,6 +268,11 @@ export namespace Connection {
             <model.MysqlConnection>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3":
+          return model.AmazonS3Connection.getDeserializedJsonObj(
+            <model.AmazonS3Connection>(<object>jsonObj),
+            true
+          );
         case "ORACLE":
           return model.OracleConnection.getDeserializedJsonObj(
             <model.OracleConnection>(<object>jsonObj),
@@ -248,6 +281,36 @@ export namespace Connection {
         case "AZURE_DATA_LAKE_STORAGE":
           return model.AzureDataLakeStorageConnection.getDeserializedJsonObj(
             <model.AzureDataLakeStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "MONGODB":
+          return model.MongoDbConnection.getDeserializedJsonObj(
+            <model.MongoDbConnection>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.HdfsConnection.getDeserializedJsonObj(
+            <model.HdfsConnection>(<object>jsonObj),
+            true
+          );
+        case "OCI_OBJECT_STORAGE":
+          return model.OciObjectStorageConnection.getDeserializedJsonObj(
+            <model.OciObjectStorageConnection>(<object>jsonObj),
+            true
+          );
+        case "KAFKA_SCHEMA_REGISTRY":
+          return model.KafkaSchemaRegistryConnection.getDeserializedJsonObj(
+            <model.KafkaSchemaRegistryConnection>(<object>jsonObj),
+            true
+          );
+        case "MICROSOFT_SQLSERVER":
+          return model.MicrosoftSqlserverConnection.getDeserializedJsonObj(
+            <model.MicrosoftSqlserverConnection>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_NOSQL":
+          return model.OracleNosqlConnection.getDeserializedJsonObj(
+            <model.OracleNosqlConnection>(<object>jsonObj),
             true
           );
         case "AZURE_SYNAPSE_ANALYTICS":

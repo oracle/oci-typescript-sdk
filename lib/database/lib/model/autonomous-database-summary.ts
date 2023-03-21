@@ -499,6 +499,22 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    * List of database tools details.
    */
   "dbToolsDetails"?: Array<model.DatabaseTool>;
+  /**
+   * Indicates the local disaster recovery (DR) type of the Shared Autonomous Database.
+   * Autonomous Data Guard (ADG) DR type provides business critical DR with a faster recovery time objective (RTO) during failover or switchover.
+   * Backup-based DR type provides lower cost DR with a slower RTO during failover or switchover.
+   *
+   */
+  "localDisasterRecoveryType"?: string;
+  /**
+   * The disaster recovery (DR) region type of the Autonomous Database. For Shared Autonomous Databases, DR associations have designated primary and standby regions. These region types do not change when the database changes roles. The standby region in DR associations can be the same region as the primary region, or they can be in a remote regions. Some database administration operations may be available only in the primary region of the DR association, and cannot be performed when the database using the primary role is operating in a remote region.
+   */
+  "disasterRecoveryRegionType"?: AutonomousDatabaseSummary.DisasterRecoveryRegionType;
+  /**
+   * The date and time the Disaster Recovery role was switched for the standby Autonomous Database.
+   */
+  "timeDisasterRecoveryRoleChanged"?: Date;
+  "remoteDisasterRecoveryConfiguration"?: model.DisasterRecoveryConfiguration;
 }
 
 export namespace AutonomousDatabaseSummary {
@@ -658,6 +674,7 @@ export namespace AutonomousDatabaseSummary {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    BackupCopy = "BACKUP_COPY",
     SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
@@ -689,6 +706,16 @@ export namespace AutonomousDatabaseSummary {
   export enum DatabaseEdition {
     StandardEdition = "STANDARD_EDITION",
     EnterpriseEdition = "ENTERPRISE_EDITION",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DisasterRecoveryRegionType {
+    Primary = "PRIMARY",
+    Remote = "REMOTE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -748,6 +775,10 @@ export namespace AutonomousDatabaseSummary {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getJsonObj(item);
             })
+          : undefined,
+
+        "remoteDisasterRecoveryConfiguration": obj.remoteDisasterRecoveryConfiguration
+          ? model.DisasterRecoveryConfiguration.getJsonObj(obj.remoteDisasterRecoveryConfiguration)
           : undefined
       }
     };
@@ -806,6 +837,12 @@ export namespace AutonomousDatabaseSummary {
           ? obj.dbToolsDetails.map(item => {
               return model.DatabaseTool.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "remoteDisasterRecoveryConfiguration": obj.remoteDisasterRecoveryConfiguration
+          ? model.DisasterRecoveryConfiguration.getDeserializedJsonObj(
+              obj.remoteDisasterRecoveryConfiguration
+            )
           : undefined
       }
     };

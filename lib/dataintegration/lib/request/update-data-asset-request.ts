@@ -32,14 +32,14 @@ export interface UpdateDataAssetRequest extends common.BaseRequest {
   "updateDataAssetDetails":
     | model.UpdateDataAssetFromRest
     | model.UpdateDataAssetFromAtp
-    | model.UpdateDataAssetFromLakehouse
     | model.UpdateDataAssetFromAdwc
     | model.UpdateDataAssetFromJdbc
     | model.UpdateDataAssetFromObjectStorage
     | model.UpdateDataAssetFromAmazonS3
     | model.UpdateDataAssetFromFusionApp
     | model.UpdateDataAssetFromMySQL
-    | model.UpdateDataAssetFromOracle;
+    | model.UpdateDataAssetFromOracle
+    | model.UpdateDataAssetFromLake;
   /**
    * Unique Oracle-assigned identifier for the request. If
    * you need to contact Oracle about a particular request,

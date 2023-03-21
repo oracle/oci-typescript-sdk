@@ -15,37 +15,32 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details to update a Lakehouse connection.
+ * The details to update a Lake connection.
  */
-export interface UpdateConnectionFromLakehouse extends model.UpdateConnectionDetails {
+export interface UpdateConnectionFromLake extends model.UpdateConnectionDetails {
   "modelType": string;
 }
 
-export namespace UpdateConnectionFromLakehouse {
-  export function getJsonObj(
-    obj: UpdateConnectionFromLakehouse,
-    isParentJsonObj?: boolean
-  ): object {
+export namespace UpdateConnectionFromLake {
+  export function getJsonObj(obj: UpdateConnectionFromLake, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.UpdateConnectionDetails.getJsonObj(obj) as UpdateConnectionFromLakehouse)),
+        : (model.UpdateConnectionDetails.getJsonObj(obj) as UpdateConnectionFromLake)),
       ...{}
     };
 
     return jsonObj;
   }
-  export const modelType = "LAKE_HOUSE_CONNECTION";
+  export const modelType = "LAKE_CONNECTION";
   export function getDeserializedJsonObj(
-    obj: UpdateConnectionFromLakehouse,
+    obj: UpdateConnectionFromLake,
     isParentJsonObj?: boolean
   ): object {
     const jsonObj = {
       ...(isParentJsonObj
         ? obj
-        : (model.UpdateConnectionDetails.getDeserializedJsonObj(
-            obj
-          ) as UpdateConnectionFromLakehouse)),
+        : (model.UpdateConnectionDetails.getDeserializedJsonObj(obj) as UpdateConnectionFromLake)),
       ...{}
     };
 

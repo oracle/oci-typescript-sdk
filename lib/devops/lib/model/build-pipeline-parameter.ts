@@ -27,7 +27,7 @@ export interface BuildPipelineParameter {
   /**
    * Default value of the parameter.
    */
-  "defaultValue"?: string;
+  "defaultValue": string;
   /**
    * Description of the parameter.
    */

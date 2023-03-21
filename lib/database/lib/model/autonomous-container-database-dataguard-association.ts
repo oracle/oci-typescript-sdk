@@ -119,6 +119,7 @@ export namespace AutonomousContainerDatabaseDataguardAssociation {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    BackupCopy = "BACKUP_COPY",
     SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
@@ -147,6 +148,7 @@ export namespace AutonomousContainerDatabaseDataguardAssociation {
     Primary = "PRIMARY",
     Standby = "STANDBY",
     DisabledStandby = "DISABLED_STANDBY",
+    BackupCopy = "BACKUP_COPY",
     SnapshotStandby = "SNAPSHOT_STANDBY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this

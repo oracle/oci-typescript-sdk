@@ -1,6 +1,6 @@
 {
   "name": "oci-queue",
-  "version": "2.54.1",
+  "version": "2.55.0",
   "description": "OCI NodeJS client for Queue Service",
   "repository": {
     "type": "git",

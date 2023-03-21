@@ -107,6 +107,11 @@ export namespace DataAssetSummary {
             <model.DataAssetSummaryFromObjectStorage>(<object>jsonObj),
             true
           );
+        case "LAKE_DATA_ASSET":
+          return model.DataAssetSummaryFromLake.getJsonObj(
+            <model.DataAssetSummaryFromLake>(<object>jsonObj),
+            true
+          );
         case "REST_DATA_ASSET":
           return model.DataAssetSummaryFromRest.getJsonObj(
             <model.DataAssetSummaryFromRest>(<object>jsonObj),
@@ -120,11 +125,6 @@ export namespace DataAssetSummary {
         case "FUSION_APP_DATA_ASSET":
           return model.DataAssetSummaryFromFusionApp.getJsonObj(
             <model.DataAssetSummaryFromFusionApp>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.DataAssetSummaryFromLakehouse.getJsonObj(
-            <model.DataAssetSummaryFromLakehouse>(<object>jsonObj),
             true
           );
         default:
@@ -182,6 +182,11 @@ export namespace DataAssetSummary {
             <model.DataAssetSummaryFromObjectStorage>(<object>jsonObj),
             true
           );
+        case "LAKE_DATA_ASSET":
+          return model.DataAssetSummaryFromLake.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromLake>(<object>jsonObj),
+            true
+          );
         case "REST_DATA_ASSET":
           return model.DataAssetSummaryFromRest.getDeserializedJsonObj(
             <model.DataAssetSummaryFromRest>(<object>jsonObj),
@@ -195,11 +200,6 @@ export namespace DataAssetSummary {
         case "FUSION_APP_DATA_ASSET":
           return model.DataAssetSummaryFromFusionApp.getDeserializedJsonObj(
             <model.DataAssetSummaryFromFusionApp>(<object>jsonObj),
-            true
-          );
-        case "LAKE_HOUSE_DATA_ASSET":
-          return model.DataAssetSummaryFromLakehouse.getDeserializedJsonObj(
-            <model.DataAssetSummaryFromLakehouse>(<object>jsonObj),
             true
           );
         default:

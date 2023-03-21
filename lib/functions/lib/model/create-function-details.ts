@@ -35,7 +35,7 @@ export interface CreateFunctionDetails {
    * Example: `phx.ocir.io/ten/functions/function:0.0.1`
    *
    */
-  "image": string;
+  "image"?: string;
   /**
    * The image digest for the version of the image that will be pulled when invoking this function.
    * If no value is specified, the digest currently associated with the image in the OCI Registry will be used.
@@ -43,6 +43,7 @@ export interface CreateFunctionDetails {
    *
    */
   "imageDigest"?: string;
+  "sourceDetails"?: model.PreBuiltFunctionSourceDetails;
   /**
    * Maximum usable memory for the function (MiB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -87,6 +88,10 @@ export namespace CreateFunctionDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.FunctionSourceDetails.getJsonObj(obj.sourceDetails)
+          : undefined,
+
         "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
           ? model.FunctionProvisionedConcurrencyConfig.getJsonObj(obj.provisionedConcurrencyConfig)
           : undefined,
@@ -102,6 +107,10 @@ export namespace CreateFunctionDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "sourceDetails": obj.sourceDetails
+          ? model.FunctionSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
+          : undefined,
+
         "provisionedConcurrencyConfig": obj.provisionedConcurrencyConfig
           ? model.FunctionProvisionedConcurrencyConfig.getDeserializedJsonObj(
               obj.provisionedConcurrencyConfig

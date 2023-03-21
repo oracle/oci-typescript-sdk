@@ -39,6 +39,10 @@ export interface BackupDestinationDetails {
    * Proxy URL to connect to object store.
    */
   "internetProxy"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the DBRS policy used for backup.
+   */
+  "dbrsPolicyId"?: string;
 }
 
 export namespace BackupDestinationDetails {
@@ -47,6 +51,7 @@ export namespace BackupDestinationDetails {
     RecoveryAppliance = "RECOVERY_APPLIANCE",
     ObjectStore = "OBJECT_STORE",
     Local = "LOCAL",
+    Dbrs = "DBRS",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -462,6 +462,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeDisasterRecoveryConfiguration
+   *
+   * @param request the request to send
+   * @return response returns ChangeDisasterRecoveryConfigurationResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeDisasterRecoveryConfiguration(
+    request: serviceRequests.ChangeDisasterRecoveryConfigurationRequest
+  ): Promise<{
+    response: serviceResponses.ChangeDisasterRecoveryConfigurationResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeDisasterRecoveryConfigurationResponse = await this.client.changeDisasterRecoveryConfiguration(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeDisasterRecoveryConfigurationResponse.opcWorkRequestId
+    );
+    return {
+      response: changeDisasterRecoveryConfigurationResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeExadataInfrastructureCompartment
    *
    * @param request the request to send

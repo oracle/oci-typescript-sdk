@@ -89,20 +89,15 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "timeUpdated": Date;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer vault being
-   * referenced.
-   * If provided, this will reference a vault which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to manage secrets contained
-   * within this vault.
+   * Refers to the customer's vault OCID.
+   * If provided, it references a vault where GoldenGate can manage secrets. Customers must add policies to permit GoldenGate
+   * to manage secrets contained within this vault.
    *
    */
   "vaultId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the customer \"Master\" key being
-   * referenced.
-   * If provided, this will reference a key which the customer will be required to ensure
-   * the policies are established to permit the GoldenGate Service to utilize this key to
-   * manage secrets.
+   * Refers to the customer's master key OCID.
+   * If provided, it references a key to manage secrets. Customers must add policies to permit GoldenGate to use this key.
    *
    */
   "keyId"?: string;
@@ -112,7 +107,8 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    */
   "subnetId"?: string;
   /**
-   * List of ingress IP addresses, from where the GoldenGate deployment connects to this connection's privateIp.
+   * List of ingress IP addresses from where the GoldenGate deployment connects to this connection's privateIp.
+   * Customers may optionally set up ingress security rules to restrict traffic from these IP addresses.
    *
    */
   "ingressIps"?: Array<model.IngressIpDetails>;
@@ -150,9 +146,19 @@ export namespace ConnectionSummary {
             <model.KafkaSchemaRegistryConnectionSummary>(<object>jsonObj),
             true
           );
-        case "POSTGRESQL":
-          return model.PostgresqlConnectionSummary.getJsonObj(
-            <model.PostgresqlConnectionSummary>(<object>jsonObj),
+        case "JAVA_MESSAGE_SERVICE":
+          return model.JavaMessageServiceConnectionSummary.getJsonObj(
+            <model.JavaMessageServiceConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MICROSOFT_SQLSERVER":
+          return model.MicrosoftSqlserverConnectionSummary.getJsonObj(
+            <model.MicrosoftSqlserverConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_NOSQL":
+          return model.OracleNosqlConnectionSummary.getJsonObj(
+            <model.OracleNosqlConnectionSummary>(<object>jsonObj),
             true
           );
         case "ORACLE":
@@ -160,14 +166,9 @@ export namespace ConnectionSummary {
             <model.OracleConnectionSummary>(<object>jsonObj),
             true
           );
-        case "MYSQL":
-          return model.MysqlConnectionSummary.getJsonObj(
-            <model.MysqlConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "KAFKA":
-          return model.KafkaConnectionSummary.getJsonObj(
-            <model.KafkaConnectionSummary>(<object>jsonObj),
+        case "SNOWFLAKE":
+          return model.SnowflakeConnectionSummary.getJsonObj(
+            <model.SnowflakeConnectionSummary>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
@@ -183,6 +184,36 @@ export namespace ConnectionSummary {
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.AzureSynapseConnectionSummary.getJsonObj(
             <model.AzureSynapseConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MONGODB":
+          return model.MongoDbConnectionSummary.getJsonObj(
+            <model.MongoDbConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3":
+          return model.AmazonS3ConnectionSummary.getJsonObj(
+            <model.AmazonS3ConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.PostgresqlConnectionSummary.getJsonObj(
+            <model.PostgresqlConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.MysqlConnectionSummary.getJsonObj(
+            <model.MysqlConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "KAFKA":
+          return model.KafkaConnectionSummary.getJsonObj(
+            <model.KafkaConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.HdfsConnectionSummary.getJsonObj(
+            <model.HdfsConnectionSummary>(<object>jsonObj),
             true
           );
         default:
@@ -215,9 +246,19 @@ export namespace ConnectionSummary {
             <model.KafkaSchemaRegistryConnectionSummary>(<object>jsonObj),
             true
           );
-        case "POSTGRESQL":
-          return model.PostgresqlConnectionSummary.getDeserializedJsonObj(
-            <model.PostgresqlConnectionSummary>(<object>jsonObj),
+        case "JAVA_MESSAGE_SERVICE":
+          return model.JavaMessageServiceConnectionSummary.getDeserializedJsonObj(
+            <model.JavaMessageServiceConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MICROSOFT_SQLSERVER":
+          return model.MicrosoftSqlserverConnectionSummary.getDeserializedJsonObj(
+            <model.MicrosoftSqlserverConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_NOSQL":
+          return model.OracleNosqlConnectionSummary.getDeserializedJsonObj(
+            <model.OracleNosqlConnectionSummary>(<object>jsonObj),
             true
           );
         case "ORACLE":
@@ -225,14 +266,9 @@ export namespace ConnectionSummary {
             <model.OracleConnectionSummary>(<object>jsonObj),
             true
           );
-        case "MYSQL":
-          return model.MysqlConnectionSummary.getDeserializedJsonObj(
-            <model.MysqlConnectionSummary>(<object>jsonObj),
-            true
-          );
-        case "KAFKA":
-          return model.KafkaConnectionSummary.getDeserializedJsonObj(
-            <model.KafkaConnectionSummary>(<object>jsonObj),
+        case "SNOWFLAKE":
+          return model.SnowflakeConnectionSummary.getDeserializedJsonObj(
+            <model.SnowflakeConnectionSummary>(<object>jsonObj),
             true
           );
         case "OCI_OBJECT_STORAGE":
@@ -248,6 +284,36 @@ export namespace ConnectionSummary {
         case "AZURE_SYNAPSE_ANALYTICS":
           return model.AzureSynapseConnectionSummary.getDeserializedJsonObj(
             <model.AzureSynapseConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MONGODB":
+          return model.MongoDbConnectionSummary.getDeserializedJsonObj(
+            <model.MongoDbConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3":
+          return model.AmazonS3ConnectionSummary.getDeserializedJsonObj(
+            <model.AmazonS3ConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "POSTGRESQL":
+          return model.PostgresqlConnectionSummary.getDeserializedJsonObj(
+            <model.PostgresqlConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "MYSQL":
+          return model.MysqlConnectionSummary.getDeserializedJsonObj(
+            <model.MysqlConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "KAFKA":
+          return model.KafkaConnectionSummary.getDeserializedJsonObj(
+            <model.KafkaConnectionSummary>(<object>jsonObj),
+            true
+          );
+        case "HDFS":
+          return model.HdfsConnectionSummary.getDeserializedJsonObj(
+            <model.HdfsConnectionSummary>(<object>jsonObj),
             true
           );
         default:

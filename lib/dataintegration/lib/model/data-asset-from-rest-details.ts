@@ -31,12 +31,12 @@ export interface DataAssetFromRestDetails extends model.DataAsset {
     | model.ConnectionFromRestNoAuthDetails
     | model.ConnectionFromAmazonS3Details
     | model.ConnectionFromObjectStorageDetails
-    | model.ConnectionFromLakehouseDetails
     | model.ConnectionFromBICCDetails
     | model.ConnectionFromMySQLDetails
     | model.ConnectionFromAdwcDetails
     | model.ConnectionFromAtpDetails
     | model.ConnectionFromOracleDetails
+    | model.ConnectionFromLakeDetails
     | model.ConnectionFromRestBasicAuthDetails
     | model.ConnectionFromBipDetails;
 

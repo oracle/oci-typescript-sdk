@@ -46,6 +46,8 @@ import * as ChangeDataguardRoleResponse from "./change-dataguard-role-response";
 export import ChangeDataguardRoleResponse = ChangeDataguardRoleResponse.ChangeDataguardRoleResponse;
 import * as ChangeDbSystemCompartmentResponse from "./change-db-system-compartment-response";
 export import ChangeDbSystemCompartmentResponse = ChangeDbSystemCompartmentResponse.ChangeDbSystemCompartmentResponse;
+import * as ChangeDisasterRecoveryConfigurationResponse from "./change-disaster-recovery-configuration-response";
+export import ChangeDisasterRecoveryConfigurationResponse = ChangeDisasterRecoveryConfigurationResponse.ChangeDisasterRecoveryConfigurationResponse;
 import * as ChangeExadataInfrastructureCompartmentResponse from "./change-exadata-infrastructure-compartment-response";
 export import ChangeExadataInfrastructureCompartmentResponse = ChangeExadataInfrastructureCompartmentResponse.ChangeExadataInfrastructureCompartmentResponse;
 import * as ChangeExternalContainerDatabaseCompartmentResponse from "./change-external-container-database-compartment-response";

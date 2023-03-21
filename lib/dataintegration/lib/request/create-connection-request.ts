@@ -28,7 +28,6 @@ export interface CreateConnectionRequest extends common.BaseRequest {
   "createConnectionDetails":
     | model.CreateConnectionFromMySQL
     | model.CreateConnectionFromAmazonS3
-    | model.CreateConnectionFromLakehouse
     | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
@@ -37,7 +36,8 @@ export interface CreateConnectionRequest extends common.BaseRequest {
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
     | model.CreateConnectionFromOracle
-    | model.CreateConnectionFromObjectStorage;
+    | model.CreateConnectionFromObjectStorage
+    | model.CreateConnectionFromLake;
   /**
    * Unique Oracle-assigned identifier for the request. If
    * you need to contact Oracle about a particular request,

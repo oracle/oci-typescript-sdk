@@ -28,12 +28,12 @@ export interface CreateDataAssetRequest extends common.BaseRequest {
   "createDataAssetDetails":
     | model.CreateDataAssetFromJdbc
     | model.CreateDataAssetFromMySQL
+    | model.CreateDataAssetFromLake
     | model.CreateDataAssetFromOracle
     | model.CreateDataAssetFromAdwc
     | model.CreateDataAssetFromAmazonS3
     | model.CreateDataAssetFromRest
     | model.CreateDataAssetFromFusionApp
-    | model.CreateDataAssetFromLakehouse
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;
   /**
