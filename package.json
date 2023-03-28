@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.55.0",
+  "version": "2.55.1",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -122,7 +122,6 @@
     "oci-aivision": "file:lib/aivision",
     "oci-threatintelligence": "file:lib/threatintelligence",
     "oci-aispeech": "file:lib/aispeech",
-    "oci-dataconnectivity": "file:lib/dataconnectivity",
     "oci-stackmonitoring": "file:lib/stackmonitoring",
     "oci-servicemesh": "file:lib/servicemesh",
     "oci-adm": "file:lib/adm",

@@ -17859,7 +17859,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       this.logger.debug("Calling operation DatabaseClient#listDbSystemComputePerformances.");
     const operationName = "listDbSystemComputePerformances";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemComputePerformanceSummary/ListDbSystemComputePerformances";
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ListDbSystemComputePerformances";
     const pathParams = {};
 
     const queryParams = {
@@ -18330,7 +18330,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       this.logger.debug("Calling operation DatabaseClient#listDbSystemStoragePerformances.");
     const operationName = "listDbSystemStoragePerformances";
     const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystemStoragePerformanceSummary/ListDbSystemStoragePerformances";
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbSystem/ListDbSystemStoragePerformances";
     const pathParams = {};
 
     const queryParams = {

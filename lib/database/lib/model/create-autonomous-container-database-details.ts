@@ -30,6 +30,10 @@ export interface CreateAutonomousContainerDatabaseDetails {
    */
   "dbUniqueName"?: string;
   /**
+   * The database name for the Autonomous Container Database. The name must be unique within the Cloud Autonomous VM Cluster, must start with an alphabetic character and followed by 1 to 7 alphanumeric characters.
+   */
+  "dbName"?: string;
+  /**
    * The service level agreement type of the Autonomous Container Database. The default is STANDARD. For an autonomous dataguard Autonomous Container Database, the specified Autonomous Exadata Infrastructure must be associated with a remote Autonomous Exadata Infrastructure.
    */
   "serviceLevelAgreementType"?: CreateAutonomousContainerDatabaseDetails.ServiceLevelAgreementType;

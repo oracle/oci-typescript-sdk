@@ -23,6 +23,8 @@ import * as ChangeMigrationCompartmentResponse from "./change-migration-compartm
 export import ChangeMigrationCompartmentResponse = ChangeMigrationCompartmentResponse.ChangeMigrationCompartmentResponse;
 import * as CloneMigrationResponse from "./clone-migration-response";
 export import CloneMigrationResponse = CloneMigrationResponse.CloneMigrationResponse;
+import * as ConnectionDiagnosticsResponse from "./connection-diagnostics-response";
+export import ConnectionDiagnosticsResponse = ConnectionDiagnosticsResponse.ConnectionDiagnosticsResponse;
 import * as CreateConnectionResponse from "./create-connection-response";
 export import CreateConnectionResponse = CreateConnectionResponse.CreateConnectionResponse;
 import * as CreateMigrationResponse from "./create-migration-response";

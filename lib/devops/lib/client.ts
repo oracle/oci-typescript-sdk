@@ -7415,4 +7415,83 @@ export class DevopsClient {
       throw err;
     }
   }
+
+  /**
+   * Return whether the credentials of the connection are valid.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateConnectionRequest
+   * @return ValidateConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/devops/ValidateConnection.ts.html |here} to see how to use ValidateConnection API.
+   */
+  public async validateConnection(
+    validateConnectionRequest: requests.ValidateConnectionRequest
+  ): Promise<responses.ValidateConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DevopsClient#validateConnection.");
+    const operationName = "validateConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/devops/20210630/Connection/ValidateConnection";
+    const pathParams = {
+      "{connectionId}": validateConnectionRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateConnectionRequest.opcRequestId,
+      "if-match": validateConnectionRequest.ifMatch,
+      "opc-retry-token": validateConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}/actions/validate",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "connection",
+        bodyModel: model.Connection,
+        type: "model.Connection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
 }

@@ -621,6 +621,86 @@ export class DatabaseMigrationClient {
   }
 
   /**
+   * Perform connection test for a database connection.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ConnectionDiagnosticsRequest
+   * @return ConnectionDiagnosticsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemigration/ConnectionDiagnostics.ts.html |here} to see how to use ConnectionDiagnostics API.
+   */
+  public async connectionDiagnostics(
+    connectionDiagnosticsRequest: requests.ConnectionDiagnosticsRequest
+  ): Promise<responses.ConnectionDiagnosticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseMigrationClient#connectionDiagnostics.");
+    const operationName = "connectionDiagnostics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-migration/20210929/Connection/ConnectionDiagnostics";
+    const pathParams = {
+      "{connectionId}": connectionDiagnosticsRequest.connectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": connectionDiagnosticsRequest.ifMatch,
+      "opc-request-id": connectionDiagnosticsRequest.opcRequestId,
+      "opc-retry-token": connectionDiagnosticsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      connectionDiagnosticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connections/{connectionId}/actions/diagnostics",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConnectionDiagnosticsResponse>{},
+        body: await response.json(),
+        bodyKey: "diagnosticsResult",
+        bodyModel: model.DiagnosticsResult,
+        type: "model.DiagnosticsResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a Database Connection resource that contains the details to connect to either a Source or Target Database
    * in the migration.
    *

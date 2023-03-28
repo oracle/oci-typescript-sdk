@@ -152,6 +152,8 @@ import * as CaptureConsoleHistoryResponse from "./capture-console-history-respon
 export import CaptureConsoleHistoryResponse = CaptureConsoleHistoryResponse.CaptureConsoleHistoryResponse;
 import * as ChangeComputeCapacityReservationCompartmentResponse from "./change-compute-capacity-reservation-compartment-response";
 export import ChangeComputeCapacityReservationCompartmentResponse = ChangeComputeCapacityReservationCompartmentResponse.ChangeComputeCapacityReservationCompartmentResponse;
+import * as ChangeComputeClusterCompartmentResponse from "./change-compute-cluster-compartment-response";
+export import ChangeComputeClusterCompartmentResponse = ChangeComputeClusterCompartmentResponse.ChangeComputeClusterCompartmentResponse;
 import * as ChangeComputeImageCapabilitySchemaCompartmentResponse from "./change-compute-image-capability-schema-compartment-response";
 export import ChangeComputeImageCapabilitySchemaCompartmentResponse = ChangeComputeImageCapabilitySchemaCompartmentResponse.ChangeComputeImageCapabilitySchemaCompartmentResponse;
 import * as ChangeDedicatedVmHostCompartmentResponse from "./change-dedicated-vm-host-compartment-response";
@@ -164,6 +166,8 @@ import * as CreateAppCatalogSubscriptionResponse from "./create-app-catalog-subs
 export import CreateAppCatalogSubscriptionResponse = CreateAppCatalogSubscriptionResponse.CreateAppCatalogSubscriptionResponse;
 import * as CreateComputeCapacityReservationResponse from "./create-compute-capacity-reservation-response";
 export import CreateComputeCapacityReservationResponse = CreateComputeCapacityReservationResponse.CreateComputeCapacityReservationResponse;
+import * as CreateComputeClusterResponse from "./create-compute-cluster-response";
+export import CreateComputeClusterResponse = CreateComputeClusterResponse.CreateComputeClusterResponse;
 import * as CreateComputeImageCapabilitySchemaResponse from "./create-compute-image-capability-schema-response";
 export import CreateComputeImageCapabilitySchemaResponse = CreateComputeImageCapabilitySchemaResponse.CreateComputeImageCapabilitySchemaResponse;
 import * as CreateDedicatedVmHostResponse from "./create-dedicated-vm-host-response";
@@ -176,6 +180,8 @@ import * as DeleteAppCatalogSubscriptionResponse from "./delete-app-catalog-subs
 export import DeleteAppCatalogSubscriptionResponse = DeleteAppCatalogSubscriptionResponse.DeleteAppCatalogSubscriptionResponse;
 import * as DeleteComputeCapacityReservationResponse from "./delete-compute-capacity-reservation-response";
 export import DeleteComputeCapacityReservationResponse = DeleteComputeCapacityReservationResponse.DeleteComputeCapacityReservationResponse;
+import * as DeleteComputeClusterResponse from "./delete-compute-cluster-response";
+export import DeleteComputeClusterResponse = DeleteComputeClusterResponse.DeleteComputeClusterResponse;
 import * as DeleteComputeImageCapabilitySchemaResponse from "./delete-compute-image-capability-schema-response";
 export import DeleteComputeImageCapabilitySchemaResponse = DeleteComputeImageCapabilitySchemaResponse.DeleteComputeImageCapabilitySchemaResponse;
 import * as DeleteConsoleHistoryResponse from "./delete-console-history-response";
@@ -204,6 +210,8 @@ import * as GetBootVolumeAttachmentResponse from "./get-boot-volume-attachment-r
 export import GetBootVolumeAttachmentResponse = GetBootVolumeAttachmentResponse.GetBootVolumeAttachmentResponse;
 import * as GetComputeCapacityReservationResponse from "./get-compute-capacity-reservation-response";
 export import GetComputeCapacityReservationResponse = GetComputeCapacityReservationResponse.GetComputeCapacityReservationResponse;
+import * as GetComputeClusterResponse from "./get-compute-cluster-response";
+export import GetComputeClusterResponse = GetComputeClusterResponse.GetComputeClusterResponse;
 import * as GetComputeGlobalImageCapabilitySchemaResponse from "./get-compute-global-image-capability-schema-response";
 export import GetComputeGlobalImageCapabilitySchemaResponse = GetComputeGlobalImageCapabilitySchemaResponse.GetComputeGlobalImageCapabilitySchemaResponse;
 import * as GetComputeGlobalImageCapabilitySchemaVersionResponse from "./get-compute-global-image-capability-schema-version-response";
@@ -252,6 +260,8 @@ import * as ListComputeCapacityReservationInstancesResponse from "./list-compute
 export import ListComputeCapacityReservationInstancesResponse = ListComputeCapacityReservationInstancesResponse.ListComputeCapacityReservationInstancesResponse;
 import * as ListComputeCapacityReservationsResponse from "./list-compute-capacity-reservations-response";
 export import ListComputeCapacityReservationsResponse = ListComputeCapacityReservationsResponse.ListComputeCapacityReservationsResponse;
+import * as ListComputeClustersResponse from "./list-compute-clusters-response";
+export import ListComputeClustersResponse = ListComputeClustersResponse.ListComputeClustersResponse;
 import * as ListComputeGlobalImageCapabilitySchemaVersionsResponse from "./list-compute-global-image-capability-schema-versions-response";
 export import ListComputeGlobalImageCapabilitySchemaVersionsResponse = ListComputeGlobalImageCapabilitySchemaVersionsResponse.ListComputeGlobalImageCapabilitySchemaVersionsResponse;
 import * as ListComputeGlobalImageCapabilitySchemasResponse from "./list-compute-global-image-capability-schemas-response";
@@ -290,6 +300,8 @@ import * as TerminateInstanceResponse from "./terminate-instance-response";
 export import TerminateInstanceResponse = TerminateInstanceResponse.TerminateInstanceResponse;
 import * as UpdateComputeCapacityReservationResponse from "./update-compute-capacity-reservation-response";
 export import UpdateComputeCapacityReservationResponse = UpdateComputeCapacityReservationResponse.UpdateComputeCapacityReservationResponse;
+import * as UpdateComputeClusterResponse from "./update-compute-cluster-response";
+export import UpdateComputeClusterResponse = UpdateComputeClusterResponse.UpdateComputeClusterResponse;
 import * as UpdateComputeImageCapabilitySchemaResponse from "./update-compute-image-capability-schema-response";
 export import UpdateComputeImageCapabilitySchemaResponse = UpdateComputeImageCapabilitySchemaResponse.UpdateComputeImageCapabilitySchemaResponse;
 import * as UpdateConsoleHistoryResponse from "./update-console-history-response";

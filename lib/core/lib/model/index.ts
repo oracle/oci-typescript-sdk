@@ -134,6 +134,8 @@ import * as ChangeClusterNetworkCompartmentDetails from "./change-cluster-networ
 export import ChangeClusterNetworkCompartmentDetails = ChangeClusterNetworkCompartmentDetails.ChangeClusterNetworkCompartmentDetails;
 import * as ChangeComputeCapacityReservationCompartmentDetails from "./change-compute-capacity-reservation-compartment-details";
 export import ChangeComputeCapacityReservationCompartmentDetails = ChangeComputeCapacityReservationCompartmentDetails.ChangeComputeCapacityReservationCompartmentDetails;
+import * as ChangeComputeClusterCompartmentDetails from "./change-compute-cluster-compartment-details";
+export import ChangeComputeClusterCompartmentDetails = ChangeComputeClusterCompartmentDetails.ChangeComputeClusterCompartmentDetails;
 import * as ChangeComputeImageCapabilitySchemaCompartmentDetails from "./change-compute-image-capability-schema-compartment-details";
 export import ChangeComputeImageCapabilitySchemaCompartmentDetails = ChangeComputeImageCapabilitySchemaCompartmentDetails.ChangeComputeImageCapabilitySchemaCompartmentDetails;
 import * as ChangeCpeCompartmentDetails from "./change-cpe-compartment-details";
@@ -196,6 +198,8 @@ import * as ChangeVolumeGroupCompartmentDetails from "./change-volume-group-comp
 export import ChangeVolumeGroupCompartmentDetails = ChangeVolumeGroupCompartmentDetails.ChangeVolumeGroupCompartmentDetails;
 import * as ChangeVtapCompartmentDetails from "./change-vtap-compartment-details";
 export import ChangeVtapCompartmentDetails = ChangeVtapCompartmentDetails.ChangeVtapCompartmentDetails;
+import * as ClusterConfigDetails from "./cluster-config-details";
+export import ClusterConfigDetails = ClusterConfigDetails.ClusterConfigDetails;
 import * as ClusterNetwork from "./cluster-network";
 export import ClusterNetwork = ClusterNetwork.ClusterNetwork;
 import * as ClusterNetworkPlacementConfigurationDetails from "./cluster-network-placement-configuration-details";
@@ -210,6 +214,12 @@ import * as ComputeCapacityReservationInstanceShapeSummary from "./compute-capac
 export import ComputeCapacityReservationInstanceShapeSummary = ComputeCapacityReservationInstanceShapeSummary.ComputeCapacityReservationInstanceShapeSummary;
 import * as ComputeCapacityReservationSummary from "./compute-capacity-reservation-summary";
 export import ComputeCapacityReservationSummary = ComputeCapacityReservationSummary.ComputeCapacityReservationSummary;
+import * as ComputeCluster from "./compute-cluster";
+export import ComputeCluster = ComputeCluster.ComputeCluster;
+import * as ComputeClusterCollection from "./compute-cluster-collection";
+export import ComputeClusterCollection = ComputeClusterCollection.ComputeClusterCollection;
+import * as ComputeClusterSummary from "./compute-cluster-summary";
+export import ComputeClusterSummary = ComputeClusterSummary.ComputeClusterSummary;
 import * as ComputeGlobalImageCapabilitySchema from "./compute-global-image-capability-schema";
 export import ComputeGlobalImageCapabilitySchema = ComputeGlobalImageCapabilitySchema.ComputeGlobalImageCapabilitySchema;
 import * as ComputeGlobalImageCapabilitySchemaSummary from "./compute-global-image-capability-schema-summary";
@@ -262,6 +272,8 @@ import * as CreateClusterNetworkInstancePoolDetails from "./create-cluster-netwo
 export import CreateClusterNetworkInstancePoolDetails = CreateClusterNetworkInstancePoolDetails.CreateClusterNetworkInstancePoolDetails;
 import * as CreateComputeCapacityReservationDetails from "./create-compute-capacity-reservation-details";
 export import CreateComputeCapacityReservationDetails = CreateComputeCapacityReservationDetails.CreateComputeCapacityReservationDetails;
+import * as CreateComputeClusterDetails from "./create-compute-cluster-details";
+export import CreateComputeClusterDetails = CreateComputeClusterDetails.CreateComputeClusterDetails;
 import * as CreateComputeImageCapabilitySchemaDetails from "./create-compute-image-capability-schema-details";
 export import CreateComputeImageCapabilitySchemaDetails = CreateComputeImageCapabilitySchemaDetails.CreateComputeImageCapabilitySchemaDetails;
 import * as CreateCpeDetails from "./create-cpe-details";
@@ -732,6 +744,8 @@ import * as UpdateClusterNetworkInstancePoolDetails from "./update-cluster-netwo
 export import UpdateClusterNetworkInstancePoolDetails = UpdateClusterNetworkInstancePoolDetails.UpdateClusterNetworkInstancePoolDetails;
 import * as UpdateComputeCapacityReservationDetails from "./update-compute-capacity-reservation-details";
 export import UpdateComputeCapacityReservationDetails = UpdateComputeCapacityReservationDetails.UpdateComputeCapacityReservationDetails;
+import * as UpdateComputeClusterDetails from "./update-compute-cluster-details";
+export import UpdateComputeClusterDetails = UpdateComputeClusterDetails.UpdateComputeClusterDetails;
 import * as UpdateComputeImageCapabilitySchemaDetails from "./update-compute-image-capability-schema-details";
 export import UpdateComputeImageCapabilitySchemaDetails = UpdateComputeImageCapabilitySchemaDetails.UpdateComputeImageCapabilitySchemaDetails;
 import * as UpdateConsoleHistoryDetails from "./update-console-history-details";

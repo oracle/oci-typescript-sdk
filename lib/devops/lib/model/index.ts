@@ -99,6 +99,8 @@ import * as ConnectionCollection from "./connection-collection";
 export import ConnectionCollection = ConnectionCollection.ConnectionCollection;
 import * as ConnectionSummary from "./connection-summary";
 export import ConnectionSummary = ConnectionSummary.ConnectionSummary;
+import * as ConnectionValidationResult from "./connection-validation-result";
+export import ConnectionValidationResult = ConnectionValidationResult.ConnectionValidationResult;
 import * as ContainerConfig from "./container-config";
 export import ContainerConfig = ContainerConfig.ContainerConfig;
 import * as CreateBuildPipelineDetails from "./create-build-pipeline-details";

@@ -23,6 +23,8 @@ import * as ChangeMigrationCompartmentRequest from "./change-migration-compartme
 export import ChangeMigrationCompartmentRequest = ChangeMigrationCompartmentRequest.ChangeMigrationCompartmentRequest;
 import * as CloneMigrationRequest from "./clone-migration-request";
 export import CloneMigrationRequest = CloneMigrationRequest.CloneMigrationRequest;
+import * as ConnectionDiagnosticsRequest from "./connection-diagnostics-request";
+export import ConnectionDiagnosticsRequest = ConnectionDiagnosticsRequest.ConnectionDiagnosticsRequest;
 import * as CreateConnectionRequest from "./create-connection-request";
 export import CreateConnectionRequest = CreateConnectionRequest.CreateConnectionRequest;
 import * as CreateMigrationRequest from "./create-migration-request";

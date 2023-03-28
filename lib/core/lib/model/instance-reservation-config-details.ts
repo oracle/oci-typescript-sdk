@@ -49,6 +49,7 @@ Example: `FAULT-DOMAIN-1`
 * 
     */
   "faultDomain"?: string;
+  "clusterConfig"?: model.ClusterConfigDetails;
   /**
    * The total number of instances that can be launched from the capacity configuration. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
@@ -62,6 +63,10 @@ export namespace InstanceReservationConfigDetails {
       ...{
         "instanceShapeConfig": obj.instanceShapeConfig
           ? model.InstanceReservationShapeConfigDetails.getJsonObj(obj.instanceShapeConfig)
+          : undefined,
+
+        "clusterConfig": obj.clusterConfig
+          ? model.ClusterConfigDetails.getJsonObj(obj.clusterConfig)
           : undefined
       }
     };
@@ -76,6 +81,10 @@ export namespace InstanceReservationConfigDetails {
           ? model.InstanceReservationShapeConfigDetails.getDeserializedJsonObj(
               obj.instanceShapeConfig
             )
+          : undefined,
+
+        "clusterConfig": obj.clusterConfig
+          ? model.ClusterConfigDetails.getDeserializedJsonObj(obj.clusterConfig)
           : undefined
       }
     };

@@ -187,3 +187,5 @@ import * as UpdateRepositoryResponse from "./update-repository-response";
 export import UpdateRepositoryResponse = UpdateRepositoryResponse.UpdateRepositoryResponse;
 import * as UpdateTriggerResponse from "./update-trigger-response";
 export import UpdateTriggerResponse = UpdateTriggerResponse.UpdateTriggerResponse;
+import * as ValidateConnectionResponse from "./validate-connection-response";
+export import ValidateConnectionResponse = ValidateConnectionResponse.ValidateConnectionResponse;
