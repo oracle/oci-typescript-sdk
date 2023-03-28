@@ -6221,6 +6221,86 @@ The `CaptureConsoleHistory` operation works with the other console history opera
   }
 
   /**
+     * Moves a compute cluster into a different compartment within the same tenancy.
+* A compute cluster is a remote direct memory access (RDMA) network group.
+* <p>
+For information about moving resources between compartments, see
+* [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ChangeComputeClusterCompartmentRequest
+     * @return ChangeComputeClusterCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ChangeComputeClusterCompartment.ts.html |here} to see how to use ChangeComputeClusterCompartment API.
+     */
+  public async changeComputeClusterCompartment(
+    changeComputeClusterCompartmentRequest: requests.ChangeComputeClusterCompartmentRequest
+  ): Promise<responses.ChangeComputeClusterCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#changeComputeClusterCompartment.");
+    const operationName = "changeComputeClusterCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/ChangeComputeClusterCompartment";
+    const pathParams = {
+      "{computeClusterId}": changeComputeClusterCompartmentRequest.computeClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeComputeClusterCompartmentRequest.ifMatch,
+      "opc-request-id": changeComputeClusterCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeComputeClusterCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeComputeClusterCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeClusters/{computeClusterId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeComputeClusterCompartmentRequest.changeComputeClusterCompartmentDetails,
+        "ChangeComputeClusterCompartmentDetails",
+        model.ChangeComputeClusterCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeComputeClusterCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a compute image capability schema into a different compartment within the same tenancy.
    * For information about moving resources between compartments, see
    *         [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -6737,6 +6817,93 @@ When you move an instance to a different compartment, associated resources such 
   }
 
   /**
+     * Creates an empty compute cluster, which is a remote direct memory access (RDMA) network group.
+* After the compute cluster is created, you can use the compute cluster's OCID with the
+* {@link #launchInstance(LaunchInstanceRequest) launchInstance} operation to create instances in the compute cluster.
+* For more information, see [Compute Clusters](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm).
+* <p>
+To create a cluster network that uses intance pools to manage groups of identical instances,
+* see {@link #createClusterNetwork(CreateClusterNetworkRequest) createClusterNetwork}.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateComputeClusterRequest
+     * @return CreateComputeClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCluster.ts.html |here} to see how to use CreateComputeCluster API.
+     */
+  public async createComputeCluster(
+    createComputeClusterRequest: requests.CreateComputeClusterRequest
+  ): Promise<responses.CreateComputeClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#createComputeCluster.");
+    const operationName = "createComputeCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/CreateComputeCluster";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createComputeClusterRequest.opcRetryToken,
+      "opc-request-id": createComputeClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeClusters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeClusterRequest.createComputeClusterDetails,
+        "CreateComputeClusterDetails",
+        model.CreateComputeClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCluster",
+        bodyModel: model.ComputeCluster,
+        type: "model.ComputeCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates compute image capability schema.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -7229,6 +7396,76 @@ For more information about instance console connections, see [Troubleshooting In
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the compute cluster, which is a remote direct memory access (RDMA) network group.
+   * To delete a compute cluster, all instances in the cluster must be deleted first.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteComputeClusterRequest
+   * @return DeleteComputeClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCluster.ts.html |here} to see how to use DeleteComputeCluster API.
+   */
+  public async deleteComputeCluster(
+    deleteComputeClusterRequest: requests.DeleteComputeClusterRequest
+  ): Promise<responses.DeleteComputeClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#deleteComputeCluster.");
+    const operationName = "deleteComputeCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/DeleteComputeCluster";
+    const pathParams = {
+      "{computeClusterId}": deleteComputeClusterRequest.computeClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteComputeClusterRequest.opcRequestId,
+      "if-match": deleteComputeClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteComputeClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeClusters/{computeClusterId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteComputeClusterResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -8265,6 +8502,82 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
         bodyKey: "computeCapacityReservation",
         bodyModel: model.ComputeCapacityReservation,
         type: "model.ComputeCapacityReservation",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified compute cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetComputeClusterRequest
+   * @return GetComputeClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/GetComputeCluster.ts.html |here} to see how to use GetComputeCluster API.
+   */
+  public async getComputeCluster(
+    getComputeClusterRequest: requests.GetComputeClusterRequest
+  ): Promise<responses.GetComputeClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#getComputeCluster.");
+    const operationName = "getComputeCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/GetComputeCluster";
+    const pathParams = {
+      "{computeClusterId}": getComputeClusterRequest.computeClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getComputeClusterRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getComputeClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeClusters/{computeClusterId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetComputeClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCluster",
+        bodyModel: model.ComputeCluster,
+        type: "model.ComputeCluster",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -10632,6 +10945,90 @@ You can limit the list by specifying a compute capacity reservation display name
   }
 
   /**
+   * Lists the compute clusters in the specified compartment.
+   * A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListComputeClustersRequest
+   * @return ListComputeClustersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListComputeClusters.ts.html |here} to see how to use ListComputeClusters API.
+   */
+  public async listComputeClusters(
+    listComputeClustersRequest: requests.ListComputeClustersRequest
+  ): Promise<responses.ListComputeClustersResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#listComputeClusters.");
+    const operationName = "listComputeClusters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/ListComputeClusters";
+    const pathParams = {};
+
+    const queryParams = {
+      "availabilityDomain": listComputeClustersRequest.availabilityDomain,
+      "compartmentId": listComputeClustersRequest.compartmentId,
+      "displayName": listComputeClustersRequest.displayName,
+      "limit": listComputeClustersRequest.limit,
+      "page": listComputeClustersRequest.page,
+      "sortBy": listComputeClustersRequest.sortBy,
+      "sortOrder": listComputeClustersRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listComputeClustersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listComputeClustersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeClusters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListComputeClustersResponse>{},
+        body: await response.json(),
+        bodyKey: "computeClusterCollection",
+        bodyModel: model.ComputeClusterCollection,
+        type: "model.ComputeClusterCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists Compute Global Image Capability Schema versions in the specified compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -12302,6 +12699,7 @@ For more information about instance console connections, see [Troubleshooting In
     const queryParams = {
       "availabilityDomain": listInstancesRequest.availabilityDomain,
       "capacityReservationId": listInstancesRequest.capacityReservationId,
+      "computeClusterId": listInstancesRequest.computeClusterId,
       "compartmentId": listInstancesRequest.compartmentId,
       "displayName": listInstancesRequest.displayName,
       "limit": listInstancesRequest.limit,
@@ -13035,6 +13433,89 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified compute cluster.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateComputeClusterRequest
+   * @return UpdateComputeClusterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCluster.ts.html |here} to see how to use UpdateComputeCluster API.
+   */
+  public async updateComputeCluster(
+    updateComputeClusterRequest: requests.UpdateComputeClusterRequest
+  ): Promise<responses.UpdateComputeClusterResponse> {
+    if (this.logger) this.logger.debug("Calling operation ComputeClient#updateComputeCluster.");
+    const operationName = "updateComputeCluster";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCluster/UpdateComputeCluster";
+    const pathParams = {
+      "{computeClusterId}": updateComputeClusterRequest.computeClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateComputeClusterRequest.opcRequestId,
+      "opc-retry-token": updateComputeClusterRequest.opcRetryToken,
+      "if-match": updateComputeClusterRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateComputeClusterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeClusters/{computeClusterId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateComputeClusterRequest.updateComputeClusterDetails,
+        "UpdateComputeClusterDetails",
+        model.UpdateComputeClusterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateComputeClusterResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCluster",
+        bodyModel: model.ComputeCluster,
+        type: "model.ComputeCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]

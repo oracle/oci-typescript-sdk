@@ -34,6 +34,10 @@ export interface AutonomousContainerDatabase {
    */
   "dbUniqueName"?: string;
   /**
+   * The database name for the Autonomous Container Database. The name must be unique within the Cloud Autonomous VM Cluster, must start with an alphabetic character and followed by 1 to 7 alphanumeric characters.
+   */
+  "dbName"?: string;
+  /**
    * The service level agreement type of the container database. The default is STANDARD.
    */
   "serviceLevelAgreementType": AutonomousContainerDatabase.ServiceLevelAgreementType;

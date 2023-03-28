@@ -109,7 +109,7 @@ export interface DbSystemShapeSummary {
    */
   "maximumNodeCount"?: number;
   /**
-   * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape and ExaCC Elastic shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum number of CPU cores per database node that can be enabled for this shape. Only applicable to the flex Exadata shape, ExaCC Elastic shapes and VM Flex shapes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCoreCountPerNode"?: number;
 }

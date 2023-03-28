@@ -282,6 +282,25 @@ export class ComputeWaiter {
   }
 
   /**
+   * Waits forComputeCluster till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetComputeClusterResponse | null (null in case of 404 response)
+   */
+  public async forComputeCluster(
+    request: serviceRequests.GetComputeClusterRequest,
+    ...targetStates: models.ComputeCluster.LifecycleState[]
+  ): Promise<serviceResponses.GetComputeClusterResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getComputeCluster(request),
+      response => targetStates.includes(response.computeCluster.lifecycleState!),
+      targetStates.includes(models.ComputeCluster.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forConsoleHistory till it reaches any of the provided states
    *
    * @param request the request to send

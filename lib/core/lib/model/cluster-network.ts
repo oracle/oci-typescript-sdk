@@ -37,6 +37,14 @@ export interface ClusterNetwork {
    */
   "compartmentId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the hpc island used by the cluster network.
+   */
+  "hpcIslandId"?: string;
+  /**
+   * The list of network block OCIDs of the HPC island.
+   */
+  "networkBlockIds"?: Array<string>;
+  /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

@@ -187,3 +187,5 @@ import * as UpdateRepositoryRequest from "./update-repository-request";
 export import UpdateRepositoryRequest = UpdateRepositoryRequest.UpdateRepositoryRequest;
 import * as UpdateTriggerRequest from "./update-trigger-request";
 export import UpdateTriggerRequest = UpdateTriggerRequest.UpdateTriggerRequest;
+import * as ValidateConnectionRequest from "./validate-connection-request";
+export import ValidateConnectionRequest = ValidateConnectionRequest.ValidateConnectionRequest;

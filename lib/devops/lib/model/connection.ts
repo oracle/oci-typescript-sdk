@@ -46,6 +46,7 @@ export interface Connection {
    * The time the connection was updated. Format defined by [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339).
    */
   "timeUpdated"?: Date;
+  "lastConnectionValidationResult"?: model.ConnectionValidationResult;
   /**
    * A detailed message describing the current state. For example, can be used to provide actionable information for a resource in Failed state.
    */
@@ -82,7 +83,14 @@ export namespace Connection {
   }
 
   export function getJsonObj(obj: Connection): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lastConnectionValidationResult": obj.lastConnectionValidationResult
+          ? model.ConnectionValidationResult.getJsonObj(obj.lastConnectionValidationResult)
+          : undefined
+      }
+    };
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {
@@ -123,7 +131,16 @@ export namespace Connection {
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: Connection): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "lastConnectionValidationResult": obj.lastConnectionValidationResult
+          ? model.ConnectionValidationResult.getDeserializedJsonObj(
+              obj.lastConnectionValidationResult
+            )
+          : undefined
+      }
+    };
 
     if (obj && "connectionType" in obj && obj.connectionType) {
       switch (obj.connectionType) {

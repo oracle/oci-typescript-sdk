@@ -104,6 +104,11 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
+   *
+   */
+  "computeClusterId"?: string;
+  /**
    * Deprecated. Instead use `hostnameLabel` in
    * {@link CreateVnicDetails}.
    * If you provide both, the values must match.

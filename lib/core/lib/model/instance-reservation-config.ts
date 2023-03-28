@@ -33,6 +33,7 @@ export interface InstanceReservationConfig {
    *
    */
   "faultDomain"?: string;
+  "clusterConfig"?: model.ClusterConfigDetails;
   /**
    * The shape to use when launching instances using compute capacity reservations. The shape determines the number of CPUs, the amount of memory,
    * and other resources allocated to the instance.
@@ -56,6 +57,10 @@ export namespace InstanceReservationConfig {
     const jsonObj = {
       ...obj,
       ...{
+        "clusterConfig": obj.clusterConfig
+          ? model.ClusterConfigDetails.getJsonObj(obj.clusterConfig)
+          : undefined,
+
         "instanceShapeConfig": obj.instanceShapeConfig
           ? model.InstanceReservationShapeConfigDetails.getJsonObj(obj.instanceShapeConfig)
           : undefined
@@ -68,6 +73,10 @@ export namespace InstanceReservationConfig {
     const jsonObj = {
       ...obj,
       ...{
+        "clusterConfig": obj.clusterConfig
+          ? model.ClusterConfigDetails.getDeserializedJsonObj(obj.clusterConfig)
+          : undefined,
+
         "instanceShapeConfig": obj.instanceShapeConfig
           ? model.InstanceReservationShapeConfigDetails.getDeserializedJsonObj(
               obj.instanceShapeConfig
