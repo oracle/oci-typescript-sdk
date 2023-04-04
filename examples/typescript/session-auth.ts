@@ -16,8 +16,12 @@ import * as identity from "oci-identity";
     const identityClient = new identity.IdentityClient({ authenticationDetailsProvider: provider });
 
     const listUserReq = { compartmentId: compartmentId };
-    const users = await identityClient.listUsers(listUserReq);
-    console.log("users: ", users);
+    let users = await identityClient.listUsers(listUserReq);
+
+    // Refresh
+    await provider.refreshSessionToken(); // Refresh the token.
+    users = await identityClient.listUsers(listUserReq); // API should still work.
+    return users;
   } catch (e) {
     console.log("error: ", e);
   }

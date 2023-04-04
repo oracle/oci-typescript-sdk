@@ -35,6 +35,7 @@ export interface NodePoolPlacementConfigDetails {
    * The OCID of the compute capacity reservation in which to place the compute instance.
    */
   "capacityReservationId"?: string;
+  "preemptibleNodeConfig"?: model.PreemptibleNodeConfigDetails;
   /**
    * A list of fault domains in which to place nodes.
    *
@@ -44,12 +45,26 @@ export interface NodePoolPlacementConfigDetails {
 
 export namespace NodePoolPlacementConfigDetails {
   export function getJsonObj(obj: NodePoolPlacementConfigDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "preemptibleNodeConfig": obj.preemptibleNodeConfig
+          ? model.PreemptibleNodeConfigDetails.getJsonObj(obj.preemptibleNodeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: NodePoolPlacementConfigDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "preemptibleNodeConfig": obj.preemptibleNodeConfig
+          ? model.PreemptibleNodeConfigDetails.getDeserializedJsonObj(obj.preemptibleNodeConfig)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
