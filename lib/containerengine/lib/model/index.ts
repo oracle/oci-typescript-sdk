@@ -126,6 +126,10 @@ import * as PodShape from "./pod-shape";
 export import PodShape = PodShape.PodShape;
 import * as PodShapeSummary from "./pod-shape-summary";
 export import PodShapeSummary = PodShapeSummary.PodShapeSummary;
+import * as PreemptibleNodeConfigDetails from "./preemptible-node-config-details";
+export import PreemptibleNodeConfigDetails = PreemptibleNodeConfigDetails.PreemptibleNodeConfigDetails;
+import * as PreemptionAction from "./preemption-action";
+export import PreemptionAction = PreemptionAction.PreemptionAction;
 import * as ServiceLbConfigDetails from "./service-lb-config-details";
 export import ServiceLbConfigDetails = ServiceLbConfigDetails.ServiceLbConfigDetails;
 import * as ShapeMemoryOptions from "./shape-memory-options";
@@ -199,3 +203,5 @@ import * as OciVcnIpNativeClusterPodNetworkOptionDetails from "./oci-vcn-ip-nati
 export import OciVcnIpNativeClusterPodNetworkOptionDetails = OciVcnIpNativeClusterPodNetworkOptionDetails.OciVcnIpNativeClusterPodNetworkOptionDetails;
 import * as OciVcnIpNativeNodePoolPodNetworkOptionDetails from "./oci-vcn-ip-native-node-pool-pod-network-option-details";
 export import OciVcnIpNativeNodePoolPodNetworkOptionDetails = OciVcnIpNativeNodePoolPodNetworkOptionDetails.OciVcnIpNativeNodePoolPodNetworkOptionDetails;
+import * as TerminatePreemptionAction from "./terminate-preemption-action";
+export import TerminatePreemptionAction = TerminatePreemptionAction.TerminatePreemptionAction;

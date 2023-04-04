@@ -1,6 +1,6 @@
 {
   "name": "oci-loganalytics",
-  "version": "2.55.1",
+  "version": "2.56.0",
   "description": "OCI NodeJS client for Log Analytics Service",
   "repository": {
     "type": "git",

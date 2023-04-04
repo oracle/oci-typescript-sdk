@@ -27,7 +27,7 @@ export interface ForwardToBackendSet extends model.Action {
 Example: `backendSetForImages`
 * 
     */
-  "backendSetName"?: string;
+  "backendSetName": string;
 
   "name": string;
 }

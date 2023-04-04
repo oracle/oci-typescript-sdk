@@ -101,8 +101,10 @@ Changes in Shape will result in a downtime as the MySQL DB System is
     * Expands the DB System's storage to the specified value. Only supports values larger than the current DB System's
 * storage size.
 * <p>
-DB Systems with initial storage of 400 GB or less can be expanded up to 32 TB. DB Systems with initial storage
-* larger than 400 GB can be expanded up to 64 TB.
+DB Systems with an initial storage size of 400 GB or less can be expanded up to 32 TB.
+* DB Systems with an initial storage size between 401-800 GB can be expanded up to 64 TB.
+* DB Systems with an initial storage size between 801-1200 GB can be expanded up to 96 TB.
+* DB Systems with an initial storage size of 1201 GB or more can be expanded up to 128 TB.
 * <p>
 It is not possible to decrease data storage size.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
