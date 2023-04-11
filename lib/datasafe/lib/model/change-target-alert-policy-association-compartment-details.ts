@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ChangeTargetAlertPolicyAssociationCompartmentDetails {
   /**
-   * The OCID of the new compartment to move the target-alert policy association to.
+   * The OCID of the compartment to move the target-alert policy association to.
    */
   "compartmentId": string;
 }

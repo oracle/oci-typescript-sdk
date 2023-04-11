@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for the report schedule.
+ * The details of the report schedule.
  */
 export interface ReportDetails {
   "reportType": string;

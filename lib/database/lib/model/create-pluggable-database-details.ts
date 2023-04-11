@@ -17,8 +17,7 @@ import common = require("oci-common");
 
 /**
  * Parameters for creating a pluggable database in a specified container database (CDB).
- * <p>
- **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
+ * **Warning:** Oracle recommends that you avoid using any confidential information when you supply string values using the API.
  *
  */
 export interface CreatePluggableDatabaseDetails {

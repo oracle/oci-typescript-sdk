@@ -27,8 +27,11 @@ export interface CreateDbHomeDetails {
    */
   "displayName"?: string;
   /**
-   * A valid Oracle Database version. To get a list of supported versions, use the {@link #listDbVersions(ListDbVersionsRequest) listDbVersions} operation.
-   */
+    * A valid Oracle Database version. For a list of supported versions, use the ListDbVersions operation.
+* <p>
+This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+* 
+    */
   "dbVersion": string;
   /**
    * The database software image [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).

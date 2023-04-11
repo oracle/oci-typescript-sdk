@@ -53,8 +53,12 @@ export interface Database {
    */
   "pdbName"?: string;
   /**
-   * The database workload type.
-   */
+    * **Deprecated.** The dbWorkload field has been deprecated for Exadata Database Service on Dedicated Infrastructure, Exadata Database Service on Cloud@Customer, and Base Database Service.
+* Support for this attribute will end in November 2023. You may choose to update your custom scripts to exclude the dbWorkload attribute. After November 2023 if you pass a value to the dbWorkload attribute, it will be ignored.
+* <p>
+The database workload type.
+* 
+    */
   "dbWorkload"?: string;
   /**
    * A system-generated name for the database to ensure uniqueness within an Oracle Data Guard group (a primary database and its standby databases). The unique name cannot be changed.

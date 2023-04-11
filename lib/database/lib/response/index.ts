@@ -68,6 +68,8 @@ import * as ConfigureAutonomousDatabaseVaultKeyResponse from "./configure-autono
 export import ConfigureAutonomousDatabaseVaultKeyResponse = ConfigureAutonomousDatabaseVaultKeyResponse.ConfigureAutonomousDatabaseVaultKeyResponse;
 import * as ConvertToPdbResponse from "./convert-to-pdb-response";
 export import ConvertToPdbResponse = ConvertToPdbResponse.ConvertToPdbResponse;
+import * as CreateApplicationVipResponse from "./create-application-vip-response";
+export import CreateApplicationVipResponse = CreateApplicationVipResponse.CreateApplicationVipResponse;
 import * as CreateAutonomousContainerDatabaseResponse from "./create-autonomous-container-database-response";
 export import CreateAutonomousContainerDatabaseResponse = CreateAutonomousContainerDatabaseResponse.CreateAutonomousContainerDatabaseResponse;
 import * as CreateAutonomousDatabaseResponse from "./create-autonomous-database-response";
@@ -118,6 +120,8 @@ import * as CreateVmClusterNetworkResponse from "./create-vm-cluster-network-res
 export import CreateVmClusterNetworkResponse = CreateVmClusterNetworkResponse.CreateVmClusterNetworkResponse;
 import * as DbNodeActionResponse from "./db-node-action-response";
 export import DbNodeActionResponse = DbNodeActionResponse.DbNodeActionResponse;
+import * as DeleteApplicationVipResponse from "./delete-application-vip-response";
+export import DeleteApplicationVipResponse = DeleteApplicationVipResponse.DeleteApplicationVipResponse;
 import * as DeleteAutonomousDatabaseResponse from "./delete-autonomous-database-response";
 export import DeleteAutonomousDatabaseResponse = DeleteAutonomousDatabaseResponse.DeleteAutonomousDatabaseResponse;
 import * as DeleteAutonomousDatabaseBackupResponse from "./delete-autonomous-database-backup-response";
@@ -226,6 +230,8 @@ import * as GenerateAutonomousDatabaseWalletResponse from "./generate-autonomous
 export import GenerateAutonomousDatabaseWalletResponse = GenerateAutonomousDatabaseWalletResponse.GenerateAutonomousDatabaseWalletResponse;
 import * as GenerateRecommendedVmClusterNetworkResponse from "./generate-recommended-vm-cluster-network-response";
 export import GenerateRecommendedVmClusterNetworkResponse = GenerateRecommendedVmClusterNetworkResponse.GenerateRecommendedVmClusterNetworkResponse;
+import * as GetApplicationVipResponse from "./get-application-vip-response";
+export import GetApplicationVipResponse = GetApplicationVipResponse.GetApplicationVipResponse;
 import * as GetAutonomousContainerDatabaseResponse from "./get-autonomous-container-database-response";
 export import GetAutonomousContainerDatabaseResponse = GetAutonomousContainerDatabaseResponse.GetAutonomousContainerDatabaseResponse;
 import * as GetAutonomousContainerDatabaseDataguardAssociationResponse from "./get-autonomous-container-database-dataguard-association-response";
@@ -338,6 +344,8 @@ import * as LaunchAutonomousExadataInfrastructureResponse from "./launch-autonom
 export import LaunchAutonomousExadataInfrastructureResponse = LaunchAutonomousExadataInfrastructureResponse.LaunchAutonomousExadataInfrastructureResponse;
 import * as LaunchDbSystemResponse from "./launch-db-system-response";
 export import LaunchDbSystemResponse = LaunchDbSystemResponse.LaunchDbSystemResponse;
+import * as ListApplicationVipsResponse from "./list-application-vips-response";
+export import ListApplicationVipsResponse = ListApplicationVipsResponse.ListApplicationVipsResponse;
 import * as ListAutonomousContainerDatabaseDataguardAssociationsResponse from "./list-autonomous-container-database-dataguard-associations-response";
 export import ListAutonomousContainerDatabaseDataguardAssociationsResponse = ListAutonomousContainerDatabaseDataguardAssociationsResponse.ListAutonomousContainerDatabaseDataguardAssociationsResponse;
 import * as ListAutonomousContainerDatabaseVersionsResponse from "./list-autonomous-container-database-versions-response";
@@ -492,6 +500,10 @@ import * as RotateAutonomousContainerDatabaseEncryptionKeyResponse from "./rotat
 export import RotateAutonomousContainerDatabaseEncryptionKeyResponse = RotateAutonomousContainerDatabaseEncryptionKeyResponse.RotateAutonomousContainerDatabaseEncryptionKeyResponse;
 import * as RotateAutonomousDatabaseEncryptionKeyResponse from "./rotate-autonomous-database-encryption-key-response";
 export import RotateAutonomousDatabaseEncryptionKeyResponse = RotateAutonomousDatabaseEncryptionKeyResponse.RotateAutonomousDatabaseEncryptionKeyResponse;
+import * as RotateAutonomousVmClusterOrdsCertsResponse from "./rotate-autonomous-vm-cluster-ords-certs-response";
+export import RotateAutonomousVmClusterOrdsCertsResponse = RotateAutonomousVmClusterOrdsCertsResponse.RotateAutonomousVmClusterOrdsCertsResponse;
+import * as RotateAutonomousVmClusterSslCertsResponse from "./rotate-autonomous-vm-cluster-ssl-certs-response";
+export import RotateAutonomousVmClusterSslCertsResponse = RotateAutonomousVmClusterSslCertsResponse.RotateAutonomousVmClusterSslCertsResponse;
 import * as RotateCloudAutonomousVmClusterOrdsCertsResponse from "./rotate-cloud-autonomous-vm-cluster-ords-certs-response";
 export import RotateCloudAutonomousVmClusterOrdsCertsResponse = RotateCloudAutonomousVmClusterOrdsCertsResponse.RotateCloudAutonomousVmClusterOrdsCertsResponse;
 import * as RotateCloudAutonomousVmClusterSslCertsResponse from "./rotate-cloud-autonomous-vm-cluster-ssl-certs-response";

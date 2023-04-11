@@ -23,11 +23,11 @@ export interface AuditEventSummary {
    */
   "id": string;
   /**
-   * The OCID of the compartment containing the audit event. This is the same audited target database resource comparment.
+   * The OCID of the compartment containing the audit event. This is the same as that of audit profile of the target database resource compartment.
    */
   "compartmentId": string;
   /**
-   * Name of the database user whose actions were audited.
+   * The name of the database user whose actions were audited.
    */
   "dbUserName"?: string;
   /**
@@ -47,23 +47,23 @@ export interface AuditEventSummary {
    */
   "databaseType": AuditEventSummary.DatabaseType;
   /**
-   * Class of the target that was audited.
+   * The class of the target that was audited.
    */
   "targetClass"?: AuditEventSummary.TargetClass;
   /**
-   * Time of audit event occurrence in the target database.
+   * The time of the audit event occurrence in the target database.
    */
   "auditEventTime": Date;
   /**
-   * Timestamp when this audit event was collected from the target database by Data Safe.
+   * The timestamp when this audit event was collected from the target database by Data Safe.
    */
   "timeCollected": Date;
   /**
-   * Name of the operating system user for the database session.
+   * The name of the operating system user for the database session.
    */
   "osUserName"?: string;
   /**
-   * Name of the action executed by the user on the target database. i.e ALTER, CREATE, DROP.
+   * The name of the action executed by the user on the target database. i.e ALTER, CREATE, DROP.
    */
   "operation"?: string;
   /**
@@ -71,7 +71,7 @@ export interface AuditEventSummary {
    */
   "operationStatus"?: AuditEventSummary.OperationStatus;
   /**
-   * Name of the detail action executed by the user on the target database. i.e ALTER SEQUENCE, CREATE TRIGGER, CREATE INDEX.
+   * The name of the detail action executed by the user on the target database. i.e ALTER SEQUENCE, CREATE TRIGGER, CREATE INDEX.
    */
   "eventName"?: string;
   /**
@@ -79,27 +79,27 @@ export interface AuditEventSummary {
    */
   "errorCode"?: string;
   /**
-   * Detailed message on why the Error occurred.
+   * The detailed message on why the Error occurred.
    */
   "errorMessage"?: string;
   /**
-   * Type of object in the source database affected by the action. i.e PL/SQL, SYNONYM, PACKAGE BODY.
+   * The type of the object in the source database affected by the action. i.e PL/SQL, SYNONYM, PACKAGE BODY.
    */
   "objectType"?: string;
   /**
-   * Name of the object affected by the action.
+   * The name of the object affected by the action.
    */
   "objectName"?: string;
   /**
-   * Schema name of object affected but the action.
+   * The schema name of the object affected by the action.
    */
   "objectOwner"?: string;
   /**
-   * Name of the host machine from which the session was spawned.
+   * The name of the host machine from which the session was spawned.
    */
   "clientHostname"?: string;
   /**
-   * IP address of the host from which the session was spawned.
+   * The IP address of the host machine from which the session was spawned.
    */
   "clientIp"?: string;
   /**
@@ -147,7 +147,7 @@ export interface AuditEventSummary {
    */
   "auditPolicies"?: string;
   /**
-   * Type of auditing.
+   * The type of the auditing.
    */
   "auditType"?: AuditEventSummary.AuditType;
   /**

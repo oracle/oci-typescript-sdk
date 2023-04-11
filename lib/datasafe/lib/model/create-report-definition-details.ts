@@ -31,7 +31,7 @@ export interface CreateReportDefinitionDetails {
    */
   "parentId": string;
   /**
-   * A description of the report definition.
+   * The description of the report definition.
    */
   "description"?: string;
   /**

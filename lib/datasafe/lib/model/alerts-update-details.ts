@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to perform update all action on alerts.
+ * The details to update alerts in the specified compartment.
  */
 export interface AlertsUpdateDetails {
   /**
@@ -27,7 +27,7 @@ export interface AlertsUpdateDetails {
    */
   "compartmentId": string;
   /**
-   * The OCID of the target associated with alerts.
+   * The OCID of the target database associated with the alerts.
    */
   "targetId"?: string;
 }

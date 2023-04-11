@@ -739,6 +739,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateApplicationVip
+   *
+   * @param request the request to send
+   * @return response returns CreateApplicationVipResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateApplicationVip(
+    request: serviceRequests.CreateApplicationVipRequest
+  ): Promise<{
+    response: serviceResponses.CreateApplicationVipResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createApplicationVipResponse = await this.client.createApplicationVip(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createApplicationVipResponse.opcWorkRequestId
+    );
+    return { response: createApplicationVipResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forCreateAutonomousContainerDatabase
    *
    * @param request the request to send
@@ -1268,6 +1289,27 @@ export class DatabaseWaiter {
       dbNodeActionResponse.opcWorkRequestId
     );
     return { response: dbNodeActionResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteApplicationVip
+   *
+   * @param request the request to send
+   * @return response returns DeleteApplicationVipResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteApplicationVip(
+    request: serviceRequests.DeleteApplicationVipRequest
+  ): Promise<{
+    response: serviceResponses.DeleteApplicationVipResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteApplicationVipResponse = await this.client.deleteApplicationVip(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteApplicationVipResponse.opcWorkRequestId
+    );
+    return { response: deleteApplicationVipResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -2427,6 +2469,25 @@ export class DatabaseWaiter {
       response: failoverDataGuardAssociationResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forApplicationVip till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetApplicationVipResponse | null (null in case of 404 response)
+   */
+  public async forApplicationVip(
+    request: serviceRequests.GetApplicationVipRequest,
+    ...targetStates: models.ApplicationVip.LifecycleState[]
+  ): Promise<serviceResponses.GetApplicationVipResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getApplicationVip(request),
+      response => targetStates.includes(response.applicationVip.lifecycleState!),
+      targetStates.includes(models.ApplicationVip.LifecycleState.Terminated)
+    );
   }
 
   /**
@@ -3661,6 +3722,58 @@ export class DatabaseWaiter {
     );
     return {
       response: rotateAutonomousDatabaseEncryptionKeyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRotateAutonomousVmClusterOrdsCerts
+   *
+   * @param request the request to send
+   * @return response returns RotateAutonomousVmClusterOrdsCertsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateAutonomousVmClusterOrdsCerts(
+    request: serviceRequests.RotateAutonomousVmClusterOrdsCertsRequest
+  ): Promise<{
+    response: serviceResponses.RotateAutonomousVmClusterOrdsCertsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateAutonomousVmClusterOrdsCertsResponse = await this.client.rotateAutonomousVmClusterOrdsCerts(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateAutonomousVmClusterOrdsCertsResponse.opcWorkRequestId
+    );
+    return {
+      response: rotateAutonomousVmClusterOrdsCertsResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRotateAutonomousVmClusterSslCerts
+   *
+   * @param request the request to send
+   * @return response returns RotateAutonomousVmClusterSslCertsResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotateAutonomousVmClusterSslCerts(
+    request: serviceRequests.RotateAutonomousVmClusterSslCertsRequest
+  ): Promise<{
+    response: serviceResponses.RotateAutonomousVmClusterSslCertsResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotateAutonomousVmClusterSslCertsResponse = await this.client.rotateAutonomousVmClusterSslCerts(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotateAutonomousVmClusterSslCertsResponse.opcWorkRequestId
+    );
+    return {
+      response: rotateAutonomousVmClusterSslCertsResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

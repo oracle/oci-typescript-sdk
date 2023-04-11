@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of report definition summary.
+ * Collection of report definition objects.
  */
 export interface ReportDefinitionCollection {
   /**

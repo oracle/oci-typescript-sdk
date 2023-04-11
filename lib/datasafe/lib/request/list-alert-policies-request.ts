@@ -56,7 +56,7 @@ export interface ListAlertPoliciesRequest extends common.BaseRequest {
    */
   "sortOrder"?: ListAlertPoliciesRequest.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided.
+   * The field to sort by. Only one sort parameter may be provided.
    *
    */
   "sortBy"?: ListAlertPoliciesRequest.SortBy;

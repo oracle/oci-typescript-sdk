@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of audit profile aggregation items.
+ * The details of the audit profile aggregation items.
  */
 export interface AuditPolicyAggregationItems {
   "dimensions"?: model.AuditPolicyDimensions;
   /**
-   * Total count of aggregated metric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total count of the aggregated metric. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "count"?: number;
 }

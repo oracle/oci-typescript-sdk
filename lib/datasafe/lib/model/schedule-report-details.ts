@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for the report schedule.
+ * The details of the report schedule.
  */
 export interface ScheduleReportDetails {
   /**
@@ -23,7 +23,7 @@ export interface ScheduleReportDetails {
    */
   "displayName"?: string;
   /**
-    * Schedule to generate the report periodically in the specified format:
+    * The schedule to generate the report periodically in the specified format:
 * <version-string>;<version-specific-schedule>
 * <p>
 Allowed version strings - \"v1\"
@@ -41,11 +41,11 @@ Allowed version strings - \"v1\"
     */
   "schedule": string;
   /**
-   * Specifies the format of report to be excel or pdf
+   * Specifies if the report will be in Excel or PDF format
    */
   "mimeType": ScheduleReportDetails.MimeType;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment
+   * The OCID of the compartment
    * in which the resource should be created.
    *
    */

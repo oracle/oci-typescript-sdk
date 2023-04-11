@@ -1474,7 +1474,7 @@ export class DatabaseClient {
   /**
    * Switch the Autonomous Container Database role between Standby and Snapshot Standby.
    * For more information about changing Autonomous Container Databases Dataguard Role, see
-   * [Change Database Role to Snapshot Standby](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#changeRole).
+   * [Convert Physical Standby to Snapshot Standby](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-D3B503F1-0032-4B0D-9F00-ACAE8151AB80) and [Convert Snapshot Standby to Physical Standby](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbcl/index.html#ADBCL-GUID-E8D7E0EE-8244-467D-B33A-1BC6F969A0A4).
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDataguardRoleRequest
@@ -2586,6 +2586,92 @@ export class DatabaseClient {
         bodyKey: "database",
         bodyModel: model.Database,
         type: "model.Database",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new application virtual IP (VIP) address in the specified cloud VM cluster based on the request parameters you provide.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateApplicationVipRequest
+   * @return CreateApplicationVipResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateApplicationVip.ts.html |here} to see how to use CreateApplicationVip API.
+   */
+  public async createApplicationVip(
+    createApplicationVipRequest: requests.CreateApplicationVipRequest
+  ): Promise<responses.CreateApplicationVipResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createApplicationVip.");
+    const operationName = "createApplicationVip";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVip/CreateApplicationVip";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createApplicationVipRequest.opcRetryToken,
+      "opc-request-id": createApplicationVipRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createApplicationVipRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/applicationVip",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createApplicationVipRequest.createApplicationVipDetails,
+        "CreateApplicationVipDetails",
+        model.CreateApplicationVipDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateApplicationVipResponse>{},
+        body: await response.json(),
+        bodyKey: "applicationVip",
+        bodyModel: model.ApplicationVip,
+        type: "model.ApplicationVip",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -4766,6 +4852,80 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes and deregisters the specified application virtual IP (VIP) address.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteApplicationVipRequest
+   * @return DeleteApplicationVipResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteApplicationVip.ts.html |here} to see how to use DeleteApplicationVip API.
+   */
+  public async deleteApplicationVip(
+    deleteApplicationVipRequest: requests.DeleteApplicationVipRequest
+  ): Promise<responses.DeleteApplicationVipResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteApplicationVip.");
+    const operationName = "deleteApplicationVip";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVip/DeleteApplicationVip";
+    const pathParams = {
+      "{applicationVipId}": deleteApplicationVipRequest.applicationVipId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteApplicationVipRequest.ifMatch,
+      "opc-request-id": deleteApplicationVipRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteApplicationVipRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/applicationVip/{applicationVipId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteApplicationVipResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           },
           {
@@ -9188,6 +9348,82 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Gets information about a specified application virtual IP (VIP) address.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetApplicationVipRequest
+   * @return GetApplicationVipResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetApplicationVip.ts.html |here} to see how to use GetApplicationVip API.
+   */
+  public async getApplicationVip(
+    getApplicationVipRequest: requests.GetApplicationVipRequest
+  ): Promise<responses.GetApplicationVipResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getApplicationVip.");
+    const operationName = "getApplicationVip";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVip/GetApplicationVip";
+    const pathParams = {
+      "{applicationVipId}": getApplicationVipRequest.applicationVipId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getApplicationVipRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getApplicationVipRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/applicationVip/{applicationVipId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetApplicationVipResponse>{},
+        body: await response.json(),
+        bodyKey: "applicationVip",
+        bodyModel: model.ApplicationVip,
+        type: "model.ApplicationVip",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets information about the specified Autonomous Container Database.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetAutonomousContainerDatabaseRequest
@@ -13520,6 +13756,141 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * Gets a list of application virtual IP (VIP) addresses on a cloud VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListApplicationVipsRequest
+   * @return ListApplicationVipsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListApplicationVips.ts.html |here} to see how to use ListApplicationVips API.
+   */
+  public async listApplicationVips(
+    listApplicationVipsRequest: requests.ListApplicationVipsRequest
+  ): Promise<responses.ListApplicationVipsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listApplicationVips.");
+    const operationName = "listApplicationVips";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ApplicationVipSummary/ListApplicationVips";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listApplicationVipsRequest.compartmentId,
+      "limit": listApplicationVipsRequest.limit,
+      "page": listApplicationVipsRequest.page,
+      "cloudVmClusterId": listApplicationVipsRequest.cloudVmClusterId,
+      "sortOrder": listApplicationVipsRequest.sortOrder,
+      "sortBy": listApplicationVipsRequest.sortBy,
+      "lifecycleState": listApplicationVipsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listApplicationVipsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listApplicationVipsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/applicationVip",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListApplicationVipsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ApplicationVipSummary,
+        type: "Array<model.ApplicationVipSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listApplicationVipsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ApplicationVipSummary objects
+   * contained in responses from the listApplicationVips operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllApplicationVips(
+    request: requests.ListApplicationVipsRequest
+  ): AsyncIterableIterator<model.ApplicationVipSummary> {
+    return paginateRecords(request, req => this.listApplicationVips(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listApplicationVipsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listApplicationVips operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllApplicationVipsResponses(
+    request: requests.ListApplicationVipsRequest
+  ): AsyncIterableIterator<responses.ListApplicationVipsResponse> {
+    return paginateResponses(request, req => this.listApplicationVips(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ApplicationVipSummary objects
+   * contained in responses from the listApplicationVips operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplicationVipsRecordIterator(
+    request: requests.ListApplicationVipsRequest
+  ): AsyncIterableIterator<model.ApplicationVipSummary> {
+    return paginateRecords(request, req => this.listApplicationVips(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listApplicationVips operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listApplicationVipsResponseIterator(
+    request: requests.ListApplicationVipsRequest
+  ): AsyncIterableIterator<responses.ListApplicationVipsResponse> {
+    return paginateResponses(request, req => this.listApplicationVips(req));
   }
 
   /**
@@ -22747,6 +23118,168 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Rotates the Oracle REST Data Services (ORDS) certificates for Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RotateAutonomousVmClusterOrdsCertsRequest
+   * @return RotateAutonomousVmClusterOrdsCertsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterOrdsCerts.ts.html |here} to see how to use RotateAutonomousVmClusterOrdsCerts API.
+   */
+  public async rotateAutonomousVmClusterOrdsCerts(
+    rotateAutonomousVmClusterOrdsCertsRequest: requests.RotateAutonomousVmClusterOrdsCertsRequest
+  ): Promise<responses.RotateAutonomousVmClusterOrdsCertsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateAutonomousVmClusterOrdsCerts.");
+    const operationName = "rotateAutonomousVmClusterOrdsCerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/RotateAutonomousVmClusterOrdsCerts";
+    const pathParams = {
+      "{autonomousVmClusterId}": rotateAutonomousVmClusterOrdsCertsRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rotateAutonomousVmClusterOrdsCertsRequest.opcRequestId,
+      "opc-retry-token": rotateAutonomousVmClusterOrdsCertsRequest.opcRetryToken,
+      "if-match": rotateAutonomousVmClusterOrdsCertsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateAutonomousVmClusterOrdsCertsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}/actions/rotateOrdsCerts",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rotateAutonomousVmClusterOrdsCertsRequest.rotateAutonomousVmClusterOrdsCertsDetails,
+        "RotateAutonomousVmClusterOrdsCertsDetails",
+        model.RotateAutonomousVmClusterOrdsCertsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateAutonomousVmClusterOrdsCertsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Rotates the SSL certificates for Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RotateAutonomousVmClusterSslCertsRequest
+   * @return RotateAutonomousVmClusterSslCertsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotateAutonomousVmClusterSslCerts.ts.html |here} to see how to use RotateAutonomousVmClusterSslCerts API.
+   */
+  public async rotateAutonomousVmClusterSslCerts(
+    rotateAutonomousVmClusterSslCertsRequest: requests.RotateAutonomousVmClusterSslCertsRequest
+  ): Promise<responses.RotateAutonomousVmClusterSslCertsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotateAutonomousVmClusterSslCerts.");
+    const operationName = "rotateAutonomousVmClusterSslCerts";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousVmCluster/RotateAutonomousVmClusterSslCerts";
+    const pathParams = {
+      "{autonomousVmClusterId}": rotateAutonomousVmClusterSslCertsRequest.autonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": rotateAutonomousVmClusterSslCertsRequest.opcRequestId,
+      "opc-retry-token": rotateAutonomousVmClusterSslCertsRequest.opcRetryToken,
+      "if-match": rotateAutonomousVmClusterSslCertsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotateAutonomousVmClusterSslCertsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousVmClusters/{autonomousVmClusterId}/actions/rotateSslCerts",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rotateAutonomousVmClusterSslCertsRequest.rotateAutonomousVmClusterSslCertsDetails,
+        "RotateAutonomousVmClusterSslCertsDetails",
+        model.RotateAutonomousVmClusterSslCertsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotateAutonomousVmClusterSslCertsResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",

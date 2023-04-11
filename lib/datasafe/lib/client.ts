@@ -309,7 +309,7 @@ export class DataSafeClient {
   }
 
   /**
-   * Update alerts within a given compartment.
+   * Updates alerts in the specified compartment.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AlertsUpdateRequest
    * @return AlertsUpdateResponse
@@ -452,6 +452,93 @@ export class DataSafeClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ApplyDiscoveryJobResultsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Applies the difference of a SDM Masking policy difference resource to the specified masking policy. Note that the plannedAction attribute
+   * of difference columns is used for processing. You should first use PatchSdmMaskingPolicyDifferenceColumns to set the plannedAction
+   * attribute of the difference columns you want to process. ApplySdmMaskingPolicyDifference automatically reads the plannedAction
+   * attribute and updates the masking policy to reflect the actions you planned. If the sdmMaskingPolicydifferenceId is not passed, the
+   * latest sdmMaskingPolicydifference is used. Note that if the masking policy associated with the SdmMaskingPolicyDifference used for this
+   * operation is not associated with the original SDM anymore, this operation won't be allowed.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ApplySdmMaskingPolicyDifferenceRequest
+   * @return ApplySdmMaskingPolicyDifferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ApplySdmMaskingPolicyDifference.ts.html |here} to see how to use ApplySdmMaskingPolicyDifference API.
+   */
+  public async applySdmMaskingPolicyDifference(
+    applySdmMaskingPolicyDifferenceRequest: requests.ApplySdmMaskingPolicyDifferenceRequest
+  ): Promise<responses.ApplySdmMaskingPolicyDifferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#applySdmMaskingPolicyDifference.");
+    const operationName = "applySdmMaskingPolicyDifference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingPolicy/ApplySdmMaskingPolicyDifference";
+    const pathParams = {
+      "{maskingPolicyId}": applySdmMaskingPolicyDifferenceRequest.maskingPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": applySdmMaskingPolicyDifferenceRequest.ifMatch,
+      "opc-request-id": applySdmMaskingPolicyDifferenceRequest.opcRequestId,
+      "opc-retry-token": applySdmMaskingPolicyDifferenceRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      applySdmMaskingPolicyDifferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/maskingPolicies/{maskingPolicyId}/maskingColumns/actions/applyDifferenceToMaskingColumns",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        applySdmMaskingPolicyDifferenceRequest.applySdmMaskingPolicyDifferenceDetails,
+        "ApplySdmMaskingPolicyDifferenceDetails",
+        model.ApplySdmMaskingPolicyDifferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ApplySdmMaskingPolicyDifferenceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1630,6 +1717,84 @@ export class DataSafeClient {
             key: "opcWorkRequestId",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves the specified SDM masking policy difference into a different compartment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeSdmMaskingPolicyDifferenceCompartmentRequest
+   * @return ChangeSdmMaskingPolicyDifferenceCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ChangeSdmMaskingPolicyDifferenceCompartment.ts.html |here} to see how to use ChangeSdmMaskingPolicyDifferenceCompartment API.
+   */
+  public async changeSdmMaskingPolicyDifferenceCompartment(
+    changeSdmMaskingPolicyDifferenceCompartmentRequest: requests.ChangeSdmMaskingPolicyDifferenceCompartmentRequest
+  ): Promise<responses.ChangeSdmMaskingPolicyDifferenceCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataSafeClient#changeSdmMaskingPolicyDifferenceCompartment."
+      );
+    const operationName = "changeSdmMaskingPolicyDifferenceCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/ChangeSdmMaskingPolicyDifferenceCompartment";
+    const pathParams = {
+      "{sdmMaskingPolicyDifferenceId}":
+        changeSdmMaskingPolicyDifferenceCompartmentRequest.sdmMaskingPolicyDifferenceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSdmMaskingPolicyDifferenceCompartmentRequest.ifMatch,
+      "opc-request-id": changeSdmMaskingPolicyDifferenceCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSdmMaskingPolicyDifferenceCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSdmMaskingPolicyDifferenceCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences/{sdmMaskingPolicyDifferenceId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSdmMaskingPolicyDifferenceCompartmentRequest.changeSdmMaskingPolicyDifferenceCompartmentDetails,
+        "ChangeSdmMaskingPolicyDifferenceCompartmentDetails",
+        model.ChangeSdmMaskingPolicyDifferenceCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSdmMaskingPolicyDifferenceCompartmentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3012,6 +3177,101 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates SDM masking policy difference for the specified masking policy. It finds the difference between
+   * masking columns of the masking policy and sensitive columns of the SDM. After performing this operation,
+   * you can use ListDifferenceColumns to view the difference columns, PatchSdmMaskingPolicyDifferenceColumns
+   * to specify the action you want perform on these columns, and then ApplySdmMaskingPolicyDifference to process the
+   * difference columns and apply them to the masking policy.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSdmMaskingPolicyDifferenceRequest
+   * @return CreateSdmMaskingPolicyDifferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/CreateSdmMaskingPolicyDifference.ts.html |here} to see how to use CreateSdmMaskingPolicyDifference API.
+   */
+  public async createSdmMaskingPolicyDifference(
+    createSdmMaskingPolicyDifferenceRequest: requests.CreateSdmMaskingPolicyDifferenceRequest
+  ): Promise<responses.CreateSdmMaskingPolicyDifferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#createSdmMaskingPolicyDifference.");
+    const operationName = "createSdmMaskingPolicyDifference";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSdmMaskingPolicyDifferenceRequest.opcRetryToken,
+      "opc-request-id": createSdmMaskingPolicyDifferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSdmMaskingPolicyDifferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSdmMaskingPolicyDifferenceRequest.createSdmMaskingPolicyDifferenceDetails,
+        "CreateSdmMaskingPolicyDifferenceDetails",
+        model.CreateSdmMaskingPolicyDifferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSdmMaskingPolicyDifferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "sdmMaskingPolicyDifference",
+        bodyModel: model.SdmMaskingPolicyDifference,
+        type: "model.SdmMaskingPolicyDifference",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
             dataType: "string"
           }
         ]
@@ -4446,6 +4706,81 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified SDM Masking policy difference.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteSdmMaskingPolicyDifferenceRequest
+   * @return DeleteSdmMaskingPolicyDifferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/DeleteSdmMaskingPolicyDifference.ts.html |here} to see how to use DeleteSdmMaskingPolicyDifference API.
+   */
+  public async deleteSdmMaskingPolicyDifference(
+    deleteSdmMaskingPolicyDifferenceRequest: requests.DeleteSdmMaskingPolicyDifferenceRequest
+  ): Promise<responses.DeleteSdmMaskingPolicyDifferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#deleteSdmMaskingPolicyDifference.");
+    const operationName = "deleteSdmMaskingPolicyDifference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/DeleteSdmMaskingPolicyDifference";
+    const pathParams = {
+      "{sdmMaskingPolicyDifferenceId}":
+        deleteSdmMaskingPolicyDifferenceRequest.sdmMaskingPolicyDifferenceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSdmMaskingPolicyDifferenceRequest.ifMatch,
+      "opc-request-id": deleteSdmMaskingPolicyDifferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSdmMaskingPolicyDifferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences/{sdmMaskingPolicyDifferenceId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSdmMaskingPolicyDifferenceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -6504,7 +6839,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
-   * Gets the details of alert by its ID.
+   * Gets the details of the specified alerts.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAlertRequest
    * @return GetAlertResponse
@@ -7296,6 +7631,84 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+   * Gets the details of the specified SDM Masking policy difference column.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDifferenceColumnRequest
+   * @return GetDifferenceColumnResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetDifferenceColumn.ts.html |here} to see how to use GetDifferenceColumn API.
+   */
+  public async getDifferenceColumn(
+    getDifferenceColumnRequest: requests.GetDifferenceColumnRequest
+  ): Promise<responses.GetDifferenceColumnResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getDifferenceColumn.");
+    const operationName = "getDifferenceColumn";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/DifferenceColumn/GetDifferenceColumn";
+    const pathParams = {
+      "{sdmMaskingPolicyDifferenceId}": getDifferenceColumnRequest.sdmMaskingPolicyDifferenceId,
+      "{differenceColumnKey}": getDifferenceColumnRequest.differenceColumnKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDifferenceColumnRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDifferenceColumnRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/sdmMaskingPolicyDifferences/{sdmMaskingPolicyDifferenceId}/differenceColumns/{differenceColumnKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDifferenceColumnResponse>{},
+        body: await response.json(),
+        bodyKey: "differenceColumn",
+        bodyModel: model.DifferenceColumn,
+        type: "model.DifferenceColumn",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of the specified discovery job.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDiscoveryJobRequest
@@ -7830,6 +8243,92 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
+     * Lists the details of given profile available on the target.
+* <p>
+The GetProfile operation returns only the profiles in the specified 'userAssessmentId'.
+* This does not include any subcompartments of the current compartment.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param GetProfileRequest
+     * @return GetProfileResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetProfile.ts.html |here} to see how to use GetProfile API.
+     */
+  public async getProfile(
+    getProfileRequest: requests.GetProfileRequest
+  ): Promise<responses.GetProfileResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#getProfile.");
+    const operationName = "getProfile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/GetProfile";
+    const pathParams = {
+      "{userAssessmentId}": getProfileRequest.userAssessmentId,
+      "{profileName}": getProfileRequest.profileName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getProfileRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getProfileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/profiles/{profileName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetProfileResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.Profile,
+        type: "Array<model.Profile>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a report by identifier
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetReportRequest
@@ -8047,6 +8546,84 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
         bodyKey: "reportDefinition",
         bodyModel: model.ReportDefinition,
         type: "model.ReportDefinition",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified SDM Masking policy difference.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSdmMaskingPolicyDifferenceRequest
+   * @return GetSdmMaskingPolicyDifferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/GetSdmMaskingPolicyDifference.ts.html |here} to see how to use GetSdmMaskingPolicyDifference API.
+   */
+  public async getSdmMaskingPolicyDifference(
+    getSdmMaskingPolicyDifferenceRequest: requests.GetSdmMaskingPolicyDifferenceRequest
+  ): Promise<responses.GetSdmMaskingPolicyDifferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#getSdmMaskingPolicyDifference.");
+    const operationName = "getSdmMaskingPolicyDifference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/GetSdmMaskingPolicyDifference";
+    const pathParams = {
+      "{sdmMaskingPolicyDifferenceId}":
+        getSdmMaskingPolicyDifferenceRequest.sdmMaskingPolicyDifferenceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSdmMaskingPolicyDifferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSdmMaskingPolicyDifferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences/{sdmMaskingPolicyDifferenceId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSdmMaskingPolicyDifferenceResponse>{},
+        body: await response.json(),
+        bodyKey: "sdmMaskingPolicyDifference",
+        bodyModel: model.SdmMaskingPolicyDifference,
+        type: "model.SdmMaskingPolicyDifference",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -8838,7 +9415,7 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
-   * Returns aggregation details of alerts.
+   * Returns the aggregation details of the alerts.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAlertAnalyticsRequest
@@ -9305,19 +9882,26 @@ After creating a masking policy, you can use the CreateMaskingColumn or PatchMas
   }
 
   /**
-   * By default ListAuditEventAnalytics operation will return all of the summary columns. To filter desired summary columns, specify
-   * it in the `summaryOf` query parameter.
-   * <p>
-   **Example:** /ListAuditEventAnalytics?summaryField=targetName&summaryField=userName&summaryField=clientHostName&summaryField
-   *              &summaryField=dmls&summaryField=privilege_changes&summaryField=ddls&summaryField=login_failure&summaryField=login_success
-   *              &summaryField=eventcount&q=(operationTime ge '2021-06-13T23:49:14')&groupBy=targetName
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param ListAuditEventAnalyticsRequest
-   * @return ListAuditEventAnalyticsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEventAnalytics.ts.html |here} to see how to use ListAuditEventAnalytics API.
-   */
+     * By default the ListAuditEventAnalytics operation will return all of the summary columns. To filter for a specific summary column, specify
+* it in the `summaryField` query parameter.
+* <p>
+**Example:** 
+* /ListAuditEventAnalytics?summaryField=targetName&summaryField=userName&summaryField=clientHostname
+* &summaryField=dmls&summaryField=privilegeChanges&summaryField=ddls&summaryField=loginFailure&summaryField=loginSuccess
+* &summaryField=allRecord&q=(auditEventTime ge \"2021-06-13T23:49:14\")
+* <p>
+/ListAuditEventAnalytics?timeStarted=2022-08-18T11:02:26.000Z&timeEnded=2022-08-24T11:02:26.000Z
+* This will give number of events grouped by periods. Period can be 1 day, 1 week, etc.
+* <p>
+/ListAuditEventAnalytics?summaryField=targetName&groupBy=targetName
+* This will give the number of events group by targetName. Only targetName summary column would be returned.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListAuditEventAnalyticsRequest
+     * @return ListAuditEventAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditEventAnalytics.ts.html |here} to see how to use ListAuditEventAnalytics API.
+     */
   public async listAuditEventAnalytics(
     listAuditEventAnalyticsRequest: requests.ListAuditEventAnalyticsRequest
   ): Promise<responses.ListAuditEventAnalyticsResponse> {
@@ -9587,6 +10171,113 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditPolicie
         bodyKey: "auditPolicyCollection",
         bodyModel: model.AuditPolicyCollection,
         type: "model.AuditPolicyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Gets a list of aggregated audit policy details on the target databases. A audit policy aggregation
+* helps understand the overall state of policies provisioned on targets.
+* It is especially useful to create dashboards or to support analytics.
+* <p>
+The parameter `accessLevel` specifies whether to return only those compartments for which the
+* requestor has INSPECT permissions on at least one resource directly
+* or indirectly (ACCESSIBLE) (the resource can be in a subcompartment) or to return Not Authorized if
+* principal doesn't have access to even one of the child compartments. This is valid only when
+* `compartmentIdInSubtree` is set to `true`.
+* <p>
+The parameter `compartmentIdInSubtree` applies when you perform SummarizedAuditPolicyInfo on the specified 
+* `compartmentId` and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment),
+* set the parameter `compartmentIdInSubtree` to true and `accessLevel` to ACCESSIBLE.
+* <p>
+**Example:** ListAuditPolicyAnalytics?groupBy=auditPolicyCategory
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListAuditPolicyAnalyticsRequest
+     * @return ListAuditPolicyAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListAuditPolicyAnalytics.ts.html |here} to see how to use ListAuditPolicyAnalytics API.
+     */
+  public async listAuditPolicyAnalytics(
+    listAuditPolicyAnalyticsRequest: requests.ListAuditPolicyAnalyticsRequest
+  ): Promise<responses.ListAuditPolicyAnalyticsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listAuditPolicyAnalytics.");
+    const operationName = "listAuditPolicyAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/AuditPolicyAnalyticCollection/ListAuditPolicyAnalytics";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAuditPolicyAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listAuditPolicyAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listAuditPolicyAnalyticsRequest.accessLevel,
+      "limit": listAuditPolicyAnalyticsRequest.limit,
+      "page": listAuditPolicyAnalyticsRequest.page,
+      "groupBy": listAuditPolicyAnalyticsRequest.groupBy,
+      "auditPolicyCategory": listAuditPolicyAnalyticsRequest.auditPolicyCategory,
+      "auditPolicyName": listAuditPolicyAnalyticsRequest.auditPolicyName,
+      "targetId": listAuditPolicyAnalyticsRequest.targetId,
+      "lifecycleState": listAuditPolicyAnalyticsRequest.lifecycleState
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAuditPolicyAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAuditPolicyAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/auditPolicyAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAuditPolicyAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "auditPolicyAnalyticCollection",
+        bodyModel: model.AuditPolicyAnalyticCollection,
+        type: "model.AuditPolicyAnalyticCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -10497,6 +11188,98 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   }
 
   /**
+   * Gets a list of columns of a SDM masking policy difference resource based on the specified query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDifferenceColumnsRequest
+   * @return ListDifferenceColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListDifferenceColumns.ts.html |here} to see how to use ListDifferenceColumns API.
+   */
+  public async listDifferenceColumns(
+    listDifferenceColumnsRequest: requests.ListDifferenceColumnsRequest
+  ): Promise<responses.ListDifferenceColumnsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listDifferenceColumns.");
+    const operationName = "listDifferenceColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/ListDifferenceColumns";
+    const pathParams = {
+      "{sdmMaskingPolicyDifferenceId}": listDifferenceColumnsRequest.sdmMaskingPolicyDifferenceId
+    };
+
+    const queryParams = {
+      "differenceType": listDifferenceColumnsRequest.differenceType,
+      "plannedAction": listDifferenceColumnsRequest.plannedAction,
+      "syncStatus": listDifferenceColumnsRequest.syncStatus,
+      "schemaName": listDifferenceColumnsRequest.schemaName,
+      "objectName": listDifferenceColumnsRequest.objectName,
+      "columnName": listDifferenceColumnsRequest.columnName,
+      "sortOrder": listDifferenceColumnsRequest.sortOrder,
+      "sortBy": listDifferenceColumnsRequest.sortBy,
+      "limit": listDifferenceColumnsRequest.limit,
+      "page": listDifferenceColumnsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDifferenceColumnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDifferenceColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences/{sdmMaskingPolicyDifferenceId}/differenceColumns",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDifferenceColumnsResponse>{},
+        body: await response.json(),
+        bodyKey: "sdmMaskingPolicyDifferenceColumnCollection",
+        bodyModel: model.SdmMaskingPolicyDifferenceColumnCollection,
+        type: "model.SdmMaskingPolicyDifferenceColumnCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets consolidated discovery analytics data based on the specified query parameters.
    * If CompartmentIdInSubtreeQueryParam is specified as true, the behaviour
    * is equivalent to accessLevel \"ACCESSIBLE\" by default.
@@ -10792,6 +11575,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
 
     const queryParams = {
       "severity": listFindingsRequest.severity,
+      "references": listFindingsRequest.references,
       "limit": listFindingsRequest.limit,
       "page": listFindingsRequest.page,
       "compartmentIdInSubtree": listFindingsRequest.compartmentIdInSubtree,
@@ -11442,6 +12226,96 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   }
 
   /**
+   * Gets a list of masking objects present in the specified masking policy and based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMaskingObjectsRequest
+   * @return ListMaskingObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingObjects.ts.html |here} to see how to use ListMaskingObjects API.
+   */
+  public async listMaskingObjects(
+    listMaskingObjectsRequest: requests.ListMaskingObjectsRequest
+  ): Promise<responses.ListMaskingObjectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingObjects.");
+    const operationName = "listMaskingObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingObjectCollection/ListMaskingObjects";
+    const pathParams = {
+      "{maskingPolicyId}": listMaskingObjectsRequest.maskingPolicyId
+    };
+
+    const queryParams = {
+      "limit": listMaskingObjectsRequest.limit,
+      "page": listMaskingObjectsRequest.page,
+      "sortOrder": listMaskingObjectsRequest.sortOrder,
+      "sortBy": listMaskingObjectsRequest.sortBy,
+      "schemaName": listMaskingObjectsRequest.schemaName,
+      "objectName": listMaskingObjectsRequest.objectName,
+      "objectType": listMaskingObjectsRequest.objectType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingObjectCollection",
+        bodyModel: model.MaskingObjectCollection,
+        type: "model.MaskingObjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of masking policies based on the specified query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListMaskingPoliciesRequest
@@ -11625,6 +12499,94 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   }
 
   /**
+   * Gets a list of masking schemas present in the specified masking policy and based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListMaskingSchemasRequest
+   * @return ListMaskingSchemasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListMaskingSchemas.ts.html |here} to see how to use ListMaskingSchemas API.
+   */
+  public async listMaskingSchemas(
+    listMaskingSchemasRequest: requests.ListMaskingSchemasRequest
+  ): Promise<responses.ListMaskingSchemasResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listMaskingSchemas.");
+    const operationName = "listMaskingSchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/MaskingSchemaCollection/ListMaskingSchemas";
+    const pathParams = {
+      "{maskingPolicyId}": listMaskingSchemasRequest.maskingPolicyId
+    };
+
+    const queryParams = {
+      "limit": listMaskingSchemasRequest.limit,
+      "page": listMaskingSchemasRequest.page,
+      "sortOrder": listMaskingSchemasRequest.sortOrder,
+      "sortBy": listMaskingSchemasRequest.sortBy,
+      "schemaName": listMaskingSchemasRequest.schemaName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listMaskingSchemasRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listMaskingSchemasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/maskingPolicies/{maskingPolicyId}/maskingSchemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListMaskingSchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "maskingSchemaCollection",
+        bodyModel: model.MaskingSchemaCollection,
+        type: "model.MaskingSchemaCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of on-premises connectors.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -11760,6 +12722,338 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
     request: requests.ListOnPremConnectorsRequest
   ): AsyncIterableIterator<responses.ListOnPremConnectorsResponse> {
     return paginateResponses(request, req => this.listOnPremConnectors(req));
+  }
+
+  /**
+     * Gets a list of aggregated user profile details in the specified compartment. This provides information about the 
+* overall profiles available. For example, the user profile details include how many users have the profile assigned
+* and do how many use password verification function. This data is especially useful content for dashboards or to support analytics.
+* <p>
+When you perform the ListProfileAnalytics operation, if the parameter compartmentIdInSubtree is set to \"true,\" and if the
+* parameter accessLevel is set to ACCESSIBLE, then the operation returns compartments in which the requestor has INSPECT
+* permissions on at least one resource, directly or indirectly (in subcompartments). If the operation is performed at the
+* root compartment. If the requestor does not have access to at least one subcompartment of the compartment specified by
+* compartmentId, then \"Not Authorized\" is returned.
+* <p>
+The parameter compartmentIdInSubtree applies when you perform ListProfileAnalytics on the compartmentId passed and when it is
+* set to true, the entire hierarchy of compartments can be returned.
+* <p>
+To use ListProfileAnalytics to get a full list of all compartments and subcompartments in the tenancy from the root compartment,
+* set the parameter compartmentIdInSubtree to true and accessLevel to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListProfileAnalyticsRequest
+     * @return ListProfileAnalyticsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListProfileAnalytics.ts.html |here} to see how to use ListProfileAnalytics API.
+     */
+  public async listProfileAnalytics(
+    listProfileAnalyticsRequest: requests.ListProfileAnalyticsRequest
+  ): Promise<responses.ListProfileAnalyticsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listProfileAnalytics.");
+    const operationName = "listProfileAnalytics";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/Profile/ListProfileAnalytics";
+    const pathParams = {
+      "{userAssessmentId}": listProfileAnalyticsRequest.userAssessmentId
+    };
+
+    const queryParams = {
+      "compartmentId": listProfileAnalyticsRequest.compartmentId,
+      "compartmentIdInSubtree": listProfileAnalyticsRequest.compartmentIdInSubtree,
+      "accessLevel": listProfileAnalyticsRequest.accessLevel,
+      "targetId": listProfileAnalyticsRequest.targetId,
+      "limit": listProfileAnalyticsRequest.limit,
+      "page": listProfileAnalyticsRequest.page,
+      "profileName": listProfileAnalyticsRequest.profileName,
+      "sortBy": listProfileAnalyticsRequest.sortBy,
+      "sortOrder": listProfileAnalyticsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProfileAnalyticsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProfileAnalyticsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/profileAnalytics",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProfileAnalyticsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ProfileAggregation,
+        type: "Array<model.ProfileAggregation>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listProfileAnalyticsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ProfileAggregation objects
+   * contained in responses from the listProfileAnalytics operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllProfileAnalytics(
+    request: requests.ListProfileAnalyticsRequest
+  ): AsyncIterableIterator<model.ProfileAggregation> {
+    return paginateRecords(request, req => this.listProfileAnalytics(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listProfileAnalyticsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listProfileAnalytics operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllProfileAnalyticsResponses(
+    request: requests.ListProfileAnalyticsRequest
+  ): AsyncIterableIterator<responses.ListProfileAnalyticsResponse> {
+    return paginateResponses(request, req => this.listProfileAnalytics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ProfileAggregation objects
+   * contained in responses from the listProfileAnalytics operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProfileAnalyticsRecordIterator(
+    request: requests.ListProfileAnalyticsRequest
+  ): AsyncIterableIterator<model.ProfileAggregation> {
+    return paginateRecords(request, req => this.listProfileAnalytics(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listProfileAnalytics operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProfileAnalyticsResponseIterator(
+    request: requests.ListProfileAnalyticsRequest
+  ): AsyncIterableIterator<responses.ListProfileAnalyticsResponse> {
+    return paginateResponses(request, req => this.listProfileAnalytics(req));
+  }
+
+  /**
+     * Gets a list of user profiles containing the profile details along with the target id and user counts.
+* <p>
+The ListProfiles operation returns only the profiles belonging to a certain target. If compartment type user assessment
+* id is provided, then profile information for all the targets belonging to the pertaining compartment is returned.
+* The list does not include any subcompartments of the compartment under consideration.
+* <p>
+The parameter 'accessLevel' specifies whether to return only those compartments for which the requestor has 
+* INSPECT permissions on at least one resource directly or indirectly (ACCESSIBLE) (the resource can be in a 
+* subcompartment) or to return Not Authorized if Principal doesn't have access to even one of the child compartments.
+* This is valid only when 'compartmentIdInSubtree' is set to 'true'.
+* <p>
+The parameter 'compartmentIdInSubtree' applies when you perform ListUserProfiles on the 'compartmentId' belonging
+* to the assessmentId passed and when it is set to true, the entire hierarchy of compartments can be returned.
+* To get a full list of all compartments and subcompartments in the tenancy (root compartment), set the parameter
+* 'compartmentIdInSubtree' to true and 'accessLevel' to ACCESSIBLE.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListProfileSummariesRequest
+     * @return ListProfileSummariesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListProfileSummaries.ts.html |here} to see how to use ListProfileSummaries API.
+     */
+  public async listProfileSummaries(
+    listProfileSummariesRequest: requests.ListProfileSummariesRequest
+  ): Promise<responses.ListProfileSummariesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listProfileSummaries.");
+    const operationName = "listProfileSummaries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/UserAssessment/ListProfileSummaries";
+    const pathParams = {
+      "{userAssessmentId}": listProfileSummariesRequest.userAssessmentId
+    };
+
+    const queryParams = {
+      "compartmentId": listProfileSummariesRequest.compartmentId,
+      "compartmentIdInSubtree": listProfileSummariesRequest.compartmentIdInSubtree,
+      "accessLevel": listProfileSummariesRequest.accessLevel,
+      "targetId": listProfileSummariesRequest.targetId,
+      "limit": listProfileSummariesRequest.limit,
+      "page": listProfileSummariesRequest.page,
+      "profileName": listProfileSummariesRequest.profileName,
+      "isUserCreated": listProfileSummariesRequest.isUserCreated,
+      "passwordVerificationFunction": listProfileSummariesRequest.passwordVerificationFunction,
+      "userCountGreaterThanOrEqual": listProfileSummariesRequest.userCountGreaterThanOrEqual,
+      "userCountLessThan": listProfileSummariesRequest.userCountLessThan,
+      "failedLoginAttemptsGreaterThanOrEqual":
+        listProfileSummariesRequest.failedLoginAttemptsGreaterThanOrEqual,
+      "failedLoginAttemptsLessThan": listProfileSummariesRequest.failedLoginAttemptsLessThan,
+      "sessionsPerUserGreaterThanOrEqual":
+        listProfileSummariesRequest.sessionsPerUserGreaterThanOrEqual,
+      "sessionsPerUserLessThan": listProfileSummariesRequest.sessionsPerUserLessThan,
+      "inactiveAccountTimeGreaterThanOrEqual":
+        listProfileSummariesRequest.inactiveAccountTimeGreaterThanOrEqual,
+      "inactiveAccountTimeLessThan": listProfileSummariesRequest.inactiveAccountTimeLessThan,
+      "passwordLockTimeGreaterThanOrEqual":
+        listProfileSummariesRequest.passwordLockTimeGreaterThanOrEqual,
+      "passwordLockTimeLessThan": listProfileSummariesRequest.passwordLockTimeLessThan,
+      "sortBy": listProfileSummariesRequest.sortBy,
+      "sortOrder": listProfileSummariesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listProfileSummariesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listProfileSummariesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/userAssessments/{userAssessmentId}/profiles",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListProfileSummariesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.ProfileSummary,
+        type: "Array<model.ProfileSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listProfileSummariesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.ProfileSummary objects
+   * contained in responses from the listProfileSummaries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllProfileSummaries(
+    request: requests.ListProfileSummariesRequest
+  ): AsyncIterableIterator<model.ProfileSummary> {
+    return paginateRecords(request, req => this.listProfileSummaries(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listProfileSummariesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listProfileSummaries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllProfileSummariesResponses(
+    request: requests.ListProfileSummariesRequest
+  ): AsyncIterableIterator<responses.ListProfileSummariesResponse> {
+    return paginateResponses(request, req => this.listProfileSummaries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.ProfileSummary objects
+   * contained in responses from the listProfileSummaries operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProfileSummariesRecordIterator(
+    request: requests.ListProfileSummariesRequest
+  ): AsyncIterableIterator<model.ProfileSummary> {
+    return paginateRecords(request, req => this.listProfileSummaries(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listProfileSummaries operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listProfileSummariesResponseIterator(
+    request: requests.ListProfileSummariesRequest
+  ): AsyncIterableIterator<responses.ListProfileSummariesResponse> {
+    return paginateResponses(request, req => this.listProfileSummaries(req));
   }
 
   /**
@@ -12224,6 +13518,98 @@ The parameter `compartmentIdInSubtree` applies when you perform ListAuditTrails 
   }
 
   /**
+   * Gets a list of SDM and masking policy difference resources based on the specified query parameters.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSdmMaskingPolicyDifferencesRequest
+   * @return ListSdmMaskingPolicyDifferencesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSdmMaskingPolicyDifferences.ts.html |here} to see how to use ListSdmMaskingPolicyDifferences API.
+   */
+  public async listSdmMaskingPolicyDifferences(
+    listSdmMaskingPolicyDifferencesRequest: requests.ListSdmMaskingPolicyDifferencesRequest
+  ): Promise<responses.ListSdmMaskingPolicyDifferencesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#listSdmMaskingPolicyDifferences.");
+    const operationName = "listSdmMaskingPolicyDifferences";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/ListSdmMaskingPolicyDifferences";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSdmMaskingPolicyDifferencesRequest.compartmentId,
+      "compartmentIdInSubtree": listSdmMaskingPolicyDifferencesRequest.compartmentIdInSubtree,
+      "differenceAccessLevel": listSdmMaskingPolicyDifferencesRequest.differenceAccessLevel,
+      "displayName": listSdmMaskingPolicyDifferencesRequest.displayName,
+      "sensitiveDataModelId": listSdmMaskingPolicyDifferencesRequest.sensitiveDataModelId,
+      "lifecycleState": listSdmMaskingPolicyDifferencesRequest.lifecycleState,
+      "maskingPolicyId": listSdmMaskingPolicyDifferencesRequest.maskingPolicyId,
+      "sortOrder": listSdmMaskingPolicyDifferencesRequest.sortOrder,
+      "sortBy": listSdmMaskingPolicyDifferencesRequest.sortBy,
+      "limit": listSdmMaskingPolicyDifferencesRequest.limit,
+      "page": listSdmMaskingPolicyDifferencesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSdmMaskingPolicyDifferencesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSdmMaskingPolicyDifferencesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSdmMaskingPolicyDifferencesResponse>{},
+        body: await response.json(),
+        bodyKey: "sdmMaskingPolicyDifferenceCollection",
+        bodyModel: model.SdmMaskingPolicyDifferenceCollection,
+        type: "model.SdmMaskingPolicyDifferenceCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Gets a list of security assessments.
 * <p>
 The ListSecurityAssessments operation returns only the assessments in the specified `compartmentId`.
@@ -12429,7 +13815,8 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
       "limit": listSensitiveColumnsRequest.limit,
       "page": listSensitiveColumnsRequest.page,
       "sortOrder": listSensitiveColumnsRequest.sortOrder,
-      "sortBy": listSensitiveColumnsRequest.sortBy
+      "sortBy": listSensitiveColumnsRequest.sortBy,
+      "isCaseInSensitive": listSensitiveColumnsRequest.isCaseInSensitive
     };
 
     let headerParams = {
@@ -12562,6 +13949,184 @@ The parameter `compartmentIdInSubtree` applies when you perform ListSecurityAsse
         bodyKey: "sensitiveDataModelCollection",
         bodyModel: model.SensitiveDataModelCollection,
         type: "model.SensitiveDataModelCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of sensitive objects present in the specified sensitive data model based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSensitiveObjectsRequest
+   * @return ListSensitiveObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveObjects.ts.html |here} to see how to use ListSensitiveObjects API.
+   */
+  public async listSensitiveObjects(
+    listSensitiveObjectsRequest: requests.ListSensitiveObjectsRequest
+  ): Promise<responses.ListSensitiveObjectsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveObjects.");
+    const operationName = "listSensitiveObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveObjectCollection/ListSensitiveObjects";
+    const pathParams = {
+      "{sensitiveDataModelId}": listSensitiveObjectsRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {
+      "schemaName": listSensitiveObjectsRequest.schemaName,
+      "objectName": listSensitiveObjectsRequest.objectName,
+      "objectType": listSensitiveObjectsRequest.objectType,
+      "limit": listSensitiveObjectsRequest.limit,
+      "page": listSensitiveObjectsRequest.page,
+      "sortOrder": listSensitiveObjectsRequest.sortOrder,
+      "sortBy": listSensitiveObjectsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSensitiveObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSensitiveObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSensitiveObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveObjectCollection",
+        bodyModel: model.SensitiveObjectCollection,
+        type: "model.SensitiveObjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of sensitive schemas present in the specified sensitive data model based on the specified query parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSensitiveSchemasRequest
+   * @return ListSensitiveSchemasResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/ListSensitiveSchemas.ts.html |here} to see how to use ListSensitiveSchemas API.
+   */
+  public async listSensitiveSchemas(
+    listSensitiveSchemasRequest: requests.ListSensitiveSchemasRequest
+  ): Promise<responses.ListSensitiveSchemasResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataSafeClient#listSensitiveSchemas.");
+    const operationName = "listSensitiveSchemas";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SensitiveSchemaCollection/ListSensitiveSchemas";
+    const pathParams = {
+      "{sensitiveDataModelId}": listSensitiveSchemasRequest.sensitiveDataModelId
+    };
+
+    const queryParams = {
+      "schemaName": listSensitiveSchemasRequest.schemaName,
+      "limit": listSensitiveSchemasRequest.limit,
+      "page": listSensitiveSchemasRequest.page,
+      "sortOrder": listSensitiveSchemasRequest.sortOrder,
+      "sortBy": listSensitiveSchemasRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSensitiveSchemasRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSensitiveSchemasRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sensitiveDataModels/{sensitiveDataModelId}/sensitiveSchemas",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSensitiveSchemasResponse>{},
+        body: await response.json(),
+        bodyKey: "sensitiveSchemaCollection",
+        bodyModel: model.SensitiveSchemaCollection,
+        type: "model.SensitiveSchemaCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -13432,6 +14997,9 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       "compartmentIdInSubtree": listUsersRequest.compartmentIdInSubtree,
       "accessLevel": listUsersRequest.accessLevel,
       "userCategory": listUsersRequest.userCategory,
+      "userRole": listUsersRequest.userRole,
+      "userProfile": listUsersRequest.userProfile,
+      "userType": listUsersRequest.userType,
       "userKey": listUsersRequest.userKey,
       "accountStatus": listUsersRequest.accountStatus,
       "authenticationType": listUsersRequest.authenticationType,
@@ -14119,7 +15687,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
-   * Patch alerts. Updates one or more alerts by specifying alert Ids.
+   * Updates the status of one or more alert specified by the alert IDs.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PatchAlertsRequest
    * @return PatchAlertsResponse
@@ -14360,6 +15928,88 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
+   * Patches one or more SDM masking policy difference columns. You can use this operation to set the plannedAction attribute before using
+   * ApplySdmMaskingPolicyDifference to process the difference based on this attribute.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param PatchSdmMaskingPolicyDifferenceColumnsRequest
+   * @return PatchSdmMaskingPolicyDifferenceColumnsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/PatchSdmMaskingPolicyDifferenceColumns.ts.html |here} to see how to use PatchSdmMaskingPolicyDifferenceColumns API.
+   */
+  public async patchSdmMaskingPolicyDifferenceColumns(
+    patchSdmMaskingPolicyDifferenceColumnsRequest: requests.PatchSdmMaskingPolicyDifferenceColumnsRequest
+  ): Promise<responses.PatchSdmMaskingPolicyDifferenceColumnsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#patchSdmMaskingPolicyDifferenceColumns.");
+    const operationName = "patchSdmMaskingPolicyDifferenceColumns";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/PatchSdmMaskingPolicyDifferenceColumns";
+    const pathParams = {
+      "{sdmMaskingPolicyDifferenceId}":
+        patchSdmMaskingPolicyDifferenceColumnsRequest.sdmMaskingPolicyDifferenceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": patchSdmMaskingPolicyDifferenceColumnsRequest.ifMatch,
+      "opc-request-id": patchSdmMaskingPolicyDifferenceColumnsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchSdmMaskingPolicyDifferenceColumnsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences/{sdmMaskingPolicyDifferenceId}/differenceColumns",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchSdmMaskingPolicyDifferenceColumnsRequest.patchSdmMaskingPolicyDifferenceColumnsDetails,
+        "PatchSdmMaskingPolicyDifferenceColumnsDetails",
+        model.PatchSdmMaskingPolicyDifferenceColumnsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchSdmMaskingPolicyDifferenceColumnsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Patches one or more columns in the specified sensitive data model. Use it to create, update, or delete sensitive columns.
    * To create sensitive columns, use CreateSensitiveColumnDetails as the patch value. And to update sensitive columns,
    * use UpdateSensitiveColumnDetails as the patch value.
@@ -14441,7 +16091,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
-   * Creates new target-alert policy associations that will be applied on target.
+   * Creates new target-alert policy associations that will be applied on the target database.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PatchTargetAlertPolicyAssociationRequest
@@ -14762,7 +16412,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
-   * Deletes schedule of a PDF or XLS report.
+   * Deletes the schedule of a PDF or XLS report.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveScheduleReportRequest
    * @return RemoveScheduleReportResponse
@@ -15678,7 +17328,7 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
   }
 
   /**
-   * Updates alert status of the specified alert.
+   * Updates the status of the specified alert.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAlertRequest
    * @return UpdateAlertResponse
@@ -16607,6 +18257,86 @@ The parameter `compartmentIdInSubtree` applies when you perform ListUserAssessme
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateReportDefinitionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates one or more attributes of the specified sdm masking policy difference.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateSdmMaskingPolicyDifferenceRequest
+   * @return UpdateSdmMaskingPolicyDifferenceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datasafe/UpdateSdmMaskingPolicyDifference.ts.html |here} to see how to use UpdateSdmMaskingPolicyDifference API.
+   */
+  public async updateSdmMaskingPolicyDifference(
+    updateSdmMaskingPolicyDifferenceRequest: requests.UpdateSdmMaskingPolicyDifferenceRequest
+  ): Promise<responses.UpdateSdmMaskingPolicyDifferenceResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataSafeClient#updateSdmMaskingPolicyDifference.");
+    const operationName = "updateSdmMaskingPolicyDifference";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-safe/20181201/SdmMaskingPolicyDifference/UpdateSdmMaskingPolicyDifference";
+    const pathParams = {
+      "{sdmMaskingPolicyDifferenceId}":
+        updateSdmMaskingPolicyDifferenceRequest.sdmMaskingPolicyDifferenceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSdmMaskingPolicyDifferenceRequest.ifMatch,
+      "opc-request-id": updateSdmMaskingPolicyDifferenceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSdmMaskingPolicyDifferenceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sdmMaskingPolicyDifferences/{sdmMaskingPolicyDifferenceId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSdmMaskingPolicyDifferenceRequest.updateSdmMaskingPolicyDifferenceDetails,
+        "UpdateSdmMaskingPolicyDifferenceDetails",
+        model.UpdateSdmMaskingPolicyDifferenceDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSdmMaskingPolicyDifferenceResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

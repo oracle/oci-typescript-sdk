@@ -45,6 +45,25 @@ export interface ListUsersRequest extends common.BaseRequest {
    */
   "userCategory"?: string;
   /**
+   * A filter to return only items that match the specified user role.
+   */
+  "userRole"?: string;
+  /**
+   * A filter to return only items that match the specified user profile.
+   */
+  "userProfile"?: string;
+  /**
+   * A filter to return only items that match the specified user type. The possible values can be
+   *   - ADMIN_PRIVILEGED
+   *   - APPLICATION
+   *   - PRIVILEGED
+   *   - SCHEMA
+   *   - NON_PRIVILEGED
+   * as specified by '#/definitions/userTypes'.
+   *
+   */
+  "userType"?: string;
+  /**
    * A filter to return only items that match the specified user key.
    */
   "userKey"?: string;

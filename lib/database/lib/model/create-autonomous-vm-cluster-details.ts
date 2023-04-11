@@ -59,11 +59,12 @@ export interface CreateAutonomousVmClusterDetails {
    */
   "cpuCoreCountPerNode"?: number;
   /**
-   * The compute model of the Autonomous VM Cluster.
+   * The compute model of the Autonomous VM Cluster. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details.
+   *
    */
   "computeModel"?: CreateAutonomousVmClusterDetails.ComputeModel;
   /**
-   * The amount of memory (in GBs) to be enabled per each OCPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) to be enabled per each CPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**

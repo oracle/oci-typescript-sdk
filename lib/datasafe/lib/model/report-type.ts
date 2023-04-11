@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The type of the report.
+ * The type of the audit report.
  **/
 export enum ReportType {
   Generated = "GENERATED",

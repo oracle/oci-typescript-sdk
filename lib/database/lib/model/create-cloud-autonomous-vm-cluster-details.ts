@@ -46,11 +46,11 @@ export interface CreateCloudAutonomousVmClusterDetails {
    */
   "totalContainerDatabases"?: number;
   /**
-   * The number of OCPU cores to be enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of CPU cores to be enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCountPerNode"?: number;
   /**
-   * The amount of memory (in GBs) to be enabled per each OCPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) to be enabled per each CPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
@@ -62,7 +62,8 @@ export interface CreateCloudAutonomousVmClusterDetails {
    */
   "clusterTimeZone"?: string;
   /**
-   * The compute model of the Cloud Autonomous VM Cluster.
+   * The compute model of the Cloud Autonomous VM Cluster. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details.
+   *
    */
   "computeModel"?: CreateCloudAutonomousVmClusterDetails.ComputeModel;
   /**
@@ -71,12 +72,14 @@ export interface CreateCloudAutonomousVmClusterDetails {
   "dbServers"?: Array<string>;
   "maintenanceWindowDetails"?: model.MaintenanceWindow;
   /**
-   * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
-   * License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
-   * Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null because the attribute is already set at the
-   * Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
-   *
-   */
+    * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
+* License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
+* Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null because the attribute is already set at the
+* Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
+* <p>
+This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, maxCpuCoreCount, dataStorageSizeInTBs, adminPassword, isMTLSConnectionRequired, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
+* 
+    */
   "licenseModel"?: CreateCloudAutonomousVmClusterDetails.LicenseModel;
   /**
    * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) for the network security groups (NSGs) to which this resource belongs. Setting this to an empty list removes all resources from all NSGs. For more information about NSGs, see [Security Rules](https://docs.cloud.oracle.com/Content/Network/Concepts/securityrules.htm).

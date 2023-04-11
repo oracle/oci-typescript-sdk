@@ -23,10 +23,14 @@ export interface AuditPolicyDimensions {
    */
   "auditPolicyCategory"?: model.AuditPolicyCategory;
   /**
-   * Indicates the audit policy name. Refer to the [documentation](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/audit-policies.html#GUID-361A9A9A-7C21-4F5A-8945-9B3A0C472827) for seeded audit policy names. For custom policies, refer to the user-defined policy name created in the target database.
+   * The name of the audit policy. Refer to the [documentation](https://docs.oracle.com/en/cloud/paas/data-safe/udscs/audit-policies.html#GUID-361A9A9A-7C21-4F5A-8945-9B3A0C472827) for seeded audit policy names. For custom policies, refer to the user-defined policy name created in the target database.
    *
    */
   "auditPolicyName"?: string;
+  /**
+   * The OCID of the target database for which the audit policy will be created.
+   */
+  "targetId"?: string;
 }
 
 export namespace AuditPolicyDimensions {

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AlertsUpdateRequest extends common.BaseRequest {
   /**
-   * Details to update alerts within a given compartment.
+   * The details to update the alerts in the specified compartment.
    */
   "alertsUpdateDetails": model.AlertsUpdateDetails;
   /**

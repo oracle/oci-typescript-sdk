@@ -51,7 +51,7 @@ export interface ListTargetAlertPolicyAssociationsRequest extends common.BaseReq
    */
   "sortOrder"?: ListTargetAlertPolicyAssociationsRequest.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided.
+   * The field to sort by. Only one sort parameter may be provided.
    *
    */
   "sortBy"?: ListTargetAlertPolicyAssociationsRequest.SortBy;

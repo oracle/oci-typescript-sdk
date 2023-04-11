@@ -41,7 +41,7 @@ export interface GenerateReportDetails {
    */
   "mimeType": GenerateReportDetails.MimeType;
   /**
-   * Specifies the time before which the data needs to be reported.
+   * Specifies the time until which the data needs to be reported.
    */
   "timeLessThan"?: Date;
   /**
@@ -49,7 +49,7 @@ export interface GenerateReportDetails {
    */
   "timeGreaterThan"?: Date;
   /**
-   * Specifies the limit on number of rows in report. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Specifies the limit on the number of rows in the report. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rowLimit"?: number;
 }

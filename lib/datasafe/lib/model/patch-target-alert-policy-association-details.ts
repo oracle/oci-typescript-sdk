@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details used to patch alert policy associations.
+ * The details used to create associations for target databases and audit policies.
  */
 export interface PatchTargetAlertPolicyAssociationDetails {
   /**
