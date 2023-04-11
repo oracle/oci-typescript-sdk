@@ -35,7 +35,7 @@ export interface ReportSummary {
    */
   "description"?: string;
   /**
-   * Specifies the format of report to be excel or pdf
+   * Specifies the format of report to be excel or pdf.
    */
   "mimeType"?: ReportSummary.MimeType;
   /**

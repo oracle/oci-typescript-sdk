@@ -68,6 +68,8 @@ import * as ConfigureAutonomousDatabaseVaultKeyRequest from "./configure-autonom
 export import ConfigureAutonomousDatabaseVaultKeyRequest = ConfigureAutonomousDatabaseVaultKeyRequest.ConfigureAutonomousDatabaseVaultKeyRequest;
 import * as ConvertToPdbRequest from "./convert-to-pdb-request";
 export import ConvertToPdbRequest = ConvertToPdbRequest.ConvertToPdbRequest;
+import * as CreateApplicationVipRequest from "./create-application-vip-request";
+export import CreateApplicationVipRequest = CreateApplicationVipRequest.CreateApplicationVipRequest;
 import * as CreateAutonomousContainerDatabaseRequest from "./create-autonomous-container-database-request";
 export import CreateAutonomousContainerDatabaseRequest = CreateAutonomousContainerDatabaseRequest.CreateAutonomousContainerDatabaseRequest;
 import * as CreateAutonomousDatabaseRequest from "./create-autonomous-database-request";
@@ -118,6 +120,8 @@ import * as CreateVmClusterNetworkRequest from "./create-vm-cluster-network-requ
 export import CreateVmClusterNetworkRequest = CreateVmClusterNetworkRequest.CreateVmClusterNetworkRequest;
 import * as DbNodeActionRequest from "./db-node-action-request";
 export import DbNodeActionRequest = DbNodeActionRequest.DbNodeActionRequest;
+import * as DeleteApplicationVipRequest from "./delete-application-vip-request";
+export import DeleteApplicationVipRequest = DeleteApplicationVipRequest.DeleteApplicationVipRequest;
 import * as DeleteAutonomousDatabaseRequest from "./delete-autonomous-database-request";
 export import DeleteAutonomousDatabaseRequest = DeleteAutonomousDatabaseRequest.DeleteAutonomousDatabaseRequest;
 import * as DeleteAutonomousDatabaseBackupRequest from "./delete-autonomous-database-backup-request";
@@ -226,6 +230,8 @@ import * as GenerateAutonomousDatabaseWalletRequest from "./generate-autonomous-
 export import GenerateAutonomousDatabaseWalletRequest = GenerateAutonomousDatabaseWalletRequest.GenerateAutonomousDatabaseWalletRequest;
 import * as GenerateRecommendedVmClusterNetworkRequest from "./generate-recommended-vm-cluster-network-request";
 export import GenerateRecommendedVmClusterNetworkRequest = GenerateRecommendedVmClusterNetworkRequest.GenerateRecommendedVmClusterNetworkRequest;
+import * as GetApplicationVipRequest from "./get-application-vip-request";
+export import GetApplicationVipRequest = GetApplicationVipRequest.GetApplicationVipRequest;
 import * as GetAutonomousContainerDatabaseRequest from "./get-autonomous-container-database-request";
 export import GetAutonomousContainerDatabaseRequest = GetAutonomousContainerDatabaseRequest.GetAutonomousContainerDatabaseRequest;
 import * as GetAutonomousContainerDatabaseDataguardAssociationRequest from "./get-autonomous-container-database-dataguard-association-request";
@@ -338,6 +344,8 @@ import * as LaunchAutonomousExadataInfrastructureRequest from "./launch-autonomo
 export import LaunchAutonomousExadataInfrastructureRequest = LaunchAutonomousExadataInfrastructureRequest.LaunchAutonomousExadataInfrastructureRequest;
 import * as LaunchDbSystemRequest from "./launch-db-system-request";
 export import LaunchDbSystemRequest = LaunchDbSystemRequest.LaunchDbSystemRequest;
+import * as ListApplicationVipsRequest from "./list-application-vips-request";
+export import ListApplicationVipsRequest = ListApplicationVipsRequest.ListApplicationVipsRequest;
 import * as ListAutonomousContainerDatabaseDataguardAssociationsRequest from "./list-autonomous-container-database-dataguard-associations-request";
 export import ListAutonomousContainerDatabaseDataguardAssociationsRequest = ListAutonomousContainerDatabaseDataguardAssociationsRequest.ListAutonomousContainerDatabaseDataguardAssociationsRequest;
 import * as ListAutonomousContainerDatabaseVersionsRequest from "./list-autonomous-container-database-versions-request";
@@ -492,6 +500,10 @@ import * as RotateAutonomousContainerDatabaseEncryptionKeyRequest from "./rotate
 export import RotateAutonomousContainerDatabaseEncryptionKeyRequest = RotateAutonomousContainerDatabaseEncryptionKeyRequest.RotateAutonomousContainerDatabaseEncryptionKeyRequest;
 import * as RotateAutonomousDatabaseEncryptionKeyRequest from "./rotate-autonomous-database-encryption-key-request";
 export import RotateAutonomousDatabaseEncryptionKeyRequest = RotateAutonomousDatabaseEncryptionKeyRequest.RotateAutonomousDatabaseEncryptionKeyRequest;
+import * as RotateAutonomousVmClusterOrdsCertsRequest from "./rotate-autonomous-vm-cluster-ords-certs-request";
+export import RotateAutonomousVmClusterOrdsCertsRequest = RotateAutonomousVmClusterOrdsCertsRequest.RotateAutonomousVmClusterOrdsCertsRequest;
+import * as RotateAutonomousVmClusterSslCertsRequest from "./rotate-autonomous-vm-cluster-ssl-certs-request";
+export import RotateAutonomousVmClusterSslCertsRequest = RotateAutonomousVmClusterSslCertsRequest.RotateAutonomousVmClusterSslCertsRequest;
 import * as RotateCloudAutonomousVmClusterOrdsCertsRequest from "./rotate-cloud-autonomous-vm-cluster-ords-certs-request";
 export import RotateCloudAutonomousVmClusterOrdsCertsRequest = RotateCloudAutonomousVmClusterOrdsCertsRequest.RotateCloudAutonomousVmClusterOrdsCertsRequest;
 import * as RotateCloudAutonomousVmClusterSslCertsRequest from "./rotate-cloud-autonomous-vm-cluster-ssl-certs-request";

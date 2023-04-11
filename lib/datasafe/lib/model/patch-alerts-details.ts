@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for how to patch alerts.
+ * The alert details to update the status of one or more alert specified by the alert IDs.
  */
 export interface PatchAlertsDetails {
   /**
-   * Array of patch instructions.
+   * Array of alert detail to update the status of the alert specified by the alert ID.
    */
   "items": Array<model.PatchInstruction>;
   /**

@@ -324,6 +324,25 @@ export class DataSafeWaiter {
   }
 
   /**
+   * Waits forSdmMaskingPolicyDifference till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSdmMaskingPolicyDifferenceResponse | null (null in case of 404 response)
+   */
+  public async forSdmMaskingPolicyDifference(
+    request: serviceRequests.GetSdmMaskingPolicyDifferenceRequest,
+    ...targetStates: models.SdmMaskingPolicyDifference.LifecycleState[]
+  ): Promise<serviceResponses.GetSdmMaskingPolicyDifferenceResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSdmMaskingPolicyDifference(request),
+      response => targetStates.includes(response.sdmMaskingPolicyDifference.lifecycleState!),
+      targetStates.includes(models.SdmMaskingPolicyDifference.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSecurityAssessment till it reaches any of the provided states
    *
    * @param request the request to send

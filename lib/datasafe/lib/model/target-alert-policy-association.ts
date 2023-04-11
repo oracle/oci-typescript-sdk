@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An association of target to alert policy
+ * The association of the target database to an alert policy.
  */
 export interface TargetAlertPolicyAssociation {
   /**

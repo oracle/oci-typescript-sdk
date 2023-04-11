@@ -48,6 +48,8 @@ export namespace DatabaseConfigurationMetricGroup {
             <model.DBExternalInstance>(<object>jsonObj),
             true
           );
+        case "DB_PARAMETERS":
+          return model.DBParameters.getJsonObj(<model.DBParameters>(<object>jsonObj), true);
         case "DB_EXTERNAL_PROPERTIES":
           return model.DBExternalProperties.getJsonObj(
             <model.DBExternalProperties>(<object>jsonObj),
@@ -72,6 +74,11 @@ export namespace DatabaseConfigurationMetricGroup {
         case "DB_EXTERNAL_INSTANCE":
           return model.DBExternalInstance.getDeserializedJsonObj(
             <model.DBExternalInstance>(<object>jsonObj),
+            true
+          );
+        case "DB_PARAMETERS":
+          return model.DBParameters.getDeserializedJsonObj(
+            <model.DBParameters>(<object>jsonObj),
             true
           );
         case "DB_EXTERNAL_PROPERTIES":

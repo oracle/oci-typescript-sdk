@@ -31,11 +31,11 @@ export interface ColumnFilter {
    */
   "expressions": Array<string>;
   /**
-   * Indicates if the filter is enabled. Values can either be 'true' or 'false'.
+   * Indicates whether the filter is enabled. Values can either be 'true' or 'false'.
    */
   "isEnabled": boolean;
   /**
-   * Indicates if the filter is hidden. Values can either be 'true' or 'false'.
+   * Indicates whether the filter is hidden. Values can either be 'true' or 'false'.
    */
   "isHidden": boolean;
 }

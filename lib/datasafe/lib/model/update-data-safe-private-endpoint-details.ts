@@ -21,7 +21,7 @@ export interface UpdateDataSafePrivateEndpointDetails {
   /**
    * The display name of the private endpoint.
    */
-  "displayName": string;
+  "displayName"?: string;
   /**
    * The description of the private endpoint.
    */

@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Sorting the data at the column level.
+ * Sorts the data at the column level.
  */
 export interface ColumnSorting {
   /**

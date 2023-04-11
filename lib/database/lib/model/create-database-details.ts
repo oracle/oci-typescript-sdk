@@ -60,8 +60,12 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "ncharacterSet"?: string;
   /**
-   * The database workload type.
-   */
+    * **Deprecated.** The dbWorkload field has been deprecated for Exadata Database Service on Dedicated Infrastructure, Exadata Database Service on Cloud@Customer, and Base Database Service.
+* Support for this attribute will end in November 2023. You may choose to update your custom scripts to exclude the dbWorkload attribute. After November 2023 if you pass a value to the dbWorkload attribute, it will be ignored.
+* <p>
+The database workload type.
+* 
+    */
   "dbWorkload"?: CreateDatabaseDetails.DbWorkload;
   "dbBackupConfig"?: model.DbBackupConfig;
   /**

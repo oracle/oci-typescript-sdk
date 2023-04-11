@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ScheduleAuditReportDetails extends model.ReportDetails {
   /**
-   * Specifies the limit on number of rows in report. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Specifies the limit on the number of rows in the report. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "rowLimit"?: number;
   /**

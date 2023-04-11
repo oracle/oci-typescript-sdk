@@ -107,6 +107,10 @@ Allowed version strings - \"v1\"
    */
   "timeUpdated": Date;
   /**
+   * The date and time the user assessment was last run, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   */
+  "timeLastAssessed"?: Date;
+  /**
    * Indicates whether the user assessment was created by system or user.
    */
   "triggeredBy"?: UserAssessmentSummary.TriggeredBy;

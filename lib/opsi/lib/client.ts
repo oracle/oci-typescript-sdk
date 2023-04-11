@@ -4295,6 +4295,93 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * This endpoint takes in a JSON payload, persists it in Operation Insights ingest pipeline.
+   * Either databaseId or id must be specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param IngestAddmReportsRequest
+   * @return IngestAddmReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/IngestAddmReports.ts.html |here} to see how to use IngestAddmReports API.
+   */
+  public async ingestAddmReports(
+    ingestAddmReportsRequest: requests.IngestAddmReportsRequest
+  ): Promise<responses.IngestAddmReportsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#ingestAddmReports.");
+    const operationName = "ingestAddmReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/IngestAddmReports";
+    const pathParams = {};
+
+    const queryParams = {
+      "databaseId": ingestAddmReportsRequest.databaseId,
+      "id": ingestAddmReportsRequest.id
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": ingestAddmReportsRequest.opcRequestId,
+      "if-match": ingestAddmReportsRequest.ifMatch,
+      "opc-retry-token": ingestAddmReportsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      ingestAddmReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/actions/ingestAddmReports",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        ingestAddmReportsRequest.ingestAddmReportsDetails,
+        "IngestAddmReportsDetails",
+        model.IngestAddmReportsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.IngestAddmReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "ingestAddmReportsResponseDetails",
+        bodyModel: model.IngestAddmReportsResponseDetails,
+        type: "model.IngestAddmReportsResponseDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * This is a generic ingest endpoint for all database configuration metrics.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IngestDatabaseConfigurationRequest
@@ -4887,6 +4974,559 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets list of ADDM finding categories.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddmDbFindingCategoriesRequest
+   * @return ListAddmDbFindingCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbFindingCategories.ts.html |here} to see how to use ListAddmDbFindingCategories API.
+   */
+  public async listAddmDbFindingCategories(
+    listAddmDbFindingCategoriesRequest: requests.ListAddmDbFindingCategoriesRequest
+  ): Promise<responses.ListAddmDbFindingCategoriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingCategories.");
+    const operationName = "listAddmDbFindingCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbFindingCategories";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAddmDbFindingCategoriesRequest.compartmentId,
+      "databaseId": listAddmDbFindingCategoriesRequest.databaseId,
+      "id": listAddmDbFindingCategoriesRequest.id,
+      "limit": listAddmDbFindingCategoriesRequest.limit,
+      "page": listAddmDbFindingCategoriesRequest.page,
+      "sortOrder": listAddmDbFindingCategoriesRequest.sortOrder,
+      "sortBy": listAddmDbFindingCategoriesRequest.sortBy,
+      "definedTagEquals": listAddmDbFindingCategoriesRequest.definedTagEquals,
+      "freeformTagEquals": listAddmDbFindingCategoriesRequest.freeformTagEquals,
+      "definedTagExists": listAddmDbFindingCategoriesRequest.definedTagExists,
+      "freeformTagExists": listAddmDbFindingCategoriesRequest.freeformTagExists,
+      "compartmentIdInSubtree": listAddmDbFindingCategoriesRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddmDbFindingCategoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddmDbFindingCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbFindingCategories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddmDbFindingCategoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbFindingCategoryCollection",
+        bodyModel: model.AddmDbFindingCategoryCollection,
+        type: "model.AddmDbFindingCategoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the ADDM findings time series for the specified databases for a given time period.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddmDbFindingsTimeSeriesRequest
+   * @return ListAddmDbFindingsTimeSeriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbFindingsTimeSeries.ts.html |here} to see how to use ListAddmDbFindingsTimeSeries API.
+   */
+  public async listAddmDbFindingsTimeSeries(
+    listAddmDbFindingsTimeSeriesRequest: requests.ListAddmDbFindingsTimeSeriesRequest
+  ): Promise<responses.ListAddmDbFindingsTimeSeriesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbFindingsTimeSeries.");
+    const operationName = "listAddmDbFindingsTimeSeries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbFindingsTimeSeries";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAddmDbFindingsTimeSeriesRequest.compartmentId,
+      "databaseId": listAddmDbFindingsTimeSeriesRequest.databaseId,
+      "id": listAddmDbFindingsTimeSeriesRequest.id,
+      "instanceNumber": listAddmDbFindingsTimeSeriesRequest.instanceNumber,
+      "timeIntervalStart": listAddmDbFindingsTimeSeriesRequest.timeIntervalStart,
+      "timeIntervalEnd": listAddmDbFindingsTimeSeriesRequest.timeIntervalEnd,
+      "categoryName": listAddmDbFindingsTimeSeriesRequest.categoryName,
+      "limit": listAddmDbFindingsTimeSeriesRequest.limit,
+      "page": listAddmDbFindingsTimeSeriesRequest.page,
+      "sortOrder": listAddmDbFindingsTimeSeriesRequest.sortOrder,
+      "sortBy": listAddmDbFindingsTimeSeriesRequest.sortBy,
+      "definedTagEquals": listAddmDbFindingsTimeSeriesRequest.definedTagEquals,
+      "freeformTagEquals": listAddmDbFindingsTimeSeriesRequest.freeformTagEquals,
+      "definedTagExists": listAddmDbFindingsTimeSeriesRequest.definedTagExists,
+      "freeformTagExists": listAddmDbFindingsTimeSeriesRequest.freeformTagExists,
+      "compartmentIdInSubtree": listAddmDbFindingsTimeSeriesRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddmDbFindingsTimeSeriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddmDbFindingsTimeSeriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbFindingsTimeSeries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddmDbFindingsTimeSeriesResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbFindingsTimeSeriesCollection",
+        bodyModel: model.AddmDbFindingsTimeSeriesCollection,
+        type: "model.AddmDbFindingsTimeSeriesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets list of ADDM database parameter categories for the specified databases.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddmDbParameterCategoriesRequest
+   * @return ListAddmDbParameterCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbParameterCategories.ts.html |here} to see how to use ListAddmDbParameterCategories API.
+   */
+  public async listAddmDbParameterCategories(
+    listAddmDbParameterCategoriesRequest: requests.ListAddmDbParameterCategoriesRequest
+  ): Promise<responses.ListAddmDbParameterCategoriesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listAddmDbParameterCategories."
+      );
+    const operationName = "listAddmDbParameterCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbParameterCategories";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAddmDbParameterCategoriesRequest.compartmentId,
+      "databaseId": listAddmDbParameterCategoriesRequest.databaseId,
+      "id": listAddmDbParameterCategoriesRequest.id,
+      "limit": listAddmDbParameterCategoriesRequest.limit,
+      "page": listAddmDbParameterCategoriesRequest.page,
+      "sortOrder": listAddmDbParameterCategoriesRequest.sortOrder,
+      "sortBy": listAddmDbParameterCategoriesRequest.sortBy,
+      "definedTagEquals": listAddmDbParameterCategoriesRequest.definedTagEquals,
+      "freeformTagEquals": listAddmDbParameterCategoriesRequest.freeformTagEquals,
+      "definedTagExists": listAddmDbParameterCategoriesRequest.definedTagExists,
+      "freeformTagExists": listAddmDbParameterCategoriesRequest.freeformTagExists,
+      "compartmentIdInSubtree": listAddmDbParameterCategoriesRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddmDbParameterCategoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddmDbParameterCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbParameterCategories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddmDbParameterCategoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbParameterCategoryCollection",
+        bodyModel: model.AddmDbParameterCategoryCollection,
+        type: "model.AddmDbParameterCategoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets list of ADDM recommendation categories for the specified databases.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddmDbRecommendationCategoriesRequest
+   * @return ListAddmDbRecommendationCategoriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbRecommendationCategories.ts.html |here} to see how to use ListAddmDbRecommendationCategories API.
+   */
+  public async listAddmDbRecommendationCategories(
+    listAddmDbRecommendationCategoriesRequest: requests.ListAddmDbRecommendationCategoriesRequest
+  ): Promise<responses.ListAddmDbRecommendationCategoriesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listAddmDbRecommendationCategories."
+      );
+    const operationName = "listAddmDbRecommendationCategories";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbRecommendationCategories";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAddmDbRecommendationCategoriesRequest.compartmentId,
+      "databaseId": listAddmDbRecommendationCategoriesRequest.databaseId,
+      "id": listAddmDbRecommendationCategoriesRequest.id,
+      "limit": listAddmDbRecommendationCategoriesRequest.limit,
+      "page": listAddmDbRecommendationCategoriesRequest.page,
+      "sortOrder": listAddmDbRecommendationCategoriesRequest.sortOrder,
+      "sortBy": listAddmDbRecommendationCategoriesRequest.sortBy,
+      "definedTagEquals": listAddmDbRecommendationCategoriesRequest.definedTagEquals,
+      "freeformTagEquals": listAddmDbRecommendationCategoriesRequest.freeformTagEquals,
+      "definedTagExists": listAddmDbRecommendationCategoriesRequest.definedTagExists,
+      "freeformTagExists": listAddmDbRecommendationCategoriesRequest.freeformTagExists,
+      "compartmentIdInSubtree": listAddmDbRecommendationCategoriesRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddmDbRecommendationCategoriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddmDbRecommendationCategoriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbRecommendationCategories",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddmDbRecommendationCategoriesResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbRecommendationCategoryCollection",
+        bodyModel: model.AddmDbRecommendationCategoryCollection,
+        type: "model.AddmDbRecommendationCategoryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets time series data for ADDM recommendations for the specified databases.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddmDbRecommendationsTimeSeriesRequest
+   * @return ListAddmDbRecommendationsTimeSeriesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbRecommendationsTimeSeries.ts.html |here} to see how to use ListAddmDbRecommendationsTimeSeries API.
+   */
+  public async listAddmDbRecommendationsTimeSeries(
+    listAddmDbRecommendationsTimeSeriesRequest: requests.ListAddmDbRecommendationsTimeSeriesRequest
+  ): Promise<responses.ListAddmDbRecommendationsTimeSeriesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#listAddmDbRecommendationsTimeSeries."
+      );
+    const operationName = "listAddmDbRecommendationsTimeSeries";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbRecommendationsTimeSeries";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAddmDbRecommendationsTimeSeriesRequest.compartmentId,
+      "databaseId": listAddmDbRecommendationsTimeSeriesRequest.databaseId,
+      "id": listAddmDbRecommendationsTimeSeriesRequest.id,
+      "instanceNumber": listAddmDbRecommendationsTimeSeriesRequest.instanceNumber,
+      "timeIntervalStart": listAddmDbRecommendationsTimeSeriesRequest.timeIntervalStart,
+      "timeIntervalEnd": listAddmDbRecommendationsTimeSeriesRequest.timeIntervalEnd,
+      "categoryName": listAddmDbRecommendationsTimeSeriesRequest.categoryName,
+      "sqlIdentifier": listAddmDbRecommendationsTimeSeriesRequest.sqlIdentifier,
+      "ownerOrNameContains": listAddmDbRecommendationsTimeSeriesRequest.ownerOrNameContains,
+      "nameContains": listAddmDbRecommendationsTimeSeriesRequest.nameContains,
+      "name": listAddmDbRecommendationsTimeSeriesRequest.name,
+      "limit": listAddmDbRecommendationsTimeSeriesRequest.limit,
+      "page": listAddmDbRecommendationsTimeSeriesRequest.page,
+      "sortOrder": listAddmDbRecommendationsTimeSeriesRequest.sortOrder,
+      "sortBy": listAddmDbRecommendationsTimeSeriesRequest.sortBy,
+      "definedTagEquals": listAddmDbRecommendationsTimeSeriesRequest.definedTagEquals,
+      "freeformTagEquals": listAddmDbRecommendationsTimeSeriesRequest.freeformTagEquals,
+      "definedTagExists": listAddmDbRecommendationsTimeSeriesRequest.definedTagExists,
+      "freeformTagExists": listAddmDbRecommendationsTimeSeriesRequest.freeformTagExists,
+      "compartmentIdInSubtree": listAddmDbRecommendationsTimeSeriesRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddmDbRecommendationsTimeSeriesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddmDbRecommendationsTimeSeriesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbRecommendationsTimeSeries",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddmDbRecommendationsTimeSeriesResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbRecommendationsTimeSeriesCollection",
+        bodyModel: model.AddmDbRecommendationsTimeSeriesCollection,
+        type: "model.AddmDbRecommendationsTimeSeriesCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of ADDM database information
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAddmDbsRequest
+   * @return ListAddmDbsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListAddmDbs.ts.html |here} to see how to use ListAddmDbs API.
+   */
+  public async listAddmDbs(
+    listAddmDbsRequest: requests.ListAddmDbsRequest
+  ): Promise<responses.ListAddmDbsResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#listAddmDbs.");
+    const operationName = "listAddmDbs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/ListAddmDbs";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listAddmDbsRequest.compartmentId,
+      "databaseId": listAddmDbsRequest.databaseId,
+      "id": listAddmDbsRequest.id,
+      "timeIntervalStart": listAddmDbsRequest.timeIntervalStart,
+      "timeIntervalEnd": listAddmDbsRequest.timeIntervalEnd,
+      "limit": listAddmDbsRequest.limit,
+      "page": listAddmDbsRequest.page,
+      "sortOrder": listAddmDbsRequest.sortOrder,
+      "sortBy": listAddmDbsRequest.sortBy,
+      "definedTagEquals": listAddmDbsRequest.definedTagEquals,
+      "freeformTagEquals": listAddmDbsRequest.freeformTagEquals,
+      "definedTagExists": listAddmDbsRequest.definedTagExists,
+      "freeformTagExists": listAddmDbsRequest.freeformTagExists,
+      "compartmentIdInSubtree": listAddmDbsRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAddmDbsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAddmDbsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAddmDbsResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbCollection",
+        bodyModel: model.AddmDbCollection,
+        type: "model.AddmDbCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -7370,6 +8010,577 @@ export class OperationsInsightsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes ADDM findings for the specified databases.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAddmDbFindingsRequest
+   * @return SummarizeAddmDbFindingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbFindings.ts.html |here} to see how to use SummarizeAddmDbFindings API.
+   */
+  public async summarizeAddmDbFindings(
+    summarizeAddmDbFindingsRequest: requests.SummarizeAddmDbFindingsRequest
+  ): Promise<responses.SummarizeAddmDbFindingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbFindings.");
+    const operationName = "summarizeAddmDbFindings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbFindings";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeAddmDbFindingsRequest.compartmentId,
+      "databaseId": summarizeAddmDbFindingsRequest.databaseId,
+      "id": summarizeAddmDbFindingsRequest.id,
+      "instanceNumber": summarizeAddmDbFindingsRequest.instanceNumber,
+      "timeIntervalStart": summarizeAddmDbFindingsRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeAddmDbFindingsRequest.timeIntervalEnd,
+      "categoryName": summarizeAddmDbFindingsRequest.categoryName,
+      "limit": summarizeAddmDbFindingsRequest.limit,
+      "page": summarizeAddmDbFindingsRequest.page,
+      "sortOrder": summarizeAddmDbFindingsRequest.sortOrder,
+      "sortBy": summarizeAddmDbFindingsRequest.sortBy,
+      "definedTagEquals": summarizeAddmDbFindingsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeAddmDbFindingsRequest.freeformTagEquals,
+      "definedTagExists": summarizeAddmDbFindingsRequest.definedTagExists,
+      "freeformTagExists": summarizeAddmDbFindingsRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeAddmDbFindingsRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAddmDbFindingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAddmDbFindingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbFindings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAddmDbFindingsResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbFindingAggregationCollection",
+        bodyModel: model.AddmDbFindingAggregationCollection,
+        type: "model.AddmDbFindingAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes the AWR database parameter change history for the specified parameter. There will
+   * be one element for each time that parameter changed during the specified time period.
+   * This API is limited to only one parameter per request.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAddmDbParameterChangesRequest
+   * @return SummarizeAddmDbParameterChangesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbParameterChanges.ts.html |here} to see how to use SummarizeAddmDbParameterChanges API.
+   */
+  public async summarizeAddmDbParameterChanges(
+    summarizeAddmDbParameterChangesRequest: requests.SummarizeAddmDbParameterChangesRequest
+  ): Promise<responses.SummarizeAddmDbParameterChangesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAddmDbParameterChanges."
+      );
+    const operationName = "summarizeAddmDbParameterChanges";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbParameterChanges";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeAddmDbParameterChangesRequest.compartmentId,
+      "databaseId": summarizeAddmDbParameterChangesRequest.databaseId,
+      "id": summarizeAddmDbParameterChangesRequest.id,
+      "instanceNumber": summarizeAddmDbParameterChangesRequest.instanceNumber,
+      "timeIntervalStart": summarizeAddmDbParameterChangesRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeAddmDbParameterChangesRequest.timeIntervalEnd,
+      "name": summarizeAddmDbParameterChangesRequest.name,
+      "valueContains": summarizeAddmDbParameterChangesRequest.valueContains,
+      "limit": summarizeAddmDbParameterChangesRequest.limit,
+      "page": summarizeAddmDbParameterChangesRequest.page,
+      "sortOrder": summarizeAddmDbParameterChangesRequest.sortOrder,
+      "sortBy": summarizeAddmDbParameterChangesRequest.sortBy,
+      "definedTagEquals": summarizeAddmDbParameterChangesRequest.definedTagEquals,
+      "freeformTagEquals": summarizeAddmDbParameterChangesRequest.freeformTagEquals,
+      "definedTagExists": summarizeAddmDbParameterChangesRequest.definedTagExists,
+      "freeformTagExists": summarizeAddmDbParameterChangesRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeAddmDbParameterChangesRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAddmDbParameterChangesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAddmDbParameterChangesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbParameterChanges",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAddmDbParameterChangesResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbParameterChangeAggregationCollection",
+        bodyModel: model.AddmDbParameterChangeAggregationCollection,
+        type: "model.AddmDbParameterChangeAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes database parameter history information for the specified databases. Return a list of parameters
+   * with information on whether the parameter values were changed or not within the specified
+   * time period. The response does not include the individual parameter changes within the time
+   * period.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAddmDbParametersRequest
+   * @return SummarizeAddmDbParametersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbParameters.ts.html |here} to see how to use SummarizeAddmDbParameters API.
+   */
+  public async summarizeAddmDbParameters(
+    summarizeAddmDbParametersRequest: requests.SummarizeAddmDbParametersRequest
+  ): Promise<responses.SummarizeAddmDbParametersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbParameters.");
+    const operationName = "summarizeAddmDbParameters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbParameters";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeAddmDbParametersRequest.compartmentId,
+      "databaseId": summarizeAddmDbParametersRequest.databaseId,
+      "id": summarizeAddmDbParametersRequest.id,
+      "instanceNumber": summarizeAddmDbParametersRequest.instanceNumber,
+      "timeIntervalStart": summarizeAddmDbParametersRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeAddmDbParametersRequest.timeIntervalEnd,
+      "categoryName": summarizeAddmDbParametersRequest.categoryName,
+      "nameOrValueContains": summarizeAddmDbParametersRequest.nameOrValueContains,
+      "isChanged": summarizeAddmDbParametersRequest.isChanged,
+      "isDefault": summarizeAddmDbParametersRequest.isDefault,
+      "hasRecommendations": summarizeAddmDbParametersRequest.hasRecommendations,
+      "limit": summarizeAddmDbParametersRequest.limit,
+      "page": summarizeAddmDbParametersRequest.page,
+      "sortOrder": summarizeAddmDbParametersRequest.sortOrder,
+      "sortBy": summarizeAddmDbParametersRequest.sortBy,
+      "definedTagEquals": summarizeAddmDbParametersRequest.definedTagEquals,
+      "freeformTagEquals": summarizeAddmDbParametersRequest.freeformTagEquals,
+      "definedTagExists": summarizeAddmDbParametersRequest.definedTagExists,
+      "freeformTagExists": summarizeAddmDbParametersRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeAddmDbParametersRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAddmDbParametersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAddmDbParametersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbParameters",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAddmDbParametersResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbParameterAggregationCollection",
+        bodyModel: model.AddmDbParameterAggregationCollection,
+        type: "model.AddmDbParameterAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes ADDM recommendations for the specified databases.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAddmDbRecommendationsRequest
+   * @return SummarizeAddmDbRecommendationsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbRecommendations.ts.html |here} to see how to use SummarizeAddmDbRecommendations API.
+   */
+  public async summarizeAddmDbRecommendations(
+    summarizeAddmDbRecommendationsRequest: requests.SummarizeAddmDbRecommendationsRequest
+  ): Promise<responses.SummarizeAddmDbRecommendationsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation OperationsInsightsClient#summarizeAddmDbRecommendations."
+      );
+    const operationName = "summarizeAddmDbRecommendations";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbRecommendations";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeAddmDbRecommendationsRequest.compartmentId,
+      "databaseId": summarizeAddmDbRecommendationsRequest.databaseId,
+      "id": summarizeAddmDbRecommendationsRequest.id,
+      "instanceNumber": summarizeAddmDbRecommendationsRequest.instanceNumber,
+      "timeIntervalStart": summarizeAddmDbRecommendationsRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeAddmDbRecommendationsRequest.timeIntervalEnd,
+      "categoryName": summarizeAddmDbRecommendationsRequest.categoryName,
+      "findingIdentifier": summarizeAddmDbRecommendationsRequest.findingIdentifier,
+      "sqlIdentifier": summarizeAddmDbRecommendationsRequest.sqlIdentifier,
+      "ownerOrNameContains": summarizeAddmDbRecommendationsRequest.ownerOrNameContains,
+      "nameContains": summarizeAddmDbRecommendationsRequest.nameContains,
+      "name": summarizeAddmDbRecommendationsRequest.name,
+      "limit": summarizeAddmDbRecommendationsRequest.limit,
+      "page": summarizeAddmDbRecommendationsRequest.page,
+      "sortOrder": summarizeAddmDbRecommendationsRequest.sortOrder,
+      "sortBy": summarizeAddmDbRecommendationsRequest.sortBy,
+      "definedTagEquals": summarizeAddmDbRecommendationsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeAddmDbRecommendationsRequest.freeformTagEquals,
+      "definedTagExists": summarizeAddmDbRecommendationsRequest.definedTagExists,
+      "freeformTagExists": summarizeAddmDbRecommendationsRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeAddmDbRecommendationsRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAddmDbRecommendationsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAddmDbRecommendationsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbRecommendations",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAddmDbRecommendationsResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbRecommendationAggregationCollection",
+        bodyModel: model.AddmDbRecommendationAggregationCollection,
+        type: "model.AddmDbRecommendationAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes Schema objects for the specified databases for the specified objectIdentifiers
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAddmDbSchemaObjectsRequest
+   * @return SummarizeAddmDbSchemaObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbSchemaObjects.ts.html |here} to see how to use SummarizeAddmDbSchemaObjects API.
+   */
+  public async summarizeAddmDbSchemaObjects(
+    summarizeAddmDbSchemaObjectsRequest: requests.SummarizeAddmDbSchemaObjectsRequest
+  ): Promise<responses.SummarizeAddmDbSchemaObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSchemaObjects.");
+    const operationName = "summarizeAddmDbSchemaObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbSchemaObjects";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeAddmDbSchemaObjectsRequest.compartmentId,
+      "databaseId": summarizeAddmDbSchemaObjectsRequest.databaseId,
+      "id": summarizeAddmDbSchemaObjectsRequest.id,
+      "objectIdentifier": summarizeAddmDbSchemaObjectsRequest.objectIdentifier,
+      "timeIntervalStart": summarizeAddmDbSchemaObjectsRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeAddmDbSchemaObjectsRequest.timeIntervalEnd,
+      "limit": summarizeAddmDbSchemaObjectsRequest.limit,
+      "page": summarizeAddmDbSchemaObjectsRequest.page,
+      "definedTagEquals": summarizeAddmDbSchemaObjectsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeAddmDbSchemaObjectsRequest.freeformTagEquals,
+      "definedTagExists": summarizeAddmDbSchemaObjectsRequest.definedTagExists,
+      "freeformTagExists": summarizeAddmDbSchemaObjectsRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeAddmDbSchemaObjectsRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAddmDbSchemaObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAddmDbSchemaObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbSchemaObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAddmDbSchemaObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbSchemaObjectCollection",
+        bodyModel: model.AddmDbSchemaObjectCollection,
+        type: "model.AddmDbSchemaObjectCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Summarizes SQL Statements for the specified databases for the specified sqlIdentifiers
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeAddmDbSqlStatementsRequest
+   * @return SummarizeAddmDbSqlStatementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/SummarizeAddmDbSqlStatements.ts.html |here} to see how to use SummarizeAddmDbSqlStatements API.
+   */
+  public async summarizeAddmDbSqlStatements(
+    summarizeAddmDbSqlStatementsRequest: requests.SummarizeAddmDbSqlStatementsRequest
+  ): Promise<responses.SummarizeAddmDbSqlStatementsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#summarizeAddmDbSqlStatements.");
+    const operationName = "summarizeAddmDbSqlStatements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/DatabaseInsights/SummarizeAddmDbSqlStatements";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": summarizeAddmDbSqlStatementsRequest.compartmentId,
+      "databaseId": summarizeAddmDbSqlStatementsRequest.databaseId,
+      "id": summarizeAddmDbSqlStatementsRequest.id,
+      "sqlIdentifier": summarizeAddmDbSqlStatementsRequest.sqlIdentifier,
+      "timeIntervalStart": summarizeAddmDbSqlStatementsRequest.timeIntervalStart,
+      "timeIntervalEnd": summarizeAddmDbSqlStatementsRequest.timeIntervalEnd,
+      "limit": summarizeAddmDbSqlStatementsRequest.limit,
+      "page": summarizeAddmDbSqlStatementsRequest.page,
+      "definedTagEquals": summarizeAddmDbSqlStatementsRequest.definedTagEquals,
+      "freeformTagEquals": summarizeAddmDbSqlStatementsRequest.freeformTagEquals,
+      "definedTagExists": summarizeAddmDbSqlStatementsRequest.definedTagExists,
+      "freeformTagExists": summarizeAddmDbSqlStatementsRequest.freeformTagExists,
+      "compartmentIdInSubtree": summarizeAddmDbSqlStatementsRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeAddmDbSqlStatementsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeAddmDbSqlStatementsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databaseInsights/addmDbSqlStatements",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeAddmDbSqlStatementsResponse>{},
+        body: await response.json(),
+        bodyKey: "addmDbSqlStatementCollection",
+        bodyModel: model.AddmDbSqlStatementCollection,
+        type: "model.AddmDbSqlStatementCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

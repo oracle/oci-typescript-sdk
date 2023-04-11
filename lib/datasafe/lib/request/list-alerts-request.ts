@@ -68,7 +68,9 @@ export interface ListAlertsRequest extends common.BaseRequest {
    * text, date, and time values must be enclosed in quotation marks, with date and time values using ISO-8601 format.
    * (Numeric and boolean values should not be quoted.)
    * <p>
-   **Example:** query=(timeCreated ge '2021-06-04T01-00-26') and (targetNames eq 'target_1')
+   **Example:** |
+   * query=(timeCreated ge '2021-06-04T01-00-26') and (targetNames eq 'target_1')
+   * query=(featureDetails.userName eq \"user\") and (targetNames eq \"target_1\")
    * Supported fields:
    * severity
    * status
@@ -80,6 +82,8 @@ export interface ListAlertsRequest extends common.BaseRequest {
    * displayName
    * timeCreated
    * timeUpdated
+   * featureDetails.* (* can be any field in nestedStrMap in Feature Attributes in Alert Summary. For example -
+   * userName,object,clientHostname,osUserName,clientIPs,clientId,commandText,commandParam,clientProgram,objectType,targetOwner)
    *
    */
   "scimQuery"?: string;

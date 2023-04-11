@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Collection of audit trail summary.
+ * Collection of audit trail detail objects.
  */
 export interface AuditTrailCollection {
   /**

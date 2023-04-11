@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of a column
+ * The description of the column.
  */
 export interface Column {
   /**

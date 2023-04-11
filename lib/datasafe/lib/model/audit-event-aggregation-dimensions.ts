@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of aggregation dimensions used for summarizing audit events.
+ * The details of the aggregation dimensions used for summarizing audit events.
  */
 export interface AuditEventAggregationDimensions {
   /**
-   * Time of audit event occurrence in the target database.
+   * The time the audit event occurred in the target database.
    */
   "auditEventTime"?: Array<Date>;
   /**
@@ -59,7 +59,7 @@ export interface AuditEventAggregationDimensions {
    */
   "auditType"?: Array<AuditEventAggregationDimensions.AuditType>;
   /**
-   * Name of the detail action executed by the user on the target database. i.e ALTER SEQUENCE, CREATE TRIGGER, CREATE INDEX.
+   * The name of the event executed by the user on the target database. i.e ALTER SEQUENCE, CREATE TRIGGER, CREATE INDEX.
    */
   "eventName"?: Array<string>;
 }

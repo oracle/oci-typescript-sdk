@@ -75,6 +75,31 @@ export interface MaskingReportSummary {
    *
    */
   "timeCreated"?: Date;
+  /**
+   * Indicates if the temporary tables created during the masking operation were dropped after masking.
+   *
+   */
+  "isDropTempTablesEnabled"?: boolean;
+  /**
+   * Indicates if redo logging was enabled during the masking operation.
+   *
+   */
+  "isRedoLoggingEnabled"?: boolean;
+  /**
+   * Indicates if statistics gathering was enabled during the masking operation.
+   *
+   */
+  "isRefreshStatsEnabled"?: boolean;
+  /**
+   * Indicates if parallel execution was enabled during the masking operation.
+   *
+   */
+  "parallelDegree"?: string;
+  /**
+   * Indicates how invalid objects were recompiled post the masking operation.
+   *
+   */
+  "recompile"?: string;
 }
 
 export namespace MaskingReportSummary {

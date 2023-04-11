@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of audit events aggregation items.
+ * The details of audit events aggregation items.
  */
 export interface AuditEventAggregationItems {
   /**

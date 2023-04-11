@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PatchTargetAlertPolicyAssociationRequest extends common.BaseRequest {
   /**
-   * The details used to patch target-alert policy associations.
+   * The details used to patch the target-alert policy associations.
    */
   "patchTargetAlertPolicyAssociationDetails": model.PatchTargetAlertPolicyAssociationDetails;
   /**

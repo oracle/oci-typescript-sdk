@@ -130,6 +130,12 @@ export interface ListSensitiveColumnsRequest extends common.BaseRequest {
    * Unique identifier for the request.
    */
   "opcRequestId"?: string;
+  /**
+   * A boolean flag indicating whether the search should be case-insensitive.
+   * The search is case-sensitive by default. Set this parameter to true to do case-insensitive search.
+   *
+   */
+  "isCaseInSensitive"?: boolean;
 }
 
 export namespace ListSensitiveColumnsRequest {

@@ -37,10 +37,6 @@ export interface AutonomousDatabase {
    */
   "lifecycleDetails"?: string;
   /**
-   * Additional details about the status of the database, such as the progress of a backup or restore operation. UNPUBLISHED \"HIDDEN\" FIELD. This field is being added to unblock console functionality but will not be published in the SDK or documentation. It will be present in responses, so deprecating will require coordination to ensure we do not break customers if they begin relying on this field. Please see https://confluence.oci.oraclecorp.com/pages/viewpage.action?pageId=58769459 for details regarding the motivation of this field and the longer term plan.
-   */
-  "additionalDatabaseStatus"?: Array<string>;
-  /**
    * The OCID of the key container that is used as the master encryption key in database transparent data encryption (TDE) operations.
    */
   "kmsKeyId"?: string;
@@ -80,9 +76,11 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
   "nextLongTermBackupTimeStamp"?: Date;
   "longTermBackupSchedule"?: model.LongTermBackUpScheduleDetails;
   /**
-   * Indicates if this is an Always Free resource. The default value is false. Note that Always Free Autonomous Databases have 1 CPU and 20GB of memory. For Always Free databases, memory and CPU cannot be scaled.
-   *
-   */
+    * Indicates if this is an Always Free resource. The default value is false. Note that Always Free Autonomous Databases have 1 CPU and 20GB of memory. For Always Free databases, memory and CPU cannot be scaled.
+* <p>
+This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isLocalDataGuardEnabled
+* 
+    */
   "isFreeTier"?: boolean;
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
@@ -117,7 +115,9 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "computeModel"?: AutonomousDatabase.ComputeModel;
   /**
-   * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is on Shared or Dedicated infrastructure. For an Autonomous Database on Shared infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The compute amount available to the database. Minimum and maximum values depend on the compute model and whether the database is on Shared or Dedicated infrastructure.
+   * For an Autonomous Database on Shared infrastructure, the 'ECPU' compute model requires values in multiples of two. Required when using the `computeModel` parameter. When using `cpuCoreCount` parameter, it is an error to specify computeCount to a non-null value.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "computeCount"?: number;
   /**
@@ -150,7 +150,7 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
    */
   "dataStorageSizeInTBs": number;
   /**
-   * The amount of memory (in GBs) enabled per each OCPU core in Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) enabled per each CPU in the Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
@@ -188,12 +188,14 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
   "connectionStrings"?: model.AutonomousDatabaseConnectionStrings;
   "connectionUrls"?: model.AutonomousDatabaseConnectionUrls;
   /**
-   * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
-   * License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
-   * Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null because the attribute is already set at the
-   * Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
-   *
-   */
+    * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
+* License Included allows you to subscribe to new Oracle Database software licenses and the Database service.
+* Note that when provisioning an Autonomous Database on [dedicated Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), this attribute must be null because the attribute is already set at the
+* Autonomous Exadata Infrastructure level. When using [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html), if a value is not specified, the system will supply the value of `BRING_YOUR_OWN_LICENSE`.
+* <p>
+This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, maxCpuCoreCount, dataStorageSizeInTBs, adminPassword, isMTLSConnectionRequired, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
+* 
+    */
   "licenseModel"?: AutonomousDatabase.LicenseModel;
   /**
    * The amount of storage that has been used, in terabytes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
@@ -239,8 +241,11 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "privateEndpoint"?: string;
   /**
-   * The private endpoint label for the resource. Setting this to an empty string, after the private endpoint database gets created, will change the same private endpoint database to the public endpoint database.
-   */
+    * The resource's private endpoint label. Setting this to an empty string, after the creation of the private endpoint database, changes the private endpoint database to a public endpoint database.
+* <p>
+This setting cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, dbWorkload, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
+* 
+    */
   "privateEndpointLabel"?: string;
   /**
    * The private endpoint Ip address for the resource.
@@ -261,6 +266,8 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
 * - DW - indicates an Autonomous Data Warehouse database
 * - AJD - indicates an Autonomous JSON Database
 * - APEX - indicates an Autonomous Database with the Oracle APEX Application Development workload type.
+* <p>
+This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
     */
   "dbWorkload"?: AutonomousDatabase.DbWorkload;
@@ -286,6 +293,8 @@ For shared Exadata infrastructure, this is an array of CIDR (Classless Inter-Dom
 * Example: `[\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]`
 * <p>
 For an update operation, if you want to delete all the IPs in the ACL, use an array with a single empty string entry.
+* <p>
+This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
     */
   "whitelistedIps"?: Array<string>;
@@ -307,6 +316,8 @@ For shared Exadata infrastructure, this is an array of CIDR (Classless Inter-Dom
 * Example: `[\"1.1.1.1\",\"1.1.1.0/24\",\"1.1.2.25\"]`
 * <p>
 For an update operation, if you want to delete all the IPs in the ACL, use an array with a single empty string entry.
+* <p>
+This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, adminPassword, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
 * 
     */
   "standbyWhitelistedIps"?: Array<string>;
@@ -340,8 +351,11 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "timeMaintenanceEnd"?: Date;
   /**
-   * Indicates whether the Autonomous Database is a refreshable clone.
-   */
+    * Indicates if the Autonomous Database is a refreshable clone.
+* <p>
+This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, dbName, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+* 
+    */
   "isRefreshableClone"?: boolean;
   /**
    * The date and time when last refresh happened.
@@ -356,8 +370,11 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "timeOfNextRefresh"?: Date;
   /**
-   * The `DATABASE OPEN` mode. You can open the database in `READ_ONLY` or `READ_WRITE` mode.
-   */
+    * Indicates the Autonomous Database mode. The database can be opened in `READ_ONLY` or `READ_WRITE` mode.
+* <p>
+This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
+* 
+    */
   "openMode"?: AutonomousDatabase.OpenMode;
   /**
    * The refresh status of the clone. REFRESHING indicates that the clone is currently being refreshed with data from the source Autonomous Database.
@@ -372,8 +389,11 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "sourceId"?: string;
   /**
-   * The Autonomous Database permission level. Restricted mode allows access only to admin users.
-   */
+    * The Autonomous Database permission level. Restricted mode allows access only by admin users.
+* <p>
+This cannot be updated in parallel with any of the following: cpuCoreCount, computeCount, computeModel, adminPassword, whitelistedIps, isMTLSConnectionRequired, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, dbToolsDetails, or isFreeTier.
+* 
+    */
   "permissionLevel"?: AutonomousDatabase.PermissionLevel;
   /**
    * The timestamp of the last switchover operation for the Autonomous Database.
@@ -449,8 +469,19 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "peerDbIds"?: Array<string>;
   /**
-   * Indicates whether the Autonomous Database requires mTLS connections.
-   */
+    * Specifies if the Autonomous Database requires mTLS connections.
+* <p>
+This may not be updated in parallel with any of the following: licenseModel, databaseEdition, cpuCoreCount, computeCount, maxCpuCoreCount, dataStorageSizeInTBs, whitelistedIps, openMode, permissionLevel, db-workload, privateEndpointLabel, nsgIds, customerContacts, dbVersion, scheduledOperations, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+* <p>
+Service Change: The default value of the isMTLSConnectionRequired attribute will change from true to false on July 1, 2023 in the following APIs:
+* - CreateAutonomousDatabase
+* - GetAutonomousDatabase
+* - UpdateAutonomousDatabase
+* Details: Prior to the July 1, 2023 change, the isMTLSConnectionRequired attribute default value was true. This applies to Autonomous Databases on shared Exadata infrastructure.
+* Does this impact me? If you use or maintain custom scripts or Terraform scripts referencing the CreateAutonomousDatabase, GetAutonomousDatabase, or UpdateAutonomousDatabase APIs, you want to check, and possibly modify, the scripts for the changed default value of the attribute. Should you choose not to leave your scripts unchanged, the API calls containing this attribute will continue to work, but the default value will switch from true to false.
+* How do I make this change? Using either OCI SDKs or command line tools, update your custom scripts to explicitly set the isMTLSConnectionRequired attribute to true.
+* 
+    */
   "isMtlsConnectionRequired"?: boolean;
   /**
    * Indicates if the refreshable clone can be reconnected to its source database.
@@ -467,8 +498,11 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "autonomousMaintenanceScheduleType"?: AutonomousDatabase.AutonomousMaintenanceScheduleType;
   /**
-   * list of scheduled operations
-   */
+    * The list of scheduled operations.
+* <p>
+This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
+* 
+    */
   "scheduledOperations"?: Array<model.ScheduledOperationDetails>;
   /**
    * Indicates if auto scaling is enabled for the Autonomous Database storage. The default value is `FALSE`.
@@ -498,8 +532,11 @@ For an update operation, if you want to delete all the IPs in the ACL, use an ar
    */
   "databaseEdition"?: AutonomousDatabase.DatabaseEdition;
   /**
-   * List of database tools details.
-   */
+    * The list of database tools details.
+* <p>
+This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, scheduledOperations, isLocalDataGuardEnabled, or isFreeTier.
+* 
+    */
   "dbToolsDetails"?: Array<model.DatabaseTool>;
   /**
    * Indicates the local disaster recovery (DR) type of the Shared Autonomous Database.

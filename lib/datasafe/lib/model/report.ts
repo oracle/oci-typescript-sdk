@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Description of Report.
+ * The description of the report.
  */
 export interface Report {
   /**
@@ -43,15 +43,15 @@ export interface Report {
    */
   "mimeType"?: Report.MimeType;
   /**
-   * Specifies the time at which the report was generated.
+   * Specifies the date and time the report was generated.
    */
   "timeGenerated": Date;
   /**
-   * The current state of the report.
+   * The current state of the audit report.
    */
   "lifecycleState": model.ReportLifecycleState;
   /**
-   * The type of the report.
+   * The type of the audit report.
    */
   "type"?: model.ReportType;
   /**

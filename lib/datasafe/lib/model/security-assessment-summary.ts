@@ -43,6 +43,10 @@ export interface SecurityAssessmentSummary {
    */
   "timeUpdated": Date;
   /**
+   * The date and time when the security assessment was last run. Conforms to the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+   */
+  "timeLastAssessed"?: Date;
+  /**
    * The OCID of the compartment that contains the security assessment.
    */
   "compartmentId": string;

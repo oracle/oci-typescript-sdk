@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface PatchAlertsRequest extends common.BaseRequest {
   /**
-   * Details to patch alerts.
+   * The alert details to update the status of one or more alert specified by the alert IDs.
    */
   "patchAlertsDetails": model.PatchAlertsDetails;
   /**

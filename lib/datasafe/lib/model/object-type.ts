@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The type of the object to which a masking column belongs.
+ * The type of the object to which a column belongs.
  **/
 export enum ObjectType {
   Table = "TABLE",
