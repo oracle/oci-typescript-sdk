@@ -18,6 +18,11 @@ import common = require("oci-common");
  * Collection of metadata related to document record.
  */
 export interface DocumentMetadata extends model.RecordMetadata {
+  /**
+   * Job id ocid of OCR batch call.
+   */
+  "jobId"?: string;
+
   "recordType": string;
 }
 

@@ -693,6 +693,80 @@ export class DatabaseClient {
   }
 
   /**
+   * Cancel automatic/standalone full/incremental create backup workrequests specified by the backup Id.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CancelBackupRequest
+   * @return CancelBackupResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CancelBackup.ts.html |here} to see how to use CancelBackup API.
+   */
+  public async cancelBackup(
+    cancelBackupRequest: requests.CancelBackupRequest
+  ): Promise<responses.CancelBackupResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#cancelBackup.");
+    const operationName = "cancelBackup";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Backup/CancelBackup";
+    const pathParams = {
+      "{backupId}": cancelBackupRequest.backupId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelBackupRequest.ifMatch,
+      "opc-request-id": cancelBackupRequest.opcRequestId,
+      "opc-retry-token": cancelBackupRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelBackupRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/backups/{backupId}/actions/cancel",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelBackupResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Move the Autonomous Container Database and its dependent resources to the specified compartment.
    * For more information about moving Autonomous Container Databases, see
    * [Moving Database Resources to a Different Compartment](https://docs.cloud.oracle.com/Content/Database/Concepts/databaseoverview.htm#moveRes).

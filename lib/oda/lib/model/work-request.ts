@@ -31,6 +31,10 @@ export interface WorkRequest {
    */
   "odaInstanceId": string;
   /**
+   * The identifier of the resource to which this work request pertains.
+   */
+  "resourceId": string;
+  /**
    * The type of the operation that's associated with the work request.
    */
   "requestAction": WorkRequest.RequestAction;
@@ -106,6 +110,14 @@ export namespace WorkRequest {
     ExtendDigitalAssistant = "EXTEND_DIGITAL_ASSISTANT",
     VersionDigitalAssistant = "VERSION_DIGITAL_ASSISTANT",
     ExportDigitalAssistant = "EXPORT_DIGITAL_ASSISTANT",
+    CreateOdaPrivateEndpoint = "CREATE_ODA_PRIVATE_ENDPOINT",
+    DeleteOdaPrivateEndpoint = "DELETE_ODA_PRIVATE_ENDPOINT",
+    UpdateOdaPrivateEndpoint = "UPDATE_ODA_PRIVATE_ENDPOINT",
+    ChangeOdaPrivateEndpointCompartment = "CHANGE_ODA_PRIVATE_ENDPOINT_COMPARTMENT",
+    CreateOdaPrivateEndpointScanProxy = "CREATE_ODA_PRIVATE_ENDPOINT_SCAN_PROXY",
+    DeleteOdaPrivateEndpointScanProxy = "DELETE_ODA_PRIVATE_ENDPOINT_SCAN_PROXY",
+    CreateOdaPrivateEndpointAttachment = "CREATE_ODA_PRIVATE_ENDPOINT_ATTACHMENT",
+    DeleteOdaPrivateEndpointAttachment = "DELETE_ODA_PRIVATE_ENDPOINT_ATTACHMENT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

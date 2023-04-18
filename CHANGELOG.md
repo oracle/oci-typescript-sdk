@@ -3,6 +3,20 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.58.0 - 2023-04-18
+### Added
+- Support for private endpoints in the Digital Assistant service
+- Support for canceling backups in the Database service
+- Support for improved labeling of key/value pairs in the Data Labeling service
+  
+### Breaking Changes
+- The property `opcRetryToken` was removed from the models `ConfigureDigitalAssistantParametersRequest`, `RotateChannelKeysRequest`, `StartChannelRequest`, `StopChannelRequest` in the Data Labeling service
+- The property `lifetimeLogicalClock` was removed from the models `Record`, `Dataset` and `Annotation` in the Data Labeling service
+- The property `digitalAssistantId` was renamed to `id` in the `ListDigitalAssistantsRequest` model in the Data Labeling service
+- The property `isLatestSkillOnly` was renamed to `isLatestVersionOnly` in the `ListPackagesRequest` model in the Data Labeling service
+- The property `skillId` was renamed to `id` in the `ListSkillsRequest` model in the Data Labeling service
+- The properties `authorizationEndpointUrl` and `subjectClaim` were made optional in the `AuthenticationProvider` model in the Data Labeling service
+
 ## 2.57.0 - 2023-04-11
 ### Added
 - Support for rotation of certificates on autonomous VM clusters on Exadata Cloud at Customer in the Database service

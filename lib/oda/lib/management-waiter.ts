@@ -100,6 +100,63 @@ export class ManagementWaiter {
   }
 
   /**
+   * Waits forOdaPrivateEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOdaPrivateEndpointResponse | null (null in case of 404 response)
+   */
+  public async forOdaPrivateEndpoint(
+    request: serviceRequests.GetOdaPrivateEndpointRequest,
+    ...targetStates: models.OdaPrivateEndpoint.LifecycleState[]
+  ): Promise<serviceResponses.GetOdaPrivateEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOdaPrivateEndpoint(request),
+      response => targetStates.includes(response.odaPrivateEndpoint.lifecycleState!),
+      targetStates.includes(models.OdaPrivateEndpoint.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forOdaPrivateEndpointAttachment till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOdaPrivateEndpointAttachmentResponse | null (null in case of 404 response)
+   */
+  public async forOdaPrivateEndpointAttachment(
+    request: serviceRequests.GetOdaPrivateEndpointAttachmentRequest,
+    ...targetStates: models.OdaPrivateEndpointAttachment.LifecycleState[]
+  ): Promise<serviceResponses.GetOdaPrivateEndpointAttachmentResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOdaPrivateEndpointAttachment(request),
+      response => targetStates.includes(response.odaPrivateEndpointAttachment.lifecycleState!),
+      targetStates.includes(models.OdaPrivateEndpointAttachment.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forOdaPrivateEndpointScanProxy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOdaPrivateEndpointScanProxyResponse | null (null in case of 404 response)
+   */
+  public async forOdaPrivateEndpointScanProxy(
+    request: serviceRequests.GetOdaPrivateEndpointScanProxyRequest,
+    ...targetStates: models.OdaPrivateEndpointScanProxy.LifecycleState[]
+  ): Promise<serviceResponses.GetOdaPrivateEndpointScanProxyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOdaPrivateEndpointScanProxy(request),
+      response => targetStates.includes(response.odaPrivateEndpointScanProxy.lifecycleState!),
+      targetStates.includes(models.OdaPrivateEndpointScanProxy.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forSkill till it reaches any of the provided states
    *
    * @param request the request to send

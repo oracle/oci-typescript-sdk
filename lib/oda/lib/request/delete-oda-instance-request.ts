@@ -23,6 +23,10 @@ export interface DeleteOdaInstanceRequest extends common.BaseRequest {
    */
   "odaInstanceId": string;
   /**
+   * Retain the ODA instance being deleted for the given number of days before hard-delete/purge.
+   */
+  "retentionTime"?: number;
+  /**
    * For optimistic concurrency control in a PUT or DELETE call for
    * a Digital Assistant instance, set the `if-match` query parameter
    * to the value of the `ETAG` header from a previous GET or POST

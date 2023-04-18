@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestResource {
   /**
-   * The action to take against the Digital Assistant instance.
+   * The action to take against the resource.
    */
   "resourceAction": WorkRequestResource.ResourceAction;
   /**
@@ -27,7 +27,7 @@ export interface WorkRequestResource {
    */
   "resourceType": string;
   /**
-   * The identifier of the Digital Assistant instance that is the subject of the request.
+   * The identifier of the resource that is the subject of the request.
    */
   "resourceId": string;
   /**
@@ -51,6 +51,7 @@ export interface WorkRequestResource {
 export namespace WorkRequestResource {
   export enum ResourceAction {
     Create = "CREATE",
+    Update = "UPDATE",
     Delete = "DELETE",
     Purge = "PURGE",
     Recover = "RECOVER",

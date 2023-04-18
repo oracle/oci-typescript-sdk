@@ -19,6 +19,11 @@ import common = require("oci-common");
  */
 export interface UpdateChannelDetails {
   /**
+   * The Channel's name. The name can contain only letters, numbers, periods, and underscores. The name must begin with a letter.
+   *
+   */
+  "name"?: string;
+  /**
    * A short description of the Channel.
    */
   "description"?: string;

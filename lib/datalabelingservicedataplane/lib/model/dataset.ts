@@ -63,10 +63,6 @@ export interface Dataset {
    * The annotation format name required for labeling records.
    */
   "annotationFormat": string;
-  /**
-   * An integer value used in achieving concurrency control, this field will be used to generate eTags. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "lifetimeLogicalClock": number;
   "datasetSourceDetails": model.ObjectStorageDatasetSourceDetails;
   "datasetFormatDetails":
     | model.ImageDatasetFormatDetails

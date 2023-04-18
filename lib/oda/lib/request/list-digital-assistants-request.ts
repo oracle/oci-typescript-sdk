@@ -25,7 +25,7 @@ export interface ListDigitalAssistantsRequest extends common.BaseRequest {
   /**
    * Unique Digital Assistant identifier.
    */
-  "digitalAssistantId"?: string;
+  "id"?: string;
   /**
    * List only Bot resources with this category.
    */
