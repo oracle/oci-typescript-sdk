@@ -27,6 +27,10 @@ export interface ListPackagesRequest extends common.BaseRequest {
    */
   "resourceType"?: string;
   /**
+   * List the packages that belong to this compartment.
+   */
+  "compartmentId"?: string;
+  /**
  * List only the information for the package with this name. Package names are unique to a publisher and may not change.
 * <p>
 Example: `My Package`
@@ -43,7 +47,7 @@ Example: `My new resource`
   /**
    * Should we return only the latest version of a package (instead of all versions)?
    */
-  "isLatestSkillOnly"?: boolean;
+  "isLatestVersionOnly"?: boolean;
   /**
    * The maximum number of items to return per page.
    */

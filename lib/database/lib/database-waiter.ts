@@ -183,6 +183,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCancelBackup
+   *
+   * @param request the request to send
+   * @return response returns CancelBackupResponse, GetWorkRequestResponse tuple
+   */
+  public async forCancelBackup(
+    request: serviceRequests.CancelBackupRequest
+  ): Promise<{
+    response: serviceResponses.CancelBackupResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const cancelBackupResponse = await this.client.cancelBackup(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      cancelBackupResponse.opcWorkRequestId
+    );
+    return { response: cancelBackupResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forChangeAutonomousContainerDatabaseCompartment
    *
    * @param request the request to send

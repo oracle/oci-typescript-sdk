@@ -25,7 +25,7 @@ export interface ListSkillsRequest extends common.BaseRequest {
   /**
    * Unique Skill identifier.
    */
-  "skillId"?: string;
+  "id"?: string;
   /**
    * List only Bot resources with this category.
    */

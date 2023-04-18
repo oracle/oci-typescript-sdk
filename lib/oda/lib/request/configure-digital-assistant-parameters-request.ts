@@ -30,14 +30,4 @@ export interface ConfigureDigitalAssistantParametersRequest extends common.BaseR
    * The client request ID for tracing. This value is included in the opc-request-id response header.
    */
   "opcRequestId"?: string;
-  /**
- * A token that uniquely identifies a request so that you can retry the request if there's
-* a timeout or server error without the risk of executing that same action again.
-* <p>
-Retry tokens expire after 24 hours, but they can become invalid before then if there are
-* conflicting operations. For example, if an instance was deleted and purged from the system,
-* then the service might reject a retry of the original creation request.
-* 
- */
-  "opcRetryToken"?: string;
 }

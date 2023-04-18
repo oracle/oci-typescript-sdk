@@ -31,6 +31,10 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    */
   "odaInstanceId"?: string;
   /**
+   * List only the information for this resource.
+   */
+  "resourceId"?: string;
+  /**
  * The page at which to start retrieving results.
 * <p>
 You get this value from the `opc-next-page` header in a previous list request.

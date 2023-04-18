@@ -24,6 +24,8 @@ import * as AddVirtualMachineToVmClusterResponse from "./add-virtual-machine-to-
 export import AddVirtualMachineToVmClusterResponse = AddVirtualMachineToVmClusterResponse.AddVirtualMachineToVmClusterResponse;
 import * as AutonomousDatabaseManualRefreshResponse from "./autonomous-database-manual-refresh-response";
 export import AutonomousDatabaseManualRefreshResponse = AutonomousDatabaseManualRefreshResponse.AutonomousDatabaseManualRefreshResponse;
+import * as CancelBackupResponse from "./cancel-backup-response";
+export import CancelBackupResponse = CancelBackupResponse.CancelBackupResponse;
 import * as ChangeAutonomousContainerDatabaseCompartmentResponse from "./change-autonomous-container-database-compartment-response";
 export import ChangeAutonomousContainerDatabaseCompartmentResponse = ChangeAutonomousContainerDatabaseCompartmentResponse.ChangeAutonomousContainerDatabaseCompartmentResponse;
 import * as ChangeAutonomousDatabaseCompartmentResponse from "./change-autonomous-database-compartment-response";

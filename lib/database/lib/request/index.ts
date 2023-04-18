@@ -24,6 +24,8 @@ import * as AddVirtualMachineToVmClusterRequest from "./add-virtual-machine-to-v
 export import AddVirtualMachineToVmClusterRequest = AddVirtualMachineToVmClusterRequest.AddVirtualMachineToVmClusterRequest;
 import * as AutonomousDatabaseManualRefreshRequest from "./autonomous-database-manual-refresh-request";
 export import AutonomousDatabaseManualRefreshRequest = AutonomousDatabaseManualRefreshRequest.AutonomousDatabaseManualRefreshRequest;
+import * as CancelBackupRequest from "./cancel-backup-request";
+export import CancelBackupRequest = CancelBackupRequest.CancelBackupRequest;
 import * as ChangeAutonomousContainerDatabaseCompartmentRequest from "./change-autonomous-container-database-compartment-request";
 export import ChangeAutonomousContainerDatabaseCompartmentRequest = ChangeAutonomousContainerDatabaseCompartmentRequest.ChangeAutonomousContainerDatabaseCompartmentRequest;
 import * as ChangeAutonomousDatabaseCompartmentRequest from "./change-autonomous-database-compartment-request";

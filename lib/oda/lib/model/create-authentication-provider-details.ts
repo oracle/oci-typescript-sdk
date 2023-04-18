@@ -37,7 +37,7 @@ export interface CreateAuthenticationProviderDetails {
   /**
    * The IDPs URL for the page that users authenticate with by entering the user name and password.
    */
-  "authorizationEndpointUrl": string;
+  "authorizationEndpointUrl"?: string;
   /**
    * A shortened version of the authorization URL, which you can get from a URL shortener service (one that allows
    * you to send query parameters).  You might need this because the generated authorization-code-request URL
@@ -74,7 +74,7 @@ export interface CreateAuthenticationProviderDetails {
   /**
    * The access-token profile claim to use to identify the user.
    */
-  "subjectClaim": string;
+  "subjectClaim"?: string;
   /**
    * The number of days to keep the refresh token in the Digital Assistant cache. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

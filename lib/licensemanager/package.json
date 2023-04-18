@@ -1,6 +1,6 @@
 {
   "name": "oci-licensemanager",
-  "version": "2.57.0",
+  "version": "2.58.0",
   "description": "OCI NodeJS client for License Manager Service",
   "repository": {
     "type": "git",

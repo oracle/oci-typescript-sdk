@@ -153,9 +153,94 @@ export class ManagementClient {
   }
 
   /**
+     * Starts an asynchronous job to move the specified ODA Private Endpoint into a different compartment.
+* <p>
+To monitor the status of the job, take the `opc-work-request-id` response header
+* value and use it to call `GET /workRequests/{workRequestID}`.
+* When provided, If-Match is checked against ETag values of the resource.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ChangeOdaPrivateEndpointCompartmentRequest
+     * @return ChangeOdaPrivateEndpointCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ChangeOdaPrivateEndpointCompartment.ts.html |here} to see how to use ChangeOdaPrivateEndpointCompartment API.
+     */
+  public async changeOdaPrivateEndpointCompartment(
+    changeOdaPrivateEndpointCompartmentRequest: requests.ChangeOdaPrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangeOdaPrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#changeOdaPrivateEndpointCompartment.");
+    const operationName = "changeOdaPrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/ChangeOdaPrivateEndpointCompartment";
+    const pathParams = {
+      "{odaPrivateEndpointId}": changeOdaPrivateEndpointCompartmentRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeOdaPrivateEndpointCompartmentRequest.ifMatch,
+      "opc-request-id": changeOdaPrivateEndpointCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeOdaPrivateEndpointCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOdaPrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints/{odaPrivateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOdaPrivateEndpointCompartmentRequest.changeOdaPrivateEndpointCompartmentDetails,
+        "ChangeOdaPrivateEndpointCompartmentDetails",
+        model.ChangeOdaPrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOdaPrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * This will store the provided parameters in the Digital Assistant instance and update any Digital Assistants with matching parameters.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ConfigureDigitalAssistantParametersRequest
    * @return ConfigureDigitalAssistantParametersResponse
    * @throws OciError when an error occurs
@@ -177,11 +262,10 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": configureDigitalAssistantParametersRequest.opcRequestId,
-      "opc-retry-token": configureDigitalAssistantParametersRequest.opcRetryToken
+      "opc-request-id": configureDigitalAssistantParametersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       configureDigitalAssistantParametersRequest.retryConfiguration,
@@ -230,7 +314,7 @@ export class ManagementClient {
   /**
    * Creates a new Authentication Provider
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAuthenticationProviderRequest
    * @return CreateAuthenticationProviderResponse
    * @throws OciError when an error occurs
@@ -256,7 +340,7 @@ export class ManagementClient {
       "opc-retry-token": createAuthenticationProviderRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAuthenticationProviderRequest.retryConfiguration,
@@ -319,7 +403,7 @@ export class ManagementClient {
   /**
    * Creates a new Channel.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateChannelRequest
    * @return CreateChannelResponse
    * @throws OciError when an error occurs
@@ -344,7 +428,7 @@ export class ManagementClient {
       "opc-retry-token": createChannelRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createChannelRequest.retryConfiguration,
@@ -407,7 +491,7 @@ export class ManagementClient {
   /**
    * Creates a new Digital Assistant.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDigitalAssistantRequest
    * @return CreateDigitalAssistantResponse
    * @throws OciError when an error occurs
@@ -433,7 +517,7 @@ export class ManagementClient {
       "opc-retry-token": createDigitalAssistantRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDigitalAssistantRequest.retryConfiguration,
@@ -485,9 +569,293 @@ export class ManagementClient {
   }
 
   /**
+     * Starts an asynchronous job to create an ODA Private Endpoint.
+* <p>
+To monitor the status of the job, take the `opc-work-request-id` response
+* header value and use it to call `GET /workRequests/{workRequestID}`.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateOdaPrivateEndpointRequest
+     * @return CreateOdaPrivateEndpointResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpoint.ts.html |here} to see how to use CreateOdaPrivateEndpoint API.
+     */
+  public async createOdaPrivateEndpoint(
+    createOdaPrivateEndpointRequest: requests.CreateOdaPrivateEndpointRequest
+  ): Promise<responses.CreateOdaPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createOdaPrivateEndpoint.");
+    const operationName = "createOdaPrivateEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createOdaPrivateEndpointRequest.opcRequestId,
+      "opc-retry-token": createOdaPrivateEndpointRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOdaPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOdaPrivateEndpointRequest.createOdaPrivateEndpointDetails,
+        "CreateOdaPrivateEndpointDetails",
+        model.CreateOdaPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOdaPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpoint",
+        bodyModel: model.OdaPrivateEndpoint,
+        type: "model.OdaPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Starts an asynchronous job to create an ODA Private Endpoint Attachment.
+* <p>
+To monitor the status of the job, take the `opc-work-request-id` response
+* header value and use it to call `GET /workRequests/{workRequestID}`.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateOdaPrivateEndpointAttachmentRequest
+     * @return CreateOdaPrivateEndpointAttachmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointAttachment.ts.html |here} to see how to use CreateOdaPrivateEndpointAttachment API.
+     */
+  public async createOdaPrivateEndpointAttachment(
+    createOdaPrivateEndpointAttachmentRequest: requests.CreateOdaPrivateEndpointAttachmentRequest
+  ): Promise<responses.CreateOdaPrivateEndpointAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createOdaPrivateEndpointAttachment.");
+    const operationName = "createOdaPrivateEndpointAttachment";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createOdaPrivateEndpointAttachmentRequest.opcRequestId,
+      "opc-retry-token": createOdaPrivateEndpointAttachmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOdaPrivateEndpointAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpointAttachments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOdaPrivateEndpointAttachmentRequest.createOdaPrivateEndpointAttachmentDetails,
+        "CreateOdaPrivateEndpointAttachmentDetails",
+        model.CreateOdaPrivateEndpointAttachmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOdaPrivateEndpointAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpointAttachment",
+        bodyModel: model.OdaPrivateEndpointAttachment,
+        type: "model.OdaPrivateEndpointAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Starts an asynchronous job to create an ODA Private Endpoint Scan Proxy.
+* <p>
+To monitor the status of the job, take the `opc-work-request-id` response
+* header value and use it to call `GET /workRequests/{workRequestID}`.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateOdaPrivateEndpointScanProxyRequest
+     * @return CreateOdaPrivateEndpointScanProxyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/CreateOdaPrivateEndpointScanProxy.ts.html |here} to see how to use CreateOdaPrivateEndpointScanProxy API.
+     */
+  public async createOdaPrivateEndpointScanProxy(
+    createOdaPrivateEndpointScanProxyRequest: requests.CreateOdaPrivateEndpointScanProxyRequest
+  ): Promise<responses.CreateOdaPrivateEndpointScanProxyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#createOdaPrivateEndpointScanProxy.");
+    const operationName = "createOdaPrivateEndpointScanProxy";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{odaPrivateEndpointId}": createOdaPrivateEndpointScanProxyRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createOdaPrivateEndpointScanProxyRequest.opcRequestId,
+      "opc-retry-token": createOdaPrivateEndpointScanProxyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOdaPrivateEndpointScanProxyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints/{odaPrivateEndpointId}/odaPrivateEndpointScanProxies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOdaPrivateEndpointScanProxyRequest.createOdaPrivateEndpointScanProxyDetails,
+        "CreateOdaPrivateEndpointScanProxyDetails",
+        model.CreateOdaPrivateEndpointScanProxyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOdaPrivateEndpointScanProxyResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpointScanProxy",
+        bodyModel: model.OdaPrivateEndpointScanProxy,
+        type: "model.OdaPrivateEndpointScanProxy",
+        responseHeaders: [
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new Skill from scratch.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSkillRequest
    * @return CreateSkillResponse
    * @throws OciError when an error occurs
@@ -512,7 +880,7 @@ export class ManagementClient {
       "opc-retry-token": createSkillRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSkillRequest.retryConfiguration,
@@ -566,7 +934,7 @@ export class ManagementClient {
   /**
    * Creates a new Skill Parameter.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateSkillParameterRequest
    * @return CreateSkillParameterResponse
    * @throws OciError when an error occurs
@@ -592,7 +960,7 @@ export class ManagementClient {
       "opc-retry-token": createSkillParameterRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createSkillParameterRequest.retryConfiguration,
@@ -655,7 +1023,7 @@ export class ManagementClient {
   /**
    * Creates a new Translator
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateTranslatorRequest
    * @return CreateTranslatorResponse
    * @throws OciError when an error occurs
@@ -680,7 +1048,7 @@ export class ManagementClient {
       "opc-retry-token": createTranslatorRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createTranslatorRequest.retryConfiguration,
@@ -742,7 +1110,7 @@ export class ManagementClient {
 
   /**
    * Delete the specified Authentication Provider.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAuthenticationProviderRequest
    * @return DeleteAuthenticationProviderResponse
    * @throws OciError when an error occurs
@@ -769,7 +1137,7 @@ export class ManagementClient {
       "opc-request-id": deleteAuthenticationProviderRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAuthenticationProviderRequest.retryConfiguration,
@@ -812,7 +1180,7 @@ export class ManagementClient {
 
   /**
    * Delete the specified Channel.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteChannelRequest
    * @return DeleteChannelResponse
    * @throws OciError when an error occurs
@@ -838,7 +1206,7 @@ export class ManagementClient {
       "opc-request-id": deleteChannelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteChannelRequest.retryConfiguration,
@@ -882,7 +1250,7 @@ export class ManagementClient {
   /**
    * Delete the specified Digital Assistant.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDigitalAssistantRequest
    * @return DeleteDigitalAssistantResponse
    * @throws OciError when an error occurs
@@ -909,7 +1277,7 @@ export class ManagementClient {
       "opc-request-id": deleteDigitalAssistantRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDigitalAssistantRequest.retryConfiguration,
@@ -951,9 +1319,238 @@ export class ManagementClient {
   }
 
   /**
+   * Starts an asynchronous job to delete the specified ODA Private Endpoint.
+   * To monitor the status of the job, take the `opc-work-request-id` response header value and use it to call `GET /workRequests/{workRequestID}`.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOdaPrivateEndpointRequest
+   * @return DeleteOdaPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpoint.ts.html |here} to see how to use DeleteOdaPrivateEndpoint API.
+   */
+  public async deleteOdaPrivateEndpoint(
+    deleteOdaPrivateEndpointRequest: requests.DeleteOdaPrivateEndpointRequest
+  ): Promise<responses.DeleteOdaPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpoint.");
+    const operationName = "deleteOdaPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/DeleteOdaPrivateEndpoint";
+    const pathParams = {
+      "{odaPrivateEndpointId}": deleteOdaPrivateEndpointRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOdaPrivateEndpointRequest.ifMatch,
+      "opc-request-id": deleteOdaPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOdaPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints/{odaPrivateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOdaPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Starts an asynchronous job to delete the specified ODA Private Endpoint Attachment.
+   * To monitor the status of the job, take the `opc-work-request-id` response header value and use it to call `GET /workRequests/{workRequestID}`.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOdaPrivateEndpointAttachmentRequest
+   * @return DeleteOdaPrivateEndpointAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpointAttachment.ts.html |here} to see how to use DeleteOdaPrivateEndpointAttachment API.
+   */
+  public async deleteOdaPrivateEndpointAttachment(
+    deleteOdaPrivateEndpointAttachmentRequest: requests.DeleteOdaPrivateEndpointAttachmentRequest
+  ): Promise<responses.DeleteOdaPrivateEndpointAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpointAttachment.");
+    const operationName = "deleteOdaPrivateEndpointAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointAttachment/DeleteOdaPrivateEndpointAttachment";
+    const pathParams = {
+      "{odaPrivateEndpointAttachmentId}":
+        deleteOdaPrivateEndpointAttachmentRequest.odaPrivateEndpointAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOdaPrivateEndpointAttachmentRequest.ifMatch,
+      "opc-request-id": deleteOdaPrivateEndpointAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOdaPrivateEndpointAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpointAttachments/{odaPrivateEndpointAttachmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOdaPrivateEndpointAttachmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Starts an asynchronous job to delete the specified ODA Private Endpoint Scan Proxy.
+   * To monitor the status of the job, take the `opc-work-request-id` response header value and use it to call `GET /workRequests/{workRequestID}`.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteOdaPrivateEndpointScanProxyRequest
+   * @return DeleteOdaPrivateEndpointScanProxyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/DeleteOdaPrivateEndpointScanProxy.ts.html |here} to see how to use DeleteOdaPrivateEndpointScanProxy API.
+   */
+  public async deleteOdaPrivateEndpointScanProxy(
+    deleteOdaPrivateEndpointScanProxyRequest: requests.DeleteOdaPrivateEndpointScanProxyRequest
+  ): Promise<responses.DeleteOdaPrivateEndpointScanProxyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#deleteOdaPrivateEndpointScanProxy.");
+    const operationName = "deleteOdaPrivateEndpointScanProxy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointScanProxy/DeleteOdaPrivateEndpointScanProxy";
+    const pathParams = {
+      "{odaPrivateEndpointScanProxyId}":
+        deleteOdaPrivateEndpointScanProxyRequest.odaPrivateEndpointScanProxyId,
+      "{odaPrivateEndpointId}": deleteOdaPrivateEndpointScanProxyRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOdaPrivateEndpointScanProxyRequest.ifMatch,
+      "opc-request-id": deleteOdaPrivateEndpointScanProxyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOdaPrivateEndpointScanProxyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/odaPrivateEndpoints/{odaPrivateEndpointId}/odaPrivateEndpointScanProxies/{odaPrivateEndpointScanProxyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOdaPrivateEndpointScanProxyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete the specified Skill.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSkillRequest
    * @return DeleteSkillResponse
    * @throws OciError when an error occurs
@@ -979,7 +1576,7 @@ export class ManagementClient {
       "opc-request-id": deleteSkillRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSkillRequest.retryConfiguration,
@@ -1023,7 +1620,7 @@ export class ManagementClient {
   /**
    * Delete the specified Skill Parameter.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteSkillParameterRequest
    * @return DeleteSkillParameterResponse
    * @throws OciError when an error occurs
@@ -1050,7 +1647,7 @@ export class ManagementClient {
       "opc-request-id": deleteSkillParameterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteSkillParameterRequest.retryConfiguration,
@@ -1093,7 +1690,7 @@ export class ManagementClient {
 
   /**
    * Delete the specified Translator.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteTranslatorRequest
    * @return DeleteTranslatorResponse
    * @throws OciError when an error occurs
@@ -1119,7 +1716,7 @@ export class ManagementClient {
       "opc-request-id": deleteTranslatorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteTranslatorRequest.retryConfiguration,
@@ -1162,7 +1759,7 @@ export class ManagementClient {
 
   /**
    * Exports the specified Digital Assistant as an archive to Object Storage.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExportDigitalAssistantRequest
    * @return ExportDigitalAssistantResponse
    * @throws OciError when an error occurs
@@ -1188,7 +1785,7 @@ export class ManagementClient {
       "opc-request-id": exportDigitalAssistantRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       exportDigitalAssistantRequest.retryConfiguration,
@@ -1241,7 +1838,7 @@ export class ManagementClient {
 
   /**
    * Exports the specified Skill as an archive to Object Storage.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ExportSkillRequest
    * @return ExportSkillResponse
    * @throws OciError when an error occurs
@@ -1266,7 +1863,7 @@ export class ManagementClient {
       "opc-request-id": exportSkillRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       exportSkillRequest.retryConfiguration,
@@ -1319,7 +1916,7 @@ export class ManagementClient {
 
   /**
    * Gets the specified Authentication Provider.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAuthenticationProviderRequest
    * @return GetAuthenticationProviderResponse
    * @throws OciError when an error occurs
@@ -1342,10 +1939,11 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getAuthenticationProviderRequest.ifNoneMatch,
       "opc-request-id": getAuthenticationProviderRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAuthenticationProviderRequest.retryConfiguration,
@@ -1397,7 +1995,7 @@ export class ManagementClient {
 
   /**
    * Gets the specified Channel.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetChannelRequest
    * @return GetChannelResponse
    * @throws OciError when an error occurs
@@ -1419,10 +2017,11 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getChannelRequest.ifNoneMatch,
       "opc-request-id": getChannelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getChannelRequest.retryConfiguration,
@@ -1474,7 +2073,7 @@ export class ManagementClient {
 
   /**
    * Gets the specified Digital Assistant.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDigitalAssistantRequest
    * @return GetDigitalAssistantResponse
    * @throws OciError when an error occurs
@@ -1496,10 +2095,11 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getDigitalAssistantRequest.ifNoneMatch,
       "opc-request-id": getDigitalAssistantRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDigitalAssistantRequest.retryConfiguration,
@@ -1551,7 +2151,7 @@ export class ManagementClient {
 
   /**
    * Gets the specified Digital Assistant Parameter.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDigitalAssistantParameterRequest
    * @return GetDigitalAssistantParameterResponse
    * @throws OciError when an error occurs
@@ -1575,10 +2175,11 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getDigitalAssistantParameterRequest.ifNoneMatch,
       "opc-request-id": getDigitalAssistantParameterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDigitalAssistantParameterRequest.retryConfiguration,
@@ -1630,8 +2231,242 @@ export class ManagementClient {
   }
 
   /**
+   * Gets the specified ODA Private Endpoint.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOdaPrivateEndpointRequest
+   * @return GetOdaPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpoint.ts.html |here} to see how to use GetOdaPrivateEndpoint API.
+   */
+  public async getOdaPrivateEndpoint(
+    getOdaPrivateEndpointRequest: requests.GetOdaPrivateEndpointRequest
+  ): Promise<responses.GetOdaPrivateEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation ManagementClient#getOdaPrivateEndpoint.");
+    const operationName = "getOdaPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/GetOdaPrivateEndpoint";
+    const pathParams = {
+      "{odaPrivateEndpointId}": getOdaPrivateEndpointRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOdaPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOdaPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints/{odaPrivateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOdaPrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpoint",
+        bodyModel: model.OdaPrivateEndpoint,
+        type: "model.OdaPrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified ODA Private Endpoint Attachment.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOdaPrivateEndpointAttachmentRequest
+   * @return GetOdaPrivateEndpointAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpointAttachment.ts.html |here} to see how to use GetOdaPrivateEndpointAttachment API.
+   */
+  public async getOdaPrivateEndpointAttachment(
+    getOdaPrivateEndpointAttachmentRequest: requests.GetOdaPrivateEndpointAttachmentRequest
+  ): Promise<responses.GetOdaPrivateEndpointAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#getOdaPrivateEndpointAttachment.");
+    const operationName = "getOdaPrivateEndpointAttachment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointAttachment/GetOdaPrivateEndpointAttachment";
+    const pathParams = {
+      "{odaPrivateEndpointAttachmentId}":
+        getOdaPrivateEndpointAttachmentRequest.odaPrivateEndpointAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOdaPrivateEndpointAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOdaPrivateEndpointAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpointAttachments/{odaPrivateEndpointAttachmentId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOdaPrivateEndpointAttachmentResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpointAttachment",
+        bodyModel: model.OdaPrivateEndpointAttachment,
+        type: "model.OdaPrivateEndpointAttachment",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified ODA Private Endpoint Scan Proxy.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetOdaPrivateEndpointScanProxyRequest
+   * @return GetOdaPrivateEndpointScanProxyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/GetOdaPrivateEndpointScanProxy.ts.html |here} to see how to use GetOdaPrivateEndpointScanProxy API.
+   */
+  public async getOdaPrivateEndpointScanProxy(
+    getOdaPrivateEndpointScanProxyRequest: requests.GetOdaPrivateEndpointScanProxyRequest
+  ): Promise<responses.GetOdaPrivateEndpointScanProxyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#getOdaPrivateEndpointScanProxy.");
+    const operationName = "getOdaPrivateEndpointScanProxy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointScanProxy/GetOdaPrivateEndpointScanProxy";
+    const pathParams = {
+      "{odaPrivateEndpointScanProxyId}":
+        getOdaPrivateEndpointScanProxyRequest.odaPrivateEndpointScanProxyId,
+      "{odaPrivateEndpointId}": getOdaPrivateEndpointScanProxyRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOdaPrivateEndpointScanProxyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOdaPrivateEndpointScanProxyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/odaPrivateEndpoints/{odaPrivateEndpointId}/odaPrivateEndpointScanProxies/{odaPrivateEndpointScanProxyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOdaPrivateEndpointScanProxyResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpointScanProxy",
+        bodyModel: model.OdaPrivateEndpointScanProxy,
+        type: "model.OdaPrivateEndpointScanProxy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified Skill.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSkillRequest
    * @return GetSkillResponse
    * @throws OciError when an error occurs
@@ -1653,10 +2488,11 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getSkillRequest.ifNoneMatch,
       "opc-request-id": getSkillRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSkillRequest.retryConfiguration,
@@ -1708,7 +2544,7 @@ export class ManagementClient {
 
   /**
    * Gets the specified Skill Parameter.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetSkillParameterRequest
    * @return GetSkillParameterResponse
    * @throws OciError when an error occurs
@@ -1731,10 +2567,11 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getSkillParameterRequest.ifNoneMatch,
       "opc-request-id": getSkillParameterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getSkillParameterRequest.retryConfiguration,
@@ -1786,7 +2623,7 @@ export class ManagementClient {
 
   /**
    * Gets the specified Translator.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTranslatorRequest
    * @return GetTranslatorResponse
    * @throws OciError when an error occurs
@@ -1808,10 +2645,11 @@ export class ManagementClient {
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-none-match": getTranslatorRequest.ifNoneMatch,
       "opc-request-id": getTranslatorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getTranslatorRequest.retryConfiguration,
@@ -1863,7 +2701,7 @@ export class ManagementClient {
 
   /**
    * Import a Bot archive from Object Storage.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ImportBotRequest
    * @return ImportBotResponse
    * @throws OciError when an error occurs
@@ -1888,7 +2726,7 @@ export class ManagementClient {
       "opc-retry-token": importBotRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       importBotRequest.retryConfiguration,
@@ -1946,7 +2784,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListAuthenticationProvidersRequest
      * @return ListAuthenticationProvidersResponse
      * @throws OciError when an error occurs
@@ -1980,7 +2818,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listAuthenticationProvidersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAuthenticationProvidersRequest.retryConfiguration,
@@ -2042,7 +2880,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListChannelsRequest
      * @return ListChannelsResponse
      * @throws OciError when an error occurs
@@ -2076,7 +2914,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listChannelsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listChannelsRequest.retryConfiguration,
@@ -2138,7 +2976,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListDigitalAssistantParametersRequest
      * @return ListDigitalAssistantParametersResponse
      * @throws OciError when an error occurs
@@ -2171,7 +3009,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listDigitalAssistantParametersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDigitalAssistantParametersRequest.retryConfiguration,
@@ -2233,7 +3071,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListDigitalAssistantsRequest
      * @return ListDigitalAssistantsResponse
      * @throws OciError when an error occurs
@@ -2251,7 +3089,7 @@ If the `opc-next-page` header appears in the response, then
     };
 
     const queryParams = {
-      "digitalAssistantId": listDigitalAssistantsRequest.digitalAssistantId,
+      "id": listDigitalAssistantsRequest.id,
       "category": listDigitalAssistantsRequest.category,
       "name": listDigitalAssistantsRequest.name,
       "version": listDigitalAssistantsRequest.version,
@@ -2270,7 +3108,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listDigitalAssistantsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDigitalAssistantsRequest.retryConfiguration,
@@ -2326,13 +3164,294 @@ If the `opc-next-page` header appears in the response, then
   }
 
   /**
+     * Returns a page of ODA Instances attached to this ODA Private Endpoint.
+* <p>
+If the `opc-next-page` header appears in the response, then
+* there are more items to retrieve. To get the next page in the subsequent
+* GET request, include the header's value as the `page` query parameter.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListOdaPrivateEndpointAttachmentsRequest
+     * @return ListOdaPrivateEndpointAttachmentsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpointAttachments.ts.html |here} to see how to use ListOdaPrivateEndpointAttachments API.
+     */
+  public async listOdaPrivateEndpointAttachments(
+    listOdaPrivateEndpointAttachmentsRequest: requests.ListOdaPrivateEndpointAttachmentsRequest
+  ): Promise<responses.ListOdaPrivateEndpointAttachmentsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listOdaPrivateEndpointAttachments.");
+    const operationName = "listOdaPrivateEndpointAttachments";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointAttachment/ListOdaPrivateEndpointAttachments";
+    const pathParams = {};
+
+    const queryParams = {
+      "odaPrivateEndpointId": listOdaPrivateEndpointAttachmentsRequest.odaPrivateEndpointId,
+      "compartmentId": listOdaPrivateEndpointAttachmentsRequest.compartmentId,
+      "limit": listOdaPrivateEndpointAttachmentsRequest.limit,
+      "page": listOdaPrivateEndpointAttachmentsRequest.page,
+      "lifecycleState": listOdaPrivateEndpointAttachmentsRequest.lifecycleState,
+      "sortOrder": listOdaPrivateEndpointAttachmentsRequest.sortOrder,
+      "sortBy": listOdaPrivateEndpointAttachmentsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOdaPrivateEndpointAttachmentsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOdaPrivateEndpointAttachmentsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpointAttachments",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOdaPrivateEndpointAttachmentsResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpointAttachmentCollection",
+        bodyModel: model.OdaPrivateEndpointAttachmentCollection,
+        type: "model.OdaPrivateEndpointAttachmentCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Returns a page of ODA Private Endpoint Scan Proxies that belong to the specified
+* ODA Private Endpoint.
+* <p>
+If the `opc-next-page` header appears in the response, then
+* there are more items to retrieve. To get the next page in the subsequent
+* GET request, include the header's value as the `page` query parameter.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListOdaPrivateEndpointScanProxiesRequest
+     * @return ListOdaPrivateEndpointScanProxiesResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpointScanProxies.ts.html |here} to see how to use ListOdaPrivateEndpointScanProxies API.
+     */
+  public async listOdaPrivateEndpointScanProxies(
+    listOdaPrivateEndpointScanProxiesRequest: requests.ListOdaPrivateEndpointScanProxiesRequest
+  ): Promise<responses.ListOdaPrivateEndpointScanProxiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listOdaPrivateEndpointScanProxies.");
+    const operationName = "listOdaPrivateEndpointScanProxies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpointScanProxy/ListOdaPrivateEndpointScanProxies";
+    const pathParams = {
+      "{odaPrivateEndpointId}": listOdaPrivateEndpointScanProxiesRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {
+      "lifecycleState": listOdaPrivateEndpointScanProxiesRequest.lifecycleState,
+      "limit": listOdaPrivateEndpointScanProxiesRequest.limit,
+      "page": listOdaPrivateEndpointScanProxiesRequest.page,
+      "sortOrder": listOdaPrivateEndpointScanProxiesRequest.sortOrder,
+      "sortBy": listOdaPrivateEndpointScanProxiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOdaPrivateEndpointScanProxiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOdaPrivateEndpointScanProxiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints/{odaPrivateEndpointId}/odaPrivateEndpointScanProxies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOdaPrivateEndpointScanProxiesResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpointScanProxyCollection",
+        bodyModel: model.OdaPrivateEndpointScanProxyCollection,
+        type: "model.OdaPrivateEndpointScanProxyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Returns a page of ODA Private Endpoints that belong to the specified
+* compartment.
+* <p>
+If the `opc-next-page` header appears in the response, then
+* there are more items to retrieve. To get the next page in the subsequent
+* GET request, include the header's value as the `page` query parameter.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ListOdaPrivateEndpointsRequest
+     * @return ListOdaPrivateEndpointsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/ListOdaPrivateEndpoints.ts.html |here} to see how to use ListOdaPrivateEndpoints API.
+     */
+  public async listOdaPrivateEndpoints(
+    listOdaPrivateEndpointsRequest: requests.ListOdaPrivateEndpointsRequest
+  ): Promise<responses.ListOdaPrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#listOdaPrivateEndpoints.");
+    const operationName = "listOdaPrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/ListOdaPrivateEndpoints";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOdaPrivateEndpointsRequest.compartmentId,
+      "displayName": listOdaPrivateEndpointsRequest.displayName,
+      "lifecycleState": listOdaPrivateEndpointsRequest.lifecycleState,
+      "limit": listOdaPrivateEndpointsRequest.limit,
+      "page": listOdaPrivateEndpointsRequest.page,
+      "sortOrder": listOdaPrivateEndpointsRequest.sortOrder,
+      "sortBy": listOdaPrivateEndpointsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOdaPrivateEndpointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOdaPrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOdaPrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "odaPrivateEndpointCollection",
+        bodyModel: model.OdaPrivateEndpointCollection,
+        type: "model.OdaPrivateEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Returns a page of Skill Parameters that belong to the specified Skill.
 * <p>
 If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListSkillParametersRequest
      * @return ListSkillParametersResponse
      * @throws OciError when an error occurs
@@ -2364,7 +3483,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listSkillParametersRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSkillParametersRequest.retryConfiguration,
@@ -2426,7 +3545,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListSkillsRequest
      * @return ListSkillsResponse
      * @throws OciError when an error occurs
@@ -2444,7 +3563,7 @@ If the `opc-next-page` header appears in the response, then
     };
 
     const queryParams = {
-      "skillId": listSkillsRequest.skillId,
+      "id": listSkillsRequest.id,
       "category": listSkillsRequest.category,
       "name": listSkillsRequest.name,
       "version": listSkillsRequest.version,
@@ -2463,7 +3582,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listSkillsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listSkillsRequest.retryConfiguration,
@@ -2525,7 +3644,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListTranslatorsRequest
      * @return ListTranslatorsResponse
      * @throws OciError when an error occurs
@@ -2558,7 +3677,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listTranslatorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listTranslatorsRequest.retryConfiguration,
@@ -2617,7 +3736,7 @@ If the `opc-next-page` header appears in the response, then
    * Publish a draft Digital Assistant.
    * Once published the Digital Assistant cannot be modified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PublishDigitalAssistantRequest
    * @return PublishDigitalAssistantResponse
    * @throws OciError when an error occurs
@@ -2644,7 +3763,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": publishDigitalAssistantRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       publishDigitalAssistantRequest.retryConfiguration,
@@ -2698,7 +3817,7 @@ If the `opc-next-page` header appears in the response, then
    * Publish a draft Skill.
    * Once published it cannot be modified.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PublishSkillRequest
    * @return PublishSkillResponse
    * @throws OciError when an error occurs
@@ -2724,7 +3843,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": publishSkillRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       publishSkillRequest.retryConfiguration,
@@ -2779,7 +3898,7 @@ If the `opc-next-page` header appears in the response, then
    * If a Channel has no generated keys then no changes will be made.
    * Ensure that you take note of the newly generated keys in the response as they will not be returned again.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RotateChannelKeysRequest
    * @return RotateChannelKeysResponse
    * @throws OciError when an error occurs
@@ -2802,11 +3921,10 @@ If the `opc-next-page` header appears in the response, then
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": rotateChannelKeysRequest.opcRequestId,
-      "if-match": rotateChannelKeysRequest.ifMatch,
-      "opc-retry-token": rotateChannelKeysRequest.opcRetryToken
+      "if-match": rotateChannelKeysRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       rotateChannelKeysRequest.retryConfiguration,
@@ -2859,7 +3977,7 @@ If the `opc-next-page` header appears in the response, then
   /**
    * Starts a Channel so that it will begin accepting messages.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartChannelRequest
    * @return StartChannelResponse
    * @throws OciError when an error occurs
@@ -2882,11 +4000,10 @@ If the `opc-next-page` header appears in the response, then
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": startChannelRequest.opcRequestId,
-      "if-match": startChannelRequest.ifMatch,
-      "opc-retry-token": startChannelRequest.opcRetryToken
+      "if-match": startChannelRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startChannelRequest.retryConfiguration,
@@ -2939,7 +4056,7 @@ If the `opc-next-page` header appears in the response, then
   /**
    * Stops a Channel so that it will no longer accept messages.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopChannelRequest
    * @return StopChannelResponse
    * @throws OciError when an error occurs
@@ -2962,11 +4079,10 @@ If the `opc-next-page` header appears in the response, then
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": stopChannelRequest.opcRequestId,
-      "if-match": stopChannelRequest.ifMatch,
-      "opc-retry-token": stopChannelRequest.opcRetryToken
+      "if-match": stopChannelRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       stopChannelRequest.retryConfiguration,
@@ -3018,7 +4134,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Authentication Provider with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAuthenticationProviderRequest
    * @return UpdateAuthenticationProviderResponse
    * @throws OciError when an error occurs
@@ -3045,7 +4161,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateAuthenticationProviderRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAuthenticationProviderRequest.retryConfiguration,
@@ -3102,7 +4218,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Channel with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateChannelRequest
    * @return UpdateChannelResponse
    * @throws OciError when an error occurs
@@ -3128,7 +4244,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateChannelRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateChannelRequest.retryConfiguration,
@@ -3185,7 +4301,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Digital Assistant with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDigitalAssistantRequest
    * @return UpdateDigitalAssistantResponse
    * @throws OciError when an error occurs
@@ -3212,7 +4328,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateDigitalAssistantRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDigitalAssistantRequest.retryConfiguration,
@@ -3269,7 +4385,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Digital Assistant Parameter with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDigitalAssistantParameterRequest
    * @return UpdateDigitalAssistantParameterResponse
    * @throws OciError when an error occurs
@@ -3297,7 +4413,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateDigitalAssistantParameterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDigitalAssistantParameterRequest.retryConfiguration,
@@ -3354,8 +4470,87 @@ If the `opc-next-page` header appears in the response, then
   }
 
   /**
+   * Starts an asynchronous job to update the specified ODA Private Endpoint with the information in the request body.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateOdaPrivateEndpointRequest
+   * @return UpdateOdaPrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/oda/UpdateOdaPrivateEndpoint.ts.html |here} to see how to use UpdateOdaPrivateEndpoint API.
+   */
+  public async updateOdaPrivateEndpoint(
+    updateOdaPrivateEndpointRequest: requests.UpdateOdaPrivateEndpointRequest
+  ): Promise<responses.UpdateOdaPrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ManagementClient#updateOdaPrivateEndpoint.");
+    const operationName = "updateOdaPrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/digital-assistant/20190506/OdaPrivateEndpoint/UpdateOdaPrivateEndpoint";
+    const pathParams = {
+      "{odaPrivateEndpointId}": updateOdaPrivateEndpointRequest.odaPrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOdaPrivateEndpointRequest.ifMatch,
+      "opc-request-id": updateOdaPrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOdaPrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/odaPrivateEndpoints/{odaPrivateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOdaPrivateEndpointRequest.updateOdaPrivateEndpointDetails,
+        "UpdateOdaPrivateEndpointDetails",
+        model.UpdateOdaPrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOdaPrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the specified Skill with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSkillRequest
    * @return UpdateSkillResponse
    * @throws OciError when an error occurs
@@ -3381,7 +4576,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateSkillRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSkillRequest.retryConfiguration,
@@ -3438,7 +4633,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Skill Parameter with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateSkillParameterRequest
    * @return UpdateSkillParameterResponse
    * @throws OciError when an error occurs
@@ -3465,7 +4660,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateSkillParameterRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateSkillParameterRequest.retryConfiguration,
@@ -3522,7 +4717,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Translator with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateTranslatorRequest
    * @return UpdateTranslatorResponse
    * @throws OciError when an error occurs
@@ -3548,7 +4743,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateTranslatorRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateTranslatorRequest.retryConfiguration,
@@ -3735,7 +4930,7 @@ export class OdaClient {
    * Moves an Digital Assistant instance into a different compartment. When provided, If-Match is checked against
    * ETag values of the resource.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeOdaInstanceCompartmentRequest
    * @return ChangeOdaInstanceCompartmentResponse
    * @throws OciError when an error occurs
@@ -3761,7 +4956,7 @@ export class OdaClient {
       "opc-retry-token": changeOdaInstanceCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeOdaInstanceCompartmentRequest.retryConfiguration,
@@ -3818,7 +5013,7 @@ export class OdaClient {
 To monitor the status of the job, take the `opc-work-request-id` response
 * header value and use it to call `GET /workRequests/{workRequestId}`.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateOdaInstanceRequest
      * @return CreateOdaInstanceResponse
      * @throws OciError when an error occurs
@@ -3840,7 +5035,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-retry-token": createOdaInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOdaInstanceRequest.retryConfiguration,
@@ -3911,7 +5106,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 To monitor the status of the job, take the `opc-work-request-id` response
 * header value and use it to call `GET /workRequests/{workRequestId}`.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateOdaInstanceAttachmentRequest
      * @return CreateOdaInstanceAttachmentResponse
      * @throws OciError when an error occurs
@@ -3936,7 +5131,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-retry-token": createOdaInstanceAttachmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createOdaInstanceAttachmentRequest.retryConfiguration,
@@ -3990,7 +5185,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   /**
    * Starts an asynchronous job to delete the specified Digital Assistant instance.
    * To monitor the status of the job, take the `opc-work-request-id` response header value and use it to call `GET /workRequests/{workRequestId}`.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOdaInstanceRequest
    * @return DeleteOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -4007,7 +5202,9 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "{odaInstanceId}": deleteOdaInstanceRequest.odaInstanceId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "retentionTime": deleteOdaInstanceRequest.retentionTime
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -4015,7 +5212,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": deleteOdaInstanceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteOdaInstanceRequest.retryConfiguration,
@@ -4063,7 +5260,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 
   /**
    * Starts an asynchronous job to delete the specified Digital Assistant instance attachment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteOdaInstanceAttachmentRequest
    * @return DeleteOdaInstanceAttachmentResponse
    * @throws OciError when an error occurs
@@ -4089,7 +5286,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": deleteOdaInstanceAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteOdaInstanceAttachmentRequest.retryConfiguration,
@@ -4137,7 +5334,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 
   /**
    * Gets the specified Digital Assistant instance.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOdaInstanceRequest
    * @return GetOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -4161,7 +5358,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": getOdaInstanceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getOdaInstanceRequest.retryConfiguration,
@@ -4213,7 +5410,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 
   /**
    * Gets an ODA instance attachment by identifier
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOdaInstanceAttachmentRequest
    * @return GetOdaInstanceAttachmentResponse
    * @throws OciError when an error occurs
@@ -4240,7 +5437,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": getOdaInstanceAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getOdaInstanceAttachmentRequest.retryConfiguration,
@@ -4296,7 +5493,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 You can use this operation to monitor the status of jobs that you
 * requested to create, delete, and update instances.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param GetWorkRequestRequest
      * @return GetWorkRequestResponse
      * @throws OciError when an error occurs
@@ -4320,7 +5517,7 @@ You can use this operation to monitor the status of jobs that you
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -4373,7 +5570,7 @@ You can use this operation to monitor the status of jobs that you
   /**
    * Returns a list of ODA instance attachments
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOdaInstanceAttachmentsRequest
    * @return ListOdaInstanceAttachmentsResponse
    * @throws OciError when an error occurs
@@ -4404,7 +5601,7 @@ You can use this operation to monitor the status of jobs that you
       "opc-request-id": listOdaInstanceAttachmentsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOdaInstanceAttachmentsRequest.retryConfiguration,
@@ -4467,7 +5664,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListOdaInstancesRequest
      * @return ListOdaInstancesResponse
      * @throws OciError when an error occurs
@@ -4497,7 +5694,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listOdaInstancesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listOdaInstancesRequest.retryConfiguration,
@@ -4611,7 +5808,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListWorkRequestErrorsRequest
      * @return ListWorkRequestErrorsResponse
      * @throws OciError when an error occurs
@@ -4640,7 +5837,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -4754,7 +5951,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListWorkRequestLogsRequest
      * @return ListWorkRequestLogsResponse
      * @throws OciError when an error occurs
@@ -4783,7 +5980,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -4897,7 +6094,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListWorkRequestsRequest
      * @return ListWorkRequestsResponse
      * @throws OciError when an error occurs
@@ -4915,6 +6112,7 @@ If the `opc-next-page` header appears in the response, then
     const queryParams = {
       "compartmentId": listWorkRequestsRequest.compartmentId,
       "odaInstanceId": listWorkRequestsRequest.odaInstanceId,
+      "resourceId": listWorkRequestsRequest.resourceId,
       "page": listWorkRequestsRequest.page,
       "limit": listWorkRequestsRequest.limit,
       "sortBy": listWorkRequestsRequest.sortBy,
@@ -4926,7 +6124,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -5037,7 +6235,7 @@ If the `opc-next-page` header appears in the response, then
    * Starts an inactive Digital Assistant instance. Once active, the instance will be accessible and metering
    * of requests will be started again.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StartOdaInstanceRequest
    * @return StartOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -5063,7 +6261,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-retry-token": startOdaInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       startOdaInstanceRequest.retryConfiguration,
@@ -5114,7 +6312,7 @@ If the `opc-next-page` header appears in the response, then
    * of requests will be stopped until the instance is started again. Data associated with the instance
    * is not affected.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param StopOdaInstanceRequest
    * @return StopOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -5140,7 +6338,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-retry-token": stopOdaInstanceRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       stopOdaInstanceRequest.retryConfiguration,
@@ -5188,7 +6386,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the specified Digital Assistant instance with the information in the request body.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOdaInstanceRequest
    * @return UpdateOdaInstanceResponse
    * @throws OciError when an error occurs
@@ -5213,7 +6411,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateOdaInstanceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOdaInstanceRequest.retryConfiguration,
@@ -5270,7 +6468,7 @@ If the `opc-next-page` header appears in the response, then
 
   /**
    * Updates the ODA instance attachment
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateOdaInstanceAttachmentRequest
    * @return UpdateOdaInstanceAttachmentResponse
    * @throws OciError when an error occurs
@@ -5296,7 +6494,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": updateOdaInstanceAttachmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateOdaInstanceAttachmentRequest.retryConfiguration,
@@ -5457,7 +6655,7 @@ export class OdapackageClient {
 To monitor the status of the job, take the `opc-work-request-id` response
 * header value and use it to call `GET /workRequests/{workRequestId}`.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param CreateImportedPackageRequest
      * @return CreateImportedPackageResponse
      * @throws OciError when an error occurs
@@ -5481,7 +6679,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": createImportedPackageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createImportedPackageRequest.retryConfiguration,
@@ -5552,7 +6750,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
 To monitor the status of the job, take the `opc-work-request-id` response
 * header value and use it to call `GET /workRequests/{workRequestId}`.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param DeleteImportedPackageRequest
      * @return DeleteImportedPackageResponse
      * @throws OciError when an error occurs
@@ -5579,7 +6777,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": deleteImportedPackageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteImportedPackageRequest.retryConfiguration,
@@ -5628,7 +6826,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   /**
    * Returns a list of summaries for imported packages in the instance.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetImportedPackageRequest
    * @return GetImportedPackageResponse
    * @throws OciError when an error occurs
@@ -5653,7 +6851,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": getImportedPackageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getImportedPackageRequest.retryConfiguration,
@@ -5706,7 +6904,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   /**
    * Returns details about a package, and how to import it.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPackageRequest
    * @return GetPackageResponse
    * @throws OciError when an error occurs
@@ -5731,7 +6929,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": getPackageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getPackageRequest.retryConfiguration,
@@ -5779,7 +6977,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
   /**
    * Returns a list of summaries for imported packages in the instance.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListImportedPackagesRequest
    * @return ListImportedPackagesResponse
    * @throws OciError when an error occurs
@@ -5809,7 +7007,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": listImportedPackagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listImportedPackagesRequest.retryConfiguration,
@@ -5927,7 +7125,7 @@ If the `opc-next-page` header appears in the response, then
 * there are more items to retrieve. To get the next page in the subsequent
 * GET request, include the header's value as the `page` query parameter.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListPackagesRequest
      * @return ListPackagesResponse
      * @throws OciError when an error occurs
@@ -5945,9 +7143,10 @@ If the `opc-next-page` header appears in the response, then
     const queryParams = {
       "odaInstanceId": listPackagesRequest.odaInstanceId,
       "resourceType": listPackagesRequest.resourceType,
+      "compartmentId": listPackagesRequest.compartmentId,
       "name": listPackagesRequest.name,
       "displayName": listPackagesRequest.displayName,
-      "isLatestSkillOnly": listPackagesRequest.isLatestSkillOnly,
+      "isLatestVersionOnly": listPackagesRequest.isLatestVersionOnly,
       "limit": listPackagesRequest.limit,
       "page": listPackagesRequest.page,
       "sortOrder": listPackagesRequest.sortOrder,
@@ -5959,7 +7158,7 @@ If the `opc-next-page` header appears in the response, then
       "opc-request-id": listPackagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listPackagesRequest.retryConfiguration,
@@ -6072,7 +7271,7 @@ If the `opc-next-page` header appears in the response, then
 To monitor the status of the job, take the `opc-work-request-id` response
 * header value and use it to call `GET /workRequests/{workRequestId}`.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param UpdateImportedPackageRequest
      * @return UpdateImportedPackageResponse
      * @throws OciError when an error occurs
@@ -6100,7 +7299,7 @@ To monitor the status of the job, take the `opc-work-request-id` response
       "opc-request-id": updateImportedPackageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateImportedPackageRequest.retryConfiguration,

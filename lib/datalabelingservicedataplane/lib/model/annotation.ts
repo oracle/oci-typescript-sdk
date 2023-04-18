@@ -59,10 +59,6 @@ export interface Annotation {
    */
   "lifecycleState": Annotation.LifecycleState;
   /**
-   * An integer value used in achieving concurrency control, this field will be used to generate eTags. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
-  "lifetimeLogicalClock": number;
-  /**
    * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
    * For example: `{\"bar-key\": \"value\"}`
    *

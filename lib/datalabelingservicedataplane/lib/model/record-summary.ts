@@ -50,6 +50,7 @@ export interface RecordSummary {
    * Describes the lifecycle state.
    */
   "lifecycleState": string;
+  "recordMetadata"?: model.DocumentMetadata | model.ImageMetadata | model.TextMetadata;
   /**
    * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
    * For example: `{\"bar-key\": \"value\"}`
@@ -66,12 +67,26 @@ export interface RecordSummary {
 
 export namespace RecordSummary {
   export function getJsonObj(obj: RecordSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "recordMetadata": obj.recordMetadata
+          ? model.RecordMetadata.getJsonObj(obj.recordMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: RecordSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "recordMetadata": obj.recordMetadata
+          ? model.RecordMetadata.getDeserializedJsonObj(obj.recordMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
