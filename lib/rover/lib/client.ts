@@ -31,6 +31,7 @@ export enum RoverClusterApiKeys {}
 export class RoverClusterClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RoverClusterWaiter;
@@ -38,6 +39,9 @@ export class RoverClusterClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "RoverCluster";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -100,16 +104,44 @@ export class RoverClusterClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        RoverClusterClient.serviceEndpointTemplate,
+        this._region,
+        RoverClusterClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        RoverClusterClient.serviceEndpointTemplate,
+        this._regionId,
+        RoverClusterClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RoverClusterClient.serviceEndpointTemplate,
       region,
       RoverClusterClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -121,11 +153,13 @@ export class RoverClusterClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RoverClusterClient.serviceEndpointTemplate,
       regionId,
       RoverClusterClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -707,6 +741,7 @@ export enum RoverEntitlementApiKeys {}
 export class RoverEntitlementClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RoverEntitlementWaiter;
@@ -714,6 +749,9 @@ export class RoverEntitlementClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "RoverEntitlement";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -776,16 +814,44 @@ export class RoverEntitlementClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        RoverEntitlementClient.serviceEndpointTemplate,
+        this._region,
+        RoverEntitlementClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        RoverEntitlementClient.serviceEndpointTemplate,
+        this._regionId,
+        RoverEntitlementClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RoverEntitlementClient.serviceEndpointTemplate,
       region,
       RoverEntitlementClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -797,11 +863,13 @@ export class RoverEntitlementClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RoverEntitlementClient.serviceEndpointTemplate,
       regionId,
       RoverEntitlementClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -1314,6 +1382,7 @@ export enum RoverNodeApiKeys {}
 export class RoverNodeClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RoverNodeWaiter;
@@ -1321,6 +1390,9 @@ export class RoverNodeClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "RoverNode";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -1383,16 +1455,44 @@ export class RoverNodeClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        RoverNodeClient.serviceEndpointTemplate,
+        this._region,
+        RoverNodeClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        RoverNodeClient.serviceEndpointTemplate,
+        this._regionId,
+        RoverNodeClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RoverNodeClient.serviceEndpointTemplate,
       region,
       RoverNodeClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -1404,11 +1504,13 @@ export class RoverNodeClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RoverNodeClient.serviceEndpointTemplate,
       regionId,
       RoverNodeClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -2229,12 +2331,16 @@ export enum ShapeApiKeys {}
 export class ShapeClient {
   protected static serviceEndpointTemplate = "https://rover.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Shape";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -2297,16 +2403,44 @@ export class ShapeClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        ShapeClient.serviceEndpointTemplate,
+        this._region,
+        ShapeClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        ShapeClient.serviceEndpointTemplate,
+        this._regionId,
+        ShapeClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ShapeClient.serviceEndpointTemplate,
       region,
       ShapeClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -2318,11 +2452,13 @@ export class ShapeClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ShapeClient.serviceEndpointTemplate,
       regionId,
       ShapeClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**

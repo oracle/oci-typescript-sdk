@@ -116,6 +116,7 @@ export interface FusionEnvironment {
    * Environment Specific Guid/ System Name
    */
   "systemName"?: string;
+  "environmentRole"?: model.EnvironmentRole;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -170,6 +171,10 @@ export namespace FusionEnvironment {
           ? obj.rules.map(item => {
               return model.Rule.getJsonObj(item);
             })
+          : undefined,
+
+        "environmentRole": obj.environmentRole
+          ? model.EnvironmentRole.getJsonObj(obj.environmentRole)
           : undefined
       }
     };
@@ -191,6 +196,10 @@ export namespace FusionEnvironment {
           ? obj.rules.map(item => {
               return model.Rule.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "environmentRole": obj.environmentRole
+          ? model.EnvironmentRole.getDeserializedJsonObj(obj.environmentRole)
           : undefined
       }
     };

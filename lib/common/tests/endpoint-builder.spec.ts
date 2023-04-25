@@ -5,6 +5,7 @@
 
 import { expect } from "chai";
 import { Region } from "../lib/region";
+import { Realm } from "../lib/realm";
 import { EndpointBuilder } from "../lib/endpoint-builder";
 
 describe("Test EndpointBuilder ", () => {
@@ -72,5 +73,103 @@ describe("Test EndpointBuilder ", () => {
     let endpointServiceName = "myService";
     const url = EndpointBuilder.createEndpointFromRegionId(template, regionId, endpointServiceName);
     expect(url).equals("https://myService.acmecorp.com");
+  });
+
+  it("should return correct realm specific endpoint for a known region", function() {
+    let serviceEndpointTemplatePerRealm = {
+      "oc1": "https://oc1.{region}.{secondLevelDomain}",
+      "oc8": "https://oc8.{region}.{secondLevelDomain}"
+    };
+    let region1 = Region.register("test_region_1", Realm.OC1);
+    let region2 = Region.register("test_region_2", Realm.OC8);
+    const url1 = EndpointBuilder.createEndpointFromRegion(
+      template,
+      region1,
+      "",
+      serviceEndpointTemplatePerRealm,
+      true
+    );
+    const url2 = EndpointBuilder.createEndpointFromRegion(
+      template,
+      region2,
+      "",
+      serviceEndpointTemplatePerRealm,
+      true
+    );
+    expect(url1).equals("https://oc1.test_region_1.oraclecloud.com");
+    expect(url2).equals("https://oc8.test_region_2.oraclecloud8.com");
+  });
+
+  it("should fallback to the correct realm specific endpoint template for an unknown region falling back to oc1", function() {
+    let serviceEndpointTemplatePerRealm = {
+      "oc1": "https://oc1.{region}.{secondLevelDomain}"
+    };
+    let regionId = "unknown_region_1";
+    const url = EndpointBuilder.createEndpointFromRegionId(
+      template,
+      regionId,
+      "",
+      serviceEndpointTemplatePerRealm,
+      true
+    );
+    expect(url).equals("https://oc1.unknown_region_1.oraclecloud.com");
+  });
+
+  it("should populate the endpoint with multiple parameters from query and path params correctly", function() {
+    let endpoint =
+      "https://{namespaceName+Dot}{bucketName}objectstorage.us-phoenix-1.{namespaceName+Dot}oci.oraclecloud.com";
+    let pathParams = {
+      "{namespaceName}": "test-namespace-1"
+    };
+    let queryParams = {
+      "bucketName": "test-bucket-1"
+    };
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    const url = EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    expect(url).equals(
+      "https://test-namespace-1.test-bucket-1objectstorage.us-phoenix-1.test-namespace-1.oci.oraclecloud.com"
+    );
+  });
+
+  it("should populate the endpoint with multiple parameters from path params correctly with missing params", function() {
+    let endpoint =
+      "https://{namespaceName+Dot}{bucketName}objectstorage.us-phoenix-1.{namespaceName+Dot}oci.oraclecloud.com";
+    let pathParams = {
+      "{namespaceName}": "test-namespace-1"
+    };
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let queryParams = {};
+    const url = EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    expect(url).equals(
+      "https://test-namespace-1.objectstorage.us-phoenix-1.test-namespace-1.oci.oraclecloud.com"
+    );
+  });
+
+  it("should populate the endpoint with multiple parameters from path params correctly with only required params", function() {
+    let endpoint =
+      "https://{namespaceName+Dot}{bucketName+Dot}objectstorage.us-phoenix-1.{namespaceName+Dot}oci.oraclecloud.com";
+    let pathParams = {
+      "{bucketName}": "test-bucket-1",
+      "{namespaceName}": "test-namespace-1"
+    };
+    const requiredParams = new Set<string>(["bucketName"]);
+    let queryParams = {};
+    const url = EndpointBuilder.populateServiceParamsInEndpoint(
+      endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
+    expect(url).equals("https://test-bucket-1.objectstorage.us-phoenix-1.oci.oraclecloud.com");
   });
 });

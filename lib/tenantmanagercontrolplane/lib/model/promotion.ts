@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface Promotion {
   /**
-   * How long the promotion related to the subscription, if any, is valid in duration units. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Specifies how long the promotion related to the subscription, if any, is valid in duration units. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "duration"?: number;
   /**
@@ -27,15 +27,15 @@ export interface Promotion {
    */
   "durationUnit"?: string;
   /**
-   * Total amount of credit for the promotion related to the subscription if there is one. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * If a subscription is present, indicates the total amount of promotional subscription credit. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "amount"?: number;
   /**
-   * Current status of the promotion related to the subscription if there is one.
+   * If a subscription is present, indicates the current status of the subscription promotion.
    */
   "status"?: Promotion.Status;
   /**
-   * Whether or not customer intends to pay once the promotion is done.
+   * Speficies whether or not the customer intends to pay after the promotion has expired.
    */
   "isIntentToPay"?: boolean;
   /**
@@ -43,11 +43,11 @@ export interface Promotion {
    */
   "currencyUnit"?: string;
   /**
-   * Date-time for when the promotion starts.
+   * Date and time when the promotion starts.
    */
   "timeStarted"?: Date;
   /**
-   * Date-time for when the promotion ends.
+   * Date and time when the promotion ends.
    */
   "timeExpired"?: Date;
 }

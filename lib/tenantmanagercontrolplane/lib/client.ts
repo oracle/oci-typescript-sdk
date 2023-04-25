@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -37,6 +37,7 @@ export class DomainClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DomainWaiter;
@@ -44,6 +45,9 @@ export class DomainClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Domain";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -106,16 +110,44 @@ export class DomainClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        DomainClient.serviceEndpointTemplate,
+        this._region,
+        DomainClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        DomainClient.serviceEndpointTemplate,
+        this._regionId,
+        DomainClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DomainClient.serviceEndpointTemplate,
       region,
       DomainClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -127,11 +159,13 @@ export class DomainClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DomainClient.serviceEndpointTemplate,
       regionId,
       DomainClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -560,6 +594,7 @@ export class DomainGovernanceClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DomainGovernanceWaiter;
@@ -567,6 +602,9 @@ export class DomainGovernanceClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "DomainGovernance";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -629,16 +667,44 @@ export class DomainGovernanceClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        DomainGovernanceClient.serviceEndpointTemplate,
+        this._region,
+        DomainGovernanceClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        DomainGovernanceClient.serviceEndpointTemplate,
+        this._regionId,
+        DomainGovernanceClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DomainGovernanceClient.serviceEndpointTemplate,
       region,
       DomainGovernanceClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -650,11 +716,13 @@ export class DomainGovernanceClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DomainGovernanceClient.serviceEndpointTemplate,
       regionId,
       DomainGovernanceClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -1076,6 +1144,262 @@ export class DomainGovernanceClient {
     }
   }
 }
+export enum GovernanceApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class GovernanceClient {
+  protected static serviceEndpointTemplate =
+    "https://organizations.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
+  public targetService = "Governance";
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20200801";
+    if (this.logger) this.logger.info(`GovernanceClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      GovernanceClient.serviceEndpointTemplate,
+      region,
+      GovernanceClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      GovernanceClient.serviceEndpointTemplate,
+      regionId,
+      GovernanceClient.endpointServiceName
+    );
+  }
+
+  /**
+   * Starts a work request to opt the tenancy in to governance rules.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddGovernanceRequest
+   * @return AddGovernanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/AddGovernance.ts.html |here} to see how to use AddGovernance API.
+   */
+  public async addGovernance(
+    addGovernanceRequest: requests.AddGovernanceRequest
+  ): Promise<responses.AddGovernanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation GovernanceClient#addGovernance.");
+    const operationName = "addGovernance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/OrganizationTenancy/AddGovernance";
+    const pathParams = {
+      "{organizationId}": addGovernanceRequest.organizationId,
+      "{organizationTenancyId}": addGovernanceRequest.organizationTenancyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": addGovernanceRequest.ifMatch,
+      "opc-retry-token": addGovernanceRequest.opcRetryToken,
+      "opc-request-id": addGovernanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addGovernanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/organizations/{organizationId}/tenancies/{organizationTenancyId}/actions/addGovernance",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddGovernanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Starts a work request to opt the tenancy out of governance rules.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveGovernanceRequest
+   * @return RemoveGovernanceResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/tenantmanagercontrolplane/RemoveGovernance.ts.html |here} to see how to use RemoveGovernance API.
+   */
+  public async removeGovernance(
+    removeGovernanceRequest: requests.RemoveGovernanceRequest
+  ): Promise<responses.RemoveGovernanceResponse> {
+    if (this.logger) this.logger.debug("Calling operation GovernanceClient#removeGovernance.");
+    const operationName = "removeGovernance";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/organizations/20200801/OrganizationTenancy/RemoveGovernance";
+    const pathParams = {
+      "{organizationId}": removeGovernanceRequest.organizationId,
+      "{organizationTenancyId}": removeGovernanceRequest.organizationTenancyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": removeGovernanceRequest.ifMatch,
+      "opc-retry-token": removeGovernanceRequest.opcRetryToken,
+      "opc-request-id": removeGovernanceRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeGovernanceRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/organizations/{organizationId}/tenancies/{organizationTenancyId}/actions/removeGovernance",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveGovernanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
 export enum LinkApiKeys {}
 /**
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
@@ -1084,6 +1408,7 @@ export class LinkClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": LinkWaiter;
@@ -1091,6 +1416,9 @@ export class LinkClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Link";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -1153,16 +1481,44 @@ export class LinkClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        LinkClient.serviceEndpointTemplate,
+        this._region,
+        LinkClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        LinkClient.serviceEndpointTemplate,
+        this._regionId,
+        LinkClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LinkClient.serviceEndpointTemplate,
       region,
       LinkClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -1174,11 +1530,13 @@ export class LinkClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LinkClient.serviceEndpointTemplate,
       regionId,
       LinkClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -1442,12 +1800,16 @@ export class OrdersClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Orders";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -1510,16 +1872,44 @@ export class OrdersClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        OrdersClient.serviceEndpointTemplate,
+        this._region,
+        OrdersClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        OrdersClient.serviceEndpointTemplate,
+        this._regionId,
+        OrdersClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OrdersClient.serviceEndpointTemplate,
       region,
       OrdersClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -1531,11 +1921,13 @@ export class OrdersClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OrdersClient.serviceEndpointTemplate,
       regionId,
       OrdersClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -1617,7 +2009,7 @@ export class OrdersClient {
   }
 
   /**
-   * Returns the Order Details given by the order ID in the JWT.
+   * Returns the order details given by the order ID in the JWT.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetOrderRequest
@@ -1696,6 +2088,7 @@ export class OrganizationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": OrganizationWaiter;
@@ -1703,6 +2096,9 @@ export class OrganizationClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Organization";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -1765,16 +2161,44 @@ export class OrganizationClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        OrganizationClient.serviceEndpointTemplate,
+        this._region,
+        OrganizationClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        OrganizationClient.serviceEndpointTemplate,
+        this._regionId,
+        OrganizationClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       OrganizationClient.serviceEndpointTemplate,
       region,
       OrganizationClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -1786,11 +2210,13 @@ export class OrganizationClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       OrganizationClient.serviceEndpointTemplate,
       regionId,
       OrganizationClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -2362,7 +2788,7 @@ export class OrganizationClient {
   }
 
   /**
-   * An asynchronous API to restore tenancy.
+   * An asynchronous API to restore a tenancy.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RestoreOrganizationTenancyRequest
    * @return RestoreOrganizationTenancyResponse
@@ -2520,7 +2946,7 @@ export class OrganizationClient {
   }
 
   /**
-   * Assign the default subscription to the organization.
+   * Map the default subscription to the organization.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateOrganizationRequest
    * @return UpdateOrganizationResponse
@@ -2606,6 +3032,7 @@ export class RecipientInvitationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RecipientInvitationWaiter;
@@ -2613,6 +3040,9 @@ export class RecipientInvitationClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "RecipientInvitation";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -2676,16 +3106,44 @@ export class RecipientInvitationClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        RecipientInvitationClient.serviceEndpointTemplate,
+        this._region,
+        RecipientInvitationClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        RecipientInvitationClient.serviceEndpointTemplate,
+        this._regionId,
+        RecipientInvitationClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RecipientInvitationClient.serviceEndpointTemplate,
       region,
       RecipientInvitationClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -2697,11 +3155,13 @@ export class RecipientInvitationClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RecipientInvitationClient.serviceEndpointTemplate,
       regionId,
       RecipientInvitationClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -3041,7 +3501,7 @@ export class RecipientInvitationClient {
   }
 
   /**
-   * Updates the RecipientInvitation.
+   * Updates the recipient invitation.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateRecipientInvitationRequest
    * @return UpdateRecipientInvitationResponse
@@ -3131,6 +3591,7 @@ export class SenderInvitationClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": SenderInvitationWaiter;
@@ -3138,6 +3599,9 @@ export class SenderInvitationClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "SenderInvitation";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -3200,16 +3664,44 @@ export class SenderInvitationClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        SenderInvitationClient.serviceEndpointTemplate,
+        this._region,
+        SenderInvitationClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        SenderInvitationClient.serviceEndpointTemplate,
+        this._regionId,
+        SenderInvitationClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SenderInvitationClient.serviceEndpointTemplate,
       region,
       SenderInvitationClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -3221,11 +3713,13 @@ export class SenderInvitationClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SenderInvitationClient.serviceEndpointTemplate,
       regionId,
       SenderInvitationClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -3576,7 +4070,7 @@ export class SenderInvitationClient {
   }
 
   /**
-   * Updates the SenderInvitation.
+   * Updates the sender invitation.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateSenderInvitationRequest
    * @return UpdateSenderInvitationResponse
@@ -3666,6 +4160,7 @@ export class SubscriptionClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": SubscriptionWaiter;
@@ -3673,6 +4168,9 @@ export class SubscriptionClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Subscription";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -3735,16 +4233,44 @@ export class SubscriptionClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        SubscriptionClient.serviceEndpointTemplate,
+        this._region,
+        SubscriptionClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        SubscriptionClient.serviceEndpointTemplate,
+        this._regionId,
+        SubscriptionClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       SubscriptionClient.serviceEndpointTemplate,
       region,
       SubscriptionClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -3756,11 +4282,13 @@ export class SubscriptionClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       SubscriptionClient.serviceEndpointTemplate,
       regionId,
       SubscriptionClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -4506,6 +5034,7 @@ export class WorkRequestClient {
   protected static serviceEndpointTemplate =
     "https://organizations.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestWaiter;
@@ -4513,6 +5042,9 @@ export class WorkRequestClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "WorkRequest";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -4575,16 +5107,44 @@ export class WorkRequestClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        WorkRequestClient.serviceEndpointTemplate,
+        this._region,
+        WorkRequestClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        WorkRequestClient.serviceEndpointTemplate,
+        this._regionId,
+        WorkRequestClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WorkRequestClient.serviceEndpointTemplate,
       region,
       WorkRequestClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -4596,11 +5156,13 @@ export class WorkRequestClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WorkRequestClient.serviceEndpointTemplate,
       regionId,
       WorkRequestClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**

@@ -29,6 +29,7 @@ export enum IdentityDomainsApiKeys {}
 export class IdentityDomainsClient {
   protected static serviceEndpointTemplate = "https://identity.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
@@ -84,6 +85,19 @@ export class IdentityDomainsClient {
 
   public get logger() {
     return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
   }
 
   /**

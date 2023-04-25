@@ -33,6 +33,7 @@ export enum RedirectApiKeys {
 export class RedirectClient {
   protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": RedirectWaiter;
@@ -40,6 +41,9 @@ export class RedirectClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Redirect";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -102,16 +106,44 @@ export class RedirectClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        RedirectClient.serviceEndpointTemplate,
+        this._region,
+        RedirectClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        RedirectClient.serviceEndpointTemplate,
+        this._regionId,
+        RedirectClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       RedirectClient.serviceEndpointTemplate,
       region,
       RedirectClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -123,11 +155,13 @@ export class RedirectClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       RedirectClient.serviceEndpointTemplate,
       regionId,
       RedirectClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -679,6 +713,7 @@ export enum WaasApiKeys {
 export class WaasClient {
   protected static serviceEndpointTemplate = "https://waas.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WaasWaiter;
@@ -686,6 +721,9 @@ export class WaasClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Waas";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -748,16 +786,44 @@ export class WaasClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        WaasClient.serviceEndpointTemplate,
+        this._region,
+        WaasClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        WaasClient.serviceEndpointTemplate,
+        this._regionId,
+        WaasClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WaasClient.serviceEndpointTemplate,
       region,
       WaasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -769,11 +835,13 @@ export class WaasClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WaasClient.serviceEndpointTemplate,
       regionId,
       WaasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**

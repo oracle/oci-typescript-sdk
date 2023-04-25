@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -27,25 +27,29 @@ export interface OrganizationTenancySummary {
    */
   "name"?: string;
   /**
-   * Lifecycle state of the OrganizationTenancy.
+   * Lifecycle state of the organization tenancy.
    */
   "lifecycleState"?: model.OrganizationTenancyLifecycleState;
   /**
-   * Role of the OrganizationTenancy.
+   * Role of the organization tenancy.
    */
   "role"?: model.OrganizationTenancyRole;
   /**
-   * Date-time when this tenancy joined the organization.
+   * Date and time when the tenancy joined the organization.
    */
   "timeJoined"?: Date;
   /**
-   * Date-time when this tenancy left the organization.
+   * Date and time when the tenancy left the organization.
    */
   "timeLeft"?: Date;
   /**
-   * Flag to indicate the tenancy is approved for transfer to another organization.
+   * Parameter to indicate the tenancy is approved for transfer to another organization.
    */
   "isApprovedForTransfer"?: boolean;
+  /**
+   * The governance status of the tenancy.
+   */
+  "governanceStatus": model.GovernanceStatus;
 }
 
 export namespace OrganizationTenancySummary {

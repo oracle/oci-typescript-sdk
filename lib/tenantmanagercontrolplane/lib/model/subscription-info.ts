@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -23,7 +23,7 @@ export interface SubscriptionInfo {
    */
   "spmSubscriptionId": string;
   /**
-   * Service name for subscription.
+   * Subscription service name.
    */
   "service": string;
   /**

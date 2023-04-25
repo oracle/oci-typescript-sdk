@@ -35,6 +35,7 @@ export enum ChannelsApiKeys {}
 export class ChannelsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ChannelsWaiter;
@@ -42,6 +43,9 @@ export class ChannelsClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Channels";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -104,16 +108,44 @@ export class ChannelsClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        ChannelsClient.serviceEndpointTemplate,
+        this._region,
+        ChannelsClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        ChannelsClient.serviceEndpointTemplate,
+        this._regionId,
+        ChannelsClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ChannelsClient.serviceEndpointTemplate,
       region,
       ChannelsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -125,11 +157,13 @@ export class ChannelsClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ChannelsClient.serviceEndpointTemplate,
       regionId,
       ChannelsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -773,6 +807,7 @@ export enum DbBackupsApiKeys {}
 export class DbBackupsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbBackupsWaiter;
@@ -780,6 +815,9 @@ export class DbBackupsClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "DbBackups";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -842,16 +880,44 @@ export class DbBackupsClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        DbBackupsClient.serviceEndpointTemplate,
+        this._region,
+        DbBackupsClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        DbBackupsClient.serviceEndpointTemplate,
+        this._regionId,
+        DbBackupsClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DbBackupsClient.serviceEndpointTemplate,
       region,
       DbBackupsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -863,11 +929,13 @@ export class DbBackupsClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DbBackupsClient.serviceEndpointTemplate,
       regionId,
       DbBackupsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -1439,6 +1507,7 @@ export enum DbSystemApiKeys {}
 export class DbSystemClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": DbSystemWaiter;
@@ -1446,6 +1515,9 @@ export class DbSystemClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "DbSystem";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -1508,16 +1580,44 @@ export class DbSystemClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        DbSystemClient.serviceEndpointTemplate,
+        this._region,
+        DbSystemClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        DbSystemClient.serviceEndpointTemplate,
+        this._regionId,
+        DbSystemClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       DbSystemClient.serviceEndpointTemplate,
       region,
       DbSystemClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -1529,11 +1629,13 @@ export class DbSystemClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       DbSystemClient.serviceEndpointTemplate,
       regionId,
       DbSystemClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -3673,6 +3775,7 @@ export enum MysqlaasApiKeys {}
 export class MysqlaasClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": MysqlaasWaiter;
@@ -3680,6 +3783,9 @@ export class MysqlaasClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Mysqlaas";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -3742,16 +3848,44 @@ export class MysqlaasClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        MysqlaasClient.serviceEndpointTemplate,
+        this._region,
+        MysqlaasClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        MysqlaasClient.serviceEndpointTemplate,
+        this._regionId,
+        MysqlaasClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       MysqlaasClient.serviceEndpointTemplate,
       region,
       MysqlaasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -3763,11 +3897,13 @@ export class MysqlaasClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       MysqlaasClient.serviceEndpointTemplate,
       regionId,
       MysqlaasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -4416,6 +4552,7 @@ export enum ReplicasApiKeys {}
 export class ReplicasClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": ReplicasWaiter;
@@ -4423,6 +4560,9 @@ export class ReplicasClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Replicas";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -4485,16 +4625,44 @@ export class ReplicasClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        ReplicasClient.serviceEndpointTemplate,
+        this._region,
+        ReplicasClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        ReplicasClient.serviceEndpointTemplate,
+        this._regionId,
+        ReplicasClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ReplicasClient.serviceEndpointTemplate,
       region,
       ReplicasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -4506,11 +4674,13 @@ export class ReplicasClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ReplicasClient.serviceEndpointTemplate,
       regionId,
       ReplicasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -4996,6 +5166,7 @@ export enum WorkRequestsApiKeys {}
 export class WorkRequestsClient {
   protected static serviceEndpointTemplate = "https://mysql.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": WorkRequestsWaiter;
@@ -5003,6 +5174,9 @@ export class WorkRequestsClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "WorkRequests";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -5065,16 +5239,44 @@ export class WorkRequestsClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        WorkRequestsClient.serviceEndpointTemplate,
+        this._region,
+        WorkRequestsClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        WorkRequestsClient.serviceEndpointTemplate,
+        this._regionId,
+        WorkRequestsClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       WorkRequestsClient.serviceEndpointTemplate,
       region,
       WorkRequestsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -5086,11 +5288,13 @@ export class WorkRequestsClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       WorkRequestsClient.serviceEndpointTemplate,
       regionId,
       WorkRequestsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**

@@ -49,6 +49,9 @@ export class Region {
   private static AUTHORIZATION: string = "Authorization";
   private static CONTENT_TYPE_HEADER: string = "Content-Type";
   private static CONTENT_TYPE_HEADER_VALUE: string = "application/json";
+  public static REGION_ID_STRING: string = "regionId";
+  public static REGION_STRING: string = "region";
+
 
   private constructor(regionId: string, realm: Realm, regionCode?: string) {
     this._realm = realm;

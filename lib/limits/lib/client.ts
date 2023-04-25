@@ -30,12 +30,16 @@ export enum LimitsApiKeys {}
 export class LimitsClient {
   protected static serviceEndpointTemplate = "https://limits.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Limits";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -97,16 +101,44 @@ export class LimitsClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        LimitsClient.serviceEndpointTemplate,
+        this._region,
+        LimitsClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        LimitsClient.serviceEndpointTemplate,
+        this._regionId,
+        LimitsClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       LimitsClient.serviceEndpointTemplate,
       region,
       LimitsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -118,11 +150,13 @@ export class LimitsClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       LimitsClient.serviceEndpointTemplate,
       regionId,
       LimitsClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -619,6 +653,7 @@ export enum QuotasApiKeys {}
 export class QuotasClient {
   protected static serviceEndpointTemplate = "https://limits.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": QuotasWaiter;
@@ -626,6 +661,9 @@ export class QuotasClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "Quotas";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -687,16 +725,44 @@ export class QuotasClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        QuotasClient.serviceEndpointTemplate,
+        this._region,
+        QuotasClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        QuotasClient.serviceEndpointTemplate,
+        this._regionId,
+        QuotasClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       QuotasClient.serviceEndpointTemplate,
       region,
       QuotasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -708,11 +774,13 @@ export class QuotasClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       QuotasClient.serviceEndpointTemplate,
       regionId,
       QuotasClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**

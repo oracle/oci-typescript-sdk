@@ -33,16 +33,31 @@ export interface ExternalDbSystemBasicInfo {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
+  "exadataInfraInfo"?: model.ExternalExadataInfraBasicInfo;
 }
 
 export namespace ExternalDbSystemBasicInfo {
   export function getJsonObj(obj: ExternalDbSystemBasicInfo): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exadataInfraInfo": obj.exadataInfraInfo
+          ? model.ExternalExadataInfraBasicInfo.getJsonObj(obj.exadataInfraInfo)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ExternalDbSystemBasicInfo): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "exadataInfraInfo": obj.exadataInfraInfo
+          ? model.ExternalExadataInfraBasicInfo.getDeserializedJsonObj(obj.exadataInfraInfo)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

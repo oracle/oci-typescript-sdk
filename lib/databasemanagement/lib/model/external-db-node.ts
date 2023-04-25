@@ -72,6 +72,10 @@ export interface ExternalDbNode {
    */
   "lifecycleDetails"?: string;
   /**
+   * Name of the domain.
+   */
+  "domainName"?: string;
+  /**
    * The date and time the external DB node was created.
    */
   "timeCreated": Date;

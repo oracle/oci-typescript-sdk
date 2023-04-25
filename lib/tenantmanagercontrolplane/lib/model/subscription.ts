@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -71,11 +71,11 @@ export interface Subscription {
    */
   "csiNumber"?: string;
   /**
-   * Tier for the subscription, such as if it is a free promotion subscription or a paid subscription.
+   * Tier for the subscription, whether it is a free promotion subscription or a paid subscription.
    */
   "subscriptionTier"?: string;
   /**
-   * Denotes if the subscription is a government subscription or not.
+   * Denotes whether or not the subscription is a government subscription.
    */
   "isGovernmentSubscription"?: boolean;
   /**
@@ -83,7 +83,7 @@ export interface Subscription {
    */
   "promotion"?: Array<model.Promotion>;
   /**
-   * Purchase entitlement id associated with the subscription.
+   * Purchase entitlement ID associated with the subscription.
    */
   "purchaseEntitlementId"?: string;
   /**

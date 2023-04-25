@@ -27,7 +27,7 @@ export interface CreateDomainGovernanceRequest extends common.BaseRequest {
    * server error, without risk of executing that same action again. Retry tokens expire after 24
    * hours, but can be invalidated before then due to conflicting operations. For example, if a resource
    * has been deleted and purged from the system, then a retry of the original creation request
-   * might be rejected.
+   * will be rejected.
    *
    */
   "opcRetryToken"?: string;

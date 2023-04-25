@@ -17,6 +17,8 @@ import * as ChangeIntegrationInstanceCompartmentDetails from "./change-integrati
 export import ChangeIntegrationInstanceCompartmentDetails = ChangeIntegrationInstanceCompartmentDetails.ChangeIntegrationInstanceCompartmentDetails;
 import * as ChangeIntegrationInstanceNetworkEndpointDetails from "./change-integration-instance-network-endpoint-details";
 export import ChangeIntegrationInstanceNetworkEndpointDetails = ChangeIntegrationInstanceNetworkEndpointDetails.ChangeIntegrationInstanceNetworkEndpointDetails;
+import * as ChangePrivateEndpointOutboundConnectionDetails from "./change-private-endpoint-outbound-connection-details";
+export import ChangePrivateEndpointOutboundConnectionDetails = ChangePrivateEndpointOutboundConnectionDetails.ChangePrivateEndpointOutboundConnectionDetails;
 import * as CreateCustomEndpointDetails from "./create-custom-endpoint-details";
 export import CreateCustomEndpointDetails = CreateCustomEndpointDetails.CreateCustomEndpointDetails;
 import * as CreateIntegrationInstanceDetails from "./create-integration-instance-details";
@@ -33,6 +35,8 @@ import * as NetworkEndpointDetails from "./network-endpoint-details";
 export import NetworkEndpointDetails = NetworkEndpointDetails.NetworkEndpointDetails;
 import * as NetworkEndpointType from "./network-endpoint-type";
 export import NetworkEndpointType = NetworkEndpointType.NetworkEndpointType;
+import * as OutboundConnection from "./outbound-connection";
+export import OutboundConnection = OutboundConnection.OutboundConnection;
 import * as UpdateCustomEndpointDetails from "./update-custom-endpoint-details";
 export import UpdateCustomEndpointDetails = UpdateCustomEndpointDetails.UpdateCustomEndpointDetails;
 import * as UpdateIntegrationInstanceDetails from "./update-integration-instance-details";
@@ -50,5 +54,9 @@ export import WorkRequestResource = WorkRequestResource.WorkRequestResource;
 import * as WorkRequestSummary from "./work-request-summary";
 export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
 
+import * as NoneOutboundConnection from "./none-outbound-connection";
+export import NoneOutboundConnection = NoneOutboundConnection.NoneOutboundConnection;
+import * as PrivateEndpointOutboundConnection from "./private-endpoint-outbound-connection";
+export import PrivateEndpointOutboundConnection = PrivateEndpointOutboundConnection.PrivateEndpointOutboundConnection;
 import * as PublicEndpointDetails from "./public-endpoint-details";
 export import PublicEndpointDetails = PublicEndpointDetails.PublicEndpointDetails;

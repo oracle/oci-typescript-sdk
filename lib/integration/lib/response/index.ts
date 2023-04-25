@@ -15,10 +15,14 @@ import * as ChangeIntegrationInstanceCompartmentResponse from "./change-integrat
 export import ChangeIntegrationInstanceCompartmentResponse = ChangeIntegrationInstanceCompartmentResponse.ChangeIntegrationInstanceCompartmentResponse;
 import * as ChangeIntegrationInstanceNetworkEndpointResponse from "./change-integration-instance-network-endpoint-response";
 export import ChangeIntegrationInstanceNetworkEndpointResponse = ChangeIntegrationInstanceNetworkEndpointResponse.ChangeIntegrationInstanceNetworkEndpointResponse;
+import * as ChangePrivateEndpointOutboundConnectionResponse from "./change-private-endpoint-outbound-connection-response";
+export import ChangePrivateEndpointOutboundConnectionResponse = ChangePrivateEndpointOutboundConnectionResponse.ChangePrivateEndpointOutboundConnectionResponse;
 import * as CreateIntegrationInstanceResponse from "./create-integration-instance-response";
 export import CreateIntegrationInstanceResponse = CreateIntegrationInstanceResponse.CreateIntegrationInstanceResponse;
 import * as DeleteIntegrationInstanceResponse from "./delete-integration-instance-response";
 export import DeleteIntegrationInstanceResponse = DeleteIntegrationInstanceResponse.DeleteIntegrationInstanceResponse;
+import * as EnableProcessAutomationResponse from "./enable-process-automation-response";
+export import EnableProcessAutomationResponse = EnableProcessAutomationResponse.EnableProcessAutomationResponse;
 import * as GetIntegrationInstanceResponse from "./get-integration-instance-response";
 export import GetIntegrationInstanceResponse = GetIntegrationInstanceResponse.GetIntegrationInstanceResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";

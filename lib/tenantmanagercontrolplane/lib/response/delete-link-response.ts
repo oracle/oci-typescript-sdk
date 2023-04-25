@@ -22,7 +22,7 @@ export interface DeleteLinkResponse {
    */
   "opcRequestId": string;
   /**
-   * Unique Oracle-assigned identifier for the asynchronous request. You can use this to query status of the asynchronous operation.
+   * Unique Oracle-assigned identifier for the asynchronous request. You can use this to query the status of the asynchronous operation.
    *
    */
   "opcWorkRequestId": string;

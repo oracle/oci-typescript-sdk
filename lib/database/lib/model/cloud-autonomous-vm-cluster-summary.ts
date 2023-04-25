@@ -127,6 +127,10 @@ These subnets are used by the Oracle Clusterware private interconnect on the dat
    */
   "computeModel"?: CloudAutonomousVmClusterSummary.ComputeModel;
   /**
+   * Enable mutual TLS(mTLS) authentication for database at time of provisioning a VMCluster. This is applicable to database TLS Certificates only. Default is TLS
+   */
+  "isMtlsEnabledVmCluster"?: boolean;
+  /**
    * The number of CPU cores enabled per VM cluster node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCoreCountPerNode"?: number;
@@ -153,6 +157,14 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "nextMaintenanceRunId"?: string;
   "maintenanceWindow"?: model.MaintenanceWindow;
+  /**
+   * The SCAN Listenenr TLS port. Default is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTls"?: number;
+  /**
+   * The SCAN Listener Non TLS port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortNonTls"?: number;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
