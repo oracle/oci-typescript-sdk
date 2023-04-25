@@ -108,6 +108,9 @@ export interface IntegrationInstance {
    * Shape
    */
   "shape"?: IntegrationInstance.Shape;
+  "privateEndpointOutboundConnection"?:
+    | model.PrivateEndpointOutboundConnection
+    | model.NoneOutboundConnection;
 }
 
 export namespace IntegrationInstance {
@@ -180,6 +183,10 @@ export namespace IntegrationInstance {
           ? obj.attachments.map(item => {
               return model.AttachmentDetails.getJsonObj(item);
             })
+          : undefined,
+
+        "privateEndpointOutboundConnection": obj.privateEndpointOutboundConnection
+          ? model.OutboundConnection.getJsonObj(obj.privateEndpointOutboundConnection)
           : undefined
       }
     };
@@ -209,6 +216,10 @@ export namespace IntegrationInstance {
           ? obj.attachments.map(item => {
               return model.AttachmentDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "privateEndpointOutboundConnection": obj.privateEndpointOutboundConnection
+          ? model.OutboundConnection.getDeserializedJsonObj(obj.privateEndpointOutboundConnection)
           : undefined
       }
     };

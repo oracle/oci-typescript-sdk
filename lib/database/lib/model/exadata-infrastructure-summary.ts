@@ -202,6 +202,7 @@ export interface ExadataInfrastructureSummary {
    *
    */
   "isCpsOfflineReportEnabled"?: boolean;
+  "networkBondingModeDetails"?: model.NetworkBondingModeDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -231,6 +232,7 @@ export namespace ExadataInfrastructureSummary {
     Deleted = "DELETED",
     Disconnected = "DISCONNECTED",
     MaintenanceInProgress = "MAINTENANCE_IN_PROGRESS",
+    WaitingForConnectivity = "WAITING_FOR_CONNECTIVITY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -272,6 +274,10 @@ export namespace ExadataInfrastructureSummary {
 
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "networkBondingModeDetails": obj.networkBondingModeDetails
+          ? model.NetworkBondingModeDetails.getJsonObj(obj.networkBondingModeDetails)
           : undefined
       }
     };
@@ -290,6 +296,10 @@ export namespace ExadataInfrastructureSummary {
 
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "networkBondingModeDetails": obj.networkBondingModeDetails
+          ? model.NetworkBondingModeDetails.getDeserializedJsonObj(obj.networkBondingModeDetails)
           : undefined
       }
     };

@@ -43,6 +43,10 @@ export interface ListManagedDatabasesRequest extends common.BaseRequest {
    */
   "deploymentType"?: model.DeploymentType;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
+   */
+  "externalExadataInfrastructureId"?: string;
+  /**
    * The page token representing the page from where the next set of paginated results
    * are retrieved. This is usually retrieved from a previous list call.
    *

@@ -67,10 +67,22 @@ export interface CreateCloudAutonomousVmClusterDetails {
    */
   "computeModel"?: CreateCloudAutonomousVmClusterDetails.ComputeModel;
   /**
+   * Enable mutual TLS(mTLS) authentication for database at time of provisioning a VMCluster. This is applicable to database TLS Certificates only. Default is TLS
+   */
+  "isMtlsEnabledVmCluster"?: boolean;
+  /**
    * The list of database servers.
    */
   "dbServers"?: Array<string>;
   "maintenanceWindowDetails"?: model.MaintenanceWindow;
+  /**
+   * The SCAN Listener TLS port. Default is 2484. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortTls"?: number;
+  /**
+   * The SCAN Listener Non TLS port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "scanListenerPortNonTls"?: number;
   /**
     * The Oracle license model that applies to the Oracle Autonomous Database. Bring your own license (BYOL) allows you to apply your current on-premises Oracle software licenses to equivalent, highly automated Oracle PaaS and IaaS services in the cloud.
 * License Included allows you to subscribe to new Oracle Database software licenses and the Database service.

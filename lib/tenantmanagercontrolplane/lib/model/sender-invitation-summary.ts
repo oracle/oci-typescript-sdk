@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -31,6 +31,10 @@ export interface SenderInvitationSummary {
    */
   "displayName": string;
   /**
+   * The list of subjects the invitation contains.
+   */
+  "subjects": Array<model.InvitationSubject>;
+  /**
    * OCID of the corresponding recipient invitation.
    */
   "recipientInvitationId"?: string;
@@ -47,11 +51,11 @@ export interface SenderInvitationSummary {
    */
   "status": model.SenderInvitationStatus;
   /**
-   * Date-time when this sender invitation was created.
+   * Date and time when the sender invitation was created.
    */
   "timeCreated": Date;
   /**
-   * Date-time when this sender invitation was last updated.
+   * Date and time when the sender invitation was last updated.
    */
   "timeUpdated"?: Date;
   /**
@@ -80,12 +84,30 @@ export interface SenderInvitationSummary {
 
 export namespace SenderInvitationSummary {
   export function getJsonObj(obj: SenderInvitationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "subjects": obj.subjects
+          ? obj.subjects.map(item => {
+              return model.InvitationSubject.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: SenderInvitationSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "subjects": obj.subjects
+          ? obj.subjects.map(item => {
+              return model.InvitationSubject.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

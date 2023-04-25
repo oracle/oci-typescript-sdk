@@ -23,11 +23,11 @@ export interface ListSubscriptionMappingsRequest extends common.BaseRequest {
    */
   "subscriptionId": string;
   /**
-   * SubscriptionMappingId is a unique ID for subscription and tenancy mapping.
+   * A unique ID for subscription and tenancy mapping.
    */
   "subscriptionMappingId"?: string;
   /**
-   * The ID of the compartment in which to list resources.
+   * OCID of the compartment. Always a tenancy OCID.
    */
   "compartmentId"?: string;
   /**

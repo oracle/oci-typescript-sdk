@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface ListOrganizationsRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * OCID of the compartment. Always a tenancy OCID.
    */
   "compartmentId": string;
   /**

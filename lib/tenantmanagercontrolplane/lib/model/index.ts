@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -47,6 +47,10 @@ import * as DomainGovernanceSummary from "./domain-governance-summary";
 export import DomainGovernanceSummary = DomainGovernanceSummary.DomainGovernanceSummary;
 import * as DomainSummary from "./domain-summary";
 export import DomainSummary = DomainSummary.DomainSummary;
+import * as GovernanceStatus from "./governance-status";
+export import GovernanceStatus = GovernanceStatus.GovernanceStatus;
+import * as InvitationSubject from "./invitation-subject";
+export import InvitationSubject = InvitationSubject.InvitationSubject;
 import * as LifecycleState from "./lifecycle-state";
 export import LifecycleState = LifecycleState.LifecycleState;
 import * as Link from "./link";

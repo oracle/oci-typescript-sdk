@@ -158,6 +158,10 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
    */
   "dataStorageSizeInGBs"?: number;
   /**
+   * The storage space consumed by Autonomous Database in GBs. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "usedDataStorageSizeInGBs"?: number;
+  /**
    * The infrastructure type this resource belongs to.
    */
   "infrastructureType"?: AutonomousDatabase.InfrastructureType;

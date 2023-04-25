@@ -15,10 +15,14 @@ import * as ChangeIntegrationInstanceCompartmentRequest from "./change-integrati
 export import ChangeIntegrationInstanceCompartmentRequest = ChangeIntegrationInstanceCompartmentRequest.ChangeIntegrationInstanceCompartmentRequest;
 import * as ChangeIntegrationInstanceNetworkEndpointRequest from "./change-integration-instance-network-endpoint-request";
 export import ChangeIntegrationInstanceNetworkEndpointRequest = ChangeIntegrationInstanceNetworkEndpointRequest.ChangeIntegrationInstanceNetworkEndpointRequest;
+import * as ChangePrivateEndpointOutboundConnectionRequest from "./change-private-endpoint-outbound-connection-request";
+export import ChangePrivateEndpointOutboundConnectionRequest = ChangePrivateEndpointOutboundConnectionRequest.ChangePrivateEndpointOutboundConnectionRequest;
 import * as CreateIntegrationInstanceRequest from "./create-integration-instance-request";
 export import CreateIntegrationInstanceRequest = CreateIntegrationInstanceRequest.CreateIntegrationInstanceRequest;
 import * as DeleteIntegrationInstanceRequest from "./delete-integration-instance-request";
 export import DeleteIntegrationInstanceRequest = DeleteIntegrationInstanceRequest.DeleteIntegrationInstanceRequest;
+import * as EnableProcessAutomationRequest from "./enable-process-automation-request";
+export import EnableProcessAutomationRequest = EnableProcessAutomationRequest.EnableProcessAutomationRequest;
 import * as GetIntegrationInstanceRequest from "./get-integration-instance-request";
 export import GetIntegrationInstanceRequest = GetIntegrationInstanceRequest.GetIntegrationInstanceRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";

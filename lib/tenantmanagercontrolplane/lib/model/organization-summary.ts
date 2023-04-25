@@ -1,6 +1,6 @@
 /**
  * Organizations API
- * The Organizations API allows you to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and its resources.
+ * Use the Organizations API to consolidate multiple OCI tenancies into an organization, and centrally manage your tenancies and organization resources. For more information, see [Organization Management Overview](/iaas/Content/General/Concepts/organization_management_overview.htm).
  * OpenAPI spec version: 20200801
  *
  *
@@ -23,7 +23,7 @@ export interface OrganizationSummary {
    */
   "id": string;
   /**
-   * A display name for the organization.
+   * A display name for the organization. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
@@ -43,11 +43,11 @@ export interface OrganizationSummary {
    */
   "lifecycleState": string;
   /**
-   * Date-time when this organization was created.
+   * Date and time when the organization was created.
    */
   "timeCreated": Date;
   /**
-   * Date-time when this organization was last updated.
+   * Date and time when the organization was last updated.
    */
   "timeUpdated"?: Date;
 }

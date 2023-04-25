@@ -428,6 +428,8 @@ import * as Month from "./month";
 export import Month = Month.Month;
 import * as MountTypeDetails from "./mount-type-details";
 export import MountTypeDetails = MountTypeDetails.MountTypeDetails;
+import * as NetworkBondingModeDetails from "./network-bonding-mode-details";
+export import NetworkBondingModeDetails = NetworkBondingModeDetails.NetworkBondingModeDetails;
 import * as NodeDetails from "./node-details";
 export import NodeDetails = NodeDetails.NodeDetails;
 import * as OCPUs from "./o-cp-us";

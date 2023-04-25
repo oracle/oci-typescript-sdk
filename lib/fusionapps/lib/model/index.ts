@@ -43,6 +43,8 @@ import * as DataMaskingActivityCollection from "./data-masking-activity-collecti
 export import DataMaskingActivityCollection = DataMaskingActivityCollection.DataMaskingActivityCollection;
 import * as DataMaskingActivitySummary from "./data-masking-activity-summary";
 export import DataMaskingActivitySummary = DataMaskingActivitySummary.DataMaskingActivitySummary;
+import * as EnvironmentRole from "./environment-role";
+export import EnvironmentRole = EnvironmentRole.EnvironmentRole;
 import * as FamilyMaintenancePolicy from "./family-maintenance-policy";
 export import FamilyMaintenancePolicy = FamilyMaintenancePolicy.FamilyMaintenancePolicy;
 import * as FawAdminInfoDetails from "./faw-admin-info-details";

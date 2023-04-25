@@ -30,6 +30,7 @@ export enum IntegrationInstanceApiKeys {}
 export class IntegrationInstanceClient {
   protected static serviceEndpointTemplate = "https://integration.{region}.ocp.{secondLevelDomain}";
   protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
   protected "_waiters": IntegrationInstanceWaiter;
@@ -37,6 +38,9 @@ export class IntegrationInstanceClient {
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
   public targetService = "IntegrationInstance";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
 
   protected _httpClient: common.HttpClient;
 
@@ -100,16 +104,44 @@ export class IntegrationInstanceClient {
   }
 
   /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        IntegrationInstanceClient.serviceEndpointTemplate,
+        this._region,
+        IntegrationInstanceClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        IntegrationInstanceClient.serviceEndpointTemplate,
+        this._regionId,
+        IntegrationInstanceClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
    * Sets the region to call (ex, Region.US_PHOENIX_1).
    * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
    * @param region The region of the service.
    */
   public set region(region: common.Region) {
+    this._region = region;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       IntegrationInstanceClient.serviceEndpointTemplate,
       region,
       IntegrationInstanceClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
 
   /**
@@ -121,11 +153,13 @@ export class IntegrationInstanceClient {
    * @param regionId The public region ID.
    */
   public set regionId(regionId: string) {
+    this._regionId = regionId;
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       IntegrationInstanceClient.serviceEndpointTemplate,
       regionId,
       IntegrationInstanceClient.endpointServiceName
     );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
 
   /**
@@ -320,9 +354,95 @@ export class IntegrationInstanceClient {
   }
 
   /**
-   * Creates a new Integration Instance.
+   * Change private endpoint outbound connection for given Integration instance. The operation is long-running
+   * and creates a new WorkRequest.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangePrivateEndpointOutboundConnectionRequest
+   * @return ChangePrivateEndpointOutboundConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/ChangePrivateEndpointOutboundConnection.ts.html |here} to see how to use ChangePrivateEndpointOutboundConnection API.
+   */
+  public async changePrivateEndpointOutboundConnection(
+    changePrivateEndpointOutboundConnectionRequest: requests.ChangePrivateEndpointOutboundConnectionRequest
+  ): Promise<responses.ChangePrivateEndpointOutboundConnectionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation IntegrationInstanceClient#changePrivateEndpointOutboundConnection."
+      );
+    const operationName = "changePrivateEndpointOutboundConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/ChangePrivateEndpointOutboundConnection";
+    const pathParams = {
+      "{integrationInstanceId}":
+        changePrivateEndpointOutboundConnectionRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changePrivateEndpointOutboundConnectionRequest.ifMatch,
+      "opc-request-id": changePrivateEndpointOutboundConnectionRequest.opcRequestId,
+      "opc-retry-token": changePrivateEndpointOutboundConnectionRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePrivateEndpointOutboundConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/integrationInstances/{integrationInstanceId}/actions/changePrivateEndpointOutboundConnection",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePrivateEndpointOutboundConnectionRequest.changePrivateEndpointOutboundConnectionDetails,
+        "ChangePrivateEndpointOutboundConnectionDetails",
+        model.ChangePrivateEndpointOutboundConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePrivateEndpointOutboundConnectionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a new Integration Instance.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateIntegrationInstanceRequest
    * @return CreateIntegrationInstanceResponse
    * @throws OciError when an error occurs
@@ -346,7 +466,7 @@ export class IntegrationInstanceClient {
       "opc-request-id": createIntegrationInstanceRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createIntegrationInstanceRequest.retryConfiguration,
@@ -451,6 +571,82 @@ export class IntegrationInstanceClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteIntegrationInstanceResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Enable Process Automation for given Integration Instance
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param EnableProcessAutomationRequest
+   * @return EnableProcessAutomationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/integration/EnableProcessAutomation.ts.html |here} to see how to use EnableProcessAutomation API.
+   */
+  public async enableProcessAutomation(
+    enableProcessAutomationRequest: requests.EnableProcessAutomationRequest
+  ): Promise<responses.EnableProcessAutomationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation IntegrationInstanceClient#enableProcessAutomation.");
+    const operationName = "enableProcessAutomation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/integration/20190131/IntegrationInstance/EnableProcessAutomation";
+    const pathParams = {
+      "{integrationInstanceId}": enableProcessAutomationRequest.integrationInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": enableProcessAutomationRequest.ifMatch,
+      "opc-request-id": enableProcessAutomationRequest.opcRequestId,
+      "opc-retry-token": enableProcessAutomationRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableProcessAutomationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/integrationInstances/{integrationInstanceId}/actions/enableProcessAutomation",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableProcessAutomationResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

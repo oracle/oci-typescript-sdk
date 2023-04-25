@@ -1,6 +1,6 @@
 {
   "name": "oci-vault",
-  "version": "2.58.0",
+  "version": "2.58.1",
   "description": "OCI NodeJS client for Vault Service",
   "repository": {
     "type": "git",

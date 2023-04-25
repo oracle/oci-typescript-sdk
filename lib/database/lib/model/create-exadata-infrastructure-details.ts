@@ -107,6 +107,7 @@ export interface CreateExadataInfrastructureDetails {
    *
    */
   "isCpsOfflineReportEnabled"?: boolean;
+  "networkBondingModeDetails"?: model.NetworkBondingModeDetails;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -135,6 +136,10 @@ export namespace CreateExadataInfrastructureDetails {
           : undefined,
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "networkBondingModeDetails": obj.networkBondingModeDetails
+          ? model.NetworkBondingModeDetails.getJsonObj(obj.networkBondingModeDetails)
           : undefined
       }
     };
@@ -152,6 +157,10 @@ export namespace CreateExadataInfrastructureDetails {
           : undefined,
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "networkBondingModeDetails": obj.networkBondingModeDetails
+          ? model.NetworkBondingModeDetails.getDeserializedJsonObj(obj.networkBondingModeDetails)
           : undefined
       }
     };

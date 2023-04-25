@@ -102,6 +102,9 @@ export interface IntegrationInstanceSummary {
    * Shape
    */
   "shape"?: IntegrationInstanceSummary.Shape;
+  "privateEndpointOutboundConnection"?:
+    | model.PrivateEndpointOutboundConnection
+    | model.NoneOutboundConnection;
 }
 
 export namespace IntegrationInstanceSummary {
@@ -168,6 +171,10 @@ export namespace IntegrationInstanceSummary {
 
         "networkEndpointDetails": obj.networkEndpointDetails
           ? model.NetworkEndpointDetails.getJsonObj(obj.networkEndpointDetails)
+          : undefined,
+
+        "privateEndpointOutboundConnection": obj.privateEndpointOutboundConnection
+          ? model.OutboundConnection.getJsonObj(obj.privateEndpointOutboundConnection)
           : undefined
       }
     };
@@ -189,6 +196,10 @@ export namespace IntegrationInstanceSummary {
 
         "networkEndpointDetails": obj.networkEndpointDetails
           ? model.NetworkEndpointDetails.getDeserializedJsonObj(obj.networkEndpointDetails)
+          : undefined,
+
+        "privateEndpointOutboundConnection": obj.privateEndpointOutboundConnection
+          ? model.OutboundConnection.getDeserializedJsonObj(obj.privateEndpointOutboundConnection)
           : undefined
       }
     };
