@@ -19,11 +19,13 @@ import common = require("oci-common");
  */
 export interface SearchMonitoredResourcesDetails {
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "compartmentId": string;
   /**
-   * A filter to return resources that match exact resource name
+   * A filter to return resources that match exact resource name.
+   *
    */
   "name"?: string;
   /**
@@ -31,23 +33,26 @@ export interface SearchMonitoredResourcesDetails {
    */
   "nameContains"?: string;
   /**
-   * A filter to return resources that match resource type
+   * A filter to return resources that match resource type.
+   *
    */
   "type"?: string;
   /**
-   * A filter to return resources with host name match
+   * A filter to return resources with host name match.
+   *
    */
   "hostName"?: string;
   /**
    * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
    * which is not a Stack Monitoring service resource.
-   * Currently supports only following resource type identifiers - externalcontainerdatabase,
-   * externalnoncontainerdatabase, externalpluggabledatabase and OCI compute instance.
+   * Currently supports only following resource types - Container database, non-container database,
+   * pluggable database and OCI compute instance.
    *
    */
   "externalId"?: string;
   /**
-   * A filter to return resources with host name pattern
+   * A filter to return resources with host name pattern.
+   *
    */
   "hostNameContains"?: string;
   /**
@@ -107,7 +112,10 @@ export interface SearchMonitoredResourcesDetails {
    */
   "timeUpdatedLessThan"?: Date;
   /**
-   * Time zone in the form of tz database canonical zone ID.
+   * Time zone in the form of tz database canonical zone ID. Specifies the preference with
+   * a value that uses the IANA Time Zone Database format (x-obmcs-time-zone).
+   * For example - America/Los_Angeles
+   *
    */
   "resourceTimeZone"?: string;
   /**

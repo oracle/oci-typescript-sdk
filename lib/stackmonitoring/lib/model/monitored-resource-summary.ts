@@ -19,11 +19,13 @@ import common = require("oci-common");
  */
 export interface MonitoredResourceSummary {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of monitored resource.
+   * Monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "id": string;
   /**
-   * Name of the monitored resource
+   * Monitored Resource Name.
+   *
    */
   "name": string;
   /**
@@ -31,18 +33,18 @@ export interface MonitoredResourceSummary {
    */
   "displayName"?: string;
   /**
-   * Type of the monitored resource
+   * Monitored Resource Type.
+   *
    */
   "type": string;
   /**
-   * Resource Host Name
+   * Monitored Resource Host Name.
+   *
    */
   "hostName"?: string;
   /**
    * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
    * which is not a Stack Monitoring service resource.
-   * Currently supports only following resource type identifiers - externalcontainerdatabase,
-   * externalnoncontainerdatabase, externalpluggabledatabase and OCI compute instance.
    *
    */
   "externalId"?: string;
@@ -51,11 +53,13 @@ export interface MonitoredResourceSummary {
    */
   "managementAgentId"?: string;
   /**
-   * Monitored resource creation time. An RFC3339 formatted datetime string
+   * Monitored resource creation time. An RFC3339 formatted datetime string.
+   *
    */
   "timeCreated"?: Date;
   /**
-   * Monitored resource updation time. An RFC3339 formatted datetime string
+   * Monitored resource update time. An RFC3339 formatted datetime string.
+   *
    */
   "timeUpdated"?: Date;
   /**
@@ -63,7 +67,8 @@ export interface MonitoredResourceSummary {
    */
   "lifecycleState"?: model.ResourceLifecycleState;
   /**
-   * List of monitored resource properties
+   * List of monitored resource properties.
+   *
    */
   "properties"?: Array<model.MonitoredResourceProperty>;
   /**

@@ -180,6 +180,14 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
+   * The date and time of Database SSL certificate expiration.
+   */
+  "timeDatabaseSslCertificateExpires"?: Date;
+  /**
+   * The date and time of ORDS certificate expiration.
+   */
+  "timeOrdsCertificateExpires"?: Date;
+  /**
    * CPU cores available for allocation to Autonomous Databases. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "availableCpus"?: number;

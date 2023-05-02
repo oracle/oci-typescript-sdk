@@ -15,35 +15,49 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Association between two monitored resources.
+ * Association details between two monitored resources.
  */
 export interface MonitoredResourceAssociation {
   /**
-   * Association Type
+   * Association Type.
+   *
    */
   "associationType": string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "compartmentId": string;
   /**
-   * Tenancy Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Tenancy Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "tenantId": string;
   /**
-   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "sourceResourceId": string;
   /**
-   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "destinationResourceId": string;
   "sourceResourceDetails"?: model.AssociationResourceDetails;
   "destinationResourceDetails"?: model.AssociationResourceDetails;
   /**
-   * The time when the association was created. An RFC3339 formatted datetime string
+   * The time when the association was created. An RFC3339 formatted datetime string.
+   *
    */
   "timeCreated"?: Date;
+  /**
+   * Association category. Possible values are:
+   * - System created (SYSTEM),
+   * - User created using API (USER_API)
+   * - User created using tags (USER_TAG_ASSOC).
+   *
+   */
+  "category"?: MonitoredResourceAssociation.Category;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -65,6 +79,17 @@ export interface MonitoredResourceAssociation {
 }
 
 export namespace MonitoredResourceAssociation {
+  export enum Category {
+    System = "SYSTEM",
+    UserApi = "USER_API",
+    UserTagAssoc = "USER_TAG_ASSOC",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: MonitoredResourceAssociation): object {
     const jsonObj = {
       ...obj,

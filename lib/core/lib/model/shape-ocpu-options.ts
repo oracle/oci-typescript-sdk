@@ -38,6 +38,11 @@ export interface ShapeOcpuOptions {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "max"?: number;
+  /**
+   * The maximum number of cores available per NUMA node.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxPerNumaNode"?: number;
 }
 
 export namespace ShapeOcpuOptions {

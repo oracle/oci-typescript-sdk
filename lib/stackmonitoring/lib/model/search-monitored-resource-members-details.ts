@@ -19,11 +19,13 @@ import common = require("oci-common");
  */
 export interface SearchMonitoredResourceMembersDetails {
   /**
-   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "destinationResourceId"?: string;
   /**
-   * The field which determines the depth of hierarchy while searching for members Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The field which determines the depth of hierarchy while searching for members.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "limitLevel"?: number;
 }

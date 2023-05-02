@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Plain text credentials [indicated by the type property in CredentialStore].
+ * Pre existing credentials [indicated by the type property in CredentialStore].
  *
  */
 export interface PreExistingCredentials extends model.MonitoredResourceCredential {

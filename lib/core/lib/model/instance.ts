@@ -196,6 +196,11 @@ Examples: `phx`, `eu-frankfurt-1`
    */
   "shape": string;
   "shapeConfig"?: model.InstanceShapeConfig;
+  /**
+   * Whether the instance\u2019s OCPUs and memory are distributed across multiple NUMA nodes.
+   *
+   */
+  "isCrossNumaNode"?: boolean;
   "sourceDetails"?: model.InstanceSourceViaImageDetails | model.InstanceSourceViaBootVolumeDetails;
   /**
    * System tags for this resource. Each key is predefined and scoped to a namespace.
@@ -280,6 +285,7 @@ export namespace Instance {
         "shapeConfig": obj.shapeConfig
           ? model.InstanceShapeConfig.getJsonObj(obj.shapeConfig)
           : undefined,
+
         "sourceDetails": obj.sourceDetails
           ? model.InstanceSourceDetails.getJsonObj(obj.sourceDetails)
           : undefined,
@@ -318,6 +324,7 @@ export namespace Instance {
         "shapeConfig": obj.shapeConfig
           ? model.InstanceShapeConfig.getDeserializedJsonObj(obj.shapeConfig)
           : undefined,
+
         "sourceDetails": obj.sourceDetails
           ? model.InstanceSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
           : undefined,

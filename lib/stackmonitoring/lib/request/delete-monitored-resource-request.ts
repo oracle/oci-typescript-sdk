@@ -38,7 +38,9 @@ export interface DeleteMonitoredResourceRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
-   * A filter to delete the associated children or not for given resource.
+   * If this query parameter is specified and set to true, all the member
+   * resources will be deleted before deleting the specified resource.
+   *
    */
   "isDeleteMembers"?: boolean;
 }

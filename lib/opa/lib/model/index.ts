@@ -1,6 +1,6 @@
 /**
- * OracleProcessAutomation API
- * A description of the OracleProcessAutomation API
+ * Process Automation
+ * Process Automation helps you to rapidly design, automate, and manage business processes in the cloud. With the Process Automation design-time (Designer) and the runtime (Workspace) environments, you can easily create, develop, manage, test, and monitor process applications and their components.
  * OpenAPI spec version: 20210621
  *
  *
@@ -13,6 +13,8 @@
 
 import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
+import * as AttachmentDetails from "./attachment-details";
+export import AttachmentDetails = AttachmentDetails.AttachmentDetails;
 import * as ChangeOpaInstanceCompartmentDetails from "./change-opa-instance-compartment-details";
 export import ChangeOpaInstanceCompartmentDetails = ChangeOpaInstanceCompartmentDetails.ChangeOpaInstanceCompartmentDetails;
 import * as CreateOpaInstanceDetails from "./create-opa-instance-details";

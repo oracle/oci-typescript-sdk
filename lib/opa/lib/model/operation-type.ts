@@ -1,6 +1,6 @@
 /**
- * OracleProcessAutomation API
- * A description of the OracleProcessAutomation API
+ * Process Automation
+ * Process Automation helps you to rapidly design, automate, and manage business processes in the cloud. With the Process Automation design-time (Designer) and the runtime (Workspace) environments, you can easily create, develop, manage, test, and monitor process applications and their components.
  * OpenAPI spec version: 20210621
  *
  *
@@ -22,6 +22,8 @@ export enum OperationType {
   UpdateOpaInstance = "UPDATE_OPA_INSTANCE",
   DeleteOpaInstance = "DELETE_OPA_INSTANCE",
   MoveOpaInstance = "MOVE_OPA_INSTANCE",
+  CreateOpaInstanceAttachment = "CREATE_OPA_INSTANCE_ATTACHMENT",
+  DeleteOpaInstanceAttachment = "DELETE_OPA_INSTANCE_ATTACHMENT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

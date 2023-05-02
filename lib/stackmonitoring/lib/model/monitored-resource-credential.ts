@@ -15,11 +15,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Monitored Resource Credential Details
+ * Monitored Resource Credential Details.
+ *
  */
 export interface MonitoredResourceCredential {
   /**
-   * The source type and source name combination,delimited with (.) separator. {source type}.{source name} and source type max char limit is 63.
+   * The source type and source name combination, delimited with (.) separator.
+   * {source type}.{source name} and source type max char limit is 63.
+   *
    */
   "source"?: string;
   /**

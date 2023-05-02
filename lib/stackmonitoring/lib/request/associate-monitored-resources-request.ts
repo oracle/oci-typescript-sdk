@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface AssociateMonitoredResourcesRequest extends common.BaseRequest {
   /**
-   * Associate resources.
+   * Details to create association between two resources.
+   *
    */
   "associateMonitoredResourcesDetails": model.AssociateMonitoredResourcesDetails;
   /**

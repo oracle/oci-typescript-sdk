@@ -19,11 +19,13 @@ import common = require("oci-common");
  */
 export interface AssociationDetails {
   /**
-   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "sourceResourceId": string;
   /**
-   * Association Type
+   * Association Type.
+   *
    */
   "associationType": string;
 }

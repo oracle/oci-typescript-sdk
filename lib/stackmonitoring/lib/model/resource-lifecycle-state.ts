@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Possible lifecycle states.
+ * Possible lifecycle states for monitored resource.
+ *
  **/
 export enum ResourceLifecycleState {
   Creating = "CREATING",

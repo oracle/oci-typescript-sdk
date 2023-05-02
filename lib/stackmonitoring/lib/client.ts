@@ -185,7 +185,10 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Create an association between two monitored resources.
+   * Create an association between two monitored resources. Associations can be created
+   * between resources from different compartments as long they are in same tenancy.
+   * User should have required access in both the compartments.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AssociateMonitoredResourcesRequest
    * @return AssociateMonitoredResourcesResponse
@@ -267,7 +270,9 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Moves a MonitoredResource resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * Moves a monitored resource from one compartment to another.
+   * When provided, If-Match is checked against ETag values of the resource.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeMonitoredResourceCompartmentRequest
    * @return ChangeMonitoredResourceCompartmentResponse
@@ -431,7 +436,9 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Creates a new monitored resource for the given resource type
+   * Creates a new monitored resource for the given resource type with the details and submits
+   * a work request for promoting the resource to agent. Once the resource is successfully
+   * added to agent, resource state will be marked active.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateMonitoredResourceRequest
@@ -603,7 +610,11 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Deletes a monitored resource by identifier
+   * Delete monitored resource by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * By default, only the specified resource is deleted. If the parameter 'isDeleteMembers' is set to true,
+   * then the member resources will be deleted too. If the operation fails partially, the deleted entries
+   * will not be rolled back.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteMonitoredResourceRequest
    * @return DeleteMonitoredResourceResponse
@@ -679,7 +690,8 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Disable external database resource monitoring.
+   * Disable external database resource monitoring. All the references in DBaaS,
+   * DBM and resource service will be deleted as part of this operation.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DisableExternalDatabaseRequest
@@ -905,7 +917,8 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Gets a monitored resource by identifier
+   * Get monitored resource for the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMonitoredResourceRequest
    * @return GetMonitoredResourceResponse
@@ -1475,7 +1488,9 @@ export class StackMonitoringClient {
   }
 
   /**
-   * List associated monitored resources.
+   * List all associated resources recursively up-to a specified level,
+   * for the monitored resources of type specified.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchAssociatedResourcesRequest
    * @return SearchAssociatedResourcesResponse
@@ -1567,7 +1582,8 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Returns a list of monitored resource associations.
+   * Search associations in the given compartment based on the search criteria.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourceAssociationsRequest
    * @return SearchMonitoredResourceAssociationsResponse
@@ -1659,7 +1675,8 @@ export class StackMonitoringClient {
   }
 
   /**
-   * List resources which are members of the given monitored resource
+   * List the member resources for the given monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourceMembersRequest
    * @return SearchMonitoredResourceMembersResponse
@@ -1753,7 +1770,8 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Returns a list of monitored resources.
+   * Gets a list of all monitored resources in a compartment for the given search criteria.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SearchMonitoredResourcesRequest
    * @return SearchMonitoredResourcesResponse
@@ -1845,7 +1863,94 @@ export class StackMonitoringClient {
   }
 
   /**
-   * Updates the Monitored Resource
+   * Provided tags will be added or updated in the existing list of tags for the affected resources.
+   * Resources to be updated are identified based on association types specified.
+   * If association types not specified, then tags will be updated only for the resource identified by
+   * the given monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateAndPropagateTagsRequest
+   * @return UpdateAndPropagateTagsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateAndPropagateTags.ts.html |here} to see how to use UpdateAndPropagateTags API.
+   */
+  public async updateAndPropagateTags(
+    updateAndPropagateTagsRequest: requests.UpdateAndPropagateTagsRequest
+  ): Promise<responses.UpdateAndPropagateTagsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#updateAndPropagateTags.");
+    const operationName = "updateAndPropagateTags";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/MonitoredResource/UpdateAndPropagateTags";
+    const pathParams = {
+      "{monitoredResourceId}": updateAndPropagateTagsRequest.monitoredResourceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": updateAndPropagateTagsRequest.opcRetryToken,
+      "opc-request-id": updateAndPropagateTagsRequest.opcRequestId,
+      "if-match": updateAndPropagateTagsRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateAndPropagateTagsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/monitoredResources/{monitoredResourceId}/actions/updateAndPropagateTags",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateAndPropagateTagsRequest.updateAndPropagateTagsDetails,
+        "UpdateAndPropagateTagsDetails",
+        model.UpdateAndPropagateTagsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateAndPropagateTagsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update monitored resource by the given identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * Note that \"properties\" object, if specified, will entirely replace the existing object,
+   * as part this operation.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateMonitoredResourceRequest
    * @return UpdateMonitoredResourceResponse

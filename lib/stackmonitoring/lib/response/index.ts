@@ -51,5 +51,7 @@ import * as SearchMonitoredResourceMembersResponse from "./search-monitored-reso
 export import SearchMonitoredResourceMembersResponse = SearchMonitoredResourceMembersResponse.SearchMonitoredResourceMembersResponse;
 import * as SearchMonitoredResourcesResponse from "./search-monitored-resources-response";
 export import SearchMonitoredResourcesResponse = SearchMonitoredResourcesResponse.SearchMonitoredResourcesResponse;
+import * as UpdateAndPropagateTagsResponse from "./update-and-propagate-tags-response";
+export import UpdateAndPropagateTagsResponse = UpdateAndPropagateTagsResponse.UpdateAndPropagateTagsResponse;
 import * as UpdateMonitoredResourceResponse from "./update-monitored-resource-response";
 export import UpdateMonitoredResourceResponse = UpdateMonitoredResourceResponse.UpdateMonitoredResourceResponse;

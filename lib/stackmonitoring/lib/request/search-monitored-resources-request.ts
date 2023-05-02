@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface SearchMonitoredResourcesRequest extends common.BaseRequest {
   /**
-   * Property Search Criteria for the listing the monitored resources.
+   * Search Criteria for listing monitored resources.
+   *
    */
   "searchMonitoredResourcesDetails": model.SearchMonitoredResourcesDetails;
   /**

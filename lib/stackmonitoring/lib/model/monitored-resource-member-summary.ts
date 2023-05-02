@@ -15,15 +15,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Monitored resource member
+ * Monitored resource member details.
+ *
  */
 export interface MonitoredResourceMemberSummary {
   /**
-   * Monitored resource identifier
+   * Monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "resourceId"?: string;
   /**
-   * Monitored resource name
+   * Monitored Resource Name.
+   *
    */
   "resourceName"?: string;
   /**
@@ -31,23 +34,30 @@ export interface MonitoredResourceMemberSummary {
    */
   "resourceDisplayName"?: string;
   /**
-   * Monitored resource type
+   * Monitored Resource Type.
+   *
    */
   "resourceType"?: string;
   /**
-   * Monitored Resource Host
+   * Monitored Resource Host Name.
+   *
    */
   "hostName"?: string;
   /**
    * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
    * which is not a Stack Monitoring service resource.
-   * Currently supports only following resource type identifiers - externalcontainerdatabase,
-   * externalnoncontainerdatabase, externalpluggabledatabase and OCI compute instance.
+   * Currently supports only following resource types - Container database, non-container database,
+   * pluggable database and OCI compute instance.
    *
    */
   "externalId"?: string;
   /**
-   * Parent monitored resource identifier
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "compartmentId"?: string;
+  /**
+   * Parent monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "parentId"?: string;
   /**

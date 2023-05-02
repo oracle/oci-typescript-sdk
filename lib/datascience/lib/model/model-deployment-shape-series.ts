@@ -22,6 +22,8 @@ import common = require("oci-common");
 export enum ModelDeploymentShapeSeries {
   AmdRome = "AMD_ROME",
   IntelSkylake = "INTEL_SKYLAKE",
+  NvidiaGpu = "NVIDIA_GPU",
+  Legacy = "LEGACY",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

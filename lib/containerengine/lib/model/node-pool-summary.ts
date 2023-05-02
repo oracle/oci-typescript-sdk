@@ -116,6 +116,7 @@ export interface NodePoolSummary {
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   "nodeEvictionNodePoolSettings"?: model.NodeEvictionNodePoolSettings;
+  "nodePoolCyclingDetails"?: model.NodePoolCyclingDetails;
 }
 
 export namespace NodePoolSummary {
@@ -145,6 +146,9 @@ export namespace NodePoolSummary {
 
         "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
           ? model.NodeEvictionNodePoolSettings.getJsonObj(obj.nodeEvictionNodePoolSettings)
+          : undefined,
+        "nodePoolCyclingDetails": obj.nodePoolCyclingDetails
+          ? model.NodePoolCyclingDetails.getJsonObj(obj.nodePoolCyclingDetails)
           : undefined
       }
     };
@@ -179,6 +183,9 @@ export namespace NodePoolSummary {
           ? model.NodeEvictionNodePoolSettings.getDeserializedJsonObj(
               obj.nodeEvictionNodePoolSettings
             )
+          : undefined,
+        "nodePoolCyclingDetails": obj.nodePoolCyclingDetails
+          ? model.NodePoolCyclingDetails.getDeserializedJsonObj(obj.nodePoolCyclingDetails)
           : undefined
       }
     };

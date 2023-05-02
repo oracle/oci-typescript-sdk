@@ -15,17 +15,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Association Resource Details
+ * Association Resource Details.
+ *
  */
 export interface AssociationResourceDetails {
   /**
-   * Monitored Resource Name
+   * Monitored Resource Name.
+   *
    */
   "name"?: string;
   /**
-   * Monitored Resource Type
+   * Monitored Resource Type.
+   *
    */
   "type"?: string;
+  /**
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "compartmentId"?: string;
 }
 
 export namespace AssociationResourceDetails {

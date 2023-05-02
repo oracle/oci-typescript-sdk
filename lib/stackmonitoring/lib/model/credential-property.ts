@@ -19,11 +19,15 @@ import common = require("oci-common");
  */
 export interface CredentialProperty {
   /**
-   * The name of the credential property, should confirm with names of properties of this credential's type. Ex. For JMXCreds type , credential property name for weblogic user is 'Username'.
+   * The name of the credential property, should confirm with names of properties of this credential's type.
+   * Example: For JMXCreds type, credential property name for weblogic user is 'Username'.
+   *
    */
   "name": string;
   /**
-   * The value of the credential property name. Ex. For JMXCreds type, credential property value for 'Username' property is 'weblogic'.
+   * The value of the credential property name.
+   * Example: For JMXCreds type, credential property value for 'Username' property is 'weblogic'.
+   *
    */
   "value": string;
 }

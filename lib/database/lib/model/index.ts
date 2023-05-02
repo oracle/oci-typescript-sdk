@@ -484,6 +484,10 @@ import * as RotateAutonomousVmClusterOrdsCertsDetails from "./rotate-autonomous-
 export import RotateAutonomousVmClusterOrdsCertsDetails = RotateAutonomousVmClusterOrdsCertsDetails.RotateAutonomousVmClusterOrdsCertsDetails;
 import * as RotateAutonomousVmClusterSslCertsDetails from "./rotate-autonomous-vm-cluster-ssl-certs-details";
 export import RotateAutonomousVmClusterSslCertsDetails = RotateAutonomousVmClusterSslCertsDetails.RotateAutonomousVmClusterSslCertsDetails;
+import * as RotateCloudAutonomousVmClusterOrdsCertsDetails from "./rotate-cloud-autonomous-vm-cluster-ords-certs-details";
+export import RotateCloudAutonomousVmClusterOrdsCertsDetails = RotateCloudAutonomousVmClusterOrdsCertsDetails.RotateCloudAutonomousVmClusterOrdsCertsDetails;
+import * as RotateCloudAutonomousVmClusterSslCertsDetails from "./rotate-cloud-autonomous-vm-cluster-ssl-certs-details";
+export import RotateCloudAutonomousVmClusterSslCertsDetails = RotateCloudAutonomousVmClusterSslCertsDetails.RotateCloudAutonomousVmClusterSslCertsDetails;
 import * as ScanDetails from "./scan-details";
 export import ScanDetails = ScanDetails.ScanDetails;
 import * as ScheduledOperationDetails from "./scheduled-operation-details";
