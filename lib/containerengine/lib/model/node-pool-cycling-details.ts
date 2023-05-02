@@ -18,22 +18,36 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The properties that define a request to update a virtual node.
+ * Node Pool Cycling Details
  */
-export interface UpdateVirtualNodeDetails {
+export interface NodePoolCyclingDetails {
   /**
-   * The state of the Virtual Node.
+   * Maximum active nodes that would be terminated from nodepool during the cycling nodepool process.
+   * OKE supports both integer and percentage input.
+   * Defaults to 0, Ranges from 0 to Nodepool size or 0% to 100%
+   *
    */
-  "lifecycleState"?: model.VirtualNodeLifecycleState;
+  "maximumUnavailable"?: string;
+  /**
+   * Maximum additional new compute instances that would be temporarily created and added to nodepool during the cycling nodepool process.
+   * OKE supports both integer and percentage input.
+   * Defaults to 1, Ranges from 0 to Nodepool size or 0% to 100%
+   *
+   */
+  "maximumSurge"?: string;
+  /**
+   * If nodes in the nodepool will be cycled to have new changes.
+   */
+  "isNodeCyclingEnabled"?: boolean;
 }
 
-export namespace UpdateVirtualNodeDetails {
-  export function getJsonObj(obj: UpdateVirtualNodeDetails): object {
+export namespace NodePoolCyclingDetails {
+  export function getJsonObj(obj: NodePoolCyclingDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: UpdateVirtualNodeDetails): object {
+  export function getDeserializedJsonObj(obj: NodePoolCyclingDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

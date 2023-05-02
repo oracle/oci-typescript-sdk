@@ -19,19 +19,23 @@ import common = require("oci-common");
  */
 export interface MonitoredResourceAssociationSummary {
   /**
-   * Association type to be created between source and destination resources
+   * Association type between source and destination resources.
+   *
    */
   "associationType": string;
   /**
-   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "sourceResourceId": string;
   /**
-   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "destinationResourceId": string;
   /**
-   * The time the the association was created. An RFC3339 formatted datetime string
+   * The association creation time. An RFC3339 formatted datetime string.
+   *
    */
   "timeCreated"?: Date;
   "sourceResourceDetails"?: model.AssociationResourceDetails;

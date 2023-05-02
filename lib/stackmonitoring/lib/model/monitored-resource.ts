@@ -15,11 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about monitored resource.
+ * The response object for create monitored resource and get monitored resource operations.
+ * This contains information about the monitored resource. Credentials and credential aliases attributes
+ * will be returned as null due to security reasons.
+ *
  */
 export interface MonitoredResource {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of monitored resource.
+   * Monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "id": string;
   /**
@@ -31,15 +35,18 @@ export interface MonitoredResource {
    */
   "displayName"?: string;
   /**
-   * Monitored resource type
+   * Monitored Resource Type.
+   *
    */
   "type": string;
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "compartmentId": string;
   /**
-   * Tenancy Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Tenancy Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "tenantId": string;
   /**
@@ -47,10 +54,10 @@ export interface MonitoredResource {
    */
   "hostName"?: string;
   /**
-   * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
-   * which is not a Stack Monitoring service resource.
-   * Currently supports only following resource type identifiers - externalcontainerdatabase,
-   * externalnoncontainerdatabase, externalpluggabledatabase and OCI compute instance.
+   * The external resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   * External resource is any OCI resource which is not a Stack Monitoring service resource.
+   * Currently supports only following resource types - Container database, non-container database,
+   * pluggable database and OCI compute instance.
    *
    */
   "externalId"?: string;
@@ -63,11 +70,15 @@ export interface MonitoredResource {
    */
   "resourceTimeZone"?: string;
   /**
-   * The time the the resource was created. An RFC3339 formatted datetime string
+   * The date and time when the monitored resource was created, expressed in
+   * [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   *
    */
   "timeCreated"?: Date;
   /**
-   * The time the the resource was updated. An RFC3339 formatted datetime string
+   * The date and time when the monitored resource was last updated, expressed in
+   * [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   *
    */
   "timeUpdated"?: Date;
   /**
@@ -75,7 +86,8 @@ export interface MonitoredResource {
    */
   "lifecycleState"?: model.ResourceLifecycleState;
   /**
-   * List of monitored resource properties
+   * List of monitored resource properties.
+   *
    */
   "properties"?: Array<model.MonitoredResourceProperty>;
   "databaseConnectionDetails"?: model.ConnectionDetails;

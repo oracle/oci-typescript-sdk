@@ -94,6 +94,22 @@ export interface VbInstance {
    *
    */
   "attachments"?: Array<model.AttachmentDetails>;
+  /**
+   * The NAT gateway IP address for the VB service VCN
+   */
+  "serviceNatGatewayIp"?: string;
+  /**
+   * The NAT gateway IP address for the VB management VCN
+   */
+  "managementNatGatewayIp"?: string;
+  /**
+   * The Oracle Cloud ID (OCID) of the Visual Builder service VCN
+   */
+  "serviceVcnId"?: string;
+  /**
+   * The Oracle Cloud ID (OCID) of the Visual Builder management VCN
+   */
+  "managementVcnId"?: string;
 }
 
 export namespace VbInstance {

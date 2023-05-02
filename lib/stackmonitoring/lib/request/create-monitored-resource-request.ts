@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface CreateMonitoredResourceRequest extends common.BaseRequest {
   /**
-   * Details for the new Resource.
+   * Details for the new monitored resource.
+   *
    */
   "createMonitoredResourceDetails": model.CreateMonitoredResourceDetails;
   /**

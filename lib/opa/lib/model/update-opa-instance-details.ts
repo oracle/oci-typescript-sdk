@@ -1,6 +1,6 @@
 /**
- * OracleProcessAutomation API
- * A description of the OracleProcessAutomation API
+ * Process Automation
+ * Process Automation helps you to rapidly design, automate, and manage business processes in the cloud. With the Process Automation design-time (Designer) and the runtime (Workspace) environments, you can easily create, develop, manage, test, and monitor process applications and their components.
  * OpenAPI spec version: 20210621
  *
  *

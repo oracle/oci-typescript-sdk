@@ -104,6 +104,7 @@ export interface CreateNodePoolDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   "nodeEvictionNodePoolSettings"?: model.NodeEvictionNodePoolSettings;
+  "nodePoolCyclingDetails"?: model.NodePoolCyclingDetails;
 }
 
 export namespace CreateNodePoolDetails {
@@ -130,6 +131,9 @@ export namespace CreateNodePoolDetails {
 
         "nodeEvictionNodePoolSettings": obj.nodeEvictionNodePoolSettings
           ? model.NodeEvictionNodePoolSettings.getJsonObj(obj.nodeEvictionNodePoolSettings)
+          : undefined,
+        "nodePoolCyclingDetails": obj.nodePoolCyclingDetails
+          ? model.NodePoolCyclingDetails.getJsonObj(obj.nodePoolCyclingDetails)
           : undefined
       }
     };
@@ -161,6 +165,9 @@ export namespace CreateNodePoolDetails {
           ? model.NodeEvictionNodePoolSettings.getDeserializedJsonObj(
               obj.nodeEvictionNodePoolSettings
             )
+          : undefined,
+        "nodePoolCyclingDetails": obj.nodePoolCyclingDetails
+          ? model.NodePoolCyclingDetails.getDeserializedJsonObj(obj.nodePoolCyclingDetails)
           : undefined
       }
     };

@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface MonitoredResourceMembersCollection {
   /**
-   * List of Members.
+   * List of member resources.
+   *
    */
   "items": Array<model.MonitoredResourceMemberSummary>;
 }

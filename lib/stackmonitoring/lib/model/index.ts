@@ -97,6 +97,8 @@ import * as SearchMonitoredResourcesDetails from "./search-monitored-resources-d
 export import SearchMonitoredResourcesDetails = SearchMonitoredResourcesDetails.SearchMonitoredResourcesDetails;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
+import * as UpdateAndPropagateTagsDetails from "./update-and-propagate-tags-details";
+export import UpdateAndPropagateTagsDetails = UpdateAndPropagateTagsDetails.UpdateAndPropagateTagsDetails;
 import * as UpdateMonitoredResourceDetails from "./update-monitored-resource-details";
 export import UpdateMonitoredResourceDetails = UpdateMonitoredResourceDetails.UpdateMonitoredResourceDetails;
 import * as WorkRequest from "./work-request";

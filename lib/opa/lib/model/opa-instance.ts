@@ -1,6 +1,6 @@
 /**
- * OracleProcessAutomation API
- * A description of the OracleProcessAutomation API
+ * Process Automation
+ * Process Automation helps you to rapidly design, automate, and manage business processes in the cloud. With the Process Automation design-time (Designer) and the runtime (Workspace) environments, you can easily create, develop, manage, test, and monitor process applications and their components.
  * OpenAPI spec version: 20210621
  *
  *
@@ -100,6 +100,11 @@ export interface OpaInstance {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * A list of associated attachments to other services
+   *
+   */
+  "attachments"?: Array<model.AttachmentDetails>;
 }
 
 export namespace OpaInstance {
@@ -151,12 +156,30 @@ export namespace OpaInstance {
   }
 
   export function getJsonObj(obj: OpaInstance): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "attachments": obj.attachments
+          ? obj.attachments.map(item => {
+              return model.AttachmentDetails.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: OpaInstance): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "attachments": obj.attachments
+          ? obj.attachments.map(item => {
+              return model.AttachmentDetails.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

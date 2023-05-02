@@ -19,7 +19,8 @@ import common = require("oci-common");
  */
 export interface SearchAssociatedResourcesDetails {
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "compartmentId": string;
   /**
@@ -42,7 +43,8 @@ export interface SearchAssociatedResourcesDetails {
    */
   "limitLevel"?: number;
   /**
-   * List of association types to be searched for finding associated resources
+   * Association types filter to be searched for finding associated resources.
+   *
    */
   "associationTypes"?: Array<string>;
 }

@@ -23,6 +23,10 @@ export interface RotateCloudAutonomousVmClusterOrdsCertsRequest extends common.B
    */
   "cloudAutonomousVmClusterId": string;
   /**
+   * Request to rotate the Oracle REST Data Services (ORDS) certificates on Cloud Autonomous Exadata VM cluster.
+   */
+  "rotateCloudAutonomousVmClusterOrdsCertsDetails"?: model.RotateCloudAutonomousVmClusterOrdsCertsDetails;
+  /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24
    * hours, but can be invalidated before then due to conflicting operations (for example, if a resource

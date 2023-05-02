@@ -15,15 +15,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Property of monitored resource
+ * Property of monitored resource.
+ *
  */
 export interface MonitoredResourceProperty {
   /**
-   * property name
+   * Property Name.
+   *
    */
   "name"?: string;
   /**
-   * property value
+   * Property Value.
+   *
    */
   "value"?: string;
 }

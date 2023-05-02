@@ -96,6 +96,8 @@ import * as NodeEvictionNodePoolSettings from "./node-eviction-node-pool-setting
 export import NodeEvictionNodePoolSettings = NodeEvictionNodePoolSettings.NodeEvictionNodePoolSettings;
 import * as NodePool from "./node-pool";
 export import NodePool = NodePool.NodePool;
+import * as NodePoolCyclingDetails from "./node-pool-cycling-details";
+export import NodePoolCyclingDetails = NodePoolCyclingDetails.NodePoolCyclingDetails;
 import * as NodePoolLifecycleState from "./node-pool-lifecycle-state";
 export import NodePoolLifecycleState = NodePoolLifecycleState.NodePoolLifecycleState;
 import * as NodePoolNodeConfigDetails from "./node-pool-node-config-details";
@@ -158,8 +160,6 @@ import * as UpdateNodePoolNodeConfigDetails from "./update-node-pool-node-config
 export import UpdateNodePoolNodeConfigDetails = UpdateNodePoolNodeConfigDetails.UpdateNodePoolNodeConfigDetails;
 import * as UpdateNodeShapeConfigDetails from "./update-node-shape-config-details";
 export import UpdateNodeShapeConfigDetails = UpdateNodeShapeConfigDetails.UpdateNodeShapeConfigDetails;
-import * as UpdateVirtualNodeDetails from "./update-virtual-node-details";
-export import UpdateVirtualNodeDetails = UpdateVirtualNodeDetails.UpdateVirtualNodeDetails;
 import * as UpdateVirtualNodePoolDetails from "./update-virtual-node-pool-details";
 export import UpdateVirtualNodePoolDetails = UpdateVirtualNodePoolDetails.UpdateVirtualNodePoolDetails;
 import * as VirtualNode from "./virtual-node";

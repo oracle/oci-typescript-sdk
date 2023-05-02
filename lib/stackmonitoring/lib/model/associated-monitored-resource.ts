@@ -19,11 +19,13 @@ import common = require("oci-common");
  */
 export interface AssociatedMonitoredResource {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of monitored resource.
+   * Monitored resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "id": string;
   /**
-   * Name of the monitored resource
+   * Monitored Resource Name.
+   *
    */
   "name"?: string;
   /**
@@ -31,18 +33,25 @@ export interface AssociatedMonitoredResource {
    */
   "displayName"?: string;
   /**
-   * Type of the monitored resource
+   * Monitored Resource Type.
+   *
    */
   "type"?: string;
   /**
-   * Resource Host Name
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
+   */
+  "compartmentId"?: string;
+  /**
+   * Monitored Resource Host Name.
+   *
    */
   "hostName"?: string;
   /**
    * External resource is any OCI resource identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
    * which is not a Stack Monitoring service resource.
-   * Currently supports only following resource type identifiers - externalcontainerdatabase,
-   * externalnoncontainerdatabase, externalpluggabledatabase and OCI compute instance.
+   * Currently supports only following resource types - Container database, non-container database,
+   * pluggable database and OCI compute instance.
    *
    */
   "externalId"?: string;
@@ -55,7 +64,8 @@ export interface AssociatedMonitoredResource {
    */
   "lifecycleState"?: model.ResourceLifecycleState;
   /**
-   * Association details of the resource
+   * Association details of the resource.
+   *
    */
   "association"?: any;
 }

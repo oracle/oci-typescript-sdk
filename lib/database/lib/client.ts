@@ -23452,6 +23452,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       defaultHeaders: this._defaultHeaders,
       path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/rotateOrdsCerts",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rotateCloudAutonomousVmClusterOrdsCertsRequest.rotateCloudAutonomousVmClusterOrdsCertsDetails,
+        "RotateCloudAutonomousVmClusterOrdsCertsDetails",
+        model.RotateCloudAutonomousVmClusterOrdsCertsDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams
@@ -23529,6 +23534,11 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       defaultHeaders: this._defaultHeaders,
       path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/actions/rotateSslCerts",
       method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rotateCloudAutonomousVmClusterSslCertsRequest.rotateCloudAutonomousVmClusterSslCertsDetails,
+        "RotateCloudAutonomousVmClusterSslCertsDetails",
+        model.RotateCloudAutonomousVmClusterSslCertsDetails.getJsonObj
+      ),
       pathParams: pathParams,
       headerParams: headerParams,
       queryParams: queryParams

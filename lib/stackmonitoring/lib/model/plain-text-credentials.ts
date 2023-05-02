@@ -20,7 +20,9 @@ import common = require("oci-common");
  */
 export interface PlainTextCredentials extends model.MonitoredResourceCredential {
   /**
-   * The credential properties list. Credential property values will be either in plain text format.
+   * The credential properties list. Credential property values will be either
+   * in plain text format or encrypted for encrypted credentials.
+   *
    */
   "properties": Array<model.CredentialProperty>;
 

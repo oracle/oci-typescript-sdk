@@ -19,35 +19,43 @@ import common = require("oci-common");
  */
 export interface SearchMonitoredResourceAssociationsDetails {
   /**
-   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Compartment Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "compartmentId": string;
   /**
-   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Source Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "sourceResourceId"?: string;
   /**
-   * Source Monitored Resource Name
+   * Source Monitored Resource Name.
+   *
    */
   "sourceResourceName"?: string;
   /**
-   * Source Monitored Resource Type
+   * Source Monitored Resource Type.
+   *
    */
   "sourceResourceType"?: string;
   /**
-   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * Destination Monitored Resource Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "destinationResourceId"?: string;
   /**
-   * Source Monitored Resource Name
+   * Source Monitored Resource Name.
+   *
    */
   "destinationResourceName"?: string;
   /**
-   * Source Monitored Resource Type
+   * Source Monitored Resource Type.
+   *
    */
   "destinationResourceType"?: string;
   /**
-   * Association type to be created between source and destination resources
+   * Association type filter to search associated resources.
+   *
    */
   "associationType"?: string;
   /**

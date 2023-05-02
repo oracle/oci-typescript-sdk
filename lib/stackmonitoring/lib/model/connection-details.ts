@@ -15,7 +15,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Connection details to connect to the database. HostName, protocol, and port should be specified.
+ * Connection details for the database.
+ *
  */
 export interface ConnectionDetails {
   /**
@@ -27,7 +28,8 @@ export interface ConnectionDetails {
    */
   "port": number;
   /**
-   * Database connector Identifier
+   * Database connector Identifier [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "connectorId"?: string;
   /**
@@ -39,11 +41,13 @@ export interface ConnectionDetails {
    */
   "dbUniqueName"?: string;
   /**
-   * dbId of the database
+   * dbId of the database.
+   *
    */
   "dbId"?: string;
   /**
-   * SSL Secret Identifier for TCPS connector in OCI Vault[OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)
+   * SSL Secret Identifier for TCPS connector in OCI Vault[OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   *
    */
   "sslSecretId"?: string;
 }

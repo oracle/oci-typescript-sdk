@@ -28,6 +28,7 @@ export enum WorkRequestOperationType {
   NodepoolUpdate = "NODEPOOL_UPDATE",
   NodepoolDelete = "NODEPOOL_DELETE",
   NodepoolReconcile = "NODEPOOL_RECONCILE",
+  NodepoolCycling = "NODEPOOL_CYCLING",
   WorkrequestCancel = "WORKREQUEST_CANCEL",
   VirtualnodepoolCreate = "VIRTUALNODEPOOL_CREATE",
   VirtualnodepoolUpdate = "VIRTUALNODEPOOL_UPDATE",

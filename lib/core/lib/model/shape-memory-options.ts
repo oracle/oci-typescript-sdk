@@ -53,6 +53,11 @@ export interface ShapeMemoryOptions {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxPerOcpuInGBs"?: number;
+  /**
+   * The maximum amount of memory per NUMA node, in gigabytes.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "maxPerNumaNodeInGBs"?: number;
 }
 
 export namespace ShapeMemoryOptions {
