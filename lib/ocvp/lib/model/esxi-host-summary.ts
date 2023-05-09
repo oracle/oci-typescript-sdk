@@ -107,7 +107,7 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "gracePeriodEndDate"?: Date;
   /**
-   * The version of VMware software that the Oracle Cloud VMware Solution installed on the ESXi hosts.
+   * The version of VMware software that Oracle Cloud VMware Solution installed on the ESXi hosts.
    *
    */
   "vmwareSoftwareVersion": string;

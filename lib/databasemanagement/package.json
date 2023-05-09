@@ -1,6 +1,6 @@
 {
   "name": "oci-databasemanagement",
-  "version": "2.59.0",
+  "version": "2.59.1",
   "description": "OCI NodeJS client for Database Management Service",
   "repository": {
     "type": "git",

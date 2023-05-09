@@ -27,6 +27,13 @@ import common = require("oci-common");
  */
 export interface InstanceConfigurationAvailabilityConfig {
   /**
+   * Whether to live migrate supported VM instances to a healthy physical VM host without
+   * disrupting running instances during infrastructure maintenance events. If null, Oracle
+   * chooses the best option for migrating the VM during infrastructure maintenance events.
+   *
+   */
+  "isLiveMigrationPreferred"?: boolean;
+  /**
    * The lifecycle state for an instance when it is recovered after infrastructure maintenance.
    * * `RESTORE_INSTANCE` - The instance is restored to the lifecycle state it was in before the maintenance event.
    * If the instance was running, it is automatically rebooted. This is the default action when a value is not set.

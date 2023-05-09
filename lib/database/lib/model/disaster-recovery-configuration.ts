@@ -26,6 +26,15 @@ export interface DisasterRecoveryConfiguration {
    *
    */
   "disasterRecoveryType"?: DisasterRecoveryConfiguration.DisasterRecoveryType;
+  /**
+   * Time and date stored as an RFC 3339 formatted timestamp string. For example, 2022-01-01T12:00:00.000Z would set a limit for the snapshot standby to be converted back to a cross-region standby database.
+   */
+  "timeSnapshotStandbyEnabledTill"?: Date;
+  /**
+   * Indicates if user wants to convert to a snapshot standby. For example, true would set a standby database to snapshot standby database. False would set a snapshot standby database back to regular standby database.
+   *
+   */
+  "isSnapshotStandby"?: boolean;
 }
 
 export namespace DisasterRecoveryConfiguration {

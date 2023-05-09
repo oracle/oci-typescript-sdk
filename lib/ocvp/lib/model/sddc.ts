@@ -416,17 +416,17 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
-   * The vSphere licenses to be used when upgrade SDDC.
+   * The vSphere licenses to use when upgrading the SDDC.
    *
    */
   "upgradeLicenses"?: Array<model.VsphereLicense>;
   /**
-   * The link of guidance to upgrade vSphere.
+   * The link to guidance for upgrading vSphere.
    *
    */
   "vsphereUpgradeGuide"?: string;
   /**
-   * The links of binary objects needed for upgrade vSphere.
+   * The links to binary objects needed to upgrade vSphere.
    *
    */
   "vsphereUpgradeObjects"?: Array<model.VsphereUpgradeObject>;
@@ -451,6 +451,11 @@ Example: `2016-08-25T21:10:29.600Z`
    *
    */
   "capacityReservationId"?: string;
+  /**
+   * Datastores used for the Sddc.
+   *
+   */
+  "datastores"?: Array<model.DatastoreSummary>;
   /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
@@ -490,6 +495,12 @@ export namespace Sddc {
           ? obj.vsphereUpgradeObjects.map(item => {
               return model.VsphereUpgradeObject.getJsonObj(item);
             })
+          : undefined,
+
+        "datastores": obj.datastores
+          ? obj.datastores.map(item => {
+              return model.DatastoreSummary.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -515,6 +526,12 @@ export namespace Sddc {
         "vsphereUpgradeObjects": obj.vsphereUpgradeObjects
           ? obj.vsphereUpgradeObjects.map(item => {
               return model.VsphereUpgradeObject.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "datastores": obj.datastores
+          ? obj.datastores.map(item => {
+              return model.DatastoreSummary.getDeserializedJsonObj(item);
             })
           : undefined
       }

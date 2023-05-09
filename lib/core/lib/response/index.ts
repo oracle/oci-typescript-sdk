@@ -364,6 +364,8 @@ import * as ResetInstancePoolResponse from "./reset-instance-pool-response";
 export import ResetInstancePoolResponse = ResetInstancePoolResponse.ResetInstancePoolResponse;
 import * as SoftresetInstancePoolResponse from "./softreset-instance-pool-response";
 export import SoftresetInstancePoolResponse = SoftresetInstancePoolResponse.SoftresetInstancePoolResponse;
+import * as SoftstopInstancePoolResponse from "./softstop-instance-pool-response";
+export import SoftstopInstancePoolResponse = SoftstopInstancePoolResponse.SoftstopInstancePoolResponse;
 import * as StartInstancePoolResponse from "./start-instance-pool-response";
 export import StartInstancePoolResponse = StartInstancePoolResponse.StartInstancePoolResponse;
 import * as StopInstancePoolResponse from "./stop-instance-pool-response";

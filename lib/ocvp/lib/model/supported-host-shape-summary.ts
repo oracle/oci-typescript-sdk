@@ -65,6 +65,10 @@ export interface SupportedHostShapeSummary {
    * Indicates whether the shape supports shielded instances.
    */
   "isSupportShieldedInstances"?: boolean;
+  /**
+   * Whether the shape supports \"MONTH\" SKU.
+   */
+  "isSupportMonthlySku"?: boolean;
 }
 
 export namespace SupportedHostShapeSummary {

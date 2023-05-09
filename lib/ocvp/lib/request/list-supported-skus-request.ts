@@ -42,4 +42,8 @@ export interface ListSupportedSkusRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+   * A filter to return only resources that match or support the given ESXi host shape.
+   */
+  "hostShapeName"?: string;
 }
