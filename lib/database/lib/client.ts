@@ -2291,6 +2291,87 @@ export class DatabaseClient {
   }
 
   /**
+   * Move the one-off patch to the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeOneoffPatchCompartmentRequest
+   * @return ChangeOneoffPatchCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeOneoffPatchCompartment.ts.html |here} to see how to use ChangeOneoffPatchCompartment API.
+   */
+  public async changeOneoffPatchCompartment(
+    changeOneoffPatchCompartmentRequest: requests.ChangeOneoffPatchCompartmentRequest
+  ): Promise<responses.ChangeOneoffPatchCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#changeOneoffPatchCompartment.");
+    const operationName = "changeOneoffPatchCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/ChangeOneoffPatchCompartment";
+    const pathParams = {
+      "{oneoffPatchId}": changeOneoffPatchCompartmentRequest.oneoffPatchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": changeOneoffPatchCompartmentRequest.opcRetryToken,
+      "opc-request-id": changeOneoffPatchCompartmentRequest.opcRequestId,
+      "if-match": changeOneoffPatchCompartmentRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOneoffPatchCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oneoffPatches/{oneoffPatchId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOneoffPatchCompartmentRequest.changeCompartmentDetails,
+        "ChangeCompartmentDetails",
+        model.ChangeCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOneoffPatchCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a VM cluster and its dependent resources to another compartment. Applies to Exadata Cloud@Customer instances only.
    * To move a cloud VM cluster in an Exadata Cloud Service instance to another compartment, use the {@link #changeCloudVmClusterCompartment(ChangeCloudVmClusterCompartmentRequest) changeCloudVmClusterCompartment} operation.
    *
@@ -4618,6 +4699,92 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
   }
 
   /**
+   * Creates one-off patch for specified database version to download.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateOneoffPatchRequest
+   * @return CreateOneoffPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/CreateOneoffPatch.ts.html |here} to see how to use CreateOneoffPatch API.
+   */
+  public async createOneoffPatch(
+    createOneoffPatchRequest: requests.CreateOneoffPatchRequest
+  ): Promise<responses.CreateOneoffPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#createOneoffPatch.");
+    const operationName = "createOneoffPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/CreateOneoffPatch";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOneoffPatchRequest.opcRetryToken,
+      "opc-request-id": createOneoffPatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOneoffPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oneoffPatches",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOneoffPatchRequest.createOneoffPatchDetails,
+        "CreateOneoffPatchDetails",
+        model.CreateOneoffPatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOneoffPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "oneoffPatch",
+        bodyModel: model.OneoffPatch,
+        type: "model.OneoffPatch",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates and starts a pluggable database in the specified container database.
    * Use the {@link #startPluggableDatabase(StartPluggableDatabaseRequest) startPluggableDatabase} and {@link #stopPluggableDatabase(StopPluggableDatabaseRequest) stopPluggableDatabase} APIs to start and stop the pluggable database.
    *
@@ -6394,6 +6561,80 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
   }
 
   /**
+   * Deletes a one-off patch.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOneoffPatchRequest
+   * @return DeleteOneoffPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DeleteOneoffPatch.ts.html |here} to see how to use DeleteOneoffPatch API.
+   */
+  public async deleteOneoffPatch(
+    deleteOneoffPatchRequest: requests.DeleteOneoffPatchRequest
+  ): Promise<responses.DeleteOneoffPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#deleteOneoffPatch.");
+    const operationName = "deleteOneoffPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/DeleteOneoffPatch";
+    const pathParams = {
+      "{oneoffPatchId}": deleteOneoffPatchRequest.oneoffPatchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteOneoffPatchRequest.opcRequestId,
+      "if-match": deleteOneoffPatchRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOneoffPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oneoffPatches/{oneoffPatchId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOneoffPatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the specified pluggable database.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeletePluggableDatabaseRequest
@@ -7768,6 +8009,85 @@ Oracle recommends that you use the `performFinalBackup` parameter to back up any
             value: response.headers.get("last-modified"),
             key: "lastModified",
             dataType: "Date"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Download one-off patch.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DownloadOneoffPatchRequest
+   * @return DownloadOneoffPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/DownloadOneoffPatch.ts.html |here} to see how to use DownloadOneoffPatch API.
+   */
+  public async downloadOneoffPatch(
+    downloadOneoffPatchRequest: requests.DownloadOneoffPatchRequest
+  ): Promise<responses.DownloadOneoffPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#downloadOneoffPatch.");
+    const operationName = "downloadOneoffPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/DownloadOneoffPatch";
+    const pathParams = {
+      "{oneoffPatchId}": downloadOneoffPatchRequest.oneoffPatchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": downloadOneoffPatchRequest.opcRetryToken,
+      "opc-request-id": downloadOneoffPatchRequest.opcRequestId,
+      "if-match": downloadOneoffPatchRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      downloadOneoffPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oneoffPatches/{oneoffPatchId}/actions/downloadOneoffPatch",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DownloadOneoffPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "downloadOneoffPatch",
+        bodyModel: model.DownloadOneoffPatch,
+        type: "model.DownloadOneoffPatch",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -13056,6 +13376,83 @@ The {@link #getCloudVmClusterIormConfig(GetCloudVmClusterIormConfigRequest) getC
         bodyKey: "maintenanceRunHistory",
         bodyModel: model.MaintenanceRunHistory,
         type: "model.MaintenanceRunHistory",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets information about the specified one-off patch.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOneoffPatchRequest
+   * @return GetOneoffPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetOneoffPatch.ts.html |here} to see how to use GetOneoffPatch API.
+   */
+  public async getOneoffPatch(
+    getOneoffPatchRequest: requests.GetOneoffPatchRequest
+  ): Promise<responses.GetOneoffPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#getOneoffPatch.");
+    const operationName = "getOneoffPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/GetOneoffPatch";
+    const pathParams = {
+      "{oneoffPatchId}": getOneoffPatchRequest.oneoffPatchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOneoffPatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOneoffPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oneoffPatches/{oneoffPatchId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOneoffPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "oneoffPatch",
+        bodyModel: model.OneoffPatch,
+        type: "model.OneoffPatch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -20589,6 +20986,141 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Lists one-off patches in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOneoffPatchesRequest
+   * @return ListOneoffPatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListOneoffPatches.ts.html |here} to see how to use ListOneoffPatches API.
+   */
+  public async listOneoffPatches(
+    listOneoffPatchesRequest: requests.ListOneoffPatchesRequest
+  ): Promise<responses.ListOneoffPatchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#listOneoffPatches.");
+    const operationName = "listOneoffPatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/ListOneoffPatches";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOneoffPatchesRequest.compartmentId,
+      "limit": listOneoffPatchesRequest.limit,
+      "page": listOneoffPatchesRequest.page,
+      "sortBy": listOneoffPatchesRequest.sortBy,
+      "sortOrder": listOneoffPatchesRequest.sortOrder,
+      "lifecycleState": listOneoffPatchesRequest.lifecycleState,
+      "displayName": listOneoffPatchesRequest.displayName
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOneoffPatchesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOneoffPatchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oneoffPatches",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOneoffPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.OneoffPatchSummary,
+        type: "Array<model.OneoffPatchSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listOneoffPatchesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.OneoffPatchSummary objects
+   * contained in responses from the listOneoffPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOneoffPatches(
+    request: requests.ListOneoffPatchesRequest
+  ): AsyncIterableIterator<model.OneoffPatchSummary> {
+    return paginateRecords(request, req => this.listOneoffPatches(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listOneoffPatchesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listOneoffPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOneoffPatchesResponses(
+    request: requests.ListOneoffPatchesRequest
+  ): AsyncIterableIterator<responses.ListOneoffPatchesResponse> {
+    return paginateResponses(request, req => this.listOneoffPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.OneoffPatchSummary objects
+   * contained in responses from the listOneoffPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOneoffPatchesRecordIterator(
+    request: requests.ListOneoffPatchesRequest
+  ): AsyncIterableIterator<model.OneoffPatchSummary> {
+    return paginateRecords(request, req => this.listOneoffPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listOneoffPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOneoffPatchesResponseIterator(
+    request: requests.ListOneoffPatchesRequest
+  ): AsyncIterableIterator<responses.ListOneoffPatchesResponse> {
+    return paginateResponses(request, req => this.listOneoffPatches(req));
+  }
+
+  /**
    * Gets the pluggable database conversion history for a specified database in a bare metal or virtual machine DB system.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -27072,6 +27604,89 @@ The {@link #updateCloudVmClusterIormConfig(UpdateCloudVmClusterIormConfigRequest
         bodyKey: "maintenanceRun",
         bodyModel: model.MaintenanceRun,
         type: "model.MaintenanceRun",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the properties of the specified one-off patch.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateOneoffPatchRequest
+   * @return UpdateOneoffPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateOneoffPatch.ts.html |here} to see how to use UpdateOneoffPatch API.
+   */
+  public async updateOneoffPatch(
+    updateOneoffPatchRequest: requests.UpdateOneoffPatchRequest
+  ): Promise<responses.UpdateOneoffPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateOneoffPatch.");
+    const operationName = "updateOneoffPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/OneoffPatch/UpdateOneoffPatch";
+    const pathParams = {
+      "{oneoffPatchId}": updateOneoffPatchRequest.oneoffPatchId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOneoffPatchRequest.ifMatch,
+      "opc-request-id": updateOneoffPatchRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOneoffPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/oneoffPatches/{oneoffPatchId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOneoffPatchRequest.updateOneoffPatchDetails,
+        "UpdateOneoffPatchDetails",
+        model.UpdateOneoffPatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOneoffPatchResponse>{},
+        body: await response.json(),
+        bodyKey: "oneoffPatch",
+        bodyModel: model.OneoffPatch,
+        type: "model.OneoffPatch",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

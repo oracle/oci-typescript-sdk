@@ -72,7 +72,8 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    */
   "initialSku"?: model.Sku;
   /**
-   * Indicates whether to enable HCX for this SDDC.
+   * For SDDC with dense compute shapes, this parameter indicates whether to enable HCX Advanced for this SDDC.
+   * For SDDC with standard compute shapes, this parameter is equivalent to `isHcxEnterpriseEnabled`.
    *
    */
   "isHcxEnabled"?: boolean;
@@ -189,6 +190,12 @@ For example, if the value is `mySDDC`, the ESXi hosts are named `mySDDC-1`,
    */
   "capacityReservationId"?: string;
   /**
+   * A list of datastore info for the SDDC.
+   * This value is required only when `initialHostShapeName` is a standard shape.
+   *
+   */
+  "datastores"?: Array<model.DatastoreInfo>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -208,12 +215,30 @@ Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
 
 export namespace CreateSddcDetails {
   export function getJsonObj(obj: CreateSddcDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "datastores": obj.datastores
+          ? obj.datastores.map(item => {
+              return model.DatastoreInfo.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateSddcDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "datastores": obj.datastores
+          ? obj.datastores.map(item => {
+              return model.DatastoreInfo.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

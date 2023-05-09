@@ -16592,6 +16592,89 @@ Softreset gracefully reboots the instances by sending a shutdown command to the 
   }
 
   /**
+     * Performs the softstop (ACPI shutdown and power on) action on the specified instance pool,
+* which performs the action on all the instances in the pool.
+* <p>
+Softstop gracefully reboots the instances by sending a shutdown command to the operating systems.
+* After waiting 15 minutes for the OS to shutdown, the instances are powered off and then powered back on.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param SoftstopInstancePoolRequest
+     * @return SoftstopInstancePoolResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/SoftstopInstancePool.ts.html |here} to see how to use SoftstopInstancePool API.
+     */
+  public async softstopInstancePool(
+    softstopInstancePoolRequest: requests.SoftstopInstancePoolRequest
+  ): Promise<responses.SoftstopInstancePoolResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeManagementClient#softstopInstancePool.");
+    const operationName = "softstopInstancePool";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/InstancePool/SoftstopInstancePool";
+    const pathParams = {
+      "{instancePoolId}": softstopInstancePoolRequest.instancePoolId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": softstopInstancePoolRequest.opcRetryToken,
+      "if-match": softstopInstancePoolRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      softstopInstancePoolRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/instancePools/{instancePoolId}/actions/softstop",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SoftstopInstancePoolResponse>{},
+        body: await response.json(),
+        bodyKey: "instancePool",
+        bodyModel: model.InstancePool,
+        type: "model.InstancePool",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Performs the start (power on) action on the specified instance pool,
    * which performs the action on all the instances in the pool.
    *

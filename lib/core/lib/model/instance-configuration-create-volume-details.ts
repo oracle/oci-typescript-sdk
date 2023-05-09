@@ -44,6 +44,18 @@ Example: `Uocm:PHX-AD-1`
    */
   "compartmentId"?: string;
   /**
+   * Specifies whether the auto-tune performance is enabled for this boot volume. This field is deprecated.
+   * Use the `InstanceConfigurationDetachedVolumeAutotunePolicy` instead to enable the volume for detached autotune.
+   *
+   */
+  "isAutoTuneEnabled"?: boolean;
+  /**
+   * The list of block volume replicas to be enabled for this volume
+   * in the specified destination availability domains.
+   *
+   */
+  "blockVolumeReplicas"?: Array<model.InstanceConfigurationBlockVolumeReplicaDetails>;
+  /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -108,6 +120,12 @@ export namespace InstanceConfigurationCreateVolumeDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.InstanceConfigurationBlockVolumeReplicaDetails.getJsonObj(item);
+            })
+          : undefined,
+
         "sourceDetails": obj.sourceDetails
           ? model.InstanceConfigurationVolumeSourceDetails.getJsonObj(obj.sourceDetails)
           : undefined,
@@ -125,6 +143,14 @@ export namespace InstanceConfigurationCreateVolumeDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "blockVolumeReplicas": obj.blockVolumeReplicas
+          ? obj.blockVolumeReplicas.map(item => {
+              return model.InstanceConfigurationBlockVolumeReplicaDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined,
+
         "sourceDetails": obj.sourceDetails
           ? model.InstanceConfigurationVolumeSourceDetails.getDeserializedJsonObj(obj.sourceDetails)
           : undefined,

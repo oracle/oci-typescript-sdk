@@ -504,6 +504,8 @@ import * as InstanceConfigurationAvailabilityConfig from "./instance-configurati
 export import InstanceConfigurationAvailabilityConfig = InstanceConfigurationAvailabilityConfig.InstanceConfigurationAvailabilityConfig;
 import * as InstanceConfigurationBlockVolumeDetails from "./instance-configuration-block-volume-details";
 export import InstanceConfigurationBlockVolumeDetails = InstanceConfigurationBlockVolumeDetails.InstanceConfigurationBlockVolumeDetails;
+import * as InstanceConfigurationBlockVolumeReplicaDetails from "./instance-configuration-block-volume-replica-details";
+export import InstanceConfigurationBlockVolumeReplicaDetails = InstanceConfigurationBlockVolumeReplicaDetails.InstanceConfigurationBlockVolumeReplicaDetails;
 import * as InstanceConfigurationCreateVnicDetails from "./instance-configuration-create-vnic-details";
 export import InstanceConfigurationCreateVnicDetails = InstanceConfigurationCreateVnicDetails.InstanceConfigurationCreateVnicDetails;
 import * as InstanceConfigurationCreateVolumeDetails from "./instance-configuration-create-volume-details";

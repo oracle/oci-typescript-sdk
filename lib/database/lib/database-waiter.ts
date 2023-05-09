@@ -637,6 +637,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeOneoffPatchCompartment
+   *
+   * @param request the request to send
+   * @return response returns ChangeOneoffPatchCompartmentResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeOneoffPatchCompartment(
+    request: serviceRequests.ChangeOneoffPatchCompartmentRequest
+  ): Promise<{
+    response: serviceResponses.ChangeOneoffPatchCompartmentResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeOneoffPatchCompartmentResponse = await this.client.changeOneoffPatchCompartment(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeOneoffPatchCompartmentResponse.opcWorkRequestId
+    );
+    return {
+      response: changeOneoffPatchCompartmentResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forChangeVmClusterCompartment
    *
    * @param request the request to send
@@ -1223,6 +1249,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forCreateOneoffPatch
+   *
+   * @param request the request to send
+   * @return response returns CreateOneoffPatchResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateOneoffPatch(
+    request: serviceRequests.CreateOneoffPatchRequest
+  ): Promise<{
+    response: serviceResponses.CreateOneoffPatchResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createOneoffPatchResponse = await this.client.createOneoffPatch(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createOneoffPatchResponse.opcWorkRequestId
+    );
+    return { response: createOneoffPatchResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forCreatePluggableDatabase
    *
    * @param request the request to send
@@ -1697,6 +1744,27 @@ export class DatabaseWaiter {
       response: deleteExternalPluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
+  }
+
+  /**
+   * Waits forDeleteOneoffPatch
+   *
+   * @param request the request to send
+   * @return response returns DeleteOneoffPatchResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteOneoffPatch(
+    request: serviceRequests.DeleteOneoffPatchRequest
+  ): Promise<{
+    response: serviceResponses.DeleteOneoffPatchResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteOneoffPatchResponse = await this.client.deleteOneoffPatch(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteOneoffPatchResponse.opcWorkRequestId
+    );
+    return { response: deleteOneoffPatchResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**
@@ -3136,6 +3204,25 @@ export class DatabaseWaiter {
       () => this.client.getMaintenanceRun(request),
       response => targetStates.includes(response.maintenanceRun.lifecycleState!),
       targetStates.includes(models.MaintenanceRun.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forOneoffPatch till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOneoffPatchResponse | null (null in case of 404 response)
+   */
+  public async forOneoffPatch(
+    request: serviceRequests.GetOneoffPatchRequest,
+    ...targetStates: models.OneoffPatch.LifecycleState[]
+  ): Promise<serviceResponses.GetOneoffPatchResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOneoffPatch(request),
+      response => targetStates.includes(response.oneoffPatch.lifecycleState!),
+      targetStates.includes(models.OneoffPatch.LifecycleState.Terminated)
     );
   }
 

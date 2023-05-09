@@ -86,9 +86,9 @@ Avoid entering confidential information.
   /**
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the ESXi host that
    * will be upgraded. This is an optional parameter. If this parameter
-   * is specified, an ESXi host with new version will be created to replace the
-   * original one, and the `nonUpgradedEsxiHostId` field will be updated in the newly
-   * created Esxi host.
+   * is specified, an ESXi host with the new software version is created to replace the
+   * original one, and the `nonUpgradedEsxiHostId` field is updated in the newly
+   * created Esxi host. See [Upgrading VMware Software](https://docs.cloud.oracle.com/Content/VMware/Concepts/upgrade.htm) for more information.
    *
    */
   "nonUpgradedEsxiHostId"?: string;
