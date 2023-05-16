@@ -35,8 +35,6 @@ import * as CreateRefreshActivityDetails from "./create-refresh-activity-details
 export import CreateRefreshActivityDetails = CreateRefreshActivityDetails.CreateRefreshActivityDetails;
 import * as CreateServiceAttachmentDetails from "./create-service-attachment-details";
 export import CreateServiceAttachmentDetails = CreateServiceAttachmentDetails.CreateServiceAttachmentDetails;
-import * as CreateServiceInstanceDetails from "./create-service-instance-details";
-export import CreateServiceInstanceDetails = CreateServiceInstanceDetails.CreateServiceInstanceDetails;
 import * as DataMaskingActivity from "./data-masking-activity";
 export import DataMaskingActivity = DataMaskingActivity.DataMaskingActivity;
 import * as DataMaskingActivityCollection from "./data-masking-activity-collection";
@@ -47,8 +45,6 @@ import * as EnvironmentRole from "./environment-role";
 export import EnvironmentRole = EnvironmentRole.EnvironmentRole;
 import * as FamilyMaintenancePolicy from "./family-maintenance-policy";
 export import FamilyMaintenancePolicy = FamilyMaintenancePolicy.FamilyMaintenancePolicy;
-import * as FawAdminInfoDetails from "./faw-admin-info-details";
-export import FawAdminInfoDetails = FawAdminInfoDetails.FawAdminInfoDetails;
 import * as FusionEnvironment from "./fusion-environment";
 export import FusionEnvironment = FusionEnvironment.FusionEnvironment;
 import * as FusionEnvironmentCollection from "./fusion-environment-collection";
@@ -123,6 +119,8 @@ import * as UpdateFusionEnvironmentFamilyDetails from "./update-fusion-environme
 export import UpdateFusionEnvironmentFamilyDetails = UpdateFusionEnvironmentFamilyDetails.UpdateFusionEnvironmentFamilyDetails;
 import * as UpdateRefreshActivityDetails from "./update-refresh-activity-details";
 export import UpdateRefreshActivityDetails = UpdateRefreshActivityDetails.UpdateRefreshActivityDetails;
+import * as VerifyServiceAttachmentDetails from "./verify-service-attachment-details";
+export import VerifyServiceAttachmentDetails = VerifyServiceAttachmentDetails.VerifyServiceAttachmentDetails;
 import * as WorkRequest from "./work-request";
 export import WorkRequest = WorkRequest.WorkRequest;
 import * as WorkRequestError from "./work-request-error";
@@ -142,14 +140,6 @@ export import WorkRequestSummaryCollection = WorkRequestSummaryCollection.WorkRe
 
 import * as AllowRule from "./allow-rule";
 export import AllowRule = AllowRule.AllowRule;
-import * as AttachExistingInstanceDetails from "./attach-existing-instance-details";
-export import AttachExistingInstanceDetails = AttachExistingInstanceDetails.AttachExistingInstanceDetails;
-import * as CreateNewInstanceDetails from "./create-new-instance-details";
-export import CreateNewInstanceDetails = CreateNewInstanceDetails.CreateNewInstanceDetails;
-import * as CreateOaxServiceInstanceDetails from "./create-oax-service-instance-details";
-export import CreateOaxServiceInstanceDetails = CreateOaxServiceInstanceDetails.CreateOaxServiceInstanceDetails;
-import * as CreateOicServiceInstanceDetails from "./create-oic-service-instance-details";
-export import CreateOicServiceInstanceDetails = CreateOicServiceInstanceDetails.CreateOicServiceInstanceDetails;
 import * as PatchAction from "./patch-action";
 export import PatchAction = PatchAction.PatchAction;
 import * as SourceIpAddressCondition from "./source-ip-address-condition";

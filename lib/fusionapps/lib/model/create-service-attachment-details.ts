@@ -15,53 +15,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Information about the service attachment.
+ * Information about the service attachment to be created.
  */
 export interface CreateServiceAttachmentDetails {
-  "action": string;
+  /**
+   * Type of the ServiceInstance being attached.
+   */
+  "serviceInstanceType": string;
+  /**
+   * The service instance OCID of the instance being attached
+   */
+  "serviceInstanceId": string;
 }
 
 export namespace CreateServiceAttachmentDetails {
   export function getJsonObj(obj: CreateServiceAttachmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if (obj && "action" in obj && obj.action) {
-      switch (obj.action) {
-        case "ATTACH_EXISTING_INSTANCE":
-          return model.AttachExistingInstanceDetails.getJsonObj(
-            <model.AttachExistingInstanceDetails>(<object>jsonObj),
-            true
-          );
-        case "CREATE_NEW_INSTANCE":
-          return model.CreateNewInstanceDetails.getJsonObj(
-            <model.CreateNewInstanceDetails>(<object>jsonObj),
-            true
-          );
-        default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.action}`);
-      }
-    }
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateServiceAttachmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
-    if (obj && "action" in obj && obj.action) {
-      switch (obj.action) {
-        case "ATTACH_EXISTING_INSTANCE":
-          return model.AttachExistingInstanceDetails.getDeserializedJsonObj(
-            <model.AttachExistingInstanceDetails>(<object>jsonObj),
-            true
-          );
-        case "CREATE_NEW_INSTANCE":
-          return model.CreateNewInstanceDetails.getDeserializedJsonObj(
-            <model.CreateNewInstanceDetails>(<object>jsonObj),
-            true
-          );
-        default:
-          if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.action}`);
-      }
-    }
     return jsonObj;
   }
 }

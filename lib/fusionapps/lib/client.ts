@@ -745,6 +745,85 @@ export class FusionApplicationsClient {
   }
 
   /**
+   * Attaches a service instance to the fusion pod.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateServiceAttachmentRequest
+   * @return CreateServiceAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/CreateServiceAttachment.ts.html |here} to see how to use CreateServiceAttachment API.
+   */
+  public async createServiceAttachment(
+    createServiceAttachmentRequest: requests.CreateServiceAttachmentRequest
+  ): Promise<responses.CreateServiceAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#createServiceAttachment.");
+    const operationName = "createServiceAttachment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": createServiceAttachmentRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createServiceAttachmentRequest.opcRetryToken,
+      "opc-request-id": createServiceAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createServiceAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/serviceAttachments",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createServiceAttachmentRequest.createServiceAttachmentDetails,
+        "CreateServiceAttachmentDetails",
+        model.CreateServiceAttachmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateServiceAttachmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes the Fusion environment identified by it's OCID.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteFusionEnvironmentRequest
@@ -1022,6 +1101,80 @@ export class FusionApplicationsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteRefreshActivityResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a service attachment by identifier
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteServiceAttachmentRequest
+   * @return DeleteServiceAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/DeleteServiceAttachment.ts.html |here} to see how to use DeleteServiceAttachment API.
+   */
+  public async deleteServiceAttachment(
+    deleteServiceAttachmentRequest: requests.DeleteServiceAttachmentRequest
+  ): Promise<responses.DeleteServiceAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#deleteServiceAttachment.");
+    const operationName = "deleteServiceAttachment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": deleteServiceAttachmentRequest.fusionEnvironmentId,
+      "{serviceAttachmentId}": deleteServiceAttachmentRequest.serviceAttachmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteServiceAttachmentRequest.ifMatch,
+      "opc-request-id": deleteServiceAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteServiceAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/serviceAttachments/{serviceAttachmentId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteServiceAttachmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3040,6 +3193,79 @@ export class FusionApplicationsClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Verify whether a service instance can be attached to the fusion pod
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param VerifyServiceAttachmentRequest
+   * @return VerifyServiceAttachmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/fusionapps/VerifyServiceAttachment.ts.html |here} to see how to use VerifyServiceAttachment API.
+   */
+  public async verifyServiceAttachment(
+    verifyServiceAttachmentRequest: requests.VerifyServiceAttachmentRequest
+  ): Promise<responses.VerifyServiceAttachmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FusionApplicationsClient#verifyServiceAttachment.");
+    const operationName = "verifyServiceAttachment";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{fusionEnvironmentId}": verifyServiceAttachmentRequest.fusionEnvironmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": verifyServiceAttachmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      verifyServiceAttachmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fusionEnvironments/{fusionEnvironmentId}/serviceAttachments/actions/verify",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        verifyServiceAttachmentRequest.verifyServiceAttachmentDetails,
+        "VerifyServiceAttachmentDetails",
+        model.VerifyServiceAttachmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.VerifyServiceAttachmentResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

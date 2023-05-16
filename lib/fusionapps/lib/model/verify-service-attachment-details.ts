@@ -15,30 +15,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Admin information to provision Analytics Warehouse Service.
+ * Information about the service attachment to be verified.
  */
-export interface FawAdminInfoDetails {
+export interface VerifyServiceAttachmentDetails {
   /**
-   * Password for the ADW to be created in User Tenancy
+   * Type of the ServiceInstance being attached.
    */
-  "adwAdminPass": string;
+  "serviceInstanceType": string;
   /**
-   * Password for the auto-created FAWService user
+   * The service instance OCID of the instance being attached
    */
-  "fawServicePass"?: string;
-  /**
-   * Email ID to send notification for Analytics Warehouse updates.
-   */
-  "notificationEmail": string;
+  "serviceInstanceId": string;
 }
 
-export namespace FawAdminInfoDetails {
-  export function getJsonObj(obj: FawAdminInfoDetails): object {
+export namespace VerifyServiceAttachmentDetails {
+  export function getJsonObj(obj: VerifyServiceAttachmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: FawAdminInfoDetails): object {
+  export function getDeserializedJsonObj(obj: VerifyServiceAttachmentDetails): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;

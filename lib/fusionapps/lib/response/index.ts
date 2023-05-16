@@ -25,6 +25,8 @@ import * as CreateFusionEnvironmentFamilyResponse from "./create-fusion-environm
 export import CreateFusionEnvironmentFamilyResponse = CreateFusionEnvironmentFamilyResponse.CreateFusionEnvironmentFamilyResponse;
 import * as CreateRefreshActivityResponse from "./create-refresh-activity-response";
 export import CreateRefreshActivityResponse = CreateRefreshActivityResponse.CreateRefreshActivityResponse;
+import * as CreateServiceAttachmentResponse from "./create-service-attachment-response";
+export import CreateServiceAttachmentResponse = CreateServiceAttachmentResponse.CreateServiceAttachmentResponse;
 import * as DeleteFusionEnvironmentResponse from "./delete-fusion-environment-response";
 export import DeleteFusionEnvironmentResponse = DeleteFusionEnvironmentResponse.DeleteFusionEnvironmentResponse;
 import * as DeleteFusionEnvironmentAdminUserResponse from "./delete-fusion-environment-admin-user-response";
@@ -33,6 +35,8 @@ import * as DeleteFusionEnvironmentFamilyResponse from "./delete-fusion-environm
 export import DeleteFusionEnvironmentFamilyResponse = DeleteFusionEnvironmentFamilyResponse.DeleteFusionEnvironmentFamilyResponse;
 import * as DeleteRefreshActivityResponse from "./delete-refresh-activity-response";
 export import DeleteRefreshActivityResponse = DeleteRefreshActivityResponse.DeleteRefreshActivityResponse;
+import * as DeleteServiceAttachmentResponse from "./delete-service-attachment-response";
+export import DeleteServiceAttachmentResponse = DeleteServiceAttachmentResponse.DeleteServiceAttachmentResponse;
 import * as GetDataMaskingActivityResponse from "./get-data-masking-activity-response";
 export import GetDataMaskingActivityResponse = GetDataMaskingActivityResponse.GetDataMaskingActivityResponse;
 import * as GetFusionEnvironmentResponse from "./get-fusion-environment-response";
@@ -83,3 +87,5 @@ import * as UpdateFusionEnvironmentFamilyResponse from "./update-fusion-environm
 export import UpdateFusionEnvironmentFamilyResponse = UpdateFusionEnvironmentFamilyResponse.UpdateFusionEnvironmentFamilyResponse;
 import * as UpdateRefreshActivityResponse from "./update-refresh-activity-response";
 export import UpdateRefreshActivityResponse = UpdateRefreshActivityResponse.UpdateRefreshActivityResponse;
+import * as VerifyServiceAttachmentResponse from "./verify-service-attachment-response";
+export import VerifyServiceAttachmentResponse = VerifyServiceAttachmentResponse.VerifyServiceAttachmentResponse;
