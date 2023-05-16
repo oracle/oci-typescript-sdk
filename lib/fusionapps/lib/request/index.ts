@@ -25,6 +25,8 @@ import * as CreateFusionEnvironmentFamilyRequest from "./create-fusion-environme
 export import CreateFusionEnvironmentFamilyRequest = CreateFusionEnvironmentFamilyRequest.CreateFusionEnvironmentFamilyRequest;
 import * as CreateRefreshActivityRequest from "./create-refresh-activity-request";
 export import CreateRefreshActivityRequest = CreateRefreshActivityRequest.CreateRefreshActivityRequest;
+import * as CreateServiceAttachmentRequest from "./create-service-attachment-request";
+export import CreateServiceAttachmentRequest = CreateServiceAttachmentRequest.CreateServiceAttachmentRequest;
 import * as DeleteFusionEnvironmentRequest from "./delete-fusion-environment-request";
 export import DeleteFusionEnvironmentRequest = DeleteFusionEnvironmentRequest.DeleteFusionEnvironmentRequest;
 import * as DeleteFusionEnvironmentAdminUserRequest from "./delete-fusion-environment-admin-user-request";
@@ -33,6 +35,8 @@ import * as DeleteFusionEnvironmentFamilyRequest from "./delete-fusion-environme
 export import DeleteFusionEnvironmentFamilyRequest = DeleteFusionEnvironmentFamilyRequest.DeleteFusionEnvironmentFamilyRequest;
 import * as DeleteRefreshActivityRequest from "./delete-refresh-activity-request";
 export import DeleteRefreshActivityRequest = DeleteRefreshActivityRequest.DeleteRefreshActivityRequest;
+import * as DeleteServiceAttachmentRequest from "./delete-service-attachment-request";
+export import DeleteServiceAttachmentRequest = DeleteServiceAttachmentRequest.DeleteServiceAttachmentRequest;
 import * as GetDataMaskingActivityRequest from "./get-data-masking-activity-request";
 export import GetDataMaskingActivityRequest = GetDataMaskingActivityRequest.GetDataMaskingActivityRequest;
 import * as GetFusionEnvironmentRequest from "./get-fusion-environment-request";
@@ -83,3 +87,5 @@ import * as UpdateFusionEnvironmentFamilyRequest from "./update-fusion-environme
 export import UpdateFusionEnvironmentFamilyRequest = UpdateFusionEnvironmentFamilyRequest.UpdateFusionEnvironmentFamilyRequest;
 import * as UpdateRefreshActivityRequest from "./update-refresh-activity-request";
 export import UpdateRefreshActivityRequest = UpdateRefreshActivityRequest.UpdateRefreshActivityRequest;
+import * as VerifyServiceAttachmentRequest from "./verify-service-attachment-request";
+export import VerifyServiceAttachmentRequest = VerifyServiceAttachmentRequest.VerifyServiceAttachmentRequest;

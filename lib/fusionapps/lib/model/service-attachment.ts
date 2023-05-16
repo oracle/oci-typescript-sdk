@@ -23,10 +23,6 @@ export interface ServiceAttachment {
    */
   "id": string;
   /**
-   * Action
-   */
-  "action"?: string;
-  /**
    * Compartment Identifier
    */
   "compartmentId"?: string;
