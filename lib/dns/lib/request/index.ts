@@ -35,6 +35,8 @@ import * as CreateViewRequest from "./create-view-request";
 export import CreateViewRequest = CreateViewRequest.CreateViewRequest;
 import * as CreateZoneRequest from "./create-zone-request";
 export import CreateZoneRequest = CreateZoneRequest.CreateZoneRequest;
+import * as CreateZoneFromZoneFileRequest from "./create-zone-from-zone-file-request";
+export import CreateZoneFromZoneFileRequest = CreateZoneFromZoneFileRequest.CreateZoneFromZoneFileRequest;
 import * as DeleteDomainRecordsRequest from "./delete-domain-records-request";
 export import DeleteDomainRecordsRequest = DeleteDomainRecordsRequest.DeleteDomainRecordsRequest;
 import * as DeleteRRSetRequest from "./delete-rrset-request";

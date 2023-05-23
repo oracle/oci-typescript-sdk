@@ -314,6 +314,8 @@ import * as GetExadataInfrastructureResponse from "./get-exadata-infrastructure-
 export import GetExadataInfrastructureResponse = GetExadataInfrastructureResponse.GetExadataInfrastructureResponse;
 import * as GetExadataInfrastructureOcpusResponse from "./get-exadata-infrastructure-ocpus-response";
 export import GetExadataInfrastructureOcpusResponse = GetExadataInfrastructureOcpusResponse.GetExadataInfrastructureOcpusResponse;
+import * as GetExadataInfrastructureUnAllocatedResourcesResponse from "./get-exadata-infrastructure-un-allocated-resources-response";
+export import GetExadataInfrastructureUnAllocatedResourcesResponse = GetExadataInfrastructureUnAllocatedResourcesResponse.GetExadataInfrastructureUnAllocatedResourcesResponse;
 import * as GetExadataIormConfigResponse from "./get-exadata-iorm-config-response";
 export import GetExadataIormConfigResponse = GetExadataIormConfigResponse.GetExadataIormConfigResponse;
 import * as GetExternalBackupJobResponse from "./get-external-backup-job-response";

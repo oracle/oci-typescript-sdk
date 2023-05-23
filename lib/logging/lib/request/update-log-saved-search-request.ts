@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateLogSavedSearchRequest extends common.BaseRequest {
   /**
-   * OCID of the logSavedSearch
+   * OCID of the logSavedSearch.
    *
    */
   "logSavedSearchId": string;

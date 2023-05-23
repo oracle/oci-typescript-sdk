@@ -11034,7 +11034,9 @@ A failover might result in data loss depending on the protection mode in effect 
         getCloudExadataInfrastructureUnallocatedResourcesRequest.cloudExadataInfrastructureId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "dbServers": getCloudExadataInfrastructureUnallocatedResourcesRequest.dbServers
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -12601,6 +12603,89 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyModel: model.OCPUs,
         type: "model.OCPUs",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets un allocated resources information for the specified Exadata infrastructure. Applies to Exadata Cloud@Customer instances only.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExadataInfrastructureUnAllocatedResourcesRequest
+   * @return GetExadataInfrastructureUnAllocatedResourcesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetExadataInfrastructureUnAllocatedResources.ts.html |here} to see how to use GetExadataInfrastructureUnAllocatedResources API.
+   */
+  public async getExadataInfrastructureUnAllocatedResources(
+    getExadataInfrastructureUnAllocatedResourcesRequest: requests.GetExadataInfrastructureUnAllocatedResourcesRequest
+  ): Promise<responses.GetExadataInfrastructureUnAllocatedResourcesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getExadataInfrastructureUnAllocatedResources."
+      );
+    const operationName = "getExadataInfrastructureUnAllocatedResources";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ExadataInfrastructureUnAllocatedResources/GetExadataInfrastructureUnAllocatedResources";
+    const pathParams = {
+      "{exadataInfrastructureId}":
+        getExadataInfrastructureUnAllocatedResourcesRequest.exadataInfrastructureId
+    };
+
+    const queryParams = {
+      "dbServers": getExadataInfrastructureUnAllocatedResourcesRequest.dbServers
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExadataInfrastructureUnAllocatedResourcesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExadataInfrastructureUnAllocatedResourcesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/exadataInfrastructures/{exadataInfrastructureId}/unAllocatedResources",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExadataInfrastructureUnAllocatedResourcesResponse>{},
+        body: await response.json(),
+        bodyKey: "exadataInfrastructureUnAllocatedResources",
+        bodyModel: model.ExadataInfrastructureUnAllocatedResources,
+        type: "model.ExadataInfrastructureUnAllocatedResources",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

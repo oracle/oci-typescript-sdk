@@ -29,7 +29,7 @@ export interface ListLogGroupsRequest extends common.BaseRequest {
    */
   "isCompartmentIdInSubtree"?: boolean;
   /**
-   * Resource name
+   * Resource name.
    */
   "displayName"?: string;
   /**

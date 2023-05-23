@@ -44,6 +44,12 @@ export interface CreateZoneDetails extends model.CreateZoneBaseDetails {
    *
    */
   "externalMasters"?: Array<model.ExternalMaster>;
+  /**
+   * External secondary servers for the zone.
+   * This field is currently not supported when `zoneType` is `SECONDARY` or `scope` is `PRIVATE`.
+   *
+   */
+  "externalDownstreams"?: Array<model.ExternalDownstream>;
 
   "migrationSource": string;
 }
@@ -64,6 +70,11 @@ export namespace CreateZoneDetails {
           ? obj.externalMasters.map(item => {
               return model.ExternalMaster.getJsonObj(item);
             })
+          : undefined,
+        "externalDownstreams": obj.externalDownstreams
+          ? obj.externalDownstreams.map(item => {
+              return model.ExternalDownstream.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -83,6 +94,11 @@ export namespace CreateZoneDetails {
         "externalMasters": obj.externalMasters
           ? obj.externalMasters.map(item => {
               return model.ExternalMaster.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "externalDownstreams": obj.externalDownstreams
+          ? obj.externalDownstreams.map(item => {
+              return model.ExternalDownstream.getDeserializedJsonObj(item);
             })
           : undefined
       }

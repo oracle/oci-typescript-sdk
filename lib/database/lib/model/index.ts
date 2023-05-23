@@ -92,6 +92,8 @@ import * as AutonomousVirtualMachineSummary from "./autonomous-virtual-machine-s
 export import AutonomousVirtualMachineSummary = AutonomousVirtualMachineSummary.AutonomousVirtualMachineSummary;
 import * as AutonomousVmCluster from "./autonomous-vm-cluster";
 export import AutonomousVmCluster = AutonomousVmCluster.AutonomousVmCluster;
+import * as AutonomousVmClusterResourceDetails from "./autonomous-vm-cluster-resource-details";
+export import AutonomousVmClusterResourceDetails = AutonomousVmClusterResourceDetails.AutonomousVmClusterResourceDetails;
 import * as AutonomousVmClusterSummary from "./autonomous-vm-cluster-summary";
 export import AutonomousVmClusterSummary = AutonomousVmClusterSummary.AutonomousVmClusterSummary;
 import * as Backup from "./backup";
@@ -354,6 +356,8 @@ import * as ExadataInfrastructureContact from "./exadata-infrastructure-contact"
 export import ExadataInfrastructureContact = ExadataInfrastructureContact.ExadataInfrastructureContact;
 import * as ExadataInfrastructureSummary from "./exadata-infrastructure-summary";
 export import ExadataInfrastructureSummary = ExadataInfrastructureSummary.ExadataInfrastructureSummary;
+import * as ExadataInfrastructureUnAllocatedResources from "./exadata-infrastructure-un-allocated-resources";
+export import ExadataInfrastructureUnAllocatedResources = ExadataInfrastructureUnAllocatedResources.ExadataInfrastructureUnAllocatedResources;
 import * as ExadataIormConfig from "./exadata-iorm-config";
 export import ExadataIormConfig = ExadataIormConfig.ExadataIormConfig;
 import * as ExadataIormConfigUpdateDetails from "./exadata-iorm-config-update-details";

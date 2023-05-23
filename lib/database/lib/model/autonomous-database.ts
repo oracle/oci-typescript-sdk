@@ -150,7 +150,7 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
    */
   "dataStorageSizeInTBs": number;
   /**
-   * The amount of memory (in GBs) enabled per each CPU in the Autonomous VM Cluster. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) enabled per OCPU or ECPU. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**

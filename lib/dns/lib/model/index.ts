@@ -41,6 +41,8 @@ import * as CreateZoneBaseDetails from "./create-zone-base-details";
 export import CreateZoneBaseDetails = CreateZoneBaseDetails.CreateZoneBaseDetails;
 import * as DynectMigrationDetails from "./dynect-migration-details";
 export import DynectMigrationDetails = DynectMigrationDetails.DynectMigrationDetails;
+import * as ExternalDownstream from "./external-downstream";
+export import ExternalDownstream = ExternalDownstream.ExternalDownstream;
 import * as ExternalMaster from "./external-master";
 export import ExternalMaster = ExternalMaster.ExternalMaster;
 import * as MigrationReplacement from "./migration-replacement";

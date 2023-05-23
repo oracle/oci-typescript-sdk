@@ -204,6 +204,10 @@ export interface ExadataInfrastructureSummary {
   "isCpsOfflineReportEnabled"?: boolean;
   "networkBondingModeDetails"?: model.NetworkBondingModeDetails;
   /**
+   * The name of the availability domain that the Exadata infrastructure is located in.
+   */
+  "availabilityDomain"?: string;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
