@@ -35,6 +35,8 @@ import * as CreateViewResponse from "./create-view-response";
 export import CreateViewResponse = CreateViewResponse.CreateViewResponse;
 import * as CreateZoneResponse from "./create-zone-response";
 export import CreateZoneResponse = CreateZoneResponse.CreateZoneResponse;
+import * as CreateZoneFromZoneFileResponse from "./create-zone-from-zone-file-response";
+export import CreateZoneFromZoneFileResponse = CreateZoneFromZoneFileResponse.CreateZoneFromZoneFileResponse;
 import * as DeleteDomainRecordsResponse from "./delete-domain-records-response";
 export import DeleteDomainRecordsResponse = DeleteDomainRecordsResponse.DeleteDomainRecordsResponse;
 import * as DeleteRRSetResponse from "./delete-rrset-response";

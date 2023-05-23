@@ -1160,6 +1160,96 @@ Private zones must have a zone type of `PRIMARY`. Creating a private zone at or 
   }
 
   /**
+   * Creates a new zone from a zone file in the specified compartment. Not supported for private zones.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateZoneFromZoneFileRequest
+   * @return CreateZoneFromZoneFileResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dns/CreateZoneFromZoneFile.ts.html |here} to see how to use CreateZoneFromZoneFile API.
+   */
+  public async createZoneFromZoneFile(
+    createZoneFromZoneFileRequest: requests.CreateZoneFromZoneFileRequest
+  ): Promise<responses.CreateZoneFromZoneFileResponse> {
+    if (this.logger) this.logger.debug("Calling operation DnsClient#createZoneFromZoneFile.");
+    const operationName = "createZoneFromZoneFile";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/dns/20180115/Zone/CreateZoneFromZoneFile";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": createZoneFromZoneFileRequest.compartmentId,
+      "scope": createZoneFromZoneFileRequest.scope,
+      "viewId": createZoneFromZoneFileRequest.viewId
+    };
+
+    let headerParams = {
+      "opc-request-id": createZoneFromZoneFileRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createZoneFromZoneFileRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/createZoneFromZoneFile",
+      method: "POST",
+      bodyContent: createZoneFromZoneFileRequest.createZoneFromZoneFileDetails,
+      pathParams: pathParams,
+      headerParams: headerParams,
+      backupBinaryBody: retrier.backUpBinaryBody,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateZoneFromZoneFileResponse>{},
+        body: await response.json(),
+        bodyKey: "zone",
+        bodyModel: model.Zone,
+        type: "model.Zone",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Deletes all records at the specified zone and domain.
 * <p>
 When the zone name is provided as a path parameter and `PRIVATE` is used for the scope query parameter

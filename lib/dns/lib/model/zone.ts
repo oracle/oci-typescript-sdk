@@ -72,6 +72,12 @@ export interface Zone {
    */
   "externalMasters": Array<model.ExternalMaster>;
   /**
+   * External secondary servers for the zone.
+   * This field is currently not supported when `zoneType` is `SECONDARY` or `scope` is `PRIVATE`.
+   *
+   */
+  "externalDownstreams": Array<model.ExternalDownstream>;
+  /**
    * The canonical absolute URL of the resource.
    */
   "self": string;
@@ -153,6 +159,11 @@ export namespace Zone {
               return model.ExternalMaster.getJsonObj(item);
             })
           : undefined,
+        "externalDownstreams": obj.externalDownstreams
+          ? obj.externalDownstreams.map(item => {
+              return model.ExternalDownstream.getJsonObj(item);
+            })
+          : undefined,
 
         "nameservers": obj.nameservers
           ? obj.nameservers.map(item => {
@@ -176,6 +187,11 @@ export namespace Zone {
         "externalMasters": obj.externalMasters
           ? obj.externalMasters.map(item => {
               return model.ExternalMaster.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "externalDownstreams": obj.externalDownstreams
+          ? obj.externalDownstreams.map(item => {
+              return model.ExternalDownstream.getDeserializedJsonObj(item);
             })
           : undefined,
 

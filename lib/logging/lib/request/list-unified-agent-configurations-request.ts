@@ -38,7 +38,7 @@ export interface ListUnifiedAgentConfigurationsRequest extends common.BaseReques
    */
   "groupId"?: string;
   /**
-   * Resource name
+   * Resource name.
    */
   "displayName"?: string;
   /**

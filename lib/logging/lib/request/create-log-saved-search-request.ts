@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateLogSavedSearchRequest extends common.BaseRequest {
   /**
-   * Specification of the Saved Search to create
+   * Specification of the saved search to create.
    */
   "createLogSavedSearchDetails": model.CreateLogSavedSearchDetails;
   /**

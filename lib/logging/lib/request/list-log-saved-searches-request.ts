@@ -25,12 +25,12 @@ export interface ListLogSavedSearchesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * OCID of the LogSavedSearch
+   * OCID of the LogSavedSearch.
    *
    */
   "logSavedSearchId"?: string;
   /**
-   * Resource name
+   * Resource name.
    */
   "name"?: string;
   /**

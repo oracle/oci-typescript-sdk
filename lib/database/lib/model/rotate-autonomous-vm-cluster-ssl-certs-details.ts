@@ -16,12 +16,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details for configuring the ORDS certificates on Autonomous VM Cluster
+ * Details for configuring the ORDS certificates on Autonomous Exadata VM Cluster
  *
  */
 export interface RotateAutonomousVmClusterSslCertsDetails {
   /**
-   * Specify SYSTEM for using Oracle managed certificates. Specify BYOC when you want to bring your own certificate.
+   * Specify SYSTEM to use Oracle-managed certificates. Specify BYOC when you want to bring your own certificate.
    */
   "certificateGenerationType": RotateAutonomousVmClusterSslCertsDetails.CertificateGenerationType;
   /**

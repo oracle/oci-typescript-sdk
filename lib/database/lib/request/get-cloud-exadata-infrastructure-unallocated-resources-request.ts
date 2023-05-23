@@ -28,4 +28,8 @@ export interface GetCloudExadataInfrastructureUnallocatedResourcesRequest
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Db servers.
+   */
+  "dbServers"?: Array<string>;
 }

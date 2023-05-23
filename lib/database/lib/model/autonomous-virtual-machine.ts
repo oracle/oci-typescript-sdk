@@ -77,6 +77,10 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Cloud Autonomous VM Cluster associated with the Autonomous Virtual Machine.
+   */
+  "cloudAutonomousVmClusterId"?: string;
 }
 
 export namespace AutonomousVirtualMachine {

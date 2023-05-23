@@ -27,15 +27,15 @@ export interface ListLogsRequest extends common.BaseRequest {
    */
   "logType"?: ListLogsRequest.LogType;
   /**
-   * Service that created the log object.
+   * Service that created the log object, which is a field of LogSummary.Configuration.Source.
    */
   "sourceService"?: string;
   /**
-   * Log object resource.
+   * Log object resource, which is a field of LogSummary.Configuration.Source.
    */
   "sourceResource"?: string;
   /**
-   * Resource name
+   * Resource name.
    */
   "displayName"?: string;
   /**

@@ -219,9 +219,13 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "dbNodeStorageSizeInGBs"?: number;
   /**
-   * The amount of memory (in GBs) enabled per each CPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) enabled per OCPU or ECPU. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
+  /**
+   * The list of [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Db servers.
+   */
+  "dbServers"?: Array<string>;
 }
 
 export namespace CloudAutonomousVmClusterSummary {

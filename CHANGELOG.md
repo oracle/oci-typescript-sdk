@@ -3,6 +3,30 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.61.0 - 2023-05-23
+### Added
+- Support for CRI-O parsing in the Logging service
+- Support for retrieving the resource availability domain when getting Exadata infrastructure or VM clusters in the Database service
+- Support for specifying database servers when creating dedicated autonomous databases in the Database service
+- Support for secondary egress zones in the DNS service
+ 
+### Breaking Changes
+- Added mandatory field `externalDownstreams` to the model `Zone` in the DNS service
+- Removed models `LogIncludedSearchSummaryCollection`, `LogIncludedSearchSummary` and `LogIncludedSearch` from the Logging service
+- Field `keys` was made mandatory in the model `UnifiedAgentCsvParser` in the Logging service
+- Field `patterns` was made mandatory in the model `UnifiedAgentGrokParser` in the Logging service
+- Field `sources` and `destination` were made mandatory in the model `UnifiedAgentLoggingConfiguration` in the Logging service
+- Field `patterns` was made mandatory in the model `UnifiedAgentMultilineGrokParser` in the Logging service
+- Field `format` was made mandatory in the model `UnifiedAgentMultilineParser` in the Logging service
+- Field `expression` was made mandatory in the model `UnifiedAgentRegexParser` in the Logging service
+- Field `paths` was made mandatory in the model `UnifiedAgentTailLogSource` in the Logging service
+- Field `keys` was made mandatory in the model `UnifiedAgentTsvParser` in the Logging service
+- Field `channels` was made mandatory in the model `UnifiedAgentWindowsEventSource` in the Logging service
+- Removed request class `ListLogIncludedSearchesRequest` from the Logging service
+- Removed response class `ListLogIncludedSearchesResponse` from the Logging service
+- Removed operations `getLogIncludedSearch` and `listLogIncludedSearches` from the `LoggingManagementClient` in the Logging service
+
+
 ## 2.60.0 - 2023-05-16
 ### Added
 - Support for self-service integration in the Fusion Apps as a Service service

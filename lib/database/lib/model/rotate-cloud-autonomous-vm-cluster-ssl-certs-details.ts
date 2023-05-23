@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface RotateCloudAutonomousVmClusterSslCertsDetails {
   /**
-   * Specify SYSTEM for using Oracle managed certificates. Specify BYOC when you want to bring your own certificate.
+   * Specify SYSTEM to use Oracle-managed certificates. Specify BYOC when you want to bring your own certificate.
    */
   "certificateGenerationType": RotateCloudAutonomousVmClusterSslCertsDetails.CertificateGenerationType;
   /**

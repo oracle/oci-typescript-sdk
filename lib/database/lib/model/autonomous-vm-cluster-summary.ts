@@ -83,7 +83,7 @@ export interface AutonomousVmClusterSummary {
    */
   "totalContainerDatabases"?: number;
   /**
-   * The amount of memory (in GBs) to be enabled per each CPU core. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
@@ -180,11 +180,11 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "isMtlsEnabled"?: boolean;
   /**
-   * The date and time of Database SSL certificate expiration.
+   * The date and time of the Database SSL certificate expiration.
    */
   "timeDatabaseSslCertificateExpires"?: Date;
   /**
-   * The date and time of ORDS certificate expiration.
+   * The date and time of the ORDS certificate expiration.
    */
   "timeOrdsCertificateExpires"?: Date;
 }
