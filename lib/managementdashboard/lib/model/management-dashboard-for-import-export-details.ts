@@ -29,11 +29,11 @@ export interface ManagementDashboardForImportExportDetails {
    */
   "providerId": string;
   /**
-   * Name of the service (for example, Logging Analytics) that owns the dashboard.
+   * The user friendly name of the service (for example, Logging Analytics) that owns the dashboard.
    */
   "providerName": string;
   /**
-   * Version of the service that owns the dashboard.
+   * The version of the metadata of the provider. This is useful for provider to version its features and metadata. Any newly created saved search (or dashboard) should use providerVersion 3.0.0.
    */
   "providerVersion": string;
   /**
@@ -61,7 +61,7 @@ export interface ManagementDashboardForImportExportDetails {
    */
   "isShowInHome": boolean;
   /**
-   * Version of the metadata.
+   * The version of the metadata defined in the API. This is maintained and enforced by dashboard server. Currently it is 2.0.
    */
   "metadataVersion": string;
   /**
@@ -77,11 +77,11 @@ export interface ManagementDashboardForImportExportDetails {
    */
   "nls": any;
   /**
-   * JSON that contains user interface options.
+   * It defines the visualization type of the widget saved search, the UI options of that visualization type, the binding of data to the visualization.
    */
   "uiConfig": any;
   /**
-   * Array of JSON that contain data source options.
+   * It defines how data is fetched. A functional saved search needs a valid dataConfig. See examples on how it can be constructed for various data sources.
    */
   "dataConfig": Array<any>;
   /**
@@ -100,6 +100,10 @@ export interface ManagementDashboardForImportExportDetails {
    * Defines parameters for the dashboard.
    */
   "parametersConfig"?: Array<any>;
+  /**
+   * Contains configuration for enabling features.
+   */
+  "featuresConfig"?: any;
   /**
    * Drill-down configuration to define the destination of a drill-down action.
    */

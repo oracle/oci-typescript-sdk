@@ -33,11 +33,11 @@ export interface CreateManagementSavedSearchDetails {
    */
   "providerId": string;
   /**
-   * Version of the service that owns this saved search.
+   * The version of the metadata of the provider. This is useful for provider to version its features and metadata. Any newly created saved search (or dashboard) should use providerVersion 3.0.0.
    */
   "providerVersion": string;
   /**
-   * Name of the service (for example, Logging Analytics) that owns the saved search.
+   * The user friendly name of the service (for example, Logging Analytics) that owns the saved search.
    */
   "providerName": string;
   /**
@@ -61,11 +61,11 @@ export interface CreateManagementSavedSearchDetails {
    */
   "type": model.SavedSearchTypes;
   /**
-   * JSON that contains user interface options.
+   * It defines the visualization type of the widget saved search, the UI options of that visualization type, the binding of data to the visualization.
    */
   "uiConfig": any;
   /**
-   * Array of JSON that contain data source options.
+   * It defines how data is fetched. A functional saved search needs a valid dataConfig. See examples on how it can be constructed for various data sources.
    */
   "dataConfig": Array<any>;
   /**
@@ -73,21 +73,25 @@ export interface CreateManagementSavedSearchDetails {
    */
   "screenImage": string;
   /**
-   * Version of the metadata.
+   * The version of the metadata defined in the API. This is maintained and enforced by dashboard server. Currently it is 2.0.
    */
   "metadataVersion": string;
   /**
-   * Reference to the HTML file of the widget.
+   * The UI template that the saved search uses to render itself.
    */
   "widgetTemplate": string;
   /**
-   * Reference to the view model of the widget.
+   * The View Model that the saved search uses to render itself.
    */
   "widgetVM": string;
   /**
    * Defines parameters for the saved search.
    */
   "parametersConfig"?: Array<any>;
+  /**
+   * Contains configuration for enabling features.
+   */
+  "featuresConfig"?: any;
   /**
    * Drill-down configuration to define the destination of a drill-down action.
    */

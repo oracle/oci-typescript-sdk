@@ -44,7 +44,7 @@ export interface ClientOptions {
   "requirePrivilegedSourcePort"?: boolean;
   /**
    * Type of access to grant clients using the file system
-   * through this export. If unspecified defaults to `READ_ONLY`.
+   * through this export. If unspecified defaults to `READ_WRITE`.
    *
    */
   "access"?: ClientOptions.Access;

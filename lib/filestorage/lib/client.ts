@@ -262,6 +262,84 @@ export class FileStorageClient {
   }
 
   /**
+   * Moves a file system snapshot policy into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeFilesystemSnapshotPolicyCompartmentRequest
+   * @return ChangeFilesystemSnapshotPolicyCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeFilesystemSnapshotPolicyCompartment.ts.html |here} to see how to use ChangeFilesystemSnapshotPolicyCompartment API.
+   */
+  public async changeFilesystemSnapshotPolicyCompartment(
+    changeFilesystemSnapshotPolicyCompartmentRequest: requests.ChangeFilesystemSnapshotPolicyCompartmentRequest
+  ): Promise<responses.ChangeFilesystemSnapshotPolicyCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation FileStorageClient#changeFilesystemSnapshotPolicyCompartment."
+      );
+    const operationName = "changeFilesystemSnapshotPolicyCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/ChangeFilesystemSnapshotPolicyCompartment";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}":
+        changeFilesystemSnapshotPolicyCompartmentRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeFilesystemSnapshotPolicyCompartmentRequest.ifMatch,
+      "opc-request-id": changeFilesystemSnapshotPolicyCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeFilesystemSnapshotPolicyCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeFilesystemSnapshotPolicyCompartmentRequest.changeFilesystemSnapshotPolicyCompartmentDetails,
+        "ChangeFilesystemSnapshotPolicyCompartmentDetails",
+        model.ChangeFilesystemSnapshotPolicyCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeFilesystemSnapshotPolicyCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a mount target and its associated export set into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -583,6 +661,92 @@ All Oracle Cloud Infrastructure resources, including
         bodyKey: "fileSystem",
         bodyModel: model.FileSystem,
         type: "model.FileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a new file system snapshot policy in the specified compartment and
+* availability domain.
+* <p>
+After you create a file system snapshot policy, you can associate it with
+* file systems.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateFilesystemSnapshotPolicyRequest
+     * @return CreateFilesystemSnapshotPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateFilesystemSnapshotPolicy.ts.html |here} to see how to use CreateFilesystemSnapshotPolicy API.
+     */
+  public async createFilesystemSnapshotPolicy(
+    createFilesystemSnapshotPolicyRequest: requests.CreateFilesystemSnapshotPolicyRequest
+  ): Promise<responses.CreateFilesystemSnapshotPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#createFilesystemSnapshotPolicy.");
+    const operationName = "createFilesystemSnapshotPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/CreateFilesystemSnapshotPolicy";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createFilesystemSnapshotPolicyRequest.opcRetryToken,
+      "opc-request-id": createFilesystemSnapshotPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createFilesystemSnapshotPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createFilesystemSnapshotPolicyRequest.createFilesystemSnapshotPolicyDetails,
+        "CreateFilesystemSnapshotPolicyDetails",
+        model.CreateFilesystemSnapshotPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateFilesystemSnapshotPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "filesystemSnapshotPolicy",
+        bodyModel: model.FilesystemSnapshotPolicy,
+        type: "model.FilesystemSnapshotPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -1029,6 +1193,77 @@ All Oracle Cloud Infrastructure Services resources, including
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFileSystemResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified file system snapshot policy.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteFilesystemSnapshotPolicyRequest
+   * @return DeleteFilesystemSnapshotPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteFilesystemSnapshotPolicy.ts.html |here} to see how to use DeleteFilesystemSnapshotPolicy API.
+   */
+  public async deleteFilesystemSnapshotPolicy(
+    deleteFilesystemSnapshotPolicyRequest: requests.DeleteFilesystemSnapshotPolicyRequest
+  ): Promise<responses.DeleteFilesystemSnapshotPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#deleteFilesystemSnapshotPolicy.");
+    const operationName = "deleteFilesystemSnapshotPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/DeleteFilesystemSnapshotPolicy";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}":
+        deleteFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteFilesystemSnapshotPolicyRequest.ifMatch,
+      "opc-request-id": deleteFilesystemSnapshotPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteFilesystemSnapshotPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteFilesystemSnapshotPolicyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1636,6 +1871,83 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * Gets the specified file system snapshot policy's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetFilesystemSnapshotPolicyRequest
+   * @return GetFilesystemSnapshotPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetFilesystemSnapshotPolicy.ts.html |here} to see how to use GetFilesystemSnapshotPolicy API.
+   */
+  public async getFilesystemSnapshotPolicy(
+    getFilesystemSnapshotPolicyRequest: requests.GetFilesystemSnapshotPolicyRequest
+  ): Promise<responses.GetFilesystemSnapshotPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#getFilesystemSnapshotPolicy.");
+    const operationName = "getFilesystemSnapshotPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/GetFilesystemSnapshotPolicy";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}": getFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getFilesystemSnapshotPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getFilesystemSnapshotPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetFilesystemSnapshotPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "filesystemSnapshotPolicy",
+        bodyModel: model.FilesystemSnapshotPolicy,
+        type: "model.FilesystemSnapshotPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the specified mount target's information.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMountTargetRequest
@@ -2216,7 +2528,8 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
-   * Lists the file system resources in the specified compartment.
+   * Lists the file system resources in the specified compartment, or by the specified compartment and
+   * file system snapshot policy.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListFileSystemsRequest
@@ -2243,6 +2556,7 @@ All Oracle Cloud Infrastructure Services resources, including
       "id": listFileSystemsRequest.id,
       "sourceSnapshotId": listFileSystemsRequest.sourceSnapshotId,
       "parentFileSystemId": listFileSystemsRequest.parentFileSystemId,
+      "filesystemSnapshotPolicyId": listFileSystemsRequest.filesystemSnapshotPolicyId,
       "sortBy": listFileSystemsRequest.sortBy,
       "sortOrder": listFileSystemsRequest.sortOrder
     };
@@ -2352,6 +2666,144 @@ All Oracle Cloud Infrastructure Services resources, including
     request: requests.ListFileSystemsRequest
   ): AsyncIterableIterator<responses.ListFileSystemsResponse> {
     return paginateResponses(request, req => this.listFileSystems(req));
+  }
+
+  /**
+   * Lists file system snapshot policies in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListFilesystemSnapshotPoliciesRequest
+   * @return ListFilesystemSnapshotPoliciesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListFilesystemSnapshotPolicies.ts.html |here} to see how to use ListFilesystemSnapshotPolicies API.
+   */
+  public async listFilesystemSnapshotPolicies(
+    listFilesystemSnapshotPoliciesRequest: requests.ListFilesystemSnapshotPoliciesRequest
+  ): Promise<responses.ListFilesystemSnapshotPoliciesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#listFilesystemSnapshotPolicies.");
+    const operationName = "listFilesystemSnapshotPolicies";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicySummary/ListFilesystemSnapshotPolicies";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listFilesystemSnapshotPoliciesRequest.compartmentId,
+      "availabilityDomain": listFilesystemSnapshotPoliciesRequest.availabilityDomain,
+      "limit": listFilesystemSnapshotPoliciesRequest.limit,
+      "page": listFilesystemSnapshotPoliciesRequest.page,
+      "displayName": listFilesystemSnapshotPoliciesRequest.displayName,
+      "lifecycleState": listFilesystemSnapshotPoliciesRequest.lifecycleState,
+      "id": listFilesystemSnapshotPoliciesRequest.id,
+      "sortBy": listFilesystemSnapshotPoliciesRequest.sortBy,
+      "sortOrder": listFilesystemSnapshotPoliciesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFilesystemSnapshotPoliciesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFilesystemSnapshotPoliciesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFilesystemSnapshotPoliciesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.FilesystemSnapshotPolicySummary,
+        type: "Array<model.FilesystemSnapshotPolicySummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listFilesystemSnapshotPoliciesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.FilesystemSnapshotPolicySummary objects
+   * contained in responses from the listFilesystemSnapshotPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllFilesystemSnapshotPolicies(
+    request: requests.ListFilesystemSnapshotPoliciesRequest
+  ): AsyncIterableIterator<model.FilesystemSnapshotPolicySummary> {
+    return paginateRecords(request, req => this.listFilesystemSnapshotPolicies(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listFilesystemSnapshotPoliciesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listFilesystemSnapshotPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllFilesystemSnapshotPoliciesResponses(
+    request: requests.ListFilesystemSnapshotPoliciesRequest
+  ): AsyncIterableIterator<responses.ListFilesystemSnapshotPoliciesResponse> {
+    return paginateResponses(request, req => this.listFilesystemSnapshotPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.FilesystemSnapshotPolicySummary objects
+   * contained in responses from the listFilesystemSnapshotPolicies operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFilesystemSnapshotPoliciesRecordIterator(
+    request: requests.ListFilesystemSnapshotPoliciesRequest
+  ): AsyncIterableIterator<model.FilesystemSnapshotPolicySummary> {
+    return paginateRecords(request, req => this.listFilesystemSnapshotPolicies(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listFilesystemSnapshotPolicies operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listFilesystemSnapshotPoliciesResponseIterator(
+    request: requests.ListFilesystemSnapshotPoliciesRequest
+  ): AsyncIterableIterator<responses.ListFilesystemSnapshotPoliciesResponse> {
+    return paginateResponses(request, req => this.listFilesystemSnapshotPolicies(req));
   }
 
   /**
@@ -2769,14 +3221,17 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
-   * Lists snapshots of the specified file system.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param ListSnapshotsRequest
-   * @return ListSnapshotsResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListSnapshots.ts.html |here} to see how to use ListSnapshots API.
-   */
+     * Lists snapshots of the specified file system, or by file system snapshot policy and compartment,
+* or by file system snapshot policy and file system.
+* <p>
+If file system ID is not specified, a file system snapshot policy ID and compartment ID must be specified.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ListSnapshotsRequest
+     * @return ListSnapshotsResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListSnapshots.ts.html |here} to see how to use ListSnapshots API.
+     */
   public async listSnapshots(
     listSnapshotsRequest: requests.ListSnapshotsRequest
   ): Promise<responses.ListSnapshotsResponse> {
@@ -2791,6 +3246,8 @@ All Oracle Cloud Infrastructure Services resources, including
       "page": listSnapshotsRequest.page,
       "lifecycleState": listSnapshotsRequest.lifecycleState,
       "id": listSnapshotsRequest.id,
+      "filesystemSnapshotPolicyId": listSnapshotsRequest.filesystemSnapshotPolicyId,
+      "compartmentId": listSnapshotsRequest.compartmentId,
       "fileSystemId": listSnapshotsRequest.fileSystemId,
       "sortOrder": listSnapshotsRequest.sortOrder
     };
@@ -2900,6 +3357,175 @@ All Oracle Cloud Infrastructure Services resources, including
     request: requests.ListSnapshotsRequest
   ): AsyncIterableIterator<responses.ListSnapshotsResponse> {
     return paginateResponses(request, req => this.listSnapshots(req));
+  }
+
+  /**
+     * This operation pauses the scheduled snapshot creation and snapshot deletion of the policy and updates the lifecycle state of the file system
+* snapshot policy from ACTIVE to INACTIVE. When a file system snapshot policy is paused, file systems that are associated with the
+* policy will not have scheduled snapshots created or deleted.
+* <p>
+If the policy is already paused, or in the INACTIVE state, you cannot pause it again. You can't pause a policy
+* that is in a DELETING, DELETED, FAILED, CREATING or INACTIVE state; attempts to pause a policy in these states result in a 409 conflict error.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param PauseFilesystemSnapshotPolicyRequest
+     * @return PauseFilesystemSnapshotPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/PauseFilesystemSnapshotPolicy.ts.html |here} to see how to use PauseFilesystemSnapshotPolicy API.
+     */
+  public async pauseFilesystemSnapshotPolicy(
+    pauseFilesystemSnapshotPolicyRequest: requests.PauseFilesystemSnapshotPolicyRequest
+  ): Promise<responses.PauseFilesystemSnapshotPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#pauseFilesystemSnapshotPolicy.");
+    const operationName = "pauseFilesystemSnapshotPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/PauseFilesystemSnapshotPolicy";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}":
+        pauseFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": pauseFilesystemSnapshotPolicyRequest.ifMatch,
+      "opc-request-id": pauseFilesystemSnapshotPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      pauseFilesystemSnapshotPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/pause",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PauseFilesystemSnapshotPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "filesystemSnapshotPolicy",
+        bodyModel: model.FilesystemSnapshotPolicy,
+        type: "model.FilesystemSnapshotPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * This operation unpauses a paused file system snapshot policy and updates the lifecycle state of the file system snapshot policy from 
+* INACTIVE to ACTIVE. By default, file system snapshot policies are in the ACTIVE state. When a file system snapshot policy is not paused, or in the ACTIVE state, file systems that are associated with the
+* policy will have snapshots created and deleted according to the schedules defined in the policy.
+* <p>
+If the policy is already in the ACTIVE state, you cannot unpause it. You can't unpause a policy that is in a DELETING, DELETED, FAILED, CREATING, or ACTIVE state; attempts to unpause a policy in these states result in a 409 conflict error.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UnpauseFilesystemSnapshotPolicyRequest
+     * @return UnpauseFilesystemSnapshotPolicyResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UnpauseFilesystemSnapshotPolicy.ts.html |here} to see how to use UnpauseFilesystemSnapshotPolicy API.
+     */
+  public async unpauseFilesystemSnapshotPolicy(
+    unpauseFilesystemSnapshotPolicyRequest: requests.UnpauseFilesystemSnapshotPolicyRequest
+  ): Promise<responses.UnpauseFilesystemSnapshotPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#unpauseFilesystemSnapshotPolicy.");
+    const operationName = "unpauseFilesystemSnapshotPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/UnpauseFilesystemSnapshotPolicy";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}":
+        unpauseFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": unpauseFilesystemSnapshotPolicyRequest.ifMatch,
+      "opc-request-id": unpauseFilesystemSnapshotPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      unpauseFilesystemSnapshotPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}/actions/unpause",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UnpauseFilesystemSnapshotPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "filesystemSnapshotPolicy",
+        bodyModel: model.FilesystemSnapshotPolicy,
+        type: "model.FilesystemSnapshotPolicy",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -3130,6 +3756,90 @@ All Oracle Cloud Infrastructure Services resources, including
         bodyKey: "fileSystem",
         bodyModel: model.FileSystem,
         type: "model.FileSystem",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified file system snapshot policy's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateFilesystemSnapshotPolicyRequest
+   * @return UpdateFilesystemSnapshotPolicyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateFilesystemSnapshotPolicy.ts.html |here} to see how to use UpdateFilesystemSnapshotPolicy API.
+   */
+  public async updateFilesystemSnapshotPolicy(
+    updateFilesystemSnapshotPolicyRequest: requests.UpdateFilesystemSnapshotPolicyRequest
+  ): Promise<responses.UpdateFilesystemSnapshotPolicyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#updateFilesystemSnapshotPolicy.");
+    const operationName = "updateFilesystemSnapshotPolicy";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/FilesystemSnapshotPolicy/UpdateFilesystemSnapshotPolicy";
+    const pathParams = {
+      "{filesystemSnapshotPolicyId}":
+        updateFilesystemSnapshotPolicyRequest.filesystemSnapshotPolicyId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateFilesystemSnapshotPolicyRequest.ifMatch,
+      "opc-request-id": updateFilesystemSnapshotPolicyRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateFilesystemSnapshotPolicyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/filesystemSnapshotPolicies/{filesystemSnapshotPolicyId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateFilesystemSnapshotPolicyRequest.updateFilesystemSnapshotPolicyDetails,
+        "UpdateFilesystemSnapshotPolicyDetails",
+        model.UpdateFilesystemSnapshotPolicyDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateFilesystemSnapshotPolicyResponse>{},
+        body: await response.json(),
+        bodyKey: "filesystemSnapshotPolicy",
+        bodyModel: model.FilesystemSnapshotPolicy,
+        type: "model.FilesystemSnapshotPolicy",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

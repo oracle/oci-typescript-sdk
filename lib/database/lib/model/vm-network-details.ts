@@ -50,6 +50,7 @@ export namespace VmNetworkDetails {
   export enum NetworkType {
     Client = "CLIENT",
     Backup = "BACKUP",
+    DisasterRecovery = "DISASTER_RECOVERY",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

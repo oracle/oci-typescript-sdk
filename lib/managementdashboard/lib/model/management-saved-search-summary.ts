@@ -41,11 +41,11 @@ export interface ManagementSavedSearchSummary {
    */
   "providerId": string;
   /**
-   * Version of the service that owns this saved search.
+   * The version of the metadata of the provider. This is useful for provider to version its features and metadata. Any newly created saved search (or dashboard) should use providerVersion 3.0.0.
    */
   "providerVersion": string;
   /**
-   * Name of the service (for example, Logging Analytics) that owns the saved search.
+   * The user friendly name of the service (for example, Logging Analytics) that owns the saved search.
    */
   "providerName": string;
   /**
@@ -61,19 +61,19 @@ export interface ManagementSavedSearchSummary {
    */
   "type": model.SavedSearchTypes;
   /**
-   * JSON that contains user interface options.
+   * It defines the visualization type of the widget saved search, the UI options of that visualization type, the binding of data to the visualization.
    */
   "uiConfig": any;
   /**
-   * Array of JSON that contain data source options.
+   * It defines how data is fetched. A functional saved search needs a valid dataConfig. See examples on how it can be constructed for various data sources.
    */
   "dataConfig": Array<any>;
   /**
-   * User who created the saved search.
+   * The principle id of the user that created this saved search. This is automatically managed by the system. In OCI the value is ignored. In EM it can skipped or otherwise it is ignored in both create and update API and system automatically sets its value.
    */
   "createdBy": string;
   /**
-   * User who updated the saved search.
+   * The principle id of the user that updated this saved search
    */
   "updatedBy": string;
   /**
@@ -89,25 +89,29 @@ export interface ManagementSavedSearchSummary {
    */
   "screenImage": string;
   /**
-   * Version of the metadata.
+   * The version of the metadata defined in the API. This is maintained and enforced by dashboard server. Currently it is 2.0.
    */
   "metadataVersion": string;
   /**
-   * Reference to the HTML file of the widget.
+   * The UI template that the saved search uses to render itself.
    */
   "widgetTemplate": string;
   /**
-   * Reference to the view model of the widget.
+   * The View Model that the saved search uses to render itself.
    */
   "widgetVM": string;
   /**
-   * Current lifecycle state of the saved search.
+   * OCI lifecycle status. This is automatically managed by the system.
    */
   "lifecycleState": model.LifecycleStates;
   /**
    * Defines parameters for the saved search.
    */
   "parametersConfig"?: Array<any>;
+  /**
+   * Contains configuration for enabling features.
+   */
+  "featuresConfig"?: any;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
