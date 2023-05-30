@@ -19,10 +19,6 @@ import common = require("oci-common");
  */
 export interface ListSnapshotsRequest extends common.BaseRequest {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system.
-   */
-  "fileSystemId": string;
-  /**
  * For list pagination. The maximum number of results per page,
 * or items to return in a paginated \"List\" call.
 * 1 is the minimum, 100 is the maximum.
@@ -55,6 +51,20 @@ For important details about how pagination works,
    *
    */
   "id"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system snapshot policy
+   * that is used to create the snapshots.
+   *
+   */
+  "filesystemSnapshotPolicyId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
+   */
+  "compartmentId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system.
+   */
+  "fileSystemId"?: string;
   /**
    * The sort order to use, either 'asc' or 'desc', where 'asc' is
    * ascending and 'desc' is descending. The default order is 'desc'

@@ -53,6 +53,14 @@ If updating to a new Key Management key, the old key must remain enabled so that
 * 
     */
   "kmsKeyId"?: string;
+  /**
+    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the associated file system snapshot policy, which
+* controls the frequency of snapshot creation and retention period of the taken snapshots.
+* <p>
+If string is empty, the policy reference (if any) would be removed.
+* 
+    */
+  "filesystemSnapshotPolicyId"?: string;
 }
 
 export namespace UpdateFileSystemDetails {

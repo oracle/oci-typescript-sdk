@@ -3,6 +3,16 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.62.0 - 2023-05-30
+### Added
+- Support for policy-based snapshots in the File Storage service
+- Support for creating and updating a VM cluster network with disaster recovery network support in the Database service
+- Support for setting a management dashboard or saved search to be shared across OCI Observability and Management services in the Management Dashboard service
+ 
+### Breaking Changes
+- The property `port` was deprecated and made optional in the `ScanDetails` model in the Database service
+
+
 ## 2.61.0 - 2023-05-23
 ### Added
 - Support for CRI-O parsing in the Logging service

@@ -78,6 +78,12 @@ Example: `My resource`
    */
   "parentFileSystemId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system snapshot policy
+   * that is associated with the file systems.
+   *
+   */
+  "filesystemSnapshotPolicyId"?: string;
+  /**
    * The field to sort by. You can provide either value, but not both.
    * By default, when you sort by time created, results are shown
    * in descending order. When you sort by display name, results are

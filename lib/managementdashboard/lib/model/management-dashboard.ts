@@ -81,7 +81,7 @@ export interface ManagementDashboard {
    */
   "timeUpdated": Date;
   /**
-   * Version of the metadata.
+   * The version of the metadata defined in the API. This is maintained and enforced by dashboard server. Currently it is 2.0.
    */
   "metadataVersion": string;
   /**
@@ -128,6 +128,10 @@ export interface ManagementDashboard {
    * Drill-down configuration to define the destination of a drill-down action.
    */
   "drilldownConfig"?: Array<any>;
+  /**
+   * Contains configuration for enabling features.
+   */
+  "featuresConfig"?: any;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`

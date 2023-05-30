@@ -53,7 +53,8 @@ export interface InfoForNetworkGenDetails {
 export namespace InfoForNetworkGenDetails {
   export enum NetworkType {
     Client = "CLIENT",
-    Backup = "BACKUP"
+    Backup = "BACKUP",
+    DisasterRecovery = "DISASTER_RECOVERY"
   }
 
   export function getJsonObj(obj: InfoForNetworkGenDetails): object {

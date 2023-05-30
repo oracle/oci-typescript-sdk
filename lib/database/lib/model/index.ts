@@ -318,6 +318,8 @@ import * as DiskPerformanceDetails from "./disk-performance-details";
 export import DiskPerformanceDetails = DiskPerformanceDetails.DiskPerformanceDetails;
 import * as DownloadOneoffPatch from "./download-oneoff-patch";
 export import DownloadOneoffPatch = DownloadOneoffPatch.DownloadOneoffPatch;
+import * as DrScanDetails from "./dr-scan-details";
+export import DrScanDetails = DrScanDetails.DrScanDetails;
 import * as EnableDatabaseManagementDetails from "./enable-database-management-details";
 export import EnableDatabaseManagementDetails = EnableDatabaseManagementDetails.EnableDatabaseManagementDetails;
 import * as EnableExternalContainerDatabaseDatabaseManagementDetails from "./enable-external-container-database-database-management-details";

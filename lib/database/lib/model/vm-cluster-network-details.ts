@@ -45,6 +45,10 @@ export interface VmClusterNetworkDetails {
    */
   "vmNetworks": Array<model.VmNetworkDetails>;
   /**
+   * The SCAN details for DR network
+   */
+  "drScans"?: Array<model.DrScanDetails>;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no predefined name, type, or namespace.
 * For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>
@@ -75,6 +79,11 @@ export namespace VmClusterNetworkDetails {
           ? obj.vmNetworks.map(item => {
               return model.VmNetworkDetails.getJsonObj(item);
             })
+          : undefined,
+        "drScans": obj.drScans
+          ? obj.drScans.map(item => {
+              return model.DrScanDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -94,6 +103,11 @@ export namespace VmClusterNetworkDetails {
         "vmNetworks": obj.vmNetworks
           ? obj.vmNetworks.map(item => {
               return model.VmNetworkDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "drScans": obj.drScans
+          ? obj.drScans.map(item => {
+              return model.DrScanDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

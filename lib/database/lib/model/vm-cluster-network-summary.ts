@@ -57,6 +57,10 @@ export interface VmClusterNetworkSummary {
    */
   "vmNetworks"?: Array<model.VmNetworkDetails>;
   /**
+   * The SCAN details for DR network
+   */
+  "drScans"?: Array<model.DrScanDetails>;
+  /**
    * The current state of the VM cluster network.
    * CREATING - The resource is being created
    * REQUIRES_VALIDATION - The resource is created and may not be usable until it is validated.
@@ -131,6 +135,11 @@ export namespace VmClusterNetworkSummary {
           ? obj.vmNetworks.map(item => {
               return model.VmNetworkDetails.getJsonObj(item);
             })
+          : undefined,
+        "drScans": obj.drScans
+          ? obj.drScans.map(item => {
+              return model.DrScanDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -150,6 +159,11 @@ export namespace VmClusterNetworkSummary {
         "vmNetworks": obj.vmNetworks
           ? obj.vmNetworks.map(item => {
               return model.VmNetworkDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "drScans": obj.drScans
+          ? obj.drScans.map(item => {
+              return model.DrScanDetails.getDeserializedJsonObj(item);
             })
           : undefined
       }

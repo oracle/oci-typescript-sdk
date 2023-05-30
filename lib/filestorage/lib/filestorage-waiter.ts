@@ -83,6 +83,25 @@ export class FileStorageWaiter {
   }
 
   /**
+   * Waits forFilesystemSnapshotPolicy till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetFilesystemSnapshotPolicyResponse | null (null in case of 404 response)
+   */
+  public async forFilesystemSnapshotPolicy(
+    request: serviceRequests.GetFilesystemSnapshotPolicyRequest,
+    ...targetStates: models.FilesystemSnapshotPolicy.LifecycleState[]
+  ): Promise<serviceResponses.GetFilesystemSnapshotPolicyResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getFilesystemSnapshotPolicy(request),
+      response => targetStates.includes(response.filesystemSnapshotPolicy.lifecycleState!),
+      targetStates.includes(models.FilesystemSnapshotPolicy.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forMountTarget till it reaches any of the provided states
    *
    * @param request the request to send

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details of bonding mode for Client and Backup networks of an Exadata infrastructure.
+ * Details of bonding mode for Client and Backup and DR networks of an Exadata infrastructure.
  *
  */
 export interface NetworkBondingModeDetails {
@@ -28,6 +28,10 @@ export interface NetworkBondingModeDetails {
    * The network bonding mode for the Exadata infrastructure.
    */
   "backupNetworkBondingMode"?: NetworkBondingModeDetails.BackupNetworkBondingMode;
+  /**
+   * The network bonding mode for the Exadata infrastructure.
+   */
+  "drNetworkBondingMode"?: NetworkBondingModeDetails.DrNetworkBondingMode;
 }
 
 export namespace NetworkBondingModeDetails {
@@ -42,6 +46,16 @@ export namespace NetworkBondingModeDetails {
   }
 
   export enum BackupNetworkBondingMode {
+    ActiveBackup = "ACTIVE_BACKUP",
+    Lacp = "LACP",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum DrNetworkBondingMode {
     ActiveBackup = "ACTIVE_BACKUP",
     Lacp = "LACP",
     /**

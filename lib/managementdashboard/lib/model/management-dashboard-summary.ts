@@ -45,11 +45,11 @@ export interface ManagementDashboardSummary {
    */
   "providerId": string;
   /**
-   * Name of the service (for example, Logging Analytics) that owns the dashboard.
+   * The user friendly name of the service (for example, Logging Analytics) that owns the dashboard.
    */
   "providerName": string;
   /**
-   * Version of the service that owns the dashboard.
+   * The version of the metadata of the provider. This is useful for provider to version its features and metadata. Any newly created saved search (or dashboard) should use providerVersion 3.0.0.
    */
   "providerVersion": string;
   /**
@@ -73,7 +73,7 @@ export interface ManagementDashboardSummary {
    */
   "timeUpdated": Date;
   /**
-   * Version of the metadata.
+   * The version of the metadata defined in the API. This is maintained and enforced by dashboard server. Currently it is 2.0.
    */
   "metadataVersion": string;
   /**
@@ -88,6 +88,10 @@ export interface ManagementDashboardSummary {
    * Type of dashboard. NORMAL denotes a single dashboard and SET denotes a dashboard set.
    */
   "type": string;
+  /**
+   * Contains configuration for enabling features.
+   */
+  "featuresConfig"?: any;
   /**
    * Current lifecycle state of the dashboard.
    */

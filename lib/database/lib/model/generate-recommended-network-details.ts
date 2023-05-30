@@ -41,6 +41,10 @@ export interface GenerateRecommendedNetworkDetails {
    */
   "scanListenerPortTcpSsl"?: number;
   /**
+   * The DR SCAN TCPIP port. Default is 1521. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "drScanListenerPortTcp"?: number;
+  /**
    * List of parameters for generation of the client and backup networks.
    */
   "networks": Array<model.InfoForNetworkGenDetails>;

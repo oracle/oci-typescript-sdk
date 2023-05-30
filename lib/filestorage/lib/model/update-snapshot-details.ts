@@ -35,6 +35,13 @@ export interface UpdateSnapshotDetails {
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+    * The UTC time when this snapshot will be deleted. To remove the expiration time, set this field to the minimum date-time value using Date(0).
+* <p>
+Example: `Thu Jan 01 01:00:00 GMT 1970`
+* 
+    */
+  "expirationTime"?: Date;
 }
 
 export namespace UpdateSnapshotDetails {

@@ -65,6 +65,14 @@ Example: `My file system`
    *
    */
   "sourceSnapshotId"?: string;
+  /**
+    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the associated file system snapshot policy, which
+* controls the frequency of snapshot creation and retention period of the taken snapshots.
+* <p>
+May be unset as a blank value.
+* 
+    */
+  "filesystemSnapshotPolicyId"?: string;
 }
 
 export namespace CreateFileSystemDetails {

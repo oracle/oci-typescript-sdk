@@ -103,6 +103,15 @@ Example: `2020-08-25T21:10:29.600Z`
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * The time when this snapshot will be deleted.
+   */
+  "expirationTime"?: Date;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the file system snapshot policy that created this snapshot.
+   *
+   */
+  "filesystemSnapshotPolicyId"?: string;
 }
 
 export namespace Snapshot {
