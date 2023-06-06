@@ -47,7 +47,8 @@ export namespace AddWorkerNodesDetails {
   export enum NodeType {
     Worker = "WORKER",
     ComputeOnlyWorker = "COMPUTE_ONLY_WORKER",
-    Edge = "EDGE"
+    Edge = "EDGE",
+    KafkaBroker = "KAFKA_BROKER"
   }
 
   export function getJsonObj(obj: AddWorkerNodesDetails): object {

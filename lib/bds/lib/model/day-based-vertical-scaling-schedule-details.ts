@@ -20,6 +20,9 @@ import common = require("oci-common");
  */
 export interface DayBasedVerticalScalingScheduleDetails
   extends model.VerticalScalingScheduleDetails {
+  /**
+   * Time of day and vertical scaling configuration
+   */
   "timeAndVerticalScalingConfig"?: Array<model.TimeAndVerticalScalingConfig>;
 
   "scheduleType": string;

@@ -30,7 +30,7 @@ export interface AddBlockStorageDetails {
    */
   "blockVolumeSizeInGBs": number;
   /**
-   * Worker node types, can either be Worker Data node or Compute only worker node.
+   * Worker node types.
    */
   "nodeType": AddBlockStorageDetails.NodeType;
 }
@@ -38,7 +38,8 @@ export interface AddBlockStorageDetails {
 export namespace AddBlockStorageDetails {
   export enum NodeType {
     Worker = "WORKER",
-    ComputeOnlyWorker = "COMPUTE_ONLY_WORKER"
+    ComputeOnlyWorker = "COMPUTE_ONLY_WORKER",
+    KafkaBroker = "KAFKA_BROKER"
   }
 
   export function getJsonObj(obj: AddBlockStorageDetails): object {

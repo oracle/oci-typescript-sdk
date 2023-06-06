@@ -164,6 +164,8 @@ import * as ChangeInstanceCompartmentResponse from "./change-instance-compartmen
 export import ChangeInstanceCompartmentResponse = ChangeInstanceCompartmentResponse.ChangeInstanceCompartmentResponse;
 import * as CreateAppCatalogSubscriptionResponse from "./create-app-catalog-subscription-response";
 export import CreateAppCatalogSubscriptionResponse = CreateAppCatalogSubscriptionResponse.CreateAppCatalogSubscriptionResponse;
+import * as CreateComputeCapacityReportResponse from "./create-compute-capacity-report-response";
+export import CreateComputeCapacityReportResponse = CreateComputeCapacityReportResponse.CreateComputeCapacityReportResponse;
 import * as CreateComputeCapacityReservationResponse from "./create-compute-capacity-reservation-response";
 export import CreateComputeCapacityReservationResponse = CreateComputeCapacityReservationResponse.CreateComputeCapacityReservationResponse;
 import * as CreateComputeClusterResponse from "./create-compute-cluster-response";

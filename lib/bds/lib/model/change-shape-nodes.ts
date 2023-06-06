@@ -49,6 +49,11 @@ export interface ChangeShapeNodes {
    */
   "edge"?: string;
   "edgeShapeConfig"?: model.ShapeConfigDetails;
+  /**
+   * Change shape of Kafka Broker nodes to the desired target shape. Both VM_STANDARD and E4 Flex shapes are allowed here.
+   */
+  "kafkaBroker"?: string;
+  "kafkaBrokerShapeConfig"?: model.ShapeConfigDetails;
 }
 
 export namespace ChangeShapeNodes {
@@ -78,6 +83,10 @@ export namespace ChangeShapeNodes {
 
         "edgeShapeConfig": obj.edgeShapeConfig
           ? model.ShapeConfigDetails.getJsonObj(obj.edgeShapeConfig)
+          : undefined,
+
+        "kafkaBrokerShapeConfig": obj.kafkaBrokerShapeConfig
+          ? model.ShapeConfigDetails.getJsonObj(obj.kafkaBrokerShapeConfig)
           : undefined
       }
     };
@@ -110,6 +119,10 @@ export namespace ChangeShapeNodes {
 
         "edgeShapeConfig": obj.edgeShapeConfig
           ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.edgeShapeConfig)
+          : undefined,
+
+        "kafkaBrokerShapeConfig": obj.kafkaBrokerShapeConfig
+          ? model.ShapeConfigDetails.getDeserializedJsonObj(obj.kafkaBrokerShapeConfig)
           : undefined
       }
     };

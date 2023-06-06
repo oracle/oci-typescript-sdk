@@ -122,6 +122,7 @@ export namespace Node {
     Utility = "UTILITY",
     Worker = "WORKER",
     ComputeOnlyWorker = "COMPUTE_ONLY_WORKER",
+    KafkaBroker = "KAFKA_BROKER",
     Bursting = "BURSTING",
     CloudSql = "CLOUD_SQL",
     /**

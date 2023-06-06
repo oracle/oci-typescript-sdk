@@ -56,6 +56,10 @@ export interface BdsInstanceSummary {
    */
   "isCloudSqlConfigured": boolean;
   /**
+   * Boolean flag specifying whether Kafka is configured or not.
+   */
+  "isKafkaConfigured": boolean;
+  /**
    * Profile of the Big Data Service cluster.
    */
   "clusterProfile"?: string;

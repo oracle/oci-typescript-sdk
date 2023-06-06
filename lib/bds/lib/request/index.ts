@@ -20,6 +20,8 @@ import * as AddBlockStorageRequest from "./add-block-storage-request";
 export import AddBlockStorageRequest = AddBlockStorageRequest.AddBlockStorageRequest;
 import * as AddCloudSqlRequest from "./add-cloud-sql-request";
 export import AddCloudSqlRequest = AddCloudSqlRequest.AddCloudSqlRequest;
+import * as AddKafkaRequest from "./add-kafka-request";
+export import AddKafkaRequest = AddKafkaRequest.AddKafkaRequest;
 import * as AddWorkerNodesRequest from "./add-worker-nodes-request";
 export import AddWorkerNodesRequest = AddWorkerNodesRequest.AddWorkerNodesRequest;
 import * as ChangeBdsInstanceCompartmentRequest from "./change-bds-instance-compartment-request";
@@ -74,6 +76,8 @@ import * as RemoveAutoScalingConfigurationRequest from "./remove-auto-scaling-co
 export import RemoveAutoScalingConfigurationRequest = RemoveAutoScalingConfigurationRequest.RemoveAutoScalingConfigurationRequest;
 import * as RemoveCloudSqlRequest from "./remove-cloud-sql-request";
 export import RemoveCloudSqlRequest = RemoveCloudSqlRequest.RemoveCloudSqlRequest;
+import * as RemoveKafkaRequest from "./remove-kafka-request";
+export import RemoveKafkaRequest = RemoveKafkaRequest.RemoveKafkaRequest;
 import * as RemoveNodeRequest from "./remove-node-request";
 export import RemoveNodeRequest = RemoveNodeRequest.RemoveNodeRequest;
 import * as RestartNodeRequest from "./restart-node-request";

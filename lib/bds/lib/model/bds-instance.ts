@@ -51,6 +51,10 @@ export interface BdsInstance {
    * Boolean flag specifying whether or not Cloud SQL should be configured.
    */
   "isCloudSqlConfigured": boolean;
+  /**
+   * Boolean flag specifying whether or not Kafka should be configured.
+   */
+  "isKafkaConfigured": boolean;
   "networkConfig"?: model.NetworkConfig;
   "clusterDetails"?: model.ClusterDetails;
   /**
@@ -139,6 +143,7 @@ export namespace BdsInstance {
     Spark = "SPARK",
     Hbase = "HBASE",
     Trino = "TRINO",
+    Kafka = "KAFKA",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

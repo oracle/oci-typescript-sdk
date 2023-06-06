@@ -69,6 +69,11 @@ export interface CreateMigrationDetails {
    *
    */
   "includeObjects"?: Array<model.DatabaseObject>;
+  /**
+   * Database objects to exclude/include from migration in CSV format. The excludeObjects and includeObjects fields will be ignored if this field is not null.
+   *
+   */
+  "csvText"?: string;
   "goldenGateDetails"?: model.CreateGoldenGateDetails;
   "vaultDetails"?: model.CreateVaultDetails;
   /**
@@ -112,6 +117,7 @@ export namespace CreateMigrationDetails {
               return model.DatabaseObject.getJsonObj(item);
             })
           : undefined,
+
         "goldenGateDetails": obj.goldenGateDetails
           ? model.CreateGoldenGateDetails.getJsonObj(obj.goldenGateDetails)
           : undefined,
@@ -151,6 +157,7 @@ export namespace CreateMigrationDetails {
               return model.DatabaseObject.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "goldenGateDetails": obj.goldenGateDetails
           ? model.CreateGoldenGateDetails.getDeserializedJsonObj(obj.goldenGateDetails)
           : undefined,

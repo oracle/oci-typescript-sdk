@@ -34,6 +34,11 @@ export interface NonADBAutoCreateTablespaceDetails extends model.TargetTypeTable
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "extendSizeInMBs"?: number;
+  /**
+   * Size of Oracle database blocks in KB.
+   *
+   */
+  "blockSizeInKBs"?: model.DataPumpTablespaceBlockSizesInKb;
 
   "targetType": string;
 }

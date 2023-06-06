@@ -509,6 +509,86 @@ export class BdsClient {
   }
 
   /**
+   * Adds Kafka to a cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddKafkaRequest
+   * @return AddKafkaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddKafka.ts.html |here} to see how to use AddKafka API.
+   */
+  public async addKafka(
+    addKafkaRequest: requests.AddKafkaRequest
+  ): Promise<responses.AddKafkaResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#addKafka.");
+    const operationName = "addKafka";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddKafka";
+    const pathParams = {
+      "{bdsInstanceId}": addKafkaRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addKafkaRequest.opcRequestId,
+      "if-match": addKafkaRequest.ifMatch,
+      "opc-retry-token": addKafkaRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addKafkaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/addKafka",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addKafkaRequest.addKafkaDetails,
+        "AddKafkaDetails",
+        model.AddKafkaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddKafkaResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Increases the size (scales out) a cluster by adding worker nodes(data/compute). The added worker nodes will have the same shape and will have the same amount of attached block storage as other worker nodes in the cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3114,6 +3194,86 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RemoveCloudSqlResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Remove Kafka from the cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RemoveKafkaRequest
+   * @return RemoveKafkaResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/RemoveKafka.ts.html |here} to see how to use RemoveKafka API.
+   */
+  public async removeKafka(
+    removeKafkaRequest: requests.RemoveKafkaRequest
+  ): Promise<responses.RemoveKafkaResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#removeKafka.");
+    const operationName = "removeKafka";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/RemoveKafka";
+    const pathParams = {
+      "{bdsInstanceId}": removeKafkaRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": removeKafkaRequest.opcRequestId,
+      "if-match": removeKafkaRequest.ifMatch,
+      "opc-retry-token": removeKafkaRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      removeKafkaRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/removeKafka",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        removeKafkaRequest.removeKafkaDetails,
+        "RemoveKafkaDetails",
+        model.RemoveKafkaDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RemoveKafkaResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
