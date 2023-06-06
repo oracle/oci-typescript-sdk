@@ -31,6 +31,10 @@ export interface AddHeatWaveClusterDetails {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clusterSize": number;
+  /**
+   * Enable/disable Lakehouse for the HeatWave cluster.
+   */
+  "isLakehouseEnabled"?: boolean;
 }
 
 export namespace AddHeatWaveClusterDetails {

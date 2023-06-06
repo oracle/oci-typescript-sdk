@@ -20,6 +20,11 @@ import common = require("oci-common");
  */
 export interface CreateReplicat {
   /**
+   * Replicat performance.
+   *
+   */
+  "performanceProfile"?: model.ReplicatPerformanceProfile;
+  /**
    * Number of threads used to read trail files (valid for Parallel Replicat)
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

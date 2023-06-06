@@ -130,6 +130,9 @@ export class Region {
   // OC20
   public static EU_JOVANOVAC_1: Region = Region.register("eu-jovanovac-1", Realm.OC20, "beg");
 
+  // OC19
+  public static EU_MADRID_2: Region = Region.register("eu-madrid-2", Realm.OC19, "vll");
+
   /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata
    * Service, only available on OCI instances), since IMDS is not automatically contacted by this method.

@@ -24,6 +24,8 @@ import * as AddBlockStorageDetails from "./add-block-storage-details";
 export import AddBlockStorageDetails = AddBlockStorageDetails.AddBlockStorageDetails;
 import * as AddCloudSqlDetails from "./add-cloud-sql-details";
 export import AddCloudSqlDetails = AddCloudSqlDetails.AddCloudSqlDetails;
+import * as AddKafkaDetails from "./add-kafka-details";
+export import AddKafkaDetails = AddKafkaDetails.AddKafkaDetails;
 import * as AddWorkerNodesDetails from "./add-worker-nodes-details";
 export import AddWorkerNodesDetails = AddWorkerNodesDetails.AddWorkerNodesDetails;
 import * as AutoScalePolicy from "./auto-scale-policy";
@@ -104,6 +106,8 @@ import * as RemoveAutoScalingConfigurationDetails from "./remove-auto-scaling-co
 export import RemoveAutoScalingConfigurationDetails = RemoveAutoScalingConfigurationDetails.RemoveAutoScalingConfigurationDetails;
 import * as RemoveCloudSqlDetails from "./remove-cloud-sql-details";
 export import RemoveCloudSqlDetails = RemoveCloudSqlDetails.RemoveCloudSqlDetails;
+import * as RemoveKafkaDetails from "./remove-kafka-details";
+export import RemoveKafkaDetails = RemoveKafkaDetails.RemoveKafkaDetails;
 import * as RemoveNodeDetails from "./remove-node-details";
 export import RemoveNodeDetails = RemoveNodeDetails.RemoveNodeDetails;
 import * as RestartNodeDetails from "./restart-node-details";

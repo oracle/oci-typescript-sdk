@@ -32,6 +32,10 @@ export interface HeatWaveClusterSummary {
    */
   "clusterSize": number;
   /**
+   * Lakehouse enabled status for the HeatWave cluster.
+   */
+  "isLakehouseEnabled"?: boolean;
+  /**
    * The current state of the MySQL HeatWave cluster.
    */
   "lifecycleState": string;

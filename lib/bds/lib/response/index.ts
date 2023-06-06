@@ -20,6 +20,8 @@ import * as AddBlockStorageResponse from "./add-block-storage-response";
 export import AddBlockStorageResponse = AddBlockStorageResponse.AddBlockStorageResponse;
 import * as AddCloudSqlResponse from "./add-cloud-sql-response";
 export import AddCloudSqlResponse = AddCloudSqlResponse.AddCloudSqlResponse;
+import * as AddKafkaResponse from "./add-kafka-response";
+export import AddKafkaResponse = AddKafkaResponse.AddKafkaResponse;
 import * as AddWorkerNodesResponse from "./add-worker-nodes-response";
 export import AddWorkerNodesResponse = AddWorkerNodesResponse.AddWorkerNodesResponse;
 import * as ChangeBdsInstanceCompartmentResponse from "./change-bds-instance-compartment-response";
@@ -74,6 +76,8 @@ import * as RemoveAutoScalingConfigurationResponse from "./remove-auto-scaling-c
 export import RemoveAutoScalingConfigurationResponse = RemoveAutoScalingConfigurationResponse.RemoveAutoScalingConfigurationResponse;
 import * as RemoveCloudSqlResponse from "./remove-cloud-sql-response";
 export import RemoveCloudSqlResponse = RemoveCloudSqlResponse.RemoveCloudSqlResponse;
+import * as RemoveKafkaResponse from "./remove-kafka-response";
+export import RemoveKafkaResponse = RemoveKafkaResponse.RemoveKafkaResponse;
 import * as RemoveNodeResponse from "./remove-node-response";
 export import RemoveNodeResponse = RemoveNodeResponse.RemoveNodeResponse;
 import * as RestartNodeResponse from "./restart-node-response";

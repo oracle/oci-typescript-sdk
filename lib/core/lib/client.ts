@@ -6790,6 +6790,88 @@ When you move an instance to a different compartment, associated resources such 
   }
 
   /**
+     * Generates a report of the host capacity within an availability domain that is available for you
+* to create compute instances. Host capacity is the physical infrastructure that resources such as compute
+* instances run on.
+* <p>
+Use the capacity report to determine whether sufficient capacity is available for a shape before
+* you create an instance or change the shape of an instance.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateComputeCapacityReportRequest
+     * @return CreateComputeCapacityReportResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateComputeCapacityReport.ts.html |here} to see how to use CreateComputeCapacityReport API.
+     */
+  public async createComputeCapacityReport(
+    createComputeCapacityReportRequest: requests.CreateComputeCapacityReportRequest
+  ): Promise<responses.CreateComputeCapacityReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ComputeClient#createComputeCapacityReport.");
+    const operationName = "createComputeCapacityReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/ComputeCapacityReport/CreateComputeCapacityReport";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createComputeCapacityReportRequest.opcRequestId,
+      "opc-retry-token": createComputeCapacityReportRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createComputeCapacityReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/computeCapacityReports",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createComputeCapacityReportRequest.createComputeCapacityReportDetails,
+        "CreateComputeCapacityReportDetails",
+        model.CreateComputeCapacityReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateComputeCapacityReportResponse>{},
+        body: await response.json(),
+        bodyKey: "computeCapacityReport",
+        bodyModel: model.ComputeCapacityReport,
+        type: "model.ComputeCapacityReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates a new compute capacity reservation in the specified compartment and availability domain.
    * Compute capacity reservations let you reserve instances in a compartment.
    * When you launch an instance using this reservation, you are assured that you have enough space for your instance,
@@ -9977,6 +10059,10 @@ To launch an instance from a Marketplace image listing, you must provide the ima
 * Then, call {@link #createAppCatalogSubscription(CreateAppCatalogSubscriptionRequest) createAppCatalogSubscription}
 * with the signature. To get the image ID for the LaunchInstance operation, call
 * {@link #getAppCatalogListingResourceVersion(GetAppCatalogListingResourceVersionRequest) getAppCatalogListingResourceVersion}.
+* <p>
+To determine whether capacity is available for a specific shape before you create an instance,
+* use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
+* operation.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param LaunchInstanceRequest
@@ -14802,15 +14888,19 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-   * Creates a cluster network. For more information about cluster networks, see
-   * [Managing Cluster Networks](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CreateClusterNetworkRequest
-   * @return CreateClusterNetworkResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateClusterNetwork.ts.html |here} to see how to use CreateClusterNetwork API.
-   */
+     * Creates a cluster network. For more information about cluster networks, see
+* [Managing Cluster Networks](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+* <p>
+To determine whether capacity is available for a specific shape before you create a cluster network,
+* use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
+* operation.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateClusterNetworkRequest
+     * @return CreateClusterNetworkResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateClusterNetwork.ts.html |here} to see how to use CreateClusterNetwork API.
+     */
   public async createClusterNetwork(
     createClusterNetworkRequest: requests.CreateClusterNetworkRequest
   ): Promise<responses.CreateClusterNetworkResponse> {
@@ -14971,14 +15061,18 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-   * Creates an instance pool.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CreateInstancePoolRequest
-   * @return CreateInstancePoolResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstancePool.ts.html |here} to see how to use CreateInstancePool API.
-   */
+     * Creates an instance pool.
+* <p>
+To determine whether capacity is available for a specific shape before you create an instance pool,
+* use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
+* operation.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateInstancePoolRequest
+     * @return CreateInstancePoolResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/CreateInstancePool.ts.html |here} to see how to use CreateInstancePool API.
+     */
   public async createInstancePool(
     createInstancePoolRequest: requests.CreateInstancePoolRequest
   ): Promise<responses.CreateInstancePoolResponse> {
@@ -15671,6 +15765,10 @@ If the instance configuration does not include all of the parameters that are
 * provide these parameters when you create an instance from the instance configuration.
 * For more information, see the {@link InstanceConfiguration}
 * resource.
+* <p>
+To determine whether capacity is available for a specific shape before you create an instance,
+* use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
+* operation.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param LaunchInstanceConfigurationRequest

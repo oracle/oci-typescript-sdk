@@ -24,6 +24,11 @@ export interface MigrationObjectCollection {
    *
    */
   "items": Array<model.MigrationObjectSummary>;
+  /**
+   * Database objects to exclude/include from migration in CSV format. The items field will be ignored if this field is not null.
+   *
+   */
+  "csvText"?: string;
 }
 
 export namespace MigrationObjectCollection {

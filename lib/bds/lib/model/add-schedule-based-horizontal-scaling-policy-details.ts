@@ -27,6 +27,9 @@ export interface AddScheduleBasedHorizontalScalingPolicyDetails
    * The time zone of the execution schedule, in IANA time zone database name format
    */
   "timezone"?: string;
+  /**
+   * Details of a horizontal scaling schedule.
+   */
   "scheduleDetails"?: Array<model.HorizontalScalingScheduleDetails>;
 
   "policyType": string;

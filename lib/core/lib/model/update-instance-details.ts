@@ -97,6 +97,10 @@ The new shape must be compatible with the image that was used to launch the inst
 * can enumerate all available shapes and determine image compatibility by calling
 * {@link #listShapes(ListShapesRequest) listShapes}.
 * <p>
+To determine whether capacity is available for a specific shape before you change the shape of an instance,
+* use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
+* operation.
+* <p>
 If the instance is running when you change the shape, the instance is rebooted.
 * <p>
 Example: `VM.Standard2.1`

@@ -64,9 +64,13 @@ To use the instance pool with a regional subnet, provide a placement configurati
     */
   "placementConfigurations"?: Array<model.UpdateInstancePoolPlacementConfigurationDetails>;
   /**
-   * The number of instances that should be in the instance pool.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The number of instances that should be in the instance pool.
+* <p>
+To determine whether capacity is available for a specific shape before you resize an instance pool,
+* use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
+* operation.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "size"?: number;
 }
 

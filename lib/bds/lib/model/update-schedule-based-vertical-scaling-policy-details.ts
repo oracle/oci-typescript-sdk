@@ -27,6 +27,9 @@ export interface UpdateScheduleBasedVerticalScalingPolicyDetails
    * The time zone of the execution schedule, in IANA time zone database name format
    */
   "timezone"?: string;
+  /**
+   * Details of a vertical scaling schedule.
+   */
   "scheduleDetails"?: Array<model.VerticalScalingScheduleDetails>;
 
   "policyType": string;

@@ -36,6 +36,10 @@ export interface HeatWaveCluster {
    */
   "clusterSize": number;
   /**
+   * Lakehouse enabled status for the HeatWave cluster.
+   */
+  "isLakehouseEnabled"?: boolean;
+  /**
    * A HeatWave node is a compute host that is part of a HeatWave cluster.
    */
   "clusterNodes": Array<model.HeatWaveNode>;
