@@ -30,6 +30,10 @@ export interface CreatePeComanagedExadataVmclusterDetails {
    */
   "opsiPrivateEndpointId"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the Database Management private endpoint
+   */
+  "dbmPrivateEndpointId"?: string;
+  /**
    * The databases that belong to the VM Cluster
    */
   "memberDatabaseDetails"?: Array<model.CreatePeComanagedDatabaseInsightDetails>;

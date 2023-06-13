@@ -23,7 +23,7 @@ export interface GenerateAgentDeployScriptRequest extends common.BaseRequest {
    */
   "fleetId": string;
   /**
-   * Attributes to generate agent deploy script for a Fleet.
+   * Attributes to generate the agent deploy script for a Fleet.
    */
   "generateAgentDeployScriptDetails": model.GenerateAgentDeployScriptDetails;
   /**

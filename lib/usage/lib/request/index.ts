@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ListResourceQuotaRequest from "./list-resource-quota-request";
+export import ListResourceQuotaRequest = ListResourceQuotaRequest.ListResourceQuotaRequest;
+import * as ListResourcesRequest from "./list-resources-request";
+export import ListResourcesRequest = ListResourcesRequest.ListResourcesRequest;
 import * as CreateRedeemableUserRequest from "./create-redeemable-user-request";
 export import CreateRedeemableUserRequest = CreateRedeemableUserRequest.CreateRedeemableUserRequest;
 import * as DeleteRedeemableUserRequest from "./delete-redeemable-user-request";
@@ -23,3 +27,5 @@ import * as ListRedemptionsRequest from "./list-redemptions-request";
 export import ListRedemptionsRequest = ListRedemptionsRequest.ListRedemptionsRequest;
 import * as ListRewardsRequest from "./list-rewards-request";
 export import ListRewardsRequest = ListRewardsRequest.ListRewardsRequest;
+import * as ListUsageLimitsRequest from "./list-usage-limits-request";
+export import ListUsageLimitsRequest = ListUsageLimitsRequest.ListUsageLimitsRequest;

@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface JfrRecording {
   /**
-   * JfrRecording flag to store enabled or disabled status
+   * JfrRecording flag to store enabled or disabled status.
    */
   "isEnabled"?: boolean;
 }

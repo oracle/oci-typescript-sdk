@@ -77,6 +77,26 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "lifecycleState"?: model.LifecycleStates;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deleted ESXi Host with LeftOver billing cycle.
+   *
+   */
+  "billingDonorHostId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the active ESXi Host to swap billing with current host.
+   *
+   */
+  "swapBillingHostId"?: string;
+  /**
+   * Indicates whether this host is in the progress of billing continuation.
+   *
+   */
+  "isBillingContinuationInProgress"?: boolean;
+  /**
+   * Indicates whether this host is in the progress of swapping billing.
+   *
+   */
+  "isBillingSwappingInProgress"?: boolean;
+  /**
    * The billing option currently used by the ESXi host.
    * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
    *

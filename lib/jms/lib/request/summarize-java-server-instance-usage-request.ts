@@ -28,7 +28,7 @@ export interface SummarizeJavaServerInstanceUsageRequest extends common.BaseRequ
    */
   "serverKey"?: string;
   /**
-   * The Java server instance key.
+   * The Java Server instance key.
    *
    */
   "serverInstanceKey"?: string;
@@ -47,12 +47,12 @@ export interface SummarizeJavaServerInstanceUsageRequest extends common.BaseRequ
    */
   "libraryKey"?: string;
   /**
-   * Filter the list with Java server instance name contains the given value.
+   * Filter the list with the Java Server instance name contains the given value.
    *
    */
   "serverInstanceNameContains"?: string;
   /**
-   * The Java server instance name.
+   * The Java Server instance name.
    *
    */
   "serverInstanceName"?: string;
@@ -77,7 +77,7 @@ export interface SummarizeJavaServerInstanceUsageRequest extends common.BaseRequ
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort Java server instances.  Only one sort order may be provided.
+   * The field to sort the Java Server instances. Only one sort order can be provided.
    * If no value is specified _timeLastSeen_ is default.
    *
    */

@@ -74,6 +74,20 @@ export interface ListEsxiHostsRequest extends common.BaseRequest {
    * The lifecycle state of the resource.
    */
   "lifecycleState"?: model.LifecycleStates;
+  /**
+   * If this flag/param is set to True, we return only deleted hosts with LeftOver billingCycle.
+   *
+   */
+  "isBillingDonorsOnly"?: boolean;
+  /**
+   * If this flag/param is set to True, we return only active hosts.
+   *
+   */
+  "isSwapBillingOnly"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment as optional parameter.
+   */
+  "compartmentId"?: string;
 }
 
 export namespace ListEsxiHostsRequest {

@@ -23,7 +23,7 @@ export interface UpdateFleetAdvancedFeatureConfigurationRequest extends common.B
    */
   "fleetId": string;
   /**
-   * Update advanced feature configurations with new fields
+   * Update advanced feature configurations with new fields.
    */
   "updateFleetAdvancedFeatureConfigurationDetails": model.UpdateFleetAdvancedFeatureConfigurationDetails;
   /**

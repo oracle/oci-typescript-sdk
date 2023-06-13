@@ -55,9 +55,9 @@ export interface SummarizeHostInsightResourceUtilizationInsightRequest extends c
   "timeIntervalEnd"?: Date;
   /**
    * Filter by one or more platform types.
-   * Supported platformType(s) for MACS-managed external host insight: [LINUX].
+   * Supported platformType(s) for MACS-managed external host insight: [LINUX, SOLARIS, WINDOWS].
    * Supported platformType(s) for MACS-managed cloud host insight: [LINUX].
-   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX].
+   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX, WINDOWS, AIX].
    *
    */
   "platformType"?: Array<SummarizeHostInsightResourceUtilizationInsightRequest.PlatformType>;
@@ -158,6 +158,8 @@ export namespace SummarizeHostInsightResourceUtilizationInsightRequest {
     Linux = "LINUX",
     Solaris = "SOLARIS",
     Sunos = "SUNOS",
-    Zlinux = "ZLINUX"
+    Zlinux = "ZLINUX",
+    Windows = "WINDOWS",
+    Aix = "AIX"
   }
 }

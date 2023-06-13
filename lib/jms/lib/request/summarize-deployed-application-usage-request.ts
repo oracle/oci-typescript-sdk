@@ -28,7 +28,7 @@ export interface SummarizeDeployedApplicationUsageRequest extends common.BaseReq
    */
   "serverKey"?: string;
   /**
-   * The Java server instance key.
+   * The Java Server instance key.
    *
    */
   "serverInstanceKey"?: string;
@@ -77,7 +77,7 @@ export interface SummarizeDeployedApplicationUsageRequest extends common.BaseReq
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort deployed applications.  Only one sort order may be provided.
+   * The field to sort the deployed applications. Only one sort order can be provided.
    * If no value is specified _timeLastSeen_ is default.
    *
    */

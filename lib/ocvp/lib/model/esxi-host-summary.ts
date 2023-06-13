@@ -140,6 +140,26 @@ Example: `2016-08-25T21:10:29.600Z`
    */
   "hostOcpuCount"?: number;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deleted ESXi Host with LeftOver billing cycle.
+   *
+   */
+  "billingDonorHostId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the active ESXi Host to swap billing with current host.
+   *
+   */
+  "swapBillingHostId"?: string;
+  /**
+   * Indicates whether this host is in the progress of billing continuation.
+   *
+   */
+  "isBillingContinuationInProgress"?: boolean;
+  /**
+   * Indicates whether this host is in the progress of swapping billing.
+   *
+   */
+  "isBillingSwappingInProgress"?: boolean;
+  /**
     * Free-form tags for this resource. Each tag is a simple key-value pair with no
 * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/Content/General/Concepts/resourcetags.htm).
 * <p>

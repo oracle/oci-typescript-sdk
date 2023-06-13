@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Management Agent Configuration for a Fleet. Includes JRE scanning frequency and list of include/exclude file system paths.
+ * Management Agent Configuration for a Fleet. Includes JRE scanning frequency and a list of include/exclude file system paths.
  *
  */
 export interface FleetAgentConfiguration {

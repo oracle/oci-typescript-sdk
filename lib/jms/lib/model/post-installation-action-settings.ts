@@ -28,11 +28,22 @@ export interface PostInstallationActionSettings {
   /**
    * Restores JDK root certificates with the certificates that are available in the operating system.
    * The following action is supported by the field:
-   * - Replace JDK root certificates with a list provided by the operating system
+   * - Replace JDK root certificates with a list provided by the operating system.
    *
    */
   "shouldReplaceCertificatesOperatingSystem"?: boolean;
   "minimumKeySizeSettings"?: model.MinimumKeySizeSettings;
+  /**
+   * Sets FileHandler and ConsoleHandler as handlers in logging.properties file.
+   *
+   */
+  "addLoggingHandler"?: boolean;
+  /**
+   * Sets the logging level in logging.properties file.
+   *
+   */
+  "globalLoggingLevel"?: model.GlobalLoggingLevel;
+  "proxies"?: model.Proxies;
 }
 
 export namespace PostInstallationActionSettings {
@@ -48,7 +59,9 @@ export namespace PostInstallationActionSettings {
 
         "minimumKeySizeSettings": obj.minimumKeySizeSettings
           ? model.MinimumKeySizeSettings.getJsonObj(obj.minimumKeySizeSettings)
-          : undefined
+          : undefined,
+
+        "proxies": obj.proxies ? model.Proxies.getJsonObj(obj.proxies) : undefined
       }
     };
 
@@ -66,7 +79,9 @@ export namespace PostInstallationActionSettings {
 
         "minimumKeySizeSettings": obj.minimumKeySizeSettings
           ? model.MinimumKeySizeSettings.getDeserializedJsonObj(obj.minimumKeySizeSettings)
-          : undefined
+          : undefined,
+
+        "proxies": obj.proxies ? model.Proxies.getDeserializedJsonObj(obj.proxies) : undefined
       }
     };
 

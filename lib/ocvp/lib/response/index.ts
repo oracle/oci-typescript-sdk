@@ -21,6 +21,8 @@ import * as GetEsxiHostResponse from "./get-esxi-host-response";
 export import GetEsxiHostResponse = GetEsxiHostResponse.GetEsxiHostResponse;
 import * as ListEsxiHostsResponse from "./list-esxi-hosts-response";
 export import ListEsxiHostsResponse = ListEsxiHostsResponse.ListEsxiHostsResponse;
+import * as SwapBillingResponse from "./swap-billing-response";
+export import SwapBillingResponse = SwapBillingResponse.SwapBillingResponse;
 import * as UpdateEsxiHostResponse from "./update-esxi-host-response";
 export import UpdateEsxiHostResponse = UpdateEsxiHostResponse.UpdateEsxiHostResponse;
 import * as CancelDowngradeHcxResponse from "./cancel-downgrade-hcx-response";

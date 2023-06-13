@@ -43,7 +43,7 @@ export interface ListCryptoAnalysisResultsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort crypto event analysis results. Only one sort order may be provided.
+   * The field to sort crypto event analysis results. Only one sort order can be provided.
    * Default order for _timeCreated_, and _jreVersion_ is **descending**.
    * Default order for _managedInstanceId_, _jreDistribution_, _jreVendor_ and _osName_ is **ascending**.
    * If no value is specified _timeCreated_ is default.

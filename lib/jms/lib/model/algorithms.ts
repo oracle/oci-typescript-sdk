@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of supported algorithms for minimum key size update
+ * List of supported algorithms for minimum key size update.
  **/
 export enum Algorithms {
   Rsa = "RSA",

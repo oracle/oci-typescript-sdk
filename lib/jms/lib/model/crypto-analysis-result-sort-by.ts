@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The field used to sort crypto event analysis reports.
+ * The field used to sort Crypto event analysis reports.
  **/
 export enum CryptoAnalysisResultSortBy {
   TimeCreated = "timeCreated",

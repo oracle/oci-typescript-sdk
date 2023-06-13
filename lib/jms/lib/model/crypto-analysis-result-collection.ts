@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of Crypto Event Analysis results.
+ * List of Crypto event analysis results.
  */
 export interface CryptoAnalysisResultCollection {
   /**

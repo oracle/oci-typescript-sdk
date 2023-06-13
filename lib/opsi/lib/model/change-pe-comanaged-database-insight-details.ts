@@ -26,6 +26,7 @@ export interface ChangePeComanagedDatabaseInsightDetails {
    */
   "serviceName": string;
   "credentialDetails": model.CredentialsBySource | model.CredentialByVault;
+  "connectionDetails"?: model.PeComanagedDatabaseConnectionDetails;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the OPSI private endpoint
    */
@@ -39,6 +40,9 @@ export namespace ChangePeComanagedDatabaseInsightDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.CredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "connectionDetails": obj.connectionDetails
+          ? model.PeComanagedDatabaseConnectionDetails.getJsonObj(obj.connectionDetails)
           : undefined
       }
     };
@@ -51,6 +55,9 @@ export namespace ChangePeComanagedDatabaseInsightDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.CredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "connectionDetails": obj.connectionDetails
+          ? model.PeComanagedDatabaseConnectionDetails.getDeserializedJsonObj(obj.connectionDetails)
           : undefined
       }
     };

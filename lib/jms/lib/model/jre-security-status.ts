@@ -18,6 +18,7 @@ import common = require("oci-common");
  * Possible security status of a Java Runtime.
  **/
 export enum JreSecurityStatus {
+  EarlyAccess = "EARLY_ACCESS",
   Unknown = "UNKNOWN",
   UpToDate = "UP_TO_DATE",
   UpdateRequired = "UPDATE_REQUIRED",

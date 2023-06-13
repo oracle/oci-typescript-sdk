@@ -210,3 +210,4 @@ export import recovery = require("oci-recovery");
 export import vbsinst = require("oci-vbsinst");
 export import identitydomains = require("oci-identitydomains");
 export import accessgovernancecp = require("oci-accessgovernancecp");
+export import ocicontrolcenter = require("oci-ocicontrolcenter");

@@ -63,7 +63,7 @@ export interface SummarizeJavaServerUsageRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort Java servers.  Only one sort order may be provided.
+   * The field to sort a Java Server. Only one sort order can be provided.
    * If no value is specified _timeLastSeen_ is default.
    *
    */

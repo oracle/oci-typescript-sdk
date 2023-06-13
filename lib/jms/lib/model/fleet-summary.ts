@@ -39,38 +39,38 @@ export interface FleetSummary {
   "compartmentId": string;
   /**
    * The approximate count of all unique Java Runtimes in the Fleet in the past seven days.
-   * This metric is provided on a best-effort manner, and is not taken into account when computing the resource ETag.
+   * This metric is provided on a best-effort manner, and isn't taken into account when computing the resource ETag.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateJreCount": number;
   /**
    * The approximate count of all unique Java Installations in the Fleet in the past seven days.
-   * This metric is provided on a best-effort manner, and is not taken into account when computing the resource ETag.
+   * This metric is provided on a best-effort manner, and isn't taken into account when computing the resource ETag.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateInstallationCount": number;
   /**
    * The approximate count of all unique applications in the Fleet in the past seven days.
-   * This metric is provided on a best-effort manner, and is not taken into account when computing the resource ETag.
+   * This metric is provided on a best-effort manner, and isn't taken into account when computing the resource ETag.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateApplicationCount": number;
   /**
    * The approximate count of all unique managed instances in the Fleet in the past seven days.
-   * This metric is provided on a best-effort manner, and is not taken into account when computing the resource ETag.
+   * This metric is provided on a best-effort manner, and isn't taken into account when computing the resource ETag.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateManagedInstanceCount": number;
   /**
    * The approximate count of all unique Java servers in the Fleet in the past seven days.
-   * This metric is provided on a best-effort manner, and is not taken into account when computing the resource ETag.
+   * This metric is provided on a best-effort manner, and isn't taken into account when computing the resource ETag.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateJavaServerCount": number;
   "inventoryLog"?: model.CustomLog;
   "operationLog"?: model.CustomLog;
   /**
-   * Whether or not advanced features are enabled in this fleet.
+   * Whether or not advanced features are enabled in this Fleet.
    * This flag is true if any one of the advanced features is turned on.
    *
    */
@@ -91,7 +91,7 @@ export interface FleetSummary {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`. (See [Managing Tags and Tag Namespaces](https://docs.cloud.oracle.com/Content/Tagging/Concepts/understandingfreeformtags.htm).)
    *
    */

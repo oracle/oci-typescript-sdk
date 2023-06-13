@@ -36,7 +36,7 @@ export interface OperatingSystem {
    */
   "architecture": string;
   /**
-   * Number of instances running the operating system Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of instances running the operating system. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "managedInstanceCount"?: number;
 }
