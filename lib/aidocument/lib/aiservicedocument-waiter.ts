@@ -24,6 +24,25 @@ export class AIServiceDocumentWaiter {
   ) {}
 
   /**
+   * Waits forModel till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetModelResponse | null (null in case of 404 response)
+   */
+  public async forModel(
+    request: serviceRequests.GetModelRequest,
+    ...targetStates: models.Model.LifecycleState[]
+  ): Promise<serviceResponses.GetModelResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getModel(request),
+      response => targetStates.includes(response.model.lifecycleState!),
+      targetStates.includes(models.Model.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forProcessorJob till it reaches any of the provided states
    *
    * @param request the request to send
@@ -38,6 +57,41 @@ export class AIServiceDocumentWaiter {
       this.config,
       () => this.client.getProcessorJob(request),
       response => targetStates.includes(response.processorJob.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forProject till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetProjectResponse | null (null in case of 404 response)
+   */
+  public async forProject(
+    request: serviceRequests.GetProjectRequest,
+    ...targetStates: models.Project.LifecycleState[]
+  ): Promise<serviceResponses.GetProjectResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getProject(request),
+      response => targetStates.includes(response.project.lifecycleState!),
+      targetStates.includes(models.Project.LifecycleState.Deleted)
+    );
+  }
+
+  /**
+   * Waits forWorkRequest
+   *
+   * @param request the request to send
+   * @return response returns GetWorkRequestResponse
+   */
+  public async forWorkRequest(
+    request: serviceRequests.GetWorkRequestRequest
+  ): Promise<serviceResponses.GetWorkRequestResponse> {
+    return genericWaiter(
+      this.config,
+      () => this.client.getWorkRequest(request),
+      response => (response.workRequest.timeFinished ? true : false)
     );
   }
 }

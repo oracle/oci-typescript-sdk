@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The LCM work request for a JVM installation site.
+ * Work item to complete a work request.
  */
 export interface WorkItemSummary {
   /**
@@ -27,6 +27,7 @@ export interface WorkItemSummary {
    */
   "workRequestId": string;
   "installationSite": model.InstallationSite;
+  "details": model.BasicWorkItemDetails | model.ApplicationWorkItemDetails;
   /**
    * The status of the work item.
    */
@@ -49,7 +50,8 @@ export namespace WorkItemSummary {
       ...{
         "installationSite": obj.installationSite
           ? model.InstallationSite.getJsonObj(obj.installationSite)
-          : undefined
+          : undefined,
+        "details": obj.details ? model.WorkItemDetails.getJsonObj(obj.details) : undefined
       }
     };
 
@@ -61,6 +63,9 @@ export namespace WorkItemSummary {
       ...{
         "installationSite": obj.installationSite
           ? model.InstallationSite.getDeserializedJsonObj(obj.installationSite)
+          : undefined,
+        "details": obj.details
+          ? model.WorkItemDetails.getDeserializedJsonObj(obj.details)
           : undefined
       }
     };

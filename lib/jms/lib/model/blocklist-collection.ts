@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a blocklist search. Contains Blocklist records.
+ * Results of a blocklist search that contain Blocklist records.
  */
 export interface BlocklistCollection {
   /**

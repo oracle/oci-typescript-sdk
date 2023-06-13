@@ -653,7 +653,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Deletes only the metadata of the Crypto Event Analysis result, but the file remains in the object storage.
+   * Deletes the metadata for the result of a Crypto event analysis. The actual report shall remain in the object storage.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteCryptoAnalysisResultRequest
    * @return DeleteCryptoAnalysisResultResponse
@@ -803,6 +803,163 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Delete the Java migration analysis result. The actual report will remain in the Object Storage bucket.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteJavaMigrationAnalysisResultRequest
+   * @return DeleteJavaMigrationAnalysisResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeleteJavaMigrationAnalysisResult.ts.html |here} to see how to use DeleteJavaMigrationAnalysisResult API.
+   */
+  public async deleteJavaMigrationAnalysisResult(
+    deleteJavaMigrationAnalysisResultRequest: requests.DeleteJavaMigrationAnalysisResultRequest
+  ): Promise<responses.DeleteJavaMigrationAnalysisResultResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#deleteJavaMigrationAnalysisResult."
+      );
+    const operationName = "deleteJavaMigrationAnalysisResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/DeleteJavaMigrationAnalysisResult";
+    const pathParams = {
+      "{fleetId}": deleteJavaMigrationAnalysisResultRequest.fleetId,
+      "{javaMigrationAnalysisResultId}":
+        deleteJavaMigrationAnalysisResultRequest.javaMigrationAnalysisResultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteJavaMigrationAnalysisResultRequest.ifMatch,
+      "opc-request-id": deleteJavaMigrationAnalysisResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteJavaMigrationAnalysisResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/javaMigrationAnalysisResults/{javaMigrationAnalysisResultId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteJavaMigrationAnalysisResultResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes only the metadata of the Performance Tuning Analysis result, but the file remains in the object storage.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeletePerformanceTuningAnalysisResultRequest
+   * @return DeletePerformanceTuningAnalysisResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/DeletePerformanceTuningAnalysisResult.ts.html |here} to see how to use DeletePerformanceTuningAnalysisResult API.
+   */
+  public async deletePerformanceTuningAnalysisResult(
+    deletePerformanceTuningAnalysisResultRequest: requests.DeletePerformanceTuningAnalysisResultRequest
+  ): Promise<responses.DeletePerformanceTuningAnalysisResultResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#deletePerformanceTuningAnalysisResult."
+      );
+    const operationName = "deletePerformanceTuningAnalysisResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/DeletePerformanceTuningAnalysisResult";
+    const pathParams = {
+      "{fleetId}": deletePerformanceTuningAnalysisResultRequest.fleetId,
+      "{performanceTuningAnalysisResultId}":
+        deletePerformanceTuningAnalysisResultRequest.performanceTuningAnalysisResultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deletePerformanceTuningAnalysisResultRequest.ifMatch,
+      "opc-request-id": deletePerformanceTuningAnalysisResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deletePerformanceTuningAnalysisResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fleets/{fleetId}/performanceTuningAnalysisResults/{performanceTuningAnalysisResultId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeletePerformanceTuningAnalysisResultResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Generates Agent Deploy Script for Fleet using the information provided.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -891,7 +1048,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Retrieve metadata of the Crypto Event Analysis result.
+   * Retrieve the metadata for the result of a Crypto event analysis.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetCryptoAnalysisResultRequest
    * @return GetCryptoAnalysisResultResponse
@@ -1044,7 +1201,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Returns fleet level advanced feature configuration
+   * Returns Fleet level advanced feature configuration.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetFleetAdvancedFeatureConfigurationRequest
@@ -1277,6 +1434,87 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Retrieve Java Migration Analysis result.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetJavaMigrationAnalysisResultRequest
+   * @return GetJavaMigrationAnalysisResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetJavaMigrationAnalysisResult.ts.html |here} to see how to use GetJavaMigrationAnalysisResult API.
+   */
+  public async getJavaMigrationAnalysisResult(
+    getJavaMigrationAnalysisResultRequest: requests.GetJavaMigrationAnalysisResultRequest
+  ): Promise<responses.GetJavaMigrationAnalysisResultResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#getJavaMigrationAnalysisResult."
+      );
+    const operationName = "getJavaMigrationAnalysisResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/GetJavaMigrationAnalysisResult";
+    const pathParams = {
+      "{fleetId}": getJavaMigrationAnalysisResultRequest.fleetId,
+      "{javaMigrationAnalysisResultId}":
+        getJavaMigrationAnalysisResultRequest.javaMigrationAnalysisResultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getJavaMigrationAnalysisResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getJavaMigrationAnalysisResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/javaMigrationAnalysisResults/{javaMigrationAnalysisResultId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetJavaMigrationAnalysisResultResponse>{},
+        body: await response.json(),
+        bodyKey: "javaMigrationAnalysisResult",
+        bodyModel: model.JavaMigrationAnalysisResult,
+        type: "model.JavaMigrationAnalysisResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns detail of a Java release.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetJavaReleaseRequest
@@ -1334,6 +1572,88 @@ export class JavaManagementServiceClient {
         bodyModel: model.JavaRelease,
         type: "model.JavaRelease",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve metadata of the Performance Tuning Analysis result.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetPerformanceTuningAnalysisResultRequest
+   * @return GetPerformanceTuningAnalysisResultResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/GetPerformanceTuningAnalysisResult.ts.html |here} to see how to use GetPerformanceTuningAnalysisResult API.
+   */
+  public async getPerformanceTuningAnalysisResult(
+    getPerformanceTuningAnalysisResultRequest: requests.GetPerformanceTuningAnalysisResultRequest
+  ): Promise<responses.GetPerformanceTuningAnalysisResultResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#getPerformanceTuningAnalysisResult."
+      );
+    const operationName = "getPerformanceTuningAnalysisResult";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/GetPerformanceTuningAnalysisResult";
+    const pathParams = {
+      "{fleetId}": getPerformanceTuningAnalysisResultRequest.fleetId,
+      "{performanceTuningAnalysisResultId}":
+        getPerformanceTuningAnalysisResultRequest.performanceTuningAnalysisResultId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getPerformanceTuningAnalysisResultRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getPerformanceTuningAnalysisResultRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/fleets/{fleetId}/performanceTuningAnalysisResults/{performanceTuningAnalysisResultId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetPerformanceTuningAnalysisResultResponse>{},
+        body: await response.json(),
+        bodyKey: "performanceTuningAnalysisResult",
+        bodyModel: model.PerformanceTuningAnalysisResult,
+        type: "model.PerformanceTuningAnalysisResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1431,6 +1751,89 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Return a list of AnnouncementSummary items
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListAnnouncementsRequest
+   * @return ListAnnouncementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListAnnouncements.ts.html |here} to see how to use ListAnnouncements API.
+   */
+  public async listAnnouncements(
+    listAnnouncementsRequest: requests.ListAnnouncementsRequest
+  ): Promise<responses.ListAnnouncementsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listAnnouncements.");
+    const operationName = "listAnnouncements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/AnnouncementCollection/ListAnnouncements";
+    const pathParams = {};
+
+    const queryParams = {
+      "summaryContains": listAnnouncementsRequest.summaryContains,
+      "timeStart": listAnnouncementsRequest.timeStart,
+      "timeEnd": listAnnouncementsRequest.timeEnd,
+      "limit": listAnnouncementsRequest.limit,
+      "page": listAnnouncementsRequest.page,
+      "sortOrder": listAnnouncementsRequest.sortOrder,
+      "sortBy": listAnnouncementsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listAnnouncementsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listAnnouncementsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/announcements",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListAnnouncementsResponse>{},
+        body: await response.json(),
+        bodyKey: "announcementCollection",
+        bodyModel: model.AnnouncementCollection,
+        type: "model.AnnouncementCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of blocklist entities contained by a fleet.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1516,7 +1919,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * List Crypto Event Analysis results.
+   * Lists the results of a Crypto event analysis.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListCryptoAnalysisResultsRequest
    * @return ListCryptoAnalysisResultsResponse
@@ -1581,6 +1984,87 @@ export class JavaManagementServiceClient {
         bodyKey: "cryptoAnalysisResultCollection",
         bodyModel: model.CryptoAnalysisResultCollection,
         type: "model.CryptoAnalysisResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List potential diagnoses that would put a fleet into FAILED or NEEDS_ATTENTION lifecycle state.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListFleetDiagnosesRequest
+   * @return ListFleetDiagnosesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListFleetDiagnoses.ts.html |here} to see how to use ListFleetDiagnoses API.
+   */
+  public async listFleetDiagnoses(
+    listFleetDiagnosesRequest: requests.ListFleetDiagnosesRequest
+  ): Promise<responses.ListFleetDiagnosesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation JavaManagementServiceClient#listFleetDiagnoses.");
+    const operationName = "listFleetDiagnoses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/FleetDiagnosisSummary/ListFleetDiagnoses";
+    const pathParams = {
+      "{fleetId}": listFleetDiagnosesRequest.fleetId
+    };
+
+    const queryParams = {
+      "limit": listFleetDiagnosesRequest.limit,
+      "page": listFleetDiagnosesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listFleetDiagnosesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listFleetDiagnosesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/diagnoses",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListFleetDiagnosesResponse>{},
+        body: await response.json(),
+        bodyKey: "fleetDiagnosisCollection",
+        bodyModel: model.FleetDiagnosisCollection,
+        type: "model.FleetDiagnosisCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1864,6 +2348,93 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Lists the results of a Java migration analysis.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListJavaMigrationAnalysisResultsRequest
+   * @return ListJavaMigrationAnalysisResultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListJavaMigrationAnalysisResults.ts.html |here} to see how to use ListJavaMigrationAnalysisResults API.
+   */
+  public async listJavaMigrationAnalysisResults(
+    listJavaMigrationAnalysisResultsRequest: requests.ListJavaMigrationAnalysisResultsRequest
+  ): Promise<responses.ListJavaMigrationAnalysisResultsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listJavaMigrationAnalysisResults."
+      );
+    const operationName = "listJavaMigrationAnalysisResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/JavaMigrationAnalysisResult/ListJavaMigrationAnalysisResults";
+    const pathParams = {
+      "{fleetId}": listJavaMigrationAnalysisResultsRequest.fleetId
+    };
+
+    const queryParams = {
+      "managedInstanceId": listJavaMigrationAnalysisResultsRequest.managedInstanceId,
+      "limit": listJavaMigrationAnalysisResultsRequest.limit,
+      "page": listJavaMigrationAnalysisResultsRequest.page,
+      "sortOrder": listJavaMigrationAnalysisResultsRequest.sortOrder,
+      "sortBy": listJavaMigrationAnalysisResultsRequest.sortBy,
+      "timeStart": listJavaMigrationAnalysisResultsRequest.timeStart,
+      "timeEnd": listJavaMigrationAnalysisResultsRequest.timeEnd
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listJavaMigrationAnalysisResultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listJavaMigrationAnalysisResultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/javaMigrationAnalysisResults",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListJavaMigrationAnalysisResultsResponse>{},
+        body: await response.json(),
+        bodyKey: "javaMigrationAnalysisResultCollection",
+        bodyModel: model.JavaMigrationAnalysisResultCollection,
+        type: "model.JavaMigrationAnalysisResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns a list of Java releases.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2036,7 +2607,95 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Retrieve a (paginated) list of work items for a specified work request.
+   * List Performance Tuning Analysis results.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPerformanceTuningAnalysisResultsRequest
+   * @return ListPerformanceTuningAnalysisResultsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/ListPerformanceTuningAnalysisResults.ts.html |here} to see how to use ListPerformanceTuningAnalysisResults API.
+   */
+  public async listPerformanceTuningAnalysisResults(
+    listPerformanceTuningAnalysisResultsRequest: requests.ListPerformanceTuningAnalysisResultsRequest
+  ): Promise<responses.ListPerformanceTuningAnalysisResultsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#listPerformanceTuningAnalysisResults."
+      );
+    const operationName = "listPerformanceTuningAnalysisResults";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/PerformanceTuningAnalysisResult/ListPerformanceTuningAnalysisResults";
+    const pathParams = {
+      "{fleetId}": listPerformanceTuningAnalysisResultsRequest.fleetId
+    };
+
+    const queryParams = {
+      "managedInstanceId": listPerformanceTuningAnalysisResultsRequest.managedInstanceId,
+      "applicationId": listPerformanceTuningAnalysisResultsRequest.applicationId,
+      "limit": listPerformanceTuningAnalysisResultsRequest.limit,
+      "page": listPerformanceTuningAnalysisResultsRequest.page,
+      "sortOrder": listPerformanceTuningAnalysisResultsRequest.sortOrder,
+      "sortBy": listPerformanceTuningAnalysisResultsRequest.sortBy,
+      "timeStart": listPerformanceTuningAnalysisResultsRequest.timeStart,
+      "timeEnd": listPerformanceTuningAnalysisResultsRequest.timeEnd
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPerformanceTuningAnalysisResultsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPerformanceTuningAnalysisResultsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/performanceTuningAnalysisResults",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPerformanceTuningAnalysisResultsResponse>{},
+        body: await response.json(),
+        bodyKey: "performanceTuningAnalysisResultCollection",
+        bodyModel: model.PerformanceTuningAnalysisResultCollection,
+        type: "model.PerformanceTuningAnalysisResultCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieve a paginated list of work items for a specified work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkItemsRequest
@@ -2198,7 +2857,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Retrieve a (paginated) list of logs for a specified work request.
+   * Retrieve a paginated list of logs for a specified work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
@@ -2443,8 +3102,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Request to perform crypto analyses. The result of crypto analysis will be uploaded to the
-   * object storage bucket desiginated when enable Crypto Event Analysis feature.
+   * Request to perform crypto analysis on one or more selected targets in the Fleet. The result of the crypto analysis will be uploaded to the object storage bucket created by JMS on enabling the Crypto Event Analysis feature in the Fleet.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RequestCryptoAnalysesRequest
@@ -2523,8 +3181,89 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Request to collect the JFR recordings on the selected target. The JFR files are uploaded
-   * to the object storage bucket that you designated when you enabled the recording feature.
+   * Request to perform a Java migration analysis. The results of the Java migration analysis will be uploaded to the
+   * Object Storage bucket that you designate when you enable the Java Migration Analysis feature.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestJavaMigrationAnalysesRequest
+   * @return RequestJavaMigrationAnalysesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestJavaMigrationAnalyses.ts.html |here} to see how to use RequestJavaMigrationAnalyses API.
+   */
+  public async requestJavaMigrationAnalyses(
+    requestJavaMigrationAnalysesRequest: requests.RequestJavaMigrationAnalysesRequest
+  ): Promise<responses.RequestJavaMigrationAnalysesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#requestJavaMigrationAnalyses."
+      );
+    const operationName = "requestJavaMigrationAnalyses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestJavaMigrationAnalyses";
+    const pathParams = {
+      "{fleetId}": requestJavaMigrationAnalysesRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestJavaMigrationAnalysesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestJavaMigrationAnalysesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/requestJavaMigrationAnalyses",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestJavaMigrationAnalysesRequest.requestJavaMigrationAnalysesDetails,
+        "RequestJavaMigrationAnalysesDetails",
+        model.RequestJavaMigrationAnalysesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestJavaMigrationAnalysesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Request to collect the JFR recordings on the selected target in the Fleet. The JFR files are uploaded to the object storage bucket created by JMS on enabling Generic JFR feature in the Fleet.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RequestJfrRecordingsRequest
@@ -2603,7 +3342,89 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Scan Java server usage in a fleet.
+   * Request to perform performance tuning analyses. The result of performance tuning analysis will be uploaded to the
+   * object storage bucket that you designated when you enabled the recording feature.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RequestPerformanceTuningAnalysesRequest
+   * @return RequestPerformanceTuningAnalysesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/RequestPerformanceTuningAnalyses.ts.html |here} to see how to use RequestPerformanceTuningAnalyses API.
+   */
+  public async requestPerformanceTuningAnalyses(
+    requestPerformanceTuningAnalysesRequest: requests.RequestPerformanceTuningAnalysesRequest
+  ): Promise<responses.RequestPerformanceTuningAnalysesResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#requestPerformanceTuningAnalyses."
+      );
+    const operationName = "requestPerformanceTuningAnalyses";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/Fleet/RequestPerformanceTuningAnalyses";
+    const pathParams = {
+      "{fleetId}": requestPerformanceTuningAnalysesRequest.fleetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": requestPerformanceTuningAnalysesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      requestPerformanceTuningAnalysesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/requestPerformanceTuningAnalyses",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        requestPerformanceTuningAnalysesRequest.requestPerformanceTuningAnalysesDetails,
+        "RequestPerformanceTuningAnalysesDetails",
+        model.RequestPerformanceTuningAnalysesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RequestPerformanceTuningAnalysesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Scan Java Server usage in a fleet.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ScanJavaServerUsageRequest
    * @return ScanJavaServerUsageResponse
@@ -2763,6 +3584,108 @@ export class JavaManagementServiceClient {
   }
 
   /**
+   * Summarizes the application installation usage in a Fleet filtered by query parameters. In contrast to SummarizeApplicationUsage, which provides only information aggregated by application name, this operation provides installation details. This allows for better focusing of actions.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeApplicationInstallationUsageRequest
+   * @return SummarizeApplicationInstallationUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeApplicationInstallationUsage.ts.html |here} to see how to use SummarizeApplicationInstallationUsage API.
+   */
+  public async summarizeApplicationInstallationUsage(
+    summarizeApplicationInstallationUsageRequest: requests.SummarizeApplicationInstallationUsageRequest
+  ): Promise<responses.SummarizeApplicationInstallationUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeApplicationInstallationUsage."
+      );
+    const operationName = "summarizeApplicationInstallationUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/ApplicationInstallationUsageSummary/SummarizeApplicationInstallationUsage";
+    const pathParams = {
+      "{fleetId}": summarizeApplicationInstallationUsageRequest.fleetId
+    };
+
+    const queryParams = {
+      "applicationInstallationKey":
+        summarizeApplicationInstallationUsageRequest.applicationInstallationKey,
+      "applicationId": summarizeApplicationInstallationUsageRequest.applicationId,
+      "displayName": summarizeApplicationInstallationUsageRequest.displayName,
+      "displayNameContains": summarizeApplicationInstallationUsageRequest.displayNameContains,
+      "applicationType": summarizeApplicationInstallationUsageRequest.applicationType,
+      "appInstallationPathContains":
+        summarizeApplicationInstallationUsageRequest.appInstallationPathContains,
+      "jreVendor": summarizeApplicationInstallationUsageRequest.jreVendor,
+      "jreDistribution": summarizeApplicationInstallationUsageRequest.jreDistribution,
+      "jreVersion": summarizeApplicationInstallationUsageRequest.jreVersion,
+      "installationPath": summarizeApplicationInstallationUsageRequest.installationPath,
+      "libraryKey": summarizeApplicationInstallationUsageRequest.libraryKey,
+      "managedInstanceId": summarizeApplicationInstallationUsageRequest.managedInstanceId,
+      "osFamily": summarizeApplicationInstallationUsageRequest.osFamily,
+      "timeStart": summarizeApplicationInstallationUsageRequest.timeStart,
+      "timeEnd": summarizeApplicationInstallationUsageRequest.timeEnd,
+      "limit": summarizeApplicationInstallationUsageRequest.limit,
+      "page": summarizeApplicationInstallationUsageRequest.page,
+      "sortOrder": summarizeApplicationInstallationUsageRequest.sortOrder,
+      "sortBy": summarizeApplicationInstallationUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeApplicationInstallationUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeApplicationInstallationUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/summarizeApplicationInstallationUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeApplicationInstallationUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "applicationInstallationUsageSummaryCollection",
+        bodyModel: model.ApplicationInstallationUsageSummaryCollection,
+        type: "model.ApplicationInstallationUsageSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * List application usage in a Fleet filtered by query parameters.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeApplicationUsageRequest
@@ -2859,7 +3782,106 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * List deployed applications in a fleet filtered by query parameters.
+   * Summarize installation usage of an application deployed on Java servers in a fleet filtered by query parameters. In contrast to SummarizeDeployedApplicationUsage, which provides only information aggregated by the deployment information, this operation provides installation details and allows for better focusing of actions.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeDeployedApplicationInstallationUsageRequest
+   * @return SummarizeDeployedApplicationInstallationUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/jms/SummarizeDeployedApplicationInstallationUsage.ts.html |here} to see how to use SummarizeDeployedApplicationInstallationUsage API.
+   */
+  public async summarizeDeployedApplicationInstallationUsage(
+    summarizeDeployedApplicationInstallationUsageRequest: requests.SummarizeDeployedApplicationInstallationUsageRequest
+  ): Promise<responses.SummarizeDeployedApplicationInstallationUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation JavaManagementServiceClient#summarizeDeployedApplicationInstallationUsage."
+      );
+    const operationName = "summarizeDeployedApplicationInstallationUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/jms/20210610/DeployedApplicationInstallationUsageSummary/SummarizeDeployedApplicationInstallationUsage";
+    const pathParams = {
+      "{fleetId}": summarizeDeployedApplicationInstallationUsageRequest.fleetId
+    };
+
+    const queryParams = {
+      "serverKey": summarizeDeployedApplicationInstallationUsageRequest.serverKey,
+      "serverInstanceKey": summarizeDeployedApplicationInstallationUsageRequest.serverInstanceKey,
+      "managedInstanceId": summarizeDeployedApplicationInstallationUsageRequest.managedInstanceId,
+      "applicationInstallationKey":
+        summarizeDeployedApplicationInstallationUsageRequest.applicationInstallationKey,
+      "applicationKey": summarizeDeployedApplicationInstallationUsageRequest.applicationKey,
+      "applicationNameContains":
+        summarizeDeployedApplicationInstallationUsageRequest.applicationNameContains,
+      "applicationName": summarizeDeployedApplicationInstallationUsageRequest.applicationName,
+      "applicationSourcePathContains":
+        summarizeDeployedApplicationInstallationUsageRequest.applicationSourcePathContains,
+      "libraryKey": summarizeDeployedApplicationInstallationUsageRequest.libraryKey,
+      "timeStart": summarizeDeployedApplicationInstallationUsageRequest.timeStart,
+      "timeEnd": summarizeDeployedApplicationInstallationUsageRequest.timeEnd,
+      "limit": summarizeDeployedApplicationInstallationUsageRequest.limit,
+      "page": summarizeDeployedApplicationInstallationUsageRequest.page,
+      "sortOrder": summarizeDeployedApplicationInstallationUsageRequest.sortOrder,
+      "sortBy": summarizeDeployedApplicationInstallationUsageRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeDeployedApplicationInstallationUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeDeployedApplicationInstallationUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/fleets/{fleetId}/actions/summarizeDeployedApplicationInstallationUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeDeployedApplicationInstallationUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "deployedApplicationInstallationUsageSummaryCollection",
+        bodyModel: model.DeployedApplicationInstallationUsageSummaryCollection,
+        type: "model.DeployedApplicationInstallationUsageSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List of deployed applications in a Fleet filtered by query parameters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeDeployedApplicationUsageRequest
@@ -3048,7 +4070,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * List Java server instances in a fleet filtered by query parameters.
+   * List Java Server instances in a fleet filtered by query parameters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeJavaServerInstanceUsageRequest
@@ -3143,7 +4165,7 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * List Java servers in a fleet filtered by query parameters.
+   * List of Java servers in a Fleet filtered by query parameters.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param SummarizeJavaServerUsageRequest
@@ -3668,8 +4690,8 @@ export class JavaManagementServiceClient {
   }
 
   /**
-   * Update advanced feature configurations for the fleet
-   * Ensure that the namespace and bucket storage are created prior to turning on the JfrRecording or CryptoEventAnalysis feature
+   * Update advanced feature configurations for the Fleet.
+   * Ensure that the namespace and bucket storage are created prior to turning on the JfrRecording or CryptoEventAnalysis feature.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateFleetAdvancedFeatureConfigurationRequest

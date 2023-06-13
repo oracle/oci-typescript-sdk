@@ -15,21 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Advanced feature metadata for the fleet
+ * Metadata for the advanced features in the Fleet.
  */
 export interface FleetAdvancedFeatureConfiguration {
   /**
-   * Namespace for the fleet advanced feature
+   * Namespace for the Fleet advanced feature.
    */
   "analyticNamespace": string;
   /**
-   * Bucket name required to store jfr and related data
+   * Bucket name required to store JFR and related data.
    */
   "analyticBucketName": string;
   "lcm": model.Lcm;
   "cryptoEventAnalysis": model.CryptoEventAnalysis;
   "advancedUsageTracking": model.AdvancedUsageTracking;
   "jfrRecording": model.JfrRecording;
+  "performanceTuningAnalysis": model.PerformanceTuningAnalysis;
+  "javaMigrationAnalysis": model.JavaMigrationAnalysis;
   /**
    * The date and time of the last modification to the Fleet Agent Configuration (formatted according to [RFC3339](https://datatracker.ietf.org/doc/html/rfc3339)).
    *
@@ -51,6 +53,12 @@ export namespace FleetAdvancedFeatureConfiguration {
           : undefined,
         "jfrRecording": obj.jfrRecording
           ? model.JfrRecording.getJsonObj(obj.jfrRecording)
+          : undefined,
+        "performanceTuningAnalysis": obj.performanceTuningAnalysis
+          ? model.PerformanceTuningAnalysis.getJsonObj(obj.performanceTuningAnalysis)
+          : undefined,
+        "javaMigrationAnalysis": obj.javaMigrationAnalysis
+          ? model.JavaMigrationAnalysis.getJsonObj(obj.javaMigrationAnalysis)
           : undefined
       }
     };
@@ -70,6 +78,12 @@ export namespace FleetAdvancedFeatureConfiguration {
           : undefined,
         "jfrRecording": obj.jfrRecording
           ? model.JfrRecording.getDeserializedJsonObj(obj.jfrRecording)
+          : undefined,
+        "performanceTuningAnalysis": obj.performanceTuningAnalysis
+          ? model.PerformanceTuningAnalysis.getDeserializedJsonObj(obj.performanceTuningAnalysis)
+          : undefined,
+        "javaMigrationAnalysis": obj.javaMigrationAnalysis
+          ? model.JavaMigrationAnalysis.getDeserializedJsonObj(obj.javaMigrationAnalysis)
           : undefined
       }
     };

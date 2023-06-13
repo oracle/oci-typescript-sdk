@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Enable lifecycle management and set post action configurations
+ * Enable lifecycle management and set post action configurations.
  */
 export interface Lcm {
   /**
-   * Lcm flag to store enabled or disabled status
+   * Lifecycle management flag to store enabled or disabled status.
    */
   "isEnabled"?: boolean;
   "postInstallationActions"?: model.PostInstallationActionSettings;

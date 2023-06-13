@@ -50,7 +50,7 @@ export interface LibraryUsage {
    */
   "approximateApplicationCount"?: number;
   /**
-   * The approximate count of Java server instances using the library.
+   * The approximate count of Java Server instances using the library.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateJavaServerInstanceCount"?: number;

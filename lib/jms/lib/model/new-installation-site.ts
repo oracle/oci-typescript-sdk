@@ -31,6 +31,18 @@ export interface NewInstallationSite {
    * Artifact content type for the Java version.
    */
   "artifactContentType"?: model.ArtifactContentType;
+  /**
+   * Custom path to install new Java installation site.
+   */
+  "installationPath"?: string;
+  /**
+   * Flag to install headless or headful Java installation. Only valid for Oracle Linux in OCI.
+   */
+  "headlessMode"?: boolean;
+  /**
+   * Forces the installation request even if a more recent release is already present in the host.
+   */
+  "forceInstall"?: boolean;
 }
 
 export namespace NewInstallationSite {

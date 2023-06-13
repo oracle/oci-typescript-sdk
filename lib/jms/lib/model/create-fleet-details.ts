@@ -33,8 +33,8 @@ export interface CreateFleetDetails {
   "inventoryLog": model.CustomLog;
   "operationLog"?: model.CustomLog;
   /**
-   * Whether or not advanced features are enabled in this fleet.
-   * Deprecated, use `/fleets/{fleetId}/advanceFeatureConfiguration` api instead.
+   * Whether or not advanced features are enabled in this Fleet.
+   * Deprecated, use `/fleets/{fleetId}/advanceFeatureConfiguration` API instead.
    *
    */
   "isAdvancedFeaturesEnabled"?: boolean;
@@ -45,7 +45,7 @@ export interface CreateFleetDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Simple key-value pair that is applied without any predefined name, type, or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`. (See [Managing Tags and Tag Namespaces](https://docs.cloud.oracle.com/Content/Tagging/Concepts/understandingfreeformtags.htm).)
    *
    */

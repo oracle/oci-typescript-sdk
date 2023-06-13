@@ -40,12 +40,12 @@ export interface DeployedApplicationUsage {
    */
   "applicationType"?: string;
   /**
-   * Whether or not deployed application is clustered.
+   * Whether or not the deployed application is clustered.
    *
    */
   "isClustered"?: boolean;
   /**
-   * The approximate count of Java server instances running the deployed application.
+   * The approximate count of Java Server instances running the deployed application.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "approximateJavaServerInstanceCount"?: number;

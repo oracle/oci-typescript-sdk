@@ -19,4 +19,6 @@ import * as client from "./lib/client";
 export { models };
 export { requests };
 export { responses };
+export import ResourcesClient = client.ResourcesClient;
 export import RewardsClient = client.RewardsClient;
+export import UsagelimitsClient = client.UsagelimitsClient;

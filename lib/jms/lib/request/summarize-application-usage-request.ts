@@ -47,7 +47,7 @@ export interface SummarizeApplicationUsageRequest extends common.BaseRequest {
    */
   "jreVersion"?: string;
   /**
-   * The file system path of the installation.
+   * The file system path of the Java Runtime installation.
    */
   "installationPath"?: string;
   /**

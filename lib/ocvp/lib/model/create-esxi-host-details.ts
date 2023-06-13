@@ -40,6 +40,11 @@ Avoid entering confidential information.
     */
   "displayName"?: string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the deleted ESXi Host with LeftOver billing cycle.
+   *
+   */
+  "billingDonorHostId"?: string;
+  /**
    * The billing option currently used by the ESXi host.
    * {@link #listSupportedSkus(ListSupportedSkusRequest) listSupportedSkus}.
    *

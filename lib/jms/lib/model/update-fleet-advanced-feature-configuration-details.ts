@@ -15,23 +15,25 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details object containing advanced feature configurations to be updated
- * Ensure that the namespace and bucket storage are created prior to turning on the JfrRecording or CryptoEventAnalysis feature
+ * Details object containing advanced feature configurations to be updated.
+ * Ensure that the namespace and bucket storage are created prior to turning on the JfrRecording or CryptoEventAnalysis feature.
  *
  */
 export interface UpdateFleetAdvancedFeatureConfigurationDetails {
   /**
-   * Namespace for the fleet advanced feature
+   * Namespace for the Fleet advanced feature.
    */
   "analyticNamespace"?: string;
   /**
-   * Bucket name required to store jfr and related data
+   * Bucket name required to store JFR and related data.
    */
   "analyticBucketName"?: string;
   "lcm"?: model.Lcm;
   "cryptoEventAnalysis"?: model.CryptoEventAnalysis;
   "advancedUsageTracking"?: model.AdvancedUsageTracking;
   "jfrRecording"?: model.JfrRecording;
+  "performanceTuningAnalysis"?: model.PerformanceTuningAnalysis;
+  "javaMigrationAnalysis"?: model.JavaMigrationAnalysis;
 }
 
 export namespace UpdateFleetAdvancedFeatureConfigurationDetails {
@@ -48,6 +50,12 @@ export namespace UpdateFleetAdvancedFeatureConfigurationDetails {
           : undefined,
         "jfrRecording": obj.jfrRecording
           ? model.JfrRecording.getJsonObj(obj.jfrRecording)
+          : undefined,
+        "performanceTuningAnalysis": obj.performanceTuningAnalysis
+          ? model.PerformanceTuningAnalysis.getJsonObj(obj.performanceTuningAnalysis)
+          : undefined,
+        "javaMigrationAnalysis": obj.javaMigrationAnalysis
+          ? model.JavaMigrationAnalysis.getJsonObj(obj.javaMigrationAnalysis)
           : undefined
       }
     };
@@ -69,6 +77,12 @@ export namespace UpdateFleetAdvancedFeatureConfigurationDetails {
           : undefined,
         "jfrRecording": obj.jfrRecording
           ? model.JfrRecording.getDeserializedJsonObj(obj.jfrRecording)
+          : undefined,
+        "performanceTuningAnalysis": obj.performanceTuningAnalysis
+          ? model.PerformanceTuningAnalysis.getDeserializedJsonObj(obj.performanceTuningAnalysis)
+          : undefined,
+        "javaMigrationAnalysis": obj.javaMigrationAnalysis
+          ? model.JavaMigrationAnalysis.getDeserializedJsonObj(obj.javaMigrationAnalysis)
           : undefined
       }
     };

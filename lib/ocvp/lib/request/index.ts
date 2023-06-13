@@ -21,6 +21,8 @@ import * as GetEsxiHostRequest from "./get-esxi-host-request";
 export import GetEsxiHostRequest = GetEsxiHostRequest.GetEsxiHostRequest;
 import * as ListEsxiHostsRequest from "./list-esxi-hosts-request";
 export import ListEsxiHostsRequest = ListEsxiHostsRequest.ListEsxiHostsRequest;
+import * as SwapBillingRequest from "./swap-billing-request";
+export import SwapBillingRequest = SwapBillingRequest.SwapBillingRequest;
 import * as UpdateEsxiHostRequest from "./update-esxi-host-request";
 export import UpdateEsxiHostRequest = UpdateEsxiHostRequest.UpdateEsxiHostRequest;
 import * as CancelDowngradeHcxRequest from "./cancel-downgrade-hcx-request";

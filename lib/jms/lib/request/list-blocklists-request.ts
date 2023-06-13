@@ -43,9 +43,9 @@ export interface ListBlocklistsRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort blocklist records. Only one sort order may be provided.
+   * The field used to sort blocklist records. Only one sort order may be provided.
    * Default order for _operation_ is **ascending**.
-   * If no value is specified _operation_ is default.
+   * If no value is specified, _operation_ is default.
    *
    */
   "sortBy"?: model.BlocklistSortBy;
