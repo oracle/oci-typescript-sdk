@@ -44,6 +44,25 @@ export class DataFlowWaiter {
   }
 
   /**
+   * Waits forPool till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPoolResponse | null (null in case of 404 response)
+   */
+  public async forPool(
+    request: serviceRequests.GetPoolRequest,
+    ...targetStates: models.PoolLifecycleState[]
+  ): Promise<serviceResponses.GetPoolResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPool(request),
+      response => targetStates.includes(response.pool.lifecycleState!),
+      targetStates.includes(models.PoolLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forPrivateEndpoint till it reaches any of the provided states
    *
    * @param request the request to send

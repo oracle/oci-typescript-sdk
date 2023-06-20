@@ -580,6 +580,8 @@ import * as UpdateCloudVmClusterResponse from "./update-cloud-vm-cluster-respons
 export import UpdateCloudVmClusterResponse = UpdateCloudVmClusterResponse.UpdateCloudVmClusterResponse;
 import * as UpdateCloudVmClusterIormConfigResponse from "./update-cloud-vm-cluster-iorm-config-response";
 export import UpdateCloudVmClusterIormConfigResponse = UpdateCloudVmClusterIormConfigResponse.UpdateCloudVmClusterIormConfigResponse;
+import * as UpdateConsoleConnectionResponse from "./update-console-connection-response";
+export import UpdateConsoleConnectionResponse = UpdateConsoleConnectionResponse.UpdateConsoleConnectionResponse;
 import * as UpdateDataGuardAssociationResponse from "./update-data-guard-association-response";
 export import UpdateDataGuardAssociationResponse = UpdateDataGuardAssociationResponse.UpdateDataGuardAssociationResponse;
 import * as UpdateDatabaseResponse from "./update-database-response";
@@ -588,6 +590,8 @@ import * as UpdateDatabaseSoftwareImageResponse from "./update-database-software
 export import UpdateDatabaseSoftwareImageResponse = UpdateDatabaseSoftwareImageResponse.UpdateDatabaseSoftwareImageResponse;
 import * as UpdateDbHomeResponse from "./update-db-home-response";
 export import UpdateDbHomeResponse = UpdateDbHomeResponse.UpdateDbHomeResponse;
+import * as UpdateDbNodeResponse from "./update-db-node-response";
+export import UpdateDbNodeResponse = UpdateDbNodeResponse.UpdateDbNodeResponse;
 import * as UpdateDbSystemResponse from "./update-db-system-response";
 export import UpdateDbSystemResponse = UpdateDbSystemResponse.UpdateDbSystemResponse;
 import * as UpdateExadataInfrastructureResponse from "./update-exadata-infrastructure-response";

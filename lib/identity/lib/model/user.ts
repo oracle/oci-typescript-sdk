@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, policies, and identity domains.
+ * Use the Identity and Access Management Service API to manage users, groups, identity domains, compartments, policies, tagging, and limits. For information about managing users, groups, compartments, and policies, see [Identity and Access Management (without identity domains)](/iaas/Content/Identity/Concepts/overview.htm). For information about tagging and service limits, see [Tagging](/iaas/Content/Tagging/Concepts/taggingoverview.htm) and [Service Limits](/iaas/Content/General/Concepts/servicelimits.htm). For information about creating, modifying, and deleting identity domains, see [Identity and Access Management (with identity domains)](/iaas/Content/Identity/home.htm).
  * OpenAPI spec version: 20160918
  *
  *
@@ -21,7 +21,7 @@ import common = require("oci-common");
 * {@link UIPassword}, {@link SwiftPassword} and
 * {@link AuthToken}).
 * For more information, see [User Credentials](https://docs.cloud.oracle.com/Content/Identity/usercred/usercredentials.htm)). End users of your
-* application are not typically IAM Service users, but for tenancies that have identity domains, they might be. 
+* application are not typically IAM Service users, but for tenancies that have identity domains, they might be.
 * For conceptual information about users and other IAM Service components, see [Overview of IAM](https://docs.cloud.oracle.com/Content/Identity/getstarted/identity-domains.htm).
 * <p>
 These users are created directly within the Oracle Cloud Infrastructure system, via the IAM service.

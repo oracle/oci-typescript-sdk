@@ -18,6 +18,7 @@ import common = require("oci-common");
  * This is an extensible entity type for users, and the base entity type for some annotation formats.
  */
 export interface GenericEntity extends model.Entity {
+  "documentEntityMetadata"?: model.DocumentEntityMetadata;
   /**
    * A collection of label entities.
    */
@@ -37,6 +38,9 @@ export namespace GenericEntity {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Entity.getJsonObj(obj) as GenericEntity)),
       ...{
+        "documentEntityMetadata": obj.documentEntityMetadata
+          ? model.DocumentEntityMetadata.getJsonObj(obj.documentEntityMetadata)
+          : undefined,
         "labels": obj.labels
           ? obj.labels.map(item => {
               return model.Label.getJsonObj(item);
@@ -52,6 +56,9 @@ export namespace GenericEntity {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Entity.getDeserializedJsonObj(obj) as GenericEntity)),
       ...{
+        "documentEntityMetadata": obj.documentEntityMetadata
+          ? model.DocumentEntityMetadata.getDeserializedJsonObj(obj.documentEntityMetadata)
+          : undefined,
         "labels": obj.labels
           ? obj.labels.map(item => {
               return model.Label.getDeserializedJsonObj(item);

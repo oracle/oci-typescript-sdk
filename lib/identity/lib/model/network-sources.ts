@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, policies, and identity domains.
+ * Use the Identity and Access Management Service API to manage users, groups, identity domains, compartments, policies, tagging, and limits. For information about managing users, groups, compartments, and policies, see [Identity and Access Management (without identity domains)](/iaas/Content/Identity/Concepts/overview.htm). For information about tagging and service limits, see [Tagging](/iaas/Content/Tagging/Concepts/taggingoverview.htm) and [Service Limits](/iaas/Content/General/Concepts/servicelimits.htm). For information about creating, modifying, and deleting identity domains, see [Identity and Access Management (with identity domains)](/iaas/Content/Identity/home.htm).
  * OpenAPI spec version: 20160918
  *
  *
@@ -56,7 +56,7 @@ export interface NetworkSources {
    */
   "services"?: Array<string>;
   /**
-    * Date and time the group was created, in the format defined by RFC3339.
+    * Date and time the network source was created, in the format defined by RFC3339.
 * <p>
 Example: `2016-08-25T21:10:29.600Z`
 * 

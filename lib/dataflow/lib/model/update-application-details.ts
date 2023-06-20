@@ -138,6 +138,11 @@ export interface UpdateApplicationDetails {
    */
   "parameters"?: Array<model.ApplicationParameter>;
   /**
+   * The OCID of a pool. Unique Id to indentify a dataflow pool resource.
+   *
+   */
+  "poolId"?: string;
+  /**
    * The OCID of a private endpoint.
    *
    */

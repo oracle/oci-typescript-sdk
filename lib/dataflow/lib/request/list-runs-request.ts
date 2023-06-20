@@ -35,6 +35,11 @@ export interface ListRunsRequest extends common.BaseRequest {
    */
   "applicationId"?: string;
   /**
+   * The ID of the pool.
+   *
+   */
+  "poolId"?: string;
+  /**
    * The OCID of the user who created the resource.
    *
    */

@@ -180,6 +180,11 @@ export interface Run {
    */
   "parameters"?: Array<model.ApplicationParameter>;
   /**
+   * The OCID of a pool. Unique Id to indentify a dataflow pool resource.
+   *
+   */
+  "poolId"?: string;
+  /**
    * An array of DNS zone names.
    * Example: `[ \"app.examplecorp.com\", \"app.examplecorp2.com\" ]`
    *
@@ -219,13 +224,13 @@ export interface Run {
    */
   "sparkVersion": string;
   /**
-   * The date and time a application was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * The date and time the resource was created, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    * Example: `2018-04-03T21:10:29.600Z`
    *
    */
   "timeCreated": Date;
   /**
-   * The date and time a application was updated, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * The date and time the resource was updated, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    * Example: `2018-04-03T21:10:29.600Z`
    *
    */

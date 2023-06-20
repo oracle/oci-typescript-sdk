@@ -21,6 +21,10 @@ import common = require("oci-common");
  */
 export interface ConstantProvisionedConcurrencyConfig
   extends model.FunctionProvisionedConcurrencyConfig {
+  /**
+   * Configuration specifying a constant amount of provisioned concurrency.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
   "count": number;
 
   "strategy": string;

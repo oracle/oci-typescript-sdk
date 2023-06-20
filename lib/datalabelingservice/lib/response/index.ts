@@ -25,6 +25,8 @@ import * as GetDatasetResponse from "./get-dataset-response";
 export import GetDatasetResponse = GetDatasetResponse.GetDatasetResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ImportPreAnnotatedDataResponse from "./import-pre-annotated-data-response";
+export import ImportPreAnnotatedDataResponse = ImportPreAnnotatedDataResponse.ImportPreAnnotatedDataResponse;
 import * as ListAnnotationFormatsResponse from "./list-annotation-formats-response";
 export import ListAnnotationFormatsResponse = ListAnnotationFormatsResponse.ListAnnotationFormatsResponse;
 import * as ListDatasetsResponse from "./list-datasets-response";

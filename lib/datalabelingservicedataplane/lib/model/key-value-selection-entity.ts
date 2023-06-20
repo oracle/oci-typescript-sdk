@@ -35,6 +35,10 @@ export interface KeyValueSelectionEntity extends model.Entity {
    * float value, score from OCR. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "confidence": number;
+  /**
+   * Integer value. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "pageNumber"?: number;
 
   "entityType": string;
 }
