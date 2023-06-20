@@ -536,6 +536,8 @@ import * as UpdateCloudExadataInfrastructureDetails from "./update-cloud-exadata
 export import UpdateCloudExadataInfrastructureDetails = UpdateCloudExadataInfrastructureDetails.UpdateCloudExadataInfrastructureDetails;
 import * as UpdateCloudVmClusterDetails from "./update-cloud-vm-cluster-details";
 export import UpdateCloudVmClusterDetails = UpdateCloudVmClusterDetails.UpdateCloudVmClusterDetails;
+import * as UpdateConsoleConnectionDetails from "./update-console-connection-details";
+export import UpdateConsoleConnectionDetails = UpdateConsoleConnectionDetails.UpdateConsoleConnectionDetails;
 import * as UpdateDataGuardAssociationDetails from "./update-data-guard-association-details";
 export import UpdateDataGuardAssociationDetails = UpdateDataGuardAssociationDetails.UpdateDataGuardAssociationDetails;
 import * as UpdateDatabaseDetails from "./update-database-details";
@@ -544,6 +546,8 @@ import * as UpdateDatabaseSoftwareImageDetails from "./update-database-software-
 export import UpdateDatabaseSoftwareImageDetails = UpdateDatabaseSoftwareImageDetails.UpdateDatabaseSoftwareImageDetails;
 import * as UpdateDbHomeDetails from "./update-db-home-details";
 export import UpdateDbHomeDetails = UpdateDbHomeDetails.UpdateDbHomeDetails;
+import * as UpdateDbNodeDetails from "./update-db-node-details";
+export import UpdateDbNodeDetails = UpdateDbNodeDetails.UpdateDbNodeDetails;
 import * as UpdateDbSystemDetails from "./update-db-system-details";
 export import UpdateDbSystemDetails = UpdateDbSystemDetails.UpdateDbSystemDetails;
 import * as UpdateDetails from "./update-details";

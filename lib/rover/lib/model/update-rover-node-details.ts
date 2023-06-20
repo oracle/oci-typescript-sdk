@@ -108,6 +108,30 @@ export interface UpdateRoverNodeDetails {
    */
   "publicKey"?: string;
   /**
+   * The certificateAuthorityId of subordinate/intermediate certificate authority.
+   */
+  "certificateAuthorityId"?: string;
+  /**
+   * The time after which leaf certificate will invalid.
+   */
+  "timeCertValidityEnd"?: Date;
+  /**
+   * The common name for the leaf certificate.
+   */
+  "commonName"?: string;
+  /**
+   * The compartmentId of the leaf certificate.
+   */
+  "certCompartmentId"?: string;
+  /**
+   * key algorithm for issuing leaf certificate.
+   */
+  "certKeyAlgorithm"?: model.CertKeyAlgorithm;
+  /**
+   * signature algorithm for issuing leaf certificate.
+   */
+  "certSignatureAlgorithm"?: model.CertSignatureAlgorithm;
+  /**
    * The freeform tags associated with this resource, if any. Each tag is a simple key-value pair with no
    * predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
    * Example: `{\"Department\": \"Finance\"}`

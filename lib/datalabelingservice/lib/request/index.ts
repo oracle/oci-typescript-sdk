@@ -25,6 +25,8 @@ import * as GetDatasetRequest from "./get-dataset-request";
 export import GetDatasetRequest = GetDatasetRequest.GetDatasetRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ImportPreAnnotatedDataRequest from "./import-pre-annotated-data-request";
+export import ImportPreAnnotatedDataRequest = ImportPreAnnotatedDataRequest.ImportPreAnnotatedDataRequest;
 import * as ListAnnotationFormatsRequest from "./list-annotation-formats-request";
 export import ListAnnotationFormatsRequest = ListAnnotationFormatsRequest.ListAnnotationFormatsRequest;
 import * as ListDatasetsRequest from "./list-datasets-request";

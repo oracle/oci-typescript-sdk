@@ -60,6 +60,12 @@ export interface Dataset {
    */
   "lifecycleDetails"?: string;
   /**
+   * The sub-state of the dataset.
+   * IMPORT_DATASET - The dataset is being imported.
+   *
+   */
+  "lifecycleSubstate"?: Dataset.LifecycleSubstate;
+  /**
    * The annotation format name required for labeling records.
    */
   "annotationFormat": string;
@@ -70,6 +76,7 @@ export interface Dataset {
     | model.TextDatasetFormatDetails;
   "labelSet": model.LabelSet;
   "initialRecordGenerationConfiguration"?: model.InitialRecordGenerationConfiguration;
+  "initialImportDatasetConfiguration"?: model.InitialImportDatasetConfiguration;
   /**
    * The labeling instructions for human labelers in rich text format
    */
@@ -92,6 +99,12 @@ export interface Dataset {
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
+  /**
+   * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
+   * For example: `{\"bar-key\": \"value\"}`
+   *
+   */
+  "additionalProperties"?: { [key: string]: string };
 }
 
 export namespace Dataset {
@@ -103,6 +116,15 @@ export namespace Dataset {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum LifecycleSubstate {
+    ImportDataset = "IMPORT_DATASET",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -125,6 +147,11 @@ export namespace Dataset {
           ? model.InitialRecordGenerationConfiguration.getJsonObj(
               obj.initialRecordGenerationConfiguration
             )
+          : undefined,
+        "initialImportDatasetConfiguration": obj.initialImportDatasetConfiguration
+          ? model.InitialImportDatasetConfiguration.getJsonObj(
+              obj.initialImportDatasetConfiguration
+            )
           : undefined
       }
     };
@@ -145,6 +172,11 @@ export namespace Dataset {
         "initialRecordGenerationConfiguration": obj.initialRecordGenerationConfiguration
           ? model.InitialRecordGenerationConfiguration.getDeserializedJsonObj(
               obj.initialRecordGenerationConfiguration
+            )
+          : undefined,
+        "initialImportDatasetConfiguration": obj.initialImportDatasetConfiguration
+          ? model.InitialImportDatasetConfiguration.getDeserializedJsonObj(
+              obj.initialImportDatasetConfiguration
             )
           : undefined
       }

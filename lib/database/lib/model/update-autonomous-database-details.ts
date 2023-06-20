@@ -59,6 +59,7 @@ To provision less than 1 core, enter a fractional value in an increment of 0.1. 
   "ocpuCount"?: number;
   /**
     * The size, in terabytes, of the data volume that will be created and attached to the database. For Autonomous Databases on dedicated Exadata infrastructure, the maximum storage value is determined by the infrastructure shape. See [Characteristics of Infrastructure Shapes](https://www.oracle.com/pls/topic/lookup?ctx=en/cloud/paas/autonomous-database&id=ATPFG-GUID-B0F033C1-CC5A-42F0-B2E7-3CECFEDA1FD1) for shape details. 
+* A full Exadata service is allocated when the Autonomous Database size is set to the upper limit (384 TB).
 * <p>
 **Note:** This parameter cannot be used with the `dataStorageSizeInGBs` parameter.
 * <p>

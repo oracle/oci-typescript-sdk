@@ -40,6 +40,7 @@ export interface CreateDatasetDetails {
     | model.DocumentDatasetFormatDetails
     | model.TextDatasetFormatDetails;
   "initialRecordGenerationConfiguration"?: model.InitialRecordGenerationConfiguration;
+  "initialImportDatasetConfiguration"?: model.InitialImportDatasetConfiguration;
   "labelSet": model.LabelSet;
   /**
    * The labeling instructions for human labelers in rich text format
@@ -75,6 +76,11 @@ export namespace CreateDatasetDetails {
               obj.initialRecordGenerationConfiguration
             )
           : undefined,
+        "initialImportDatasetConfiguration": obj.initialImportDatasetConfiguration
+          ? model.InitialImportDatasetConfiguration.getJsonObj(
+              obj.initialImportDatasetConfiguration
+            )
+          : undefined,
         "labelSet": obj.labelSet ? model.LabelSet.getJsonObj(obj.labelSet) : undefined
       }
     };
@@ -94,6 +100,11 @@ export namespace CreateDatasetDetails {
         "initialRecordGenerationConfiguration": obj.initialRecordGenerationConfiguration
           ? model.InitialRecordGenerationConfiguration.getDeserializedJsonObj(
               obj.initialRecordGenerationConfiguration
+            )
+          : undefined,
+        "initialImportDatasetConfiguration": obj.initialImportDatasetConfiguration
+          ? model.InitialImportDatasetConfiguration.getDeserializedJsonObj(
+              obj.initialImportDatasetConfiguration
             )
           : undefined,
         "labelSet": obj.labelSet ? model.LabelSet.getDeserializedJsonObj(obj.labelSet) : undefined

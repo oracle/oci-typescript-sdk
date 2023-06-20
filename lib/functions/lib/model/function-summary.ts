@@ -60,6 +60,11 @@ export interface FunctionSummary {
   "imageDigest"?: string;
   "sourceDetails"?: model.PreBuiltFunctionSourceDetails;
   /**
+   * The processor shape (`GENERIC_X86`/`GENERIC_ARM`) on which to run functions in the application, extracted from the image manifest.
+   *
+   */
+  "shape"?: FunctionSummary.Shape;
+  /**
    * Maximum usable memory for the function (MiB). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInMBs"?: number;
@@ -110,6 +115,17 @@ Example: `2018-09-12T22:47:12.613Z`
 }
 
 export namespace FunctionSummary {
+  export enum Shape {
+    GenericX86 = "GENERIC_X86",
+    GenericArm = "GENERIC_ARM",
+    GenericX86Arm = "GENERIC_X86_ARM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: FunctionSummary): object {
     const jsonObj = {
       ...obj,

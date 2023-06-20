@@ -3733,6 +3733,11 @@ export class DatabaseClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -5868,6 +5873,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -26563,6 +26573,94 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Updates the specified database node console connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateConsoleConnectionRequest
+   * @return UpdateConsoleConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateConsoleConnection.ts.html |here} to see how to use UpdateConsoleConnection API.
+   */
+  public async updateConsoleConnection(
+    updateConsoleConnectionRequest: requests.UpdateConsoleConnectionRequest
+  ): Promise<responses.UpdateConsoleConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateConsoleConnection.");
+    const operationName = "updateConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/UpdateConsoleConnection";
+    const pathParams = {
+      "{dbNodeId}": updateConsoleConnectionRequest.dbNodeId,
+      "{consoleConnectionId}": updateConsoleConnectionRequest.consoleConnectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateConsoleConnectionRequest.ifMatch,
+      "opc-request-id": updateConsoleConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleConnections/{consoleConnectionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConsoleConnectionRequest.updateConsoleConnectionDetails,
+        "UpdateConsoleConnectionDetails",
+        model.UpdateConsoleConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConsoleConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "consoleConnection",
+        bodyModel: model.ConsoleConnection,
+        type: "model.ConsoleConnection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the Data Guard association the specified database. This API can be used to change the `protectionMode` and `transportType` of the Data Guard association.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -26882,6 +26980,93 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyKey: "dbHome",
         bodyModel: model.DbHome,
         type: "model.DbHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified database node.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDbNodeRequest
+   * @return UpdateDbNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbNode.ts.html |here} to see how to use UpdateDbNode API.
+   */
+  public async updateDbNode(
+    updateDbNodeRequest: requests.UpdateDbNodeRequest
+  ): Promise<responses.UpdateDbNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbNode.");
+    const operationName = "updateDbNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/UpdateDbNode";
+    const pathParams = {
+      "{dbNodeId}": updateDbNodeRequest.dbNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDbNodeRequest.ifMatch,
+      "opc-request-id": updateDbNodeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDbNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDbNodeRequest.updateDbNodeDetails,
+        "UpdateDbNodeDetails",
+        model.UpdateDbNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDbNodeResponse>{},
+        body: await response.json(),
+        bodyKey: "dbNode",
+        bodyModel: model.DbNode,
+        type: "model.DbNode",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

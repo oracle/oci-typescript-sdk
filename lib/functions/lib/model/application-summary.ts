@@ -46,6 +46,15 @@ export interface ApplicationSummary {
    */
   "subnetIds"?: Array<string>;
   /**
+   * Valid values are `GENERIC_X86`, `GENERIC_ARM` and `GENERIC_X86_ARM`. Default is `GENERIC_X86`. Setting this to `GENERIC_X86`, will run the functions in the application on X86 processor architecture.
+   * Setting this to `GENERIC_ARM`, will run the functions in the application on ARM processor architecture.
+   * When set to `GENERIC_X86_ARM`, functions in the application are run on either X86 or ARM processor architecture.
+   * Accepted values are:
+   * `GENERIC_X86`, `GENERIC_ARM`, `GENERIC_X86_ARM`
+   *
+   */
+  "shape"?: ApplicationSummary.Shape;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)s of the Network Security Groups to add the application to.
    *
    */
@@ -85,6 +94,17 @@ Example: `2018-09-12T22:47:12.613Z`
 }
 
 export namespace ApplicationSummary {
+  export enum Shape {
+    GenericX86 = "GENERIC_X86",
+    GenericArm = "GENERIC_ARM",
+    GenericX86Arm = "GENERIC_X86_ARM",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ApplicationSummary): object {
     const jsonObj = {
       ...obj,

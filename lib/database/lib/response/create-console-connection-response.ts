@@ -26,6 +26,11 @@ export interface CreateConsoleConnectionResponse {
    */
   "opcRequestId": string;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the work request. Multiple OCID values are returned in a comma-separated list. Use {@link #getWorkRequest(GetWorkRequestRequest) getWorkRequest} with a work request OCID to track the status of the request.
+   *
+   */
+  "opcWorkRequestId": string;
+  /**
    * The returned model.ConsoleConnection instance.
    */
   "consoleConnection": model.ConsoleConnection;

@@ -580,6 +580,8 @@ import * as UpdateCloudVmClusterRequest from "./update-cloud-vm-cluster-request"
 export import UpdateCloudVmClusterRequest = UpdateCloudVmClusterRequest.UpdateCloudVmClusterRequest;
 import * as UpdateCloudVmClusterIormConfigRequest from "./update-cloud-vm-cluster-iorm-config-request";
 export import UpdateCloudVmClusterIormConfigRequest = UpdateCloudVmClusterIormConfigRequest.UpdateCloudVmClusterIormConfigRequest;
+import * as UpdateConsoleConnectionRequest from "./update-console-connection-request";
+export import UpdateConsoleConnectionRequest = UpdateConsoleConnectionRequest.UpdateConsoleConnectionRequest;
 import * as UpdateDataGuardAssociationRequest from "./update-data-guard-association-request";
 export import UpdateDataGuardAssociationRequest = UpdateDataGuardAssociationRequest.UpdateDataGuardAssociationRequest;
 import * as UpdateDatabaseRequest from "./update-database-request";
@@ -588,6 +590,8 @@ import * as UpdateDatabaseSoftwareImageRequest from "./update-database-software-
 export import UpdateDatabaseSoftwareImageRequest = UpdateDatabaseSoftwareImageRequest.UpdateDatabaseSoftwareImageRequest;
 import * as UpdateDbHomeRequest from "./update-db-home-request";
 export import UpdateDbHomeRequest = UpdateDbHomeRequest.UpdateDbHomeRequest;
+import * as UpdateDbNodeRequest from "./update-db-node-request";
+export import UpdateDbNodeRequest = UpdateDbNodeRequest.UpdateDbNodeRequest;
 import * as UpdateDbSystemRequest from "./update-db-system-request";
 export import UpdateDbSystemRequest = UpdateDbSystemRequest.UpdateDbSystemRequest;
 import * as UpdateExadataInfrastructureRequest from "./update-exadata-infrastructure-request";
