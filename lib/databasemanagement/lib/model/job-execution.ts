@@ -104,6 +104,8 @@ export interface JobExecution {
    * The SQL text executed as part of the job.
    */
   "sqlText"?: string;
+  "inBinds"?: model.JobInBindsDetails;
+  "outBinds"?: model.JobOutBindsDetails;
   "scheduleDetails"?: model.JobScheduleDetails;
 }
 
@@ -127,6 +129,8 @@ export namespace JobExecution {
           ? model.JobExecutionResultDetails.getJsonObj(obj.resultDetails)
           : undefined,
 
+        "inBinds": obj.inBinds ? model.JobInBindsDetails.getJsonObj(obj.inBinds) : undefined,
+        "outBinds": obj.outBinds ? model.JobOutBindsDetails.getJsonObj(obj.outBinds) : undefined,
         "scheduleDetails": obj.scheduleDetails
           ? model.JobScheduleDetails.getJsonObj(obj.scheduleDetails)
           : undefined
@@ -143,6 +147,12 @@ export namespace JobExecution {
           ? model.JobExecutionResultDetails.getDeserializedJsonObj(obj.resultDetails)
           : undefined,
 
+        "inBinds": obj.inBinds
+          ? model.JobInBindsDetails.getDeserializedJsonObj(obj.inBinds)
+          : undefined,
+        "outBinds": obj.outBinds
+          ? model.JobOutBindsDetails.getDeserializedJsonObj(obj.outBinds)
+          : undefined,
         "scheduleDetails": obj.scheduleDetails
           ? model.JobScheduleDetails.getDeserializedJsonObj(obj.scheduleDetails)
           : undefined

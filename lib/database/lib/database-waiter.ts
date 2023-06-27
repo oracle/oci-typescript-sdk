@@ -637,6 +637,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeKeyStoreType
+   *
+   * @param request the request to send
+   * @return response returns ChangeKeyStoreTypeResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeKeyStoreType(
+    request: serviceRequests.ChangeKeyStoreTypeRequest
+  ): Promise<{
+    response: serviceResponses.ChangeKeyStoreTypeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeKeyStoreTypeResponse = await this.client.changeKeyStoreType(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeKeyStoreTypeResponse.opcWorkRequestId
+    );
+    return { response: changeKeyStoreTypeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forChangeOneoffPatchCompartment
    *
    * @param request the request to send
@@ -4005,6 +4026,32 @@ export class DatabaseWaiter {
       rotateOrdsCertsResponse.opcWorkRequestId
     );
     return { response: rotateOrdsCertsResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forRotatePluggableDatabaseEncryptionKey
+   *
+   * @param request the request to send
+   * @return response returns RotatePluggableDatabaseEncryptionKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotatePluggableDatabaseEncryptionKey(
+    request: serviceRequests.RotatePluggableDatabaseEncryptionKeyRequest
+  ): Promise<{
+    response: serviceResponses.RotatePluggableDatabaseEncryptionKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotatePluggableDatabaseEncryptionKeyResponse = await this.client.rotatePluggableDatabaseEncryptionKey(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotatePluggableDatabaseEncryptionKeyResponse.opcWorkRequestId
+    );
+    return {
+      response: rotatePluggableDatabaseEncryptionKeyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**

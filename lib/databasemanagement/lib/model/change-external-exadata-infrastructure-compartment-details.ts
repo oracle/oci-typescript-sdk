@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details required to change the compartment of an Exadata infrastructure.
+ * The details required to change the compartment of the Exadata infrastructure.
  */
 export interface ChangeExternalExadataInfrastructureCompartmentDetails {
   /**

@@ -44,6 +44,11 @@ Example: `2016-08-25T21:10:29.600Z`
     */
   "timeCreated"?: Date;
   "operatingSystem"?: model.OperatingSystem;
+  /**
+   * The regions where you can deploy the listing package. (Some packages have restrictions that limit their deployment to United States regions only.)
+   *
+   */
+  "regions"?: Array<model.Region>;
 
   "packageType": string;
 }
@@ -57,6 +62,11 @@ export namespace ListingPackage {
 
         "operatingSystem": obj.operatingSystem
           ? model.OperatingSystem.getJsonObj(obj.operatingSystem)
+          : undefined,
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -87,6 +97,11 @@ export namespace ListingPackage {
 
         "operatingSystem": obj.operatingSystem
           ? model.OperatingSystem.getDeserializedJsonObj(obj.operatingSystem)
+          : undefined,
+        "regions": obj.regions
+          ? obj.regions.map(item => {
+              return model.Region.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

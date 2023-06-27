@@ -87,6 +87,14 @@ export interface Backup {
    * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Oracle Cloud Infrastructure [vault](https://docs.cloud.oracle.com/Content/KeyManagement/Concepts/keyoverview.htm#concepts).
    */
   "vaultId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the key store.
+   */
+  "keyStoreId"?: string;
+  /**
+   * The wallet name for Oracle Key Vault.
+   */
+  "keyStoreWalletName"?: string;
 }
 
 export namespace Backup {

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * SQL CPU activity from storage server.
+ * The SQL CPU activity from the Exadata storage server.
  */
 export interface SqlCpuActivity {
   /**

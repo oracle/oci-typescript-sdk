@@ -30,15 +30,15 @@ export interface RestCredential {
    */
   "password": string;
   /**
-   * The SSL trust store type.
+   * The SSL truststore type.
    */
   "sslTrustStoreType"?: RestCredential.SslTrustStoreType;
   /**
-   * The full path of the SSL trust store Location in the agent.
+   * The full path of the SSL truststore location in the agent.
    */
   "sslTrustStoreLocation"?: string;
   /**
-   * The password of the SSL trust store Location in the agent.
+   * The password of the SSL truststore location in the agent.
    */
   "sslTrustStorePassword"?: string;
 }

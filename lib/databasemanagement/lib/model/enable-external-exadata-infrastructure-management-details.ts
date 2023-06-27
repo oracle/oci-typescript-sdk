@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details to enable Management on an Exadata infrastructure.
+ * The details required to enable Database Management on the Exadata infrastructure.
  */
 export interface EnableExternalExadataInfrastructureManagementDetails {
   /**

@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Exadata infrastructure details.
+ * The details of the Exadata infrastructure.
  */
 export interface ExternalExadataInfrastructure extends model.DbmResource {
   /**
@@ -26,7 +26,7 @@ export interface ExternalExadataInfrastructure extends model.DbmResource {
    */
   "rackSize"?: ExternalExadataInfrastructure.RackSize;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
   /**
@@ -36,11 +36,11 @@ export interface ExternalExadataInfrastructure extends model.DbmResource {
   "licenseModel"?: ExternalExadataInfrastructure.LicenseModel;
   "storageGrid"?: model.ExternalExadataStorageGridSummary;
   /**
-   * A list of database systems.
+   * A list of DB systems.
    */
   "databaseSystems"?: Array<model.ExternalExadataDatabaseSystemSummary>;
   /**
-   * The list of [OCIDs] (https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartments
+   * The list of [OCIDs] (https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartments.
    */
   "databaseCompartments"?: Array<string>;
 

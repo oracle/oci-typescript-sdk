@@ -23,7 +23,7 @@ export interface UpdateExternalExadataStorageConnectorRequest extends common.Bas
    */
   "externalExadataStorageConnectorId": string;
   /**
-   * The details required to add connections to the storage servers.
+   * The details required to update connections to the Exadata storage servers.
    */
   "updateExternalExadataStorageConnectorDetails": model.UpdateExternalExadataStorageConnectorDetails;
   /**

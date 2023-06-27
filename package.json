@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.62.3",
+  "version": "2.63.0",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -146,7 +146,8 @@
     "oci-vbsinst": "file:lib/vbsinst",
     "oci-identitydomains": "file:lib/identitydomains",
     "oci-accessgovernancecp": "file:lib/accessgovernancecp",
-    "oci-ocicontrolcenter": "file:lib/ocicontrolcenter"
+    "oci-ocicontrolcenter": "file:lib/ocicontrolcenter",
+    "oci-osmanagementhub": "file:lib/osmanagementhub"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

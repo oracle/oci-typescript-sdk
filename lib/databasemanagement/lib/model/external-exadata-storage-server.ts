@@ -18,47 +18,47 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Exadata storage server details.
+ * The details of the Exadata storage server.
  */
 export interface ExternalExadataStorageServer extends model.DbmResource {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of Exadata infrastructure system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
    */
   "exadataInfrastructureId"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of Exadata storage grid.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata storage server grid.
    */
   "storageGridId"?: string;
   /**
-   * The make model of the storage server.
+   * The make model of the Exadata storage server.
    */
   "makeModel"?: string;
   /**
-   * The IP address of the storage server.
+   * The IP address of the Exadata storage server.
    */
   "ipAddress"?: string;
   /**
-   * CPU count of the storage server Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The CPU count of the Exadata storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCount"?: number;
   /**
-   * Storage server memory size in GB Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The Exadata storage server memory size in GB. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryGB"?: number;
   /**
-   * Maximum hard disk IO operations per second of the storage server Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum hard disk IO operations per second of the Exadata storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxHardDiskIOPS"?: number;
   /**
-   * Maximum hard disk IO throughput in MB/s of the storage server Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum hard disk IO throughput in MB/s of the Exadata storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxHardDiskThroughput"?: number;
   /**
-   * Maximum flash disk IO operations per second of the storage server Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum flash disk IO operations per second of the Exadata storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxFlashDiskIOPS"?: number;
   /**
-   * Maximum flash disk IO throughput in MB/s of the storage server Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The maximum flash disk IO throughput in MB/s of the Exadata storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxFlashDiskThroughput"?: number;
   "connector"?: model.ExternalExadataStorageConnectorSummary;

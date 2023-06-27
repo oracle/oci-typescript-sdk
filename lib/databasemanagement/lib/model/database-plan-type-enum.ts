@@ -18,8 +18,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Type of the database plan directive.
- * The value OTHER is to temporarily handle the case when exadata side adds new value, should not be used as input
+ * The type of the database plan directive.
+ * The value OTHER is to temporarily handle the case when Exadata side adds new value, should not be used as input
  * when to make change to IORM plan.
  *
  **/

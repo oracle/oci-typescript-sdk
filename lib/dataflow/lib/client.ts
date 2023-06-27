@@ -499,6 +499,86 @@ export class DataFlowClient {
   }
 
   /**
+   * Moves an Sql Endpoint from one compartment to another. When provided, If-Match is checked against ETag values of the Sql Endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSqlEndpointCompartmentRequest
+   * @return ChangeSqlEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ChangeSqlEndpointCompartment.ts.html |here} to see how to use ChangeSqlEndpointCompartment API.
+   */
+  public async changeSqlEndpointCompartment(
+    changeSqlEndpointCompartmentRequest: requests.ChangeSqlEndpointCompartmentRequest
+  ): Promise<responses.ChangeSqlEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataFlowClient#changeSqlEndpointCompartment.");
+    const operationName = "changeSqlEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/ChangeSqlEndpointCompartment";
+    const pathParams = {
+      "{sqlEndpointId}": changeSqlEndpointCompartmentRequest.sqlEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeSqlEndpointCompartmentRequest.ifMatch,
+      "opc-request-id": changeSqlEndpointCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeSqlEndpointCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSqlEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlEndpoints/{sqlEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSqlEndpointCompartmentRequest.changeSqlEndpointCompartmentDetails,
+        "ChangeSqlEndpointCompartmentDetails",
+        model.ChangeSqlEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSqlEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Creates an application.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -829,6 +909,90 @@ export class DataFlowClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a new Sql Endpoint.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateSqlEndpointRequest
+   * @return CreateSqlEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/CreateSqlEndpoint.ts.html |here} to see how to use CreateSqlEndpoint API.
+   */
+  public async createSqlEndpoint(
+    createSqlEndpointRequest: requests.CreateSqlEndpointRequest
+  ): Promise<responses.CreateSqlEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#createSqlEndpoint.");
+    const operationName = "createSqlEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createSqlEndpointRequest.opcRetryToken,
+      "opc-request-id": createSqlEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSqlEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSqlEndpointRequest.createSqlEndpointDetails,
+        "CreateSqlEndpointDetails",
+        model.CreateSqlEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSqlEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlEndpoint",
+        bodyModel: model.SqlEndpoint,
+        type: "model.SqlEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -1193,6 +1357,79 @@ export class DataFlowClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete a Sql Endpoint resource, identified by the SqlEndpoint id.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteSqlEndpointRequest
+   * @return DeleteSqlEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/DeleteSqlEndpoint.ts.html |here} to see how to use DeleteSqlEndpoint API.
+   */
+  public async deleteSqlEndpoint(
+    deleteSqlEndpointRequest: requests.DeleteSqlEndpointRequest
+  ): Promise<responses.DeleteSqlEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#deleteSqlEndpoint.");
+    const operationName = "deleteSqlEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/DeleteSqlEndpoint";
+    const pathParams = {
+      "{sqlEndpointId}": deleteSqlEndpointRequest.sqlEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteSqlEndpointRequest.ifMatch,
+      "opc-request-id": deleteSqlEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteSqlEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlEndpoints/{sqlEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteSqlEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -1673,6 +1910,82 @@ export class DataFlowClient {
         }
       });
       sdkResponse.opcMeta = opcMeta;
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves a SQL Endpoint using a sqlEndpointId.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSqlEndpointRequest
+   * @return GetSqlEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/GetSqlEndpoint.ts.html |here} to see how to use GetSqlEndpoint API.
+   */
+  public async getSqlEndpoint(
+    getSqlEndpointRequest: requests.GetSqlEndpointRequest
+  ): Promise<responses.GetSqlEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#getSqlEndpoint.");
+    const operationName = "getSqlEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/GetSqlEndpoint";
+    const pathParams = {
+      "{sqlEndpointId}": getSqlEndpointRequest.sqlEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlEndpoints/{sqlEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlEndpoint",
+        bodyModel: model.SqlEndpoint,
+        type: "model.SqlEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
 
       return sdkResponse;
     } catch (err) {
@@ -2430,6 +2743,92 @@ export class DataFlowClient {
     request: requests.ListRunsRequest
   ): AsyncIterableIterator<responses.ListRunsResponse> {
     return paginateResponses(request, req => this.listRuns(req));
+  }
+
+  /**
+   * Lists all Sql Endpoints in the specified compartment.
+   * The query must include compartmentId or sqlEndpointId.
+   * If the query does not include either compartmentId or sqlEndpointId, an error is returned.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSqlEndpointsRequest
+   * @return ListSqlEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/ListSqlEndpoints.ts.html |here} to see how to use ListSqlEndpoints API.
+   */
+  public async listSqlEndpoints(
+    listSqlEndpointsRequest: requests.ListSqlEndpointsRequest
+  ): Promise<responses.ListSqlEndpointsResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#listSqlEndpoints.");
+    const operationName = "listSqlEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpointCollection/ListSqlEndpoints";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listSqlEndpointsRequest.compartmentId,
+      "sqlEndpointId": listSqlEndpointsRequest.sqlEndpointId,
+      "lifecycleState": listSqlEndpointsRequest.lifecycleState,
+      "displayName": listSqlEndpointsRequest.displayName,
+      "limit": listSqlEndpointsRequest.limit,
+      "page": listSqlEndpointsRequest.page,
+      "sortOrder": listSqlEndpointsRequest.sortOrder,
+      "sortBy": listSqlEndpointsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlEndpointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlEndpointCollection",
+        bodyModel: model.SqlEndpointCollection,
+        type: "model.SqlEndpointCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**
@@ -3241,6 +3640,84 @@ export class DataFlowClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update a Sql Endpoint resource, identified by the SqlEndpoint id.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateSqlEndpointRequest
+   * @return UpdateSqlEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataflow/UpdateSqlEndpoint.ts.html |here} to see how to use UpdateSqlEndpoint API.
+   */
+  public async updateSqlEndpoint(
+    updateSqlEndpointRequest: requests.UpdateSqlEndpointRequest
+  ): Promise<responses.UpdateSqlEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataFlowClient#updateSqlEndpoint.");
+    const operationName = "updateSqlEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-flow/20200129/SqlEndpoint/UpdateSqlEndpoint";
+    const pathParams = {
+      "{sqlEndpointId}": updateSqlEndpointRequest.sqlEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateSqlEndpointRequest.ifMatch,
+      "opc-request-id": updateSqlEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateSqlEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/sqlEndpoints/{sqlEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateSqlEndpointRequest.updateSqlEndpointDetails,
+        "UpdateSqlEndpointDetails",
+        model.UpdateSqlEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateSqlEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]

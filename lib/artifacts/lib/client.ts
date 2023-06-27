@@ -190,7 +190,7 @@ export class ArtifactsClient {
    * resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeContainerRepositoryCompartmentRequest
    * @return ChangeContainerRepositoryCompartmentResponse
    * @throws OciError when an error occurs
@@ -217,7 +217,7 @@ export class ArtifactsClient {
       "opc-retry-token": changeContainerRepositoryCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeContainerRepositoryCompartmentRequest.retryConfiguration,
@@ -268,7 +268,7 @@ export class ArtifactsClient {
    * resources between compartments, see
    * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeRepositoryCompartmentRequest
    * @return ChangeRepositoryCompartmentResponse
    * @throws OciError when an error occurs
@@ -295,7 +295,7 @@ export class ArtifactsClient {
       "opc-retry-token": changeRepositoryCompartmentRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeRepositoryCompartmentRequest.retryConfiguration,
@@ -343,7 +343,7 @@ export class ArtifactsClient {
 
   /**
    * Upload a signature to an image.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateContainerImageSignatureRequest
    * @return CreateContainerImageSignatureResponse
    * @throws OciError when an error occurs
@@ -368,7 +368,7 @@ export class ArtifactsClient {
       "if-match": createContainerImageSignatureRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createContainerImageSignatureRequest.retryConfiguration,
@@ -425,7 +425,7 @@ export class ArtifactsClient {
 
   /**
    * Create a new empty container repository. Avoid entering confidential information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateContainerRepositoryRequest
    * @return CreateContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -449,7 +449,7 @@ export class ArtifactsClient {
       "opc-retry-token": createContainerRepositoryRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createContainerRepositoryRequest.retryConfiguration,
@@ -586,7 +586,7 @@ export class ArtifactsClient {
 
   /**
    * Delete a container image.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteContainerImageRequest
    * @return DeleteContainerImageResponse
    * @throws OciError when an error occurs
@@ -611,7 +611,7 @@ export class ArtifactsClient {
       "opc-request-id": deleteContainerImageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteContainerImageRequest.retryConfiguration,
@@ -654,7 +654,7 @@ export class ArtifactsClient {
 
   /**
    * Delete a container image signature.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteContainerImageSignatureRequest
    * @return DeleteContainerImageSignatureResponse
    * @throws OciError when an error occurs
@@ -680,7 +680,7 @@ export class ArtifactsClient {
       "if-match": deleteContainerImageSignatureRequest.ifMatch
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteContainerImageSignatureRequest.retryConfiguration,
@@ -723,7 +723,7 @@ export class ArtifactsClient {
 
   /**
    * Delete container repository.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteContainerRepositoryRequest
    * @return DeleteContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -749,7 +749,7 @@ export class ArtifactsClient {
       "opc-request-id": deleteContainerRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteContainerRepositoryRequest.retryConfiguration,
@@ -792,7 +792,7 @@ export class ArtifactsClient {
 
   /**
    * Deletes an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteGenericArtifactRequest
    * @return DeleteGenericArtifactResponse
    * @throws OciError when an error occurs
@@ -817,7 +817,7 @@ export class ArtifactsClient {
       "opc-request-id": deleteGenericArtifactRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteGenericArtifactRequest.retryConfiguration,
@@ -860,7 +860,7 @@ export class ArtifactsClient {
 
   /**
    * Deletes an artifact with a specified `artifactPath` and `version`.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteGenericArtifactByPathRequest
    * @return DeleteGenericArtifactByPathResponse
    * @throws OciError when an error occurs
@@ -888,7 +888,7 @@ export class ArtifactsClient {
       "opc-request-id": deleteGenericArtifactByPathRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteGenericArtifactByPathRequest.retryConfiguration,
@@ -931,7 +931,7 @@ export class ArtifactsClient {
 
   /**
    * Deletes the specified repository. This operation fails unless all associated artifacts are in a DELETED state. You must delete all associated artifacts before deleting a repository.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteRepositoryRequest
    * @return DeleteRepositoryResponse
    * @throws OciError when an error occurs
@@ -956,7 +956,7 @@ export class ArtifactsClient {
       "opc-request-id": deleteRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteRepositoryRequest.retryConfiguration,
@@ -999,7 +999,7 @@ export class ArtifactsClient {
 
   /**
    * Get container configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetContainerConfigurationRequest
    * @return GetContainerConfigurationResponse
    * @throws OciError when an error occurs
@@ -1024,7 +1024,7 @@ export class ArtifactsClient {
       "opc-request-id": getContainerConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getContainerConfigurationRequest.retryConfiguration,
@@ -1076,7 +1076,7 @@ export class ArtifactsClient {
 
   /**
    * Get container image metadata.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetContainerImageRequest
    * @return GetContainerImageResponse
    * @throws OciError when an error occurs
@@ -1100,7 +1100,7 @@ export class ArtifactsClient {
       "opc-request-id": getContainerImageRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getContainerImageRequest.retryConfiguration,
@@ -1152,7 +1152,7 @@ export class ArtifactsClient {
 
   /**
    * Get container image signature metadata.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetContainerImageSignatureRequest
    * @return GetContainerImageSignatureResponse
    * @throws OciError when an error occurs
@@ -1177,7 +1177,7 @@ export class ArtifactsClient {
       "opc-request-id": getContainerImageSignatureRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getContainerImageSignatureRequest.retryConfiguration,
@@ -1229,7 +1229,7 @@ export class ArtifactsClient {
 
   /**
    * Get container repository.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetContainerRepositoryRequest
    * @return GetContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -1253,7 +1253,7 @@ export class ArtifactsClient {
       "opc-request-id": getContainerRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getContainerRepositoryRequest.retryConfiguration,
@@ -1305,7 +1305,7 @@ export class ArtifactsClient {
 
   /**
    * Gets information about an artifact with a specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetGenericArtifactRequest
    * @return GetGenericArtifactResponse
    * @throws OciError when an error occurs
@@ -1329,7 +1329,7 @@ export class ArtifactsClient {
       "opc-request-id": getGenericArtifactRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getGenericArtifactRequest.retryConfiguration,
@@ -1381,7 +1381,7 @@ export class ArtifactsClient {
 
   /**
    * Gets information about an artifact with a specified `artifactPath` and `version`.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetGenericArtifactByPathRequest
    * @return GetGenericArtifactByPathResponse
    * @throws OciError when an error occurs
@@ -1408,7 +1408,7 @@ export class ArtifactsClient {
       "opc-request-id": getGenericArtifactByPathRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getGenericArtifactByPathRequest.retryConfiguration,
@@ -1460,7 +1460,7 @@ export class ArtifactsClient {
 
   /**
    * Gets the specified repository's information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetRepositoryRequest
    * @return GetRepositoryResponse
    * @throws OciError when an error occurs
@@ -1484,7 +1484,7 @@ export class ArtifactsClient {
       "opc-request-id": getRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getRepositoryRequest.retryConfiguration,
@@ -1536,7 +1536,7 @@ export class ArtifactsClient {
 
   /**
    * List container image signatures in an image.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainerImageSignaturesRequest
    * @return ListContainerImageSignaturesResponse
    * @throws OciError when an error occurs
@@ -1574,7 +1574,7 @@ export class ArtifactsClient {
       "opc-request-id": listContainerImageSignaturesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listContainerImageSignaturesRequest.retryConfiguration,
@@ -1626,7 +1626,7 @@ export class ArtifactsClient {
 
   /**
    * List container images in a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainerImagesRequest
    * @return ListContainerImagesResponse
    * @throws OciError when an error occurs
@@ -1662,7 +1662,7 @@ export class ArtifactsClient {
       "opc-request-id": listContainerImagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listContainerImagesRequest.retryConfiguration,
@@ -1714,7 +1714,7 @@ export class ArtifactsClient {
 
   /**
    * List container repositories in a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainerRepositoriesRequest
    * @return ListContainerRepositoriesResponse
    * @throws OciError when an error occurs
@@ -1748,7 +1748,7 @@ export class ArtifactsClient {
       "opc-request-id": listContainerRepositoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listContainerRepositoriesRequest.retryConfiguration,
@@ -1800,7 +1800,7 @@ export class ArtifactsClient {
 
   /**
    * Lists artifacts in the specified repository.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListGenericArtifactsRequest
    * @return ListGenericArtifactsResponse
    * @throws OciError when an error occurs
@@ -1835,7 +1835,7 @@ export class ArtifactsClient {
       "opc-request-id": listGenericArtifactsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listGenericArtifactsRequest.retryConfiguration,
@@ -1887,7 +1887,7 @@ export class ArtifactsClient {
 
   /**
    * Lists repositories in the specified compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListRepositoriesRequest
    * @return ListRepositoriesResponse
    * @throws OciError when an error occurs
@@ -1919,7 +1919,7 @@ export class ArtifactsClient {
       "opc-request-id": listRepositoriesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listRepositoriesRequest.retryConfiguration,
@@ -1971,7 +1971,7 @@ export class ArtifactsClient {
 
   /**
    * Remove version from container image.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemoveContainerVersionRequest
    * @return RemoveContainerVersionResponse
    * @throws OciError when an error occurs
@@ -1997,7 +1997,7 @@ export class ArtifactsClient {
       "opc-retry-token": removeContainerVersionRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       removeContainerVersionRequest.retryConfiguration,
@@ -2054,7 +2054,7 @@ export class ArtifactsClient {
 
   /**
    * Restore a container image.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RestoreContainerImageRequest
    * @return RestoreContainerImageResponse
    * @throws OciError when an error occurs
@@ -2080,7 +2080,7 @@ export class ArtifactsClient {
       "opc-retry-token": restoreContainerImageRequest.opcRetryToken
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       restoreContainerImageRequest.retryConfiguration,
@@ -2137,7 +2137,7 @@ export class ArtifactsClient {
 
   /**
    * Update container configuration.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateContainerConfigurationRequest
    * @return UpdateContainerConfigurationResponse
    * @throws OciError when an error occurs
@@ -2163,7 +2163,7 @@ export class ArtifactsClient {
       "opc-request-id": updateContainerConfigurationRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateContainerConfigurationRequest.retryConfiguration,
@@ -2219,8 +2219,173 @@ export class ArtifactsClient {
   }
 
   /**
+   * Modify the properties of a container image. Avoid entering confidential information.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateContainerImageRequest
+   * @return UpdateContainerImageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerImage.ts.html |here} to see how to use UpdateContainerImage API.
+   */
+  public async updateContainerImage(
+    updateContainerImageRequest: requests.UpdateContainerImageRequest
+  ): Promise<responses.UpdateContainerImageResponse> {
+    if (this.logger) this.logger.debug("Calling operation ArtifactsClient#updateContainerImage.");
+    const operationName = "updateContainerImage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImage/UpdateContainerImage";
+    const pathParams = {
+      "{imageId}": updateContainerImageRequest.imageId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateContainerImageRequest.ifMatch,
+      "opc-request-id": updateContainerImageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateContainerImageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/container/images/{imageId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateContainerImageRequest.updateContainerImageDetails,
+        "UpdateContainerImageDetails",
+        model.UpdateContainerImageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateContainerImageResponse>{},
+        body: await response.json(),
+        bodyKey: "containerImage",
+        bodyModel: model.ContainerImage,
+        type: "model.ContainerImage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Modify the properties of a container image signature. Avoid entering confidential information.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateContainerImageSignatureRequest
+   * @return UpdateContainerImageSignatureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/artifacts/UpdateContainerImageSignature.ts.html |here} to see how to use UpdateContainerImageSignature API.
+   */
+  public async updateContainerImageSignature(
+    updateContainerImageSignatureRequest: requests.UpdateContainerImageSignatureRequest
+  ): Promise<responses.UpdateContainerImageSignatureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ArtifactsClient#updateContainerImageSignature.");
+    const operationName = "updateContainerImageSignature";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/registry/20160918/ContainerImageSignature/UpdateContainerImageSignature";
+    const pathParams = {
+      "{imageSignatureId}": updateContainerImageSignatureRequest.imageSignatureId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateContainerImageSignatureRequest.opcRequestId,
+      "if-match": updateContainerImageSignatureRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateContainerImageSignatureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/container/imageSignatures/{imageSignatureId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateContainerImageSignatureRequest.updateContainerImageSignatureDetails,
+        "UpdateContainerImageSignatureDetails",
+        model.UpdateContainerImageSignatureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateContainerImageSignatureResponse>{},
+        body: await response.json(),
+        bodyKey: "containerImageSignature",
+        bodyModel: model.ContainerImageSignature,
+        type: "model.ContainerImageSignature",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Modify the properties of a container repository. Avoid entering confidential information.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateContainerRepositoryRequest
    * @return UpdateContainerRepositoryResponse
    * @throws OciError when an error occurs
@@ -2246,7 +2411,7 @@ export class ArtifactsClient {
       "opc-request-id": updateContainerRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateContainerRepositoryRequest.retryConfiguration,
@@ -2303,7 +2468,7 @@ export class ArtifactsClient {
 
   /**
    * Updates the artifact with the specified [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm). You can only update the tags of an artifact.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateGenericArtifactRequest
    * @return UpdateGenericArtifactResponse
    * @throws OciError when an error occurs
@@ -2328,7 +2493,7 @@ export class ArtifactsClient {
       "opc-request-id": updateGenericArtifactRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateGenericArtifactRequest.retryConfiguration,
@@ -2385,7 +2550,7 @@ export class ArtifactsClient {
 
   /**
    * Updates an artifact with a specified `artifactPath` and `version`. You can only update the tags of an artifact.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateGenericArtifactByPathRequest
    * @return UpdateGenericArtifactByPathResponse
    * @throws OciError when an error occurs
@@ -2413,7 +2578,7 @@ export class ArtifactsClient {
       "opc-request-id": updateGenericArtifactByPathRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateGenericArtifactByPathRequest.retryConfiguration,
@@ -2470,7 +2635,7 @@ export class ArtifactsClient {
 
   /**
    * Updates the properties of a repository. You can update the `displayName` and  `description` properties.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateRepositoryRequest
    * @return UpdateRepositoryResponse
    * @throws OciError when an error occurs
@@ -2495,7 +2660,7 @@ export class ArtifactsClient {
       "opc-request-id": updateRepositoryRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateRepositoryRequest.retryConfiguration,

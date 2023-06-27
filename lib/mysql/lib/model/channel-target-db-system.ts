@@ -38,11 +38,34 @@ export interface ChannelTargetDbSystem extends model.ChannelTarget {
    *
    */
   "filters"?: Array<model.ChannelFilter>;
+  /**
+   * Specifies how a replication channel handles the creation and alteration of tables
+   * that do not have a primary key.
+   *
+   */
+  "tablesWithoutPrimaryKeyHandling": ChannelTargetDbSystem.TablesWithoutPrimaryKeyHandling;
+  /**
+   * Specifies the amount of time, in seconds, that the channel waits before
+   * applying a transaction received from the source.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "delayInSeconds": number;
 
   "targetType": string;
 }
 
 export namespace ChannelTargetDbSystem {
+  export enum TablesWithoutPrimaryKeyHandling {
+    RaiseError = "RAISE_ERROR",
+    Allow = "ALLOW",
+    GenerateImplicitPrimaryKey = "GENERATE_IMPLICIT_PRIMARY_KEY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ChannelTargetDbSystem, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.ChannelTarget.getJsonObj(obj) as ChannelTargetDbSystem)),

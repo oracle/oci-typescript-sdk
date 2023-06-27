@@ -23,7 +23,7 @@ export interface ChangeExternalExadataInfrastructureCompartmentRequest extends c
    */
   "externalExadataInfrastructureId": string;
   /**
-   * The details required to change the compartment for the Exadata infrastructure.
+   * The details required to move the Exadata infrastructure from one compartment to another.
    */
   "changeExternalExadataInfrastructureCompartmentDetails": model.ChangeExternalExadataInfrastructureCompartmentDetails;
   /**

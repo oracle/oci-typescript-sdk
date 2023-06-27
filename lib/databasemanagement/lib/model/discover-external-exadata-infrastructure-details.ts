@@ -18,23 +18,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The connection information and the discovery options for the Exadata discovery.
+ * The connection details and the discovery options for the Exadata discovery.
  */
 export interface DiscoverExternalExadataInfrastructureDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
-   * The type of the discovery.
+   * The type of discovery.
    */
   "discoveryType": DiscoverExternalExadataInfrastructureDetails.DiscoveryType;
   /**
-   * The list of the database system identifiers.
+   * The list of the DB system identifiers.
    */
   "dbSystemIds": Array<string>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of Exadata infrastructure system. For rediscover only.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure. This is applicable for rediscovery only.
    */
   "exadataInfrastructureId"?: string;
 }

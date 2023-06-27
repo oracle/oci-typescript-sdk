@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The connector of the storage server.
+ * The connector of the Exadata storage server.
  */
 export interface ExternalExadataStorageConnectorSummary extends model.DbmResource {
   /**
-   * The unique connection string of the connection. For example, \"https://slcm21celadm02.us.oracle.com:443/MS/RESTService/\".
+   * The unique string of the connection. For example, \"https://<storage-server-name>/MS/RESTService/\".
    */
   "connectionUri"?: string;
   /**

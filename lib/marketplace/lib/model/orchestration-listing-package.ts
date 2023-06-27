@@ -26,11 +26,6 @@ export interface OrchestrationListingPackage extends model.ListingPackage {
    * List of variables for the orchestration resource.
    */
   "variables"?: Array<model.OrchestrationVariable>;
-  /**
-   * The regions where you can deploy this listing package. (Some packages have restrictions that limit their deployment to United States regions only.)
-   *
-   */
-  "regions"?: Array<model.Region>;
 
   "packageType": string;
 }
@@ -45,11 +40,6 @@ export namespace OrchestrationListingPackage {
         "variables": obj.variables
           ? obj.variables.map(item => {
               return model.OrchestrationVariable.getJsonObj(item);
-            })
-          : undefined,
-        "regions": obj.regions
-          ? obj.regions.map(item => {
-              return model.Region.getJsonObj(item);
             })
           : undefined
       }
@@ -70,11 +60,6 @@ export namespace OrchestrationListingPackage {
         "variables": obj.variables
           ? obj.variables.map(item => {
               return model.OrchestrationVariable.getDeserializedJsonObj(item);
-            })
-          : undefined,
-        "regions": obj.regions
-          ? obj.regions.map(item => {
-              return model.Region.getDeserializedJsonObj(item);
             })
           : undefined
       }

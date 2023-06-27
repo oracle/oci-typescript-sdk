@@ -25,6 +25,8 @@ export interface UpdateSqlJobDetails extends model.UpdateJobDetails {
    * The SQL text to be executed as part of the job.
    */
   "sqlText"?: string;
+  "inBinds"?: model.JobInBindsDetails;
+  "outBinds"?: model.JobOutBindsDetails;
   "sqlType"?: string;
   /**
    * The database user name used to execute the SQL job. If the job is being executed on a
@@ -53,7 +55,10 @@ export namespace UpdateSqlJobDetails {
   export function getJsonObj(obj: UpdateSqlJobDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.UpdateJobDetails.getJsonObj(obj) as UpdateSqlJobDetails)),
-      ...{}
+      ...{
+        "inBinds": obj.inBinds ? model.JobInBindsDetails.getJsonObj(obj.inBinds) : undefined,
+        "outBinds": obj.outBinds ? model.JobOutBindsDetails.getJsonObj(obj.outBinds) : undefined
+      }
     };
 
     return jsonObj;
@@ -67,7 +72,14 @@ export namespace UpdateSqlJobDetails {
       ...(isParentJsonObj
         ? obj
         : (model.UpdateJobDetails.getDeserializedJsonObj(obj) as UpdateSqlJobDetails)),
-      ...{}
+      ...{
+        "inBinds": obj.inBinds
+          ? model.JobInBindsDetails.getDeserializedJsonObj(obj.inBinds)
+          : undefined,
+        "outBinds": obj.outBinds
+          ? model.JobOutBindsDetails.getDeserializedJsonObj(obj.outBinds)
+          : undefined
+      }
     };
 
     return jsonObj;

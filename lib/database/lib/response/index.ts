@@ -60,6 +60,8 @@ import * as ChangeExternalPluggableDatabaseCompartmentResponse from "./change-ex
 export import ChangeExternalPluggableDatabaseCompartmentResponse = ChangeExternalPluggableDatabaseCompartmentResponse.ChangeExternalPluggableDatabaseCompartmentResponse;
 import * as ChangeKeyStoreCompartmentResponse from "./change-key-store-compartment-response";
 export import ChangeKeyStoreCompartmentResponse = ChangeKeyStoreCompartmentResponse.ChangeKeyStoreCompartmentResponse;
+import * as ChangeKeyStoreTypeResponse from "./change-key-store-type-response";
+export import ChangeKeyStoreTypeResponse = ChangeKeyStoreTypeResponse.ChangeKeyStoreTypeResponse;
 import * as ChangeOneoffPatchCompartmentResponse from "./change-oneoff-patch-compartment-response";
 export import ChangeOneoffPatchCompartmentResponse = ChangeOneoffPatchCompartmentResponse.ChangeOneoffPatchCompartmentResponse;
 import * as ChangeVmClusterCompartmentResponse from "./change-vm-cluster-compartment-response";
@@ -526,6 +528,8 @@ import * as RotateCloudAutonomousVmClusterSslCertsResponse from "./rotate-cloud-
 export import RotateCloudAutonomousVmClusterSslCertsResponse = RotateCloudAutonomousVmClusterSslCertsResponse.RotateCloudAutonomousVmClusterSslCertsResponse;
 import * as RotateOrdsCertsResponse from "./rotate-ords-certs-response";
 export import RotateOrdsCertsResponse = RotateOrdsCertsResponse.RotateOrdsCertsResponse;
+import * as RotatePluggableDatabaseEncryptionKeyResponse from "./rotate-pluggable-database-encryption-key-response";
+export import RotatePluggableDatabaseEncryptionKeyResponse = RotatePluggableDatabaseEncryptionKeyResponse.RotatePluggableDatabaseEncryptionKeyResponse;
 import * as RotateSslCertsResponse from "./rotate-ssl-certs-response";
 export import RotateSslCertsResponse = RotateSslCertsResponse.RotateSslCertsResponse;
 import * as RotateVaultKeyResponse from "./rotate-vault-key-response";

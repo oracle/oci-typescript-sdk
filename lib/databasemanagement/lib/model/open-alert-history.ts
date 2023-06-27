@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The open alerts current existing in a storage server.
+ * The existing open alerts in the Exadata storage server.
  */
 export interface OpenAlertHistory {
   /**

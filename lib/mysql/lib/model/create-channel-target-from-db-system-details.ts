@@ -38,6 +38,18 @@ export interface CreateChannelTargetFromDbSystemDetails extends model.CreateChan
    *
    */
   "filters"?: Array<model.ChannelFilter>;
+  /**
+   * Specifies how a replication channel handles the creation and alteration of tables
+   * that do not have a primary key. The default value is set to ALLOW.
+   *
+   */
+  "tablesWithoutPrimaryKeyHandling"?: string;
+  /**
+   * Specifies the amount of time, in seconds, that the channel waits before
+   * applying a transaction received from the source.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "delayInSeconds"?: number;
 
   "targetType": string;
 }

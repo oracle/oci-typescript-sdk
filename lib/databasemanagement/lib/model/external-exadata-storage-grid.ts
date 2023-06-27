@@ -18,19 +18,19 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Exadata storage grid details.
+ * The details of the Exadata storage server grid.
  */
 export interface ExternalExadataStorageGrid extends model.DbmResource {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of Exadata infrastructure system.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata infrastructure.
    */
   "exadataInfrastructureId"?: string;
   /**
-   * The number of the storage servers in the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of Exadata storage servers in the Exadata infrastructure. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "serverCount"?: number;
   /**
-   * A list of monitored Exadata storage server.
+   * A list of monitored Exadata storage servers.
    */
   "storageServers"?: Array<model.ExternalExadataStorageServerSummary>;
 

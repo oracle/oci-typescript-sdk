@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Exadata infrastructure list.
+ * A list of the Exadata infrastructure resources.
  */
 export interface ExternalExadataInfrastructureCollection {
   /**
-   * A list of Exadata infrastructure.
+   * A list of Exadata infrastructures.
    */
   "items": Array<model.ExternalExadataInfrastructureSummary>;
 }

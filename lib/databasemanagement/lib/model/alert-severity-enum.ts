@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The severity level for the alert.
+ * The severity level of the alert.
  **/
 export enum AlertSeverityEnum {
   Clear = "CLEAR",

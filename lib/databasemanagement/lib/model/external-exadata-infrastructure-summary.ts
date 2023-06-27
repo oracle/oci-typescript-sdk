@@ -26,7 +26,7 @@ export interface ExternalExadataInfrastructureSummary extends model.DbmResource 
    */
   "rackSize"?: ExternalExadataInfrastructureSummary.RackSize;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
