@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The discovery result of the Exadata infrastructure.
+ * The result of the Exadata infrastructure discovery.
  */
 export interface ExternalExadataInfrastructureDiscovery extends model.EntityDiscovered {
   /**
@@ -31,7 +31,7 @@ export interface ExternalExadataInfrastructureDiscovery extends model.EntityDisc
    */
   "licenseModel"?: ExternalExadataInfrastructureDiscovery.LicenseModel;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
   /**
@@ -39,16 +39,16 @@ export interface ExternalExadataInfrastructureDiscovery extends model.EntityDisc
    */
   "rackSize"?: ExternalExadataInfrastructureDiscovery.RackSize;
   /**
-   * The Oracle home path of the infrastructure.
+   * The Oracle home path of the Exadata infrastructure.
    */
   "gridHomePath"?: string;
   /**
-   * The list of all the rac database systems.
+   * The list of DB systems in the Exadata infrastructure.
    */
   "dbSystems"?: Array<model.ExternalDatabaseSystemDiscoverySummary>;
   "storageGrid"?: model.ExternalStorageGridDiscoverySummary;
   /**
-   * The list of all the storage servers.
+   * The list of storage servers in the Exadata infrastructure.
    */
   "storageServers"?: Array<model.ExternalStorageServerDiscoverySummary>;
 

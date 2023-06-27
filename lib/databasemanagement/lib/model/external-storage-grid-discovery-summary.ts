@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Exadata storage server grid.
+ * The summary of the Exadata storage server grid discovery.
  */
 export interface ExternalStorageGridDiscoverySummary extends model.EntityDiscovered {
   /**
-   * The total number of the storage servers discovered. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The total number of Exadata storage servers discovered. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "countOfStorageServersDiscovered"?: number;
 

@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface TopSqlCpuActivity {
   /**
-   * A list of sql cpu activity.
+   * A list of sql CPU activity.
    */
   "activity": Array<model.SqlCpuActivity>;
 }

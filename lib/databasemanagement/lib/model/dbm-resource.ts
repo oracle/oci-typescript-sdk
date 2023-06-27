@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The base exadata resource.
+ * The base Exadata resource.
  */
 export interface DbmResource {
   /**
@@ -26,19 +26,19 @@ export interface DbmResource {
    */
   "id": string;
   /**
-   * The name of the resource. English letters, numbers, \"-\", \"_\" and \".\" only.
+   * The name of the Exadata resource. English letters, numbers, \"-\", \"_\" and \".\" only.
    */
   "displayName": string;
   /**
-   * The version of the resource.
+   * The version of the Exadata resource.
    */
   "version"?: string;
   /**
-   * The internal ID.
+   * The internal ID of the Exadata resource.
    */
   "internalId"?: string;
   /**
-   * The status of the entity.
+   * The status of the Exadata resource.
    */
   "status"?: string;
   /**
@@ -46,15 +46,15 @@ export interface DbmResource {
    */
   "lifecycleState"?: DbmResource.LifecycleState;
   /**
-   * The timestamp of the creation.
+   * The timestamp of the creation of the Exadata resource.
    */
   "timeCreated"?: Date;
   /**
-   * The timestamp of the last update.
+   * The timestamp of the last update of the Exadata resource.
    */
   "timeUpdated"?: Date;
   /**
-   * The details of the lifecycle state.
+   * The details of the lifecycle state of the Exadata resource.
    */
   "lifecycleDetails"?: string;
   /**

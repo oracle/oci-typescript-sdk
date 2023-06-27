@@ -132,6 +132,7 @@ export class Region {
 
   // OC19
   public static EU_MADRID_2: Region = Region.register("eu-madrid-2", Realm.OC19, "vll");
+  public static EU_FRANKFURT_2: Region = Region.register("eu-frankfurt-2", Realm.OC19, "str");
 
   /**
    * Return all known Regions in this version of the SDK, except possibly the region returned by IMDS (Instance Metadata

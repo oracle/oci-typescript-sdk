@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Manage resource allocations among databases. Besides name, need to have at least one other property.
+ * Manages resource allocation among databases. Besides the name, at least one other property must be available.
  *
  */
 export interface DatabasePlanDirective {
@@ -27,7 +27,7 @@ export interface DatabasePlanDirective {
    */
   "name": string;
   /**
-   * The relative priority a database in the database plan. A higher share value implies
+   * The relative priority of a database in the database plan. A higher share value implies
    * higher priority and more access to the I/O resources.
    * Use either share or (level, allocation). All plan directives in a database plan
    * should use the same setting.
@@ -144,19 +144,20 @@ export interface DatabasePlanDirective {
    */
   "asmCluster"?: string;
   /**
-   * Enables you to create a profile, or template, to ease management and configuration of resource plans
-   * in environments with many databases.
-   * type=database: Specifies a directive that applies to a specific database.
-   * If type in not specified, then the directive defaults to the database type.
-   * type=profile: Specifies a directive that applies to a profile rather than a specific database.
-   *   To associate a database with an IORM profile, you must set the database initialization
-   *   parameter db_performance_profile to the value of the profile name. Databases that map to a profile i
-   *   nherit the settings specified in the profile.
-   *
-   */
+    * Enables you to create a profile or template, to ease management and configuration of resource plans
+* in environments with many databases.
+* <p>
+- type=database: Specifies a directive that applies to a specific database.
+* If type in not specified, then the directive defaults to the database type.
+* - type=profile: Specifies a directive that applies to a profile rather than a specific database.
+* <p>
+  To associate a database with an IORM profile, you must set the database initialization
+*   parameter db_performance_profile to the value of the profile name. Databases that map to a profile inherit the settings specified in the profile.
+* 
+    */
   "type"?: model.DatabasePlanTypeEnum;
   /**
-   * Enables you specify different plan directives based on the Oracle Data Guard database role.
+   * Enables you to specify different plan directives based on the Oracle Data Guard database role.
    *
    */
   "role"?: model.DatabasePlanRoleEnum;

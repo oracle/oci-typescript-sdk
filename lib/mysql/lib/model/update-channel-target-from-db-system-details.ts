@@ -34,6 +34,18 @@ export interface UpdateChannelTargetFromDbSystemDetails extends model.UpdateChan
    *
    */
   "filters"?: Array<model.ChannelFilter>;
+  /**
+   * Specifies how a replication channel handles the creation and alteration of tables
+   * that do not have a primary key.
+   *
+   */
+  "tablesWithoutPrimaryKeyHandling"?: string;
+  /**
+   * Specifies the amount of time, in seconds, that the channel waits before
+   * applying a transaction received from the source.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "delayInSeconds"?: number;
 
   "targetType": string;
 }

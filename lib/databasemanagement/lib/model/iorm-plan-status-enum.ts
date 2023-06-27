@@ -18,8 +18,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The status of the IORM plan of a storage server.
- * The value OTHER is to temporarily handle the case when exadata side adds new value, should not be used as input
+ * The status of the IORM plan of an Exadata storage server.
+ * The OTHER status is used when Exadata adds a new value, and OTHER should not be used as input
  * when to make change to IORM plan.
  *
  **/

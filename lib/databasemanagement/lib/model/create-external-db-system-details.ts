@@ -34,6 +34,7 @@ export interface CreateExternalDbSystemDetails {
    */
   "dbSystemDiscoveryId": string;
   "databaseManagementConfig"?: model.ExternalDbSystemDatabaseManagementConfigDetails;
+  "stackMonitoringConfig"?: model.AssociatedServiceDetails;
 }
 
 export namespace CreateExternalDbSystemDetails {
@@ -45,6 +46,9 @@ export namespace CreateExternalDbSystemDetails {
           ? model.ExternalDbSystemDatabaseManagementConfigDetails.getJsonObj(
               obj.databaseManagementConfig
             )
+          : undefined,
+        "stackMonitoringConfig": obj.stackMonitoringConfig
+          ? model.AssociatedServiceDetails.getJsonObj(obj.stackMonitoringConfig)
           : undefined
       }
     };
@@ -59,6 +63,9 @@ export namespace CreateExternalDbSystemDetails {
           ? model.ExternalDbSystemDatabaseManagementConfigDetails.getDeserializedJsonObj(
               obj.databaseManagementConfig
             )
+          : undefined,
+        "stackMonitoringConfig": obj.stackMonitoringConfig
+          ? model.AssociatedServiceDetails.getDeserializedJsonObj(obj.stackMonitoringConfig)
           : undefined
       }
     };

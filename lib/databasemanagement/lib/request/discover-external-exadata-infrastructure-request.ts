@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface DiscoverExternalExadataInfrastructureRequest extends common.BaseRequest {
   /**
-   * The details required to discover and monitor the Exadata system infrastructure.
+   * The details required to discover and monitor the Exadata infrastructure.
    */
   "discoverExternalExadataInfrastructureDetails": model.DiscoverExternalExadataInfrastructureDetails;
   /**

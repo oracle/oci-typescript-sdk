@@ -124,6 +124,8 @@ import * as ChangeExadataInfrastructureCompartmentDetails from "./change-exadata
 export import ChangeExadataInfrastructureCompartmentDetails = ChangeExadataInfrastructureCompartmentDetails.ChangeExadataInfrastructureCompartmentDetails;
 import * as ChangeKeyStoreCompartmentDetails from "./change-key-store-compartment-details";
 export import ChangeKeyStoreCompartmentDetails = ChangeKeyStoreCompartmentDetails.ChangeKeyStoreCompartmentDetails;
+import * as ChangeKeyStoreTypeDetails from "./change-key-store-type-details";
+export import ChangeKeyStoreTypeDetails = ChangeKeyStoreTypeDetails.ChangeKeyStoreTypeDetails;
 import * as ChangeVmClusterCompartmentDetails from "./change-vm-cluster-compartment-details";
 export import ChangeVmClusterCompartmentDetails = ChangeVmClusterCompartmentDetails.ChangeVmClusterCompartmentDetails;
 import * as CloudAutonomousVmCluster from "./cloud-autonomous-vm-cluster";

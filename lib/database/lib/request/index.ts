@@ -60,6 +60,8 @@ import * as ChangeExternalPluggableDatabaseCompartmentRequest from "./change-ext
 export import ChangeExternalPluggableDatabaseCompartmentRequest = ChangeExternalPluggableDatabaseCompartmentRequest.ChangeExternalPluggableDatabaseCompartmentRequest;
 import * as ChangeKeyStoreCompartmentRequest from "./change-key-store-compartment-request";
 export import ChangeKeyStoreCompartmentRequest = ChangeKeyStoreCompartmentRequest.ChangeKeyStoreCompartmentRequest;
+import * as ChangeKeyStoreTypeRequest from "./change-key-store-type-request";
+export import ChangeKeyStoreTypeRequest = ChangeKeyStoreTypeRequest.ChangeKeyStoreTypeRequest;
 import * as ChangeOneoffPatchCompartmentRequest from "./change-oneoff-patch-compartment-request";
 export import ChangeOneoffPatchCompartmentRequest = ChangeOneoffPatchCompartmentRequest.ChangeOneoffPatchCompartmentRequest;
 import * as ChangeVmClusterCompartmentRequest from "./change-vm-cluster-compartment-request";
@@ -526,6 +528,8 @@ import * as RotateCloudAutonomousVmClusterSslCertsRequest from "./rotate-cloud-a
 export import RotateCloudAutonomousVmClusterSslCertsRequest = RotateCloudAutonomousVmClusterSslCertsRequest.RotateCloudAutonomousVmClusterSslCertsRequest;
 import * as RotateOrdsCertsRequest from "./rotate-ords-certs-request";
 export import RotateOrdsCertsRequest = RotateOrdsCertsRequest.RotateOrdsCertsRequest;
+import * as RotatePluggableDatabaseEncryptionKeyRequest from "./rotate-pluggable-database-encryption-key-request";
+export import RotatePluggableDatabaseEncryptionKeyRequest = RotatePluggableDatabaseEncryptionKeyRequest.RotatePluggableDatabaseEncryptionKeyRequest;
 import * as RotateSslCertsRequest from "./rotate-ssl-certs-request";
 export import RotateSslCertsRequest = RotateSslCertsRequest.RotateSslCertsRequest;
 import * as RotateVaultKeyRequest from "./rotate-vault-key-request";

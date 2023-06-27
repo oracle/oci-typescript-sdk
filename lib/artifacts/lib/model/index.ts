@@ -67,6 +67,10 @@ import * as RestoreContainerImageDetails from "./restore-container-image-details
 export import RestoreContainerImageDetails = RestoreContainerImageDetails.RestoreContainerImageDetails;
 import * as UpdateContainerConfigurationDetails from "./update-container-configuration-details";
 export import UpdateContainerConfigurationDetails = UpdateContainerConfigurationDetails.UpdateContainerConfigurationDetails;
+import * as UpdateContainerImageDetails from "./update-container-image-details";
+export import UpdateContainerImageDetails = UpdateContainerImageDetails.UpdateContainerImageDetails;
+import * as UpdateContainerImageSignatureDetails from "./update-container-image-signature-details";
+export import UpdateContainerImageSignatureDetails = UpdateContainerImageSignatureDetails.UpdateContainerImageSignatureDetails;
 import * as UpdateContainerRepositoryDetails from "./update-container-repository-details";
 export import UpdateContainerRepositoryDetails = UpdateContainerRepositoryDetails.UpdateContainerRepositoryDetails;
 import * as UpdateGenericArtifactByPathDetails from "./update-generic-artifact-by-path-details";

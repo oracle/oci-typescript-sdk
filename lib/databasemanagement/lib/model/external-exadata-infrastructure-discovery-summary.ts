@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The discovery result for the Exadata system infrastructure.
+ * The summary of the Exadata system infrastructure discovery.
  */
 export interface ExternalExadataInfrastructureDiscoverySummary extends model.EntityDiscovered {
   /**

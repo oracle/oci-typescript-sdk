@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The base discover entity.
+ * The details of the base entity discovery.
  */
 export interface EntityDiscovered {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm). Null for new discover case.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the entity discovered.
    */
   "id"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the agent could be used for monitoring.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the agent used for monitoring.
    */
   "agentId"?: string;
   /**
@@ -42,7 +42,7 @@ export interface EntityDiscovered {
    */
   "version"?: string;
   /**
-   * The internal identifier.
+   * The internal identifier of the entity.
    */
   "internalId"?: string;
   /**
@@ -50,15 +50,15 @@ export interface EntityDiscovered {
    */
   "status"?: string;
   /**
-   * The status of the entity discover.
+   * The status of the entity discovery.
    */
   "discoverStatus"?: EntityDiscovered.DiscoverStatus;
   /**
-   * The error code of the discovery on the resource
+   * The error code of the discovery.
    */
   "discoverErrorCode"?: string;
   /**
-   * The error message of the discovery on the resource
+   * The error message of the discovery.
    */
   "discoverErrorMsg"?: string;
 

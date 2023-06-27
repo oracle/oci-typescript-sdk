@@ -2291,6 +2291,85 @@ export class DatabaseClient {
   }
 
   /**
+   * Changes encryption key management type
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeKeyStoreTypeRequest
+   * @return ChangeKeyStoreTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreType.ts.html |here} to see how to use ChangeKeyStoreType API.
+   */
+  public async changeKeyStoreType(
+    changeKeyStoreTypeRequest: requests.ChangeKeyStoreTypeRequest
+  ): Promise<responses.ChangeKeyStoreTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#changeKeyStoreType.");
+    const operationName = "changeKeyStoreType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ChangeKeyStoreType";
+    const pathParams = {
+      "{databaseId}": changeKeyStoreTypeRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeKeyStoreTypeRequest.ifMatch,
+      "opc-retry-token": changeKeyStoreTypeRequest.opcRetryToken,
+      "opc-request-id": changeKeyStoreTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeKeyStoreTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/changeKeyStoreType",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeKeyStoreTypeRequest.changeKeyStoreTypeDetails,
+        "ChangeKeyStoreTypeDetails",
+        model.ChangeKeyStoreTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeKeyStoreTypeResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Move the one-off patch to the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -24257,6 +24336,81 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RotateOrdsCertsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a new version of the existing encryption key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RotatePluggableDatabaseEncryptionKeyRequest
+   * @return RotatePluggableDatabaseEncryptionKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotatePluggableDatabaseEncryptionKey.ts.html |here} to see how to use RotatePluggableDatabaseEncryptionKey API.
+   */
+  public async rotatePluggableDatabaseEncryptionKey(
+    rotatePluggableDatabaseEncryptionKeyRequest: requests.RotatePluggableDatabaseEncryptionKeyRequest
+  ): Promise<responses.RotatePluggableDatabaseEncryptionKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotatePluggableDatabaseEncryptionKey.");
+    const operationName = "rotatePluggableDatabaseEncryptionKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/RotatePluggableDatabaseEncryptionKey";
+    const pathParams = {
+      "{pluggableDatabaseId}": rotatePluggableDatabaseEncryptionKeyRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rotatePluggableDatabaseEncryptionKeyRequest.ifMatch,
+      "opc-request-id": rotatePluggableDatabaseEncryptionKeyRequest.opcRequestId,
+      "opc-retry-token": rotatePluggableDatabaseEncryptionKeyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotatePluggableDatabaseEncryptionKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/rotateKey",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotatePluggableDatabaseEncryptionKeyResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

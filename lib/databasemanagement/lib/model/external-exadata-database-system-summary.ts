@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The database system of the Exadata infrastructure.
+ * The DB systems of the Exadata infrastructure.
  */
 export interface ExternalExadataDatabaseSystemSummary extends model.DbmResource {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
   /**

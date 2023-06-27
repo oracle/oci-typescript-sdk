@@ -31,11 +31,6 @@ export interface ImageListingPackage extends model.ListingPackage {
    * The ID of the image corresponding to the package.
    */
   "imageId"?: string;
-  /**
-   * The regions where you can deploy the listing package. (Some packages have restrictions that limit their deployment to United States regions only.)
-   *
-   */
-  "regions"?: Array<model.Region>;
 
   "packageType": string;
 }
@@ -44,13 +39,7 @@ export namespace ImageListingPackage {
   export function getJsonObj(obj: ImageListingPackage, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.ListingPackage.getJsonObj(obj) as ImageListingPackage)),
-      ...{
-        "regions": obj.regions
-          ? obj.regions.map(item => {
-              return model.Region.getJsonObj(item);
-            })
-          : undefined
-      }
+      ...{}
     };
 
     return jsonObj;
@@ -64,13 +53,7 @@ export namespace ImageListingPackage {
       ...(isParentJsonObj
         ? obj
         : (model.ListingPackage.getDeserializedJsonObj(obj) as ImageListingPackage)),
-      ...{
-        "regions": obj.regions
-          ? obj.regions.map(item => {
-              return model.Region.getDeserializedJsonObj(item);
-            })
-          : undefined
-      }
+      ...{}
     };
 
     return jsonObj;

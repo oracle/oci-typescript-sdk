@@ -100,6 +100,25 @@ export class DataFlowWaiter {
   }
 
   /**
+   * Waits forSqlEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSqlEndpointResponse | null (null in case of 404 response)
+   */
+  public async forSqlEndpoint(
+    request: serviceRequests.GetSqlEndpointRequest,
+    ...targetStates: models.SqlEndpointLifecycleState[]
+  ): Promise<serviceResponses.GetSqlEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSqlEndpoint(request),
+      response => targetStates.includes(response.sqlEndpoint.lifecycleState!),
+      targetStates.includes(models.SqlEndpointLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forStatement till it reaches any of the provided states
    *
    * @param request the request to send

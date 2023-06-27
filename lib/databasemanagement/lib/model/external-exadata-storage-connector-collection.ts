@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface ExternalExadataStorageConnectorCollection {
   /**
-   * A list of Exadata storage server connector.
+   * A list of Exadata storage server connectors.
    */
   "items": Array<model.ExternalExadataStorageConnectorSummary>;
 }

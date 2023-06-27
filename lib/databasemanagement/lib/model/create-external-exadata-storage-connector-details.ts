@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of creating the connector to the Exadata storage server.
+ * The details required to create the connector to the Exadata storage server.
  */
 export interface CreateExternalExadataStorageConnectorDetails {
   /**
@@ -30,11 +30,11 @@ export interface CreateExternalExadataStorageConnectorDetails {
    */
   "agentId": string;
   /**
-   * The connector name if OCI connector is created.
+   * The name of the Exadata storage server connector.
    */
   "connectorName": string;
   /**
-   * The unique connection string of the connection. For example, \"https://slcm21celadm02.us.oracle.com:443/MS/RESTService/\".
+   * The unique string of the connection. For example, \"https://<storage-server-name>/MS/RESTService/\".
    */
   "connectionUri": string;
   "credentialInfo": model.RestCredential;

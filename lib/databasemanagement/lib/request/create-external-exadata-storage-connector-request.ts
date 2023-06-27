@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateExternalExadataStorageConnectorRequest extends common.BaseRequest {
   /**
-   * The details required to add connections to the storage servers.
+   * The details required to add connections to the Exadata storage servers.
    */
   "createExternalExadataStorageConnectorDetails": model.CreateExternalExadataStorageConnectorDetails;
   /**

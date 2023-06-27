@@ -52,6 +52,7 @@ export interface ExternalDbSystem {
    */
   "homeDirectory"?: string;
   "databaseManagementConfig"?: model.ExternalDbSystemDatabaseManagementConfigDetails;
+  "stackMonitoringConfig"?: model.ExternalDbSystemStackMonitoringConfigDetails;
   /**
    * The current lifecycle state of the external DB system resource.
    */
@@ -93,6 +94,9 @@ export namespace ExternalDbSystem {
           ? model.ExternalDbSystemDatabaseManagementConfigDetails.getJsonObj(
               obj.databaseManagementConfig
             )
+          : undefined,
+        "stackMonitoringConfig": obj.stackMonitoringConfig
+          ? model.ExternalDbSystemStackMonitoringConfigDetails.getJsonObj(obj.stackMonitoringConfig)
           : undefined
       }
     };
@@ -106,6 +110,11 @@ export namespace ExternalDbSystem {
         "databaseManagementConfig": obj.databaseManagementConfig
           ? model.ExternalDbSystemDatabaseManagementConfigDetails.getDeserializedJsonObj(
               obj.databaseManagementConfig
+            )
+          : undefined,
+        "stackMonitoringConfig": obj.stackMonitoringConfig
+          ? model.ExternalDbSystemStackMonitoringConfigDetails.getDeserializedJsonObj(
+              obj.stackMonitoringConfig
             )
           : undefined
       }

@@ -18,11 +18,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The status of a Exadata storage server connector.
+ * The status of an Exadata storage server connector.
  */
 export interface ExternalExadataStorageConnectorStatus {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata storage connector.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Exadata storage server connector.
    */
   "id"?: string;
   /**
