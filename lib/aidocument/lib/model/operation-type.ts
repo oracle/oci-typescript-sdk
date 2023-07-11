@@ -26,6 +26,7 @@ export enum OperationType {
   UpdateModel = "UPDATE_MODEL",
   DeleteModel = "DELETE_MODEL",
   MoveModel = "MOVE_MODEL",
+  ComposeModel = "COMPOSE_MODEL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

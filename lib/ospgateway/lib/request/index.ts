@@ -11,6 +11,12 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as GetAddressRuleRequest from "./get-address-rule-request";
+export import GetAddressRuleRequest = GetAddressRuleRequest.GetAddressRuleRequest;
+import * as GetAddressRequest from "./get-address-request";
+export import GetAddressRequest = GetAddressRequest.GetAddressRequest;
+import * as VerifyAddressRequest from "./verify-address-request";
+export import VerifyAddressRequest = VerifyAddressRequest.VerifyAddressRequest;
 import * as DownloadPdfContentRequest from "./download-pdf-content-request";
 export import DownloadPdfContentRequest = DownloadPdfContentRequest.DownloadPdfContentRequest;
 import * as GetInvoiceRequest from "./get-invoice-request";

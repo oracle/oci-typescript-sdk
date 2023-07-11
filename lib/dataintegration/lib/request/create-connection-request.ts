@@ -26,16 +26,21 @@ export interface CreateConnectionRequest extends common.BaseRequest {
    * The information needed to create a connection.
    */
   "createConnectionDetails":
-    | model.CreateConnectionFromMySQL
+    | model.CreateConnectionFromOracleSiebel
     | model.CreateConnectionFromAmazonS3
-    | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
-    | model.CreateConnectionFromBIP
+    | model.CreateConnectionFromHdfs
+    | model.CreateConnectionFromMySqlHeatWave
     | model.CreateConnectionFromRestBasicAuth
+    | model.CreateConnectionFromOracle
+    | model.CreateConnectionFromOraclePeopleSoft
+    | model.CreateConnectionFromOracleEbs
+    | model.CreateConnectionFromMySQL
+    | model.CreateConnectionFromJdbc
+    | model.CreateConnectionFromBIP
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
-    | model.CreateConnectionFromOracle
     | model.CreateConnectionFromObjectStorage
     | model.CreateConnectionFromLake;
   /**

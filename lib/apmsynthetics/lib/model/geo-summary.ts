@@ -37,7 +37,7 @@ export interface GeoSummary {
    */
   "countryName"?: string;
   /**
-   * Degrees north of the Equator. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Degrees north of the equator. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "latitude"?: number;
   /**

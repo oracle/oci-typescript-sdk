@@ -68,6 +68,36 @@ export namespace CreateDataAssetDetails {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "HDFS_DATA_ASSET":
+          return model.CreateDataAssetFromHdfs.getJsonObj(
+            <model.CreateDataAssetFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "LAKE_DATA_ASSET":
+          return model.CreateDataAssetFromLake.getJsonObj(
+            <model.CreateDataAssetFromLake>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.CreateDataAssetFromMySqlHeatWave.getJsonObj(
+            <model.CreateDataAssetFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.CreateDataAssetFromAmazonS3.getJsonObj(
+            <model.CreateDataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "REST_DATA_ASSET":
+          return model.CreateDataAssetFromRest.getJsonObj(
+            <model.CreateDataAssetFromRest>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.CreateDataAssetFromOracleSiebel.getJsonObj(
+            <model.CreateDataAssetFromOracleSiebel>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_DATA_ASSET":
           return model.CreateDataAssetFromJdbc.getJsonObj(
             <model.CreateDataAssetFromJdbc>(<object>jsonObj),
@@ -76,11 +106,6 @@ export namespace CreateDataAssetDetails {
         case "MYSQL_DATA_ASSET":
           return model.CreateDataAssetFromMySQL.getJsonObj(
             <model.CreateDataAssetFromMySQL>(<object>jsonObj),
-            true
-          );
-        case "LAKE_DATA_ASSET":
-          return model.CreateDataAssetFromLake.getJsonObj(
-            <model.CreateDataAssetFromLake>(<object>jsonObj),
             true
           );
         case "ORACLE_DATA_ASSET":
@@ -93,14 +118,14 @@ export namespace CreateDataAssetDetails {
             <model.CreateDataAssetFromAdwc>(<object>jsonObj),
             true
           );
-        case "AMAZON_S3_DATA_ASSET":
-          return model.CreateDataAssetFromAmazonS3.getJsonObj(
-            <model.CreateDataAssetFromAmazonS3>(<object>jsonObj),
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.CreateDataAssetFromOracleEbs.getJsonObj(
+            <model.CreateDataAssetFromOracleEbs>(<object>jsonObj),
             true
           );
-        case "REST_DATA_ASSET":
-          return model.CreateDataAssetFromRest.getJsonObj(
-            <model.CreateDataAssetFromRest>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.CreateDataAssetFromOraclePeopleSoft.getJsonObj(
+            <model.CreateDataAssetFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         case "FUSION_APP_DATA_ASSET":
@@ -136,6 +161,36 @@ export namespace CreateDataAssetDetails {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "HDFS_DATA_ASSET":
+          return model.CreateDataAssetFromHdfs.getDeserializedJsonObj(
+            <model.CreateDataAssetFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "LAKE_DATA_ASSET":
+          return model.CreateDataAssetFromLake.getDeserializedJsonObj(
+            <model.CreateDataAssetFromLake>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.CreateDataAssetFromMySqlHeatWave.getDeserializedJsonObj(
+            <model.CreateDataAssetFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.CreateDataAssetFromAmazonS3.getDeserializedJsonObj(
+            <model.CreateDataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "REST_DATA_ASSET":
+          return model.CreateDataAssetFromRest.getDeserializedJsonObj(
+            <model.CreateDataAssetFromRest>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.CreateDataAssetFromOracleSiebel.getDeserializedJsonObj(
+            <model.CreateDataAssetFromOracleSiebel>(<object>jsonObj),
+            true
+          );
         case "GENERIC_JDBC_DATA_ASSET":
           return model.CreateDataAssetFromJdbc.getDeserializedJsonObj(
             <model.CreateDataAssetFromJdbc>(<object>jsonObj),
@@ -144,11 +199,6 @@ export namespace CreateDataAssetDetails {
         case "MYSQL_DATA_ASSET":
           return model.CreateDataAssetFromMySQL.getDeserializedJsonObj(
             <model.CreateDataAssetFromMySQL>(<object>jsonObj),
-            true
-          );
-        case "LAKE_DATA_ASSET":
-          return model.CreateDataAssetFromLake.getDeserializedJsonObj(
-            <model.CreateDataAssetFromLake>(<object>jsonObj),
             true
           );
         case "ORACLE_DATA_ASSET":
@@ -161,14 +211,14 @@ export namespace CreateDataAssetDetails {
             <model.CreateDataAssetFromAdwc>(<object>jsonObj),
             true
           );
-        case "AMAZON_S3_DATA_ASSET":
-          return model.CreateDataAssetFromAmazonS3.getDeserializedJsonObj(
-            <model.CreateDataAssetFromAmazonS3>(<object>jsonObj),
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.CreateDataAssetFromOracleEbs.getDeserializedJsonObj(
+            <model.CreateDataAssetFromOracleEbs>(<object>jsonObj),
             true
           );
-        case "REST_DATA_ASSET":
-          return model.CreateDataAssetFromRest.getDeserializedJsonObj(
-            <model.CreateDataAssetFromRest>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.CreateDataAssetFromOraclePeopleSoft.getDeserializedJsonObj(
+            <model.CreateDataAssetFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         case "FUSION_APP_DATA_ASSET":

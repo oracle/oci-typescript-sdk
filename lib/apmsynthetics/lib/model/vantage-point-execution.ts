@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface VantagePointExecution {
   /**
-   * Vantage point name.
+   * Name of the vantage point.
    */
   "name"?: string;
   /**
-   * list of execution times in milli seconds.
+   * List of execution times in milliseconds.
    */
   "executions"?: Array<number>;
 }

@@ -34,27 +34,37 @@ export interface DataAssetFromAtpDetails extends model.DataAsset {
   "stagingDataAsset"?:
     | model.DataAssetFromJdbc
     | model.DataAssetFromOracleDetails
-    | model.DataAssetFromAdwcDetails
     | model.DataAssetFromAmazonS3
+    | model.DataAssetFromMySqlHeatWave
+    | model.DataAssetFromMySQL
+    | model.DataAssetFromOraclePeopleSoftDetails
+    | model.DataAssetFromOracleEbsDetails
+    | model.DataAssetFromRestDetails
+    | model.DataAssetFromAdwcDetails
+    | model.DataAssetFromHdfsDetails
+    | model.DataAssetFromOracleSiebelDetails
     | model.DataAssetFromObjectStorageDetails
     | model.DataAssetFromFusionApp
     | model.DataAssetFromLakeDetails
-    | model.DataAssetFromAtpDetails
-    | model.DataAssetFromMySQL
-    | model.DataAssetFromRestDetails;
+    | model.DataAssetFromAtpDetails;
   "stagingConnection"?:
-    | model.ConnectionFromObjectStorage
-    | model.ConnectionFromAdwc
-    | model.ConnectionFromAtp
-    | model.ConnectionFromOracle
     | model.ConnectionFromAmazonS3
     | model.ConnectionFromBIP
     | model.ConnectionFromMySQL
     | model.ConnectionFromJdbc
     | model.ConnectionFromBICC
+    | model.ConnectionFromMySqlHeatWave
+    | model.ConnectionFromRestBasicAuth
+    | model.ConnectionFromObjectStorage
+    | model.ConnectionFromAdwc
+    | model.ConnectionFromAtp
+    | model.ConnectionFromOracle
+    | model.ConnectionFromOraclePeopleSoft
+    | model.ConnectionFromHdfs
+    | model.ConnectionFromOracleEbs
+    | model.ConnectionFromOracleSiebel
     | model.ConnectionFromRestNoAuth
-    | model.ConnectionFromLake
-    | model.ConnectionFromRestBasicAuth;
+    | model.ConnectionFromLake;
   "bucketSchema"?: model.Schema;
 
   "modelType": string;

@@ -28,17 +28,22 @@ export interface UpdateDataAssetFromRest extends model.UpdateDataAssetDetails {
   "manifestFileContent": string;
   "defaultConnection":
     | model.UpdateConnectionFromLake
-    | model.UpdateConnectionFromJdbc
+    | model.UpdateConnectionFromOracleEbs
     | model.UpdateConnectionFromObjectStorage
     | model.UpdateConnectionFromBICC
     | model.UpdateConnectionFromRestNoAuth
+    | model.UpdateConnectionFromHdfs
+    | model.UpdateConnectionFromRestBasicAuth
+    | model.UpdateConnectionFromOracleSiebel
+    | model.UpdateConnectionFromMySqlHeatWave
+    | model.UpdateConnectionFromBIP
+    | model.UpdateConnectionFromMySQL
+    | model.UpdateConnectionFromJdbc
     | model.UpdateConnectionFromAmazonS3
     | model.UpdateConnectionFromAtp
-    | model.UpdateConnectionFromRestBasicAuth
     | model.UpdateConnectionFromOracle
     | model.UpdateConnectionFromAdwc
-    | model.UpdateConnectionFromBIP
-    | model.UpdateConnectionFromMySQL;
+    | model.UpdateConnectionFromOraclePeopleSoft;
 
   "modelType": string;
 }

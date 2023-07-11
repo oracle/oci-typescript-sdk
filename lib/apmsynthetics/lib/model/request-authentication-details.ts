@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface RequestAuthenticationDetails {
   /**
-   * Request http oauth scheme.
+   * Request HTTP OAuth scheme.
    */
   "oauthScheme"?: model.OAuthSchemes;
   /**
-   * Username for authentication.
+   * User name for authentication.
    */
   "authUserName"?: string;
   /**
@@ -35,7 +35,7 @@ export interface RequestAuthenticationDetails {
    */
   "authToken"?: string;
   /**
-   * URL to get authetication token.
+   * URL to get authentication token.
    */
   "authUrl"?: string;
   /**

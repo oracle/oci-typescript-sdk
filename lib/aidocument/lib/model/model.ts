@@ -39,6 +39,14 @@ export interface Model {
    */
   "modelType": Model.ModelType;
   /**
+   * The tenancy id of the model.
+   */
+  "tenancyId"?: string;
+  /**
+   * the alias name of the model.
+   */
+  "aliasName"?: string;
+  /**
    * The collection of labels used to train the custom model.
    */
   "labels"?: Array<string>;
@@ -54,9 +62,17 @@ export interface Model {
    * The total hours actually used for model training. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "trainedTimeInHours"?: number;
-  "trainingDataset": model.DataScienceLabelingDataset | model.ObjectStorageDataset;
+  "trainingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "testingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "validationDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) collection of active custom Key Value models that need to be composed.
+   */
+  "componentModels"?: Array<model.ComponentModel>;
+  /**
+   * Set to true when the model is created by using multiple key value extraction models.
+   */
+  "isComposedModel"?: boolean;
   /**
    * The version of the model.
    */
@@ -140,6 +156,11 @@ export namespace Model {
         "validationDataset": obj.validationDataset
           ? model.Dataset.getJsonObj(obj.validationDataset)
           : undefined,
+        "componentModels": obj.componentModels
+          ? obj.componentModels.map(item => {
+              return model.ComponentModel.getJsonObj(item);
+            })
+          : undefined,
 
         "metrics": obj.metrics ? model.ModelMetrics.getJsonObj(obj.metrics) : undefined
       }
@@ -159,6 +180,11 @@ export namespace Model {
           : undefined,
         "validationDataset": obj.validationDataset
           ? model.Dataset.getDeserializedJsonObj(obj.validationDataset)
+          : undefined,
+        "componentModels": obj.componentModels
+          ? obj.componentModels.map(item => {
+              return model.ComponentModel.getDeserializedJsonObj(item);
+            })
           : undefined,
 
         "metrics": obj.metrics ? model.ModelMetrics.getDeserializedJsonObj(obj.metrics) : undefined

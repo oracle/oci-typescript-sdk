@@ -573,6 +573,89 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Create the specified workloadMapping for a cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateWorkloadMappingRequest
+   * @return CreateWorkloadMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CreateWorkloadMapping.ts.html |here} to see how to use CreateWorkloadMapping API.
+   */
+  public async createWorkloadMapping(
+    createWorkloadMappingRequest: requests.CreateWorkloadMappingRequest
+  ): Promise<responses.CreateWorkloadMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#createWorkloadMapping.");
+    const operationName = "createWorkloadMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/CreateWorkloadMapping";
+    const pathParams = {
+      "{clusterId}": createWorkloadMappingRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createWorkloadMappingRequest.opcRetryToken,
+      "opc-request-id": createWorkloadMappingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createWorkloadMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/workloadMappings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createWorkloadMappingRequest.createWorkloadMappingDetails,
+        "CreateWorkloadMappingDetails",
+        model.CreateWorkloadMappingDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateWorkloadMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "workloadMapping",
+        bodyModel: model.WorkloadMapping,
+        type: "model.WorkloadMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Delete a cluster.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteClusterRequest
@@ -934,6 +1017,76 @@ export class ContainerEngineClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteWorkRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete workloadMapping for a provisioned cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteWorkloadMappingRequest
+   * @return DeleteWorkloadMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/DeleteWorkloadMapping.ts.html |here} to see how to use DeleteWorkloadMapping API.
+   */
+  public async deleteWorkloadMapping(
+    deleteWorkloadMappingRequest: requests.DeleteWorkloadMappingRequest
+  ): Promise<responses.DeleteWorkloadMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#deleteWorkloadMapping.");
+    const operationName = "deleteWorkloadMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/DeleteWorkloadMapping";
+    const pathParams = {
+      "{clusterId}": deleteWorkloadMappingRequest.clusterId,
+      "{workloadMappingId}": deleteWorkloadMappingRequest.workloadMappingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteWorkloadMappingRequest.ifMatch,
+      "opc-request-id": deleteWorkloadMappingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteWorkloadMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/workloadMappings/{workloadMappingId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteWorkloadMappingResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1706,6 +1859,84 @@ export class ContainerEngineClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the specified workloadMapping for a cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetWorkloadMappingRequest
+   * @return GetWorkloadMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetWorkloadMapping.ts.html |here} to see how to use GetWorkloadMapping API.
+   */
+  public async getWorkloadMapping(
+    getWorkloadMappingRequest: requests.GetWorkloadMappingRequest
+  ): Promise<responses.GetWorkloadMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getWorkloadMapping.");
+    const operationName = "getWorkloadMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/GetWorkloadMapping";
+    const pathParams = {
+      "{clusterId}": getWorkloadMappingRequest.clusterId,
+      "{workloadMappingId}": getWorkloadMappingRequest.workloadMappingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkloadMappingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkloadMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/workloadMappings/{workloadMappingId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkloadMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "workloadMapping",
+        bodyModel: model.WorkloadMapping,
+        type: "model.WorkloadMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -3019,6 +3250,140 @@ export class ContainerEngineClient {
   }
 
   /**
+   * List workloadMappings for a provisioned cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkloadMappingsRequest
+   * @return ListWorkloadMappingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/ListWorkloadMappings.ts.html |here} to see how to use ListWorkloadMappings API.
+   */
+  public async listWorkloadMappings(
+    listWorkloadMappingsRequest: requests.ListWorkloadMappingsRequest
+  ): Promise<responses.ListWorkloadMappingsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#listWorkloadMappings.");
+    const operationName = "listWorkloadMappings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMappingSummary/ListWorkloadMappings";
+    const pathParams = {
+      "{clusterId}": listWorkloadMappingsRequest.clusterId
+    };
+
+    const queryParams = {
+      "limit": listWorkloadMappingsRequest.limit,
+      "page": listWorkloadMappingsRequest.page,
+      "sortOrder": listWorkloadMappingsRequest.sortOrder,
+      "sortBy": listWorkloadMappingsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkloadMappingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkloadMappingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/workloadMappings",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkloadMappingsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.WorkloadMappingSummary,
+        type: "Array<model.WorkloadMappingSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listWorkloadMappingsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.WorkloadMappingSummary objects
+   * contained in responses from the listWorkloadMappings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllWorkloadMappings(
+    request: requests.ListWorkloadMappingsRequest
+  ): AsyncIterableIterator<model.WorkloadMappingSummary> {
+    return paginateRecords(request, req => this.listWorkloadMappings(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listWorkloadMappingsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listWorkloadMappings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllWorkloadMappingsResponses(
+    request: requests.ListWorkloadMappingsRequest
+  ): AsyncIterableIterator<responses.ListWorkloadMappingsResponse> {
+    return paginateResponses(request, req => this.listWorkloadMappings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkloadMappingSummary objects
+   * contained in responses from the listWorkloadMappings operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkloadMappingsRecordIterator(
+    request: requests.ListWorkloadMappingsRequest
+  ): AsyncIterableIterator<model.WorkloadMappingSummary> {
+    return paginateRecords(request, req => this.listWorkloadMappings(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkloadMappings operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkloadMappingsResponseIterator(
+    request: requests.ListWorkloadMappingsRequest
+  ): AsyncIterableIterator<responses.ListWorkloadMappingsResponse> {
+    return paginateResponses(request, req => this.listWorkloadMappings(req));
+  }
+
+  /**
    * Update addon details for a cluster.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAddonRequest
@@ -3399,6 +3764,90 @@ export class ContainerEngineClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Update workloadMapping details for a cluster.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateWorkloadMappingRequest
+   * @return UpdateWorkloadMappingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/UpdateWorkloadMapping.ts.html |here} to see how to use UpdateWorkloadMapping API.
+   */
+  public async updateWorkloadMapping(
+    updateWorkloadMappingRequest: requests.UpdateWorkloadMappingRequest
+  ): Promise<responses.UpdateWorkloadMappingResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#updateWorkloadMapping.");
+    const operationName = "updateWorkloadMapping";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/WorkloadMapping/UpdateWorkloadMapping";
+    const pathParams = {
+      "{clusterId}": updateWorkloadMappingRequest.clusterId,
+      "{workloadMappingId}": updateWorkloadMappingRequest.workloadMappingId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateWorkloadMappingRequest.ifMatch,
+      "opc-request-id": updateWorkloadMappingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateWorkloadMappingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/workloadMappings/{workloadMappingId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateWorkloadMappingRequest.updateWorkloadMappingDetails,
+        "UpdateWorkloadMappingDetails",
+        model.UpdateWorkloadMappingDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateWorkloadMappingResponse>{},
+        body: await response.json(),
+        bodyKey: "workloadMapping",
+        bodyModel: model.WorkloadMapping,
+        type: "model.WorkloadMapping",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

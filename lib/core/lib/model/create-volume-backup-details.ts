@@ -23,6 +23,14 @@ import common = require("oci-common");
 
 export interface CreateVolumeBackupDetails {
   /**
+   * The OCID of the Vault service key which is the master encryption key for the volume backup.
+   * For more information about the Vault service and encryption keys, see
+   * [Overview of Vault service](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Concepts/keyoverview.htm) and
+   * [Using Keys](https://docs.cloud.oracle.com/iaas/Content/KeyManagement/Tasks/usingkeys.htm).
+   *
+   */
+  "kmsKeyId"?: string;
+  /**
     * Defined tags for this resource. Each key is predefined and scoped to a
 * namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
 * <p>

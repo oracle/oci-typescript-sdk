@@ -19,5 +19,7 @@ import * as client from "./lib/client";
 export { models };
 export { requests };
 export { responses };
+export import AddressRuleServiceClient = client.AddressRuleServiceClient;
+export import AddressServiceClient = client.AddressServiceClient;
 export import InvoiceServiceClient = client.InvoiceServiceClient;
 export import SubscriptionServiceClient = client.SubscriptionServiceClient;

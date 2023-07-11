@@ -74,6 +74,8 @@ import * as CreateNodeShapeConfigDetails from "./create-node-shape-config-detail
 export import CreateNodeShapeConfigDetails = CreateNodeShapeConfigDetails.CreateNodeShapeConfigDetails;
 import * as CreateVirtualNodePoolDetails from "./create-virtual-node-pool-details";
 export import CreateVirtualNodePoolDetails = CreateVirtualNodePoolDetails.CreateVirtualNodePoolDetails;
+import * as CreateWorkloadMappingDetails from "./create-workload-mapping-details";
+export import CreateWorkloadMappingDetails = CreateWorkloadMappingDetails.CreateWorkloadMappingDetails;
 import * as ImagePolicyConfig from "./image-policy-config";
 export import ImagePolicyConfig = ImagePolicyConfig.ImagePolicyConfig;
 import * as InitialVirtualNodeLabel from "./initial-virtual-node-label";
@@ -162,6 +164,8 @@ import * as UpdateNodeShapeConfigDetails from "./update-node-shape-config-detail
 export import UpdateNodeShapeConfigDetails = UpdateNodeShapeConfigDetails.UpdateNodeShapeConfigDetails;
 import * as UpdateVirtualNodePoolDetails from "./update-virtual-node-pool-details";
 export import UpdateVirtualNodePoolDetails = UpdateVirtualNodePoolDetails.UpdateVirtualNodePoolDetails;
+import * as UpdateWorkloadMappingDetails from "./update-workload-mapping-details";
+export import UpdateWorkloadMappingDetails = UpdateWorkloadMappingDetails.UpdateWorkloadMappingDetails;
 import * as VirtualNode from "./virtual-node";
 export import VirtualNode = VirtualNode.VirtualNode;
 import * as VirtualNodeLifecycleState from "./virtual-node-lifecycle-state";
@@ -190,6 +194,12 @@ import * as WorkRequestStatus from "./work-request-status";
 export import WorkRequestStatus = WorkRequestStatus.WorkRequestStatus;
 import * as WorkRequestSummary from "./work-request-summary";
 export import WorkRequestSummary = WorkRequestSummary.WorkRequestSummary;
+import * as WorkloadMapping from "./workload-mapping";
+export import WorkloadMapping = WorkloadMapping.WorkloadMapping;
+import * as WorkloadMappingLifecycleState from "./workload-mapping-lifecycle-state";
+export import WorkloadMappingLifecycleState = WorkloadMappingLifecycleState.WorkloadMappingLifecycleState;
+import * as WorkloadMappingSummary from "./workload-mapping-summary";
+export import WorkloadMappingSummary = WorkloadMappingSummary.WorkloadMappingSummary;
 
 import * as FlannelOverlayClusterPodNetworkOptionDetails from "./flannel-overlay-cluster-pod-network-option-details";
 export import FlannelOverlayClusterPodNetworkOptionDetails = FlannelOverlayClusterPodNetworkOptionDetails.FlannelOverlayClusterPodNetworkOptionDetails;

@@ -50,6 +50,14 @@ export interface CreateModelDetails {
   "testingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "validationDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) list of active custom Key Value models that need to be composed.
+   */
+  "componentModels"?: Array<model.ComponentModel>;
+  /**
+   * the alias name of the model.
+   */
+  "aliasName"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project that contains the model.
    */
   "projectId": string;
@@ -80,6 +88,11 @@ export namespace CreateModelDetails {
           : undefined,
         "validationDataset": obj.validationDataset
           ? model.Dataset.getJsonObj(obj.validationDataset)
+          : undefined,
+        "componentModels": obj.componentModels
+          ? obj.componentModels.map(item => {
+              return model.ComponentModel.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -98,6 +111,11 @@ export namespace CreateModelDetails {
           : undefined,
         "validationDataset": obj.validationDataset
           ? model.Dataset.getDeserializedJsonObj(obj.validationDataset)
+          : undefined,
+        "componentModels": obj.componentModels
+          ? obj.componentModels.map(item => {
+              return model.ComponentModel.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

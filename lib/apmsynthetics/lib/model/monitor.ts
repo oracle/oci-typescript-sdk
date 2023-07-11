@@ -27,7 +27,7 @@ export interface Monitor {
    */
   "displayName": string;
   /**
-   * Type of the monitor.
+   * Type of monitor.
    */
   "monitorType": model.MonitorTypes;
   /**
@@ -117,15 +117,15 @@ export interface Monitor {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * If isRunNow is enabled, then the monitor will run now.
+   * If isRunNow is enabled, then the monitor will run immediately.
    */
   "isRunNow": boolean;
   /**
-   * Scheduling policy on Vantage points.
+   * Scheduling policy to decide the distribution of monitor executions on vantage points.
    */
   "schedulingPolicy": model.SchedulingPolicy;
   /**
-   * Time interval between 2 runs in round robin batch mode (*SchedulingPolicy - BATCHED_ROUND_ROBIN). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Time interval between two runs in round robin batch mode (SchedulingPolicy - BATCHED_ROUND_ROBIN). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchIntervalInSeconds": number;
 }

@@ -104,6 +104,7 @@ export interface Invoice {
    */
   "paymentTerms"?: string;
   "lastPaymentDetail"?:
+    | model.EcheckPaymentDetail
     | model.OtherPaymentDetail
     | model.PaypalPaymentDetail
     | model.CreditCardPaymentDetail;

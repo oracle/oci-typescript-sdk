@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Vantage Point Node
+ * Details of the vantage point node.
  */
 export interface VantagePointNode {
   /**
-   * id of Vantage Point node
+   * ID of the vantage point node.
    */
   "id"?: string;
   /**
-   * name of Vantage Point node
+   * Name of the vantage point node.
    */
   "name": string;
   /**
-   * display name of Vantage Point node
+   * Display name of the vantage point node.
    */
   "displayName"?: string;
   /**
-   * geo info
+   * Geographical information of the vantage point node.
    */
   "geoInfo"?: string;
   /**
-   * links outgoing from this Vantage Point node
+   * Outgoing links from the vantage point node.
    */
   "outgoingLinks"?: Array<string>;
 }

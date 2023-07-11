@@ -47,6 +47,11 @@ export namespace DataEntityDetails {
             <model.DataEntityFromDataStoreEntityDetails>(<object>jsonObj),
             true
           );
+        case "OBJECT_ENTITY":
+          return model.DataEntityFromObjectEntityDetails.getJsonObj(
+            <model.DataEntityFromObjectEntityDetails>(<object>jsonObj),
+            true
+          );
         case "TABLE_ENTITY":
           return model.DataEntityFromTableEntityDetails.getJsonObj(
             <model.DataEntityFromTableEntityDetails>(<object>jsonObj),
@@ -81,6 +86,11 @@ export namespace DataEntityDetails {
         case "DATA_STORE_ENTITY":
           return model.DataEntityFromDataStoreEntityDetails.getDeserializedJsonObj(
             <model.DataEntityFromDataStoreEntityDetails>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_ENTITY":
+          return model.DataEntityFromObjectEntityDetails.getDeserializedJsonObj(
+            <model.DataEntityFromObjectEntityDetails>(<object>jsonObj),
             true
           );
         case "TABLE_ENTITY":

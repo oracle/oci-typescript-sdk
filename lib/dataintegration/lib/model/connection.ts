@@ -85,26 +85,6 @@ export namespace Connection {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
-        case "ORACLE_OBJECT_STORAGE_CONNECTION":
-          return model.ConnectionFromObjectStorage.getJsonObj(
-            <model.ConnectionFromObjectStorage>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_ADWC_CONNECTION":
-          return model.ConnectionFromAdwc.getJsonObj(
-            <model.ConnectionFromAdwc>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_ATP_CONNECTION":
-          return model.ConnectionFromAtp.getJsonObj(
-            <model.ConnectionFromAtp>(<object>jsonObj),
-            true
-          );
-        case "ORACLEDB_CONNECTION":
-          return model.ConnectionFromOracle.getJsonObj(
-            <model.ConnectionFromOracle>(<object>jsonObj),
-            true
-          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionFromAmazonS3.getJsonObj(
             <model.ConnectionFromAmazonS3>(<object>jsonObj),
@@ -130,6 +110,56 @@ export namespace Connection {
             <model.ConnectionFromBICC>(<object>jsonObj),
             true
           );
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionFromMySqlHeatWave.getJsonObj(
+            <model.ConnectionFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionFromRestBasicAuth.getJsonObj(
+            <model.ConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_CONNECTION":
+          return model.ConnectionFromObjectStorage.getJsonObj(
+            <model.ConnectionFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionFromAdwc.getJsonObj(
+            <model.ConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionFromAtp.getJsonObj(
+            <model.ConnectionFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionFromOracle.getJsonObj(
+            <model.ConnectionFromOracle>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionFromOraclePeopleSoft.getJsonObj(
+            <model.ConnectionFromOraclePeopleSoft>(<object>jsonObj),
+            true
+          );
+        case "HDFS_CONNECTION":
+          return model.ConnectionFromHdfs.getJsonObj(
+            <model.ConnectionFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionFromOracleEbs.getJsonObj(
+            <model.ConnectionFromOracleEbs>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionFromOracleSiebel.getJsonObj(
+            <model.ConnectionFromOracleSiebel>(<object>jsonObj),
+            true
+          );
         case "REST_NO_AUTH_CONNECTION":
           return model.ConnectionFromRestNoAuth.getJsonObj(
             <model.ConnectionFromRestNoAuth>(<object>jsonObj),
@@ -138,11 +168,6 @@ export namespace Connection {
         case "LAKE_CONNECTION":
           return model.ConnectionFromLake.getJsonObj(
             <model.ConnectionFromLake>(<object>jsonObj),
-            true
-          );
-        case "REST_BASIC_AUTH_CONNECTION":
-          return model.ConnectionFromRestBasicAuth.getJsonObj(
-            <model.ConnectionFromRestBasicAuth>(<object>jsonObj),
             true
           );
         default:
@@ -176,26 +201,6 @@ export namespace Connection {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
-        case "ORACLE_OBJECT_STORAGE_CONNECTION":
-          return model.ConnectionFromObjectStorage.getDeserializedJsonObj(
-            <model.ConnectionFromObjectStorage>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_ADWC_CONNECTION":
-          return model.ConnectionFromAdwc.getDeserializedJsonObj(
-            <model.ConnectionFromAdwc>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_ATP_CONNECTION":
-          return model.ConnectionFromAtp.getDeserializedJsonObj(
-            <model.ConnectionFromAtp>(<object>jsonObj),
-            true
-          );
-        case "ORACLEDB_CONNECTION":
-          return model.ConnectionFromOracle.getDeserializedJsonObj(
-            <model.ConnectionFromOracle>(<object>jsonObj),
-            true
-          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionFromAmazonS3.getDeserializedJsonObj(
             <model.ConnectionFromAmazonS3>(<object>jsonObj),
@@ -221,6 +226,56 @@ export namespace Connection {
             <model.ConnectionFromBICC>(<object>jsonObj),
             true
           );
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionFromMySqlHeatWave.getDeserializedJsonObj(
+            <model.ConnectionFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionFromRestBasicAuth.getDeserializedJsonObj(
+            <model.ConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_OBJECT_STORAGE_CONNECTION":
+          return model.ConnectionFromObjectStorage.getDeserializedJsonObj(
+            <model.ConnectionFromObjectStorage>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionFromAdwc.getDeserializedJsonObj(
+            <model.ConnectionFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionFromAtp.getDeserializedJsonObj(
+            <model.ConnectionFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionFromOracle.getDeserializedJsonObj(
+            <model.ConnectionFromOracle>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionFromOraclePeopleSoft.getDeserializedJsonObj(
+            <model.ConnectionFromOraclePeopleSoft>(<object>jsonObj),
+            true
+          );
+        case "HDFS_CONNECTION":
+          return model.ConnectionFromHdfs.getDeserializedJsonObj(
+            <model.ConnectionFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionFromOracleEbs.getDeserializedJsonObj(
+            <model.ConnectionFromOracleEbs>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionFromOracleSiebel.getDeserializedJsonObj(
+            <model.ConnectionFromOracleSiebel>(<object>jsonObj),
+            true
+          );
         case "REST_NO_AUTH_CONNECTION":
           return model.ConnectionFromRestNoAuth.getDeserializedJsonObj(
             <model.ConnectionFromRestNoAuth>(<object>jsonObj),
@@ -229,11 +284,6 @@ export namespace Connection {
         case "LAKE_CONNECTION":
           return model.ConnectionFromLake.getDeserializedJsonObj(
             <model.ConnectionFromLake>(<object>jsonObj),
-            true
-          );
-        case "REST_BASIC_AUTH_CONNECTION":
-          return model.ConnectionFromRestBasicAuth.getDeserializedJsonObj(
-            <model.ConnectionFromRestBasicAuth>(<object>jsonObj),
             true
           );
         default:
