@@ -22,6 +22,10 @@ export interface DocumentKeyValueExtractionFeature extends model.DocumentFeature
    * The custom model ID.
    */
   "modelId"?: string;
+  /**
+   * The custom model tenancy ID when modelId represents aliasName.
+   */
+  "tenancyId"?: string;
 
   "featureType": string;
 }

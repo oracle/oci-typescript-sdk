@@ -101,9 +101,14 @@ export namespace ConnectionDetails {
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
             true
           );
-        case "BICC_CONNECTION":
-          return model.ConnectionFromBICCDetails.getJsonObj(
-            <model.ConnectionFromBICCDetails>(<object>jsonObj),
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionFromOracleSiebelDetails.getJsonObj(
+            <model.ConnectionFromOracleSiebelDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS_CONNECTION":
+          return model.ConnectionFromHdfsDetails.getJsonObj(
+            <model.ConnectionFromHdfsDetails>(<object>jsonObj),
             true
           );
         case "MYSQL_CONNECTION":
@@ -111,9 +116,9 @@ export namespace ConnectionDetails {
             <model.ConnectionFromMySQLDetails>(<object>jsonObj),
             true
           );
-        case "ORACLE_ADWC_CONNECTION":
-          return model.ConnectionFromAdwcDetails.getJsonObj(
-            <model.ConnectionFromAdwcDetails>(<object>jsonObj),
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionFromMySqlHeatWaveDetails.getJsonObj(
+            <model.ConnectionFromMySqlHeatWaveDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_CONNECTION":
@@ -121,19 +126,39 @@ export namespace ConnectionDetails {
             <model.ConnectionFromAtpDetails>(<object>jsonObj),
             true
           );
-        case "ORACLEDB_CONNECTION":
-          return model.ConnectionFromOracleDetails.getJsonObj(
-            <model.ConnectionFromOracleDetails>(<object>jsonObj),
-            true
-          );
-        case "LAKE_CONNECTION":
-          return model.ConnectionFromLakeDetails.getJsonObj(
-            <model.ConnectionFromLakeDetails>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionFromOraclePeopleSoftDetails.getJsonObj(
+            <model.ConnectionFromOraclePeopleSoftDetails>(<object>jsonObj),
             true
           );
         case "REST_BASIC_AUTH_CONNECTION":
           return model.ConnectionFromRestBasicAuthDetails.getJsonObj(
             <model.ConnectionFromRestBasicAuthDetails>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionFromBICCDetails.getJsonObj(
+            <model.ConnectionFromBICCDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionFromAdwcDetails.getJsonObj(
+            <model.ConnectionFromAdwcDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionFromOracleDetails.getJsonObj(
+            <model.ConnectionFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionFromOracleEbsDetails.getJsonObj(
+            <model.ConnectionFromOracleEbsDetails>(<object>jsonObj),
+            true
+          );
+        case "LAKE_CONNECTION":
+          return model.ConnectionFromLakeDetails.getJsonObj(
+            <model.ConnectionFromLakeDetails>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":
@@ -192,9 +217,14 @@ export namespace ConnectionDetails {
             <model.ConnectionFromObjectStorageDetails>(<object>jsonObj),
             true
           );
-        case "BICC_CONNECTION":
-          return model.ConnectionFromBICCDetails.getDeserializedJsonObj(
-            <model.ConnectionFromBICCDetails>(<object>jsonObj),
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionFromOracleSiebelDetails.getDeserializedJsonObj(
+            <model.ConnectionFromOracleSiebelDetails>(<object>jsonObj),
+            true
+          );
+        case "HDFS_CONNECTION":
+          return model.ConnectionFromHdfsDetails.getDeserializedJsonObj(
+            <model.ConnectionFromHdfsDetails>(<object>jsonObj),
             true
           );
         case "MYSQL_CONNECTION":
@@ -202,9 +232,9 @@ export namespace ConnectionDetails {
             <model.ConnectionFromMySQLDetails>(<object>jsonObj),
             true
           );
-        case "ORACLE_ADWC_CONNECTION":
-          return model.ConnectionFromAdwcDetails.getDeserializedJsonObj(
-            <model.ConnectionFromAdwcDetails>(<object>jsonObj),
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionFromMySqlHeatWaveDetails.getDeserializedJsonObj(
+            <model.ConnectionFromMySqlHeatWaveDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_ATP_CONNECTION":
@@ -212,19 +242,39 @@ export namespace ConnectionDetails {
             <model.ConnectionFromAtpDetails>(<object>jsonObj),
             true
           );
-        case "ORACLEDB_CONNECTION":
-          return model.ConnectionFromOracleDetails.getDeserializedJsonObj(
-            <model.ConnectionFromOracleDetails>(<object>jsonObj),
-            true
-          );
-        case "LAKE_CONNECTION":
-          return model.ConnectionFromLakeDetails.getDeserializedJsonObj(
-            <model.ConnectionFromLakeDetails>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionFromOraclePeopleSoftDetails.getDeserializedJsonObj(
+            <model.ConnectionFromOraclePeopleSoftDetails>(<object>jsonObj),
             true
           );
         case "REST_BASIC_AUTH_CONNECTION":
           return model.ConnectionFromRestBasicAuthDetails.getDeserializedJsonObj(
             <model.ConnectionFromRestBasicAuthDetails>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionFromBICCDetails.getDeserializedJsonObj(
+            <model.ConnectionFromBICCDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_CONNECTION":
+          return model.ConnectionFromAdwcDetails.getDeserializedJsonObj(
+            <model.ConnectionFromAdwcDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLEDB_CONNECTION":
+          return model.ConnectionFromOracleDetails.getDeserializedJsonObj(
+            <model.ConnectionFromOracleDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionFromOracleEbsDetails.getDeserializedJsonObj(
+            <model.ConnectionFromOracleEbsDetails>(<object>jsonObj),
+            true
+          );
+        case "LAKE_CONNECTION":
+          return model.ConnectionFromLakeDetails.getDeserializedJsonObj(
+            <model.ConnectionFromLakeDetails>(<object>jsonObj),
             true
           );
         case "BIP_CONNECTION":

@@ -21,6 +21,7 @@ export interface EnrichedEntity {
   "entity"?:
     | model.DataEntityFromTable
     | model.DataEntityFromDataStore
+    | model.DataEntityFromObject
     | model.DataEntityFromView
     | model.DataEntityFromSql
     | model.DataEntityFromFile

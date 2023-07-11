@@ -15,15 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Dns settings.
+ * Information about the DNS settings.
  */
 export interface DnsConfiguration {
   /**
-   * If isOverrideDns is true, then dns will be overridden.
+   * If isOverrideDns is true, then DNS settings will be overridden.
    */
   "isOverrideDns"?: boolean;
   /**
-   * Override dns ip value. This value will be honored only if *ref-isOverrideDns is set to true.
+   * Attribute to override the DNS IP value. This value will be honored only if isOverrideDns is set to true.
    */
   "overrideDnsIp"?: string;
 }

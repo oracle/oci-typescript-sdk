@@ -66,9 +66,25 @@ export interface ModelSummary {
    * The precision of the trained model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "precision"?: number;
+  /**
+   * The tenancy id of the model.
+   */
+  "tenancyId"?: string;
+  /**
+   * the alias name of the model.
+   */
+  "aliasName"?: string;
   "trainingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "testingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "validationDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) list of active custom Key Value models that need to be composed.
+   */
+  "componentModels"?: Array<model.ComponentModel>;
+  /**
+   * Set to true when the model is created by using multiple key value extraction models.
+   */
+  "isComposedModel"?: boolean;
   /**
    * A simple key-value pair that is applied without any predefined name, type, or scope. It exists for cross-compatibility only.
    * For example: `{\"bar-key\": \"value\"}`
@@ -102,6 +118,11 @@ export namespace ModelSummary {
           : undefined,
         "validationDataset": obj.validationDataset
           ? model.Dataset.getJsonObj(obj.validationDataset)
+          : undefined,
+        "componentModels": obj.componentModels
+          ? obj.componentModels.map(item => {
+              return model.ComponentModel.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -120,6 +141,11 @@ export namespace ModelSummary {
           : undefined,
         "validationDataset": obj.validationDataset
           ? model.Dataset.getDeserializedJsonObj(obj.validationDataset)
+          : undefined,
+        "componentModels": obj.componentModels
+          ? obj.componentModels.map(item => {
+              return model.ComponentModel.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

@@ -81,9 +81,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromLake>(<object>jsonObj),
             true
           );
-        case "GENERIC_JDBC_CONNECTION":
-          return model.UpdateConnectionFromJdbc.getJsonObj(
-            <model.UpdateConnectionFromJdbc>(<object>jsonObj),
+        case "ORACLE_EBS_CONNECTION":
+          return model.UpdateConnectionFromOracleEbs.getJsonObj(
+            <model.UpdateConnectionFromOracleEbs>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
@@ -101,6 +101,41 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromRestNoAuth>(<object>jsonObj),
             true
           );
+        case "HDFS_CONNECTION":
+          return model.UpdateConnectionFromHdfs.getJsonObj(
+            <model.UpdateConnectionFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.UpdateConnectionFromRestBasicAuth.getJsonObj(
+            <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.UpdateConnectionFromOracleSiebel.getJsonObj(
+            <model.UpdateConnectionFromOracleSiebel>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.UpdateConnectionFromMySqlHeatWave.getJsonObj(
+            <model.UpdateConnectionFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "BIP_CONNECTION":
+          return model.UpdateConnectionFromBIP.getJsonObj(
+            <model.UpdateConnectionFromBIP>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.UpdateConnectionFromMySQL.getJsonObj(
+            <model.UpdateConnectionFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_CONNECTION":
+          return model.UpdateConnectionFromJdbc.getJsonObj(
+            <model.UpdateConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.UpdateConnectionFromAmazonS3.getJsonObj(
             <model.UpdateConnectionFromAmazonS3>(<object>jsonObj),
@@ -109,11 +144,6 @@ export namespace UpdateConnectionDetails {
         case "ORACLE_ATP_CONNECTION":
           return model.UpdateConnectionFromAtp.getJsonObj(
             <model.UpdateConnectionFromAtp>(<object>jsonObj),
-            true
-          );
-        case "REST_BASIC_AUTH_CONNECTION":
-          return model.UpdateConnectionFromRestBasicAuth.getJsonObj(
-            <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":
@@ -126,14 +156,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromAdwc>(<object>jsonObj),
             true
           );
-        case "BIP_CONNECTION":
-          return model.UpdateConnectionFromBIP.getJsonObj(
-            <model.UpdateConnectionFromBIP>(<object>jsonObj),
-            true
-          );
-        case "MYSQL_CONNECTION":
-          return model.UpdateConnectionFromMySQL.getJsonObj(
-            <model.UpdateConnectionFromMySQL>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.UpdateConnectionFromOraclePeopleSoft.getJsonObj(
+            <model.UpdateConnectionFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         default:
@@ -168,9 +193,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromLake>(<object>jsonObj),
             true
           );
-        case "GENERIC_JDBC_CONNECTION":
-          return model.UpdateConnectionFromJdbc.getDeserializedJsonObj(
-            <model.UpdateConnectionFromJdbc>(<object>jsonObj),
+        case "ORACLE_EBS_CONNECTION":
+          return model.UpdateConnectionFromOracleEbs.getDeserializedJsonObj(
+            <model.UpdateConnectionFromOracleEbs>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
@@ -188,6 +213,41 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromRestNoAuth>(<object>jsonObj),
             true
           );
+        case "HDFS_CONNECTION":
+          return model.UpdateConnectionFromHdfs.getDeserializedJsonObj(
+            <model.UpdateConnectionFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.UpdateConnectionFromRestBasicAuth.getDeserializedJsonObj(
+            <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.UpdateConnectionFromOracleSiebel.getDeserializedJsonObj(
+            <model.UpdateConnectionFromOracleSiebel>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.UpdateConnectionFromMySqlHeatWave.getDeserializedJsonObj(
+            <model.UpdateConnectionFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "BIP_CONNECTION":
+          return model.UpdateConnectionFromBIP.getDeserializedJsonObj(
+            <model.UpdateConnectionFromBIP>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_CONNECTION":
+          return model.UpdateConnectionFromMySQL.getDeserializedJsonObj(
+            <model.UpdateConnectionFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_CONNECTION":
+          return model.UpdateConnectionFromJdbc.getDeserializedJsonObj(
+            <model.UpdateConnectionFromJdbc>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.UpdateConnectionFromAmazonS3.getDeserializedJsonObj(
             <model.UpdateConnectionFromAmazonS3>(<object>jsonObj),
@@ -196,11 +256,6 @@ export namespace UpdateConnectionDetails {
         case "ORACLE_ATP_CONNECTION":
           return model.UpdateConnectionFromAtp.getDeserializedJsonObj(
             <model.UpdateConnectionFromAtp>(<object>jsonObj),
-            true
-          );
-        case "REST_BASIC_AUTH_CONNECTION":
-          return model.UpdateConnectionFromRestBasicAuth.getDeserializedJsonObj(
-            <model.UpdateConnectionFromRestBasicAuth>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":
@@ -213,14 +268,9 @@ export namespace UpdateConnectionDetails {
             <model.UpdateConnectionFromAdwc>(<object>jsonObj),
             true
           );
-        case "BIP_CONNECTION":
-          return model.UpdateConnectionFromBIP.getDeserializedJsonObj(
-            <model.UpdateConnectionFromBIP>(<object>jsonObj),
-            true
-          );
-        case "MYSQL_CONNECTION":
-          return model.UpdateConnectionFromMySQL.getDeserializedJsonObj(
-            <model.UpdateConnectionFromMySQL>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.UpdateConnectionFromOraclePeopleSoft.getDeserializedJsonObj(
+            <model.UpdateConnectionFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         default:

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface AvailabilityConfiguration {
   /**
-   * Intervals with failed runs more than this value will be classified as UNAVAILABLE. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Maximum number of failed runs allowed in an interval. If an interval has more failed runs than the specified value, then the interval will be classified as UNAVAILABLE. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxAllowedFailuresPerInterval"?: number;
   /**
-   * Intervals with runs less than this value will be classified as UNKNOWN and excluded from the availability calculations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Minimum number of runs allowed in an interval. If an interval has fewer runs than the specified value, then the interval will be classified as UNKNOWN and will be excluded from the availability calculations. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minAllowedRunsPerInterval"?: number;
 }

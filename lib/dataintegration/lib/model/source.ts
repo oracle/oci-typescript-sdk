@@ -21,6 +21,7 @@ export interface Source extends model.Operator {
   "entity"?:
     | model.DataEntityFromTable
     | model.DataEntityFromDataStore
+    | model.DataEntityFromObject
     | model.DataEntityFromView
     | model.DataEntityFromSql
     | model.DataEntityFromFile

@@ -11,6 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AnalyzeDocumentRequest from "./analyze-document-request";
+export import AnalyzeDocumentRequest = AnalyzeDocumentRequest.AnalyzeDocumentRequest;
 import * as CancelProcessorJobRequest from "./cancel-processor-job-request";
 export import CancelProcessorJobRequest = CancelProcessorJobRequest.CancelProcessorJobRequest;
 import * as CancelWorkRequestRequest from "./cancel-work-request-request";
@@ -47,6 +49,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as PatchModelRequest from "./patch-model-request";
+export import PatchModelRequest = PatchModelRequest.PatchModelRequest;
 import * as UpdateModelRequest from "./update-model-request";
 export import UpdateModelRequest = UpdateModelRequest.UpdateModelRequest;
 import * as UpdateProjectRequest from "./update-project-request";

@@ -23,11 +23,20 @@ export interface BrowserMonitorConfiguration extends model.MonitorConfiguration 
    */
   "isCertificateValidationEnabled"?: boolean;
   /**
+   * If disabled then auto snapshots are not collected.
+   */
+  "isDefaultSnapshotEnabled"?: boolean;
+  /**
    * Verifies all the search strings present in the response.
    * If any search string is not present in the response, then it will be considered as a failure.
    *
    */
   "verifyTexts"?: Array<model.VerifyText>;
+  /**
+   * Expected HTTP response codes. For status code range, set values such as 2xx, 3xx.
+   *
+   */
+  "verifyResponseCodes"?: Array<string>;
   "networkConfiguration"?: model.NetworkConfiguration;
 
   "configType": string;
@@ -45,6 +54,7 @@ export namespace BrowserMonitorConfiguration {
               return model.VerifyText.getJsonObj(item);
             })
           : undefined,
+
         "networkConfiguration": obj.networkConfiguration
           ? model.NetworkConfiguration.getJsonObj(obj.networkConfiguration)
           : undefined
@@ -68,6 +78,7 @@ export namespace BrowserMonitorConfiguration {
               return model.VerifyText.getDeserializedJsonObj(item);
             })
           : undefined,
+
         "networkConfiguration": obj.networkConfiguration
           ? model.NetworkConfiguration.getDeserializedJsonObj(obj.networkConfiguration)
           : undefined

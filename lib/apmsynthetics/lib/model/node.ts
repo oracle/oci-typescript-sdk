@@ -15,47 +15,47 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Network node
+ * Details of the network node.
  */
 export interface Node {
   /**
-   * id of node
+   * ID of the network node.
    */
   "id": string;
   /**
-   * ip address of node
+   * IP address of the network node.
    */
   "ipAddress"?: string;
   /**
-   * display name of node
+   * Display name of the network node.
    */
   "displayName"?: string;
   /**
-   * geo info
+   * Geographical information of the network node.
    */
   "geoInfo"?: string;
   /**
-   * links outgoing from this node
+   * Outgoing links from the network node.
    */
   "outgoingLinks"?: Array<string>;
   /**
-   * consecutive anonymous node count Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of consecutive anonymous network nodes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "consecutiveAnonymousCount"?: number;
   /**
-   * level of this node Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Level of the network node. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "level"?: number;
   /**
-   * average packet response time in milli seconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Average packet response time in milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "avgPacketResponseTimeInMs"?: number;
   /**
-   * average packet loss percentage Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Percentage of the average packet loss. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "avgPacketLossPercent"?: number;
   /**
-   * type of node
+   * Type of network node.
    */
   "type"?: Node.Type;
 }

@@ -185,6 +185,97 @@ export class AIServiceDocumentClient {
   }
 
   /**
+   * Perform different types of document analysis.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param AnalyzeDocumentRequest
+   * @return AnalyzeDocumentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/AnalyzeDocument.ts.html |here} to see how to use AnalyzeDocument API.
+   */
+  public async analyzeDocument(
+    analyzeDocumentRequest: requests.AnalyzeDocumentRequest
+  ): Promise<responses.AnalyzeDocumentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation AIServiceDocumentClient#analyzeDocument.");
+    const operationName = "analyzeDocument";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": analyzeDocumentRequest.ifMatch,
+      "opc-request-id": analyzeDocumentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      analyzeDocumentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/actions/analyzeDocument",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        analyzeDocumentRequest.analyzeDocumentDetails,
+        "AnalyzeDocumentDetails",
+        model.AnalyzeDocumentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AnalyzeDocumentResponse>{},
+        body: await response.json(),
+        bodyKey: "analyzeDocumentResult",
+        bodyModel: model.AnalyzeDocumentResult,
+        type: "model.AnalyzeDocumentResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("Content-Location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Cancel a processor job.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -1593,6 +1684,92 @@ export class AIServiceDocumentClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the model metadata only selected path parameter.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param PatchModelRequest
+   * @return PatchModelResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/aidocument/PatchModel.ts.html |here} to see how to use PatchModel API.
+   */
+  public async patchModel(
+    patchModelRequest: requests.PatchModelRequest
+  ): Promise<responses.PatchModelResponse> {
+    if (this.logger) this.logger.debug("Calling operation AIServiceDocumentClient#patchModel.");
+    const operationName = "patchModel";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{modelId}": patchModelRequest.modelId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": patchModelRequest.ifMatch,
+      "opc-request-id": patchModelRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      patchModelRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/models/{modelId}",
+      method: "PATCH",
+      bodyContent: common.ObjectSerializer.serialize(
+        patchModelRequest.patchModelDetails,
+        "PatchModelDetails",
+        model.PatchModelDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.PatchModelResponse>{},
+        body: await response.json(),
+        bodyKey: "patchResponseMessage",
+        bodyModel: model.PatchResponseMessage,
+        type: "model.PatchResponseMessage",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]

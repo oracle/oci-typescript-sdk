@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Scheduling policy.
+ * Scheduling policy to decide the distribution of monitor executions on vantage points.
  **/
 export enum SchedulingPolicy {
   All = "ALL",

@@ -74,17 +74,25 @@ export interface Subscription {
    * This field is used to describe the Upgrade State in case of error (E.g. Upgrade failure caused by interfacing Tax details- TaxError)
    */
   "upgradeStateDetails"?: Subscription.UpgradeStateDetails;
+  /**
+   * Account type.
+   */
+  "accountType"?: Subscription.AccountType;
   "taxInfo"?: model.TaxInfo;
   /**
    * Payment option list of a subscription.
    */
   "paymentOptions"?: Array<model.PaymentOption>;
   "paymentGateway"?: model.PaymentGateway;
-  "billingAddress"?: model.BillingAddress;
+  "billingAddress"?: model.Address;
   /**
    * Date of upgrade/conversion when planType changed from FREE_TIER to PAYG
    */
   "timePlanUpgrade"?: Date;
+  /**
+   * Date of upgrade/conversion when account type changed from PERSONAL to CORPORATE
+   */
+  "timePersonalToCorporateConv"?: Date;
 }
 
 export namespace Subscription {
@@ -120,6 +128,17 @@ export namespace Subscription {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum AccountType {
+    Personal = "PERSONAL",
+    Corporate = "CORPORATE",
+    CorporateSubmitted = "CORPORATE_SUBMITTED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: Subscription): object {
     const jsonObj = {
       ...obj,
@@ -134,7 +153,7 @@ export namespace Subscription {
           ? model.PaymentGateway.getJsonObj(obj.paymentGateway)
           : undefined,
         "billingAddress": obj.billingAddress
-          ? model.BillingAddress.getJsonObj(obj.billingAddress)
+          ? model.Address.getJsonObj(obj.billingAddress)
           : undefined
       }
     };
@@ -155,7 +174,7 @@ export namespace Subscription {
           ? model.PaymentGateway.getDeserializedJsonObj(obj.paymentGateway)
           : undefined,
         "billingAddress": obj.billingAddress
-          ? model.BillingAddress.getDeserializedJsonObj(obj.billingAddress)
+          ? model.Address.getDeserializedJsonObj(obj.billingAddress)
           : undefined
       }
     };

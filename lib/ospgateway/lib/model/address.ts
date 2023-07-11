@@ -15,9 +15,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Billing address details model.
+ * Address details model.
  */
-export interface BillingAddress {
+export interface Address {
   /**
    * Address identifier.
    */
@@ -31,13 +31,37 @@ export interface BillingAddress {
    */
   "line2"?: string;
   /**
+   * Address line 3.
+   */
+  "line3"?: string;
+  /**
+   * Address line 4.
+   */
+  "line4"?: string;
+  /**
+   * Street name of the address.
+   */
+  "streetName"?: string;
+  /**
+   * Street number of the address.
+   */
+  "streetNumber"?: string;
+  /**
    * Name of the city.
    */
   "city"?: string;
   /**
+   * County of the address.
+   */
+  "county"?: string;
+  /**
    * Country of the address.
    */
   "country"?: string;
+  /**
+   * Province of the address.
+   */
+  "province"?: string;
   /**
    * Post code of the address.
    */
@@ -59,18 +83,54 @@ export interface BillingAddress {
    */
   "firstName"?: string;
   /**
+   * Middle name of the contact person.
+   */
+  "middleName"?: string;
+  /**
    * Last name of the contact person.
    */
   "lastName"?: string;
+  /**
+   * Phone country code of the contact person.
+   */
+  "phoneCountryCode"?: string;
+  /**
+   * Phone number of the contact person.
+   */
+  "phoneNumber"?: string;
+  /**
+   * Job title of the contact person.
+   */
+  "jobTitle"?: string;
+  /**
+   * Department name of the customer company.
+   */
+  "departmentName"?: string;
+  /**
+   * Internal number of the customer company.
+   */
+  "internalNumber"?: string;
+  /**
+   * Contributor class of the customer company.
+   */
+  "contributorClass"?: string;
+  /**
+   * State Inscription.
+   */
+  "stateInscription"?: string;
+  /**
+   * Municipal Inscription.
+   */
+  "municipalInscription"?: string;
 }
 
-export namespace BillingAddress {
-  export function getJsonObj(obj: BillingAddress): object {
+export namespace Address {
+  export function getJsonObj(obj: Address): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
   }
-  export function getDeserializedJsonObj(obj: BillingAddress): object {
+  export function getDeserializedJsonObj(obj: Address): object {
     const jsonObj = { ...obj, ...{} };
 
     return jsonObj;
