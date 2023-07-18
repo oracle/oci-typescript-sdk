@@ -3,6 +3,24 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.65.0 - 2023-07-18
+### Added
+- Support for calling Oracle Cloud Infrastructure services in the mx-monterrey-1 region
+- Support for Kerberos and LDAP with NFSv3 in the File Storage service
+- Support for capacity reservation checks for movable compute instances in the Disaster Recovery service
+- Support for Oracle MFT monitoring in the Stack Monitoring service
+- Support for OS patching in the Big Data service
+- Support for master and utility nodes in the Big Data service
+- Support for connectivity testing in the GoldenGate service
+ 
+### Breaking Changes
+- The property `AdditionalCapabilities` was removed from the models `Container` and `CreateContainerDetails` in the Container Instances service
+- The property `FunctionId` was made required in the model `UpdateInvokeFunctionUserDefinedStepDetails` in the Disaster Recovery service
+- The properties `RunOnInstanceId` and `ScriptCommand` were made required in the model `UpdateRunLocalScriptUserDefinedStepDetails` in the Disaster Recovery service
+- The properties `RunOnInstanceId` and `ObjectStorageScriptLocation` were made required in the model `UpdateRunObjectStoreScriptUserDefinedStepDetails` in the Disaster Recovery service
+- The properties `FunctionId` and `FunctionRegion` were made required in the model `InvokeFunctionStep` in the Disaster Recovery service
+
+
 ## 2.64.0 - 2023-07-11
 ### Added
 - Support for specifying default snapshot enablement, verified response codes, client certificate details, and request authentication schemes when creating or updating synthetic monitors in the Application Performance Monitoring service

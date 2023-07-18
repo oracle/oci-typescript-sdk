@@ -233,6 +233,10 @@ Example: `2016-08-25T21:10:29.600Z`
     | model.AmdVmPlatformConfig
     | model.IntelVmPlatformConfig
     | model.AmdMilanBmGpuPlatformConfig;
+  /**
+   * The OCID of the Instance Configuration used to source launch details for this instance. Any other fields supplied in the instance launch request override the details stored in the Instance Configuration for this instance launch.
+   */
+  "instanceConfigurationId"?: string;
 }
 
 export namespace Instance {

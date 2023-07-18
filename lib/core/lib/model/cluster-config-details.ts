@@ -32,12 +32,12 @@ If the parameter is provided, the reservation is created with the HPC island and
 */
 export interface ClusterConfigDetails {
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HpcIsland.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HPC island.
    *
    */
   "hpcIslandId": string;
   /**
-   * The list of OCID of the network blocks.
+   * The list of OCIDs of the network blocks.
    */
   "networkBlockIds"?: Array<string>;
 }

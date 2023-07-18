@@ -4167,6 +4167,92 @@ export class GoldenGateClient {
   }
 
   /**
+   * Tests the connectivity between given GoldenGate deployment and one of the associated database / service.
+   * When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param TestConnectionAssignmentRequest
+   * @return TestConnectionAssignmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/TestConnectionAssignment.ts.html |here} to see how to use TestConnectionAssignment API.
+   */
+  public async testConnectionAssignment(
+    testConnectionAssignmentRequest: requests.TestConnectionAssignmentRequest
+  ): Promise<responses.TestConnectionAssignmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#testConnectionAssignment.");
+    const operationName = "testConnectionAssignment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/ConnectionAssignment/TestConnectionAssignment";
+    const pathParams = {
+      "{connectionAssignmentId}": testConnectionAssignmentRequest.connectionAssignmentId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": testConnectionAssignmentRequest.ifMatch,
+      "opc-request-id": testConnectionAssignmentRequest.opcRequestId,
+      "opc-retry-token": testConnectionAssignmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      testConnectionAssignmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/connectionAssignments/{connectionAssignmentId}/actions/test",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        testConnectionAssignmentRequest.testConnectionAssignmentDetails,
+        "TestConnectionAssignmentDetails",
+        model.TestConnectionAssignmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.TestConnectionAssignmentResponse>{},
+        body: await response.json(),
+        bodyKey: "testConnectionAssignmentResult",
+        bodyModel: model.TestConnectionAssignmentResult,
+        type: "model.TestConnectionAssignmentResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the Connection.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

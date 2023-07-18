@@ -1,6 +1,6 @@
 /**
- * Identity Service
- * API for the Identity Dataplane
+ * Identity and Access Management Data Plane API
+ * APIs for managing identity data plane services. For example, use this API to create a scoped-access security token. To manage identity domains (for example, creating or deleting an identity domain) or to manage resources (for example, users and groups) within the default identity domain, see [IAM API](https://docs.oracle.com/iaas/api/#/en/identity/).
  * OpenAPI spec version: v1
  *
  *
@@ -13,3 +13,5 @@
 
 import * as GenerateScopedAccessTokenResponse from "./generate-scoped-access-token-response";
 export import GenerateScopedAccessTokenResponse = GenerateScopedAccessTokenResponse.GenerateScopedAccessTokenResponse;
+import * as GenerateUserSecurityTokenResponse from "./generate-user-security-token-response";
+export import GenerateUserSecurityTokenResponse = GenerateUserSecurityTokenResponse.GenerateUserSecurityTokenResponse;

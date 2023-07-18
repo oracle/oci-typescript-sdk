@@ -29,6 +29,11 @@ Example: `My mount target`
     */
   "displayName"?: string;
   /**
+   * The method used to map a Unix UID to secondary groups, if any.
+   */
+  "idmapType"?: string;
+  "ldapIdmap"?: model.UpdateLdapIdmapDetails;
+  /**
    * A list of Network Security Group [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) associated with this mount target.
    * A maximum of 5 is allowed.
    * Setting this to an empty array after the list is created removes the mount target from all NSGs.
@@ -36,6 +41,7 @@ Example: `My mount target`
    *
    */
   "nsgIds"?: Array<string>;
+  "kerberos"?: model.UpdateKerberosDetails;
   /**
    * Free-form tags for this resource. Each tag is a simple key-value pair
    *  with no predefined name, type, or namespace.
@@ -55,12 +61,32 @@ Example: `My mount target`
 
 export namespace UpdateMountTargetDetails {
   export function getJsonObj(obj: UpdateMountTargetDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ldapIdmap": obj.ldapIdmap
+          ? model.UpdateLdapIdmapDetails.getJsonObj(obj.ldapIdmap)
+          : undefined,
+
+        "kerberos": obj.kerberos ? model.UpdateKerberosDetails.getJsonObj(obj.kerberos) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateMountTargetDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ldapIdmap": obj.ldapIdmap
+          ? model.UpdateLdapIdmapDetails.getDeserializedJsonObj(obj.ldapIdmap)
+          : undefined,
+
+        "kerberos": obj.kerberos
+          ? model.UpdateKerberosDetails.getDeserializedJsonObj(obj.kerberos)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

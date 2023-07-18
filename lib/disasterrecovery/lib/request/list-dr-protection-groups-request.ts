@@ -83,6 +83,10 @@ Example: `displayName`
    *
    */
   "opcRequestId"?: string;
+  /**
+   * The DR Protection Group Role.
+   */
+  "role"?: model.DrProtectionGroupRole;
 }
 
 export namespace ListDrProtectionGroupsRequest {

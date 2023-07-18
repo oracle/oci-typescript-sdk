@@ -15,17 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * additional configurable container capabilities
+ * Additional configurable container capabilities.
  **/
 export enum ContainerCapability {
   CapNetAdmin = "CAP_NET_ADMIN",
-  CapNetRaw = "CAP_NET_RAW",
-
-  /**
-   * This value is used if a service returns a value for this enum that is not recognized by this
-   * version of the SDK.
-   */
-  UnknownValue = "UNKNOWN_VALUE"
+  CapNetRaw = "CAP_NET_RAW"
 }
 
 export namespace ContainerCapability {

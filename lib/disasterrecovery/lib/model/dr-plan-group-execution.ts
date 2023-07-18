@@ -24,7 +24,7 @@ export interface DrPlanGroupExecution {
   /**
     * The unique id of the group. Must not be modified by user.
 * <p>
-Example: `sgid1.group..examplegroupsgid`
+Example: `sgid1.group..&lt;unique_id&gt;`
 * 
     */
   "groupId": string;

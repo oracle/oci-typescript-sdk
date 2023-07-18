@@ -121,6 +121,25 @@ export class FileStorageWaiter {
   }
 
   /**
+   * Waits forOutboundConnector till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetOutboundConnectorResponse | null (null in case of 404 response)
+   */
+  public async forOutboundConnector(
+    request: serviceRequests.GetOutboundConnectorRequest,
+    ...targetStates: models.OutboundConnector.LifecycleState[]
+  ): Promise<serviceResponses.GetOutboundConnectorResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getOutboundConnector(request),
+      response => targetStates.includes(response.outboundConnector.lifecycleState!),
+      targetStates.includes(models.OutboundConnector.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forReplication till it reaches any of the provided states
    *
    * @param request the request to send

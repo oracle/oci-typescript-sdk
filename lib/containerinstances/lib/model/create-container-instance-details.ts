@@ -15,55 +15,55 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information about new ContainerInstance.
+ * Information to create a container instance.
  */
 export interface CreateContainerInstanceDetails {
   /**
-   * Human-readable name for the ContainerInstance. If none is provided,
-   * OCI will select one for you.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information. If you don't provide a name, a name is generated automatically.
    *
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier
+   * The compartment OCID.
    */
   "compartmentId": string;
   /**
-   * Availability Domain where the ContainerInstance should be created.
+   * The availability domain where the container instance runs.
    */
   "availabilityDomain": string;
   /**
-   * Fault Domain where the ContainerInstance should run.
+   * The fault domain where the container instance runs.
    *
    */
   "faultDomain"?: string;
   /**
-   * The shape of the Container Instance. The shape determines the resources available to the Container Instance.
+   * The shape of the container instance. The shape determines the resources available to the container instance.
    */
   "shape": string;
   "shapeConfig": model.CreateContainerInstanceShapeConfigDetails;
   /**
-   * A Volume represents a directory with data that is accessible across multiple containers in a
-   * ContainerInstance.
-   * Up to 32 volumes can be attached to single container instance.
-   *
-   */
+    * A volume is a directory with data that is accessible across multiple containers in a
+* container instance.
+* <p>
+You can attach up to 32 volumes to single container instance.
+* 
+    */
   "volumes"?: Array<model.CreateContainerVolumeDetails>;
   /**
-   * The Containers to create on this Instance.
+   * The containers to create on this container instance.
    */
   "containers": Array<model.CreateContainerDetails>;
   /**
-   * The networks to make available to containers on this Instance.
+   * The networks available to containers on this container instance.
    */
   "vnics": Array<model.CreateContainerVnicDetails>;
   "dnsConfig"?: model.CreateContainerDnsConfigDetails;
   /**
-   * Duration in seconds processes within a Container have to gracefully terminate. This applies whenever a Container must be halted, such as when the Container Instance is deleted. Processes will first be sent a termination signal. After this timeout is reached, the processes will be sent a termination signal. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of time that processes in a container have to gracefully end when the container must be stopped. For example, when you delete a container instance. After the timeout is reached, the processes are sent a signal to be deleted. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "gracefulShutdownTimeoutInSeconds"?: number;
   /**
-   * The image pull secrets for accessing private registry to pull images for containers
+   * The image pulls secrets so you can access private registry to pull container images.
    */
   "imagePullSecrets"?: Array<model.CreateImagePullSecretDetails>;
   /**
@@ -78,7 +78,7 @@ export interface CreateContainerInstanceDetails {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

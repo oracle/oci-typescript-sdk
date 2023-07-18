@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateContainerInstanceDetails {
   /**
-   * ContainerInstance Identifier
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
@@ -30,7 +30,7 @@ export interface UpdateContainerInstanceDetails {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

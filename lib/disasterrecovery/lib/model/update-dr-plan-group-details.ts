@@ -24,7 +24,7 @@ export interface UpdateDrPlanGroupDetails {
   /**
     * The unique id of this group. Must not be modified by user.
 * <p>
-Example: `sgid1.group..examplegroupsgid`
+Example: `sgid1.group..&lt;unique_id&gt;`
 * 
     */
   "id"?: string;

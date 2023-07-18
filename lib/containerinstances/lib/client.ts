@@ -185,7 +185,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Moves a ContainerInstance resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * Moves a container instance resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeContainerInstanceCompartmentRequest
    * @return ChangeContainerInstanceCompartmentResponse
@@ -265,7 +265,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Creates a new ContainerInstance.
+   * Creates a container instance and deploys the containers on it.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateContainerInstanceRequest
@@ -351,7 +351,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Deletes a ContainerInstance resource by identifier
+   * Deletes a container instance and its containers.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteContainerInstanceRequest
    * @return DeleteContainerInstanceResponse
@@ -499,7 +499,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Gets a ContainerInstance by identifier
+   * Gets information about the specified container instance.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetContainerInstanceRequest
    * @return GetContainerInstanceResponse
@@ -650,7 +650,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Get a list of shapes for creating Container Instances and their details.
+   * Lists the shapes that can be used to create container instances.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainerInstanceShapesRequest
    * @return ListContainerInstanceShapesResponse
@@ -729,7 +729,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Returns a list of ContainerInstances.
+   * Returns a list of container instances.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainerInstancesRequest
@@ -813,7 +813,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Return a list of Containers.
+   * Returns a list of containers in a compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainersRequest
@@ -897,7 +897,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Return a paginated list of errors for a given work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
@@ -977,7 +977,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Return a (paginated) list of logs for a given work request.
+   * Return a paginated list of logs for a given work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
@@ -1210,7 +1210,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Retrieve recent log from a single container by the container ID up to 256KB.
+   * Retrieves recent logs from the specified container. The most recent 256 KB of logs are returned.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RetrieveLogsRequest
@@ -1427,7 +1427,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Update a Container.
+   * Updates a container.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateContainerRequest
    * @return UpdateContainerResponse
@@ -1505,7 +1505,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Updates the ContainerInstance
+   * Updates a container instance.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateContainerInstanceRequest
    * @return UpdateContainerInstanceResponse

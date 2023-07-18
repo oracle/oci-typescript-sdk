@@ -22,7 +22,9 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to update a [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm), which is a remote direct memory access (RDMA) network group.
+ * The data to update a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm)
+ * is a remote direct memory access (RDMA) network group.
+ *
  */
 export interface UpdateComputeClusterDetails {
   /**

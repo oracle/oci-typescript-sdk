@@ -15,20 +15,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A reduced set of details about a single ContainerInstance returned by list APIs.
+ * A set of details about a single container instance returned by list APIs.
  *
  */
 export interface ContainerInstanceSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * OCID that cannot be changed.
    */
   "id": string;
   /**
-   * Display name for the ContainerInstance. Can be renamed.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * Compartment Identifier
+   * The OCID of the compartment to create the container instance in.
    */
   "compartmentId": string;
   /**
@@ -39,57 +39,57 @@ export interface ContainerInstanceSummary {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`.
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Availability Domain where the ContainerInstance is running.
+   * The availability domain where the container instance runs.
    */
   "availabilityDomain": string;
   /**
-   * Fault Domain where the ContainerInstance is running.
+   * The fault domain where the container instance runs.
    */
   "faultDomain"?: string;
   /**
-   * The current state of the ContainerInstance.
+   * The current state of the container instance.
    */
   "lifecycleState": string;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide
-   * actionable information for a resource in Failed state.
+   * A message that describes the current state of the container instance in more detail. Can be used to provide
+   * actionable information.
    *
    */
   "lifecycleDetails"?: string;
   /**
-   * The time the the ContainerInstance was created. An RFC3339 formatted datetime string
+   * The time the container instance was created, in the format defined by RFC3339.
    */
   "timeCreated": Date;
   /**
-   * The time the ContainerInstance was updated. An RFC3339 formatted datetime string
+   * The time the container instance was updated, in the format defined by RFC3339.
    */
   "timeUpdated"?: Date;
   /**
-   * The shape of the Container Instance. The shape determines the resources available to the Container Instance.
+   * The shape of the container instance. The shape determines the resources available to the container instance.
    */
   "shape": string;
   "shapeConfig": model.ContainerInstanceShapeConfig;
   /**
-   * The number of containers on this Instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of containers in the container instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "containerCount": number;
   /**
-   * Duration in seconds processes within a Container have to gracefully terminate. This applies whenever a Container must be halted, such as when the Container Instance is deleted. Processes will first be sent a termination signal. After this timeout is reached, the processes will be sent a termination signal. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of time that processes in a container have to gracefully end when the container must be stopped. For example, when you delete a container instance. After the timeout is reached, the processes are sent a signal to be deleted. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "gracefulShutdownTimeoutInSeconds"?: number;
   /**
-   * The number of volumes that attached to this Instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of volumes that are attached to the container instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "volumeCount"?: number;
   /**

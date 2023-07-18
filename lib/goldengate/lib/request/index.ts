@@ -106,6 +106,8 @@ import * as StartDeploymentRequest from "./start-deployment-request";
 export import StartDeploymentRequest = StartDeploymentRequest.StartDeploymentRequest;
 import * as StopDeploymentRequest from "./stop-deployment-request";
 export import StopDeploymentRequest = StopDeploymentRequest.StopDeploymentRequest;
+import * as TestConnectionAssignmentRequest from "./test-connection-assignment-request";
+export import TestConnectionAssignmentRequest = TestConnectionAssignmentRequest.TestConnectionAssignmentRequest;
 import * as UpdateConnectionRequest from "./update-connection-request";
 export import UpdateConnectionRequest = UpdateConnectionRequest.UpdateConnectionRequest;
 import * as UpdateDatabaseRegistrationRequest from "./update-database-registration-request";

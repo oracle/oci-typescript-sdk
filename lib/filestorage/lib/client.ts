@@ -340,7 +340,7 @@ export class FileStorageClient {
   }
 
   /**
-   * Moves a mount target and its associated export set into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
+   * Moves a mount target and its associated export set or share set into a different compartment within the same tenancy. For information about moving resources between compartments, see [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeMountTargetCompartmentRequest
@@ -399,6 +399,83 @@ export class FileStorageClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeMountTargetCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves an outbound connector into a different compartment within the same tenancy.
+   * For information about moving resources between compartments, see
+   * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes)
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeOutboundConnectorCompartmentRequest
+   * @return ChangeOutboundConnectorCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ChangeOutboundConnectorCompartment.ts.html |here} to see how to use ChangeOutboundConnectorCompartment API.
+   */
+  public async changeOutboundConnectorCompartment(
+    changeOutboundConnectorCompartmentRequest: requests.ChangeOutboundConnectorCompartmentRequest
+  ): Promise<responses.ChangeOutboundConnectorCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#changeOutboundConnectorCompartment.");
+    const operationName = "changeOutboundConnectorCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/ChangeOutboundConnectorCompartment";
+    const pathParams = {
+      "{outboundConnectorId}": changeOutboundConnectorCompartmentRequest.outboundConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeOutboundConnectorCompartmentRequest.ifMatch,
+      "opc-request-id": changeOutboundConnectorCompartmentRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeOutboundConnectorCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors/{outboundConnectorId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeOutboundConnectorCompartmentRequest.changeOutboundConnectorCompartmentDetails,
+        "ChangeOutboundConnectorCompartmentDetails",
+        model.ChangeOutboundConnectorCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeOutboundConnectorCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -880,6 +957,107 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+     * Creates a new outbound connector in the specified compartment.
+* You can associate an outbound connector with a mount target only when
+* they exist in the same availability domain.
+* <p>
+For information about access control and compartments, see
+* [Overview of the IAM
+* Service](https://docs.cloud.oracle.com/Content/Identity/Concepts/overview.htm).
+* <p>
+For information about availability domains, see [Regions and
+* Availability Domains](https://docs.cloud.oracle.com/Content/General/Concepts/regions.htm).
+* To get a list of availability domains, use the
+* `ListAvailabilityDomains` operation in the Identity and Access
+* Management Service API.
+* <p>
+All Oracle Cloud Infrastructure Services resources, including
+* outbound connectors, get an Oracle-assigned, unique ID called an
+* Oracle Cloud Identifier ([OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm)).
+* When you create a resource, you can find its OCID in the response.
+* You can also retrieve a resource's OCID by using a List API operation on that resource
+* type, or by viewing the resource in the Console.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param CreateOutboundConnectorRequest
+     * @return CreateOutboundConnectorResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/CreateOutboundConnector.ts.html |here} to see how to use CreateOutboundConnector API.
+     */
+  public async createOutboundConnector(
+    createOutboundConnectorRequest: requests.CreateOutboundConnectorRequest
+  ): Promise<responses.CreateOutboundConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#createOutboundConnector.");
+    const operationName = "createOutboundConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/CreateOutboundConnector";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createOutboundConnectorRequest.opcRetryToken,
+      "opc-request-id": createOutboundConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createOutboundConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createOutboundConnectorRequest.createOutboundConnectorDetails,
+        "CreateOutboundConnectorDetails",
+        model.CreateOutboundConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateOutboundConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "outboundConnector",
+        bodyModel: model.OutboundConnector,
+        type: "model.OutboundConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
      * Creates a new replication in the specified compartment.
 * Replications are the primary resource that governs the policy of cross-region replication between source
 * and target file systems. Replications are associated with a secondary resource called a {@link ReplicationTarget}
@@ -1334,6 +1512,76 @@ All Oracle Cloud Infrastructure Services resources, including
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteMountTargetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the specified outbound connector.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteOutboundConnectorRequest
+   * @return DeleteOutboundConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/DeleteOutboundConnector.ts.html |here} to see how to use DeleteOutboundConnector API.
+   */
+  public async deleteOutboundConnector(
+    deleteOutboundConnectorRequest: requests.DeleteOutboundConnectorRequest
+  ): Promise<responses.DeleteOutboundConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#deleteOutboundConnector.");
+    const operationName = "deleteOutboundConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/DeleteOutboundConnector";
+    const pathParams = {
+      "{outboundConnectorId}": deleteOutboundConnectorRequest.outboundConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteOutboundConnectorRequest.ifMatch,
+      "opc-request-id": deleteOutboundConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteOutboundConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors/{outboundConnectorId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteOutboundConnectorResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2003,6 +2251,82 @@ All Oracle Cloud Infrastructure Services resources, including
         bodyKey: "mountTarget",
         bodyModel: model.MountTarget,
         type: "model.MountTarget",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the specified outbound connector's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOutboundConnectorRequest
+   * @return GetOutboundConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/GetOutboundConnector.ts.html |here} to see how to use GetOutboundConnector API.
+   */
+  public async getOutboundConnector(
+    getOutboundConnectorRequest: requests.GetOutboundConnectorRequest
+  ): Promise<responses.GetOutboundConnectorResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#getOutboundConnector.");
+    const operationName = "getOutboundConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/GetOutboundConnector";
+    const pathParams = {
+      "{outboundConnectorId}": getOutboundConnectorRequest.outboundConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOutboundConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOutboundConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors/{outboundConnectorId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOutboundConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "outboundConnector",
+        bodyModel: model.OutboundConnector,
+        type: "model.OutboundConnector",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -2945,6 +3269,144 @@ All Oracle Cloud Infrastructure Services resources, including
   }
 
   /**
+   * Lists the outbound connector resources in the specified compartment.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOutboundConnectorsRequest
+   * @return ListOutboundConnectorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ListOutboundConnectors.ts.html |here} to see how to use ListOutboundConnectors API.
+   */
+  public async listOutboundConnectors(
+    listOutboundConnectorsRequest: requests.ListOutboundConnectorsRequest
+  ): Promise<responses.ListOutboundConnectorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#listOutboundConnectors.");
+    const operationName = "listOutboundConnectors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnectorSummary/ListOutboundConnectors";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listOutboundConnectorsRequest.compartmentId,
+      "availabilityDomain": listOutboundConnectorsRequest.availabilityDomain,
+      "limit": listOutboundConnectorsRequest.limit,
+      "page": listOutboundConnectorsRequest.page,
+      "lifecycleState": listOutboundConnectorsRequest.lifecycleState,
+      "displayName": listOutboundConnectorsRequest.displayName,
+      "id": listOutboundConnectorsRequest.id,
+      "sortBy": listOutboundConnectorsRequest.sortBy,
+      "sortOrder": listOutboundConnectorsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOutboundConnectorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOutboundConnectorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOutboundConnectorsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.OutboundConnectorSummary,
+        type: "Array<model.OutboundConnectorSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listOutboundConnectorsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.OutboundConnectorSummary objects
+   * contained in responses from the listOutboundConnectors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOutboundConnectors(
+    request: requests.ListOutboundConnectorsRequest
+  ): AsyncIterableIterator<model.OutboundConnectorSummary> {
+    return paginateRecords(request, req => this.listOutboundConnectors(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listOutboundConnectorsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listOutboundConnectors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOutboundConnectorsResponses(
+    request: requests.ListOutboundConnectorsRequest
+  ): AsyncIterableIterator<responses.ListOutboundConnectorsResponse> {
+    return paginateResponses(request, req => this.listOutboundConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.OutboundConnectorSummary objects
+   * contained in responses from the listOutboundConnectors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOutboundConnectorsRecordIterator(
+    request: requests.ListOutboundConnectorsRequest
+  ): AsyncIterableIterator<model.OutboundConnectorSummary> {
+    return paginateRecords(request, req => this.listOutboundConnectors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listOutboundConnectors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOutboundConnectorsResponseIterator(
+    request: requests.ListOutboundConnectorsRequest
+  ): AsyncIterableIterator<responses.ListOutboundConnectorsResponse> {
+    return paginateResponses(request, req => this.listOutboundConnectors(req));
+  }
+
+  /**
    * Lists the replication target resources in the specified compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -3225,6 +3687,9 @@ All Oracle Cloud Infrastructure Services resources, including
 * or by file system snapshot policy and file system.
 * <p>
 If file system ID is not specified, a file system snapshot policy ID and compartment ID must be specified.
+* <p>
+Users can only sort by time created when listing snapshots by file system snapshot policy ID and compartment ID
+* (sort by name is NOT supported for listing snapshots by policy and compartment).
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param ListSnapshotsRequest
@@ -3943,6 +4408,89 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
   }
 
   /**
+   * Updates the specified outbound connector's information.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateOutboundConnectorRequest
+   * @return UpdateOutboundConnectorResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/UpdateOutboundConnector.ts.html |here} to see how to use UpdateOutboundConnector API.
+   */
+  public async updateOutboundConnector(
+    updateOutboundConnectorRequest: requests.UpdateOutboundConnectorRequest
+  ): Promise<responses.UpdateOutboundConnectorResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation FileStorageClient#updateOutboundConnector.");
+    const operationName = "updateOutboundConnector";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/OutboundConnector/UpdateOutboundConnector";
+    const pathParams = {
+      "{outboundConnectorId}": updateOutboundConnectorRequest.outboundConnectorId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateOutboundConnectorRequest.ifMatch,
+      "opc-request-id": updateOutboundConnectorRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateOutboundConnectorRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/outboundConnectors/{outboundConnectorId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateOutboundConnectorRequest.updateOutboundConnectorDetails,
+        "UpdateOutboundConnectorDetails",
+        model.UpdateOutboundConnectorDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateOutboundConnectorResponse>{},
+        body: await response.json(),
+        bodyKey: "outboundConnector",
+        bodyModel: model.OutboundConnector,
+        type: "model.OutboundConnector",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the information for the specified replication and its associated replication target.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -4093,6 +4641,83 @@ If the policy is already in the ACTIVE state, you cannot unpause it. You can't u
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validates keytab contents for the secret details passed on the request or validte keytab contents associated with
+   * the mount target passed in the request. The keytabs are deserialized, the contents are validated for compatibility
+   * and the principal, key version number and encryption type of each entry is provided as part of the response.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ValidateKeyTabsRequest
+   * @return ValidateKeyTabsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/filestorage/ValidateKeyTabs.ts.html |here} to see how to use ValidateKeyTabs API.
+   */
+  public async validateKeyTabs(
+    validateKeyTabsRequest: requests.ValidateKeyTabsRequest
+  ): Promise<responses.ValidateKeyTabsResponse> {
+    if (this.logger) this.logger.debug("Calling operation FileStorageClient#validateKeyTabs.");
+    const operationName = "validateKeyTabs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/filestorage/20171215/MountTarget/ValidateKeyTabs";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateKeyTabsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateKeyTabsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/mountTargets/actions/validateKeyTabs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateKeyTabsRequest.validateKeyTabsDetails,
+        "ValidateKeyTabsDetails",
+        model.ValidateKeyTabsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateKeyTabsResponse>{},
+        body: await response.json(),
+        bodyKey: "validateKeyTabsResponseDetails",
+        bodyModel: model.ValidateKeyTabsResponseDetails,
+        type: "model.ValidateKeyTabsResponseDetails",
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",

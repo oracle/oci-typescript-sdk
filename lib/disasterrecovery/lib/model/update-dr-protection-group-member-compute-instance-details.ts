@@ -37,7 +37,7 @@ Example: `false`
   /**
     * The OCID of the compartment for this compute instance in the destination region.
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid1`
+Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
 * 
     */
   "destinationCompartmentId"?: string;
@@ -45,7 +45,7 @@ Example: `ocid1.compartment.oc1..exampleocid1`
     * The OCID of the dedicated VM Host in the destination region where this compute instance
 * should be launched
 * <p>
-Example: `ocid1.dedicatedvmhost.oc1.iad.exampleocid2`
+Example: `ocid1.dedicatedvmhost.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "destinationDedicatedVmHostId"?: string;

@@ -27,8 +27,8 @@ export interface UpdateRunObjectStoreScriptUserDefinedStepDetails
    * The OCID of the instance where this script or command should be executed.
    *
    */
-  "runOnInstanceId"?: string;
-  "objectStorageScriptLocation"?: model.UpdateObjectStorageScriptLocationDetails;
+  "runOnInstanceId": string;
+  "objectStorageScriptLocation": model.UpdateObjectStorageScriptLocationDetails;
 
   "stepType": string;
 }

@@ -106,6 +106,8 @@ import * as StartDeploymentResponse from "./start-deployment-response";
 export import StartDeploymentResponse = StartDeploymentResponse.StartDeploymentResponse;
 import * as StopDeploymentResponse from "./stop-deployment-response";
 export import StopDeploymentResponse = StopDeploymentResponse.StopDeploymentResponse;
+import * as TestConnectionAssignmentResponse from "./test-connection-assignment-response";
+export import TestConnectionAssignmentResponse = TestConnectionAssignmentResponse.TestConnectionAssignmentResponse;
 import * as UpdateConnectionResponse from "./update-connection-response";
 export import UpdateConnectionResponse = UpdateConnectionResponse.UpdateConnectionResponse;
 import * as UpdateDatabaseRegistrationResponse from "./update-database-registration-response";

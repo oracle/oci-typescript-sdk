@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Type of container health check which could be either HTTP, TCP or Command.
+ * Type of container health check which could be either HTTP, TCP, or Command.
  */
 export interface ContainerHealthCheck {
   /**

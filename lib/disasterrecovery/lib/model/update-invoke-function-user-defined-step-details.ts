@@ -26,10 +26,10 @@ export interface UpdateInvokeFunctionUserDefinedStepDetails
   /**
     * The OCID of function to be invoked.
 * <p>
-Example: `ocid1.fnfunc.oc1.iad.exampleocid2`
+Example: `ocid1.fnfunc.oc1.iad.&lt;unique_id&gt;`
 * 
     */
-  "functionId"?: string;
+  "functionId": string;
   /**
     * The request body for the function.
 * <p>
