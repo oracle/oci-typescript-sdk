@@ -15,32 +15,32 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * For a flexible shape, the amount of memory available for instances that use this shape.
+ * For a flexible shape, the amount of memory available for container instances that use this shape.
  *
  */
 export interface ShapeMemoryOptions {
   /**
-   * The minimum amount of memory, in gigabytes.
+   * The minimum amount of memory (GB).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minInGBs": number;
   /**
-   * The maximum amount of memory, in gigabytes.
+   * The maximum amount of memory (GB).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxInGBs": number;
   /**
-   * The default amount of memory per OCPU available for this shape, in gigabytes.
+   * The default amount of memory per OCPU available for this shape (GB).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "defaultPerOcpuInGBs": number;
   /**
-   * The minimum amount of memory per OCPU available for this shape, in gigabytes.
+   * The minimum amount of memory per OCPU available for this shape (GB).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minPerOcpuInGBs": number;
   /**
-   * The maximum amount of memory per OCPU available for this shape, in gigabytes.
+   * The maximum amount of memory per OCPU available for this shape (GB).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxPerOcpuInGBs": number;

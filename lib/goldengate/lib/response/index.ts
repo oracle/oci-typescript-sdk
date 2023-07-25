@@ -26,6 +26,8 @@ import * as ChangeDeploymentCompartmentResponse from "./change-deployment-compar
 export import ChangeDeploymentCompartmentResponse = ChangeDeploymentCompartmentResponse.ChangeDeploymentCompartmentResponse;
 import * as CollectDeploymentDiagnosticResponse from "./collect-deployment-diagnostic-response";
 export import CollectDeploymentDiagnosticResponse = CollectDeploymentDiagnosticResponse.CollectDeploymentDiagnosticResponse;
+import * as CopyDeploymentBackupResponse from "./copy-deployment-backup-response";
+export import CopyDeploymentBackupResponse = CopyDeploymentBackupResponse.CopyDeploymentBackupResponse;
 import * as CreateConnectionResponse from "./create-connection-response";
 export import CreateConnectionResponse = CreateConnectionResponse.CreateConnectionResponse;
 import * as CreateConnectionAssignmentResponse from "./create-connection-assignment-response";
@@ -106,6 +108,8 @@ import * as StartDeploymentResponse from "./start-deployment-response";
 export import StartDeploymentResponse = StartDeploymentResponse.StartDeploymentResponse;
 import * as StopDeploymentResponse from "./stop-deployment-response";
 export import StopDeploymentResponse = StopDeploymentResponse.StopDeploymentResponse;
+import * as TestConnectionAssignmentResponse from "./test-connection-assignment-response";
+export import TestConnectionAssignmentResponse = TestConnectionAssignmentResponse.TestConnectionAssignmentResponse;
 import * as UpdateConnectionResponse from "./update-connection-response";
 export import UpdateConnectionResponse = UpdateConnectionResponse.UpdateConnectionResponse;
 import * as UpdateDatabaseRegistrationResponse from "./update-database-registration-response";

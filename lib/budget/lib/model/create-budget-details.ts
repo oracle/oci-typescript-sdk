@@ -1,6 +1,6 @@
 /**
  * Budgets API
- * Use the Budgets API to manage budgets and budget alerts.
+ * Use the Budgets API to manage budgets and budget alerts. For more information, see [Budgets Overview](/iaas/Content/Billing/Concepts/budgetsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -58,10 +58,18 @@ export interface CreateBudgetDetails {
    */
   "budgetProcessingPeriodStartOffset"?: number;
   /**
-   * The type of the budget processing period. Valid values are INVOICE and MONTH.
+   * The type of the budget processing period. Valid values are INVOICE, MONTH, and SINGLE_USE.
    *
    */
   "processingPeriodType"?: model.ProcessingPeriodType;
+  /**
+   * The date when the one-time budget begins. For example, `2023-03-23`. The date-time format conforms to RFC 3339, and will be truncated to the starting point of the date provided after being converted to UTC time.
+   */
+  "startDate"?: Date;
+  /**
+   * The date when the one-time budget concludes. For example, `2023-03-23`. The date-time format conforms to RFC 3339, and will be truncated to the starting point of the date provided after being converted to UTC time.
+   */
+  "endDate"?: Date;
   /**
    * The type of target on which the budget is applied.
    *

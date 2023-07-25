@@ -24,7 +24,7 @@ export interface UpdateDrPlanStepDetails {
   /**
     * The unique id of this step.
 * <p>
-Example: `sgid1.step..examplestepsgid`
+Example: `sgid1.step..&lt;unique_id&gt;`
 * 
     */
   "id"?: string;

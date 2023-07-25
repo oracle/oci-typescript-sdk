@@ -24,21 +24,37 @@ export interface ComputeInstanceVnicMappingDetails {
   /**
     * The OCID of the VNIC.
 * <p>
-Example: `ocid1.vnic.oc1.phx.exampleocid1`
+Example: `ocid1.vnic.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "sourceVnicId": string;
   /**
     * The OCID of the destination (remote) subnet to which this VNIC should connect.
 * <p>
-Example: `ocid1.subnet.oc1.iad.exampleocid2`
+Example: `ocid1.subnet.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "destinationSubnetId": string;
   /**
-    * A list of destination region's network security group (NSG) Ids which this VNIC should use.
+    * The primary private IP address to assign. This address must belong to the destination subnet.
 * <p>
-Example: `[ ocid1.networksecuritygroup.oc1.iad.abcd1, ocid1.networksecuritygroup.oc1.iad.wxyz2 ]`
+Example: `10.0.3.3`
+* 
+    */
+  "destinationPrimaryPrivateIpAddress"?: string;
+  /**
+    * The hostname to assign for this primary private IP.
+* The value is the hostname portion of the private IP's fully qualified domain name (FQDN) 
+* (for example, bminstance1 in FQDN bminstance1.subnet123.vcn1.oraclevcn.com).
+* <p>
+Example: `bminstance1`
+* 
+    */
+  "destinationPrimaryPrivateIpHostnameLabel"?: string;
+  /**
+    * A list of network security group (NSG) IDs in the destination region which this VNIC should use.
+* <p>
+Example: `[ ocid1.networksecuritygroup.oc1.iad.&lt;unique_id&gt;, ocid1.networksecuritygroup.oc1.iad.&lt;unique_id&gt; ]`
 * 
     */
   "destinationNsgIdList"?: Array<string>;

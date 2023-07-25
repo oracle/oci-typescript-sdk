@@ -95,6 +95,10 @@ export interface Node {
    * The aggregate size of all local disks, in gigabytes. If the instance does not have any local disks, this field is null. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "localDisksTotalSizeInGBs"?: number;
+  /**
+   * The date and time the instance is expected to be stopped / started, in the format defined by RFC3339.
+   */
+  "timeMaintenanceRebootDue"?: Date;
 }
 
 export namespace Node {

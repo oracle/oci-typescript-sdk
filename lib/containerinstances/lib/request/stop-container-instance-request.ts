@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface StopContainerInstanceRequest extends common.BaseRequest {
   /**
-   * The system-generated unique identifier for the ContainerInstance.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance.
    */
   "containerInstanceId": string;
   /**
@@ -32,7 +32,7 @@ export interface StopContainerInstanceRequest extends common.BaseRequest {
    */
   "ifMatch"?: string;
   /**
-   * The client request ID for tracing.
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
 }

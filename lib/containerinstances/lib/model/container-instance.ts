@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A ContainerInstance for hosting Containers.
+* A container instance to host containers.
 * <p>
-If this ContainerInstance is DELETED, the record will remain visible for a short period
+If you delete a container instance, the record remains visible for a short period
 * of time before being permanently removed.
 * 
 */
 export interface ContainerInstance {
   /**
-   * Unique identifier that is immutable on creation
+   * An OCID that cannot be changed.
    */
   "id": string;
   /**
-   * Display name for the ContainerInstance. Can be renamed.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * Compartment Identifier
+   * The OCID of the compartment.
    */
   "compartmentId": string;
   /**
@@ -42,76 +42,76 @@ export interface ContainerInstance {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`.
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Availability Domain where the ContainerInstance is running.
+   * The availability domain to place the container instance.
    */
   "availabilityDomain": string;
   /**
-   * Fault Domain where the ContainerInstance is running.
+   * The fault domain to place the container instance.
    */
   "faultDomain"?: string;
   /**
-   * The current state of the ContainerInstance.
+   * The current state of the container instance.
    */
   "lifecycleState": ContainerInstance.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide
-   * actionable information for a resource in Failed state.
+   * A message that describes the current state of the container in more detail. Can be used to provide
+   * actionable information.
    *
    */
   "lifecycleDetails"?: string;
   /**
-   * A Volume represents a directory with data that is accessible across multiple containers in a
-   * ContainerInstance.
+   * A volume is a directory with data that is accessible across multiple containers in a
+   * container instance.
    *
    */
   "volumes"?: Array<model.ContainerVolume>;
   /**
-   * The number of volumes that attached to this Instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of volumes that are attached to the container instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "volumeCount"?: number;
   /**
-   * The Containers on this Instance
+   * The containers on the container instance.
    */
   "containers": Array<model.ContainerInstanceContainer>;
   /**
-   * The number of containers on this Instance Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of containers on the container instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "containerCount": number;
   /**
-   * The time the the ContainerInstance was created. An RFC3339 formatted datetime string
+   * The time the container instance was created, in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timeCreated": Date;
   /**
-   * The time the ContainerInstance was updated. An RFC3339 formatted datetime string
+   * The time the container instance was updated, in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The shape of the Container Instance. The shape determines the resources available to the Container Instance.
+   * The shape of the container instance. The shape determines the number of OCPUs, amount of memory, and other resources that are allocated to a container instance.
    */
   "shape": string;
   "shapeConfig": model.ContainerInstanceShapeConfig;
   /**
-   * The virtual networks available to containers running on this Container Instance.
+   * The virtual networks available to the containers in the container instance.
    */
   "vnics": Array<model.ContainerVnic>;
   "dnsConfig"?: model.ContainerDnsConfig;
   /**
-   * Duration in seconds processes within a Container have to gracefully terminate. This applies whenever a Container must be halted, such as when the Container Instance is deleted. Processes will first be sent a termination signal. After this timeout is reached, the processes will be sent a termination signal. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of time that processes in a container have to gracefully end when the container must be stopped. For example, when you delete a container instance. After the timeout is reached, the processes are sent a signal to be deleted. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "gracefulShutdownTimeoutInSeconds"?: number;
   /**
-   * The image pull secrets for accessing private registry to pull images for containers
+   * The image pulls secrets so you can access private registry to pull container images.
    */
   "imagePullSecrets"?: Array<model.ImagePullSecret>;
   /**

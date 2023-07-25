@@ -60,7 +60,7 @@ Example: `{\"Department\": \"Finance\"}`
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the instance configuration.
    */
   "id": string;
-  "instanceDetails"?: model.ComputeInstanceDetails;
+  "instanceDetails"?: model.ComputeInstanceOptions | model.ComputeInstanceDetails;
   /**
    * Parameters that were not specified when the instance configuration was created, but that
    * are required to launch an instance from the instance configuration. See the

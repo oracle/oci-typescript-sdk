@@ -526,6 +526,8 @@ import * as InstanceConfigurationInstanceOptions from "./instance-configuration-
 export import InstanceConfigurationInstanceOptions = InstanceConfigurationInstanceOptions.InstanceConfigurationInstanceOptions;
 import * as InstanceConfigurationInstanceSourceDetails from "./instance-configuration-instance-source-details";
 export import InstanceConfigurationInstanceSourceDetails = InstanceConfigurationInstanceSourceDetails.InstanceConfigurationInstanceSourceDetails;
+import * as InstanceConfigurationInstanceSourceImageFilterDetails from "./instance-configuration-instance-source-image-filter-details";
+export import InstanceConfigurationInstanceSourceImageFilterDetails = InstanceConfigurationInstanceSourceImageFilterDetails.InstanceConfigurationInstanceSourceImageFilterDetails;
 import * as InstanceConfigurationLaunchInstanceAgentConfigDetails from "./instance-configuration-launch-instance-agent-config-details";
 export import InstanceConfigurationLaunchInstanceAgentConfigDetails = InstanceConfigurationLaunchInstanceAgentConfigDetails.InstanceConfigurationLaunchInstanceAgentConfigDetails;
 import * as InstanceConfigurationLaunchInstanceDetails from "./instance-configuration-launch-instance-details";
@@ -574,6 +576,8 @@ import * as InstanceShapeConfig from "./instance-shape-config";
 export import InstanceShapeConfig = InstanceShapeConfig.InstanceShapeConfig;
 import * as InstanceSourceDetails from "./instance-source-details";
 export import InstanceSourceDetails = InstanceSourceDetails.InstanceSourceDetails;
+import * as InstanceSourceImageFilterDetails from "./instance-source-image-filter-details";
+export import InstanceSourceImageFilterDetails = InstanceSourceImageFilterDetails.InstanceSourceImageFilterDetails;
 import * as InstanceSummary from "./instance-summary";
 export import InstanceSummary = InstanceSummary.InstanceSummary;
 import * as InternetGateway from "./internet-gateway";
@@ -971,6 +975,8 @@ import * as BootVolumeSourceFromBootVolumeReplicaDetails from "./boot-volume-sou
 export import BootVolumeSourceFromBootVolumeReplicaDetails = BootVolumeSourceFromBootVolumeReplicaDetails.BootVolumeSourceFromBootVolumeReplicaDetails;
 import * as ComputeInstanceDetails from "./compute-instance-details";
 export import ComputeInstanceDetails = ComputeInstanceDetails.ComputeInstanceDetails;
+import * as ComputeInstanceOptions from "./compute-instance-options";
+export import ComputeInstanceOptions = ComputeInstanceOptions.ComputeInstanceOptions;
 import * as CreateInstanceConfigurationDetails from "./create-instance-configuration-details";
 export import CreateInstanceConfigurationDetails = CreateInstanceConfigurationDetails.CreateInstanceConfigurationDetails;
 import * as CreateInstanceConfigurationFromInstanceDetails from "./create-instance-configuration-from-instance-details";

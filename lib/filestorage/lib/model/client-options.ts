@@ -72,6 +72,16 @@ export interface ClientOptions {
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "anonymousGid"?: number;
+  /**
+   * Whether or not to enable anonymous access to the file system through this export in cases where a user isn't found in the LDAP server used for ID mapping.
+   * If true, and the user is not found in the LDAP directory, the operation uses the Squash UID and Squash GID.
+   *
+   */
+  "isAnonymousAccessAllowed"?: boolean;
+  /**
+   * Array of allowed NFS authentication types.
+   */
+  "allowedAuth"?: Array<ClientOptions.AllowedAuth>;
 }
 
 export namespace ClientOptions {
@@ -89,6 +99,18 @@ export namespace ClientOptions {
     None = "NONE",
     Root = "ROOT",
     All = "ALL",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum AllowedAuth {
+    Sys = "SYS",
+    Krb5 = "KRB5",
+    Krb5I = "KRB5I",
+    Krb5P = "KRB5P",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -1,6 +1,6 @@
 {
   "name": "oci-workrequests",
-  "version": "2.64.0",
+  "version": "2.66.0",
   "description": "OCI NodeJS client for WorkRequests",
   "repository": {
     "type": "git",

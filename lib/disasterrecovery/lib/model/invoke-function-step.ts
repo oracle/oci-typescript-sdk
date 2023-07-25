@@ -25,17 +25,17 @@ export interface InvokeFunctionStep extends model.DrPlanUserDefinedStep {
   /**
     * The OCID of function to be invoked.
 * <p>
-Example: `ocid1.fnfunc.oc1.iad.exampleocid2`
+Example: `ocid1.fnfunc.oc1.iad.&lt;unique_id&gt;`
 * 
     */
-  "functionId"?: string;
+  "functionId": string;
   /**
     * The region in which the function is deployed.
 * <p>
 Example: `us-ashburn-1`
 * 
     */
-  "functionRegion"?: string;
+  "functionRegion": string;
   /**
     * The request body for the function.
 * <p>

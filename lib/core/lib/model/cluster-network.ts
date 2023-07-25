@@ -22,11 +22,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A cluster network is a group of high performance computing (HPC) bare metal instances that are connected
- * with an ultra low latency network. For more information about cluster networks, see
- * [Managing Cluster Networks](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
- *
- */
+* A cluster network is a group of high performance computing (HPC), GPU, or optimized bare metal
+* instances that are connected with an ultra low-latency remote direct memory access (RDMA)
+* network. [Cluster networks with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
+* use instance pools to manage groups of identical instances.
+* <p>
+Use cluster networks with instance pools when you want predictable capacity for a specific number of identical
+* instances that are managed as a group.
+* <p>
+If you want to manage instances in the RDMA network independently of each other or use different types of instances
+* in the network group, use compute clusters instead. For details, see {@link ComputeCluster}.
+* 
+*/
 export interface ClusterNetwork {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the cluster network.
@@ -37,7 +44,7 @@ export interface ClusterNetwork {
    */
   "compartmentId": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the hpc island used by the cluster network.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the HPC island used by the cluster network.
    */
   "hpcIslandId"?: string;
   /**

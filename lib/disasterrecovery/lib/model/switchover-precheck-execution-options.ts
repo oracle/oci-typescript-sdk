@@ -22,7 +22,7 @@ import common = require("oci-common");
  */
 export interface SwitchoverPrecheckExecutionOptions extends model.DrPlanExecutionOptions {
   /**
-    * A flag indicating whether warnigs was ignored during the switchover.
+    * A flag indicating whether warnings should be ignored during the precheck.
 * <p>
 Example: `true`
 * 

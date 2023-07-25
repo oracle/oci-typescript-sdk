@@ -1,6 +1,6 @@
 /**
  * Budgets API
- * Use the Budgets API to manage budgets and budget alerts.
+ * Use the Budgets API to manage budgets and budget alerts. For more information, see [Budgets Overview](/iaas/Content/Billing/Concepts/budgetsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -15,11 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The type of the budget processing period. Valid values are INVOICE and MONTH.
+ * The budget processing period type. Valid values are INVOICE, MONTH, and SINGLE_USE.
  **/
 export enum ProcessingPeriodType {
   Invoice = "INVOICE",
   Month = "MONTH",
+  SingleUse = "SINGLE_USE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

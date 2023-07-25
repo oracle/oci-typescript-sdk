@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of matching Containers.
+ * A list of containers.
  *
  */
 export interface ContainerCollection {
   /**
-   * List of Containers.
+   * List of containers.
    */
   "items": Array<model.ContainerSummary>;
 }

@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ContainerDnsConfig {
   /**
-   * Name server IP address
+   * IP address of the name server..
    */
   "nameservers"?: Array<string>;
   /**
-   * Search list for host-name lookup.
+   * Search list for hostname lookup.
    */
   "searches"?: Array<string>;
   /**

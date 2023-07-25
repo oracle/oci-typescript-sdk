@@ -31,6 +31,11 @@ export namespace InstanceConfigurationInstanceDetails {
 
     if (obj && "instanceType" in obj && obj.instanceType) {
       switch (obj.instanceType) {
+        case "instance_options":
+          return model.ComputeInstanceOptions.getJsonObj(
+            <model.ComputeInstanceOptions>(<object>jsonObj),
+            true
+          );
         case "compute":
           return model.ComputeInstanceDetails.getJsonObj(
             <model.ComputeInstanceDetails>(<object>jsonObj),
@@ -47,6 +52,11 @@ export namespace InstanceConfigurationInstanceDetails {
 
     if (obj && "instanceType" in obj && obj.instanceType) {
       switch (obj.instanceType) {
+        case "instance_options":
+          return model.ComputeInstanceOptions.getDeserializedJsonObj(
+            <model.ComputeInstanceOptions>(<object>jsonObj),
+            true
+          );
         case "compute":
           return model.ComputeInstanceDetails.getDeserializedJsonObj(
             <model.ComputeInstanceDetails>(<object>jsonObj),

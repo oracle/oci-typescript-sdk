@@ -6290,7 +6290,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
 
   /**
      * Moves a compute cluster into a different compartment within the same tenancy.
-* A compute cluster is a remote direct memory access (RDMA) network group.
+* A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
 * <p>
 For information about moving resources between compartments, see
 * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -6967,13 +6967,19 @@ Use the capacity report to determine whether sufficient capacity is available fo
   }
 
   /**
-     * Creates an empty compute cluster, which is a remote direct memory access (RDMA) network group.
-* After the compute cluster is created, you can use the compute cluster's OCID with the
-* {@link #launchInstance(LaunchInstanceRequest) launchInstance} operation to create instances in the compute cluster.
-* For more information, see [Compute Clusters](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm).
+     * Creates an empty [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
+* is a remote direct memory access (RDMA) network group.
 * <p>
-To create a cluster network that uses intance pools to manage groups of identical instances,
-* see {@link #createClusterNetwork(CreateClusterNetworkRequest) createClusterNetwork}.
+After the compute cluster is created, you can use the compute cluster's OCID with the
+* {@link #launchInstance(LaunchInstanceRequest) launchInstance} operation to create instances in the compute cluster.
+* The instances must be created in the same compartment and availability domain as the cluster.
+* <p>
+Use compute clusters when you want to manage instances in the cluster individually, or when you want
+* to use different types of instances in the RDMA network group.
+* <p>
+If you want predictable capacity for a specific number of identical instances that are managed as a group,
+* create a cluster network that uses instance pools by using the
+* {@link #createClusterNetwork(CreateClusterNetworkRequest) createClusterNetwork} operation.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateComputeClusterRequest
@@ -7558,15 +7564,18 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
-   * Deletes the compute cluster, which is a remote direct memory access (RDMA) network group.
-   * To delete a compute cluster, all instances in the cluster must be deleted first.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteComputeClusterRequest
-   * @return DeleteComputeClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCluster.ts.html |here} to see how to use DeleteComputeCluster API.
-   */
+     * Deletes a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
+* remote direct memory access (RDMA) network group.
+* <p>
+Before you delete a compute cluster, first delete all instances in the cluster by using
+* the {@link #terminateInstance(TerminateInstanceRequest) terminateInstance} operation.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteComputeClusterRequest
+     * @return DeleteComputeClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCluster.ts.html |here} to see how to use DeleteComputeCluster API.
+     */
   public async deleteComputeCluster(
     deleteComputeClusterRequest: requests.DeleteComputeClusterRequest
   ): Promise<responses.DeleteComputeClusterResponse> {
@@ -8673,7 +8682,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   }
 
   /**
-   * Gets information about the specified compute cluster.
+   * Gets information about a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm)
+   * is a remote direct memory access (RDMA) network group.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputeClusterRequest
    * @return GetComputeClusterResponse
@@ -13440,7 +13451,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   }
 
   /**
-     * Terminates (deletes) the specified instance. Any attached VNICs and volumes are automatically detached
+     * Permanently terminates (deletes) the specified instance. Any attached VNICs and volumes are automatically detached
 * when the instance terminates.
 * <p>
 To preserve the boot volume associated with the instance, specify `true` for `PreserveBootVolumeQueryParam`.
@@ -13599,13 +13610,21 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
   }
 
   /**
-   * Updates the specified compute cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateComputeClusterRequest
-   * @return UpdateComputeClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCluster.ts.html |here} to see how to use UpdateComputeCluster API.
-   */
+     * Updates a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
+* remote direct memory access (RDMA) network group.
+* <p>
+To create instances within a compute cluster, use the {@link #launchInstance(LaunchInstanceRequest) launchInstance}
+* operation.
+* <p>
+To delete instances from a compute cluster, use the {@link #terminateInstance(TerminateInstanceRequest) terminateInstance}
+* operation.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateComputeClusterRequest
+     * @return UpdateComputeClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCluster.ts.html |here} to see how to use UpdateComputeCluster API.
+     */
   public async updateComputeCluster(
     updateComputeClusterRequest: requests.UpdateComputeClusterRequest
   ): Promise<responses.UpdateComputeClusterResponse> {
@@ -14618,7 +14637,8 @@ export class ComputeManagementClient {
   }
 
   /**
-     * Moves a cluster network into a different compartment within the same tenancy. For
+     * Moves a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
+* into a different compartment within the same tenancy. For
 * information about moving resources between compartments, see
 * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
@@ -14888,8 +14908,17 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-     * Creates a cluster network. For more information about cluster networks, see
-* [Managing Cluster Networks](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+     * Creates a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+* A cluster network is a group of high performance computing (HPC), GPU, or optimized bare metal
+* instances that are connected with an ultra low-latency remote direct memory access (RDMA) network.
+* Cluster networks with instance pools use instance pools to manage groups of identical instances.
+* <p>
+Use cluster networks with instance pools when you want predictable capacity for a specific number of identical
+* instances that are managed as a group.
+* <p>
+If you want to manage instances in the RDMA network independently of each other or use different types of instances
+* in the network group, create a compute cluster by using the {@link #createComputeCluster(CreateComputeClusterRequest) createComputeCluster}
+* operation.
 * <p>
 To determine whether capacity is available for a specific shape before you create a cluster network,
 * use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
@@ -15376,7 +15405,8 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Gets information about the specified cluster network.
+   * Gets information about a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterNetworkRequest
    * @return GetClusterNetworkResponse
@@ -15856,7 +15886,8 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Lists the instances in the specified cluster network.
+   * Lists the instances in a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworkInstancesRequest
    * @return ListClusterNetworkInstancesResponse
@@ -15991,7 +16022,9 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Lists the cluster networks in the specified compartment.
+   * Lists the [cluster networks with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
+   * in the specified compartment.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworksRequest
    * @return ListClusterNetworksResponse
@@ -16933,7 +16966,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
   }
 
   /**
-     * Terminates the specified cluster network.
+     * Deletes (terminates) a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
 * <p>
 When you delete a cluster network, all of its resources are permanently deleted,
 * including associated instances and instance pools.
@@ -17085,7 +17118,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   }
 
   /**
-   * Updates the specified cluster network. The OCID of the cluster network remains the same.
+   * Updates a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   * The OCID of the cluster network remains the same.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateClusterNetworkRequest

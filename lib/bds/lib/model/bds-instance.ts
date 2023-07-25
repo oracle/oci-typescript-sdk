@@ -79,6 +79,10 @@ export interface BdsInstance {
    */
   "numberOfNodes": number;
   /**
+   * Number of nodes that require a maintenance reboot Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "numberOfNodesRequiringMaintenanceReboot"?: number;
+  /**
    * pre-authenticated URL of the bootstrap script in Object Store that can be downloaded and executed.
    */
   "bootstrapScriptUrl"?: string;

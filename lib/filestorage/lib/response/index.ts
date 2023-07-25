@@ -19,6 +19,8 @@ import * as ChangeFilesystemSnapshotPolicyCompartmentResponse from "./change-fil
 export import ChangeFilesystemSnapshotPolicyCompartmentResponse = ChangeFilesystemSnapshotPolicyCompartmentResponse.ChangeFilesystemSnapshotPolicyCompartmentResponse;
 import * as ChangeMountTargetCompartmentResponse from "./change-mount-target-compartment-response";
 export import ChangeMountTargetCompartmentResponse = ChangeMountTargetCompartmentResponse.ChangeMountTargetCompartmentResponse;
+import * as ChangeOutboundConnectorCompartmentResponse from "./change-outbound-connector-compartment-response";
+export import ChangeOutboundConnectorCompartmentResponse = ChangeOutboundConnectorCompartmentResponse.ChangeOutboundConnectorCompartmentResponse;
 import * as ChangeReplicationCompartmentResponse from "./change-replication-compartment-response";
 export import ChangeReplicationCompartmentResponse = ChangeReplicationCompartmentResponse.ChangeReplicationCompartmentResponse;
 import * as CreateExportResponse from "./create-export-response";
@@ -29,6 +31,8 @@ import * as CreateFilesystemSnapshotPolicyResponse from "./create-filesystem-sna
 export import CreateFilesystemSnapshotPolicyResponse = CreateFilesystemSnapshotPolicyResponse.CreateFilesystemSnapshotPolicyResponse;
 import * as CreateMountTargetResponse from "./create-mount-target-response";
 export import CreateMountTargetResponse = CreateMountTargetResponse.CreateMountTargetResponse;
+import * as CreateOutboundConnectorResponse from "./create-outbound-connector-response";
+export import CreateOutboundConnectorResponse = CreateOutboundConnectorResponse.CreateOutboundConnectorResponse;
 import * as CreateReplicationResponse from "./create-replication-response";
 export import CreateReplicationResponse = CreateReplicationResponse.CreateReplicationResponse;
 import * as CreateSnapshotResponse from "./create-snapshot-response";
@@ -41,6 +45,8 @@ import * as DeleteFilesystemSnapshotPolicyResponse from "./delete-filesystem-sna
 export import DeleteFilesystemSnapshotPolicyResponse = DeleteFilesystemSnapshotPolicyResponse.DeleteFilesystemSnapshotPolicyResponse;
 import * as DeleteMountTargetResponse from "./delete-mount-target-response";
 export import DeleteMountTargetResponse = DeleteMountTargetResponse.DeleteMountTargetResponse;
+import * as DeleteOutboundConnectorResponse from "./delete-outbound-connector-response";
+export import DeleteOutboundConnectorResponse = DeleteOutboundConnectorResponse.DeleteOutboundConnectorResponse;
 import * as DeleteReplicationResponse from "./delete-replication-response";
 export import DeleteReplicationResponse = DeleteReplicationResponse.DeleteReplicationResponse;
 import * as DeleteReplicationTargetResponse from "./delete-replication-target-response";
@@ -59,6 +65,8 @@ import * as GetFilesystemSnapshotPolicyResponse from "./get-filesystem-snapshot-
 export import GetFilesystemSnapshotPolicyResponse = GetFilesystemSnapshotPolicyResponse.GetFilesystemSnapshotPolicyResponse;
 import * as GetMountTargetResponse from "./get-mount-target-response";
 export import GetMountTargetResponse = GetMountTargetResponse.GetMountTargetResponse;
+import * as GetOutboundConnectorResponse from "./get-outbound-connector-response";
+export import GetOutboundConnectorResponse = GetOutboundConnectorResponse.GetOutboundConnectorResponse;
 import * as GetReplicationResponse from "./get-replication-response";
 export import GetReplicationResponse = GetReplicationResponse.GetReplicationResponse;
 import * as GetReplicationTargetResponse from "./get-replication-target-response";
@@ -75,6 +83,8 @@ import * as ListFilesystemSnapshotPoliciesResponse from "./list-filesystem-snaps
 export import ListFilesystemSnapshotPoliciesResponse = ListFilesystemSnapshotPoliciesResponse.ListFilesystemSnapshotPoliciesResponse;
 import * as ListMountTargetsResponse from "./list-mount-targets-response";
 export import ListMountTargetsResponse = ListMountTargetsResponse.ListMountTargetsResponse;
+import * as ListOutboundConnectorsResponse from "./list-outbound-connectors-response";
+export import ListOutboundConnectorsResponse = ListOutboundConnectorsResponse.ListOutboundConnectorsResponse;
 import * as ListReplicationTargetsResponse from "./list-replication-targets-response";
 export import ListReplicationTargetsResponse = ListReplicationTargetsResponse.ListReplicationTargetsResponse;
 import * as ListReplicationsResponse from "./list-replications-response";
@@ -95,7 +105,11 @@ import * as UpdateFilesystemSnapshotPolicyResponse from "./update-filesystem-sna
 export import UpdateFilesystemSnapshotPolicyResponse = UpdateFilesystemSnapshotPolicyResponse.UpdateFilesystemSnapshotPolicyResponse;
 import * as UpdateMountTargetResponse from "./update-mount-target-response";
 export import UpdateMountTargetResponse = UpdateMountTargetResponse.UpdateMountTargetResponse;
+import * as UpdateOutboundConnectorResponse from "./update-outbound-connector-response";
+export import UpdateOutboundConnectorResponse = UpdateOutboundConnectorResponse.UpdateOutboundConnectorResponse;
 import * as UpdateReplicationResponse from "./update-replication-response";
 export import UpdateReplicationResponse = UpdateReplicationResponse.UpdateReplicationResponse;
 import * as UpdateSnapshotResponse from "./update-snapshot-response";
 export import UpdateSnapshotResponse = UpdateSnapshotResponse.UpdateSnapshotResponse;
+import * as ValidateKeyTabsResponse from "./validate-key-tabs-response";
+export import ValidateKeyTabsResponse = ValidateKeyTabsResponse.ValidateKeyTabsResponse;

@@ -25,7 +25,7 @@ export interface CreateDrProtectionGroupMemberDatabaseDetails
   /**
     * The OCID of the vault secret where the database password is stored.
 * <p>
-Example: `ocid1.vaultsecret.oc1.phx.exampleocid1`
+Example: `ocid1.vaultsecret.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "passwordVaultSecretId"?: string;

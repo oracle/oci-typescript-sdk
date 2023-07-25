@@ -19,6 +19,8 @@ import * as ChangeFilesystemSnapshotPolicyCompartmentRequest from "./change-file
 export import ChangeFilesystemSnapshotPolicyCompartmentRequest = ChangeFilesystemSnapshotPolicyCompartmentRequest.ChangeFilesystemSnapshotPolicyCompartmentRequest;
 import * as ChangeMountTargetCompartmentRequest from "./change-mount-target-compartment-request";
 export import ChangeMountTargetCompartmentRequest = ChangeMountTargetCompartmentRequest.ChangeMountTargetCompartmentRequest;
+import * as ChangeOutboundConnectorCompartmentRequest from "./change-outbound-connector-compartment-request";
+export import ChangeOutboundConnectorCompartmentRequest = ChangeOutboundConnectorCompartmentRequest.ChangeOutboundConnectorCompartmentRequest;
 import * as ChangeReplicationCompartmentRequest from "./change-replication-compartment-request";
 export import ChangeReplicationCompartmentRequest = ChangeReplicationCompartmentRequest.ChangeReplicationCompartmentRequest;
 import * as CreateExportRequest from "./create-export-request";
@@ -29,6 +31,8 @@ import * as CreateFilesystemSnapshotPolicyRequest from "./create-filesystem-snap
 export import CreateFilesystemSnapshotPolicyRequest = CreateFilesystemSnapshotPolicyRequest.CreateFilesystemSnapshotPolicyRequest;
 import * as CreateMountTargetRequest from "./create-mount-target-request";
 export import CreateMountTargetRequest = CreateMountTargetRequest.CreateMountTargetRequest;
+import * as CreateOutboundConnectorRequest from "./create-outbound-connector-request";
+export import CreateOutboundConnectorRequest = CreateOutboundConnectorRequest.CreateOutboundConnectorRequest;
 import * as CreateReplicationRequest from "./create-replication-request";
 export import CreateReplicationRequest = CreateReplicationRequest.CreateReplicationRequest;
 import * as CreateSnapshotRequest from "./create-snapshot-request";
@@ -41,6 +45,8 @@ import * as DeleteFilesystemSnapshotPolicyRequest from "./delete-filesystem-snap
 export import DeleteFilesystemSnapshotPolicyRequest = DeleteFilesystemSnapshotPolicyRequest.DeleteFilesystemSnapshotPolicyRequest;
 import * as DeleteMountTargetRequest from "./delete-mount-target-request";
 export import DeleteMountTargetRequest = DeleteMountTargetRequest.DeleteMountTargetRequest;
+import * as DeleteOutboundConnectorRequest from "./delete-outbound-connector-request";
+export import DeleteOutboundConnectorRequest = DeleteOutboundConnectorRequest.DeleteOutboundConnectorRequest;
 import * as DeleteReplicationRequest from "./delete-replication-request";
 export import DeleteReplicationRequest = DeleteReplicationRequest.DeleteReplicationRequest;
 import * as DeleteReplicationTargetRequest from "./delete-replication-target-request";
@@ -59,6 +65,8 @@ import * as GetFilesystemSnapshotPolicyRequest from "./get-filesystem-snapshot-p
 export import GetFilesystemSnapshotPolicyRequest = GetFilesystemSnapshotPolicyRequest.GetFilesystemSnapshotPolicyRequest;
 import * as GetMountTargetRequest from "./get-mount-target-request";
 export import GetMountTargetRequest = GetMountTargetRequest.GetMountTargetRequest;
+import * as GetOutboundConnectorRequest from "./get-outbound-connector-request";
+export import GetOutboundConnectorRequest = GetOutboundConnectorRequest.GetOutboundConnectorRequest;
 import * as GetReplicationRequest from "./get-replication-request";
 export import GetReplicationRequest = GetReplicationRequest.GetReplicationRequest;
 import * as GetReplicationTargetRequest from "./get-replication-target-request";
@@ -75,6 +83,8 @@ import * as ListFilesystemSnapshotPoliciesRequest from "./list-filesystem-snapsh
 export import ListFilesystemSnapshotPoliciesRequest = ListFilesystemSnapshotPoliciesRequest.ListFilesystemSnapshotPoliciesRequest;
 import * as ListMountTargetsRequest from "./list-mount-targets-request";
 export import ListMountTargetsRequest = ListMountTargetsRequest.ListMountTargetsRequest;
+import * as ListOutboundConnectorsRequest from "./list-outbound-connectors-request";
+export import ListOutboundConnectorsRequest = ListOutboundConnectorsRequest.ListOutboundConnectorsRequest;
 import * as ListReplicationTargetsRequest from "./list-replication-targets-request";
 export import ListReplicationTargetsRequest = ListReplicationTargetsRequest.ListReplicationTargetsRequest;
 import * as ListReplicationsRequest from "./list-replications-request";
@@ -95,7 +105,11 @@ import * as UpdateFilesystemSnapshotPolicyRequest from "./update-filesystem-snap
 export import UpdateFilesystemSnapshotPolicyRequest = UpdateFilesystemSnapshotPolicyRequest.UpdateFilesystemSnapshotPolicyRequest;
 import * as UpdateMountTargetRequest from "./update-mount-target-request";
 export import UpdateMountTargetRequest = UpdateMountTargetRequest.UpdateMountTargetRequest;
+import * as UpdateOutboundConnectorRequest from "./update-outbound-connector-request";
+export import UpdateOutboundConnectorRequest = UpdateOutboundConnectorRequest.UpdateOutboundConnectorRequest;
 import * as UpdateReplicationRequest from "./update-replication-request";
 export import UpdateReplicationRequest = UpdateReplicationRequest.UpdateReplicationRequest;
 import * as UpdateSnapshotRequest from "./update-snapshot-request";
 export import UpdateSnapshotRequest = UpdateSnapshotRequest.UpdateSnapshotRequest;
+import * as ValidateKeyTabsRequest from "./validate-key-tabs-request";
+export import ValidateKeyTabsRequest = ValidateKeyTabsRequest.ValidateKeyTabsRequest;

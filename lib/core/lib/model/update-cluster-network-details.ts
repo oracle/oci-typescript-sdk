@@ -22,7 +22,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to update a cluster network.
+ * The data to update a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+ *
  */
 export interface UpdateClusterNetworkDetails {
   /**

@@ -25,7 +25,7 @@ export interface LaunchInstanceConfigurationRequest extends common.BaseRequest {
   /**
    * Instance configuration Instance Details
    */
-  "instanceConfiguration": model.ComputeInstanceDetails;
+  "instanceConfiguration": model.ComputeInstanceOptions | model.ComputeInstanceDetails;
   /**
    * A token that uniquely identifies a request so it can be retried in case of a timeout or
    * server error without risk of executing that same action again. Retry tokens expire after 24

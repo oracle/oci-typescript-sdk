@@ -35,6 +35,7 @@ export enum OperationType {
   GoldengateDeploymentBackupCreate = "GOLDENGATE_DEPLOYMENT_BACKUP_CREATE",
   GoldengateDeploymentBackupDelete = "GOLDENGATE_DEPLOYMENT_BACKUP_DELETE",
   GoldengateDeploymentBackupCancel = "GOLDENGATE_DEPLOYMENT_BACKUP_CANCEL",
+  GoldengateDeploymentBackupCopy = "GOLDENGATE_DEPLOYMENT_BACKUP_COPY",
   GoldengateConnectionCreate = "GOLDENGATE_CONNECTION_CREATE",
   GoldengateConnectionUpdate = "GOLDENGATE_CONNECTION_UPDATE",
   GoldengateConnectionDelete = "GOLDENGATE_CONNECTION_DELETE",

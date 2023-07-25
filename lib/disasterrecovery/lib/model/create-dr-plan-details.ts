@@ -36,7 +36,7 @@ Example: `EBS Switchover PHX to IAD`
   /**
     * The OCID of the DR Protection Group to which this DR Plan belongs.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.iad.exampleocid2`
+Example: `ocid1.drprotectiongroup.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "drProtectionGroupId": string;

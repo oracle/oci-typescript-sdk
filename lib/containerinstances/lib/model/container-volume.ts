@@ -15,13 +15,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A Volume represents a directory with data that is accessible across multiple containers in a
- * ContainerInstance.
+ * A volume represents a directory with data that is accessible across multiple containers in a
+ * container instance.
  *
  */
 export interface ContainerVolume {
   /**
-   * The name of the volume. This has be unique cross single ContainerInstance.
+   * The name of the volume. This must be unique within a single container instance.
    *
    */
   "name": string;
