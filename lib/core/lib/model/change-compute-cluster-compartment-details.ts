@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The configuration details for the compartment to move the compute cluster to. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
+ * The configuration details for the move operation.
  */
 export interface ChangeComputeClusterCompartmentDetails {
   /**

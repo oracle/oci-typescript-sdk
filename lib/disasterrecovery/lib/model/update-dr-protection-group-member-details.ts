@@ -24,7 +24,7 @@ export interface UpdateDrProtectionGroupMemberDetails {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.database.oc1.phx.exampleocid1`
+Example: `ocid1.database.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "memberId": string;
@@ -51,6 +51,16 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "VOLUME_GROUP":
           return model.UpdateDrProtectionGroupMemberVolumeGroupDetails.getJsonObj(
             <model.UpdateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_NON_MOVABLE":
+          return model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_MOVABLE":
+          return model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails.getJsonObj(
+            <model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
             true
           );
         case "DATABASE":
@@ -82,6 +92,16 @@ export namespace UpdateDrProtectionGroupMemberDetails {
         case "VOLUME_GROUP":
           return model.UpdateDrProtectionGroupMemberVolumeGroupDetails.getDeserializedJsonObj(
             <model.UpdateDrProtectionGroupMemberVolumeGroupDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_NON_MOVABLE":
+          return model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_MOVABLE":
+          return model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails.getDeserializedJsonObj(
+            <model.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
             true
           );
         case "DATABASE":

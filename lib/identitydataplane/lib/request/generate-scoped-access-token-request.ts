@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GenerateScopedAccessTokenRequest extends common.BaseRequest {
   /**
-   * Scoped Access token request
+   * Scoped access token request
    */
   "generateScopedAccessTokenDetails": model.GenerateScopedAccessTokenDetails;
 }

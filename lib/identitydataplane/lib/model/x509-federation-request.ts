@@ -1,6 +1,6 @@
 /**
- * Identity Service
- * API for the Identity Dataplane
+ * Identity and Access Management Data Plane API
+ * APIs for managing identity data plane services. For example, use this API to create a scoped-access security token. To manage identity domains (for example, creating or deleting an identity domain) or to manage resources (for example, users and groups) within the default identity domain, see [IAM API](https://docs.oracle.com/iaas/api/#/en/identity/).
  * OpenAPI spec version: v1
  *
  *
@@ -21,7 +21,7 @@ export interface X509FederationRequest {
   "certificate": string;
   /**
    * A temporary public key, owned by the service. The service also owns the corresponding private key. This public
-   * key will by put inside the security token by the auth service after successful validation of the certificate.
+   * key will be put inside the security token by the auth service after successful validation of the certificate.
    *
    */
   "publicKey": string;

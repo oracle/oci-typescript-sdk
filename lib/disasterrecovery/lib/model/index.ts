@@ -20,6 +20,10 @@ import * as AssociateDrProtectionGroupDetails from "./associate-dr-protection-gr
 export import AssociateDrProtectionGroupDetails = AssociateDrProtectionGroupDetails.AssociateDrProtectionGroupDetails;
 import * as ChangeDrProtectionGroupCompartmentDetails from "./change-dr-protection-group-compartment-details";
 export import ChangeDrProtectionGroupCompartmentDetails = ChangeDrProtectionGroupCompartmentDetails.ChangeDrProtectionGroupCompartmentDetails;
+import * as ComputeInstanceMovableVnicMapping from "./compute-instance-movable-vnic-mapping";
+export import ComputeInstanceMovableVnicMapping = ComputeInstanceMovableVnicMapping.ComputeInstanceMovableVnicMapping;
+import * as ComputeInstanceMovableVnicMappingDetails from "./compute-instance-movable-vnic-mapping-details";
+export import ComputeInstanceMovableVnicMappingDetails = ComputeInstanceMovableVnicMappingDetails.ComputeInstanceMovableVnicMappingDetails;
 import * as ComputeInstanceVnicMapping from "./compute-instance-vnic-mapping";
 export import ComputeInstanceVnicMapping = ComputeInstanceVnicMapping.ComputeInstanceVnicMapping;
 import * as ComputeInstanceVnicMappingDetails from "./compute-instance-vnic-mapping-details";
@@ -153,6 +157,10 @@ import * as CreateDrProtectionGroupMemberAutonomousDatabaseDetails from "./creat
 export import CreateDrProtectionGroupMemberAutonomousDatabaseDetails = CreateDrProtectionGroupMemberAutonomousDatabaseDetails.CreateDrProtectionGroupMemberAutonomousDatabaseDetails;
 import * as CreateDrProtectionGroupMemberComputeInstanceDetails from "./create-dr-protection-group-member-compute-instance-details";
 export import CreateDrProtectionGroupMemberComputeInstanceDetails = CreateDrProtectionGroupMemberComputeInstanceDetails.CreateDrProtectionGroupMemberComputeInstanceDetails;
+import * as CreateDrProtectionGroupMemberComputeInstanceMovableDetails from "./create-dr-protection-group-member-compute-instance-movable-details";
+export import CreateDrProtectionGroupMemberComputeInstanceMovableDetails = CreateDrProtectionGroupMemberComputeInstanceMovableDetails.CreateDrProtectionGroupMemberComputeInstanceMovableDetails;
+import * as CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails from "./create-dr-protection-group-member-compute-instance-non-movable-details";
+export import CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails = CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails;
 import * as CreateDrProtectionGroupMemberDatabaseDetails from "./create-dr-protection-group-member-database-details";
 export import CreateDrProtectionGroupMemberDatabaseDetails = CreateDrProtectionGroupMemberDatabaseDetails.CreateDrProtectionGroupMemberDatabaseDetails;
 import * as CreateDrProtectionGroupMemberVolumeGroupDetails from "./create-dr-protection-group-member-volume-group-details";
@@ -163,6 +171,10 @@ import * as DrProtectionGroupMemberAutonomousDatabase from "./dr-protection-grou
 export import DrProtectionGroupMemberAutonomousDatabase = DrProtectionGroupMemberAutonomousDatabase.DrProtectionGroupMemberAutonomousDatabase;
 import * as DrProtectionGroupMemberComputeInstance from "./dr-protection-group-member-compute-instance";
 export import DrProtectionGroupMemberComputeInstance = DrProtectionGroupMemberComputeInstance.DrProtectionGroupMemberComputeInstance;
+import * as DrProtectionGroupMemberComputeInstanceMovable from "./dr-protection-group-member-compute-instance-movable";
+export import DrProtectionGroupMemberComputeInstanceMovable = DrProtectionGroupMemberComputeInstanceMovable.DrProtectionGroupMemberComputeInstanceMovable;
+import * as DrProtectionGroupMemberComputeInstanceNonMovable from "./dr-protection-group-member-compute-instance-non-movable";
+export import DrProtectionGroupMemberComputeInstanceNonMovable = DrProtectionGroupMemberComputeInstanceNonMovable.DrProtectionGroupMemberComputeInstanceNonMovable;
 import * as DrProtectionGroupMemberDatabase from "./dr-protection-group-member-database";
 export import DrProtectionGroupMemberDatabase = DrProtectionGroupMemberDatabase.DrProtectionGroupMemberDatabase;
 import * as DrProtectionGroupMemberVolumeGroup from "./dr-protection-group-member-volume-group";
@@ -203,6 +215,10 @@ import * as UpdateDrProtectionGroupMemberAutonomousDatabaseDetails from "./updat
 export import UpdateDrProtectionGroupMemberAutonomousDatabaseDetails = UpdateDrProtectionGroupMemberAutonomousDatabaseDetails.UpdateDrProtectionGroupMemberAutonomousDatabaseDetails;
 import * as UpdateDrProtectionGroupMemberComputeInstanceDetails from "./update-dr-protection-group-member-compute-instance-details";
 export import UpdateDrProtectionGroupMemberComputeInstanceDetails = UpdateDrProtectionGroupMemberComputeInstanceDetails.UpdateDrProtectionGroupMemberComputeInstanceDetails;
+import * as UpdateDrProtectionGroupMemberComputeInstanceMovableDetails from "./update-dr-protection-group-member-compute-instance-movable-details";
+export import UpdateDrProtectionGroupMemberComputeInstanceMovableDetails = UpdateDrProtectionGroupMemberComputeInstanceMovableDetails.UpdateDrProtectionGroupMemberComputeInstanceMovableDetails;
+import * as UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails from "./update-dr-protection-group-member-compute-instance-non-movable-details";
+export import UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails = UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails.UpdateDrProtectionGroupMemberComputeInstanceNonMovableDetails;
 import * as UpdateDrProtectionGroupMemberDatabaseDetails from "./update-dr-protection-group-member-database-details";
 export import UpdateDrProtectionGroupMemberDatabaseDetails = UpdateDrProtectionGroupMemberDatabaseDetails.UpdateDrProtectionGroupMemberDatabaseDetails;
 import * as UpdateDrProtectionGroupMemberVolumeGroupDetails from "./update-dr-protection-group-member-volume-group-details";

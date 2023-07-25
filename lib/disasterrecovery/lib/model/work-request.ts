@@ -34,7 +34,7 @@ export interface WorkRequest {
   /**
     * The ID (OCID) of the work request.
 * <p>
-Example: `ocid1.workrequest.oc1.phx.exampleocid1`
+Example: `ocid1.workrequest.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "id": string;
@@ -44,7 +44,7 @@ Example: `ocid1.workrequest.oc1.phx.exampleocid1`
 * and those resources are not in the same compartment, it is up to the service team to pick the primary
 * resource whose compartment should be used
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid1`
+Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
 * 
     */
   "compartmentId": string;

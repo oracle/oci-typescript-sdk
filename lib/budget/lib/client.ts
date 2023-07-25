@@ -1,6 +1,6 @@
 /**
  * Budgets API
- * Use the Budgets API to manage budgets and budget alerts.
+ * Use the Budgets API to manage budgets and budget alerts. For more information, see [Budgets Overview](/iaas/Content/Billing/Concepts/budgetsoverview.htm).
  * OpenAPI spec version: 20190111
  *
  *
@@ -187,7 +187,7 @@ export class BudgetClient {
   /**
    * Creates a new Alert Rule.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateAlertRuleRequest
    * @return CreateAlertRuleResponse
    * @throws OciError when an error occurs
@@ -212,7 +212,7 @@ export class BudgetClient {
       "opc-request-id": createAlertRuleRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createAlertRuleRequest.retryConfiguration,
@@ -270,7 +270,7 @@ export class BudgetClient {
   /**
    * Creates a new budget.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateBudgetRequest
    * @return CreateBudgetResponse
    * @throws OciError when an error occurs
@@ -293,7 +293,7 @@ export class BudgetClient {
       "opc-request-id": createBudgetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createBudgetRequest.retryConfiguration,
@@ -350,7 +350,7 @@ export class BudgetClient {
 
   /**
    * Deletes a specified Alert Rule resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteAlertRuleRequest
    * @return DeleteAlertRuleResponse
    * @throws OciError when an error occurs
@@ -376,7 +376,7 @@ export class BudgetClient {
       "opc-request-id": deleteAlertRuleRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteAlertRuleRequest.retryConfiguration,
@@ -419,7 +419,7 @@ export class BudgetClient {
 
   /**
    * Deletes a specified budget resource.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteBudgetRequest
    * @return DeleteBudgetResponse
    * @throws OciError when an error occurs
@@ -444,7 +444,7 @@ export class BudgetClient {
       "opc-request-id": deleteBudgetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteBudgetRequest.retryConfiguration,
@@ -487,7 +487,7 @@ export class BudgetClient {
 
   /**
    * Gets an Alert Rule for a specified budget.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAlertRuleRequest
    * @return GetAlertRuleResponse
    * @throws OciError when an error occurs
@@ -512,7 +512,7 @@ export class BudgetClient {
       "opc-request-id": getAlertRuleRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getAlertRuleRequest.retryConfiguration,
@@ -564,7 +564,7 @@ export class BudgetClient {
 
   /**
    * Gets a budget by the identifier.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetBudgetRequest
    * @return GetBudgetResponse
    * @throws OciError when an error occurs
@@ -588,7 +588,7 @@ export class BudgetClient {
       "opc-request-id": getBudgetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getBudgetRequest.retryConfiguration,
@@ -641,7 +641,7 @@ export class BudgetClient {
   /**
    * Returns a list of Alert Rules for a specified budget.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListAlertRulesRequest
    * @return ListAlertRulesResponse
    * @throws OciError when an error occurs
@@ -672,7 +672,7 @@ export class BudgetClient {
       "opc-request-id": listAlertRulesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listAlertRulesRequest.retryConfiguration,
@@ -781,10 +781,9 @@ By default, ListBudgets returns budgets of the 'COMPARTMENT' target type, and th
 * <p>
 To list all budgets, set the targetType query parameter to ALL (for example: 'targetType=ALL').
 * <p>
-Additional targetTypes would be available in future releases. Clients should ignore new targetTypes, 
-* or upgrade to the latest version of the client SDK to handle new targetTypes.
+Clients should ignore new targetTypes, or upgrade to the latest version of the client SDK to handle new targetTypes.
 * 
-     * This operation does not retry by default if the user has not defined a retry configuration.
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
      * @param ListBudgetsRequest
      * @return ListBudgetsResponse
      * @throws OciError when an error occurs
@@ -815,7 +814,7 @@ Additional targetTypes would be available in future releases. Clients should ign
       "opc-request-id": listBudgetsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listBudgetsRequest.retryConfiguration,
@@ -919,7 +918,7 @@ Additional targetTypes would be available in future releases. Clients should ign
 
   /**
    * Update an Alert Rule for the budget identified by the OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateAlertRuleRequest
    * @return UpdateAlertRuleResponse
    * @throws OciError when an error occurs
@@ -945,7 +944,7 @@ Additional targetTypes would be available in future releases. Clients should ign
       "opc-request-id": updateAlertRuleRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateAlertRuleRequest.retryConfiguration,
@@ -1002,7 +1001,7 @@ Additional targetTypes would be available in future releases. Clients should ign
 
   /**
    * Update a budget identified by the OCID.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateBudgetRequest
    * @return UpdateBudgetResponse
    * @throws OciError when an error occurs
@@ -1027,7 +1026,7 @@ Additional targetTypes would be available in future releases. Clients should ign
       "opc-request-id": updateBudgetRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateBudgetRequest.retryConfiguration,

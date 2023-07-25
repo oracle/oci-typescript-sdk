@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface WorkRequestSummary {
   /**
-   * Type of the work request
+   * Type of work request.
    */
   "operationType": model.OperationType;
   /**
@@ -27,14 +27,12 @@ export interface WorkRequestSummary {
    */
   "status": model.OperationStatus;
   /**
-   * The id of the work request.
+   * The ID of the work request.
    */
   "id": string;
   /**
-   * The ocid of the compartment that contains the work request. Work requests should be scoped to
-   * the same compartment as the resource the work request affects. If the work request affects multiple resources,
-   * and those resources are not in the same compartment, it is up to the service team to pick the primary
-   * resource whose compartment should be used
+   * The OCID of the compartment that contains the work request. Work requests should be scoped to
+   * the same compartment as the resource the work request affects.
    *
    */
   "compartmentId": string;

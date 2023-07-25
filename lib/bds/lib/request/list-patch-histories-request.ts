@@ -51,6 +51,10 @@ export interface ListPatchHistoriesRequest extends common.BaseRequest {
    * The maximum number of items to return.
    */
   "limit"?: number;
+  /**
+   * The type of a BDS patch history entity.
+   */
+  "patchType"?: string;
 }
 
 export namespace ListPatchHistoriesRequest {

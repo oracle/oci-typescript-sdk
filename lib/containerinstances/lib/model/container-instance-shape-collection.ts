@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A collection of Container Instance Shapes.
+ * A collection of container instance shapes.
  */
 export interface ContainerInstanceShapeCollection {
   /**
-   * List of shapes.
+   * A list of shapes.
    */
   "items": Array<model.ContainerInstanceShapeSummary>;
 }

@@ -39,7 +39,7 @@ Example: `DrPlanExecution`
   /**
     * The identifier (OCID) of the resource the work request affects.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid2`
+Example: `ocid1.drplanexecution.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "identifier": string;

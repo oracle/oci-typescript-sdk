@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface ListContainersRequest extends common.BaseRequest {
   /**
-   * The ID of the compartment in which to list resources.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment in which to list resources.
    */
   "compartmentId": string;
   /**
-   * A filter to return only resources whose lifecycleState matches the given lifecycleState.
+   * A filter to only return resources that match the given lifecycle state.
    */
   "lifecycleState"?: string;
   /**
@@ -31,7 +31,7 @@ export interface ListContainersRequest extends common.BaseRequest {
    */
   "displayName"?: string;
   /**
-   * unique ContainerInstance identifier
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance.
    */
   "containerInstanceId"?: string;
   /**
@@ -42,23 +42,23 @@ Example: `Uocm:PHX-AD-1`
  */
   "availabilityDomain"?: string;
   /**
-   * The maximum number of items to return.
+   * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
   /**
-   * The page token representing the page at which to start retrieving results. This is usually retrieved from a previous list call.
+   * For list pagination. The value of the opc-next-page response header from the previous \"List\" call. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "page"?: string;
   /**
-   * The client request ID for tracing.
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
   /**
-   * The sort order to use, either 'asc' or 'desc'.
+   * The sort order to use (ASC) or (DESC).
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for timeCreated is descending. Default order for displayName is ascending. If no value is specified timeCreated is default.
+   * The field to sort by. You can provide one sort order. Default order for timeCreated is descending. Default order for displayName is ascending. If you don't specify a value, timeCreated is the default.
    *
    */
   "sortBy"?: ListContainersRequest.SortBy;

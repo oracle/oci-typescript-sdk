@@ -22,17 +22,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary information for a [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm), which is a remote direct memory access (RDMA) network group.
+ * Summary information for a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm)
+ * is a remote direct memory access (RDMA) network group.
+ *
  */
 export interface ComputeClusterSummary {
   /**
-   * The availability domain the compute cluster is running in.
-   * Example: `Uocm:PHX-AD-1`
-   *
-   */
+    * The availability domain the compute cluster is running in.
+* <p>
+Example: `Uocm:PHX-AD-1`
+* 
+    */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains this compute cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the compute cluster.
    */
   "compartmentId": string;
   /**
@@ -42,7 +45,7 @@ export interface ComputeClusterSummary {
    */
   "displayName"?: string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this compute cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compute cluster.
    */
   "id": string;
   /**
@@ -50,11 +53,12 @@ export interface ComputeClusterSummary {
    */
   "lifecycleState": string;
   /**
-   * The date and time the compute cluster was created,
-   * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2016-08-25T21:10:29.600Z`
-   *
-   */
+    * The date and time the compute cluster was created,
+* in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: `2016-08-25T21:10:29.600Z`
+* 
+    */
   "timeCreated": Date;
   /**
     * Defined tags for this resource. Each key is predefined and scoped to a

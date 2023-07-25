@@ -22,14 +22,14 @@ import common = require("oci-common");
  */
 export interface FailoverExecutionOptionDetails extends model.DrPlanExecutionOptionDetails {
   /**
-    * A flag indicating whether a precheck should be executed before the plan.
+    * A flag indicating whether prechecks should be executed before the plan execution.
 * <p>
 Example: `true`
 * 
     */
   "arePrechecksEnabled"?: boolean;
   /**
-    * A flag indicating whether warnigs should be ignored during the failover.
+    * A flag indicating whether warnings should be ignored during the failover.
 * <p>
 Example: `false`
 * 

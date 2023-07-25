@@ -24,14 +24,14 @@ export interface DrProtectionGroup {
   /**
     * The OCID of the DR Protection Group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid1`
+Example: `ocid1.drprotectiongroup.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "id": string;
   /**
     * The OCID of the compartment containing the DR Protection Group.
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid1`
+Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
 * 
     */
   "compartmentId": string;
@@ -50,7 +50,7 @@ Example: `EBS PHX DRPG`
   /**
     * The OCID of the peer (remote) DR Protection Group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.iad.exampleocid2`
+Example: `ocid1.drprotectiongroup.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "peerId"?: string;

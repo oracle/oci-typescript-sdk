@@ -23,6 +23,8 @@ export enum OperationTypes {
   UpdateBds = "UPDATE_BDS",
   DeleteBds = "DELETE_BDS",
   AddBlockStorage = "ADD_BLOCK_STORAGE",
+  AddMasterNodes = "ADD_MASTER_NODES",
+  AddUtilityNodes = "ADD_UTILITY_NODES",
   AddWorkerNodes = "ADD_WORKER_NODES",
   AddCloudSql = "ADD_CLOUD_SQL",
   RemoveCloudSql = "REMOVE_CLOUD_SQL",
@@ -46,10 +48,12 @@ export enum OperationTypes {
   TestMetastoreConfig = "TEST_METASTORE_CONFIG",
   PatchBds = "PATCH_BDS",
   PatchOdh = "PATCH_ODH",
+  PatchOs = "PATCH_OS",
   StopBds = "STOP_BDS",
   StartBds = "START_BDS",
   AddKafka = "ADD_KAFKA",
   RemoveKafka = "REMOVE_KAFKA",
+  ExecuteBootstrapScript = "EXECUTE_BOOTSTRAP_SCRIPT",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

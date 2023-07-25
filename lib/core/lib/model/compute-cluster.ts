@@ -22,24 +22,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A remote direct memory access (RDMA) network group. Compute clusters are groups
-* of high performance computing (HPC) bare metal instances that are connected with an ultra low latency network.
-* Compute clusters allow you to manage instances in the cluster individually.
-* For more information, see [Compute Clusters](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm).
+* A remote direct memory access (RDMA) network group.
 * <p>
-For details about cluster networks that use intance pools to manage groups of identical instances,
+A cluster network on a [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a group of
+* high performance computing (HPC), GPU, or optimized instances that are connected with an ultra low-latency network.
+* <p>
+Use compute clusters when you want to manage instances in the cluster individually, or when you want
+* to use different types of instances in the RDMA network group.
+* <p>
+For details about cluster networks that use instance pools to manage groups of identical instances,
 * see {@link ClusterNetwork}.
 * 
 */
 export interface ComputeCluster {
   /**
-   * The availability domain the compute cluster is running in.
-   * Example: `Uocm:PHX-AD-1`
-   *
-   */
+    * The availability domain the compute cluster is running in.
+* <p>
+Example: `Uocm:PHX-AD-1`
+* 
+    */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains this compute cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment that contains the compute cluster.
    */
   "compartmentId": string;
   /**
@@ -65,7 +69,7 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of this compute cluster.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compute cluster.
    */
   "id": string;
   /**
@@ -73,11 +77,12 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "lifecycleState": ComputeCluster.LifecycleState;
   /**
-   * The date and time the compute cluster was created,
-   * in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
-   * Example: `2016-08-25T21:10:29.600Z`
-   *
-   */
+    * The date and time the compute cluster was created,
+* in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
+* <p>
+Example: `2016-08-25T21:10:29.600Z`
+* 
+    */
   "timeCreated": Date;
 }
 

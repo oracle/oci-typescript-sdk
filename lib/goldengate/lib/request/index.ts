@@ -26,6 +26,8 @@ import * as ChangeDeploymentCompartmentRequest from "./change-deployment-compart
 export import ChangeDeploymentCompartmentRequest = ChangeDeploymentCompartmentRequest.ChangeDeploymentCompartmentRequest;
 import * as CollectDeploymentDiagnosticRequest from "./collect-deployment-diagnostic-request";
 export import CollectDeploymentDiagnosticRequest = CollectDeploymentDiagnosticRequest.CollectDeploymentDiagnosticRequest;
+import * as CopyDeploymentBackupRequest from "./copy-deployment-backup-request";
+export import CopyDeploymentBackupRequest = CopyDeploymentBackupRequest.CopyDeploymentBackupRequest;
 import * as CreateConnectionRequest from "./create-connection-request";
 export import CreateConnectionRequest = CreateConnectionRequest.CreateConnectionRequest;
 import * as CreateConnectionAssignmentRequest from "./create-connection-assignment-request";
@@ -106,6 +108,8 @@ import * as StartDeploymentRequest from "./start-deployment-request";
 export import StartDeploymentRequest = StartDeploymentRequest.StartDeploymentRequest;
 import * as StopDeploymentRequest from "./stop-deployment-request";
 export import StopDeploymentRequest = StopDeploymentRequest.StopDeploymentRequest;
+import * as TestConnectionAssignmentRequest from "./test-connection-assignment-request";
+export import TestConnectionAssignmentRequest = TestConnectionAssignmentRequest.TestConnectionAssignmentRequest;
 import * as UpdateConnectionRequest from "./update-connection-request";
 export import UpdateConnectionRequest = UpdateConnectionRequest.UpdateConnectionRequest;
 import * as UpdateDatabaseRegistrationRequest from "./update-database-registration-request";

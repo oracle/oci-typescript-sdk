@@ -104,7 +104,8 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+   * [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
    *
    */
   "computeClusterId"?: string;
@@ -219,7 +220,7 @@ A metadata service runs on every launched instance. The service is an HTTP
 You can enumerate all available shapes by calling {@link #listShapes(ListShapesRequest) listShapes}.
 * 
     */
-  "shape": string;
+  "shape"?: string;
   "shapeConfig"?: model.LaunchInstanceShapeConfigDetails;
   "sourceDetails"?: model.InstanceSourceViaImageDetails | model.InstanceSourceViaBootVolumeDetails;
   /**
@@ -242,6 +243,10 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.IntelSkylakeBmLaunchInstancePlatformConfig
     | model.AmdMilanBmLaunchInstancePlatformConfig
     | model.AmdMilanBmGpuLaunchInstancePlatformConfig;
+  /**
+   * The OCID of the Instance Configuration containing instance launch details. Any other fields supplied in this instance launch request will override the details stored in the Instance Configuration for this instance launch.
+   */
+  "instanceConfigurationId"?: string;
 }
 
 export namespace LaunchInstanceDetails {

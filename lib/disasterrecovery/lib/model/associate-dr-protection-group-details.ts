@@ -24,7 +24,7 @@ export interface AssociateDrProtectionGroupDetails {
   /**
     * The OCID of the peer (remote) DR Protection Group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.iad.exampleocid2`
+Example: `ocid1.drprotectiongroup.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "peerId"?: string;

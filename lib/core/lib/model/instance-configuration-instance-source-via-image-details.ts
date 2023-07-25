@@ -54,6 +54,7 @@ For performance autotune enabled volumes, it would be the Default(Minimum) VPUs/
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "bootVolumeVpusPerGB"?: number;
+  "instanceSourceImageFilterDetails"?: model.InstanceConfigurationInstanceSourceImageFilterDetails;
 
   "sourceType": string;
 }
@@ -69,7 +70,13 @@ export namespace InstanceConfigurationInstanceSourceViaImageDetails {
         : (model.InstanceConfigurationInstanceSourceDetails.getJsonObj(
             obj
           ) as InstanceConfigurationInstanceSourceViaImageDetails)),
-      ...{}
+      ...{
+        "instanceSourceImageFilterDetails": obj.instanceSourceImageFilterDetails
+          ? model.InstanceConfigurationInstanceSourceImageFilterDetails.getJsonObj(
+              obj.instanceSourceImageFilterDetails
+            )
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -85,7 +92,13 @@ export namespace InstanceConfigurationInstanceSourceViaImageDetails {
         : (model.InstanceConfigurationInstanceSourceDetails.getDeserializedJsonObj(
             obj
           ) as InstanceConfigurationInstanceSourceViaImageDetails)),
-      ...{}
+      ...{
+        "instanceSourceImageFilterDetails": obj.instanceSourceImageFilterDetails
+          ? model.InstanceConfigurationInstanceSourceImageFilterDetails.getDeserializedJsonObj(
+              obj.instanceSourceImageFilterDetails
+            )
+          : undefined
+      }
     };
 
     return jsonObj;

@@ -24,7 +24,7 @@ export interface CreateDrProtectionGroupDetails {
   /**
     * The OCID of the compartment in which to create the DR Protection Group.
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid1`
+Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
 * 
     */
   "compartmentId": string;

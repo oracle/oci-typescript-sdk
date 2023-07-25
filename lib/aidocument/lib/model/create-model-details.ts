@@ -46,7 +46,7 @@ export interface CreateModelDetails {
    * The maximum model training time in hours, expressed as a decimal fraction. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxTrainingTimeInHours"?: number;
-  "trainingDataset": model.DataScienceLabelingDataset | model.ObjectStorageDataset;
+  "trainingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "testingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "validationDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   /**

@@ -21,7 +21,7 @@ export interface ComponentModel {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of active custom Key Value model that need to be composed.
    */
-  "modelId": string;
+  "modelId"?: string;
 }
 
 export namespace ComponentModel {
