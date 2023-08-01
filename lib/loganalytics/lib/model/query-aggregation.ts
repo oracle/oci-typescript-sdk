@@ -41,6 +41,11 @@ export interface QueryAggregation {
    */
   "partialResultReason"?: string;
   /**
+   * True if the data returned by query is hidden.
+   *
+   */
+  "isContentHidden"?: boolean;
+  /**
    * Query result columns
    *
    */

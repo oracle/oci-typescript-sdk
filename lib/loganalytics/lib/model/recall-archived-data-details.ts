@@ -44,6 +44,14 @@ export interface RecallArchivedDataDetails {
    * This is the query that identifies the recalled data.
    */
   "query"?: string;
+  /**
+   * This is the purpose of the recall
+   */
+  "purpose"?: string;
+  /**
+   * This indicates if only new data has to be recalled in this recall request
+   */
+  "isRecallNewDataOnly"?: boolean;
 }
 
 export namespace RecallArchivedDataDetails {

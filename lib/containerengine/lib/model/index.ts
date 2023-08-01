@@ -76,6 +76,8 @@ import * as CreateVirtualNodePoolDetails from "./create-virtual-node-pool-detail
 export import CreateVirtualNodePoolDetails = CreateVirtualNodePoolDetails.CreateVirtualNodePoolDetails;
 import * as CreateWorkloadMappingDetails from "./create-workload-mapping-details";
 export import CreateWorkloadMappingDetails = CreateWorkloadMappingDetails.CreateWorkloadMappingDetails;
+import * as CredentialRotationStatus from "./credential-rotation-status";
+export import CredentialRotationStatus = CredentialRotationStatus.CredentialRotationStatus;
 import * as ImagePolicyConfig from "./image-policy-config";
 export import ImagePolicyConfig = ImagePolicyConfig.ImagePolicyConfig;
 import * as InitialVirtualNodeLabel from "./initial-virtual-node-label";
@@ -144,6 +146,8 @@ import * as ShapeOcpuOptions from "./shape-ocpu-options";
 export import ShapeOcpuOptions = ShapeOcpuOptions.ShapeOcpuOptions;
 import * as SortOrder from "./sort-order";
 export import SortOrder = SortOrder.SortOrder;
+import * as StartCredentialRotationDetails from "./start-credential-rotation-details";
+export import StartCredentialRotationDetails = StartCredentialRotationDetails.StartCredentialRotationDetails;
 import * as Taint from "./taint";
 export import Taint = Taint.Taint;
 import * as UpdateAddonDetails from "./update-addon-details";

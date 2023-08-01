@@ -268,6 +268,81 @@ export class ContainerEngineClient {
   }
 
   /**
+   * Complete cluster credential rotation. Retire old credentials from kubernetes components.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CompleteCredentialRotationRequest
+   * @return CompleteCredentialRotationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/CompleteCredentialRotation.ts.html |here} to see how to use CompleteCredentialRotation API.
+   */
+  public async completeCredentialRotation(
+    completeCredentialRotationRequest: requests.CompleteCredentialRotationRequest
+  ): Promise<responses.CompleteCredentialRotationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#completeCredentialRotation.");
+    const operationName = "completeCredentialRotation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/CompleteCredentialRotation";
+    const pathParams = {
+      "{clusterId}": completeCredentialRotationRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": completeCredentialRotationRequest.opcRetryToken,
+      "opc-request-id": completeCredentialRotationRequest.opcRequestId,
+      "if-match": completeCredentialRotationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      completeCredentialRotationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/completeCredentialRotation",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CompleteCredentialRotationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Create a new cluster.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateClusterRequest
@@ -1470,6 +1545,83 @@ export class ContainerEngineClient {
         bodyModel: model.ClusterOptions,
         type: "model.ClusterOptions",
         responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get cluster credential rotation status.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetCredentialRotationStatusRequest
+   * @return GetCredentialRotationStatusResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/GetCredentialRotationStatus.ts.html |here} to see how to use GetCredentialRotationStatus API.
+   */
+  public async getCredentialRotationStatus(
+    getCredentialRotationStatusRequest: requests.GetCredentialRotationStatusRequest
+  ): Promise<responses.GetCredentialRotationStatusResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#getCredentialRotationStatus.");
+    const operationName = "getCredentialRotationStatus";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/CredentialRotationStatus/GetCredentialRotationStatus";
+    const pathParams = {
+      "{clusterId}": getCredentialRotationStatusRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCredentialRotationStatusRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCredentialRotationStatusRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/credentialRotationStatus",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCredentialRotationStatusResponse>{},
+        body: await response.json(),
+        bodyKey: "credentialRotationStatus",
+        bodyModel: model.CredentialRotationStatus,
+        type: "model.CredentialRotationStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -3381,6 +3533,86 @@ export class ContainerEngineClient {
     request: requests.ListWorkloadMappingsRequest
   ): AsyncIterableIterator<responses.ListWorkloadMappingsResponse> {
     return paginateResponses(request, req => this.listWorkloadMappings(req));
+  }
+
+  /**
+   * Start cluster credential rotation by adding new credentials, old credentials will still work after this operation.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param StartCredentialRotationRequest
+   * @return StartCredentialRotationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/containerengine/StartCredentialRotation.ts.html |here} to see how to use StartCredentialRotation API.
+   */
+  public async startCredentialRotation(
+    startCredentialRotationRequest: requests.StartCredentialRotationRequest
+  ): Promise<responses.StartCredentialRotationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation ContainerEngineClient#startCredentialRotation.");
+    const operationName = "startCredentialRotation";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/containerengine/20180222/Cluster/StartCredentialRotation";
+    const pathParams = {
+      "{clusterId}": startCredentialRotationRequest.clusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": startCredentialRotationRequest.opcRetryToken,
+      "opc-request-id": startCredentialRotationRequest.opcRequestId,
+      "if-match": startCredentialRotationRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      startCredentialRotationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/clusters/{clusterId}/actions/startCredentialRotation",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        startCredentialRotationRequest.startCredentialRotationDetails,
+        "StartCredentialRotationDetails",
+        model.StartCredentialRotationDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.StartCredentialRotationResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

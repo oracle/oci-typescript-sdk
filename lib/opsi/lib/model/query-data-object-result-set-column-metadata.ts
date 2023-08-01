@@ -26,7 +26,7 @@ export interface QueryDataObjectResultSetColumnMetadata {
    */
   "name": string;
   /**
-   * Type of the column in a data object query result set.
+   * Type name of the column in a data object query result set.
    */
   "dataTypeName"?: QueryDataObjectResultSetColumnMetadata.DataTypeName;
 }

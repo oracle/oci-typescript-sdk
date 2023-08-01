@@ -16,6 +16,8 @@ and manage cloud-native applications. For more information, see
 
 import * as ClusterMigrateToNativeVcnRequest from "./cluster-migrate-to-native-vcn-request";
 export import ClusterMigrateToNativeVcnRequest = ClusterMigrateToNativeVcnRequest.ClusterMigrateToNativeVcnRequest;
+import * as CompleteCredentialRotationRequest from "./complete-credential-rotation-request";
+export import CompleteCredentialRotationRequest = CompleteCredentialRotationRequest.CompleteCredentialRotationRequest;
 import * as CreateClusterRequest from "./create-cluster-request";
 export import CreateClusterRequest = CreateClusterRequest.CreateClusterRequest;
 import * as CreateKubeconfigRequest from "./create-kubeconfig-request";
@@ -48,6 +50,8 @@ import * as GetClusterMigrateToNativeVcnStatusRequest from "./get-cluster-migrat
 export import GetClusterMigrateToNativeVcnStatusRequest = GetClusterMigrateToNativeVcnStatusRequest.GetClusterMigrateToNativeVcnStatusRequest;
 import * as GetClusterOptionsRequest from "./get-cluster-options-request";
 export import GetClusterOptionsRequest = GetClusterOptionsRequest.GetClusterOptionsRequest;
+import * as GetCredentialRotationStatusRequest from "./get-credential-rotation-status-request";
+export import GetCredentialRotationStatusRequest = GetCredentialRotationStatusRequest.GetCredentialRotationStatusRequest;
 import * as GetNodePoolRequest from "./get-node-pool-request";
 export import GetNodePoolRequest = GetNodePoolRequest.GetNodePoolRequest;
 import * as GetNodePoolOptionsRequest from "./get-node-pool-options-request";
@@ -84,6 +88,8 @@ import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
 import * as ListWorkloadMappingsRequest from "./list-workload-mappings-request";
 export import ListWorkloadMappingsRequest = ListWorkloadMappingsRequest.ListWorkloadMappingsRequest;
+import * as StartCredentialRotationRequest from "./start-credential-rotation-request";
+export import StartCredentialRotationRequest = StartCredentialRotationRequest.StartCredentialRotationRequest;
 import * as UpdateAddonRequest from "./update-addon-request";
 export import UpdateAddonRequest = UpdateAddonRequest.UpdateAddonRequest;
 import * as UpdateClusterRequest from "./update-cluster-request";

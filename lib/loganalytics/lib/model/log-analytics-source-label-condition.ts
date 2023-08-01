@@ -20,6 +20,12 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsSourceLabelCondition {
   /**
+   * String representation of the label condition. This supports specifying multiple condition blocks at various nested levels.
+   *
+   */
+  "conditionString"?: string;
+  "conditionBlock"?: model.ConditionBlock;
+  /**
    * The message.
    */
   "message"?: string;
@@ -100,12 +106,26 @@ export interface LogAnalyticsSourceLabelCondition {
 
 export namespace LogAnalyticsSourceLabelCondition {
   export function getJsonObj(obj: LogAnalyticsSourceLabelCondition): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "conditionBlock": obj.conditionBlock
+          ? model.ConditionBlock.getJsonObj(obj.conditionBlock)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: LogAnalyticsSourceLabelCondition): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "conditionBlock": obj.conditionBlock
+          ? model.ConditionBlock.getDeserializedJsonObj(obj.conditionBlock)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

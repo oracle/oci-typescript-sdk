@@ -2406,6 +2406,9 @@ export class FusionApplicationsClient {
         listScheduledActivitiesRequest.timeExpectedFinishLessThanOrEqualTo,
       "runCycle": listScheduledActivitiesRequest.runCycle,
       "lifecycleState": listScheduledActivitiesRequest.lifecycleState,
+      "scheduledActivityAssociationId":
+        listScheduledActivitiesRequest.scheduledActivityAssociationId,
+      "scheduledActivityPhase": listScheduledActivitiesRequest.scheduledActivityPhase,
       "limit": listScheduledActivitiesRequest.limit,
       "page": listScheduledActivitiesRequest.page,
       "sortOrder": listScheduledActivitiesRequest.sortOrder,

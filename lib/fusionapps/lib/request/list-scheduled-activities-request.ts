@@ -43,6 +43,14 @@ export interface ListScheduledActivitiesRequest extends common.BaseRequest {
    */
   "lifecycleState"?: string;
   /**
+   * A filter that returns all resources that match the specified scheduledActivityAssociationId.
+   */
+  "scheduledActivityAssociationId"?: string;
+  /**
+   * A filter that returns all resources that match the specified scheduledActivityPhase.
+   */
+  "scheduledActivityPhase"?: string;
+  /**
    * The maximum number of items to return.
    */
   "limit"?: number;

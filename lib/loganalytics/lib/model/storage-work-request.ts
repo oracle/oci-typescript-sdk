@@ -110,6 +110,22 @@ export interface StorageWorkRequest {
    *
    */
   "keyType"?: model.EncryptionKeyType;
+  /**
+   * This is a list of logsets associated with this work request
+   */
+  "logSets"?: string;
+  /**
+   * This is the purpose of the operation associated with this work request
+   */
+  "purpose"?: string;
+  /**
+   * This is the query string applied on the operation associated with this work request
+   */
+  "query"?: string;
+  /**
+   * This is the flag to indicate if only new data has to be recalled in this work request
+   */
+  "isRecallNewDataOnly"?: boolean;
 }
 
 export namespace StorageWorkRequest {

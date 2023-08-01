@@ -142,6 +142,14 @@ export interface UpsertLogAnalyticsSourceDetails {
    *
    */
   "categories"?: Array<model.LogAnalyticsCategory>;
+  /**
+   * An array of REST API endpoints for log collection.
+   */
+  "endpoints"?: Array<model.LogAnalyticsEndpoint>;
+  /**
+   * A list of source properties.
+   */
+  "sourceProperties"?: Array<model.LogAnalyticsProperty>;
 }
 
 export namespace UpsertLogAnalyticsSourceDetails {
@@ -233,6 +241,16 @@ export namespace UpsertLogAnalyticsSourceDetails {
         "categories": obj.categories
           ? obj.categories.map(item => {
               return model.LogAnalyticsCategory.getJsonObj(item);
+            })
+          : undefined,
+        "endpoints": obj.endpoints
+          ? obj.endpoints.map(item => {
+              return model.LogAnalyticsEndpoint.getJsonObj(item);
+            })
+          : undefined,
+        "sourceProperties": obj.sourceProperties
+          ? obj.sourceProperties.map(item => {
+              return model.LogAnalyticsProperty.getJsonObj(item);
             })
           : undefined
       }
@@ -328,6 +346,16 @@ export namespace UpsertLogAnalyticsSourceDetails {
         "categories": obj.categories
           ? obj.categories.map(item => {
               return model.LogAnalyticsCategory.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "endpoints": obj.endpoints
+          ? obj.endpoints.map(item => {
+              return model.LogAnalyticsEndpoint.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sourceProperties": obj.sourceProperties
+          ? obj.sourceProperties.map(item => {
+              return model.LogAnalyticsProperty.getDeserializedJsonObj(item);
             })
           : undefined
       }
