@@ -212,3 +212,4 @@ export import identitydomains = require("oci-identitydomains");
 export import accessgovernancecp = require("oci-accessgovernancecp");
 export import ocicontrolcenter = require("oci-ocicontrolcenter");
 export import osmanagementhub = require("oci-osmanagementhub");
+export import fleetsoftwareupdate = require("oci-fleetsoftwareupdate");

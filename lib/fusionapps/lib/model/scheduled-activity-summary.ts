@@ -75,6 +75,14 @@ export interface ScheduledActivitySummary {
    */
   "lifecycleDetails"?: string;
   /**
+   * A property describing the phase of the scheduled activity.
+   */
+  "scheduledActivityPhase": string;
+  /**
+   * The unique identifier that associates a scheduled activity with others in one complete maintenance. For example, with ZDT, a complete upgrade maintenance includes 5 scheduled activities - PREPARE, EXECUTE, POST, PRE_MAINTENANCE, and POST_MAINTENANCE. All of them share the same unique identifier - scheduledActivityAssociationId.
+   */
+  "scheduledActivityAssociationId": string;
+  /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
    *

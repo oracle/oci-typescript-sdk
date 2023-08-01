@@ -38,6 +38,18 @@ export interface EstimateRecallDataSizeResult {
    * This indicates if the time range of data to be recalled overlaps with existing recalled data
    */
   "isOverlappingWithExistingRecalls"?: boolean;
+  /**
+   * This is the number of core groups estimated for this recall Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coreGroupCount"?: number;
+  /**
+   * This is the max number of core groups that is available for any recall Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "coreGroupCountLimit"?: number;
+  /**
+   * This is the size limit in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "sizeLimitInBytes"?: number;
 }
 
 export namespace EstimateRecallDataSizeResult {

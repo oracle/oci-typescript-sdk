@@ -2177,7 +2177,9 @@ export class LogAnalyticsClient {
       "{logAnalyticsEmBridgeId}": deleteLogAnalyticsEmBridgeRequest.logAnalyticsEmBridgeId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "isDeleteEntities": deleteLogAnalyticsEmBridgeRequest.isDeleteEntities
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -6036,7 +6038,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Lists the preferences of the tenant. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
+   * Lists the tenant preferences such as DEFAULT_HOMEPAGE and collection properties.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetPreferencesRequest
@@ -6289,6 +6291,237 @@ export class LogAnalyticsClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API gets the number of recalls made and the maximum recalls that can be made
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRecallCountRequest
+   * @return GetRecallCountResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRecallCount.ts.html |here} to see how to use GetRecallCount API.
+   */
+  public async getRecallCount(
+    getRecallCountRequest: requests.GetRecallCountRequest
+  ): Promise<responses.GetRecallCountResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getRecallCount.");
+    const operationName = "getRecallCount";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetRecallCount";
+    const pathParams = {
+      "{namespaceName}": getRecallCountRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRecallCountRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRecallCountRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/recallCount",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRecallCountResponse>{},
+        body: await response.json(),
+        bodyKey: "recallCount",
+        bodyModel: model.RecallCount,
+        type: "model.RecallCount",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This API gets the datasize of recalls for a given timeframe
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRecalledDataSizeRequest
+   * @return GetRecalledDataSizeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRecalledDataSize.ts.html |here} to see how to use GetRecalledDataSize API.
+   */
+  public async getRecalledDataSize(
+    getRecalledDataSizeRequest: requests.GetRecalledDataSizeRequest
+  ): Promise<responses.GetRecalledDataSizeResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getRecalledDataSize.");
+    const operationName = "getRecalledDataSize";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/GetRecalledDataSize";
+    const pathParams = {
+      "{namespaceName}": getRecalledDataSizeRequest.namespaceName
+    };
+
+    const queryParams = {
+      "timeDataStarted": getRecalledDataSizeRequest.timeDataStarted,
+      "timeDataEnded": getRecalledDataSizeRequest.timeDataEnded
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRecalledDataSizeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRecalledDataSizeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/recalledDataSize",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRecalledDataSizeResponse>{},
+        body: await response.json(),
+        bodyKey: "recalledDataSize",
+        bodyModel: model.RecalledDataSize,
+        type: "model.RecalledDataSize",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns the count of detection rules in a compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetRulesSummaryRequest
+   * @return GetRulesSummaryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/GetRulesSummary.ts.html |here} to see how to use GetRulesSummary API.
+   */
+  public async getRulesSummary(
+    getRulesSummaryRequest: requests.GetRulesSummaryRequest
+  ): Promise<responses.GetRulesSummaryResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#getRulesSummary.");
+    const operationName = "getRulesSummary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Rule/GetRulesSummary";
+    const pathParams = {
+      "{namespaceName}": getRulesSummaryRequest.namespaceName
+    };
+
+    const queryParams = {
+      "compartmentId": getRulesSummaryRequest.compartmentId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getRulesSummaryRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getRulesSummaryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/rulesSummary",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetRulesSummaryResponse>{},
+        body: await response.json(),
+        bodyKey: "ruleSummaryReport",
+        bodyModel: model.RuleSummaryReport,
+        type: "model.RuleSummaryReport",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -7507,6 +7740,100 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of effective properties for the specified resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListEffectivePropertiesRequest
+   * @return ListEffectivePropertiesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListEffectiveProperties.ts.html |here} to see how to use ListEffectiveProperties API.
+   */
+  public async listEffectiveProperties(
+    listEffectivePropertiesRequest: requests.ListEffectivePropertiesRequest
+  ): Promise<responses.ListEffectivePropertiesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listEffectiveProperties.");
+    const operationName = "listEffectiveProperties";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsProperty/ListEffectiveProperties";
+    const pathParams = {
+      "{namespaceName}": listEffectivePropertiesRequest.namespaceName
+    };
+
+    const queryParams = {
+      "agentId": listEffectivePropertiesRequest.agentId,
+      "sourceName": listEffectivePropertiesRequest.sourceName,
+      "isIncludePatterns": listEffectivePropertiesRequest.isIncludePatterns,
+      "entityId": listEffectivePropertiesRequest.entityId,
+      "patternId": listEffectivePropertiesRequest.patternId,
+      "name": listEffectivePropertiesRequest.name,
+      "limit": listEffectivePropertiesRequest.limit,
+      "page": listEffectivePropertiesRequest.page,
+      "sortOrder": listEffectivePropertiesRequest.sortOrder,
+      "sortBy": listEffectivePropertiesRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listEffectivePropertiesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listEffectivePropertiesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/effectiveProperties",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListEffectivePropertiesResponse>{},
+        body: await response.json(),
+        bodyKey: "effectivePropertyCollection",
+        bodyModel: model.EffectivePropertyCollection,
+        type: "model.EffectivePropertyCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -9090,6 +9417,96 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * This API gets the list of overlapping recalls made in the given timeframe
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListOverlappingRecallsRequest
+   * @return ListOverlappingRecallsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListOverlappingRecalls.ts.html |here} to see how to use ListOverlappingRecalls API.
+   */
+  public async listOverlappingRecalls(
+    listOverlappingRecallsRequest: requests.ListOverlappingRecallsRequest
+  ): Promise<responses.ListOverlappingRecallsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listOverlappingRecalls.");
+    const operationName = "listOverlappingRecalls";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/Storage/ListOverlappingRecalls";
+    const pathParams = {
+      "{namespaceName}": listOverlappingRecallsRequest.namespaceName
+    };
+
+    const queryParams = {
+      "limit": listOverlappingRecallsRequest.limit,
+      "page": listOverlappingRecallsRequest.page,
+      "sortBy": listOverlappingRecallsRequest.sortBy,
+      "sortOrder": listOverlappingRecallsRequest.sortOrder,
+      "timeDataStarted": listOverlappingRecallsRequest.timeDataStarted,
+      "timeDataEnded": listOverlappingRecallsRequest.timeDataEnded
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOverlappingRecallsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOverlappingRecallsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/storage/overlappingRecalls",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOverlappingRecallsResponse>{},
+        body: await response.json(),
+        bodyKey: "overlappingRecallCollection",
+        bodyModel: model.OverlappingRecallCollection,
+        type: "model.OverlappingRecallCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Lists the parser functions defined for the specified parser.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -9348,6 +9765,98 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Returns a list of properties along with their metadata.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListPropertiesMetadataRequest
+   * @return ListPropertiesMetadataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ListPropertiesMetadata.ts.html |here} to see how to use ListPropertiesMetadata API.
+   */
+  public async listPropertiesMetadata(
+    listPropertiesMetadataRequest: requests.ListPropertiesMetadataRequest
+  ): Promise<responses.ListPropertiesMetadataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#listPropertiesMetadata.");
+    const operationName = "listPropertiesMetadata";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsProperty/ListPropertiesMetadata";
+    const pathParams = {
+      "{namespaceName}": listPropertiesMetadataRequest.namespaceName
+    };
+
+    const queryParams = {
+      "name": listPropertiesMetadataRequest.name,
+      "displayText": listPropertiesMetadataRequest.displayText,
+      "level": listPropertiesMetadataRequest.level,
+      "constraints": listPropertiesMetadataRequest.constraints,
+      "limit": listPropertiesMetadataRequest.limit,
+      "page": listPropertiesMetadataRequest.page,
+      "sortOrder": listPropertiesMetadataRequest.sortOrder,
+      "sortBy": listPropertiesMetadataRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listPropertiesMetadataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listPropertiesMetadataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/propertiesMetadata",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListPropertiesMetadataResponse>{},
+        body: await response.json(),
+        bodyKey: "propertyMetadataSummaryCollection",
+        bodyModel: model.PropertyMetadataSummaryCollection,
+        type: "model.PropertyMetadataSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -12022,6 +12531,10 @@ export class LogAnalyticsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RecallArchivedDataResponse>{},
+        body: await response.json(),
+        bodyKey: "recalledDataInfo",
+        bodyModel: model.RecalledDataInfo,
+        type: "model.RecalledDataInfo",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -12036,6 +12549,11 @@ export class LogAnalyticsClient {
           {
             value: response.headers.get("location"),
             key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -12296,7 +12814,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Removes the tenant preferences. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
+   * Removes the tenant preferences such as DEFAULT_HOMEPAGE and collection properties.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RemovePreferencesRequest
@@ -13726,7 +14244,7 @@ export class LogAnalyticsClient {
   }
 
   /**
-   * Updates the tenant preferences. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
+   * Updates the tenant preferences such as DEFAULT_HOMEPAGE and collection properties.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdatePreferencesRequest
@@ -14737,6 +15255,83 @@ export class LogAnalyticsClient {
   }
 
   /**
+   * Validates the REST endpoint configuration.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateEndpointRequest
+   * @return ValidateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateEndpoint.ts.html |here} to see how to use ValidateEndpoint API.
+   */
+  public async validateEndpoint(
+    validateEndpointRequest: requests.ValidateEndpointRequest
+  ): Promise<responses.ValidateEndpointResponse> {
+    if (this.logger) this.logger.debug("Calling operation LogAnalyticsClient#validateEndpoint.");
+    const operationName = "validateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateEndpoint";
+    const pathParams = {
+      "{namespaceName}": validateEndpointRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/actions/validateEndpoint",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateEndpointRequest.validateEndpointDetails,
+        "LogAnalyticsEndpoint",
+        model.LogAnalyticsEndpoint.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "validateEndpointResult",
+        bodyModel: model.ValidateEndpointResult,
+        type: "model.ValidateEndpointResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Validates a log file to check whether it is eligible to be uploaded or not.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ValidateFileRequest
@@ -14795,6 +15390,88 @@ export class LogAnalyticsClient {
         bodyKey: "fileValidationResponse",
         bodyModel: model.FileValidationResponse,
         type: "model.FileValidationResponse",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Validates specified condition for a source label. If both conditionString
+   * and conditionBlocks are specified, they would be validated to ensure they represent
+   * identical conditions. If one of them is input, the response would include the validated
+   * representation of the other structure too. Additionally, if field values
+   * are passed, the condition specification would be evaluated against them.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateLabelConditionRequest
+   * @return ValidateLabelConditionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/loganalytics/ValidateLabelCondition.ts.html |here} to see how to use ValidateLabelCondition API.
+   */
+  public async validateLabelCondition(
+    validateLabelConditionRequest: requests.ValidateLabelConditionRequest
+  ): Promise<responses.ValidateLabelConditionResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation LogAnalyticsClient#validateLabelCondition.");
+    const operationName = "validateLabelCondition";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/logan-api-spec/20200601/LogAnalyticsSource/ValidateLabelCondition";
+    const pathParams = {
+      "{namespaceName}": validateLabelConditionRequest.namespaceName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateLabelConditionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateLabelConditionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/namespaces/{namespaceName}/sources/actions/validateLabelCondition",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateLabelConditionRequest.validateLabelConditionDetails,
+        "ValidateLabelConditionDetails",
+        model.ValidateLabelConditionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateLabelConditionResponse>{},
+        body: await response.json(),
+        bodyKey: "validateLabelConditionResult",
+        bodyModel: model.ValidateLabelConditionResult,
+        type: "model.ValidateLabelConditionResult",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

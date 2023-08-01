@@ -45,12 +45,33 @@ export interface RecalledData {
    * This is the size in bytes Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "storageUsageInBytes": number;
+  /**
+   * This is the size of the archival data not recalled yet within the specified time range Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "notRecalledDataInBytes": number;
+  /**
+   * This is the purpose of the recall
+   */
+  "purpose": string;
+  /**
+   * This is the query associated with the recall
+   */
+  "queryString": string;
+  /**
+   * This is the list of logsets associated with the recall
+   */
+  "logSets": string;
+  /**
+   * This is the user who initiated the recall request
+   */
+  "createdBy": string;
 }
 
 export namespace RecalledData {
   export enum Status {
     Recalled = "RECALLED",
     Pending = "PENDING",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

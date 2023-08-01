@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This is the storage configuration and status of a tenancy in Logan Analytics application
+ * This is the storage configuration and status of a tenancy in Logging Analytics application
  */
 export interface Storage {
   /**

@@ -57,6 +57,10 @@ export interface ClusterMetadata {
    * The OCID of the work request which updated the cluster.
    */
   "updatedByWorkRequestId"?: string;
+  /**
+   * The time until which the cluster credential is valid.
+   */
+  "timeCredentialExpiration"?: Date;
 }
 
 export namespace ClusterMetadata {

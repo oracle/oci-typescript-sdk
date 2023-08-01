@@ -48,6 +48,14 @@ export interface LogAnalyticsAssociationParameter {
    */
   "status"?: LogAnalyticsAssociationParameter.Status;
   /**
+   * The status description.
+   */
+  "statusDescription"?: string;
+  /**
+   * A list of association properties.
+   */
+  "associationProperties"?: Array<model.AssociationProperty>;
+  /**
    * A list of missing properties.
    */
   "missingProperties"?: Array<string>;
@@ -69,12 +77,30 @@ export namespace LogAnalyticsAssociationParameter {
   }
 
   export function getJsonObj(obj: LogAnalyticsAssociationParameter): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associationProperties": obj.associationProperties
+          ? obj.associationProperties.map(item => {
+              return model.AssociationProperty.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: LogAnalyticsAssociationParameter): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associationProperties": obj.associationProperties
+          ? obj.associationProperties.map(item => {
+              return model.AssociationProperty.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -51,16 +51,38 @@ export interface UpsertLogAnalyticsAssociation {
    * The log group unique identifier.
    */
   "logGroupId"?: string;
+  /**
+   * A list of association properties.
+   */
+  "associationProperties"?: Array<model.AssociationProperty>;
 }
 
 export namespace UpsertLogAnalyticsAssociation {
   export function getJsonObj(obj: UpsertLogAnalyticsAssociation): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associationProperties": obj.associationProperties
+          ? obj.associationProperties.map(item => {
+              return model.AssociationProperty.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpsertLogAnalyticsAssociation): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associationProperties": obj.associationProperties
+          ? obj.associationProperties.map(item => {
+              return model.AssociationProperty.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

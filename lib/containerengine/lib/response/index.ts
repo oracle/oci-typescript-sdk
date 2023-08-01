@@ -16,6 +16,8 @@ and manage cloud-native applications. For more information, see
 
 import * as ClusterMigrateToNativeVcnResponse from "./cluster-migrate-to-native-vcn-response";
 export import ClusterMigrateToNativeVcnResponse = ClusterMigrateToNativeVcnResponse.ClusterMigrateToNativeVcnResponse;
+import * as CompleteCredentialRotationResponse from "./complete-credential-rotation-response";
+export import CompleteCredentialRotationResponse = CompleteCredentialRotationResponse.CompleteCredentialRotationResponse;
 import * as CreateClusterResponse from "./create-cluster-response";
 export import CreateClusterResponse = CreateClusterResponse.CreateClusterResponse;
 import * as CreateKubeconfigResponse from "./create-kubeconfig-response";
@@ -48,6 +50,8 @@ import * as GetClusterMigrateToNativeVcnStatusResponse from "./get-cluster-migra
 export import GetClusterMigrateToNativeVcnStatusResponse = GetClusterMigrateToNativeVcnStatusResponse.GetClusterMigrateToNativeVcnStatusResponse;
 import * as GetClusterOptionsResponse from "./get-cluster-options-response";
 export import GetClusterOptionsResponse = GetClusterOptionsResponse.GetClusterOptionsResponse;
+import * as GetCredentialRotationStatusResponse from "./get-credential-rotation-status-response";
+export import GetCredentialRotationStatusResponse = GetCredentialRotationStatusResponse.GetCredentialRotationStatusResponse;
 import * as GetNodePoolResponse from "./get-node-pool-response";
 export import GetNodePoolResponse = GetNodePoolResponse.GetNodePoolResponse;
 import * as GetNodePoolOptionsResponse from "./get-node-pool-options-response";
@@ -84,6 +88,8 @@ import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
 import * as ListWorkloadMappingsResponse from "./list-workload-mappings-response";
 export import ListWorkloadMappingsResponse = ListWorkloadMappingsResponse.ListWorkloadMappingsResponse;
+import * as StartCredentialRotationResponse from "./start-credential-rotation-response";
+export import StartCredentialRotationResponse = StartCredentialRotationResponse.StartCredentialRotationResponse;
 import * as UpdateAddonResponse from "./update-addon-response";
 export import UpdateAddonResponse = UpdateAddonResponse.UpdateAddonResponse;
 import * as UpdateClusterResponse from "./update-cluster-response";

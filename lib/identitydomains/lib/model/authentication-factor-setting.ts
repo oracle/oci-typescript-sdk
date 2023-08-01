@@ -387,8 +387,8 @@ export interface AuthenticationFactorSetting {
    */
   "compliancePolicy": Array<model.AuthenticationFactorSettingsCompliancePolicy>;
   "totpSettings": model.AuthenticationFactorSettingsTotpSettings;
-  "urnietfparamsscimschemasoracleidcsextensionthirdPartyAuthenticationFactorSettings"?: model.ExtensionThirdPartyAuthenticationFactorSettings;
-  "urnietfparamsscimschemasoracleidcsextensionfidoAuthenticationFactorSettings"?: model.ExtensionFidoAuthenticationFactorSettings;
+  "urnIetfParamsScimSchemasOracleIdcsExtensionThirdPartyAuthenticationFactorSettings"?: model.ExtensionThirdPartyAuthenticationFactorSettings;
+  "urnIetfParamsScimSchemasOracleIdcsExtensionFidoAuthenticationFactorSettings"?: model.ExtensionFidoAuthenticationFactorSettings;
 }
 
 export namespace AuthenticationFactorSetting {
@@ -473,23 +473,23 @@ export namespace AuthenticationFactorSetting {
         "totpSettings": obj.totpSettings
           ? model.AuthenticationFactorSettingsTotpSettings.getJsonObj(obj.totpSettings)
           : undefined,
-        "urn:ietf:params:scim:schemas:oracle:idcs:extension:thirdParty:AuthenticationFactorSettings": obj.urnietfparamsscimschemasoracleidcsextensionthirdPartyAuthenticationFactorSettings
+        "urn:ietf:params:scim:schemas:oracle:idcs:extension:thirdParty:AuthenticationFactorSettings": obj.urnIetfParamsScimSchemasOracleIdcsExtensionThirdPartyAuthenticationFactorSettings
           ? model.ExtensionThirdPartyAuthenticationFactorSettings.getJsonObj(
-              obj.urnietfparamsscimschemasoracleidcsextensionthirdPartyAuthenticationFactorSettings
+              obj.urnIetfParamsScimSchemasOracleIdcsExtensionThirdPartyAuthenticationFactorSettings
             )
           : undefined,
-        "urn:ietf:params:scim:schemas:oracle:idcs:extension:fido:AuthenticationFactorSettings": obj.urnietfparamsscimschemasoracleidcsextensionfidoAuthenticationFactorSettings
+        "urn:ietf:params:scim:schemas:oracle:idcs:extension:fido:AuthenticationFactorSettings": obj.urnIetfParamsScimSchemasOracleIdcsExtensionFidoAuthenticationFactorSettings
           ? model.ExtensionFidoAuthenticationFactorSettings.getJsonObj(
-              obj.urnietfparamsscimschemasoracleidcsextensionfidoAuthenticationFactorSettings
+              obj.urnIetfParamsScimSchemasOracleIdcsExtensionFidoAuthenticationFactorSettings
             )
           : undefined
       }
     };
 
     delete (jsonObj as Partial<AuthenticationFactorSetting>)
-      .urnietfparamsscimschemasoracleidcsextensionthirdPartyAuthenticationFactorSettings;
+      .urnIetfParamsScimSchemasOracleIdcsExtensionThirdPartyAuthenticationFactorSettings;
     delete (jsonObj as Partial<AuthenticationFactorSetting>)
-      .urnietfparamsscimschemasoracleidcsextensionfidoAuthenticationFactorSettings;
+      .urnIetfParamsScimSchemasOracleIdcsExtensionFidoAuthenticationFactorSettings;
 
     return jsonObj;
   }
@@ -556,7 +556,7 @@ export namespace AuthenticationFactorSetting {
         "totpSettings": obj.totpSettings
           ? model.AuthenticationFactorSettingsTotpSettings.getDeserializedJsonObj(obj.totpSettings)
           : undefined,
-        "urnietfparamsscimschemasoracleidcsextensionthirdPartyAuthenticationFactorSettings": (obj as any)[
+        "urnIetfParamsScimSchemasOracleIdcsExtensionThirdPartyAuthenticationFactorSettings": (obj as any)[
           "urn:ietf:params:scim:schemas:oracle:idcs:extension:thirdParty:AuthenticationFactorSettings"
         ]
           ? model.ExtensionThirdPartyAuthenticationFactorSettings.getDeserializedJsonObj(
@@ -565,7 +565,7 @@ export namespace AuthenticationFactorSetting {
               ]
             )
           : undefined,
-        "urnietfparamsscimschemasoracleidcsextensionfidoAuthenticationFactorSettings": (obj as any)[
+        "urnIetfParamsScimSchemasOracleIdcsExtensionFidoAuthenticationFactorSettings": (obj as any)[
           "urn:ietf:params:scim:schemas:oracle:idcs:extension:fido:AuthenticationFactorSettings"
         ]
           ? model.ExtensionFidoAuthenticationFactorSettings.getDeserializedJsonObj(

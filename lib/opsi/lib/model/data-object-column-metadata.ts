@@ -30,7 +30,7 @@ export interface DataObjectColumnMetadata {
    */
   "category"?: DataObjectColumnMetadata.Category;
   /**
-   * Type of a data object column.
+   * Type name of a data object column.
    */
   "dataTypeName"?: DataObjectColumnMetadata.DataTypeName;
   /**

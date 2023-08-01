@@ -119,6 +119,8 @@ export namespace AbstractColumn {
             <model.TimeStatsDataColumn>(<object>jsonObj),
             true
           );
+        case "TABLE_COLUMN":
+          return model.TableColumn.getJsonObj(<model.TableColumn>(<object>jsonObj), true);
         case "CHART_COLUMN":
           return model.ChartColumn.getJsonObj(<model.ChartColumn>(<object>jsonObj), true);
         case "CHART_DATA_COLUMN":
@@ -175,6 +177,11 @@ export namespace AbstractColumn {
         case "TIME_STATS_DATA_COLUMN":
           return model.TimeStatsDataColumn.getDeserializedJsonObj(
             <model.TimeStatsDataColumn>(<object>jsonObj),
+            true
+          );
+        case "TABLE_COLUMN":
+          return model.TableColumn.getDeserializedJsonObj(
+            <model.TableColumn>(<object>jsonObj),
             true
           );
         case "CHART_COLUMN":

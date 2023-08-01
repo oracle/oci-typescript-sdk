@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This is the namespace details of a tenancy in Logan Analytics application
+ * This is the namespace details of a tenancy in Logging Analytics application
  */
 export interface Namespace {
   /**

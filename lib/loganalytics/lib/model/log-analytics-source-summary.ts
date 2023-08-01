@@ -166,6 +166,14 @@ export interface LogAnalyticsSourceSummary {
    * The last updated date.
    */
   "timeUpdated"?: Date;
+  /**
+   * An array of REST API endpoints for log collection.
+   */
+  "endpoints"?: Array<model.LogAnalyticsEndpoint>;
+  /**
+   * A list of source properties.
+   */
+  "sourceProperties"?: Array<model.LogAnalyticsProperty>;
 }
 
 export namespace LogAnalyticsSourceSummary {
@@ -259,6 +267,17 @@ export namespace LogAnalyticsSourceSummary {
         "userParsers": obj.userParsers
           ? obj.userParsers.map(item => {
               return model.LogAnalyticsParser.getJsonObj(item);
+            })
+          : undefined,
+
+        "endpoints": obj.endpoints
+          ? obj.endpoints.map(item => {
+              return model.LogAnalyticsEndpoint.getJsonObj(item);
+            })
+          : undefined,
+        "sourceProperties": obj.sourceProperties
+          ? obj.sourceProperties.map(item => {
+              return model.LogAnalyticsProperty.getJsonObj(item);
             })
           : undefined
       }
@@ -356,6 +375,17 @@ export namespace LogAnalyticsSourceSummary {
         "userParsers": obj.userParsers
           ? obj.userParsers.map(item => {
               return model.LogAnalyticsParser.getDeserializedJsonObj(item);
+            })
+          : undefined,
+
+        "endpoints": obj.endpoints
+          ? obj.endpoints.map(item => {
+              return model.LogAnalyticsEndpoint.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "sourceProperties": obj.sourceProperties
+          ? obj.sourceProperties.map(item => {
+              return model.LogAnalyticsProperty.getDeserializedJsonObj(item);
             })
           : undefined
       }
