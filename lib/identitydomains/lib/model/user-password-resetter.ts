@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Schema to handle userpassword reset by administrator.
+ * The schema used to handle a user password reset by an administrator.
  */
 export interface UserPasswordResetter {
   /**
@@ -174,7 +174,7 @@ export interface UserPasswordResetter {
    */
   "externalId"?: string;
   /**
-   * A Boolean value indicating whether or not to send email notification after resetting the password of the OCI IAM user.
+   * Indicates whether to send an email notification after resetting the user's password.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -203,7 +203,7 @@ export interface UserPasswordResetter {
   "userFlowControlledByExternalClient"?: boolean;
   "userToken"?: model.UserPasswordResetterUserToken;
   /**
-   * Specifies the EmailTemplate to be used when sending notification to the user this request is for. If specified, it overrides the default EmailTemplate for this event.
+   * Specifies the EmailTemplate to be used when sending notifications to the user. If specified, it overrides the default EmailTemplate.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -217,7 +217,7 @@ export interface UserPasswordResetter {
    */
   "notificationEmailTemplateId"?: string;
   /**
-   * One time password will be returned when user does not have primary email address
+   * A one time password will be returned when the user doesn't have a primary email address.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

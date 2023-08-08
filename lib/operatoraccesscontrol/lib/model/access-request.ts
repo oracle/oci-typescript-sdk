@@ -60,6 +60,10 @@ export interface AccessRequest {
    */
   "resourceName"?: string;
   /**
+   * The subresources requested for approval.
+   */
+  "subResourceList"?: Array<string>;
+  /**
    * The OCID of the compartment that contains the access request.
    */
   "compartmentId"?: string;

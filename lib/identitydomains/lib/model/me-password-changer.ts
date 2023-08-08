@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Schema to handle userpassword change by self.
+ * The schema used for a user changing their own password.
  */
 export interface MePasswordChanger {
   /**
@@ -190,7 +190,7 @@ export interface MePasswordChanger {
    */
   "password": string;
   /**
-   * Old password attribute
+   * The old password attribute.
    * <p>
    **SCIM++ Properties:**
    *  - type: string

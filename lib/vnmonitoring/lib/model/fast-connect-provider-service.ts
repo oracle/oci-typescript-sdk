@@ -62,6 +62,27 @@ Example: `https://example.com`
    */
   "supportedVirtualCircuitTypes"?: Array<FastConnectProviderService.SupportedVirtualCircuitTypes>;
   /**
+   * Who is responsible for managing the ASN information for the network at the other end
+   * of the connection from Oracle.
+   *
+   */
+  "customerAsnManagement": FastConnectProviderService.CustomerAsnManagement;
+  /**
+   * Who is responsible for managing the provider service key.
+   *
+   */
+  "providerServiceKeyManagement": FastConnectProviderService.ProviderServiceKeyManagement;
+  /**
+   * Who is responsible for managing the virtual circuit bandwidth.
+   *
+   */
+  "bandwithShapeManagement": FastConnectProviderService.BandwithShapeManagement;
+  /**
+   * Total number of cross-connect or cross-connect groups required for the virtual circuit.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "requiredTotalCrossConnects": number;
+  /**
    * Provider service type.
    *
    */
@@ -94,6 +115,39 @@ export namespace FastConnectProviderService {
   export enum SupportedVirtualCircuitTypes {
     Public = "PUBLIC",
     Private = "PRIVATE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum CustomerAsnManagement {
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ProviderServiceKeyManagement {
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum BandwithShapeManagement {
+    CustomerManaged = "CUSTOMER_MANAGED",
+    ProviderManaged = "PROVIDER_MANAGED",
+    OracleManaged = "ORACLE_MANAGED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

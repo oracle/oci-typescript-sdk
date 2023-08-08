@@ -57,6 +57,8 @@ export enum TechnologyType {
   Mongodb = "MONGODB",
   MysqlServer = "MYSQL_SERVER",
   PostgresqlServer = "POSTGRESQL_SERVER",
+  Singlestoredb = "SINGLESTOREDB",
+  SinglestoredbCloud = "SINGLESTOREDB_CLOUD",
   Snowflake = "SNOWFLAKE"
 }
 

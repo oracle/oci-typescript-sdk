@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of api keys corresponding to user.
+ * A list of API keys corresponding to user.
  * <p>
  **Added In:** 2012271618
  * <p>
@@ -32,7 +32,7 @@ import common = require("oci-common");
  */
 export interface UserExtApiKeys {
   /**
-   * The value of of the User's api key.
+   * The user's API key value.
    * <p>
    **Added In:** 2106240046
    * <p>
@@ -48,7 +48,7 @@ export interface UserExtApiKeys {
    */
   "key"?: string;
   /**
-   * The identifier of the User's api key.
+   * The user's API key identifier.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -64,7 +64,7 @@ export interface UserExtApiKeys {
    */
   "value"?: string;
   /**
-   * Ocid of the User's api key.
+   * The user's API key OCID.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -80,7 +80,7 @@ export interface UserExtApiKeys {
    */
   "ocid"?: string;
   /**
-   * The URI of the corresponding ApiKey resource to which the user belongs
+   * The URI of the corresponding ApiKey resource to which the user belongs.
    * <p>
    **Added In:** 2012271618
    * <p>

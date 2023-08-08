@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User linked to db credential
+ * The user linked to the database credential.
  * <p>
  **SCIM++ Properties:**
  *  - caseExact: false
@@ -31,7 +31,7 @@ import common = require("oci-common");
  */
 export interface MyUserDbCredentialsUser {
   /**
-   * User's id
+   * The user's identifier.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -45,7 +45,7 @@ export interface MyUserDbCredentialsUser {
    */
   "value": string;
   /**
-   * User's ocid
+   * The user's OCID.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -59,7 +59,7 @@ export interface MyUserDbCredentialsUser {
    */
   "ocid"?: string;
   /**
-   * The URI that corresponds to the user linked to this credential
+   * The URI that corresponds to the user linked to this credential.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -73,7 +73,7 @@ export interface MyUserDbCredentialsUser {
    */
   "ref"?: string;
   /**
-   * User display name
+   * The user display name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -87,7 +87,7 @@ export interface MyUserDbCredentialsUser {
    */
   "display"?: string;
   /**
-   * User name
+   * The username.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

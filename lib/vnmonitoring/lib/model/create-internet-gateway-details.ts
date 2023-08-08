@@ -47,6 +47,10 @@ export interface CreateInternetGatewayDetails {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN the Internet Gateway is attached to.
    */
   "vcnId": string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the Internet Gateway is using.
+   */
+  "routeTableId"?: string;
 }
 
 export namespace CreateInternetGatewayDetails {

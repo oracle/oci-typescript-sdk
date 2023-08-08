@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User's Db Credential
+ * User's Database Credential
  */
 export interface MyUserDbCredential {
   /**
@@ -175,7 +175,7 @@ export interface MyUserDbCredential {
    */
   "name"?: string;
   /**
-   * The db password of the user
+   * The user's database password.
    * <p>
    **SCIM++ Properties:**
    *  - type: string
@@ -198,7 +198,7 @@ export interface MyUserDbCredential {
    */
   "description"?: string;
   /**
-   * The db password of the user with mixed salt
+   * The user's database password with mixed salt.
    * <p>
    **SCIM++ Properties:**
    *  - type: string
@@ -208,7 +208,7 @@ export interface MyUserDbCredential {
    */
   "mixedDbPassword"?: string;
   /**
-   * The salt of the password
+   * The salt of the password.
    * <p>
    **SCIM++ Properties:**
    *  - type: string
@@ -218,7 +218,7 @@ export interface MyUserDbCredential {
    */
   "salt"?: string;
   /**
-   * The mixed salt of the password
+   * The mixed salt of the password.
    * <p>
    **SCIM++ Properties:**
    *  - type: string
@@ -228,7 +228,7 @@ export interface MyUserDbCredential {
    */
   "mixedSalt"?: string;
   /**
-   * A DateTime that specifies the date and time when the current db password was set
+   * A DateTime that specifies the date and time when the current database password was set.
    * <p>
    **SCIM++ Properties:**
    *  - type: dateTime
@@ -237,7 +237,7 @@ export interface MyUserDbCredential {
    */
   "lastSetDate"?: string;
   /**
-   * Indicates that the db password has expired
+   * Indicates that the database password has expired.
    * <p>
    **SCIM++ Properties:**
    *  - type: boolean
@@ -262,7 +262,7 @@ export interface MyUserDbCredential {
    */
   "status"?: MyUserDbCredential.Status;
   /**
-   * User credential expires on
+   * When the user credential expires.
    * <p>
    **Added In:** 2109090424
    * <p>

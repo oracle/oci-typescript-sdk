@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User's api key
+ * The user's API key.
  */
 export interface ApiKey {
   /**

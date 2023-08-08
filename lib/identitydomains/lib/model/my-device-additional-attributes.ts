@@ -30,6 +30,8 @@ export interface MyDeviceAdditionalAttributes {
    *  - returned: always
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "key": string;
   /**
@@ -43,6 +45,8 @@ export interface MyDeviceAdditionalAttributes {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "value": string;
 }

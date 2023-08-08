@@ -36,6 +36,30 @@ The customer and provider can update different properties in the mapping
     */
   "crossConnectMappings"?: Array<model.CrossConnectMapping>;
   /**
+   * The routing policy sets how routing information about the Oracle cloud is shared over a public virtual circuit.
+   * Policies available are: `ORACLE_SERVICE_NETWORK`, `REGIONAL`, `MARKET_LEVEL`, and `GLOBAL`.
+   * See [Route Filtering](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/routingonprem.htm#route_filtering) for details.
+   * By default, routing information is shared for all routes in the same market.
+   *
+   */
+  "routingPolicy"?: Array<UpdateVirtualCircuitDetails.RoutingPolicy>;
+  /**
+   * Set to `ENABLED` (the default) to activate the BGP session of the virtual circuit, set to `DISABLED` to deactivate the virtual circuit.
+   *
+   */
+  "bgpAdminState"?: UpdateVirtualCircuitDetails.BgpAdminState;
+  /**
+   * Set to `true` to enable BFD for IPv4 BGP peering, or set to `false` to disable BFD. If this is not set, the default is `false`.
+   *
+   */
+  "isBfdEnabled"?: boolean;
+  /**
+   * Deprecated. Instead use `customerAsn`.
+   * If you specify values for both, the request will be rejected.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "customerBgpAsn"?: number;
+  /**
     * The BGP ASN of the network at the other end of the BGP
 * session from Oracle.
 * <p>
@@ -46,15 +70,29 @@ If the BGP session is from the customer's edge router to Oracle, the
 If the BGP session is from the provider's edge router to Oracle, the
 * required value is the provider's ASN, and it can be updated only
 * by the provider.
+* <p>
+Can be a 2-byte or 4-byte ASN. Uses \"asplain\" format.
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
-  "customerBgpAsn"?: number;
+  "customerAsn"?: number;
+  /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
    */
   "displayName"?: string;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Example: `{\"bar-key\": \"value\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
   /**
     * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the {@link Drg}
 * that this private virtual circuit uses.
@@ -75,6 +113,11 @@ To be updated only by the provider.
     */
   "providerState"?: UpdateVirtualCircuitDetails.ProviderState;
   /**
+   * The service key name offered by the provider (if the customer is connecting via a provider).
+   *
+   */
+  "providerServiceKeyName"?: string;
+  /**
     * Provider-supplied reference information about this virtual circuit.
 * Relevant only if the customer is using FastConnect via a provider.
 * <p>
@@ -82,9 +125,25 @@ To be updated only by the provider.
 * 
     */
   "referenceComment"?: string;
+  /**
+   * The layer 3 IP MTU to use on this virtual circuit.
+   */
+  "ipMtu"?: model.VirtualCircuitIpMtu;
 }
 
 export namespace UpdateVirtualCircuitDetails {
+  export enum RoutingPolicy {
+    OracleServiceNetwork = "ORACLE_SERVICE_NETWORK",
+    Regional = "REGIONAL",
+    MarketLevel = "MARKET_LEVEL",
+    Global = "GLOBAL"
+  }
+
+  export enum BgpAdminState {
+    Enabled = "ENABLED",
+    Disabled = "DISABLED"
+  }
+
   export enum ProviderState {
     Active = "ACTIVE",
     Inactive = "INACTIVE"

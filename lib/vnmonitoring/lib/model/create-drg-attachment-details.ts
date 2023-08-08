@@ -48,6 +48,20 @@ The DRG route table manages traffic inside the DRG.
    */
   "freeformTags"?: { [key: string]: string };
   /**
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table used by the DRG attachment.
+* <p>
+If you don't specify a route table here, the DRG attachment is created without an associated route
+* table. The Networking service does NOT automatically associate the attached VCN's default route table
+* with the DRG attachment.
+* For information about why you would associate a route table with a DRG attachment, see:
+* <p>
+  * [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm)
+*   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm)
+* This field is deprecated. Instead, use the networkDetails field to specify the VCN route table for this attachment.
+* 
+    */
+  "routeTableId"?: string;
+  /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VCN.
    * This field is deprecated. Instead, use the `networkDetails` field to specify the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the attached resource.
    *

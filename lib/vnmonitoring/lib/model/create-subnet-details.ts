@@ -18,12 +18,22 @@ import common = require("oci-common");
 
 export interface CreateSubnetDetails {
   /**
-    * The availability domain to contain the subnet.
+    * Controls whether the subnet is regional or specific to an availability domain. Oracle
+* recommends creating regional subnets because they're more flexible and make it easier to
+* implement failover across availability domains. Originally, AD-specific subnets were the
+* only kind available to use.
+* <p>
+To create a regional subnet, omit this attribute. Then any resources later created in this
+* subnet (such as a Compute instance) can be created in any availability domain in the region.
+* <p>
+To instead create an AD-specific subnet, set this attribute to the availability domain you
+* want this subnet to be in. Then any resources later created in this subnet can only be
+* created in that availability domain.
 * <p>
 Example: `Uocm:PHX-AD-1`
 * 
     */
-  "availabilityDomain": string;
+  "availabilityDomain"?: string;
   /**
     * The CIDR IP address range of the subnet. The CIDR must maintain the following rules -
 * <p>
@@ -59,7 +69,7 @@ Example: `10.0.1.0/24`
   /**
     * A DNS label for the subnet, used in conjunction with the VNIC's hostname and
 * VCN's DNS label to form a fully qualified domain name (FQDN) for each VNIC
-* within this subnet (for example, `bminstance-1.subnet123.vcn1.oraclevcn.com`).
+* within this subnet (for example, `bminstance1.subnet123.vcn1.oraclevcn.com`).
 * Must be an alphanumeric string that begins with a letter and is unique within the VCN.
 * The value cannot be changed.
 * <p>
@@ -92,6 +102,27 @@ Example: `2001:0db8:0123:1111::/64`
     */
   "ipv6CidrBlock"?: string;
   /**
+   * The list of all IPv6 CIDR blocks (Oracle allocated IPv6 GUA, ULA or private IPv6 CIDR blocks, BYOIPv6 CIDR blocks) for the subnet that meets the following criteria:
+   * - The CIDR blocks must be valid.
+   * - Multiple CIDR blocks must not overlap each other or the on-premises network CIDR block.
+   * - The number of CIDR blocks must not exceed the limit of IPv6 CIDR blocks allowed to a subnet.
+   *
+   */
+  "ipv6CidrBlocks"?: Array<string>;
+  /**
+    * Whether to disallow ingress internet traffic to VNICs within this subnet. Defaults to false.
+* <p>
+For IPv6, if `prohibitInternetIngress` is set to `true`, internet access is not allowed for any
+* IPv6s assigned to VNICs in the subnet. Otherwise, ingress internet traffic is allowed by default.
+* <p>
+`prohibitPublicIpOnVnic` will be set to the value of `prohibitInternetIngress` to dictate IPv4
+* behavior in this subnet. Only one or the other flag should be specified.
+* <p>
+Example: `true`
+* 
+    */
+  "prohibitInternetIngress"?: boolean;
+  /**
     * Whether VNICs within this subnet can have public IP addresses.
 * Defaults to false, which means VNICs created in this subnet will
 * automatically be assigned public IP addresses unless specified
@@ -101,8 +132,8 @@ Example: `2001:0db8:0123:1111::/64`
 * subnet cannot have public IP addresses (that is, it's a private
 * subnet).
 * <p>
-For IPv6, if `prohibitPublicIpOnVnic` is set to `true`, internet access is not allowed for any
-* IPv6s assigned to VNICs in the subnet.
+If you intend to use an IPv6 CIDR block, you should use the flag `prohibitInternetIngress` to
+* specify ingress internet traffic behavior of the subnet.
 * <p>
 Example: `true`
 * 

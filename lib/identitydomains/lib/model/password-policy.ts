@@ -398,6 +398,21 @@ export interface PasswordPolicy {
    */
   "userNameDisallowed"?: boolean;
   /**
+   * List of User attributes whose values are not allowed in the password.
+   * <p>
+   **Added In:** 2303212224
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsSearchable: false
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "disallowedUserAttributeValues"?: Array<string>;
+  /**
    * Minimum time after which the user can resubmit the reset password request
    * <p>
    **SCIM++ Properties:**
@@ -593,22 +608,20 @@ export interface PasswordPolicy {
    */
   "forcePasswordReset"?: boolean;
   /**
-   * A list of groups that the password policy belongs to.
+   * The number of distinct characters between old password and new password
    * <p>
-   **Added In:** 20.1.3
+   **Added In:** 2303212224
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
-   *  - idcsCompositeKey: [value]
-   *  - idcsSearchable: true
-   *  - multiValued: true
+   *  - multiValued: false
    *  - mutability: readWrite
    *  - required: false
    *  - returned: default
-   *  - type: complex
-   *  - uniqueness: none
+   *  - type: integer
+   *  - uniqueness: none Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "groups"?: Array<model.PasswordPolicyGroups>;
+  "distinctCharacters"?: number;
   /**
    * Password policy priority
    * <p>
@@ -625,6 +638,23 @@ export interface PasswordPolicy {
    *  - uniqueness: server Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "priority"?: number;
+  /**
+   * A list of groups that the password policy belongs to.
+   * <p>
+   **Added In:** 20.1.3
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsCompositeKey: [value]
+   *  - idcsSearchable: true
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: complex
+   *  - uniqueness: none
+   */
+  "groups"?: Array<model.PasswordPolicyGroups>;
   /**
    * List of password policy rules that have values set. This map of stringKey:stringValue pairs can be used to aid users while setting/resetting password
    * <p>
@@ -687,7 +717,6 @@ export namespace PasswordPolicy {
               return model.PasswordPolicyGroups.getJsonObj(item);
             })
           : undefined,
-
         "configuredPasswordPolicyRules": obj.configuredPasswordPolicyRules
           ? obj.configuredPasswordPolicyRules.map(item => {
               return model.PasswordPolicyConfiguredPasswordPolicyRules.getJsonObj(item);
@@ -721,7 +750,6 @@ export namespace PasswordPolicy {
               return model.PasswordPolicyGroups.getDeserializedJsonObj(item);
             })
           : undefined,
-
         "configuredPasswordPolicyRules": obj.configuredPasswordPolicyRules
           ? obj.configuredPasswordPolicyRules.map(item => {
               return model.PasswordPolicyConfiguredPasswordPolicyRules.getDeserializedJsonObj(item);

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User's oauth2 client credential
+ * The user's OAuth2 client credentials.
  */
 export interface MyOAuth2ClientCredential {
   /**
@@ -186,7 +186,7 @@ export interface MyOAuth2ClientCredential {
    */
   "description"?: string;
   /**
-   * User credential status
+   * The user's credential status.
    * <p>
    **Added In:** 2109090424
    * <p>
@@ -202,7 +202,7 @@ export interface MyOAuth2ClientCredential {
    */
   "status"?: MyOAuth2ClientCredential.Status;
   /**
-   * User credential expires on
+   * When the user's credentials expire.
    * <p>
    **Added In:** 2109090424
    * <p>
@@ -218,7 +218,7 @@ export interface MyOAuth2ClientCredential {
    */
   "expiresOn"?: string;
   /**
-   * Specifies if secret need to be reset
+   * Specifies whether the secret must be reset.
    * <p>
    **Added In:** 2109090424
    * <p>

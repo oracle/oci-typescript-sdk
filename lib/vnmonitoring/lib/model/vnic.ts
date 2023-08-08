@@ -30,7 +30,12 @@ Each VNIC has a *primary private IP* that is automatically assigned during launc
 * [IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingIPaddresses.htm).
 * <p>
 
-* To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
+* If you are an Oracle Cloud VMware Solution customer, you will have secondary VNICs
+* that reside in a VLAN instead of a subnet. These VNICs have other differences, which
+* are called out in the descriptions of the relevant attributes in the `Vnic` object.
+* Also see {@link Vlan}.
+* <p>
+To use any of the API operations, you must be authorized in an IAM policy. If you're not authorized,
 * talk to an administrator. If you're an administrator who needs to write policies to give users access, see
 * [Getting Started with Policies](https://docs.cloud.oracle.com/iaas/Content/Identity/Concepts/policygetstarted.htm).
 * 
@@ -68,7 +73,7 @@ Example: `Uocm:PHX-AD-1`
   /**
     * The hostname for the VNIC's primary private IP. Used for DNS. The value is the hostname
 * portion of the primary private IP's fully qualified domain name (FQDN)
-* (for example, `bminstance-1` in FQDN `bminstance-1.subnet123.vcn1.oraclevcn.com`).
+* (for example, `bminstance1` in FQDN `bminstance1.subnet123.vcn1.oraclevcn.com`).
 * Must be unique across all VNICs in the subnet and comply with
 * [RFC 952](https://tools.ietf.org/html/rfc952) and
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).
@@ -76,7 +81,7 @@ Example: `Uocm:PHX-AD-1`
 For more information, see
 * [DNS in Your Virtual Cloud Network](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/dns.htm).
 * <p>
-Example: `bminstance-1`
+Example: `bminstance1`
 * 
     */
   "hostnameLabel"?: string;
@@ -97,6 +102,10 @@ Example: `bminstance-1`
   /**
     * The MAC address of the VNIC.
 * <p>
+If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution,
+* the MAC address is learned. If the VNIC belongs to a subnet, the
+* MAC address is a static, Oracle-provided value.
+* <p>
 Example: `00:00:00:00:00:01`
 * 
     */
@@ -104,11 +113,22 @@ Example: `00:00:00:00:00:01`
   /**
     * A list of the OCIDs of the network security groups that the VNIC belongs to.
 * <p>
+If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
+* belonging to a subnet), the value of the `nsgIds` attribute is ignored. Instead, the
+* VNIC belongs to the NSGs that are associated with the VLAN itself. See {@link Vlan}.
+* <p>
 For more information about NSGs, see
 * {@link NetworkSecurityGroup}.
 * 
     */
   "nsgIds"?: Array<string>;
+  /**
+   * If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
+   * belonging to a subnet), the `vlanId` is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN the VNIC is in. See
+   * {@link Vlan}. If the VNIC is instead in a subnet, `subnetId` has a value.
+   *
+   */
+  "vlanId"?: string;
   /**
     * The private IP address of the primary `privateIp` object on the VNIC.
 * The address is within the CIDR of the VNIC's subnet.
@@ -129,14 +149,18 @@ Example: `10.0.3.3`
 * [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
 
-* Example: `true`
+* If the VNIC belongs to a VLAN as part of the Oracle Cloud VMware Solution (instead of
+* belonging to a subnet), the `skipSourceDestCheck` attribute is `true`.
+* This is because the source/destination check is always disabled for VNICs in a VLAN.
+* <p>
+Example: `true`
 * 
     */
   "skipSourceDestCheck"?: boolean;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
    */
-  "subnetId": string;
+  "subnetId"?: string;
   /**
     * The date and time the VNIC was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>

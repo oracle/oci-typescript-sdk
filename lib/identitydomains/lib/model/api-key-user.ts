@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User linked to api key
+ * The user linked to the API key.
  * <p>
  **SCIM++ Properties:**
  *  - caseExact: false
@@ -30,7 +30,7 @@ import common = require("oci-common");
  */
 export interface ApiKeyUser {
   /**
-   * User's id
+   * The user's ID.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -44,7 +44,7 @@ export interface ApiKeyUser {
    */
   "value"?: string;
   /**
-   * User's ocid
+   * The user's OCID.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -58,7 +58,7 @@ export interface ApiKeyUser {
    */
   "ocid"?: string;
   /**
-   * The URI that corresponds to the user linked to this credential
+   * The URI that corresponds to the user linked to this credential.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -72,7 +72,7 @@ export interface ApiKeyUser {
    */
   "ref"?: string;
   /**
-   * User display name
+   * The user's display name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -86,7 +86,7 @@ export interface ApiKeyUser {
    */
   "display"?: string;
   /**
-   * User name
+   * The username.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

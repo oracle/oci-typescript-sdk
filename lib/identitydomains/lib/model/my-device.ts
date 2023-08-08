@@ -186,6 +186,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "displayName"?: string;
   /**
@@ -195,6 +197,8 @@ export interface MyDevice {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: immutable
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: string
@@ -213,6 +217,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "status"?: MyDevice.Status;
   /**
@@ -239,6 +245,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "deviceType"?: string;
   /**
@@ -252,6 +260,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "appVersion"?: string;
   /**
@@ -265,6 +275,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "packageId"?: string;
   /**
@@ -274,6 +286,8 @@ export interface MyDevice {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: dateTime
@@ -290,6 +304,8 @@ export interface MyDevice {
    *  - idcsAllowUpdatesInReadOnlyMode: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: dateTime
@@ -323,6 +339,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "countryCode"?: string;
   /**
@@ -336,6 +354,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "phoneNumber"?: string;
   /**
@@ -350,6 +370,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: boolean
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "isAccRecEnabled"?: boolean;
   /**
@@ -363,6 +385,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "deviceUUID"?: string;
   /**
@@ -376,6 +400,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "basePublicKey"?: string;
   /**
@@ -391,6 +417,8 @@ export interface MyDevice {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "authenticationMethod"?: string;
   /**

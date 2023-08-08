@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * If set, indicates the user's preferred authentication target app. If not set and the user's \\\"syncedFromApp\\\" is set and is enabled for delegated authentication, it is used. Otherwise, the user authenticates locally to OCI IAM.
+ * If set, indicates the user's preferred authentication target app. If not set and the user's \\\"syncedFromApp\\\" is set and is enabled for delegated authentication, it is used. Otherwise, the user authenticates locally to Oracle Identity Cloud Service.
  * <p>
  **Added In:** 17.4.6
  * <p>

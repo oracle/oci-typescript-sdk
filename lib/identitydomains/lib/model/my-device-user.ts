@@ -45,6 +45,8 @@ export interface MyDeviceUser {
    *  - returned: always
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "value": string;
   /**
@@ -60,6 +62,8 @@ export interface MyDeviceUser {
    *  - returned: default
    *  - type: reference
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "ref"?: string;
   /**
@@ -92,6 +96,8 @@ export interface MyDeviceUser {
    *  - returned: always
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "ocid"?: string;
 }

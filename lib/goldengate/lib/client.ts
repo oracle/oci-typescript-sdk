@@ -38,6 +38,7 @@ export class GoldenGateClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "GoldenGate";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -57,6 +58,9 @@ export class GoldenGateClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -69,7 +73,12 @@ export class GoldenGateClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -249,6 +258,91 @@ export class GoldenGateClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Cancels a DeploymentUpgrade, applicable only for DeploymentUpgrade in Waiting state. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CancelDeploymentUpgradeRequest
+   * @return CancelDeploymentUpgradeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/CancelDeploymentUpgrade.ts.html |here} to see how to use CancelDeploymentUpgrade API.
+   */
+  public async cancelDeploymentUpgrade(
+    cancelDeploymentUpgradeRequest: requests.CancelDeploymentUpgradeRequest
+  ): Promise<responses.CancelDeploymentUpgradeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#cancelDeploymentUpgrade.");
+    const operationName = "cancelDeploymentUpgrade";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/CancelDeploymentUpgrade";
+    const pathParams = {
+      "{deploymentUpgradeId}": cancelDeploymentUpgradeRequest.deploymentUpgradeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": cancelDeploymentUpgradeRequest.ifMatch,
+      "opc-request-id": cancelDeploymentUpgradeRequest.opcRequestId,
+      "opc-retry-token": cancelDeploymentUpgradeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      cancelDeploymentUpgradeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades/{deploymentUpgradeId}/actions/cancel",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        cancelDeploymentUpgradeRequest.cancelDeploymentUpgradeDetails,
+        "CancelDeploymentUpgradeDetails",
+        model.CancelDeploymentUpgradeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CancelDeploymentUpgradeResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentUpgrade",
+        bodyModel: model.DeploymentUpgrade,
+        type: "model.DeploymentUpgrade",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -3847,6 +3941,91 @@ export class GoldenGateClient {
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Reschedules a DeploymentUpgrade, applicable only for DeploymentUpgrade in Waiting state. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param RescheduleDeploymentUpgradeRequest
+   * @return RescheduleDeploymentUpgradeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/goldengate/RescheduleDeploymentUpgrade.ts.html |here} to see how to use RescheduleDeploymentUpgrade API.
+   */
+  public async rescheduleDeploymentUpgrade(
+    rescheduleDeploymentUpgradeRequest: requests.RescheduleDeploymentUpgradeRequest
+  ): Promise<responses.RescheduleDeploymentUpgradeResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation GoldenGateClient#rescheduleDeploymentUpgrade.");
+    const operationName = "rescheduleDeploymentUpgrade";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/goldengate/20200407/DeploymentUpgrade/RescheduleDeploymentUpgrade";
+    const pathParams = {
+      "{deploymentUpgradeId}": rescheduleDeploymentUpgradeRequest.deploymentUpgradeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rescheduleDeploymentUpgradeRequest.ifMatch,
+      "opc-request-id": rescheduleDeploymentUpgradeRequest.opcRequestId,
+      "opc-retry-token": rescheduleDeploymentUpgradeRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rescheduleDeploymentUpgradeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/deploymentUpgrades/{deploymentUpgradeId}/actions/reschedule",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        rescheduleDeploymentUpgradeRequest.rescheduleDeploymentUpgradeDetails,
+        "RescheduleDeploymentUpgradeDetails",
+        model.RescheduleDeploymentUpgradeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RescheduleDeploymentUpgradeResponse>{},
+        body: await response.json(),
+        bodyKey: "deploymentUpgrade",
+        bodyModel: model.DeploymentUpgrade,
+        type: "model.DeploymentUpgrade",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

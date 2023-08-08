@@ -205,6 +205,13 @@ Example: `{orcl-cloud: {free-tier-retain: true}}`
    *
    */
   "nextMaintenanceDescription"?: string;
+  "maintenanceConfiguration"?: model.MaintenanceConfiguration;
+  /**
+   * The time until OGG version is supported. After this date has passed OGG version will not be available anymore. The format is defined by
+   * [RFC3339](https://tools.ietf.org/html/rfc3339), such as `2016-08-25T21:10:29.600Z`.
+   *
+   */
+  "timeOggVersionSupportedUntil"?: Date;
 }
 
 export namespace Deployment {
@@ -218,6 +225,10 @@ export namespace Deployment {
           : undefined,
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "maintenanceConfiguration": obj.maintenanceConfiguration
+          ? model.MaintenanceConfiguration.getJsonObj(obj.maintenanceConfiguration)
           : undefined
       }
     };
@@ -236,6 +247,10 @@ export namespace Deployment {
           : undefined,
         "maintenanceWindow": obj.maintenanceWindow
           ? model.MaintenanceWindow.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+
+        "maintenanceConfiguration": obj.maintenanceConfiguration
+          ? model.MaintenanceConfiguration.getDeserializedJsonObj(obj.maintenanceConfiguration)
           : undefined
       }
     };
