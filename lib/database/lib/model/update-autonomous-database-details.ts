@@ -27,6 +27,18 @@ import common = require("oci-common");
  */
 export interface UpdateAutonomousDatabaseDetails {
   /**
+   * Retention period, in days, for long-term backups Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "backupRetentionPeriodInDays"?: number;
+  /**
+   * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value.
+   */
+  "computeModel"?: UpdateAutonomousDatabaseDetails.ComputeModel;
+  /**
+   * Parameter that allows users to select an acceptable maximum data loss limit in seconds, up to which Automatic Failover will be triggered when necessary for a Local Autonomous Data Guard Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "localAdgAutoFailoverMaxDataLossLimit"?: number;
+  /**
     * The number of CPUs to be made available to the Autonomous Database.<br>
 * For Autonomous Databases on Dedicated Exadata Infrastructure:
 * - The CPU type (OCPUs or ECPUs) is determined by the parent Autonomous Exadata VM Cluster's compute model. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details. 
@@ -351,6 +363,11 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
 }
 
 export namespace UpdateAutonomousDatabaseDetails {
+  export enum ComputeModel {
+    Ecpu = "ECPU",
+    Ocpu = "OCPU"
+  }
+
   export enum DbWorkload {
     Oltp = "OLTP",
     Dw = "DW",

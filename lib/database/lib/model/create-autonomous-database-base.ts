@@ -59,6 +59,10 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "cpuCoreCount"?: number;
   /**
+   * Retention period, in days, for long-term backups Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "backupRetentionPeriodInDays"?: number;
+  /**
    * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value.
    */
   "computeModel"?: CreateAutonomousDatabaseBase.ComputeModel;

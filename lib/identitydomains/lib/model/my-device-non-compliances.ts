@@ -30,6 +30,8 @@ export interface MyDeviceNonCompliances {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "name": string;
   /**
@@ -43,6 +45,8 @@ export interface MyDeviceNonCompliances {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "value": string;
   /**
@@ -56,6 +60,8 @@ export interface MyDeviceNonCompliances {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "action": MyDeviceNonCompliances.Action;
 }

@@ -27,4 +27,9 @@ export interface ClientConfiguration {
    * Optional httpOptions used for the client making the request.
    */
   httpOptions?: { [key: string]: any };
+
+  /*
+   * Optional parameter that defines the duplex value for the RequestInit body
+   */
+  bodyDuplexMode?: any;
 }

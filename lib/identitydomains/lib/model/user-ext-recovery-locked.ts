@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A complex attribute that indicates an password recovery is locked (blocking new sessions)
+ * A complex attribute that indicates a password recovery is locked (blocking any new sessions).
  * <p>
  **Added In:** 19.1.4
  * <p>
@@ -31,7 +31,7 @@ import common = require("oci-common");
  */
 export interface UserExtRecoveryLocked {
   /**
-   * Indicates that the rev is locked
+   * Indicates that the recovery is locked.
    * <p>
    **Added In:** 19.1.4
    * <p>
@@ -40,6 +40,7 @@ export interface UserExtRecoveryLocked {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: boolean
@@ -47,7 +48,7 @@ export interface UserExtRecoveryLocked {
    */
   "on"?: boolean;
   /**
-   * The date and time that the current resource was locked
+   * The date and time that the current resource was locked.
    * <p>
    **Added In:** 19.1.4
    * <p>
@@ -55,6 +56,7 @@ export interface UserExtRecoveryLocked {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: dateTime

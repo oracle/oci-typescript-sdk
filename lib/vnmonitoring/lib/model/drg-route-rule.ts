@@ -35,7 +35,7 @@ Potential values:
     */
   "destination": string;
   /**
-    * The type of destination for the rule. the type is required if `direction` = `EGRESS`.
+    * The type of destination for the rule.
 * <p>
 Allowed values:
 * <p>

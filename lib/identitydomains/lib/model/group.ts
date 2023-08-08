@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Group resource.
+ * The Group resource.
  */
 export interface Group {
   /**
@@ -176,7 +176,7 @@ export interface Group {
    */
   "externalId"?: string;
   /**
-   * Group display name
+   * The Group display name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -192,7 +192,7 @@ export interface Group {
    */
   "displayName": string;
   /**
-   * A human readable name for Group as defined by the Service Consumer
+   * A human readable name for the group as defined by the Service Consumer.
    * <p>
    **Added In:** 2011192329
    * <p>
@@ -208,7 +208,7 @@ export interface Group {
    */
   "nonUniqueDisplayName"?: string;
   /**
-   * Group members - when requesting members attribute, a max of 10,000 members will be returned in a single request. It is recommended to use startIndex and count to return members in pages instead of in a single response, eg : #attributes=members[startIndex=1%26count=10]
+   * The group members. <b>Important:</b> When requesting group members, a maximum of 10,000 members can be returned in a single request. If the response contains more than 10,000 members, the request will fail. Use 'startIndex' and 'count' to return members in pages instead of in a single response, for example: #attributes=members[startIndex=1%26count=10]. This REST API is SCIM compliant.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

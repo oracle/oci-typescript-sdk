@@ -568,21 +568,6 @@ export interface IdentityProvider {
    */
   "jitUserProvGroupMappingMode"?: IdentityProvider.JitUserProvGroupMappingMode;
   /**
-   * The list of mappings between the Identity Domain Group and the IDP group.
-   * <p>
-   **Added In:** 2205120021
-   * <p>
-   **SCIM++ Properties:**
-   *  - idcsCompositeKey: [idpGroup]
-   *  - multiValued: true
-   *  - mutability: readWrite
-   *  - required: false
-   *  - returned: default
-   *  - type: complex
-   *  - uniqueness: none
-   */
-  "jitUserProvGroupMappings"?: Array<model.IdentityProviderJitUserProvGroupMappings>;
-  /**
    * Name of the assertion attribute containing the users groups
    * <p>
    **Added In:** 20.1.3
@@ -762,6 +747,37 @@ export interface IdentityProvider {
    *  - uniqueness: none
    */
   "jitUserProvIgnoreErrorOnAbsentGroups"?: boolean;
+  /**
+   * Records the notification timestamp for the IdP whose signing certificate is about to expire
+   * <p>
+   **Added In:** 2302092332
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsSearchable: false
+   *  - multiValued: false
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: default
+   *  - type: dateTime
+   *  - uniqueness: none
+   */
+  "lastNotificationSentTime"?: string;
+  /**
+   * The list of mappings between the Identity Domain Group and the IDP group.
+   * <p>
+   **Added In:** 2205120021
+   * <p>
+   **SCIM++ Properties:**
+   *  - idcsCompositeKey: [idpGroup]
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: complex
+   *  - uniqueness: none
+   */
+  "jitUserProvGroupMappings"?: Array<model.IdentityProviderJitUserProvGroupMappings>;
   "jitUserProvAttributes"?: model.IdentityProviderJitUserProvAttributes;
   /**
    * Refers to every group of which a JIT-provisioned User should be a member.  Just-in-Time user-provisioning applies this static list when jitUserProvGroupStaticListEnabled:true.
@@ -893,7 +909,6 @@ export namespace IdentityProvider {
               return model.IdentityProviderJitUserProvGroupMappings.getJsonObj(item);
             })
           : undefined,
-
         "jitUserProvAttributes": obj.jitUserProvAttributes
           ? model.IdentityProviderJitUserProvAttributes.getJsonObj(obj.jitUserProvAttributes)
           : undefined,
@@ -948,7 +963,6 @@ export namespace IdentityProvider {
               return model.IdentityProviderJitUserProvGroupMappings.getDeserializedJsonObj(item);
             })
           : undefined,
-
         "jitUserProvAttributes": obj.jitUserProvAttributes
           ? model.IdentityProviderJitUserProvAttributes.getDeserializedJsonObj(
               obj.jitUserProvAttributes

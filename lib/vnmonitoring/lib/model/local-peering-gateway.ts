@@ -67,15 +67,24 @@ Example: `false`
    */
   "lifecycleState": LocalPeeringGateway.LifecycleState;
   /**
-    * The range of IP addresses available on the VCN at the other
-* end of the peering from this LPG. The value is `null` if the LPG is not peered.
-* You can use this as the destination CIDR for a route rule to route a subnet's
-* traffic to this LPG.
+    * The smallest aggregate CIDR that contains all the CIDR routes advertised by the VCN
+* at the other end of the peering from this LPG. See `peerAdvertisedCidrDetails` for
+* the individual CIDRs. The value is `null` if the LPG is not peered.
 * <p>
-Example: `192.168.0.0/16`
+Example: `192.168.0.0/16`, or if aggregated with `172.16.0.0/24` then `128.0.0.0/1`
 * 
     */
   "peerAdvertisedCidr"?: string;
+  /**
+    * The specific ranges of IP addresses available on or via the VCN at the other
+* end of the peering from this LPG. The value is `null` if the LPG is not peered.
+* You can use these as destination CIDRs for route rules to route a subnet's
+* traffic to this LPG.
+* <p>
+Example: [`192.168.0.0/16`, `172.16.0.0/24`]
+* 
+    */
+  "peerAdvertisedCidrDetails"?: Array<string>;
   /**
    * Whether the LPG is peered with another LPG. `NEW` means the LPG has not yet been
    * peered. `PENDING` means the peering is being established. `REVOKED` means the
@@ -87,6 +96,18 @@ Example: `192.168.0.0/16`
    * Additional information regarding the peering status, if applicable.
    */
   "peeringStatusDetails"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the peered LPG.
+   */
+  "peerId": string;
+  /**
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the LPG is using.
+* <p>
+For information about why you would associate a route table with an LPG, see
+* [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm).
+* 
+    */
+  "routeTableId"?: string;
   /**
     * The date and time the LPG was created, in the format defined by [RFC3339](https://tools.ietf.org/html/rfc3339).
 * <p>

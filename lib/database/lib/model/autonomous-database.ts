@@ -111,6 +111,10 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "cpuCoreCount"?: number;
   /**
+   * Parameter that allows users to select an acceptable maximum data loss limit in seconds, up to which Automatic Failover will be triggered when necessary for a Local Autonomous Data Guard Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "localAdgAutoFailoverMaxDataLossLimit"?: number;
+  /**
    * The compute model of the Autonomous Database. This is required if using the `computeCount` parameter. If using `cpuCoreCount` then it is an error to specify `computeModel` to a non-null value.
    */
   "computeModel"?: AutonomousDatabase.ComputeModel;

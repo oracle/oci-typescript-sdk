@@ -34,7 +34,7 @@ export interface MeGroups {
    */
   "value": string;
   /**
-   * Ocid of the User's group.
+   * The OCID of the User's group.
    * <p>
    **Added In:** 2102181953
    * <p>
@@ -119,7 +119,7 @@ export interface MeGroups {
    */
   "type"?: MeGroups.Type;
   /**
-   * Membership Ocid
+   * The membership OCID.
    * <p>
    **Added In:** 2103141444
    * <p>

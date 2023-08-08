@@ -80,7 +80,7 @@ export interface UserExtSupportAccounts {
    */
   "userId"?: string;
   /**
-   * Ocid of the User's Support Account.
+   * The OCID of the user's support account.
    * <p>
    **Added In:** 2103141444
    * <p>

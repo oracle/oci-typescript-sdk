@@ -40,6 +40,8 @@ export interface MyDevicePushNotificationTarget {
    *  - returned: always
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "value": string;
   /**
@@ -53,6 +55,8 @@ export interface MyDevicePushNotificationTarget {
    *  - returned: default
    *  - type: reference
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "ref"?: string;
 }

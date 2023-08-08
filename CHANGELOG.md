@@ -3,6 +3,26 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.68.0 - 2023-08-08
+### Added
+- Support for backup retention on autonomous database create operations in the Database service
+- Support for exclude tables for replication in the Database Migration service
+- Support for adding and updating auto failover maximum data loss limits for local autonomous data guards in the Database service
+- Support for limiting networking diagram ingestion in the Networking Monitoring service
+- Support for new operations for deployment upgrades in the GoldenGate service
+- Support for getting model type information and base model versions while creating language custom models in the AI Language service
+- Support for support field in class metric in the AI Language service
+- Support for Compute Cloud at Customer resource type in the Operator Access Control service
+- Support for managing account management info, account recovery settings, app roles, apps, app status changers, grants, identity propagation trusts and settings, request-able groups, requests, security questions, OAuth tokens, and user attribute settings in the Identity Domains service
+
+### Breaking Changes
+- Support for retries by default on operations of the Operator Access Control service
+- The property `isInternetAccessAllowed` has been removed from the `CreateIpv6Details`, `Ipv6` and `UpdateIpv6Details` models in the Networking Monitoring service
+- The property `publicIpAddress` has been removed from the `Ipv6` model in the Networking Monitoring service
+- The property `ipv6CidrBlock` has been removed from the `Vcn` and `CreateVcnDetails` models in the Networking Monitoring service
+- The property `ipv6PublicCidrBlock` has been removed from the `Vcn` and `Subnet` models in the Networking Monitoring service
+
+
 ## 2.67.0 - 2023-08-01
 ### Added
 - Support for the Exadata Fleet Update service

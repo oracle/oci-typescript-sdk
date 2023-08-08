@@ -60,6 +60,8 @@ import * as GetEndpointResponse from "./get-endpoint-response";
 export import GetEndpointResponse = GetEndpointResponse.GetEndpointResponse;
 import * as GetModelResponse from "./get-model-response";
 export import GetModelResponse = GetModelResponse.GetModelResponse;
+import * as GetModelTypeResponse from "./get-model-type-response";
+export import GetModelTypeResponse = GetModelTypeResponse.GetModelTypeResponse;
 import * as GetProjectResponse from "./get-project-response";
 export import GetProjectResponse = GetProjectResponse.GetProjectResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";

@@ -49,6 +49,10 @@ export interface AccessRequestSummary {
    */
   "resourceName"?: string;
   /**
+   * The subresources requested for approval.
+   */
+  "subResourceList"?: Array<string>;
+  /**
    * resourceType for which the AccessRequest is applicable
    */
   "resourceType"?: model.ResourceTypes;

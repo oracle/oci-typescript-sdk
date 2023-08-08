@@ -37,6 +37,7 @@ export interface MyTrustedUserAgentUser {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: true
    *  - returned: default
    *  - type: string
@@ -50,6 +51,7 @@ export interface MyTrustedUserAgentUser {
    *  - caseExact: false
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: true
    *  - returned: default
    *  - type: reference
@@ -79,6 +81,7 @@ export interface MyTrustedUserAgentUser {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: always
    *  - type: string

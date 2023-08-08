@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User's customer secret key
+ * The user's customer secret key.
  */
 export interface CustomerSecretKey {
   /**
@@ -184,7 +184,7 @@ export interface CustomerSecretKey {
    */
   "description"?: string;
   /**
-   * User credential status
+   * The user's credential status.
    * <p>
    **Added In:** 2109090424
    * <p>
@@ -200,7 +200,7 @@ export interface CustomerSecretKey {
    */
   "status"?: CustomerSecretKey.Status;
   /**
-   * User credential expires on
+   * When the user's credential expire.
    * <p>
    **Added In:** 2109090424
    * <p>
@@ -216,7 +216,7 @@ export interface CustomerSecretKey {
    */
   "expiresOn"?: string;
   /**
-   * Access key
+   * The access key.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true

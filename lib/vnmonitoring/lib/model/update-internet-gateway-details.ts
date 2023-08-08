@@ -39,6 +39,10 @@ export interface UpdateInternetGatewayDetails {
    * Whether the gateway is enabled.
    */
   "isEnabled"?: boolean;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the Internet Gateway is using.
+   */
+  "routeTableId"?: string;
 }
 
 export namespace UpdateInternetGatewayDetails {

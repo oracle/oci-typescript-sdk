@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of kerberos realm users for an OCI IAM User
+ * A list of kerberos realm users for an Oracle Identity Cloud Service User
  * <p>
  **SCIM++ Properties:**
  *  - idcsCompositeKey: [value]
@@ -29,7 +29,7 @@ import common = require("oci-common");
  */
 export interface UserExtRealmUsers {
   /**
-   * id of the KerberosRealmUser associated with the OCI IAM User.
+   * id of the KerberosRealmUser associated with the Oracle Identity Cloud Service User.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -43,7 +43,7 @@ export interface UserExtRealmUsers {
    */
   "value": string;
   /**
-   * The URI of the corresponding KerberosRealmUser resource associated with the OCI IAM User.
+   * The URI of the corresponding KerberosRealmUser resource associated with the Oracle Identity Cloud Service User.
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: false
@@ -56,7 +56,7 @@ export interface UserExtRealmUsers {
    */
   "ref"?: string;
   /**
-   * Principal Name of the KerberosRealmUser associated with the OCI IAM User.
+   * Principal Name of the KerberosRealmUser associated with the Oracle Identity Cloud Service User.
    * <p>
    **SCIM++ Properties:**
    *  - idcsPii: true
@@ -70,7 +70,7 @@ export interface UserExtRealmUsers {
    */
   "principalName"?: string;
   /**
-   * Realm Name for the KerberosRealmUser associated with the OCI IAM User.
+   * Realm Name for the KerberosRealmUser associated with the Oracle Identity Cloud Service User.
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: true

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * OCI IAM User
+ * Oracle Identity Cloud Service User
  */
 export interface ExtensionUserUser {
   /**
@@ -29,6 +29,7 @@ export interface ExtensionUserUser {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: boolean
@@ -80,6 +81,22 @@ export interface ExtensionUserUser {
    */
   "provider"?: ExtensionUserUser.Provider;
   /**
+   * User's preferred landing page following login, logout and reset password.
+   * <p>
+   **Added In:** 2302092332
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsSearchable: false
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "preferredUiLandingPage"?: ExtensionUserUser.PreferredUiLandingPage;
+  /**
    * User creation mechanism
    * <p>
    **SCIM++ Properties:**
@@ -88,12 +105,28 @@ export interface ExtensionUserUser {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: immutable
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: request
    *  - type: string
    *  - uniqueness: none
    */
   "creationMechanism"?: ExtensionUserUser.CreationMechanism;
+  /**
+   * Specifies date time when a User's group membership was last modified.
+   * <p>
+   **Added In:** 2304270343
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - multiValued: false
+   *  - mutability: readOnly
+   *  - required: false
+   *  - returned: request
+   *  - type: dateTime
+   *  - uniqueness: none
+   */
+  "groupMembershipLastModified"?: string;
   /**
    * A Boolean value indicating whether or not to hide the getting started page
    * <p>
@@ -117,6 +150,7 @@ export interface ExtensionUserUser {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: immutable
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: never
    *  - type: boolean
@@ -310,6 +344,17 @@ export namespace ExtensionUserUser {
     Google = "google",
     Idcs = "IDCS",
     Twitter = "twitter",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum PreferredUiLandingPage {
+    MyApps = "MyApps",
+    MyProfile = "MyProfile",
+    OciConsole = "OciConsole",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

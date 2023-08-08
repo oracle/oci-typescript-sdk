@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User preferred device
+ * The user's preferred device.
  * <p>
  **Added In:** 18.3.6
  * <p>
@@ -32,7 +32,7 @@ import common = require("oci-common");
  */
 export interface UserExtPreferredDevice {
   /**
-   * The identifier of the User's preferred device
+   * The user's preferred device identifier.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -48,7 +48,7 @@ export interface UserExtPreferredDevice {
    */
   "value": string;
   /**
-   * The URI that corresponds to the device resource
+   * The URI that corresponds to the device resource.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -63,7 +63,7 @@ export interface UserExtPreferredDevice {
    */
   "ref"?: string;
   /**
-   * Device display name
+   * The device display name.
    * <p>
    **Added In:** 18.3.6
    * <p>

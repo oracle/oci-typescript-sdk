@@ -73,6 +73,13 @@ Example: `true`
    */
   "lifecycleState": ServiceGateway.LifecycleState;
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table the service gateway is using.
+   * For information about why you would associate a route table with a service gateway, see
+   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm).
+   *
+   */
+  "routeTableId"?: string;
+  /**
    * List of the {@link Service} objects enabled for this service gateway.
    * The list can be empty. You can enable a particular `Service` by using
    * {@link #attachServiceId(AttachServiceIdRequest) attachServiceId} or

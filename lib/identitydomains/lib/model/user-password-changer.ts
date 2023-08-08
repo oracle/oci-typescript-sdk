@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Schema to handle userpassword change by administrator.
+ * The schema used to handle a user password change by an administrator.
  */
 export interface UserPasswordChanger {
   /**
@@ -174,7 +174,7 @@ export interface UserPasswordChanger {
    */
   "externalId"?: string;
   /**
-   * Password attribute. Max length for password is controlled via Password Policy.
+   * The password attribute. The maximum length for the password is set in the password policy.
    * <p>
    **SCIM++ Properties:**
    *  - type: string
@@ -187,7 +187,7 @@ export interface UserPasswordChanger {
    */
   "password": string;
   /**
-   * A Boolean value indicating whether or not to send email notification after password is changed.
+   * Indicates whether to send an email notification after a password is changed.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -201,7 +201,7 @@ export interface UserPasswordChanger {
    */
   "bypassNotification"?: boolean;
   /**
-   * Specifies the EmailTemplate to be used when sending notification to the user this request is for. If specified, it overrides the default EmailTemplate for this event.
+   * Specifies the EmailTemplate to be used when sending a notification to the user. If specified, it overrides the default EmailTemplate.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

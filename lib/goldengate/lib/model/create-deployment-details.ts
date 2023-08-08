@@ -99,6 +99,7 @@ Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
   "deploymentType": model.DeploymentType;
   "oggData"?: model.CreateOggDeploymentDetails;
   "maintenanceWindow"?: model.CreateMaintenanceWindowDetails;
+  "maintenanceConfiguration"?: model.CreateMaintenanceConfigurationDetails;
 }
 
 export namespace CreateDeploymentDetails {
@@ -111,6 +112,9 @@ export namespace CreateDeploymentDetails {
           : undefined,
         "maintenanceWindow": obj.maintenanceWindow
           ? model.CreateMaintenanceWindowDetails.getJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceConfiguration": obj.maintenanceConfiguration
+          ? model.CreateMaintenanceConfigurationDetails.getJsonObj(obj.maintenanceConfiguration)
           : undefined
       }
     };
@@ -126,6 +130,11 @@ export namespace CreateDeploymentDetails {
           : undefined,
         "maintenanceWindow": obj.maintenanceWindow
           ? model.CreateMaintenanceWindowDetails.getDeserializedJsonObj(obj.maintenanceWindow)
+          : undefined,
+        "maintenanceConfiguration": obj.maintenanceConfiguration
+          ? model.CreateMaintenanceConfigurationDetails.getDeserializedJsonObj(
+              obj.maintenanceConfiguration
+            )
           : undefined
       }
     };

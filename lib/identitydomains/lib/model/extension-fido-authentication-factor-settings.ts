@@ -142,7 +142,7 @@ export interface ExtensionFidoAuthenticationFactorSettings {
    */
   "excludeCredentials": boolean;
   /**
-   * Number of domain levels IDCS should use for origin comparision
+   * Number of domain levels Oracle Identity Cloud Service should use for origin comparision
    * <p>
    **Added In:** 2109020413
    * <p>

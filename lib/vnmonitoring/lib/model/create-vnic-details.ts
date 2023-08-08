@@ -45,9 +45,21 @@ export interface CreateVnicDetails {
 * [Public IP Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingpublicIPs.htm).
 * <p>
 Example: `false`
+* <p>
+If you specify a `vlanId`, then `assignPublicIp` must be set to false. See
+* {@link Vlan}.
 * 
     */
   "assignPublicIp"?: boolean;
+  /**
+    * Whether the VNIC should be assigned a DNS record. If set to false, there will be no DNS record
+* registration for the VNIC. If set to true, the DNS record will be registered. The default
+* value is true.
+* <p>
+If you specify a `hostnameLabel`, then `assignPrivateDnsRecord` must be set to true.
+* 
+    */
+  "assignPrivateDnsRecord"?: boolean;
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
    * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
@@ -69,7 +81,7 @@ Example: `false`
   /**
     * The hostname for the VNIC's primary private IP. Used for DNS. The value is the hostname
 * portion of the primary private IP's fully qualified domain name (FQDN)
-* (for example, `bminstance-1` in FQDN `bminstance-1.subnet123.vcn1.oraclevcn.com`).
+* (for example, `bminstance1` in FQDN `bminstance1.subnet123.vcn1.oraclevcn.com`).
 * Must be unique across all VNICs in the subnet and comply with
 * [RFC 952](https://tools.ietf.org/html/rfc952) and
 * [RFC 1123](https://tools.ietf.org/html/rfc1123).
@@ -86,16 +98,24 @@ When launching an instance, use this `hostnameLabel` instead
 * {@link #launchInstanceDetails(LaunchInstanceDetailsRequest) launchInstanceDetails}.
 * If you provide both, the values must match.
 * <p>
-Example: `bminstance-1`
+Example: `bminstance1`
+* <p>
+If you specify a `vlanId`, the `hostnameLabel` cannot be specified. VNICs on a VLAN
+* can not be assigned a hostname. See {@link Vlan}.
 * 
     */
   "hostnameLabel"?: string;
   /**
-   * A list of the OCIDs of the network security groups (NSGs) to add the VNIC to. For more
-   * information about NSGs, see
-   * {@link NetworkSecurityGroup}.
-   *
-   */
+    * A list of the OCIDs of the network security groups (NSGs) to add the VNIC to. For more
+* information about NSGs, see
+* {@link NetworkSecurityGroup}.
+* <p>
+If a `vlanId` is specified, the `nsgIds` cannot be specified. The `vlanId`
+* indicates that the VNIC will belong to a VLAN instead of a subnet. With VLANs,
+* all VNICs in the VLAN belong to the NSGs that are associated with the VLAN.
+* See {@link Vlan}.
+* 
+    */
   "nsgIds"?: Array<string>;
   /**
     * A private IP address of your choice to assign to the VNIC. Must be an
@@ -108,7 +128,10 @@ Example: `bminstance-1`
 * {@link #getPrivateIp(GetPrivateIpRequest) getPrivateIp}.
 * <p>
 
-* Example: `10.0.3.3`
+* If you specify a `vlanId`, the `privateIp` cannot be specified.
+* See {@link Vlan}.
+* <p>
+Example: `10.0.3.3`
 * 
     */
   "privateIp"?: string;
@@ -119,18 +142,36 @@ Example: `bminstance-1`
 * [Using a Private IP as a Route Target](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/managingroutetables.htm#privateip).
 * <p>
 
-* Example: `true`
+* If you specify a `vlanId`, the `skipSourceDestCheck` cannot be specified because the
+* source/destination check is always disabled for VNICs in a VLAN. See
+* {@link Vlan}.
+* <p>
+Example: `true`
 * 
     */
   "skipSourceDestCheck"?: boolean;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet to create the VNIC in. When launching an instance,
-   * use this `subnetId` instead of the deprecated `subnetId` in
-   * {@link #launchInstanceDetails(LaunchInstanceDetailsRequest) launchInstanceDetails}.
-   * At least one of them is required; if you provide both, the values must match.
-   *
-   */
-  "subnetId": string;
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet to create the VNIC in. When launching an instance,
+* use this `subnetId` instead of the deprecated `subnetId` in
+* {@link #launchInstanceDetails(LaunchInstanceDetailsRequest) launchInstanceDetails}.
+* At least one of them is required; if you provide both, the values must match.
+* <p>
+If you are an Oracle Cloud VMware Solution customer and creating a secondary
+* VNIC in a VLAN instead of a subnet, provide a `vlanId` instead of a `subnetId`.
+* If you provide both a `vlanId` and `subnetId`, the request fails.
+* 
+    */
+  "subnetId"?: string;
+  /**
+    * Provide this attribute only if you are an Oracle Cloud VMware Solution
+* customer and creating a secondary VNIC in a VLAN. The value is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the VLAN.
+* See {@link Vlan}.
+* <p>
+Provide a `vlanId` instead of a `subnetId`. If you provide both a
+* `vlanId` and `subnetId`, the request fails.
+* 
+    */
+  "vlanId"?: string;
 }
 
 export namespace CreateVnicDetails {

@@ -32,7 +32,7 @@ import common = require("oci-common");
  */
 export interface UserExtCustomerSecretKeys {
   /**
-   * The identifier of the User's customer secret key.
+   * The user's customer secret key identifier.
    * <p>
    **Added In:** 2102181953
    * <p>
@@ -48,7 +48,7 @@ export interface UserExtCustomerSecretKeys {
    */
   "value"?: string;
   /**
-   * Ocid of the User's customer secret key.
+   * The user's customer secret key OCID.
    * <p>
    **Added In:** 2102181953
    * <p>
@@ -64,7 +64,7 @@ export interface UserExtCustomerSecretKeys {
    */
   "ocid"?: string;
   /**
-   * The URI of the corresponding CustomerSecretKey resource to which the user belongs
+   * The URI of the corresponding CustomerSecretKey resource to which the user belongs.
    * <p>
    **Added In:** 2102181953
    * <p>

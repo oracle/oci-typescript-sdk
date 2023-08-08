@@ -43,6 +43,8 @@ export interface MyDeviceThirdPartyFactor {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "thirdPartyVendorName": string;
   /**
@@ -58,6 +60,8 @@ export interface MyDeviceThirdPartyFactor {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "thirdPartyFactorType"?: string;
   /**
@@ -73,6 +77,8 @@ export interface MyDeviceThirdPartyFactor {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "value": string;
   /**
@@ -88,6 +94,8 @@ export interface MyDeviceThirdPartyFactor {
    *  - returned: default
    *  - type: reference
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "ref"?: string;
 }

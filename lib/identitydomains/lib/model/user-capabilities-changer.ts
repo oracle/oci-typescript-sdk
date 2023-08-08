@@ -162,7 +162,7 @@ export interface UserCapabilitiesChanger {
    */
   "tenancyOcid"?: string;
   /**
-   * Indicates weather a user can use api keys
+   * Indicates whether a user can use API keys.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -176,7 +176,7 @@ export interface UserCapabilitiesChanger {
    */
   "canUseApiKeys"?: boolean;
   /**
-   * Indicates weather a user can use auth tokens
+   * Indicates whether a user can use Auth tokens.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -190,7 +190,7 @@ export interface UserCapabilitiesChanger {
    */
   "canUseAuthTokens"?: boolean;
   /**
-   * Indicates weather a user can use console password
+   * Indicates whether a user can use Console passwords.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -204,7 +204,7 @@ export interface UserCapabilitiesChanger {
    */
   "canUseConsolePassword"?: boolean;
   /**
-   * Indicates weather a user can use customer secret keys
+   * Indicates whether a user can use customer secret keys.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -218,7 +218,7 @@ export interface UserCapabilitiesChanger {
    */
   "canUseCustomerSecretKeys"?: boolean;
   /**
-   * Indicates weather a user can use oauth2 client credentials
+   * Indicates whether a user can use OAuth2 client credentials.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -232,7 +232,7 @@ export interface UserCapabilitiesChanger {
    */
   "canUseOAuth2ClientCredentials"?: boolean;
   /**
-   * Indicates weather a user can use smtp credentials
+   * Indicates whether a user can use SMTP credentials.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -246,7 +246,7 @@ export interface UserCapabilitiesChanger {
    */
   "canUseSmtpCredentials"?: boolean;
   /**
-   * Indicates weather a user can use db credentials
+   * Indicates whether a user can use database credentials.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -259,6 +259,21 @@ export interface UserCapabilitiesChanger {
    *  - uniqueness: none
    */
   "canUseDbCredentials"?: boolean;
+  /**
+   * Indicates whether a user can use the Console.
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsSearchable: true
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - idcsDefaultValue: false
+   *  - required: false
+   *  - returned: default
+   *  - type: boolean
+   *  - uniqueness: none
+   */
+  "canUseConsole"?: boolean;
   "urnIetfParamsScimSchemasOracleIdcsExtensionSelfChangeUser"?: model.ExtensionSelfChangeUser;
 }
 

@@ -60,6 +60,8 @@ import * as GetEndpointRequest from "./get-endpoint-request";
 export import GetEndpointRequest = GetEndpointRequest.GetEndpointRequest;
 import * as GetModelRequest from "./get-model-request";
 export import GetModelRequest = GetModelRequest.GetModelRequest;
+import * as GetModelTypeRequest from "./get-model-type-request";
+export import GetModelTypeRequest = GetModelTypeRequest.GetModelTypeRequest;
 import * as GetProjectRequest from "./get-project-request";
 export import GetProjectRequest = GetProjectRequest.GetProjectRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";

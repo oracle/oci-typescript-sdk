@@ -37,7 +37,19 @@ export interface ModelSummary {
    * A short description of the Model.
    */
   "description"?: string;
-  "modelDetails": model.NamedEntityRecognitionModelDetails | model.TextClassificationModelDetails;
+  "modelDetails":
+    | model.PreTrainedKeyPhraseExtractionModelDetails
+    | model.PreTrainedHealthNluModelDetails
+    | model.PreTrainedUniversalModel
+    | model.NamedEntityRecognitionModelDetails
+    | model.PreTrainedLanguageDetectionModelDetails
+    | model.PreTrainedNamedEntityRecognitionModelDetails
+    | model.PreTrainedSentimentAnalysisModelDetails
+    | model.PreTrainedPhiModelDetails
+    | model.PreTrainedTextClassificationModelDetails
+    | model.TextClassificationModelDetails
+    | model.PreTrainedSummarization
+    | model.PreTrainedPiiModelDetails;
   /**
    * The time the the Model was created. An RFC3339 formatted datetime string.
    */
@@ -55,7 +67,8 @@ export interface ModelSummary {
    */
   "projectId": string;
   /**
-   * Identifying the model by model id is difficult. This param provides ease of use for end customer.
+   * For pre trained models this will identify model type version used for model creation
+   * For custom identifying the model by model id is difficult. This param provides ease of use for end customer.
    * <<service>>::<<service-name>>-<<model-type-version>>::<<custom model on which this training has to be done>>
    * ex: ai-lang::NER_V1::CUSTOM-V0
    *

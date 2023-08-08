@@ -32,7 +32,7 @@ import common = require("oci-common");
  */
 export interface UserExtIdcsAppRolesLimitedToGroups {
   /**
-   * The id of the OCI IAM AppRole grant limited to one or more Groups.
+   * The id of the Oracle Identity Cloud Service AppRole grant limited to one or more Groups.
    * <p>
    **Added In:** 19.2.1
    * <p>

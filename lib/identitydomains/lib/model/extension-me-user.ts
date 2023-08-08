@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * OCI IAM self service schema extension
+ * Oracle Identity Cloud Service self service schema extension
  */
 export interface ExtensionMeUser {
   /**

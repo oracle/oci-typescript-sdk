@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of oauth2 client credentials corresponding to user.
+ * A list of OAuth2 client credentials corresponding to a user.
  * <p>
  **Added In:** 2012271618
  * <p>
@@ -32,7 +32,7 @@ import common = require("oci-common");
  */
 export interface UserExtOAuth2ClientCredentials {
   /**
-   * The identifier of the User's oAuth2 client credential.
+   * The user's OAuth2 client credential identifier.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -48,7 +48,7 @@ export interface UserExtOAuth2ClientCredentials {
    */
   "value"?: string;
   /**
-   * Ocid of the User's oAuth2 client credential.
+   * The user's OAuth2 client credential OCID.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -64,7 +64,7 @@ export interface UserExtOAuth2ClientCredentials {
    */
   "ocid"?: string;
   /**
-   * The URI of the corresponding OAuth2ClientCredential resource to which the user belongs
+   * The URI of the corresponding OAuth2ClientCredential resource to which the user belongs.
    * <p>
    **Added In:** 2012271618
    * <p>

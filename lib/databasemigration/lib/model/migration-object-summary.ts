@@ -40,6 +40,11 @@ export interface MigrationObjectSummary {
    *
    */
   "objectStatus"?: model.ObjectStatus;
+  /**
+   * Whether an excluded table should be omitted from replication. Only valid for database objects that have are of type TABLE and object status EXCLUDE.
+   *
+   */
+  "isOmitExcludedTableFromReplication"?: boolean;
 }
 
 export namespace MigrationObjectSummary {

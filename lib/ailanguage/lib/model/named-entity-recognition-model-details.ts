@@ -21,6 +21,11 @@ import common = require("oci-common");
  * Possible NER model information
  */
 export interface NamedEntityRecognitionModelDetails extends model.ModelDetails {
+  /**
+   * Optional if nothing specified latest base model will be used for training. Supported versions can be found at /modelTypes/{modelType}
+   */
+  "version"?: string;
+
   "modelType": string;
 }
 
