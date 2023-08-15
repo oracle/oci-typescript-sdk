@@ -61,7 +61,7 @@ Example: `2001:DB8::`
    */
   "vnicId": string;
   /**
-   * The IPv6 CIDR allocated to the subnet. This is required if more than one IPv6 CIDR exists on the subnet.
+   * The IPv6 prefix allocated to the subnet. This is required if more than one IPv6 prefix exists on the subnet.
    *
    */
   "ipv6SubnetCidr"?: string;

@@ -23,6 +23,9 @@ import common = require("oci-common");
 
 /**
  * Defines the representation of a virtual network topology for a VCN.
+ * See [Network Visualizer Documentation](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/network_visualizer.htm) for more information, including
+ * conventions and pictures of symbols.
+ *
  */
 export interface VcnTopology extends model.Topology {
   /**

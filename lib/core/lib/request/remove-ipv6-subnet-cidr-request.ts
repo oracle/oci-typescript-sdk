@@ -23,7 +23,7 @@ export interface RemoveIpv6SubnetCidrRequest extends common.BaseRequest {
    */
   "subnetId": string;
   /**
-   * Details object for removing an IPv6 SUBNET CIDR.
+   * Details object for removing an IPv6 SUBNET prefix.
    */
   "removeSubnetIpv6CidrDetails": model.RemoveSubnetIpv6CidrDetails;
   /**

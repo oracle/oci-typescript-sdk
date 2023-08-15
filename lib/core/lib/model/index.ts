@@ -204,6 +204,8 @@ import * as ChangeVtapCompartmentDetails from "./change-vtap-compartment-details
 export import ChangeVtapCompartmentDetails = ChangeVtapCompartmentDetails.ChangeVtapCompartmentDetails;
 import * as ClusterConfigDetails from "./cluster-config-details";
 export import ClusterConfigDetails = ClusterConfigDetails.ClusterConfigDetails;
+import * as ClusterConfigurationDetails from "./cluster-configuration-details";
+export import ClusterConfigurationDetails = ClusterConfigurationDetails.ClusterConfigurationDetails;
 import * as ClusterNetwork from "./cluster-network";
 export import ClusterNetwork = ClusterNetwork.ClusterNetwork;
 import * as ClusterNetworkPlacementConfigurationDetails from "./cluster-network-placement-configuration-details";

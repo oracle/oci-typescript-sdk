@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The empty directory of container.
+ * The empty directory volume of a container instance. You can create up to 64 EmptyDir per container instance.
  */
 export interface ContainerEmptyDirVolume extends model.ContainerVolume {
   /**

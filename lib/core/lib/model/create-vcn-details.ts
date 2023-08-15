@@ -43,10 +43,10 @@ export interface CreateVcnDetails {
    */
   "compartmentId": string;
   /**
-   * The list of one or more ULA or Private IPv6 CIDR blocks for the vcn that meets the following criteria:
+   * The list of one or more ULA or Private IPv6 prefixes for the VCN that meets the following criteria:
    * - The CIDR blocks must be valid.
-   * - Multiple CIDR blocks must not overlap each other or the on-premises network CIDR block.
-   * - The number of CIDR blocks must not exceed the limit of IPv6 CIDR blocks allowed to a vcn.
+   * - Multiple CIDR blocks must not overlap each other or the on-premises network prefix.
+   * - The number of CIDR blocks must not exceed the limit of IPv6 prefixes allowed to a VCN.
    * <p>
    **Important:** Do *not* specify a value for `ipv6CidrBlock`. Use this parameter instead.
    *
@@ -59,7 +59,7 @@ export interface CreateVcnDetails {
    */
   "isOracleGuaAllocationEnabled"?: boolean;
   /**
-   * The list of BYOIPv6 OCIDs and BYOIPv6 CIDR blocks required to create a VCN that uses BYOIPv6 ranges.
+   * The list of BYOIPv6 OCIDs and BYOIPv6 prefixes required to create a VCN that uses BYOIPv6 address ranges.
    *
    */
   "byoipv6CidrDetails"?: Array<model.Byoipv6CidrDetails>;

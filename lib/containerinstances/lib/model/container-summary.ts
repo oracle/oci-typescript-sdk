@@ -96,6 +96,7 @@ This method utilizes resource principal version 2.2. For information on how to u
 * 
     */
   "isResourcePrincipalDisabled"?: boolean;
+  "securityContext"?: model.LinuxSecurityContext;
 }
 
 export namespace ContainerSummary {
@@ -105,6 +106,10 @@ export namespace ContainerSummary {
       ...{
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -117,6 +122,10 @@ export namespace ContainerSummary {
       ...{
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getDeserializedJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getDeserializedJsonObj(obj.securityContext)
           : undefined
       }
     };

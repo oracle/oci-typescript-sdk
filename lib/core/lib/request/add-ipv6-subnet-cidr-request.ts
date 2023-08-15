@@ -23,7 +23,7 @@ export interface AddIpv6SubnetCidrRequest extends common.BaseRequest {
    */
   "subnetId": string;
   /**
-   * Details object for adding an IPv6 CIDR to a subnet.
+   * Details object for adding an IPv6 prefix to a subnet.
    */
   "addSubnetIpv6CidrDetails": model.AddSubnetIpv6CidrDetails;
   /**

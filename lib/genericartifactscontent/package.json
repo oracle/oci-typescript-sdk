@@ -1,6 +1,6 @@
 {
   "name": "oci-genericartifactscontent",
-  "version": "2.68.0",
+  "version": "2.68.1",
   "description": "OCI NodeJS client for Generic Artifacts Content Service",
   "repository": {
     "type": "git",

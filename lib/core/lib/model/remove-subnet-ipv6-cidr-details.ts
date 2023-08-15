@@ -22,11 +22,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details object for removing an IPv6 CIDR Block from a Subnet.
+ * Details object for removing an IPv6 prefix from a subnet.
  */
 export interface RemoveSubnetIpv6CidrDetails {
   /**
-    * This field is not required and should only be specified when removing an IPv6 CIDR
+    * This field is not required and should only be specified when removing an IPv6 prefix
 * from a subnet's IPv6 address space.
 * See[IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
