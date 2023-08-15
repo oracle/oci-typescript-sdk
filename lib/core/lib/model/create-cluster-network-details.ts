@@ -69,6 +69,7 @@ Each cluster network can have one instance pool.
     */
   "instancePools": Array<model.CreateClusterNetworkInstancePoolDetails>;
   "placementConfiguration": model.ClusterNetworkPlacementConfigurationDetails;
+  "clusterConfiguration"?: model.ClusterConfigurationDetails;
 }
 
 export namespace CreateClusterNetworkDetails {
@@ -83,6 +84,9 @@ export namespace CreateClusterNetworkDetails {
           : undefined,
         "placementConfiguration": obj.placementConfiguration
           ? model.ClusterNetworkPlacementConfigurationDetails.getJsonObj(obj.placementConfiguration)
+          : undefined,
+        "clusterConfiguration": obj.clusterConfiguration
+          ? model.ClusterConfigurationDetails.getJsonObj(obj.clusterConfiguration)
           : undefined
       }
     };
@@ -102,6 +106,9 @@ export namespace CreateClusterNetworkDetails {
           ? model.ClusterNetworkPlacementConfigurationDetails.getDeserializedJsonObj(
               obj.placementConfiguration
             )
+          : undefined,
+        "clusterConfiguration": obj.clusterConfiguration
+          ? model.ClusterConfigurationDetails.getDeserializedJsonObj(obj.clusterConfiguration)
           : undefined
       }
     };

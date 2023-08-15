@@ -151,6 +151,7 @@ This method utilizes resource principal version 2.2. For more information on how
    * The number of container restart attempts. Depending on the restart policy, a restart might be attempted after a health check failure or a container exit. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "containerRestartAttemptCount"?: number;
+  "securityContext"?: model.LinuxSecurityContext;
 }
 
 export namespace Container {
@@ -186,6 +187,10 @@ export namespace Container {
 
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -209,6 +214,10 @@ export namespace Container {
 
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getDeserializedJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getDeserializedJsonObj(obj.securityContext)
           : undefined
       }
     };

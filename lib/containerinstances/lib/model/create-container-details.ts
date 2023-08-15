@@ -26,11 +26,10 @@ The container is created in the same compartment, availability domain,
 */
 export interface CreateContainerDetails {
   /**
-    * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
-* <p>
-If you don't provide a name, a name is generated automatically.
-* 
-    */
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
+   * If you don't provide a name, a name is generated automatically.
+   *
+   */
   "displayName"?: string;
   /**
     * A URL identifying the image that the container runs in, such as docker.io/library/busybox:latest. If you do not provide a tag, the tag will default to latest.
@@ -94,6 +93,7 @@ This method utilizes resource principal version 2.2. For information on how to u
    *
    */
   "healthChecks"?: Array<model.CreateContainerHealthCheckDetails>;
+  "securityContext"?: model.CreateLinuxSecurityContextDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -126,6 +126,9 @@ export namespace CreateContainerDetails {
           ? obj.healthChecks.map(item => {
               return model.CreateContainerHealthCheckDetails.getJsonObj(item);
             })
+          : undefined,
+        "securityContext": obj.securityContext
+          ? model.CreateSecurityContextDetails.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -149,6 +152,9 @@ export namespace CreateContainerDetails {
           ? obj.healthChecks.map(item => {
               return model.CreateContainerHealthCheckDetails.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "securityContext": obj.securityContext
+          ? model.CreateSecurityContextDetails.getDeserializedJsonObj(obj.securityContext)
           : undefined
       }
     };

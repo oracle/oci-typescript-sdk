@@ -27,17 +27,33 @@ export interface CreateOggDeploymentDetails {
    */
   "deploymentName": string;
   /**
+   * The type of credential store for OGG.
+   *
+   */
+  "credentialStore"?: model.CredentialStore;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Identity Domain when IAM credential store is used.
+   *
+   */
+  "identityDomainId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the deployment password is stored.
+   *
+   */
+  "passwordSecretId"?: string;
+  /**
    * The GoldenGate deployment console username.
    *
    */
-  "adminUsername": string;
+  "adminUsername"?: string;
   /**
    * The password associated with the GoldenGate deployment console username.
    * The password must be 8 to 30 characters long and must contain at least 1 uppercase, 1 lowercase, 1 numeric,
    * and 1 special character. Special characters such as '$', '^', or '?' are not allowed.
+   * This field will be deprecated and replaced by \"passwordSecretId\".
    *
    */
-  "adminPassword": string;
+  "adminPassword"?: string;
   /**
    * A PEM-encoded SSL certificate.
    *

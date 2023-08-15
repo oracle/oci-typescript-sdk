@@ -17730,7 +17730,7 @@ export class VirtualNetworkClient {
   }
 
   /**
-   * Add an IPv6 CIDR to a subnet.
+   * Add an IPv6 prefix to a subnet.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddIpv6SubnetCidrRequest
@@ -17815,8 +17815,8 @@ export class VirtualNetworkClient {
   }
 
   /**
-   * Add an IPv6 CIDR to a VCN. The VCN size is always /56 and assigned by Oracle.
-   * Once added the IPv6 CIDR block cannot be removed or modified.
+   * Add an IPv6 prefix to a VCN. The VCN size is always /56 and assigned by Oracle.
+   * Once added the IPv6 prefix cannot be removed or modified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddIpv6VcnCidrRequest
@@ -35728,7 +35728,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
-   * Remove an IPv6 CIDR from a subnet. At least one IPv6 CIDR should remain.
+   * Remove an IPv6 prefix from a subnet. At least one IPv6 CIDR should remain.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveIpv6SubnetCidrRequest
@@ -35814,7 +35814,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
-   * Removing an existing IPv6 CIDR from a VCN.
+   * Removing an existing IPv6 prefix from a VCN.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveIpv6VcnCidrRequest

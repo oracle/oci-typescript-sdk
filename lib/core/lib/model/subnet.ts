@@ -102,7 +102,7 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "id": string;
   /**
-    * For an IPv6-enabled subnet, this is the IPv6 CIDR block for the subnet's IP address space.
+    * For an IPv6-enabled subnet, this is the IPv6 prefix for the subnet's IP address space.
 * The subnet size is always /64. See [IPv6 Addresses](https://docs.cloud.oracle.com/iaas/Content/Network/Concepts/ipv6.htm).
 * <p>
 Example: `2001:0db8:0123:1111::/64`
@@ -110,7 +110,7 @@ Example: `2001:0db8:0123:1111::/64`
     */
   "ipv6CidrBlock"?: string;
   /**
-   * The list of all IPv6 CIDR blocks (Oracle allocated IPv6 GUA, ULA or private IPv6 CIDR blocks, BYOIPv6 CIDR blocks) for the subnet.
+   * The list of all IPv6 prefixes (Oracle allocated IPv6 GUA, ULA or private IPv6 prefixes, BYOIPv6 prefixes) for the subnet.
    *
    */
   "ipv6CidrBlocks"?: Array<string>;

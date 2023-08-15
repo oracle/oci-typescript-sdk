@@ -41,6 +41,21 @@ export interface OggDeployment {
    *
    */
   "certificate"?: string;
+  /**
+   * The type of credential store for OGG.
+   *
+   */
+  "credentialStore"?: model.CredentialStore;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Identity Domain when IAM credential store is used.
+   *
+   */
+  "identityDomainId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the Secret where the deployment password is stored.
+   *
+   */
+  "passwordSecretId"?: string;
 }
 
 export namespace OggDeployment {

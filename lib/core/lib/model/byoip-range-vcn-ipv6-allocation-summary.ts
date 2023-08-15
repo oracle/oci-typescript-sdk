@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A summary of IPv6 CIDR block subranges currently allocated to a VCN.
+ * A summary of IPv6 prefix subranges currently allocated to a VCN.
  *
  */
 export interface ByoipRangeVcnIpv6AllocationSummary {
@@ -36,7 +36,7 @@ export interface ByoipRangeVcnIpv6AllocationSummary {
    */
   "compartmentId"?: string;
   /**
-   * The BYOIPv6 CIDR block range or subrange allocated to a VCN. This could be all or part of a BYOIPv6 CIDR block.
+   * The BYOIPv6 prefix range or subrange allocated to a VCN. This could be all or part of a BYOIPv6 prefix.
    * Each VCN allocation must be /64 or larger.
    *
    */

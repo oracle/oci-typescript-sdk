@@ -37,7 +37,7 @@ export interface CreateByoipRangeDetails {
    */
   "compartmentId": string;
   /**
-   * The BYOIPv6 CIDR block. You can assign some or all of it to a VCN after it is validated.
+   * The BYOIPv6 prefix. You can assign some or all of it to a VCN after it is validated.
    *
    */
   "ipv6CidrBlock"?: string;

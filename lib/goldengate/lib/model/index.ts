@@ -68,6 +68,8 @@ import * as CreateMaintenanceWindowDetails from "./create-maintenance-window-det
 export import CreateMaintenanceWindowDetails = CreateMaintenanceWindowDetails.CreateMaintenanceWindowDetails;
 import * as CreateOggDeploymentDetails from "./create-ogg-deployment-details";
 export import CreateOggDeploymentDetails = CreateOggDeploymentDetails.CreateOggDeploymentDetails;
+import * as CredentialStore from "./credential-store";
+export import CredentialStore = CredentialStore.CredentialStore;
 import * as DatabaseRegistration from "./database-registration";
 export import DatabaseRegistration = DatabaseRegistration.DatabaseRegistration;
 import * as DatabaseRegistrationCollection from "./database-registration-collection";

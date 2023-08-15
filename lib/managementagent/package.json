@@ -1,6 +1,6 @@
 {
   "name": "oci-managementagent",
-  "version": "2.68.0",
+  "version": "2.68.1",
   "description": "OCI NodeJS client for Management Agent Service",
   "repository": {
     "type": "git",

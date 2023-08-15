@@ -32,12 +32,12 @@ To use any of the API operations, you must be authorized in an IAM policy. If yo
 */
 export interface Vcn {
   /**
-   * The list of BYOIPv6 CIDR blocks required to create a VCN that uses BYOIPv6 ranges.
+   * The list of BYOIPv6 prefixes required to create a VCN that uses BYOIPv6 ranges.
    *
    */
   "byoipv6CidrBlocks"?: Array<string>;
   /**
-   * For an IPv6-enabled VCN, this is the list of Private IPv6 CIDR blocks for the VCN's IP address space.
+   * For an IPv6-enabled VCN, this is the list of Private IPv6 prefixes for the VCN's IP address space.
    *
    */
   "ipv6PrivateCidrBlocks"?: Array<string>;
@@ -114,8 +114,8 @@ Example: `{\"Department\": \"Finance\"}`
    */
   "id": string;
   /**
-   * For an IPv6-enabled VCN, this is the list of IPv6 CIDR blocks for the VCN's IP address space.
-   * The CIDRs are provided by Oracle and the sizes are always /56.
+   * For an IPv6-enabled VCN, this is the list of IPv6 prefixes for the VCN's IP address space.
+   * The prefixes are provided by Oracle and the sizes are always /56.
    *
    */
   "ipv6CidrBlocks"?: Array<string>;
