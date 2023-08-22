@@ -73,6 +73,14 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "ncharacterSet"?: string;
   /**
+   * The percentage of the System Global Area(SGA) assigned to In-Memory tables in Autonomous Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inMemoryPercentage"?: number;
+  /**
+   * The area assigned to In-Memory tables in Autonomous Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inMemoryAreaInGBs"?: number;
+  /**
    * The date and time when the next long-term backup would be created.
    */
   "nextLongTermBackupTimeStamp"?: Date;

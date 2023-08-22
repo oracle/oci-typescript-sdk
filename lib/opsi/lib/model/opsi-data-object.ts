@@ -34,9 +34,28 @@ export interface OpsiDataObject {
    */
   "description"?: string;
   /**
+   * Name of the data object, which can be used in data object queries just like how view names are used in a query.
+   */
+  "name"?: string;
+  /**
+   * Names of all the groups to which the data object belongs to.
+   */
+  "groupNames"?: Array<string>;
+  /**
+   * Time period supported by the data object for quering data.
+   * Time period is in ISO 8601 format with respect to current time. Default is last 30 days represented by P30D.
+   * Examples: P90D (last 90 days), P4W (last 4 weeks), P2M (last 2 months), P1Y (last 12 months).
+   *
+   */
+  "supportedQueryTimePeriod"?: string;
+  /**
    * Metadata of columns in a data object.
    */
   "columnsMetadata": Array<model.DataObjectColumnMetadata>;
+  /**
+   * Supported query parameters by this OPSI data object that can be configured while a data object query involving this data object is executed.
+   */
+  "supportedQueryParams"?: Array<model.OpsiDataObjectSupportedQueryParam>;
 
   "dataObjectType": string;
 }
@@ -49,6 +68,11 @@ export namespace OpsiDataObject {
         "columnsMetadata": obj.columnsMetadata
           ? obj.columnsMetadata.map(item => {
               return model.DataObjectColumnMetadata.getJsonObj(item);
+            })
+          : undefined,
+        "supportedQueryParams": obj.supportedQueryParams
+          ? obj.supportedQueryParams.map(item => {
+              return model.OpsiDataObjectSupportedQueryParam.getJsonObj(item);
             })
           : undefined
       }
@@ -84,6 +108,11 @@ export namespace OpsiDataObject {
         "columnsMetadata": obj.columnsMetadata
           ? obj.columnsMetadata.map(item => {
               return model.DataObjectColumnMetadata.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "supportedQueryParams": obj.supportedQueryParams
+          ? obj.supportedQueryParams.map(item => {
+              return model.OpsiDataObjectSupportedQueryParam.getDeserializedJsonObj(item);
             })
           : undefined
       }

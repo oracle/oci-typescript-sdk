@@ -26,6 +26,14 @@ export interface DataObjectTemplatizedQuery extends model.DataObjectQuery {
    */
   "selectList"?: Array<string>;
   /**
+   * Unique data object name that will be added into the FROM clause of the query, just like a view name in FROM clause.
+   * - Use actual name of the data objects (e.g: tables, views) in case of Warehouse (e.g: Awr hub) data objects query. SCHEMA.VIEW name syntax can also be used here.
+   * e.g: SYS.DBA_HIST_SNAPSHOT or DBA_HIST_SNAPSHOT
+   * - Use name of the data object (e.g: SQL_STATS_DO) in case of OPSI data objects. Identifier of the OPSI data object cannot be used here.
+   *
+   */
+  "fromClause"?: string;
+  /**
    * List of items to be added into the WHERE clause of the query; items will be added with AND separation.
    * Item can contain a single condition or multiple conditions.
    * Single condition e.g:  \"optimizer_mode='mode1'\"

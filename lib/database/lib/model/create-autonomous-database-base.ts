@@ -166,6 +166,10 @@ This cannot be updated in parallel with any of the following: cpuCoreCount, comp
    */
   "autonomousContainerDatabaseId"?: string;
   /**
+   * The percentage of the System Global Area(SGA) assigned to In-Memory tables in Autonomous Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inMemoryPercentage"?: number;
+  /**
     * Indicates if the database-level access control is enabled.
 * If disabled, database access is defined by the network security rules.
 * If enabled, database access is restricted to the IP addresses defined by the rules specified with the `whitelistedIps` property. While specifying `whitelistedIps` rules is optional,

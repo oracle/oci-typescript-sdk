@@ -25,7 +25,11 @@ export interface QueryOpsiDataObjectDataDetails {
    * Unique OPSI data object identifier.
    */
   "dataObjectIdentifier"?: string;
-  "query": model.DataObjectTemplatizedQuery;
+  /**
+   * Details of OPSI data objects used in the query.
+   */
+  "dataObjects"?: Array<model.OpsiDataObjectDetailsInQuery>;
+  "query": model.DataObjectStandardQuery | model.DataObjectTemplatizedQuery;
   "resourceFilters"?: model.ResourceFilters;
 }
 
@@ -34,6 +38,11 @@ export namespace QueryOpsiDataObjectDataDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataObjects": obj.dataObjects
+          ? obj.dataObjects.map(item => {
+              return model.OpsiDataObjectDetailsInQuery.getJsonObj(item);
+            })
+          : undefined,
         "query": obj.query ? model.DataObjectQuery.getJsonObj(obj.query) : undefined,
         "resourceFilters": obj.resourceFilters
           ? model.ResourceFilters.getJsonObj(obj.resourceFilters)
@@ -47,6 +56,11 @@ export namespace QueryOpsiDataObjectDataDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataObjects": obj.dataObjects
+          ? obj.dataObjects.map(item => {
+              return model.OpsiDataObjectDetailsInQuery.getDeserializedJsonObj(item);
+            })
+          : undefined,
         "query": obj.query ? model.DataObjectQuery.getDeserializedJsonObj(obj.query) : undefined,
         "resourceFilters": obj.resourceFilters
           ? model.ResourceFilters.getDeserializedJsonObj(obj.resourceFilters)

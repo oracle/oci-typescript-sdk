@@ -7750,7 +7750,9 @@ export class OperationsInsightsClient {
       "limit": listOpsiDataObjectsRequest.limit,
       "page": listOpsiDataObjectsRequest.page,
       "sortOrder": listOpsiDataObjectsRequest.sortOrder,
-      "sortBy": listOpsiDataObjectsRequest.sortBy
+      "sortBy": listOpsiDataObjectsRequest.sortBy,
+      "groupName": listOpsiDataObjectsRequest.groupName,
+      "name": listOpsiDataObjectsRequest.name
     };
 
     let headerParams = {
@@ -8046,6 +8048,94 @@ export class OperationsInsightsClient {
         bodyKey: "sqlTextCollection",
         bodyModel: model.SqlTextCollection,
         type: "model.SqlTextCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Warehouse data objects (e.g: views, tables), based on the query parameters specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWarehouseDataObjectsRequest
+   * @return ListWarehouseDataObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWarehouseDataObjects.ts.html |here} to see how to use ListWarehouseDataObjects API.
+   */
+  public async listWarehouseDataObjects(
+    listWarehouseDataObjectsRequest: requests.ListWarehouseDataObjectsRequest
+  ): Promise<responses.ListWarehouseDataObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listWarehouseDataObjects.");
+    const operationName = "listWarehouseDataObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/ListWarehouseDataObjects";
+    const pathParams = {
+      "{warehouseType}": listWarehouseDataObjectsRequest.warehouseType,
+      "{warehouseId}": listWarehouseDataObjectsRequest.warehouseId
+    };
+
+    const queryParams = {
+      "dataObjectType": listWarehouseDataObjectsRequest.dataObjectType,
+      "name": listWarehouseDataObjectsRequest.name,
+      "owner": listWarehouseDataObjectsRequest.owner,
+      "limit": listWarehouseDataObjectsRequest.limit,
+      "page": listWarehouseDataObjectsRequest.page,
+      "sortOrder": listWarehouseDataObjectsRequest.sortOrder,
+      "sortBy": listWarehouseDataObjectsRequest.sortBy,
+      "summaryField": listWarehouseDataObjectsRequest.summaryField
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWarehouseDataObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWarehouseDataObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/{warehouseType}/{warehouseId}/dataObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWarehouseDataObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "warehouseDataObjectCollection",
+        bodyModel: model.WarehouseDataObjectCollection,
+        type: "model.WarehouseDataObjectCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -8380,6 +8470,94 @@ export class OperationsInsightsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.QueryOpsiDataObjectDataResponse>{},
+        body: await response.json(),
+        bodyKey: "queryDataObjectResultSetRowsCollection",
+        bodyModel: model.QueryDataObjectResultSetRowsCollection,
+        type: "model.QueryDataObjectResultSetRowsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Queries Warehouse data objects (e.g: views, tables) with the inputs provided and sends the result set back.
+   * Any data to which an OperationsInsightsWarehouseUser with a permission to the corresponding Warehouse can be queried.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param QueryWarehouseDataObjectDataRequest
+   * @return QueryWarehouseDataObjectDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/QueryWarehouseDataObjectData.ts.html |here} to see how to use QueryWarehouseDataObjectData API.
+   */
+  public async queryWarehouseDataObjectData(
+    queryWarehouseDataObjectDataRequest: requests.QueryWarehouseDataObjectDataRequest
+  ): Promise<responses.QueryWarehouseDataObjectDataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#queryWarehouseDataObjectData.");
+    const operationName = "queryWarehouseDataObjectData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/QueryWarehouseDataObjectData";
+    const pathParams = {
+      "{warehouseType}": queryWarehouseDataObjectDataRequest.warehouseType,
+      "{warehouseId}": queryWarehouseDataObjectDataRequest.warehouseId
+    };
+
+    const queryParams = {
+      "limit": queryWarehouseDataObjectDataRequest.limit,
+      "page": queryWarehouseDataObjectDataRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": queryWarehouseDataObjectDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      queryWarehouseDataObjectDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/{warehouseType}/{warehouseId}/actions/queryData",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        queryWarehouseDataObjectDataRequest.queryWarehouseDataObjectDataDetails,
+        "QueryWarehouseDataObjectDataDetails",
+        model.QueryWarehouseDataObjectDataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.QueryWarehouseDataObjectDataResponse>{},
         body: await response.json(),
         bodyKey: "queryDataObjectResultSetRowsCollection",
         bodyModel: model.QueryDataObjectResultSetRowsCollection,

@@ -30,6 +30,12 @@ export interface QueryDataObjectJsonResultSetRowsCollection
    * Array of QueryDataObjectResultSetColumnMetadata objects that describe the result set columns.
    */
   "itemsMetadata": Array<model.QueryDataObjectResultSetColumnMetadata>;
+  /**
+   * Time taken for executing the data object query (in seconds).
+   * Consider optimizing the query or reducing the target data range, if query execution time is longer.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "queryExecutionTimeInSeconds"?: number;
 
   "format": string;
 }
