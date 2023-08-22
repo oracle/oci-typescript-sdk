@@ -57,6 +57,14 @@ export interface ListOpsiDataObjectsRequest extends common.BaseRequest {
    */
   "sortBy"?: ListOpsiDataObjectsRequest.SortBy;
   /**
+   * A filter to return only data objects that belongs to the group of the given group name. By default, no filtering will be applied on group name.
+   */
+  "groupName"?: string;
+  /**
+   * A filter to return only data objects that match the entire data object name. By default, no filtering will be applied on data object name.
+   */
+  "name"?: string;
+  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact
    * Oracle about a particular request, please provide the request ID.
    *
@@ -67,6 +75,7 @@ export interface ListOpsiDataObjectsRequest extends common.BaseRequest {
 export namespace ListOpsiDataObjectsRequest {
   export enum SortBy {
     DisplayName = "displayName",
-    DataObjectType = "dataObjectType"
+    DataObjectType = "dataObjectType",
+    Name = "name"
   }
 }

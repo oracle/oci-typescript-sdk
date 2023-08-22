@@ -1,6 +1,6 @@
 {
   "name": "oci-sdk",
-  "version": "2.68.1",
+  "version": "2.68.2",
   "author": {
     "name": "Oracle Cloud Infrastructure",
     "email": ""
@@ -148,7 +148,8 @@
     "oci-vulnerabilityscanning": "file:lib/vulnerabilityscanning",
     "oci-waas": "file:lib/waas",
     "oci-waf": "file:lib/waf",
-    "oci-workrequests": "file:lib/workrequests"
+    "oci-workrequests": "file:lib/workrequests",
+    "oci-computecloudatcustomer": "file:lib/computecloudatcustomer"
   },
   "publishConfig": {
     "registry": "https://registry.npmjs.org"

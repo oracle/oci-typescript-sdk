@@ -33,6 +33,14 @@ export interface OpsiDataObjectSummary {
    * Description of OPSI data object.
    */
   "description"?: string;
+  /**
+   * Name of the data object, which can be used in data object queries just like how view names are used in a query.
+   */
+  "name"?: string;
+  /**
+   * Names of all the groups to which the data object belongs to.
+   */
+  "groupNames"?: Array<string>;
 
   "dataObjectType": string;
 }

@@ -35,6 +35,10 @@ export interface UpdateAutonomousDatabaseDetails {
    */
   "computeModel"?: UpdateAutonomousDatabaseDetails.ComputeModel;
   /**
+   * The percentage of the System Global Area(SGA) assigned to In-Memory tables in Autonomous Database. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "inMemoryPercentage"?: number;
+  /**
    * Parameter that allows users to select an acceptable maximum data loss limit in seconds, up to which Automatic Failover will be triggered when necessary for a Local Autonomous Data Guard Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "localAdgAutoFailoverMaxDataLossLimit"?: number;
