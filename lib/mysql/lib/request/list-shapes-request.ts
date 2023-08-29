@@ -47,7 +47,6 @@ export interface ListShapesRequest extends common.BaseRequest {
 export namespace ListShapesRequest {
   export enum IsSupportedFor {
     Dbsystem = "DBSYSTEM",
-    Analyticscluster = "ANALYTICSCLUSTER",
     Heatwavecluster = "HEATWAVECLUSTER"
   }
 }

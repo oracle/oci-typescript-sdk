@@ -46,6 +46,7 @@ export interface UpdateConnectionDetails {
   "tlsKeystore"?: string;
   "sshDetails"?: model.UpdateSshDetails;
   "adminCredentials"?: model.UpdateAdminCredentials;
+  "replicationCredentials"?: model.UpdateAdminCredentials;
   "privateEndpoint"?: model.UpdatePrivateEndpoint;
   "vaultDetails"?: model.UpdateVaultDetails;
   /**
@@ -82,6 +83,9 @@ export namespace UpdateConnectionDetails {
         "adminCredentials": obj.adminCredentials
           ? model.UpdateAdminCredentials.getJsonObj(obj.adminCredentials)
           : undefined,
+        "replicationCredentials": obj.replicationCredentials
+          ? model.UpdateAdminCredentials.getJsonObj(obj.replicationCredentials)
+          : undefined,
         "privateEndpoint": obj.privateEndpoint
           ? model.UpdatePrivateEndpoint.getJsonObj(obj.privateEndpoint)
           : undefined,
@@ -106,6 +110,9 @@ export namespace UpdateConnectionDetails {
           : undefined,
         "adminCredentials": obj.adminCredentials
           ? model.UpdateAdminCredentials.getDeserializedJsonObj(obj.adminCredentials)
+          : undefined,
+        "replicationCredentials": obj.replicationCredentials
+          ? model.UpdateAdminCredentials.getDeserializedJsonObj(obj.replicationCredentials)
           : undefined,
         "privateEndpoint": obj.privateEndpoint
           ? model.UpdatePrivateEndpoint.getDeserializedJsonObj(obj.privateEndpoint)

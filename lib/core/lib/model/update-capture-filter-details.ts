@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * These details can be included in a request to update a capture filter. A capture filter contains a set of rules governing what traffic a VTAP mirrors.
+ * These details can be included in a request to update a capture filter. A capture filter contains a set of rules governing what traffic a VTAP mirrors or a VCN flow log collects.
  *
  */
 export interface UpdateCaptureFilterDetails {

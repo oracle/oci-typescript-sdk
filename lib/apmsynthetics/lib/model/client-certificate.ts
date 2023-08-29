@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Client certificate in pem format.
+ * Client certificate in PEM format.
  *
  */
 export interface ClientCertificate {

@@ -119,6 +119,11 @@ The `DISABLED` option directs IKE to completely refuse to negotiate NAT-T
   "dpdTimeoutInSec"?: number;
   "phaseOneDetails"?: model.TunnelPhaseOneDetails;
   "phaseTwoDetails"?: model.TunnelPhaseTwoDetails;
+  /**
+   * The list of virtual circuit [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)s over which your network can reach this tunnel.
+   *
+   */
+  "associatedVirtualCircuits"?: Array<string>;
 }
 
 export namespace IPSecConnectionTunnel {

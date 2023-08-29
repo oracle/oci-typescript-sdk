@@ -248,6 +248,8 @@ import * as GetAutonomousContainerDatabaseResponse from "./get-autonomous-contai
 export import GetAutonomousContainerDatabaseResponse = GetAutonomousContainerDatabaseResponse.GetAutonomousContainerDatabaseResponse;
 import * as GetAutonomousContainerDatabaseDataguardAssociationResponse from "./get-autonomous-container-database-dataguard-association-response";
 export import GetAutonomousContainerDatabaseDataguardAssociationResponse = GetAutonomousContainerDatabaseDataguardAssociationResponse.GetAutonomousContainerDatabaseDataguardAssociationResponse;
+import * as GetAutonomousContainerDatabaseResourceUsageResponse from "./get-autonomous-container-database-resource-usage-response";
+export import GetAutonomousContainerDatabaseResourceUsageResponse = GetAutonomousContainerDatabaseResourceUsageResponse.GetAutonomousContainerDatabaseResourceUsageResponse;
 import * as GetAutonomousDatabaseResponse from "./get-autonomous-database-response";
 export import GetAutonomousDatabaseResponse = GetAutonomousDatabaseResponse.GetAutonomousDatabaseResponse;
 import * as GetAutonomousDatabaseBackupResponse from "./get-autonomous-database-backup-response";
@@ -272,6 +274,8 @@ import * as GetBackupDestinationResponse from "./get-backup-destination-response
 export import GetBackupDestinationResponse = GetBackupDestinationResponse.GetBackupDestinationResponse;
 import * as GetCloudAutonomousVmClusterResponse from "./get-cloud-autonomous-vm-cluster-response";
 export import GetCloudAutonomousVmClusterResponse = GetCloudAutonomousVmClusterResponse.GetCloudAutonomousVmClusterResponse;
+import * as GetCloudAutonomousVmClusterResourceUsageResponse from "./get-cloud-autonomous-vm-cluster-resource-usage-response";
+export import GetCloudAutonomousVmClusterResourceUsageResponse = GetCloudAutonomousVmClusterResourceUsageResponse.GetCloudAutonomousVmClusterResourceUsageResponse;
 import * as GetCloudExadataInfrastructureResponse from "./get-cloud-exadata-infrastructure-response";
 export import GetCloudExadataInfrastructureResponse = GetCloudExadataInfrastructureResponse.GetCloudExadataInfrastructureResponse;
 import * as GetCloudExadataInfrastructureUnallocatedResourcesResponse from "./get-cloud-exadata-infrastructure-unallocated-resources-response";
@@ -396,6 +400,8 @@ import * as ListBackupDestinationResponse from "./list-backup-destination-respon
 export import ListBackupDestinationResponse = ListBackupDestinationResponse.ListBackupDestinationResponse;
 import * as ListBackupsResponse from "./list-backups-response";
 export import ListBackupsResponse = ListBackupsResponse.ListBackupsResponse;
+import * as ListCloudAutonomousVmClusterAcdResourceUsageResponse from "./list-cloud-autonomous-vm-cluster-acd-resource-usage-response";
+export import ListCloudAutonomousVmClusterAcdResourceUsageResponse = ListCloudAutonomousVmClusterAcdResourceUsageResponse.ListCloudAutonomousVmClusterAcdResourceUsageResponse;
 import * as ListCloudAutonomousVmClustersResponse from "./list-cloud-autonomous-vm-clusters-response";
 export import ListCloudAutonomousVmClustersResponse = ListCloudAutonomousVmClustersResponse.ListCloudAutonomousVmClustersResponse;
 import * as ListCloudExadataInfrastructuresResponse from "./list-cloud-exadata-infrastructures-response";

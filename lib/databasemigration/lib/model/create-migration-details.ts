@@ -75,6 +75,7 @@ export interface CreateMigrationDetails {
    */
   "csvText"?: string;
   "goldenGateDetails"?: model.CreateGoldenGateDetails;
+  "goldenGateServiceDetails"?: model.CreateGoldenGateServiceDetails;
   "vaultDetails"?: model.CreateVaultDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
@@ -121,6 +122,9 @@ export namespace CreateMigrationDetails {
         "goldenGateDetails": obj.goldenGateDetails
           ? model.CreateGoldenGateDetails.getJsonObj(obj.goldenGateDetails)
           : undefined,
+        "goldenGateServiceDetails": obj.goldenGateServiceDetails
+          ? model.CreateGoldenGateServiceDetails.getJsonObj(obj.goldenGateServiceDetails)
+          : undefined,
         "vaultDetails": obj.vaultDetails
           ? model.CreateVaultDetails.getJsonObj(obj.vaultDetails)
           : undefined
@@ -160,6 +164,11 @@ export namespace CreateMigrationDetails {
 
         "goldenGateDetails": obj.goldenGateDetails
           ? model.CreateGoldenGateDetails.getDeserializedJsonObj(obj.goldenGateDetails)
+          : undefined,
+        "goldenGateServiceDetails": obj.goldenGateServiceDetails
+          ? model.CreateGoldenGateServiceDetails.getDeserializedJsonObj(
+              obj.goldenGateServiceDetails
+            )
           : undefined,
         "vaultDetails": obj.vaultDetails
           ? model.CreateVaultDetails.getDeserializedJsonObj(obj.vaultDetails)

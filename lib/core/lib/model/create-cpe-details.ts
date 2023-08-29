@@ -71,6 +71,11 @@ For more information about generating CPE device configuration content, see:
 * 
     */
   "cpeDeviceShapeId"?: string;
+  /**
+   * Indicates whether this CPE is of type `private` or not.
+   *
+   */
+  "isPrivate"?: boolean;
 }
 
 export namespace CreateCpeDetails {

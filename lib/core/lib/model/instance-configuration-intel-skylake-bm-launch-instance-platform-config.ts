@@ -28,10 +28,58 @@ import common = require("oci-common");
  */
 export interface InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig
   extends model.InstanceConfigurationLaunchInstancePlatformConfig {
+  /**
+   * The number of NUMA nodes per socket (NPS).
+   *
+   */
+  "numaNodesPerSocket"?: InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig.NumaNodesPerSocket;
+  /**
+    * Whether symmetric multithreading is enabled on the instance. Symmetric multithreading is also
+* called simultaneous multithreading (SMT) or Intel Hyper-Threading.
+* <p>
+Intel and AMD processors have two hardware execution threads per core (OCPU). SMT permits multiple
+* independent threads of execution, to better use the resources and increase the efficiency
+* of the CPU. When multithreading is disabled, only one thread is permitted to run on each core, which
+* can provide higher or more predictable performance for some workloads.
+* 
+    */
+  "isSymmetricMultiThreadingEnabled"?: boolean;
+  /**
+   * Whether the input-output memory management unit is enabled.
+   *
+   */
+  "isInputOutputMemoryManagementUnitEnabled"?: boolean;
+  /**
+    * The percentage of cores enabled. Value must be a multiple of 25%. If the requested percentage
+* results in a fractional number of cores, the system rounds up the number of cores across processors
+* and provisions an instance with a whole number of cores.
+* <p>
+If the applications that you run on the instance use a core-based licensing model and need fewer cores
+* than the full size of the shape, you can disable cores to reduce your licensing costs. The instance
+* itself is billed for the full shape, regardless of whether all cores are enabled.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
+  "percentageOfCoresEnabled"?: number;
+  /**
+   * Instance Platform Configuration Configuration Map for flexible setting input.
+   *
+   */
+  "configMap"?: { [key: string]: string };
+
   "type": string;
 }
 
 export namespace InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig {
+  export enum NumaNodesPerSocket {
+    Nps1 = "NPS1",
+    Nps2 = "NPS2",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(
     obj: InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig,
     isParentJsonObj?: boolean

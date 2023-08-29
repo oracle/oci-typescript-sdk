@@ -61,6 +61,11 @@ Intel and AMD processors have two hardware execution threads per core (OCPU). SM
    *
    */
   "isInputOutputMemoryManagementUnitEnabled"?: boolean;
+  /**
+   * Instance Platform Configuration Configuration Map for flexible setting input.
+   *
+   */
+  "configMap"?: { [key: string]: string };
 
   "type": string;
 }

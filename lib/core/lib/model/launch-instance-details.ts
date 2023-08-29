@@ -242,6 +242,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.IntelVmLaunchInstancePlatformConfig
     | model.IntelSkylakeBmLaunchInstancePlatformConfig
     | model.AmdMilanBmLaunchInstancePlatformConfig
+    | model.GenericBmLaunchInstancePlatformConfig
     | model.AmdMilanBmGpuLaunchInstancePlatformConfig;
   /**
    * The OCID of the Instance Configuration containing instance launch details. Any other fields supplied in this instance launch request will override the details stored in the Instance Configuration for this instance launch.

@@ -758,6 +758,8 @@ import * as ListSubnetsRequest from "./list-subnets-request";
 export import ListSubnetsRequest = ListSubnetsRequest.ListSubnetsRequest;
 import * as ListVcnsRequest from "./list-vcns-request";
 export import ListVcnsRequest = ListVcnsRequest.ListVcnsRequest;
+import * as ListVirtualCircuitAssociatedTunnelsRequest from "./list-virtual-circuit-associated-tunnels-request";
+export import ListVirtualCircuitAssociatedTunnelsRequest = ListVirtualCircuitAssociatedTunnelsRequest.ListVirtualCircuitAssociatedTunnelsRequest;
 import * as ListVirtualCircuitBandwidthShapesRequest from "./list-virtual-circuit-bandwidth-shapes-request";
 export import ListVirtualCircuitBandwidthShapesRequest = ListVirtualCircuitBandwidthShapesRequest.ListVirtualCircuitBandwidthShapesRequest;
 import * as ListVirtualCircuitPublicPrefixesRequest from "./list-virtual-circuit-public-prefixes-request";

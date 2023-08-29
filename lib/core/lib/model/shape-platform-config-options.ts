@@ -49,6 +49,7 @@ export namespace ShapePlatformConfigOptions {
     AmdMilanBmGpu = "AMD_MILAN_BM_GPU",
     AmdRomeBm = "AMD_ROME_BM",
     AmdRomeBmGpu = "AMD_ROME_BM_GPU",
+    GenericBm = "GENERIC_BM",
     IntelIcelakeBm = "INTEL_ICELAKE_BM",
     IntelSkylakeBm = "INTEL_SKYLAKE_BM",
     AmdVm = "AMD_VM",

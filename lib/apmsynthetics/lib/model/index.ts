@@ -130,6 +130,8 @@ export import VerifyText = VerifyText.VerifyText;
 
 import * as BrowserMonitorConfiguration from "./browser-monitor-configuration";
 export import BrowserMonitorConfiguration = BrowserMonitorConfiguration.BrowserMonitorConfiguration;
+import * as NetworkMonitorConfiguration from "./network-monitor-configuration";
+export import NetworkMonitorConfiguration = NetworkMonitorConfiguration.NetworkMonitorConfiguration;
 import * as OracleRMStack from "./oracle-rm-stack";
 export import OracleRMStack = OracleRMStack.OracleRMStack;
 import * as RestMonitorConfiguration from "./rest-monitor-configuration";

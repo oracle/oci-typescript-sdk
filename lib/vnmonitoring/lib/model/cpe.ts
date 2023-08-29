@@ -84,6 +84,11 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
+  /**
+   * Indicates whether this CPE is of type `private` or not.
+   *
+   */
+  "isPrivate"?: boolean;
 }
 
 export namespace Cpe {

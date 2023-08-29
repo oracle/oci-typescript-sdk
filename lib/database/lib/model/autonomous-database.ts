@@ -141,7 +141,7 @@ This cannot be updated in parallel with any of the following: licenseModel, dbEd
    */
   "totalBackupStorageSizeInGBs"?: number;
   /**
-    * The number of OCPU cores to be made available to the database. 
+    * The number of OCPU cores to be made available to the database.
 * <p>
 The following points apply:
 * - For Autonomous Databases on dedicated Exadata infrastructure, to provision less than 1 core, enter a fractional value in an increment of 0.1. For example, you can provision 0.3 or 0.4 cores, but not 0.35 cores. (Note that fractional OCPU values are not supported for Autonomous Databasese on shared Exadata infrastructure.)
@@ -162,7 +162,8 @@ For Autonomous Databases on dedicated Exadata infrastructure, the maximum number
    */
   "dataStorageSizeInTBs": number;
   /**
-   * The amount of memory (in GBs) enabled per OCPU or ECPU. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) enabled per OCPU or ECPU.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**

@@ -177,6 +177,13 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated": Date;
+  /**
+    * List of IPv6 addresses assigned to the VNIC.
+* <p>
+Example: `2001:DB8::`
+* 
+    */
+  "ipv6Addresses"?: Array<string>;
 }
 
 export namespace Vnic {

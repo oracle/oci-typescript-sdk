@@ -67,6 +67,7 @@ The DRG route table manages traffic inside the DRG.
   "drgRouteTableId"?: string;
   "networkDetails"?:
     | model.VcnDrgAttachmentNetworkDetails
+    | model.LoopBackDrgAttachmentNetworkDetails
     | model.IpsecTunnelDrgAttachmentNetworkDetails
     | model.VirtualCircuitDrgAttachmentNetworkDetails
     | model.RemotePeeringConnectionDrgAttachmentNetworkDetails;
