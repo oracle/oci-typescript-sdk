@@ -23,7 +23,7 @@ export interface ScriptedBrowserMonitorConfiguration extends model.MonitorConfig
    */
   "isCertificateValidationEnabled"?: boolean;
   /**
-   * If disabled then auto snapshots are not collected.
+   * If disabled, auto snapshots are not collected.
    */
   "isDefaultSnapshotEnabled"?: boolean;
   "networkConfiguration"?: model.NetworkConfiguration;

@@ -1,6 +1,6 @@
 {
   "name": "oci-cloudguard",
-  "version": "2.68.2",
+  "version": "2.69.0",
   "description": "OCI NodeJS client for Cloud Guard Service",
   "repository": {
     "type": "git",

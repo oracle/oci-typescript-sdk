@@ -11,24 +11,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import * as AddAnalyticsClusterDetails from "./add-analytics-cluster-details";
-export import AddAnalyticsClusterDetails = AddAnalyticsClusterDetails.AddAnalyticsClusterDetails;
 import * as AddHeatWaveClusterDetails from "./add-heat-wave-cluster-details";
 export import AddHeatWaveClusterDetails = AddHeatWaveClusterDetails.AddHeatWaveClusterDetails;
-import * as AnalyticsCluster from "./analytics-cluster";
-export import AnalyticsCluster = AnalyticsCluster.AnalyticsCluster;
-import * as AnalyticsClusterMemoryEstimate from "./analytics-cluster-memory-estimate";
-export import AnalyticsClusterMemoryEstimate = AnalyticsClusterMemoryEstimate.AnalyticsClusterMemoryEstimate;
-import * as AnalyticsClusterMemoryEstimateStatus from "./analytics-cluster-memory-estimate-status";
-export import AnalyticsClusterMemoryEstimateStatus = AnalyticsClusterMemoryEstimateStatus.AnalyticsClusterMemoryEstimateStatus;
-import * as AnalyticsClusterNode from "./analytics-cluster-node";
-export import AnalyticsClusterNode = AnalyticsClusterNode.AnalyticsClusterNode;
-import * as AnalyticsClusterSchemaMemoryEstimate from "./analytics-cluster-schema-memory-estimate";
-export import AnalyticsClusterSchemaMemoryEstimate = AnalyticsClusterSchemaMemoryEstimate.AnalyticsClusterSchemaMemoryEstimate;
-import * as AnalyticsClusterSummary from "./analytics-cluster-summary";
-export import AnalyticsClusterSummary = AnalyticsClusterSummary.AnalyticsClusterSummary;
-import * as AnalyticsClusterTableMemoryEstimate from "./analytics-cluster-table-memory-estimate";
-export import AnalyticsClusterTableMemoryEstimate = AnalyticsClusterTableMemoryEstimate.AnalyticsClusterTableMemoryEstimate;
 import * as AnonymousTransactionsHandling from "./anonymous-transactions-handling";
 export import AnonymousTransactionsHandling = AnonymousTransactionsHandling.AnonymousTransactionsHandling;
 import * as Backup from "./backup";
@@ -129,8 +113,6 @@ import * as ShapeSummary from "./shape-summary";
 export import ShapeSummary = ShapeSummary.ShapeSummary;
 import * as StopDbSystemDetails from "./stop-db-system-details";
 export import StopDbSystemDetails = StopDbSystemDetails.StopDbSystemDetails;
-import * as UpdateAnalyticsClusterDetails from "./update-analytics-cluster-details";
-export import UpdateAnalyticsClusterDetails = UpdateAnalyticsClusterDetails.UpdateAnalyticsClusterDetails;
 import * as UpdateBackupDetails from "./update-backup-details";
 export import UpdateBackupDetails = UpdateBackupDetails.UpdateBackupDetails;
 import * as UpdateBackupPolicyDetails from "./update-backup-policy-details";

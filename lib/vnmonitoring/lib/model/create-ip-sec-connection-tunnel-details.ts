@@ -62,6 +62,23 @@ The `DISABLED` option directs IKE to completely refuse to negotiate NAT-T
   "phaseOneConfig"?: model.PhaseOneConfigDetails;
   "phaseTwoConfig"?: model.PhaseTwoConfigDetails;
   "dpdConfig"?: model.DpdConfig;
+  /**
+   * The headend IP that you can choose on the Oracle side to terminate your private IPSec tunnel.
+   *
+   */
+  "oracleTunnelIp"?: string;
+  /**
+   * The list of virtual circuit [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm)s over which your network can reach this tunnel.
+   *
+   */
+  "associatedVirtualCircuits"?: Array<string>;
+  /**
+    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the DRG route table assigned to this attachment.
+* <p>
+The DRG route table manages traffic inside the DRG.
+* 
+    */
+  "drgRouteTableId"?: string;
   "encryptionDomainConfig"?: model.CreateIPSecTunnelEncryptionDomainDetails;
 }
 
@@ -103,6 +120,7 @@ export namespace CreateIPSecConnectionTunnelDetails {
           ? model.PhaseTwoConfigDetails.getJsonObj(obj.phaseTwoConfig)
           : undefined,
         "dpdConfig": obj.dpdConfig ? model.DpdConfig.getJsonObj(obj.dpdConfig) : undefined,
+
         "encryptionDomainConfig": obj.encryptionDomainConfig
           ? model.CreateIPSecTunnelEncryptionDomainDetails.getJsonObj(obj.encryptionDomainConfig)
           : undefined
@@ -128,6 +146,7 @@ export namespace CreateIPSecConnectionTunnelDetails {
         "dpdConfig": obj.dpdConfig
           ? model.DpdConfig.getDeserializedJsonObj(obj.dpdConfig)
           : undefined,
+
         "encryptionDomainConfig": obj.encryptionDomainConfig
           ? model.CreateIPSecTunnelEncryptionDomainDetails.getDeserializedJsonObj(
               obj.encryptionDomainConfig

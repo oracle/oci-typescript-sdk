@@ -71,6 +71,11 @@ If the applications that you run on the instance use a core-based licensing mode
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "percentageOfCoresEnabled"?: number;
+  /**
+   * Instance Platform Configuration Configuration Map for flexible setting input.
+   *
+   */
+  "configMap"?: { [key: string]: string };
 
   "type": string;
 }

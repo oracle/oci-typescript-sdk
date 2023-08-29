@@ -28,6 +28,15 @@ import common = require("oci-common");
  */
 export interface InstanceConfigurationCreateVnicDetails {
   /**
+   * Whether to allocate an IPv6 address at instance and VNIC creation from an IPv6 enabled
+   * subnet. Default: False. When provided you may optionally provide an IPv6 prefix
+   * (`ipv6SubnetCidr`) of your choice to assign the IPv6 address from. If `ipv6SubnetCidr`
+   * is not provided then an IPv6 prefix is chosen
+   * for you.
+   *
+   */
+  "assignIpv6Ip"?: boolean;
+  /**
    * Whether the VNIC should be assigned a public IP address. See the `assignPublicIp` attribute of {@link CreateVnicDetails}
    * for more information.
    *
@@ -61,6 +70,16 @@ Example: `{\"Department\": \"Finance\"}`
 * 
     */
   "freeformTags"?: { [key: string]: string };
+  /**
+   * A list of IPv6 prefixes from which the VNIC should be assigned an IPv6 address.
+   * You can provide only the prefix and OCI selects an available
+   * address from the range. You can optionally choose to leave the prefix range empty
+   * and instead provide the specific IPv6 address that should be used from within that range.
+   *
+   */
+  "ipv6AddressIpv6SubnetCidrPairDetails"?: Array<
+    model.InstanceConfigurationIpv6AddressIpv6SubnetCidrPairDetails
+  >;
   /**
    * The hostname for the VNIC's primary private IP.
    * See the `hostnameLabel` attribute of {@link CreateVnicDetails} for more information.
@@ -96,12 +115,34 @@ Example: `{\"Department\": \"Finance\"}`
 
 export namespace InstanceConfigurationCreateVnicDetails {
   export function getJsonObj(obj: InstanceConfigurationCreateVnicDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ipv6AddressIpv6SubnetCidrPairDetails": obj.ipv6AddressIpv6SubnetCidrPairDetails
+          ? obj.ipv6AddressIpv6SubnetCidrPairDetails.map(item => {
+              return model.InstanceConfigurationIpv6AddressIpv6SubnetCidrPairDetails.getJsonObj(
+                item
+              );
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: InstanceConfigurationCreateVnicDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ipv6AddressIpv6SubnetCidrPairDetails": obj.ipv6AddressIpv6SubnetCidrPairDetails
+          ? obj.ipv6AddressIpv6SubnetCidrPairDetails.map(item => {
+              return model.InstanceConfigurationIpv6AddressIpv6SubnetCidrPairDetails.getDeserializedJsonObj(
+                item
+              );
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -10110,6 +10110,87 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Get resource usage details for the specified Autonomous Container Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAutonomousContainerDatabaseResourceUsageRequest
+   * @return GetAutonomousContainerDatabaseResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseResourceUsage.ts.html |here} to see how to use GetAutonomousContainerDatabaseResourceUsage API.
+   */
+  public async getAutonomousContainerDatabaseResourceUsage(
+    getAutonomousContainerDatabaseResourceUsageRequest: requests.GetAutonomousContainerDatabaseResourceUsageRequest
+  ): Promise<responses.GetAutonomousContainerDatabaseResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getAutonomousContainerDatabaseResourceUsage."
+      );
+    const operationName = "getAutonomousContainerDatabaseResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/GetAutonomousContainerDatabaseResourceUsage";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        getAutonomousContainerDatabaseResourceUsageRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutonomousContainerDatabaseResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousContainerDatabaseResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/resourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousContainerDatabaseResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseResourceUsage",
+        bodyModel: model.AutonomousContainerDatabaseResourceUsage,
+        type: "model.AutonomousContainerDatabaseResourceUsage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of the specified Autonomous Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -11009,6 +11090,87 @@ A failover might result in data loss depending on the protection mode in effect 
         bodyKey: "cloudAutonomousVmCluster",
         bodyModel: model.CloudAutonomousVmCluster,
         type: "model.CloudAutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the resource usage details for the specified Cloud Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCloudAutonomousVmClusterResourceUsageRequest
+   * @return GetCloudAutonomousVmClusterResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudAutonomousVmClusterResourceUsage.ts.html |here} to see how to use GetCloudAutonomousVmClusterResourceUsage API.
+   */
+  public async getCloudAutonomousVmClusterResourceUsage(
+    getCloudAutonomousVmClusterResourceUsageRequest: requests.GetCloudAutonomousVmClusterResourceUsageRequest
+  ): Promise<responses.GetCloudAutonomousVmClusterResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getCloudAutonomousVmClusterResourceUsage."
+      );
+    const operationName = "getCloudAutonomousVmClusterResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/GetCloudAutonomousVmClusterResourceUsage";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        getCloudAutonomousVmClusterResourceUsageRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudAutonomousVmClusterResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudAutonomousVmClusterResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/resourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudAutonomousVmClusterResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAutonomousVmClusterResourceUsage",
+        bodyModel: model.CloudAutonomousVmClusterResourceUsage,
+        type: "model.CloudAutonomousVmClusterResourceUsage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -16795,6 +16957,148 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListBackupsRequest
   ): AsyncIterableIterator<responses.ListBackupsResponse> {
     return paginateResponses(request, req => this.listBackups(req));
+  }
+
+  /**
+   * Gets the list of resource usage details for all the Cloud Autonomous Container Database
+   * in the specified Cloud Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCloudAutonomousVmClusterAcdResourceUsageRequest
+   * @return ListCloudAutonomousVmClusterAcdResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListCloudAutonomousVmClusterAcdResourceUsage API.
+   */
+  public async listCloudAutonomousVmClusterAcdResourceUsage(
+    listCloudAutonomousVmClusterAcdResourceUsageRequest: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): Promise<responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listCloudAutonomousVmClusterAcdResourceUsage."
+      );
+    const operationName = "listCloudAutonomousVmClusterAcdResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ListCloudAutonomousVmClusterAcdResourceUsage";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        listCloudAutonomousVmClusterAcdResourceUsageRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {
+      "compartmentId": listCloudAutonomousVmClusterAcdResourceUsageRequest.compartmentId,
+      "limit": listCloudAutonomousVmClusterAcdResourceUsageRequest.limit,
+      "page": listCloudAutonomousVmClusterAcdResourceUsageRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudAutonomousVmClusterAcdResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudAutonomousVmClusterAcdResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/acdResourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AutonomousContainerDatabaseResourceUsage,
+        type: "Array<model.AutonomousContainerDatabaseResourceUsage>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCloudAutonomousVmClusterAcdResourceUsageRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseResourceUsage objects
+   * contained in responses from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudAutonomousVmClusterAcdResourceUsage(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseResourceUsage> {
+    return paginateRecords(request, req => this.listCloudAutonomousVmClusterAcdResourceUsage(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCloudAutonomousVmClusterAcdResourceUsageResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudAutonomousVmClusterAcdResourceUsageResponses(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse> {
+    return paginateResponses(request, req =>
+      this.listCloudAutonomousVmClusterAcdResourceUsage(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseResourceUsage objects
+   * contained in responses from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudAutonomousVmClusterAcdResourceUsageRecordIterator(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseResourceUsage> {
+    return paginateRecords(request, req => this.listCloudAutonomousVmClusterAcdResourceUsage(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudAutonomousVmClusterAcdResourceUsageResponseIterator(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse> {
+    return paginateResponses(request, req =>
+      this.listCloudAutonomousVmClusterAcdResourceUsage(req)
+    );
   }
 
   /**

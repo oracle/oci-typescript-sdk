@@ -50,7 +50,8 @@ export interface CreateCloudAutonomousVmClusterDetails {
    */
   "cpuCoreCountPerNode"?: number;
   /**
-   * The amount of memory (in GBs) to be enabled per OCPU or ECPU. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The amount of memory (in GBs) to be enabled per OCPU or ECPU.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryPerOracleComputeUnitInGBs"?: number;
   /**
@@ -62,7 +63,7 @@ export interface CreateCloudAutonomousVmClusterDetails {
    */
   "clusterTimeZone"?: string;
   /**
-   * The compute model of the Cloud Autonomous VM Cluster. See [Compute Models in Autonomous Database on Dedicated Exadata Infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/dedicated/adbak) for more details.
+   * The compute model of the Cloud Autonomous VM Cluster.
    *
    */
   "computeModel"?: CreateCloudAutonomousVmClusterDetails.ComputeModel;

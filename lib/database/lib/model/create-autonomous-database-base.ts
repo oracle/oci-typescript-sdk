@@ -71,7 +71,7 @@ AL32UTF8, AR8ADOS710, AR8ADOS720, AR8APTEC715, AR8ARABICMACS, AR8ASMO8X, AR8ISO8
    */
   "computeCount"?: number;
   /**
-    * The number of OCPU cores to be made available to the database. 
+    * The number of OCPU cores to be made available to the database.
 * <p>
 The following points apply:
 * - For Autonomous Databases on Dedicated Exadata infrastructure, to provision less than 1 core, enter a fractional value in an increment of 0.1. For example, you can provision 0.3 or 0.4 cores, but not 0.35 cores. (Note that fractional OCPU values are not supported for Autonomous Databasese on shared Exadata infrastructure.)

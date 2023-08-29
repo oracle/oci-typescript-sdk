@@ -34719,6 +34719,144 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Gets the specified virtual circuit's associatedTunnelsInfo.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVirtualCircuitAssociatedTunnelsRequest
+   * @return ListVirtualCircuitAssociatedTunnelsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitAssociatedTunnels.ts.html |here} to see how to use ListVirtualCircuitAssociatedTunnels API.
+   */
+  public async listVirtualCircuitAssociatedTunnels(
+    listVirtualCircuitAssociatedTunnelsRequest: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): Promise<responses.ListVirtualCircuitAssociatedTunnelsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listVirtualCircuitAssociatedTunnels."
+      );
+    const operationName = "listVirtualCircuitAssociatedTunnels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitAssociatedTunnelDetails/ListVirtualCircuitAssociatedTunnels";
+    const pathParams = {
+      "{virtualCircuitId}": listVirtualCircuitAssociatedTunnelsRequest.virtualCircuitId
+    };
+
+    const queryParams = {
+      "limit": listVirtualCircuitAssociatedTunnelsRequest.limit,
+      "page": listVirtualCircuitAssociatedTunnelsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVirtualCircuitAssociatedTunnelsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualCircuits/{virtualCircuitId}/associatedTunnels",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVirtualCircuitAssociatedTunnelsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.VirtualCircuitAssociatedTunnelDetails,
+        type: "Array<model.VirtualCircuitAssociatedTunnelDetails>",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitAssociatedTunnelsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.VirtualCircuitAssociatedTunnelDetails objects
+   * contained in responses from the listVirtualCircuitAssociatedTunnels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualCircuitAssociatedTunnels(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<model.VirtualCircuitAssociatedTunnelDetails> {
+    return paginateRecords(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitAssociatedTunnelsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuitAssociatedTunnels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualCircuitAssociatedTunnelsResponses(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<responses.ListVirtualCircuitAssociatedTunnelsResponse> {
+    return paginateResponses(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VirtualCircuitAssociatedTunnelDetails objects
+   * contained in responses from the listVirtualCircuitAssociatedTunnels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitAssociatedTunnelsRecordIterator(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<model.VirtualCircuitAssociatedTunnelDetails> {
+    return paginateRecords(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuitAssociatedTunnels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitAssociatedTunnelsResponseIterator(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<responses.ListVirtualCircuitAssociatedTunnelsResponse> {
+    return paginateResponses(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
    * The deprecated operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

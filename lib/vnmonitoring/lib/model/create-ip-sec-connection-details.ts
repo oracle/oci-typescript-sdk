@@ -96,6 +96,12 @@ Example: `2001:db8::/32`
    *
    */
   "tunnelConfiguration"?: Array<model.CreateIPSecConnectionTunnelDetails>;
+  /**
+   * The count of tunnels in the IPsec connection. This value should be equal to the number of
+   * `tunnelConfiguration` objects specified in the `CreateIPSecConnection` request.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "tunnelCount"?: number;
 }
 
 export namespace CreateIPSecConnectionDetails {

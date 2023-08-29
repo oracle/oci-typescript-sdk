@@ -59,6 +59,11 @@ The customer and provider can update different properties in the mapping
    */
   "isBfdEnabled"?: boolean;
   /**
+   * Set to `true` for the virtual circuit to carry only encrypted traffic, or set to `false` for the virtual circuit to carry unencrypted traffic. If this is not set, the default is `false`.
+   *
+   */
+  "isTransportMode"?: boolean;
+  /**
    * Deprecated. Instead use `customerAsn`.
    * If you specify values for both, the request will be rejected.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.

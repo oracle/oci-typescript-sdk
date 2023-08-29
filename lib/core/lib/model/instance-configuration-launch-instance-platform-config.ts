@@ -85,6 +85,11 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
             ),
             true
           );
+        case "GENERIC_BM":
+          return model.InstanceConfigurationGenericBmLaunchInstancePlatformConfig.getJsonObj(
+            <model.InstanceConfigurationGenericBmLaunchInstancePlatformConfig>(<object>jsonObj),
+            true
+          );
         case "AMD_ROME_BM":
           return model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig.getJsonObj(
             <model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig>(<object>jsonObj),
@@ -140,6 +145,11 @@ export namespace InstanceConfigurationLaunchInstancePlatformConfig {
             <model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig>(
               (<object>jsonObj)
             ),
+            true
+          );
+        case "GENERIC_BM":
+          return model.InstanceConfigurationGenericBmLaunchInstancePlatformConfig.getDeserializedJsonObj(
+            <model.InstanceConfigurationGenericBmLaunchInstancePlatformConfig>(<object>jsonObj),
             true
           );
         case "AMD_ROME_BM":

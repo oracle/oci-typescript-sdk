@@ -47,13 +47,6 @@ export interface DbSystem {
   "isHighlyAvailable"?: boolean;
   "currentPlacement"?: model.DbSystemPlacement;
   /**
-   * DEPRECATED -- please use `isHeatWaveClusterAttached` instead.
-   * If the DB System has an Analytics Cluster attached.
-   *
-   */
-  "isAnalyticsClusterAttached"?: boolean;
-  "analyticsCluster"?: model.AnalyticsClusterSummary;
-  /**
    * If the DB System has a HeatWave Cluster attached.
    *
    */
@@ -206,10 +199,6 @@ export namespace DbSystem {
           ? model.DbSystemPlacement.getJsonObj(obj.currentPlacement)
           : undefined,
 
-        "analyticsCluster": obj.analyticsCluster
-          ? model.AnalyticsClusterSummary.getJsonObj(obj.analyticsCluster)
-          : undefined,
-
         "heatWaveCluster": obj.heatWaveCluster
           ? model.HeatWaveClusterSummary.getJsonObj(obj.heatWaveCluster)
           : undefined,
@@ -251,10 +240,6 @@ export namespace DbSystem {
       ...{
         "currentPlacement": obj.currentPlacement
           ? model.DbSystemPlacement.getDeserializedJsonObj(obj.currentPlacement)
-          : undefined,
-
-        "analyticsCluster": obj.analyticsCluster
-          ? model.AnalyticsClusterSummary.getDeserializedJsonObj(obj.analyticsCluster)
           : undefined,
 
         "heatWaveCluster": obj.heatWaveCluster

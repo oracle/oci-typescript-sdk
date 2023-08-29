@@ -37,11 +37,12 @@ Example: `Uocm:PHX-AD-1`
    */
   "placementConstraint"?: ClusterNetworkPlacementConfigurationDetails.PlacementConstraint;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet to place
-   * instances.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet to place instances. This field is deprecated.
+   * Use `primaryVnicSubnets` instead to set VNIC data for instances in the pool.
    *
    */
-  "primarySubnetId": string;
+  "primarySubnetId"?: string;
+  "primaryVnicSubnets"?: model.InstancePoolPlacementPrimarySubnet;
   /**
    * The set of secondary VNIC data for instances in the pool.
    */
@@ -64,6 +65,9 @@ export namespace ClusterNetworkPlacementConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getJsonObj(item);
@@ -78,6 +82,9 @@ export namespace ClusterNetworkPlacementConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getDeserializedJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getDeserializedJsonObj(item);

@@ -63,6 +63,7 @@ export interface CreateConnectionDetails {
   "tlsKeystore"?: string;
   "sshDetails"?: model.CreateSshDetails;
   "adminCredentials": model.CreateAdminCredentials;
+  "replicationCredentials"?: model.CreateAdminCredentials;
   "privateEndpoint"?: model.CreatePrivateEndpoint;
   "vaultDetails": model.CreateVaultDetails;
   /**
@@ -99,6 +100,9 @@ export namespace CreateConnectionDetails {
         "adminCredentials": obj.adminCredentials
           ? model.CreateAdminCredentials.getJsonObj(obj.adminCredentials)
           : undefined,
+        "replicationCredentials": obj.replicationCredentials
+          ? model.CreateAdminCredentials.getJsonObj(obj.replicationCredentials)
+          : undefined,
         "privateEndpoint": obj.privateEndpoint
           ? model.CreatePrivateEndpoint.getJsonObj(obj.privateEndpoint)
           : undefined,
@@ -123,6 +127,9 @@ export namespace CreateConnectionDetails {
           : undefined,
         "adminCredentials": obj.adminCredentials
           ? model.CreateAdminCredentials.getDeserializedJsonObj(obj.adminCredentials)
+          : undefined,
+        "replicationCredentials": obj.replicationCredentials
+          ? model.CreateAdminCredentials.getDeserializedJsonObj(obj.replicationCredentials)
           : undefined,
         "privateEndpoint": obj.privateEndpoint
           ? model.CreatePrivateEndpoint.getDeserializedJsonObj(obj.privateEndpoint)

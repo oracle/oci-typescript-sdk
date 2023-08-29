@@ -22,7 +22,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * These configuration details are used in the move operation when changing the compartment containing a virtual test access point (VTAP) capture filter.
+ * These configuration details are used in the move operation when changing the compartment containing a capture filter.
  *
  */
 export interface ChangeCaptureFilterCompartmentDetails {

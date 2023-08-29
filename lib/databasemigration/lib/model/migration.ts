@@ -90,6 +90,7 @@ export interface Migration {
    *
    */
   "includeObjects"?: Array<model.DatabaseObject>;
+  "goldenGateServiceDetails"?: model.GoldenGateServiceDetails;
   "goldenGateDetails"?: model.GoldenGateDetails;
   "vaultDetails"?: model.VaultDetails;
   /**
@@ -164,6 +165,9 @@ export namespace Migration {
               return model.DatabaseObject.getJsonObj(item);
             })
           : undefined,
+        "goldenGateServiceDetails": obj.goldenGateServiceDetails
+          ? model.GoldenGateServiceDetails.getJsonObj(obj.goldenGateServiceDetails)
+          : undefined,
         "goldenGateDetails": obj.goldenGateDetails
           ? model.GoldenGateDetails.getJsonObj(obj.goldenGateDetails)
           : undefined,
@@ -200,6 +204,9 @@ export namespace Migration {
           ? obj.includeObjects.map(item => {
               return model.DatabaseObject.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "goldenGateServiceDetails": obj.goldenGateServiceDetails
+          ? model.GoldenGateServiceDetails.getDeserializedJsonObj(obj.goldenGateServiceDetails)
           : undefined,
         "goldenGateDetails": obj.goldenGateDetails
           ? model.GoldenGateDetails.getDeserializedJsonObj(obj.goldenGateDetails)

@@ -26,6 +26,14 @@ import common = require("oci-common");
  */
 export interface VirtualCircuitDrgAttachmentNetworkDetails
   extends model.DrgAttachmentNetworkDetails {
+  /**
+    * Boolean flag that determines wether all traffic over the virtual circuits is encrypted.
+* <p>
+Example: `true`
+* 
+    */
+  "transportOnlyMode"?: boolean;
+
   "type": string;
 }
 

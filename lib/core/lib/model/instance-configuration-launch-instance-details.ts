@@ -176,6 +176,7 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.InstanceConfigurationIntelVmLaunchInstancePlatformConfig
     | model.InstanceConfigurationAmdMilanBmGpuLaunchInstancePlatformConfig
     | model.InstanceConfigurationIntelIcelakeBmLaunchInstancePlatformConfig
+    | model.InstanceConfigurationGenericBmLaunchInstancePlatformConfig
     | model.InstanceConfigurationAmdRomeBmLaunchInstancePlatformConfig
     | model.InstanceConfigurationIntelSkylakeBmLaunchInstancePlatformConfig
     | model.InstanceConfigurationAmdRomeBmGpuLaunchInstancePlatformConfig

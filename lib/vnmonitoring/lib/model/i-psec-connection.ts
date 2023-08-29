@@ -127,6 +127,11 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
+  /**
+   * The transport type used for the IPSec connection.
+   *
+   */
+  "transportType"?: IPSecConnection.TransportType;
 }
 
 export namespace IPSecConnection {
@@ -145,6 +150,16 @@ export namespace IPSecConnection {
   export enum CpeLocalIdentifierType {
     IpAddress = "IP_ADDRESS",
     Hostname = "HOSTNAME",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum TransportType {
+    Internet = "INTERNET",
+    Fastconnect = "FASTCONNECT",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

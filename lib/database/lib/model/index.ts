@@ -12,6 +12,8 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as AcdAvmResourceStats from "./acd-avm-resource-stats";
+export import AcdAvmResourceStats = AcdAvmResourceStats.AcdAvmResourceStats;
 import * as ActivateExadataInfrastructureDetails from "./activate-exadata-infrastructure-details";
 export import ActivateExadataInfrastructureDetails = ActivateExadataInfrastructureDetails.ActivateExadataInfrastructureDetails;
 import * as AddVirtualMachineToCloudVmClusterDetails from "./add-virtual-machine-to-cloud-vm-cluster-details";
@@ -32,6 +34,8 @@ import * as AutonomousContainerDatabaseBackupConfig from "./autonomous-container
 export import AutonomousContainerDatabaseBackupConfig = AutonomousContainerDatabaseBackupConfig.AutonomousContainerDatabaseBackupConfig;
 import * as AutonomousContainerDatabaseDataguardAssociation from "./autonomous-container-database-dataguard-association";
 export import AutonomousContainerDatabaseDataguardAssociation = AutonomousContainerDatabaseDataguardAssociation.AutonomousContainerDatabaseDataguardAssociation;
+import * as AutonomousContainerDatabaseResourceUsage from "./autonomous-container-database-resource-usage";
+export import AutonomousContainerDatabaseResourceUsage = AutonomousContainerDatabaseResourceUsage.AutonomousContainerDatabaseResourceUsage;
 import * as AutonomousContainerDatabaseSummary from "./autonomous-container-database-summary";
 export import AutonomousContainerDatabaseSummary = AutonomousContainerDatabaseSummary.AutonomousContainerDatabaseSummary;
 import * as AutonomousContainerDatabaseVersionSummary from "./autonomous-container-database-version-summary";
@@ -96,6 +100,10 @@ import * as AutonomousVmClusterResourceDetails from "./autonomous-vm-cluster-res
 export import AutonomousVmClusterResourceDetails = AutonomousVmClusterResourceDetails.AutonomousVmClusterResourceDetails;
 import * as AutonomousVmClusterSummary from "./autonomous-vm-cluster-summary";
 export import AutonomousVmClusterSummary = AutonomousVmClusterSummary.AutonomousVmClusterSummary;
+import * as AutonomousVmResourceUsage from "./autonomous-vm-resource-usage";
+export import AutonomousVmResourceUsage = AutonomousVmResourceUsage.AutonomousVmResourceUsage;
+import * as AvmAcdResourceStats from "./avm-acd-resource-stats";
+export import AvmAcdResourceStats = AvmAcdResourceStats.AvmAcdResourceStats;
 import * as Backup from "./backup";
 export import Backup = Backup.Backup;
 import * as BackupDestination from "./backup-destination";
@@ -132,6 +140,8 @@ import * as CloudAutonomousVmCluster from "./cloud-autonomous-vm-cluster";
 export import CloudAutonomousVmCluster = CloudAutonomousVmCluster.CloudAutonomousVmCluster;
 import * as CloudAutonomousVmClusterResourceDetails from "./cloud-autonomous-vm-cluster-resource-details";
 export import CloudAutonomousVmClusterResourceDetails = CloudAutonomousVmClusterResourceDetails.CloudAutonomousVmClusterResourceDetails;
+import * as CloudAutonomousVmClusterResourceUsage from "./cloud-autonomous-vm-cluster-resource-usage";
+export import CloudAutonomousVmClusterResourceUsage = CloudAutonomousVmClusterResourceUsage.CloudAutonomousVmClusterResourceUsage;
 import * as CloudAutonomousVmClusterSummary from "./cloud-autonomous-vm-cluster-summary";
 export import CloudAutonomousVmClusterSummary = CloudAutonomousVmClusterSummary.CloudAutonomousVmClusterSummary;
 import * as CloudDatabaseManagementConfig from "./cloud-database-management-config";
