@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -11,8 +17,6 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
-import * as AvailabilityDomain from "./availability-domain";
-export import AvailabilityDomain = AvailabilityDomain.AvailabilityDomain;
 import * as Category from "./category";
 export import Category = Category.Category;
 import * as Classifier from "./classifier";
@@ -59,12 +63,12 @@ import * as LifecycleState from "./lifecycle-state";
 export import LifecycleState = LifecycleState.LifecycleState;
 import * as ProblemType from "./problem-type";
 export import ProblemType = ProblemType.ProblemType;
-import * as Region from "./region";
-export import Region = Region.Region;
 import * as Resource from "./resource";
 export import Resource = Resource.Resource;
 import * as Scope from "./scope";
 export import Scope = Scope.Scope;
+import * as ServiceCategories from "./service-categories";
+export import ServiceCategories = ServiceCategories.ServiceCategories;
 import * as ServiceCategory from "./service-category";
 export import ServiceCategory = ServiceCategory.ServiceCategory;
 import * as SortBy from "./sort-by";
@@ -96,8 +100,12 @@ export import User = User.User;
 import * as ValidationResponse from "./validation-response";
 export import ValidationResponse = ValidationResponse.ValidationResponse;
 
+import * as AccountItem from "./account-item";
+export import AccountItem = AccountItem.AccountItem;
 import * as ActivityItem from "./activity-item";
 export import ActivityItem = ActivityItem.ActivityItem;
+import * as CreateAccountItemDetails from "./create-account-item-details";
+export import CreateAccountItemDetails = CreateAccountItemDetails.CreateAccountItemDetails;
 import * as CreateLimitItemDetails from "./create-limit-item-details";
 export import CreateLimitItemDetails = CreateLimitItemDetails.CreateLimitItemDetails;
 import * as CreateTechSupportItemDetails from "./create-tech-support-item-details";

@@ -17,6 +17,8 @@ import * as AddDataSelectorPatternsRequest from "./add-data-selector-patterns-re
 export import AddDataSelectorPatternsRequest = AddDataSelectorPatternsRequest.AddDataSelectorPatternsRequest;
 import * as AssociateCustomPropertyRequest from "./associate-custom-property-request";
 export import AssociateCustomPropertyRequest = AssociateCustomPropertyRequest.AssociateCustomPropertyRequest;
+import * as AsynchronousExportGlossaryRequest from "./asynchronous-export-glossary-request";
+export import AsynchronousExportGlossaryRequest = AsynchronousExportGlossaryRequest.AsynchronousExportGlossaryRequest;
 import * as AttachCatalogPrivateEndpointRequest from "./attach-catalog-private-endpoint-request";
 export import AttachCatalogPrivateEndpointRequest = AttachCatalogPrivateEndpointRequest.AttachCatalogPrivateEndpointRequest;
 import * as ChangeCatalogCompartmentRequest from "./change-catalog-compartment-request";
@@ -115,6 +117,8 @@ import * as ExpandTreeForGlossaryRequest from "./expand-tree-for-glossary-reques
 export import ExpandTreeForGlossaryRequest = ExpandTreeForGlossaryRequest.ExpandTreeForGlossaryRequest;
 import * as ExportGlossaryRequest from "./export-glossary-request";
 export import ExportGlossaryRequest = ExportGlossaryRequest.ExportGlossaryRequest;
+import * as FetchEntityLineageRequest from "./fetch-entity-lineage-request";
+export import FetchEntityLineageRequest = FetchEntityLineageRequest.FetchEntityLineageRequest;
 import * as GetAttributeRequest from "./get-attribute-request";
 export import GetAttributeRequest = GetAttributeRequest.GetAttributeRequest;
 import * as GetAttributeTagRequest from "./get-attribute-tag-request";

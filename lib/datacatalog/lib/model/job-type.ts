@@ -29,6 +29,8 @@ import common = require("oci-common");
  * ASYNC_DELETE - Job type for asynchronous bulk delete on data assets, folders and data entities.
  * PURGE - Job type for cleaning up schedules, executions and logs of a Job.
  * IMPORT_DATA_ASSET - Job type to import technical objects to a data asset.
+ * CREATE_SCAN_PROXY - Job type to create scan proxy resource for RAC enabled data asset.
+ * ASYNC_EXPORT_GLOSSARY - Job type to export glossary metadata to a file asynchronously.
  *
  **/
 export enum JobType {
@@ -49,6 +51,8 @@ export enum JobType {
   ScheduledExecutionInstance = "SCHEDULED_EXECUTION_INSTANCE",
   AsyncDelete = "ASYNC_DELETE",
   ImportDataAsset = "IMPORT_DATA_ASSET",
+  CreateScanProxy = "CREATE_SCAN_PROXY",
+  AsyncExportGlossary = "ASYNC_EXPORT_GLOSSARY",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

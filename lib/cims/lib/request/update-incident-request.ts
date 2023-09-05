@@ -23,27 +23,47 @@ export interface UpdateIncidentRequest extends common.BaseRequest {
    */
   "incidentKey": string;
   /**
-   * The Customer Support Identifier associated with the support account.
-   */
-  "csi": string;
-  /**
    * Details about the support ticket being updated.
    */
   "updateIncidentDetails": model.UpdateIncident;
   /**
-   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
+   * The Customer Support Identifier (CSI) associated with the support account.
    */
-  "ocid": string;
+  "csi"?: string;
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
   /**
+   * The OCID of the tenancy.
+   */
+  "compartmentId"?: string;
+  /**
    * For optimistic concurrency control. In the PUT or DELETE call for a resource, set the `if-match` parameter to the value of the etag from a previous GET or POST response for that resource. The resource will be updated or deleted only if the etag you provide matches the resource's current etag value.
    */
   "ifMatch"?: string;
   /**
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
+   */
+  "ocid"?: string;
+  /**
    * The region of the tenancy.
    */
   "homeregion"?: string;
+  /**
+   * Token type that determine which cloud provider the request come from.
+   */
+  "bearertokentype"?: string;
+  /**
+   * Token that provided by multi cloud provider, which help to validate the email.
+   */
+  "bearertoken"?: string;
+  /**
+   * IdToken that provided by multi cloud provider, which help to validate the email.
+   */
+  "idtoken"?: string;
+  /**
+   * The OCID of identity domain.
+   */
+  "domainid"?: string;
 }

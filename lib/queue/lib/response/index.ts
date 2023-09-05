@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -19,6 +19,8 @@ import * as GetMessagesResponse from "./get-messages-response";
 export import GetMessagesResponse = GetMessagesResponse.GetMessagesResponse;
 import * as GetStatsResponse from "./get-stats-response";
 export import GetStatsResponse = GetStatsResponse.GetStatsResponse;
+import * as ListChannelsResponse from "./list-channels-response";
+export import ListChannelsResponse = ListChannelsResponse.ListChannelsResponse;
 import * as PutMessagesResponse from "./put-messages-response";
 export import PutMessagesResponse = PutMessagesResponse.PutMessagesResponse;
 import * as UpdateMessageResponse from "./update-message-response";

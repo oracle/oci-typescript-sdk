@@ -24,6 +24,14 @@ export interface ListIncidentsResponse {
    */
   "opcNextPage": string;
   /**
+   * For list pagination. When this header appears in the response, previous pages of results can be queried. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/Content/API/Concepts/usingapi.htm#nine).
+   */
+  "opcPrevPage": string;
+  /**
+   * Returns the age of the incidents in the response in epoch milliseconds. This is used because the incidents might be cached.
+   */
+  "asOfTime": string;
+  /**
    * A list of IncidentSummary instances.
    */
   "items": model.IncidentSummary[];

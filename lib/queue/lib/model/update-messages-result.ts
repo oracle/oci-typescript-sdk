@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -23,7 +23,7 @@ export interface UpdateMessagesResult {
    */
   "serverFailures": number;
   /**
-   * The number of messages that failed to be updated in the queue because of a client failure such as an invalid receipt or invalid visibilityInSeconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of messages that failed to be updated in the queue because of a client failure such as an invalid receipt or invalid `visibilityInSeconds`. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "clientFailures": number;
   /**

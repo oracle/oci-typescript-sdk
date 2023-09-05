@@ -34,4 +34,18 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
+  /**
+   * The field to sort by. Only one sort order may be provided. Default order for timestamp is descending.
+   */
+  "sortBy"?: ListWorkRequestLogsRequest.SortBy;
+  /**
+   * The sort order to use, either 'ASC' or 'DESC'.
+   */
+  "sortOrder"?: model.SortOrder;
+}
+
+export namespace ListWorkRequestLogsRequest {
+  export enum SortBy {
+    Timestamp = "timestamp"
+  }
 }

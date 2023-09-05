@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -23,7 +23,7 @@ export interface WorkRequestLogEntry {
    */
   "message": string;
   /**
-   * The time the log message was written. An RFC3339 formatted datetime string
+   * The time the log message was written. An [RFC 3339](https://tools.ietf.org/rfc/rfc3339) formatted datetime string
    */
   "timestamp": Date;
 }

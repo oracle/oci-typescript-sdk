@@ -38,4 +38,29 @@ export interface ListWorkRequestsRequest extends common.BaseRequest {
    * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    */
   "limit"?: number;
+  /**
+ * The name of the availability domain.
+* <p>
+Example: `Uocm:PHX-AD-1`
+* 
+ */
+  "availabilityDomain"?: string;
+  /**
+   * A filter to return only resources their lifecycleState matches the given OperationStatus.
+   */
+  "status"?: model.OperationStatus;
+  /**
+   * The field to sort by. Only one sort order may be provided. Default order for timeAccepted is descending.
+   */
+  "sortBy"?: ListWorkRequestsRequest.SortBy;
+  /**
+   * The sort order to use, either 'ASC' or 'DESC'.
+   */
+  "sortOrder"?: model.SortOrder;
+}
+
+export namespace ListWorkRequestsRequest {
+  export enum SortBy {
+    TimeAccepted = "timeAccepted"
+  }
 }

@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -15,15 +21,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the category associated with the support ticket.
+ * Details about the service category associated with the support ticket.
  */
 export interface Category {
   /**
-   * Unique identifier for the category.
+   * Unique identifier for the service category.
    */
   "categoryKey"?: string;
   /**
-   * The name of the category. For example, `Compute` or `Identity`.
+   * The name of the service category. For example, `Compute` or `Identity`.
    */
   "name"?: string;
 }

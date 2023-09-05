@@ -94,7 +94,12 @@ export interface ListFoldersRequest extends common.BaseRequest {
    */
   "fields"?: Array<ListFoldersRequest.Fields>;
   /**
-   * The field to sort by. Only one sort order may be provided. Default order for TIMECREATED is descending. Default order for DISPLAYNAME is ascending. If no value is specified TIMECREATED is default.
+   * The key of the object type.
+   */
+  "typeKey"?: string;
+  /**
+   * The field to sort by. Only one sort order may be provided. DISPLAYORBUSINESSNAME considers businessName of a given object if set, else its displayName is used.
+   * Default sort order for TIMECREATED is descending and default sort order for DISPLAYNAME and DISPLAYORBUSINESSNAME is ascending. If no order is specified, TIMECREATED is the default.
    *
    */
   "sortBy"?: ListFoldersRequest.SortBy;
@@ -133,7 +138,8 @@ export namespace ListFoldersRequest {
 
   export enum SortBy {
     Timecreated = "TIMECREATED",
-    Displayname = "DISPLAYNAME"
+    Displayname = "DISPLAYNAME",
+    Displayorbusinessname = "DISPLAYORBUSINESSNAME"
   }
 
   export enum SortOrder {

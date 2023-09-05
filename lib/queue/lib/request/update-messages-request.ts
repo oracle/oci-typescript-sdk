@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface UpdateMessagesRequest extends common.BaseRequest {
   /**
-   * unique Queue identifier
+   * The unique queue identifier.
    */
   "queueId": string;
   /**
@@ -27,7 +27,7 @@ export interface UpdateMessagesRequest extends common.BaseRequest {
    */
   "updateMessagesDetails": model.UpdateMessagesDetails;
   /**
-   * The client request ID for tracing.
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
 }

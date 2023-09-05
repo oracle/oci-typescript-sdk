@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -20,12 +20,19 @@ import common = require("oci-common");
 export interface PurgeQueueDetails {
   /**
    * Type of the purge to perform:
-   * - NORMAL - purge only normal queue
-   * - DLQ - purge only DLQ
-   * - BOTH - purge both normal queue and DLQ
+   * - NORMAL - purge only the normal queue
+   * - DLQ - purge only the dead letter queue
+   * - BOTH - purge both the normal queue and the dead letter queue
    *
    */
   "purgeType": PurgeQueueDetails.PurgeType;
+  /**
+   * Optional parameter to specify the destination of purge operation.
+   * If the channel ID is specified, the purge operation will delete all the messages in the specific channels.
+   * If the channel ID is not specified, the purge operation will delete all the messages in the queue and in the child channels.
+   *
+   */
+  "channelIds"?: Array<string>;
 }
 
 export namespace PurgeQueueDetails {
