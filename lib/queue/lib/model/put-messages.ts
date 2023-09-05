@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of the messages published in a queue.
+ * A list of the messages published to a queue.
  */
 export interface PutMessages {
   /**
-   * The messages that have been published in a queue.
+   * The messages that have been published to a queue.
    */
   "messages": Array<model.PutMessage>;
 }

@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -15,11 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The stats for a queue and its dead letter queue.
+ * The stats for a queue and its dead letter queue. If channelId is specified in request field, it will return channel specific stats response.
  */
 export interface QueueStats {
   "queue": model.Stats;
   "dlq": model.Stats;
+  /**
+   * If channelId is presented in GetStats call, the channel id will be returned in the GetStats response.
+   */
+  "channelId"?: string;
 }
 
 export namespace QueueStats {

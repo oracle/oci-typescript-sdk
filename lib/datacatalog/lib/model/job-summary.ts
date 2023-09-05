@@ -80,6 +80,7 @@ export interface JobSummary {
   /**
    * Interval on which the job will be run. Value is specified as a cron-supported time specification \"nickname\".
    * The following subset of those is supported: @monthly, @weekly, @daily, @hourly.
+   * For metastore sync, an additional option @default is supported, which will schedule jobs at a more granular frequency.
    *
    */
   "scheduleCronExpression"?: string;
@@ -106,6 +107,10 @@ export interface JobSummary {
    * Unique key of the data asset to which this job applies, if the job involves a data asset.
    */
   "dataAssetKey"?: string;
+  /**
+   * Unique key of the glossary to which this job applies.
+   */
+  "glossaryKey"?: string;
   /**
    * Error code returned from the latest job execution for this job. Useful when the latest Job execution is in FAILED state.
    *

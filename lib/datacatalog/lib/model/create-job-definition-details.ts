@@ -46,6 +46,10 @@ export interface CreateJobDefinitionDetails {
    */
   "dataAssetKey"?: string;
   /**
+   * Unique key of the glossary to which this job applies.
+   */
+  "glossaryKey"?: string;
+  /**
    * The key of the connection resource to be used for the job.
    */
   "connectionKey"?: string;

@@ -27,14 +27,6 @@ export interface ListIncidentResourceTypesRequest extends common.BaseRequest {
    */
   "compartmentId": string;
   /**
-   * The Customer Support Identifier associated with the support account.
-   */
-  "csi": string;
-  /**
-   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
-   */
-  "ocid": string;
-  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
@@ -57,11 +49,23 @@ export interface ListIncidentResourceTypesRequest extends common.BaseRequest {
    */
   "sortOrder"?: model.SortOrder;
   /**
-   * The user-friendly name of the incident type.
+   * The user-friendly name of the support ticket type.
    */
   "name"?: string;
+  /**
+   * The Customer Support Identifier (CSI) associated with the support account.
+   */
+  "csi"?: string;
+  /**
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
+   */
+  "ocid"?: string;
   /**
    * The region of the tenancy.
    */
   "homeregion"?: string;
+  /**
+   * The OCID of identity domain.
+   */
+  "domainid"?: string;
 }

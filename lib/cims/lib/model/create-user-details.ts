@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -15,7 +21,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about creation of user.
+ * Details for creating a new user.
  */
 export interface CreateUserDetails {
   /**
@@ -31,11 +37,7 @@ export interface CreateUserDetails {
    */
   "lastName": string;
   /**
-   * Country of the user.
-   */
-  "country": string;
-  /**
-   * CSI to be associated to the user.
+   * CSI associated with the user.
    */
   "csi": string;
   /**
@@ -50,6 +52,10 @@ export interface CreateUserDetails {
    * Organization of the user.
    */
   "organizationName": string;
+  /**
+   * The kind of support ticket, such as a technical support request or a limit increase request.
+   */
+  "problemType": model.ProblemType;
 }
 
 export namespace CreateUserDetails {

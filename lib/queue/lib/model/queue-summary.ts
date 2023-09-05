@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -15,39 +15,45 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Summary of the Queue.
+ * Summary of the queue.
  */
 export interface QueueSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * A unique identifier for the queue that is immutable on creation.
    */
   "id": string;
   /**
-   * Queue Identifier, can be renamed
+   * A user-friendly name for the queue. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName"?: string;
   /**
-   * Compartment Identifier
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the queue.
    */
   "compartmentId": string;
   /**
-   * The time the the Queue was created. An RFC3339 formatted datetime string
-   */
+    * The time that the queue was created, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: `2018-04-20T00:00:07.405Z`
+* 
+    */
   "timeCreated": Date;
   /**
-   * The time the Queue was updated. An RFC3339 formatted datetime string
-   */
+    * The time that the queue was updated, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: `2018-04-20T00:00:07.405Z`
+* 
+    */
   "timeUpdated": Date;
   /**
-   * The current state of the Queue.
+   * The current state of the queue.
    */
   "lifecycleState": string;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
+   * Any additional details about the current state of the queue.
    */
   "lifecycleDetails"?: string;
   /**
-   * The endpoint to use to get or put messages in the queue.
+   * The endpoint to use to consume or publish messages in the queue.
    */
   "messagesEndpoint": string;
   /**

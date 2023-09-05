@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface GetMessage {
   /**
-   * The id of the message - this is only used for tracing and debugging purposes and isn't used as a parameter in any request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The ID of the message. This ID is only used for tracing and debugging purposes and isn't used as a parameter in any request. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id": number;
   /**
-   * The content of the message
+   * The content of the message.
    */
   "content": string;
   /**
@@ -33,27 +33,46 @@ export interface GetMessage {
    */
   "receipt": string;
   /**
-   * The number of time the message has been delivered to a consumer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of times that the message has been delivered to a consumer. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "deliveryCount": number;
   /**
-   * The time after which the message will be visible to other consumers. An RFC3339 formatted datetime string
-   */
+    * The time after which the message will be visible to other consumers, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: `2018-04-20T00:00:07.405Z`
+* 
+    */
   "visibleAfter": Date;
   /**
-   * The time after which the message will be automatically deleted. An RFC3339 formatted datetime string
-   */
+    * The time after which the message will be automatically deleted, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: `2018-04-20T00:00:07.405Z`
+* 
+    */
   "expireAfter": Date;
+  "metadata"?: model.MessageMetadata;
 }
 
 export namespace GetMessage {
   export function getJsonObj(obj: GetMessage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata ? model.MessageMetadata.getJsonObj(obj.metadata) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: GetMessage): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata
+          ? model.MessageMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

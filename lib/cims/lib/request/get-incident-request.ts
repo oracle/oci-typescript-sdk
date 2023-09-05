@@ -23,23 +23,43 @@ export interface GetIncidentRequest extends common.BaseRequest {
    */
   "incidentKey": string;
   /**
-   * The Customer Support Identifier associated with the support account.
-   */
-  "csi": string;
-  /**
-   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
-   */
-  "ocid": string;
-  /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
+  /**
+   * The Customer Support Identifier (CSI) associated with the support account.
+   */
+  "csi"?: string;
+  /**
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
+   */
+  "ocid"?: string;
   /**
    * The region of the tenancy.
    */
   "homeregion"?: string;
   /**
+   * The OCID of the tenancy.
+   */
+  "compartmentId"?: string;
+  /**
    * The kind of support request.
    */
-  "problemType"?: string;
+  "problemtype"?: string;
+  /**
+   * Token type that determine which cloud provider the request come from.
+   */
+  "bearertokentype"?: string;
+  /**
+   * Token that provided by multi cloud provider, which help to validate the email.
+   */
+  "bearertoken"?: string;
+  /**
+   * IdToken that provided by multi cloud provider, which help to validate the email.
+   */
+  "idtoken"?: string;
+  /**
+   * The OCID of identity domain.
+   */
+  "domainid"?: string;
 }

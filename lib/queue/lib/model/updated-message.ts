@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -19,12 +19,15 @@ import common = require("oci-common");
  */
 export interface UpdatedMessage {
   /**
-   * The id of the message that's been updated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The ID of the message that's been updated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id": number;
   /**
-   * The time after which the message will be visible to other consumers. An RFC3339 formatted datetime string
-   */
+    * The time after which the message will be visible to other consumers, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: `2018-04-20T00:00:07.405Z`
+* 
+    */
   "visibleAfter": Date;
 }
 

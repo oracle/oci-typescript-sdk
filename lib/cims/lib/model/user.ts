@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -15,39 +21,39 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details about the user object.
+ * Details about the user.
  */
 export interface User {
   /**
-   * Unique identifier for the user.
+   * A unique identifier for the user.
    */
   "key": string;
   /**
-   * First name of the user.
+   * The user's first name.
    */
   "firstName"?: string;
   /**
-   * Last name of the user.
+   * The user's last name.
    */
   "lastName"?: string;
   /**
-   * Country of the user.
+   * The country of the user.
    */
   "country"?: string;
   /**
-   * CSI to be associated to the user.
+   * The CSI associated with the user.
    */
   "csi"?: string;
   /**
-   * Contact number of the user.
+   * The user's contact phone number.
    */
   "phone"?: string;
   /**
-   * Timezone of the user.
+   * The timezone of the user.
    */
   "timezone"?: string;
   /**
-   * Organization of the user.
+   * The company that the user belongs to.
    */
   "organizationName"?: string;
   /**
@@ -58,6 +64,10 @@ export interface User {
    * The email of the contact person.
    */
   "contactEmail"?: string;
+  /**
+   * The kind of support ticket, such as a technical support request or a limit increase request.
+   */
+  "problemType"?: model.ProblemType;
 }
 
 export namespace User {

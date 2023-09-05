@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -15,9 +21,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details gathered during item creation.
- * <p>
- **Caution:** Avoid using any confidential information when you supply string values using the API.
+ * Details gathered during ticket creation.
  *
  */
 export interface CreateItemDetails {
@@ -25,7 +29,7 @@ export interface CreateItemDetails {
   "subCategory"?: model.CreateSubCategoryDetails;
   "issueType"?: model.CreateIssueTypeDetails;
   /**
-   * The display name of the item.
+   * The display name of the ticket. Avoid entering confidential information.
    */
   "name"?: string;
 
@@ -57,6 +61,11 @@ export namespace CreateItemDetails {
         case "limit":
           return model.CreateLimitItemDetails.getJsonObj(
             <model.CreateLimitItemDetails>(<object>jsonObj),
+            true
+          );
+        case "account":
+          return model.CreateAccountItemDetails.getJsonObj(
+            <model.CreateAccountItemDetails>(<object>jsonObj),
             true
           );
         default:
@@ -91,6 +100,11 @@ export namespace CreateItemDetails {
         case "limit":
           return model.CreateLimitItemDetails.getDeserializedJsonObj(
             <model.CreateLimitItemDetails>(<object>jsonObj),
+            true
+          );
+        case "account":
+          return model.CreateAccountItemDetails.getDeserializedJsonObj(
+            <model.CreateAccountItemDetails>(<object>jsonObj),
             true
           );
         default:

@@ -366,6 +366,91 @@ export class DataCatalogClient {
   }
 
   /**
+   * Exports the contents of a glossary in Excel format. Returns details about the job which actually performs the export.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AsynchronousExportGlossaryRequest
+   * @return AsynchronousExportGlossaryResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/AsynchronousExportGlossary.ts.html |here} to see how to use AsynchronousExportGlossary API.
+   */
+  public async asynchronousExportGlossary(
+    asynchronousExportGlossaryRequest: requests.AsynchronousExportGlossaryRequest
+  ): Promise<responses.AsynchronousExportGlossaryResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataCatalogClient#asynchronousExportGlossary.");
+    const operationName = "asynchronousExportGlossary";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Glossary/AsynchronousExportGlossary";
+    const pathParams = {
+      "{catalogId}": asynchronousExportGlossaryRequest.catalogId,
+      "{glossaryKey}": asynchronousExportGlossaryRequest.glossaryKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": asynchronousExportGlossaryRequest.opcRequestId,
+      "opc-retry-token": asynchronousExportGlossaryRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      asynchronousExportGlossaryRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/catalogs/{catalogId}/glossaries/{glossaryKey}/actions/asynchronousExport",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        asynchronousExportGlossaryRequest.asynchronousExportGlossaryDetails,
+        "AsynchronousExportGlossaryDetails",
+        model.AsynchronousExportGlossaryDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AsynchronousExportGlossaryResponse>{},
+        body: await response.json(),
+        bodyKey: "asynchronousExportGlossaryResult",
+        bodyModel: model.AsynchronousExportGlossaryResult,
+        type: "model.AsynchronousExportGlossaryResult",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Attaches a private reverse connection endpoint resource to a data catalog resource. When provided, 'If-Match' is checked against 'ETag' values of the resource.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AttachCatalogPrivateEndpointRequest
@@ -4151,6 +4236,94 @@ export class DataCatalogClient {
   }
 
   /**
+   * Returns lineage for a given entity object.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param FetchEntityLineageRequest
+   * @return FetchEntityLineageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datacatalog/FetchEntityLineage.ts.html |here} to see how to use FetchEntityLineage API.
+   */
+  public async fetchEntityLineage(
+    fetchEntityLineageRequest: requests.FetchEntityLineageRequest
+  ): Promise<responses.FetchEntityLineageResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataCatalogClient#fetchEntityLineage.");
+    const operationName = "fetchEntityLineage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-catalog/20190325/Entity/FetchEntityLineage";
+    const pathParams = {
+      "{catalogId}": fetchEntityLineageRequest.catalogId,
+      "{dataAssetKey}": fetchEntityLineageRequest.dataAssetKey,
+      "{entityKey}": fetchEntityLineageRequest.entityKey
+    };
+
+    const queryParams = {
+      "limit": fetchEntityLineageRequest.limit,
+      "page": fetchEntityLineageRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": fetchEntityLineageRequest.opcRequestId,
+      "if-match": fetchEntityLineageRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      fetchEntityLineageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/catalogs/{catalogId}/dataAssets/{dataAssetKey}/entities/{entityKey}/actions/fetchLineage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        fetchEntityLineageRequest.fetchEntityLineageDetails,
+        "FetchEntityLineageDetails",
+        model.FetchEntityLineageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FetchEntityLineageResponse>{},
+        body: await response.json(),
+        bodyKey: "entityLineage",
+        bodyModel: model.EntityLineage,
+        type: "model.EntityLineage",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a specific entity attribute by key.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetAttributeRequest
@@ -7705,6 +7878,7 @@ export class DataCatalogClient {
       "harvestStatus": listFoldersRequest.harvestStatus,
       "lastJobKey": listFoldersRequest.lastJobKey,
       "fields": listFoldersRequest.fields,
+      "typeKey": listFoldersRequest.typeKey,
       "sortBy": listFoldersRequest.sortBy,
       "sortOrder": listFoldersRequest.sortOrder,
       "limit": listFoldersRequest.limit,
@@ -7882,6 +8056,7 @@ export class DataCatalogClient {
       "jobType": listJobDefinitionsRequest.jobType,
       "isIncremental": listJobDefinitionsRequest.isIncremental,
       "dataAssetKey": listJobDefinitionsRequest.dataAssetKey,
+      "glossaryKey": listJobDefinitionsRequest.glossaryKey,
       "connectionKey": listJobDefinitionsRequest.connectionKey,
       "timeCreated": listJobDefinitionsRequest.timeCreated,
       "timeUpdated": listJobDefinitionsRequest.timeUpdated,
@@ -8265,6 +8440,7 @@ export class DataCatalogClient {
       "jobType": listJobsRequest.jobType,
       "jobDefinitionKey": listJobsRequest.jobDefinitionKey,
       "dataAssetKey": listJobsRequest.dataAssetKey,
+      "glossaryKey": listJobsRequest.glossaryKey,
       "scheduleCronExpression": listJobsRequest.scheduleCronExpression,
       "timeScheduleBegin": listJobsRequest.timeScheduleBegin,
       "timeScheduleEnd": listJobsRequest.timeScheduleEnd,

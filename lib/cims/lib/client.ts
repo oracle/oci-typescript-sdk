@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -28,7 +34,7 @@ export enum IncidentApiKeys {}
  */
 export class IncidentClient {
   protected static serviceEndpointTemplate =
-    "https://incidentmanagement.{region}.{secondLevelDomain}";
+    "https://incidentmanagement.{region}.oci.{secondLevelDomain}";
   protected static endpointServiceName = "";
   protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
@@ -170,7 +176,7 @@ export class IncidentClient {
   }
 
   /**
-   * Enables the customer to create an support ticket.
+   * Operation to create a support ticket.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateIncidentRequest
    * @return CreateIncidentResponse
@@ -192,7 +198,11 @@ export class IncidentClient {
       "Content-Type": common.Constants.APPLICATION_JSON,
       "opc-request-id": createIncidentRequest.opcRequestId,
       "ocid": createIncidentRequest.ocid,
-      "homeregion": createIncidentRequest.homeregion
+      "homeregion": createIncidentRequest.homeregion,
+      "bearertokentype": createIncidentRequest.bearertokentype,
+      "bearertoken": createIncidentRequest.bearertoken,
+      "idtoken": createIncidentRequest.idtoken,
+      "domainid": createIncidentRequest.domainid
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -246,7 +256,84 @@ export class IncidentClient {
   }
 
   /**
-   * Gets the details of the support ticket.
+   * Fetches csi number of the user.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCsiNumberRequest
+   * @return GetCsiNumberResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/GetCsiNumber.ts.html |here} to see how to use GetCsiNumber API.
+   */
+  public async getCsiNumber(
+    getCsiNumberRequest: requests.GetCsiNumberRequest
+  ): Promise<responses.GetCsiNumberResponse> {
+    if (this.logger) this.logger.debug("Calling operation IncidentClient#getCsiNumber.");
+    const operationName = "getCsiNumber";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {
+      "tenantId": getCsiNumberRequest.tenantId,
+      "region": getCsiNumberRequest.region
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCsiNumberRequest.opcRequestId,
+      "ocid": getCsiNumberRequest.ocid,
+      "homeregion": getCsiNumberRequest.homeregion,
+      "bearertokentype": getCsiNumberRequest.bearertokentype,
+      "bearertoken": getCsiNumberRequest.bearertoken,
+      "idtoken": getCsiNumberRequest.idtoken,
+      "domainid": getCsiNumberRequest.domainid
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCsiNumberRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/v2/incidents/getCsiNumber",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCsiNumberResponse>{},
+        body: await response.json(),
+        bodyKey: "value",
+        bodyModel: "string",
+        type: "string",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details about the specified support ticket.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetIncidentRequest
    * @return GetIncidentResponse
@@ -264,7 +351,9 @@ export class IncidentClient {
       "{incidentKey}": getIncidentRequest.incidentKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "compartmentId": getIncidentRequest.compartmentId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -272,7 +361,11 @@ export class IncidentClient {
       "csi": getIncidentRequest.csi,
       "ocid": getIncidentRequest.ocid,
       "homeregion": getIncidentRequest.homeregion,
-      "problem-type": getIncidentRequest.problemType
+      "problemtype": getIncidentRequest.problemtype,
+      "bearertokentype": getIncidentRequest.bearertokentype,
+      "bearertoken": getIncidentRequest.bearertoken,
+      "idtoken": getIncidentRequest.idtoken,
+      "domainid": getIncidentRequest.domainid
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -335,9 +428,7 @@ export class IncidentClient {
     const operationName = "getStatus";
     const apiReferenceLink =
       "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/Status/GetStatus";
-    const pathParams = {
-      "{source}": getStatusRequest.source
-    };
+    const pathParams = {};
 
     const queryParams = {};
 
@@ -358,7 +449,7 @@ export class IncidentClient {
     const request = await composeRequest({
       baseEndpoint: this._endpoint,
       defaultHeaders: this._defaultHeaders,
-      path: "/v2/incidents/status/{source}",
+      path: "/v2/incidents/status",
       method: "GET",
       pathParams: pathParams,
       headerParams: headerParams,
@@ -426,7 +517,8 @@ export class IncidentClient {
       "opc-request-id": listIncidentResourceTypesRequest.opcRequestId,
       "csi": listIncidentResourceTypesRequest.csi,
       "ocid": listIncidentResourceTypesRequest.ocid,
-      "homeregion": listIncidentResourceTypesRequest.homeregion
+      "homeregion": listIncidentResourceTypesRequest.homeregion,
+      "domainid": listIncidentResourceTypesRequest.domainid
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -563,7 +655,11 @@ export class IncidentClient {
       "csi": listIncidentsRequest.csi,
       "opc-request-id": listIncidentsRequest.opcRequestId,
       "ocid": listIncidentsRequest.ocid,
-      "homeregion": listIncidentsRequest.homeregion
+      "homeregion": listIncidentsRequest.homeregion,
+      "bearertokentype": listIncidentsRequest.bearertokentype,
+      "bearertoken": listIncidentsRequest.bearertoken,
+      "idtoken": listIncidentsRequest.idtoken,
+      "domainid": listIncidentsRequest.domainid
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -605,6 +701,16 @@ export class IncidentClient {
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("as-of-time"),
+            key: "asOfTime",
             dataType: "string"
           }
         ]
@@ -687,7 +793,9 @@ export class IncidentClient {
       "{incidentKey}": updateIncidentRequest.incidentKey
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "compartmentId": updateIncidentRequest.compartmentId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -695,7 +803,11 @@ export class IncidentClient {
       "opc-request-id": updateIncidentRequest.opcRequestId,
       "if-match": updateIncidentRequest.ifMatch,
       "ocid": updateIncidentRequest.ocid,
-      "homeregion": updateIncidentRequest.homeregion
+      "homeregion": updateIncidentRequest.homeregion,
+      "bearertokentype": updateIncidentRequest.bearertokentype,
+      "bearertoken": updateIncidentRequest.bearertoken,
+      "idtoken": updateIncidentRequest.idtoken,
+      "domainid": updateIncidentRequest.domainid
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -774,7 +886,11 @@ export class IncidentClient {
       "csi": validateUserRequest.csi,
       "opc-request-id": validateUserRequest.opcRequestId,
       "ocid": validateUserRequest.ocid,
-      "homeregion": validateUserRequest.homeregion
+      "homeregion": validateUserRequest.homeregion,
+      "bearertokentype": validateUserRequest.bearertokentype,
+      "bearertoken": validateUserRequest.bearertoken,
+      "idtoken": validateUserRequest.idtoken,
+      "domainid": validateUserRequest.domainid
     };
 
     const specRetryConfiguration = common.NoRetryConfigurationDetails;
@@ -807,229 +923,6 @@ export class IncidentClient {
         bodyKey: "validationResponse",
         bodyModel: model.ValidationResponse,
         type: "model.ValidationResponse",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-}
-export enum UserApiKeys {}
-/**
- * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
- */
-export class UserClient {
-  protected static serviceEndpointTemplate =
-    "https://incidentmanagement.{region}.{secondLevelDomain}";
-  protected static endpointServiceName = "";
-  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
-  protected "_endpoint": string = "";
-  protected "_defaultHeaders": any = {};
-  protected "_clientConfiguration": common.ClientConfiguration;
-  protected _circuitBreaker = null;
-  protected _httpOptions: any = undefined;
-  protected _bodyDuplexMode: any = undefined;
-  public targetService = "User";
-  protected _regionId: string = "";
-  protected "_region": common.Region;
-  protected _lastSetRegionOrRegionId: string = "";
-
-  protected _httpClient: common.HttpClient;
-
-  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
-    const requestSigner = params.authenticationDetailsProvider
-      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
-      : null;
-    if (clientConfiguration) {
-      this._clientConfiguration = clientConfiguration;
-      this._circuitBreaker = clientConfiguration.circuitBreaker
-        ? clientConfiguration.circuitBreaker!.circuit
-        : null;
-      this._httpOptions = clientConfiguration.httpOptions
-        ? clientConfiguration.httpOptions
-        : undefined;
-      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
-        ? clientConfiguration.bodyDuplexMode
-        : undefined;
-    }
-    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
-    const specCircuitBreakerEnabled = true;
-    if (
-      !this._circuitBreaker &&
-      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
-      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
-    ) {
-      this._circuitBreaker = new common.CircuitBreaker().circuit;
-    }
-    this._httpClient =
-      params.httpClient ||
-      new common.FetchHttpClient(
-        requestSigner,
-        this._circuitBreaker,
-        this._httpOptions,
-        this._bodyDuplexMode
-      );
-
-    if (
-      params.authenticationDetailsProvider &&
-      common.isRegionProvider(params.authenticationDetailsProvider)
-    ) {
-      const provider: common.RegionProvider = params.authenticationDetailsProvider;
-      if (provider.getRegion()) {
-        this.region = provider.getRegion();
-      }
-    }
-  }
-
-  /**
-   * Get the endpoint that is being used to call (ex, https://www.example.com).
-   */
-  public get endpoint() {
-    return this._endpoint;
-  }
-
-  /**
-   * Sets the endpoint to call (ex, https://www.example.com).
-   * @param endpoint The endpoint of the service.
-   */
-  public set endpoint(endpoint: string) {
-    this._endpoint = endpoint;
-    this._endpoint = this._endpoint + "/20181231";
-    if (this.logger) this.logger.info(`UserClient endpoint set to ${this._endpoint}`);
-  }
-
-  public get logger() {
-    return common.LOG.logger;
-  }
-
-  /**
-   * Determines whether realm specific endpoint should be used or not.
-   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
-   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
-   */
-  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
-    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
-    if (this.logger)
-      this.logger.info(
-        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
-      );
-    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
-      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
-        UserClient.serviceEndpointTemplate,
-        this._region,
-        UserClient.endpointServiceName
-      );
-    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
-      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
-        UserClient.serviceEndpointTemplate,
-        this._regionId,
-        UserClient.endpointServiceName
-      );
-    }
-  }
-
-  /**
-   * Sets the region to call (ex, Region.US_PHOENIX_1).
-   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
-   * @param region The region of the service.
-   */
-  public set region(region: common.Region) {
-    this._region = region;
-    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
-      UserClient.serviceEndpointTemplate,
-      region,
-      UserClient.endpointServiceName
-    );
-    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
-  }
-
-  /**
-   * Sets the regionId to call (ex, 'us-phoenix-1').
-   *
-   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
-   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
-   * and then call {@link #endpoint(String) endpoint}.
-   * @param regionId The public region ID.
-   */
-  public set regionId(regionId: string) {
-    this._regionId = regionId;
-    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
-      UserClient.serviceEndpointTemplate,
-      regionId,
-      UserClient.endpointServiceName
-    );
-    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
-  }
-
-  /**
-   * Create user to request Customer Support Identifier(CSI) to Customer User Administrator(CUA).
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param CreateUserRequest
-   * @return CreateUserResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/CreateUser.ts.html |here} to see how to use CreateUser API.
-   */
-  public async createUser(
-    createUserRequest: requests.CreateUserRequest
-  ): Promise<responses.CreateUserResponse> {
-    if (this.logger) this.logger.debug("Calling operation UserClient#createUser.");
-    const operationName = "createUser";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/incidentmanagement/20181231/User/CreateUser";
-    const pathParams = {};
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": createUserRequest.opcRequestId,
-      "ocid": createUserRequest.ocid,
-      "homeregion": createUserRequest.homeregion
-    };
-
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      createUserRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/v2/users",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        createUserRequest.createUserDetails,
-        "CreateUserDetails",
-        model.CreateUserDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.CreateUserResponse>{},
-        body: await response.json(),
-        bodyKey: "user",
-        bodyModel: model.User,
-        type: "model.User",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

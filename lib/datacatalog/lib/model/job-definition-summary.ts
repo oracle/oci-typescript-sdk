@@ -90,6 +90,10 @@ export interface JobDefinitionSummary {
    * Unique key of the data asset to which this job applies, if the job involves a data asset.
    */
   "dataAssetKey"?: string;
+  /**
+   * Unique key of the glossary to which this job applies, if the job involves a glossary.
+   */
+  "glossaryKey"?: string;
 }
 
 export namespace JobDefinitionSummary {

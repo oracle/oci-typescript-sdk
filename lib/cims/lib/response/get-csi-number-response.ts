@@ -14,24 +14,13 @@
 import * as model from "../model";
 import common = require("oci-common");
 
-/**
- * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/cims/CreateUser.ts.html |here} to see how to use CreateUserRequest.
- */
-export interface CreateUserRequest extends common.BaseRequest {
-  /**
-   * User information
-   */
-  "createUserDetails": model.CreateUserDetails;
-  /**
-   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
-   */
-  "ocid": string;
+export interface GetCsiNumberResponse {
   /**
    * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
-  "opcRequestId"?: string;
+  "opcRequestId": string;
   /**
-   * The region of the tenancy.
+   * The returned string instance.
    */
-  "homeregion"?: string;
+  "value": string;
 }

@@ -17,6 +17,8 @@ import * as AddDataSelectorPatternsResponse from "./add-data-selector-patterns-r
 export import AddDataSelectorPatternsResponse = AddDataSelectorPatternsResponse.AddDataSelectorPatternsResponse;
 import * as AssociateCustomPropertyResponse from "./associate-custom-property-response";
 export import AssociateCustomPropertyResponse = AssociateCustomPropertyResponse.AssociateCustomPropertyResponse;
+import * as AsynchronousExportGlossaryResponse from "./asynchronous-export-glossary-response";
+export import AsynchronousExportGlossaryResponse = AsynchronousExportGlossaryResponse.AsynchronousExportGlossaryResponse;
 import * as AttachCatalogPrivateEndpointResponse from "./attach-catalog-private-endpoint-response";
 export import AttachCatalogPrivateEndpointResponse = AttachCatalogPrivateEndpointResponse.AttachCatalogPrivateEndpointResponse;
 import * as ChangeCatalogCompartmentResponse from "./change-catalog-compartment-response";
@@ -115,6 +117,8 @@ import * as ExpandTreeForGlossaryResponse from "./expand-tree-for-glossary-respo
 export import ExpandTreeForGlossaryResponse = ExpandTreeForGlossaryResponse.ExpandTreeForGlossaryResponse;
 import * as ExportGlossaryResponse from "./export-glossary-response";
 export import ExportGlossaryResponse = ExportGlossaryResponse.ExportGlossaryResponse;
+import * as FetchEntityLineageResponse from "./fetch-entity-lineage-response";
+export import FetchEntityLineageResponse = FetchEntityLineageResponse.FetchEntityLineageResponse;
 import * as GetAttributeResponse from "./get-attribute-response";
 export import GetAttributeResponse = GetAttributeResponse.GetAttributeResponse;
 import * as GetAttributeTagResponse from "./get-attribute-tag-response";

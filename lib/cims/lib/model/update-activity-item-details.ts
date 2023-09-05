@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -15,9 +21,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details for udpating the support ticket activity.
- * <p>
- **Caution:** Avoid using any confidential information when you supply string values using the API.
+ * Details for updating the support ticket activity.
  *
  */
 export interface UpdateActivityItemDetails extends model.UpdateItemDetails {
@@ -38,7 +42,8 @@ export namespace UpdateActivityItemDetails {
     Notes = "NOTES",
     ProblemDescription = "PROBLEM_DESCRIPTION",
     Update = "UPDATE",
-    Close = "CLOSE"
+    Close = "CLOSE",
+    Reopen = "REOPEN"
   }
 
   export function getJsonObj(obj: UpdateActivityItemDetails, isParentJsonObj?: boolean): object {

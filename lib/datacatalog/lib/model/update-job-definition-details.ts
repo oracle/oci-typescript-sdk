@@ -35,6 +35,10 @@ export interface UpdateJobDefinitionDetails {
    */
   "dataAssetKey"?: string;
   /**
+   * Unique key of the glossary to which this job applies.
+   */
+  "glossaryKey"?: string;
+  /**
    * Detailed description of the job definition.
    */
   "description"?: string;

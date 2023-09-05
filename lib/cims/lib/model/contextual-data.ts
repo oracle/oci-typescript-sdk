@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -14,21 +20,25 @@
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * Information collected from user context during ticket creation.
+ *
+ */
 export interface ContextualData {
   /**
-   * The unique client identifier
+   * The unique identifier for the client.
    */
   "clientId": string;
   /**
-   * The schema name
+   * The name assigned to the schema.
    */
   "schemaName": string;
   /**
-   * The schema version
+   * The version of the schema.
    */
   "schemaVersion": string;
   /**
-   * The context data payload
+   * The payload for the contextual data.
    */
   "payload": string;
 }
