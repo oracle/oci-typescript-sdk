@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to change the disk space limit for the SQL Management Base.
+ *
  */
 export interface ChangeSpaceBudgetDetails {
   /**

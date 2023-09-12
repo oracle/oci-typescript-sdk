@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to remove a data file or temp file from the tablespace.
+ *
  */
 export interface RemoveDataFileDetails {
   "credentialDetails":

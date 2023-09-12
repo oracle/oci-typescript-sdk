@@ -15603,6 +15603,225 @@ export class DiagnosabilityClient {
     }
   }
 }
+export enum PerfhubApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class PerfhubClient {
+  protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "Perfhub";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20201101";
+    if (this.logger) this.logger.info(`PerfhubClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        PerfhubClient.serviceEndpointTemplate,
+        this._region,
+        PerfhubClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        PerfhubClient.serviceEndpointTemplate,
+        this._regionId,
+        PerfhubClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      PerfhubClient.serviceEndpointTemplate,
+      region,
+      PerfhubClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      PerfhubClient.serviceEndpointTemplate,
+      regionId,
+      PerfhubClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Modifies the snapshot settings for the specified Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ModifySnapshotSettingsRequest
+   * @return ModifySnapshotSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifySnapshotSettings.ts.html |here} to see how to use ModifySnapshotSettings API.
+   */
+  public async modifySnapshotSettings(
+    modifySnapshotSettingsRequest: requests.ModifySnapshotSettingsRequest
+  ): Promise<responses.ModifySnapshotSettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation PerfhubClient#modifySnapshotSettings.");
+    const operationName = "modifySnapshotSettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ModifySnapshotSettings";
+    const pathParams = {
+      "{managedDatabaseId}": modifySnapshotSettingsRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": modifySnapshotSettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifySnapshotSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/modifySnapshotSettings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifySnapshotSettingsRequest.modifySnapshotSettingsDetails,
+        "ModifySnapshotSettingsDetails",
+        model.ModifySnapshotSettingsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifySnapshotSettingsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
 export enum SqlTuningApiKeys {}
 /**
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
@@ -15828,6 +16047,164 @@ export class SqlTuningClient {
   }
 
   /**
+   * Creates an empty Sql tuning set within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSqlTuningSetRequest
+   * @return CreateSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateSqlTuningSet.ts.html |here} to see how to use CreateSqlTuningSet API.
+   */
+  public async createSqlTuningSet(
+    createSqlTuningSetRequest: requests.CreateSqlTuningSetRequest
+  ): Promise<responses.CreateSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#createSqlTuningSet.");
+    const operationName = "createSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/CreateSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": createSqlTuningSetRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": createSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningSets",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSqlTuningSetRequest.createSqlTuningSetDetails,
+        "CreateSqlTuningSetDetails",
+        model.CreateSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSet",
+        bodyModel: model.SqlTuningSet,
+        type: "model.SqlTuningSet",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Drops the Sql tuning set specified by sqlTuningSet within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DropSqlTuningSetRequest
+   * @return DropSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlTuningSet.ts.html |here} to see how to use DropSqlTuningSet API.
+   */
+  public async dropSqlTuningSet(
+    dropSqlTuningSetRequest: requests.DropSqlTuningSetRequest
+  ): Promise<responses.DropSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlTuningSet.");
+    const operationName = "dropSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/DropSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": dropSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": dropSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": dropSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": dropSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dropSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/dropSqlTuningSet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        dropSqlTuningSetRequest.dropSqlTuningSetDetails,
+        "DropSqlTuningSetDetails",
+        model.DropSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DropSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Drops a SQL tuning task and its related results from the database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -15886,6 +16263,166 @@ export class SqlTuningClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DropSqlTuningTaskResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Sqls in the specified Sql tuning set that matches the filter criteria provided in the basicFilter.
+   * If basicFilter criteria is not provided, then entire Sqls in the Sql tuning set is deleted.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DropSqlsInSqlTuningSetRequest
+   * @return DropSqlsInSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlsInSqlTuningSet.ts.html |here} to see how to use DropSqlsInSqlTuningSet API.
+   */
+  public async dropSqlsInSqlTuningSet(
+    dropSqlsInSqlTuningSetRequest: requests.DropSqlsInSqlTuningSetRequest
+  ): Promise<responses.DropSqlsInSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlsInSqlTuningSet.");
+    const operationName = "dropSqlsInSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/DropSqlsInSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": dropSqlsInSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": dropSqlsInSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": dropSqlsInSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": dropSqlsInSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dropSqlsInSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/dropSqlsInSqlTuningSet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        dropSqlsInSqlTuningSetRequest.dropSqlsInSqlTuningSetDetails,
+        "DropSqlsInSqlTuningSetDetails",
+        model.DropSqlsInSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DropSqlsInSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Fetch the details of Sql statements in the Sql tuning set specified by name, owner and optional filter parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param FetchSqlTuningSetRequest
+   * @return FetchSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/FetchSqlTuningSet.ts.html |here} to see how to use FetchSqlTuningSet API.
+   */
+  public async fetchSqlTuningSet(
+    fetchSqlTuningSetRequest: requests.FetchSqlTuningSetRequest
+  ): Promise<responses.FetchSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#fetchSqlTuningSet.");
+    const operationName = "fetchSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/FetchSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": fetchSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": fetchSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": fetchSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": fetchSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      fetchSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        fetchSqlTuningSetRequest.fetchSqlTuningSetDetails,
+        "FetchSqlTuningSetDetails",
+        model.FetchSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FetchSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSet",
+        bodyModel: model.SqlTuningSet,
+        type: "model.SqlTuningSet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -16496,6 +17033,165 @@ export class SqlTuningClient {
   }
 
   /**
+   * Load Sql statements into the Sql tuning set specified by name and optional filter parameters within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param LoadSqlTuningSetRequest
+   * @return LoadSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlTuningSet.ts.html |here} to see how to use LoadSqlTuningSet API.
+   */
+  public async loadSqlTuningSet(
+    loadSqlTuningSetRequest: requests.LoadSqlTuningSetRequest
+  ): Promise<responses.LoadSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#loadSqlTuningSet.");
+    const operationName = "loadSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/LoadSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": loadSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": loadSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": loadSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": loadSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      loadSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/loadSqlTuningSet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        loadSqlTuningSetRequest.loadSqlTuningSetDetails,
+        "LoadSqlTuningSetDetails",
+        model.LoadSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.LoadSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Saves the specified list of Sqls statements into another new Sql tuning set or loads into an existing Sql tuning set'.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SaveSqlTuningSetAsRequest
+   * @return SaveSqlTuningSetAsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SaveSqlTuningSetAs.ts.html |here} to see how to use SaveSqlTuningSetAs API.
+   */
+  public async saveSqlTuningSetAs(
+    saveSqlTuningSetAsRequest: requests.SaveSqlTuningSetAsRequest
+  ): Promise<responses.SaveSqlTuningSetAsResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#saveSqlTuningSetAs.");
+    const operationName = "saveSqlTuningSetAs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/SaveSqlTuningSetAs";
+    const pathParams = {
+      "{managedDatabaseId}": saveSqlTuningSetAsRequest.managedDatabaseId,
+      "{sqlTuningSetId}": saveSqlTuningSetAsRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": saveSqlTuningSetAsRequest.opcRequestId,
+      "opc-retry-token": saveSqlTuningSetAsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      saveSqlTuningSetAsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/saveAs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        saveSqlTuningSetAsRequest.saveSqlTuningSetAsDetails,
+        "SaveSqlTuningSetAsDetails",
+        model.SaveSqlTuningSetAsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SaveSqlTuningSetAsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Starts a SQL tuning task for a given set of SQL statements from the active session history top SQL statements.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -16558,6 +17254,86 @@ export class SqlTuningClient {
         bodyKey: "sqlTuningTaskReturn",
         bodyModel: model.SqlTuningTaskReturn,
         type: "model.SqlTuningTaskReturn",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Executes a SQL query to check whether user entered basic filter criteria is valid or not.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateBasicFilterRequest
+   * @return ValidateBasicFilterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ValidateBasicFilter.ts.html |here} to see how to use ValidateBasicFilter API.
+   */
+  public async validateBasicFilter(
+    validateBasicFilterRequest: requests.ValidateBasicFilterRequest
+  ): Promise<responses.ValidateBasicFilterResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#validateBasicFilter.");
+    const operationName = "validateBasicFilter";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/ValidateBasicFilter";
+    const pathParams = {
+      "{managedDatabaseId}": validateBasicFilterRequest.managedDatabaseId,
+      "{sqlTuningSetId}": validateBasicFilterRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateBasicFilterRequest.opcRequestId,
+      "opc-retry-token": validateBasicFilterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateBasicFilterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/validateBasicFilter",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateBasicFilterRequest.validateBasicFilterDetails,
+        "ValidateBasicFilterDetails",
+        model.ValidateBasicFilterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateBasicFilterResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

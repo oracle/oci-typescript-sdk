@@ -25,7 +25,7 @@ export interface Update {
    */
   "description": string;
   /**
-   * The update action.
+   * The previous update action performed.
    */
   "lastAction"?: Update.LastAction;
   /**

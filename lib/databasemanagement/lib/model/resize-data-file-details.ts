@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to resize a data file or temp file within the tablespace.
+ *
  */
 export interface ResizeDataFileDetails {
   "credentialDetails":

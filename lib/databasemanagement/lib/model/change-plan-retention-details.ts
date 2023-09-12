@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to change the plan retention period.
+ *
  */
 export interface ChangePlanRetentionDetails {
   /**

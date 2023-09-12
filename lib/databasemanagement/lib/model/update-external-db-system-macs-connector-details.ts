@@ -24,7 +24,7 @@ import common = require("oci-common");
  */
 export interface UpdateExternalDbSystemMacsConnectorDetails
   extends model.UpdateExternalDbSystemConnectorDetails {
-  "connectionInfo": model.ExternalAsmConnectionInfo | model.ExternalDatabaseConnectionInfo;
+  "connectionInfo"?: model.ExternalAsmConnectionInfo | model.ExternalDatabaseConnectionInfo;
 
   "connectorType": string;
 }

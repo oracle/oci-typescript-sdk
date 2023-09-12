@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The request to start a SQL tuning task.
+ *
  */
 export interface StartSqlTuningTaskDetails {
   /**

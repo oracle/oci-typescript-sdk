@@ -33,7 +33,7 @@ export interface UpdateSummary {
    */
   "description": string;
   /**
-   * The update action.
+   * The previous update action performed.
    */
   "lastAction"?: UpdateSummary.LastAction;
   /**

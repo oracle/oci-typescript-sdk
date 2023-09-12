@@ -13,12 +13,18 @@
 
 import * as AssociateMonitoredResourcesResponse from "./associate-monitored-resources-response";
 export import AssociateMonitoredResourcesResponse = AssociateMonitoredResourcesResponse.AssociateMonitoredResourcesResponse;
+import * as ChangeConfigCompartmentResponse from "./change-config-compartment-response";
+export import ChangeConfigCompartmentResponse = ChangeConfigCompartmentResponse.ChangeConfigCompartmentResponse;
 import * as ChangeMonitoredResourceCompartmentResponse from "./change-monitored-resource-compartment-response";
 export import ChangeMonitoredResourceCompartmentResponse = ChangeMonitoredResourceCompartmentResponse.ChangeMonitoredResourceCompartmentResponse;
+import * as CreateConfigResponse from "./create-config-response";
+export import CreateConfigResponse = CreateConfigResponse.CreateConfigResponse;
 import * as CreateDiscoveryJobResponse from "./create-discovery-job-response";
 export import CreateDiscoveryJobResponse = CreateDiscoveryJobResponse.CreateDiscoveryJobResponse;
 import * as CreateMonitoredResourceResponse from "./create-monitored-resource-response";
 export import CreateMonitoredResourceResponse = CreateMonitoredResourceResponse.CreateMonitoredResourceResponse;
+import * as DeleteConfigResponse from "./delete-config-response";
+export import DeleteConfigResponse = DeleteConfigResponse.DeleteConfigResponse;
 import * as DeleteDiscoveryJobResponse from "./delete-discovery-job-response";
 export import DeleteDiscoveryJobResponse = DeleteDiscoveryJobResponse.DeleteDiscoveryJobResponse;
 import * as DeleteMonitoredResourceResponse from "./delete-monitored-resource-response";
@@ -27,12 +33,16 @@ import * as DisableExternalDatabaseResponse from "./disable-external-database-re
 export import DisableExternalDatabaseResponse = DisableExternalDatabaseResponse.DisableExternalDatabaseResponse;
 import * as DisassociateMonitoredResourcesResponse from "./disassociate-monitored-resources-response";
 export import DisassociateMonitoredResourcesResponse = DisassociateMonitoredResourcesResponse.DisassociateMonitoredResourcesResponse;
+import * as GetConfigResponse from "./get-config-response";
+export import GetConfigResponse = GetConfigResponse.GetConfigResponse;
 import * as GetDiscoveryJobResponse from "./get-discovery-job-response";
 export import GetDiscoveryJobResponse = GetDiscoveryJobResponse.GetDiscoveryJobResponse;
 import * as GetMonitoredResourceResponse from "./get-monitored-resource-response";
 export import GetMonitoredResourceResponse = GetMonitoredResourceResponse.GetMonitoredResourceResponse;
 import * as GetWorkRequestResponse from "./get-work-request-response";
 export import GetWorkRequestResponse = GetWorkRequestResponse.GetWorkRequestResponse;
+import * as ListConfigsResponse from "./list-configs-response";
+export import ListConfigsResponse = ListConfigsResponse.ListConfigsResponse;
 import * as ListDiscoveryJobLogsResponse from "./list-discovery-job-logs-response";
 export import ListDiscoveryJobLogsResponse = ListDiscoveryJobLogsResponse.ListDiscoveryJobLogsResponse;
 import * as ListDiscoveryJobsResponse from "./list-discovery-jobs-response";
@@ -53,5 +63,7 @@ import * as SearchMonitoredResourcesResponse from "./search-monitored-resources-
 export import SearchMonitoredResourcesResponse = SearchMonitoredResourcesResponse.SearchMonitoredResourcesResponse;
 import * as UpdateAndPropagateTagsResponse from "./update-and-propagate-tags-response";
 export import UpdateAndPropagateTagsResponse = UpdateAndPropagateTagsResponse.UpdateAndPropagateTagsResponse;
+import * as UpdateConfigResponse from "./update-config-response";
+export import UpdateConfigResponse = UpdateConfigResponse.UpdateConfigResponse;
 import * as UpdateMonitoredResourceResponse from "./update-monitored-resource-response";
 export import UpdateMonitoredResourceResponse = UpdateMonitoredResourceResponse.UpdateMonitoredResourceResponse;

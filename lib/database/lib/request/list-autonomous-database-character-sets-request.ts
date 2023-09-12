@@ -24,10 +24,15 @@ export interface ListAutonomousDatabaseCharacterSetsRequest extends common.BaseR
    */
   "opcRequestId"?: string;
   /**
-   * Specifies whether this request is for Autonomous Database on Shared infrastructure. By default, this request will be for Autonomous Database on Dedicated Exadata Infrastructure.
+   * Specifies whether this request is for an Autonomous Database Serverless instance. By default, this request will be for Autonomous Database on Dedicated Exadata Infrastructure.
    *
    */
   "isShared"?: boolean;
+  /**
+   * Specifies if the request is for an Autonomous Database Dedicated instance. The default request is for an Autonomous Database Dedicated instance.
+   *
+   */
+  "isDedicated"?: boolean;
   /**
    * Specifies whether this request pertains to database character sets or national character sets.
    *

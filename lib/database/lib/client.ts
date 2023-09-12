@@ -1769,7 +1769,7 @@ export class DatabaseClient {
   }
 
   /**
-   * This operation updates the cross-region disaster recovery (DR) details of the standby Shared Autonomous Database, and must be run on the standby side.
+   * This operation updates the cross-region disaster recovery (DR) details of the standby Autonomous Database Serverless database, and must be run on the standby side.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDisasterRecoveryConfigurationRequest
    * @return ChangeDisasterRecoveryConfigurationResponse
@@ -15324,6 +15324,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
     const queryParams = {
       "isShared": listAutonomousDatabaseCharacterSetsRequest.isShared,
+      "isDedicated": listAutonomousDatabaseCharacterSetsRequest.isDedicated,
       "characterSetType": listAutonomousDatabaseCharacterSetsRequest.characterSetType
     };
 
@@ -15883,7 +15884,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
   /**
    * Gets a list of supported Autonomous Database versions. Note that preview version software is only available for
-   * databases with [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html).
+   * Autonomous Database Serverless (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) databases.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDbPreviewVersionsRequest

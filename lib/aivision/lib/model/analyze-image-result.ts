@@ -32,6 +32,10 @@ export interface AnalyzeImageResult {
   "ontologyClasses"?: Array<model.OntologyClass>;
   "imageText"?: model.ImageText;
   /**
+   * The detected faces.
+   */
+  "detectedFaces"?: Array<model.Face>;
+  /**
    * The image classification model version.
    */
   "imageClassificationModelVersion"?: string;
@@ -43,6 +47,10 @@ export interface AnalyzeImageResult {
    * The text detection model version.
    */
   "textDetectionModelVersion"?: string;
+  /**
+   * The face detection model version.
+   */
+  "faceDetectionModelVersion"?: string;
   /**
    * The errors encountered during image analysis.
    */
@@ -70,6 +78,11 @@ export namespace AnalyzeImageResult {
             })
           : undefined,
         "imageText": obj.imageText ? model.ImageText.getJsonObj(obj.imageText) : undefined,
+        "detectedFaces": obj.detectedFaces
+          ? obj.detectedFaces.map(item => {
+              return model.Face.getJsonObj(item);
+            })
+          : undefined,
 
         "errors": obj.errors
           ? obj.errors.map(item => {
@@ -102,6 +115,11 @@ export namespace AnalyzeImageResult {
           : undefined,
         "imageText": obj.imageText
           ? model.ImageText.getDeserializedJsonObj(obj.imageText)
+          : undefined,
+        "detectedFaces": obj.detectedFaces
+          ? obj.detectedFaces.map(item => {
+              return model.Face.getDeserializedJsonObj(item);
+            })
           : undefined,
 
         "errors": obj.errors

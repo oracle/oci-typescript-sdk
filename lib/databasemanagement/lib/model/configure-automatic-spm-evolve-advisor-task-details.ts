@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The configuration details of the Automatic SPM Evolve Advisor task.
+ *
  */
 export interface ConfigureAutomaticSpmEvolveAdvisorTaskDetails {
   "taskParameters": model.SpmEvolveTaskParameters;

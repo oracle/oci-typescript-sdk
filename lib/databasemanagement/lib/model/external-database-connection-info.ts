@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to connect to an external Oracle Database.
+ *
  */
 export interface ExternalDatabaseConnectionInfo extends model.ExternalDbSystemConnectionInfo {
   "connectionString": model.DatabaseConnectionString;

@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to enable automatic initial plan capture.
+ *
  */
 export interface EnableAutomaticInitialPlanCaptureDetails {
   "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;

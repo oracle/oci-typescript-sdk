@@ -37,6 +37,30 @@ export interface SqlTuningSetSummary {
    * The number of SQL statements in the SQL tuning set. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "statementCounts"?: number;
+  /**
+   * The unique Sql tuning set identifier. This is not OCID. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "id"?: number;
+  /**
+   * The created time of the Sql tuning set.
+   */
+  "timeCreated"?: Date;
+  /**
+   * Last modified time of the Sql tuning set.
+   */
+  "timeLastModified"?: Date;
+  /**
+   * Current status of the Sql tuning set.
+   */
+  "status"?: model.SqlTuningSetStatusTypes;
+  /**
+   * Name of the Sql tuning set scheduler job.
+   */
+  "scheduledJobName"?: string;
+  /**
+   * Latest execution error of the plsql that was submitted as a scheduler job.
+   */
+  "errorMessage"?: string;
 }
 
 export namespace SqlTuningSetSummary {

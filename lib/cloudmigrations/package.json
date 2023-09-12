@@ -1,6 +1,6 @@
 {
   "name": "oci-cloudmigrations",
-  "version": "2.70.0",
+  "version": "2.70.1",
   "description": "OCI NodeJS client for Cloud Migrations Service",
   "repository": {
     "type": "git",

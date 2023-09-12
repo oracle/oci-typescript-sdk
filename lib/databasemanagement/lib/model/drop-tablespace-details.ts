@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to drop a tablespace.
+ *
  */
 export interface DropTablespaceDetails {
   "credentialDetails":

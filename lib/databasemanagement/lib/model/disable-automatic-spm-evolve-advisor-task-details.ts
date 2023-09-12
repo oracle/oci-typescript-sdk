@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to disable Automatic SPM Evolve Advisor task.
+ *
  */
 export interface DisableAutomaticSpmEvolveAdvisorTaskDetails {
   "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;

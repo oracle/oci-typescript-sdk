@@ -1,7 +1,6 @@
 /**
  * OS Management Hub API
  * Use the OS Management Hub API to manage and monitor updates and patches for the operating system environments in your private data centers through a single management console. For more information, see [Overview of OS Management Hub](https://docs.cloud.oracle.com/iaas/osmh/doc/overview.htm).
-Use the table of contents and search tool to explore the  OS Management Hub API.
 
  * OpenAPI spec version: 20220901
  * 
@@ -65,6 +64,10 @@ export interface ManagedInstanceGroup {
    */
   "softwareSourceIds"?: Array<model.SoftwareSourceDetails>;
   /**
+   * The list of software sources that the managed instance group will use.
+   */
+  "softwareSources"?: Array<model.SoftwareSourceDetails>;
+  /**
    * The list of managed instances OCIDs attached to the managed instance group.
    */
   "managedInstanceIds"?: Array<string>;
@@ -121,6 +124,11 @@ export namespace ManagedInstanceGroup {
           ? obj.softwareSourceIds.map(item => {
               return model.SoftwareSourceDetails.getJsonObj(item);
             })
+          : undefined,
+        "softwareSources": obj.softwareSources
+          ? obj.softwareSources.map(item => {
+              return model.SoftwareSourceDetails.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -133,6 +141,11 @@ export namespace ManagedInstanceGroup {
       ...{
         "softwareSourceIds": obj.softwareSourceIds
           ? obj.softwareSourceIds.map(item => {
+              return model.SoftwareSourceDetails.getDeserializedJsonObj(item);
+            })
+          : undefined,
+        "softwareSources": obj.softwareSources
+          ? obj.softwareSources.map(item => {
               return model.SoftwareSourceDetails.getDeserializedJsonObj(item);
             })
           : undefined
