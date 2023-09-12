@@ -31,6 +31,7 @@ export enum WorkRequestResourceActionType {
   InProgress = "IN_PROGRESS",
   Related = "RELATED",
   Failed = "FAILED",
+  Accepted = "ACCEPTED",
   Enabled = "ENABLED",
   Disabled = "DISABLED",
 

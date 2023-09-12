@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CancelDocumentJobRequest extends common.BaseRequest {
   /**
-   * Document job id.
+   * The document job ID.
    */
   "documentJobId": string;
   /**

@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to drop SQL plan baselines.
+ *
  */
 export interface DropSqlPlanBaselinesDetails {
   /**

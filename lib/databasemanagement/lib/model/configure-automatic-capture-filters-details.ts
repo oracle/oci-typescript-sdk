@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to configure automatic capture filters.
+ *
  */
 export interface ConfigureAutomaticCaptureFiltersDetails {
   /**

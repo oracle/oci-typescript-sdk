@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to disable SQL plan baseline usage.
+ *
  */
 export interface DisableSqlPlanBaselinesUsageDetails {
   "credentials": model.ManagedDatabasePasswordCredential | model.ManagedDatabaseSecretCredential;

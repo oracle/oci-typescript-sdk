@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to change SQL plan baseline attributes.
+ *
  */
 export interface ChangeSqlPlanBaselinesAttributesDetails {
   /**

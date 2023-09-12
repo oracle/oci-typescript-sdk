@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The details required to create a tablespace.
+ *
  */
 export interface CreateTablespaceDetails {
   "credentialDetails":

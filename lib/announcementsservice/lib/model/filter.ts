@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Criteria that the Announcements service uses to match announcements in order to provide only desired, matching announcements.
+ * Criteria that the Announcements service uses to match announcements so it can provide only desired announcements to subscribers.
  */
 export interface Filter {
   /**
-   * The type of filter.
+   * The type of filter. You cannot combine the RESOURCE_ID filter with any other type of filter within a given filter group. For filter types that support multiple values, specify the values individually.
    */
   "type": Filter.Type;
   /**

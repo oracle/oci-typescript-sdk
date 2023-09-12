@@ -279,6 +279,92 @@ export class StackMonitoringClient {
   }
 
   /**
+     * Moves the configuration item to another compartment. 
+* Basically, this will disable any configuration for this configuration type in thie compartment,
+* and will enable it in the new one. 
+* <p>
+For example, if for a HOST resource type, the configuration with AUTO_PROMOTE in the configuration type  
+* and TRUE as value is moved, automatic discovery will not take place in this compartment any more, but in the new one. 
+* <p>
+So this operation will have the same effect as deleting the configuration item in the old compartment and
+* recreating it in another compartment. 
+* <p>
+When provided, If-Match is checked against ETag values of the resource.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param ChangeConfigCompartmentRequest
+     * @return ChangeConfigCompartmentResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ChangeConfigCompartment.ts.html |here} to see how to use ChangeConfigCompartment API.
+     */
+  public async changeConfigCompartment(
+    changeConfigCompartmentRequest: requests.ChangeConfigCompartmentRequest
+  ): Promise<responses.ChangeConfigCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation StackMonitoringClient#changeConfigCompartment.");
+    const operationName = "changeConfigCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/ChangeConfigCompartment";
+    const pathParams = {
+      "{configId}": changeConfigCompartmentRequest.configId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeConfigCompartmentRequest.ifMatch,
+      "opc-request-id": changeConfigCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeConfigCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeConfigCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configs/{configId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeConfigCompartmentRequest.changeConfigCompartmentDetails,
+        "ChangeConfigCompartmentDetails",
+        model.ChangeConfigCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeConfigCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Moves a monitored resource from one compartment to another.
    * When provided, If-Match is checked against ETag values of the resource.
    *
@@ -346,6 +432,93 @@ export class StackMonitoringClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Creates a configuration item, for example to define 
+* whether resources of a specific type should be discovered automatically. 
+* <p>
+For example, when a new Management Agent gets registered in a certain compartment, 
+* this Management Agent can potentially get promoted to a HOST resource. 
+* The configuration item will determine if HOST resources in the selected compartment will be
+* discovered automatically.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param CreateConfigRequest
+     * @return CreateConfigResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/CreateConfig.ts.html |here} to see how to use CreateConfig API.
+     */
+  public async createConfig(
+    createConfigRequest: requests.CreateConfigRequest
+  ): Promise<responses.CreateConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#createConfig.");
+    const operationName = "createConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/CreateConfig";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createConfigRequest.opcRetryToken,
+      "opc-request-id": createConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createConfigRequest.createConfigDetails,
+        "CreateConfigDetails",
+        model.CreateConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "config",
+        bodyModel: model.Config,
+        type: "model.Config",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {
@@ -538,6 +711,74 @@ export class StackMonitoringClient {
           {
             value: response.headers.get("etag"),
             key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a configuration identified by the id.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteConfigRequest
+   * @return DeleteConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/DeleteConfig.ts.html |here} to see how to use DeleteConfig API.
+   */
+  public async deleteConfig(
+    deleteConfigRequest: requests.DeleteConfigRequest
+  ): Promise<responses.DeleteConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#deleteConfig.");
+    const operationName = "deleteConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/DeleteConfig";
+    const pathParams = {
+      "{configId}": deleteConfigRequest.configId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteConfigRequest.ifMatch,
+      "opc-request-id": deleteConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configs/{configId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteConfigResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -849,6 +1090,82 @@ export class StackMonitoringClient {
   }
 
   /**
+   * Gets the details of a configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetConfigRequest
+   * @return GetConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/GetConfig.ts.html |here} to see how to use GetConfig API.
+   */
+  public async getConfig(
+    getConfigRequest: requests.GetConfigRequest
+  ): Promise<responses.GetConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#getConfig.");
+    const operationName = "getConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/GetConfig";
+    const pathParams = {
+      "{configId}": getConfigRequest.configId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configs/{configId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "config",
+        bodyModel: model.Config,
+        type: "model.Config",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * API to get the details of discovery Job by identifier.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1069,6 +1386,90 @@ export class StackMonitoringClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get a list of configurations in a compartment.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListConfigsRequest
+   * @return ListConfigsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/ListConfigs.ts.html |here} to see how to use ListConfigs API.
+   */
+  public async listConfigs(
+    listConfigsRequest: requests.ListConfigsRequest
+  ): Promise<responses.ListConfigsResponse> {
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#listConfigs.");
+    const operationName = "listConfigs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/ConfigCollection/ListConfigs";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listConfigsRequest.compartmentId,
+      "displayName": listConfigsRequest.displayName,
+      "type": listConfigsRequest.type,
+      "limit": listConfigsRequest.limit,
+      "page": listConfigsRequest.page,
+      "lifecycleState": listConfigsRequest.lifecycleState,
+      "sortOrder": listConfigsRequest.sortOrder,
+      "sortBy": listConfigsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listConfigsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listConfigsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListConfigsResponse>{},
+        body: await response.json(),
+        bodyKey: "configCollection",
+        bodyModel: model.ConfigCollection,
+        type: "model.ConfigCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -1939,6 +2340,88 @@ export class StackMonitoringClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the configuration identified by the id given.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateConfigRequest
+   * @return UpdateConfigResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/stackmonitoring/UpdateConfig.ts.html |here} to see how to use UpdateConfig API.
+   */
+  public async updateConfig(
+    updateConfigRequest: requests.UpdateConfigRequest
+  ): Promise<responses.UpdateConfigResponse> {
+    if (this.logger) this.logger.debug("Calling operation StackMonitoringClient#updateConfig.");
+    const operationName = "updateConfig";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/stack-monitoring/20210330/Config/UpdateConfig";
+    const pathParams = {
+      "{configId}": updateConfigRequest.configId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateConfigRequest.ifMatch,
+      "opc-request-id": updateConfigRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConfigRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/configs/{configId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConfigRequest.updateConfigDetails,
+        "UpdateConfigDetails",
+        model.UpdateConfigDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConfigResponse>{},
+        body: await response.json(),
+        bodyKey: "config",
+        bodyModel: model.Config,
+        type: "model.Config",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           },
           {

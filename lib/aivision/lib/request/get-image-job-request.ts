@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface GetImageJobRequest extends common.BaseRequest {
   /**
-   * Image job id.
+   * The image job ID.
    */
   "imageJobId": string;
   /**

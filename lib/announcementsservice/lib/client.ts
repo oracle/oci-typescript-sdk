@@ -362,7 +362,9 @@ This call is subject to an Announcements limit that applies to the total number 
       "environmentName": listAnnouncementsRequest.environmentName,
       "service": listAnnouncementsRequest.service,
       "platformType": listAnnouncementsRequest.platformType,
-      "excludeAnnouncementTypes": listAnnouncementsRequest.excludeAnnouncementTypes
+      "excludeAnnouncementTypes": listAnnouncementsRequest.excludeAnnouncementTypes,
+      "shouldShowOnlyLatestInChain": listAnnouncementsRequest.shouldShowOnlyLatestInChain,
+      "chainId": listAnnouncementsRequest.chainId
     };
 
     let headerParams = {

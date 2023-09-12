@@ -23,7 +23,7 @@ export interface ChangeDisasterRecoveryConfigurationRequest extends common.BaseR
    */
   "autonomousDatabaseId": string;
   /**
-   * Request to update the cross-region disaster recovery (DR) details of the standby Shared Autonomous Database.
+   * Request to update the cross-region disaster recovery (DR) details of the standby Autonomous Database Serverless database.
    */
   "changeDisasterRecoveryConfigurationDetails": model.ChangeDisasterRecoveryConfigurationDetails;
   /**
