@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -16,6 +15,9 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The logical entity where the Vault service creates and durably stores keys.
+ */
 export interface Vault {
   /**
    * The OCID of the compartment that contains this vault.
@@ -95,7 +97,11 @@ Example: `2018-04-03T21:10:29.600Z`
    */
   "wrappingkeyId": string;
   "replicaDetails"?: model.VaultReplicaDetails;
+  /**
+   * A Boolean value that indicates whether the Vault is primary Vault or replica Vault.
+   */
   "isPrimary"?: boolean;
+  "externalKeyManagerMetadataSummary"?: model.ExternalKeyManagerMetadataSummary;
 }
 
 export namespace Vault {
@@ -120,6 +126,7 @@ export namespace Vault {
   export enum VaultType {
     VirtualPrivate = "VIRTUAL_PRIVATE",
     Default = "DEFAULT",
+    External = "EXTERNAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -133,6 +140,12 @@ export namespace Vault {
       ...{
         "replicaDetails": obj.replicaDetails
           ? model.VaultReplicaDetails.getJsonObj(obj.replicaDetails)
+          : undefined,
+
+        "externalKeyManagerMetadataSummary": obj.externalKeyManagerMetadataSummary
+          ? model.ExternalKeyManagerMetadataSummary.getJsonObj(
+              obj.externalKeyManagerMetadataSummary
+            )
           : undefined
       }
     };
@@ -145,6 +158,12 @@ export namespace Vault {
       ...{
         "replicaDetails": obj.replicaDetails
           ? model.VaultReplicaDetails.getDeserializedJsonObj(obj.replicaDetails)
+          : undefined,
+
+        "externalKeyManagerMetadataSummary": obj.externalKeyManagerMetadataSummary
+          ? model.ExternalKeyManagerMetadataSummary.getDeserializedJsonObj(
+              obj.externalKeyManagerMetadataSummary
+            )
           : undefined
       }
     };

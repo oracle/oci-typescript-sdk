@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -13,6 +12,16 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as CreateEkmsPrivateEndpointRequest from "./create-ekms-private-endpoint-request";
+export import CreateEkmsPrivateEndpointRequest = CreateEkmsPrivateEndpointRequest.CreateEkmsPrivateEndpointRequest;
+import * as DeleteEkmsPrivateEndpointRequest from "./delete-ekms-private-endpoint-request";
+export import DeleteEkmsPrivateEndpointRequest = DeleteEkmsPrivateEndpointRequest.DeleteEkmsPrivateEndpointRequest;
+import * as GetEkmsPrivateEndpointRequest from "./get-ekms-private-endpoint-request";
+export import GetEkmsPrivateEndpointRequest = GetEkmsPrivateEndpointRequest.GetEkmsPrivateEndpointRequest;
+import * as ListEkmsPrivateEndpointsRequest from "./list-ekms-private-endpoints-request";
+export import ListEkmsPrivateEndpointsRequest = ListEkmsPrivateEndpointsRequest.ListEkmsPrivateEndpointsRequest;
+import * as UpdateEkmsPrivateEndpointRequest from "./update-ekms-private-endpoint-request";
+export import UpdateEkmsPrivateEndpointRequest = UpdateEkmsPrivateEndpointRequest.UpdateEkmsPrivateEndpointRequest;
 import * as DecryptRequest from "./decrypt-request";
 export import DecryptRequest = DecryptRequest.DecryptRequest;
 import * as EncryptRequest from "./encrypt-request";

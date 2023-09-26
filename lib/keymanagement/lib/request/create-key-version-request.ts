@@ -39,4 +39,8 @@ export interface CreateKeyVersionRequest extends common.BaseRequest {
    *
    */
   "opcRetryToken"?: string;
+  /**
+   * CreateKeyMetadataDetails
+   */
+  "createKeyMetadataDetails"?: model.ExternalKeyVersionReference;
 }

@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -23,6 +22,8 @@ import * as ChangeKeyCompartmentDetails from "./change-key-compartment-details";
 export import ChangeKeyCompartmentDetails = ChangeKeyCompartmentDetails.ChangeKeyCompartmentDetails;
 import * as ChangeVaultCompartmentDetails from "./change-vault-compartment-details";
 export import ChangeVaultCompartmentDetails = ChangeVaultCompartmentDetails.ChangeVaultCompartmentDetails;
+import * as CreateEkmsPrivateEndpointDetails from "./create-ekms-private-endpoint-details";
+export import CreateEkmsPrivateEndpointDetails = CreateEkmsPrivateEndpointDetails.CreateEkmsPrivateEndpointDetails;
 import * as CreateKeyDetails from "./create-key-details";
 export import CreateKeyDetails = CreateKeyDetails.CreateKeyDetails;
 import * as CreateVaultDetails from "./create-vault-details";
@@ -35,6 +36,10 @@ import * as DecryptedData from "./decrypted-data";
 export import DecryptedData = DecryptedData.DecryptedData;
 import * as DeleteVaultReplicaDetails from "./delete-vault-replica-details";
 export import DeleteVaultReplicaDetails = DeleteVaultReplicaDetails.DeleteVaultReplicaDetails;
+import * as EkmsPrivateEndpoint from "./ekms-private-endpoint";
+export import EkmsPrivateEndpoint = EkmsPrivateEndpoint.EkmsPrivateEndpoint;
+import * as EkmsPrivateEndpointSummary from "./ekms-private-endpoint-summary";
+export import EkmsPrivateEndpointSummary = EkmsPrivateEndpointSummary.EkmsPrivateEndpointSummary;
 import * as EncryptDataDetails from "./encrypt-data-details";
 export import EncryptDataDetails = EncryptDataDetails.EncryptDataDetails;
 import * as EncryptedData from "./encrypted-data";
@@ -43,6 +48,16 @@ import * as ExportKeyDetails from "./export-key-details";
 export import ExportKeyDetails = ExportKeyDetails.ExportKeyDetails;
 import * as ExportedKeyData from "./exported-key-data";
 export import ExportedKeyData = ExportedKeyData.ExportedKeyData;
+import * as ExternalKeyManagerMetadata from "./external-key-manager-metadata";
+export import ExternalKeyManagerMetadata = ExternalKeyManagerMetadata.ExternalKeyManagerMetadata;
+import * as ExternalKeyManagerMetadataSummary from "./external-key-manager-metadata-summary";
+export import ExternalKeyManagerMetadataSummary = ExternalKeyManagerMetadataSummary.ExternalKeyManagerMetadataSummary;
+import * as ExternalKeyReference from "./external-key-reference";
+export import ExternalKeyReference = ExternalKeyReference.ExternalKeyReference;
+import * as ExternalKeyReferenceDetails from "./external-key-reference-details";
+export import ExternalKeyReferenceDetails = ExternalKeyReferenceDetails.ExternalKeyReferenceDetails;
+import * as ExternalKeyVersionReference from "./external-key-version-reference";
+export import ExternalKeyVersionReference = ExternalKeyVersionReference.ExternalKeyVersionReference;
 import * as GenerateKeyDetails from "./generate-key-details";
 export import GenerateKeyDetails = GenerateKeyDetails.GenerateKeyDetails;
 import * as GeneratedKey from "./generated-key";
@@ -65,6 +80,10 @@ import * as KeyVersionReplicaDetails from "./key-version-replica-details";
 export import KeyVersionReplicaDetails = KeyVersionReplicaDetails.KeyVersionReplicaDetails;
 import * as KeyVersionSummary from "./key-version-summary";
 export import KeyVersionSummary = KeyVersionSummary.KeyVersionSummary;
+import * as OauthMetadata from "./oauth-metadata";
+export import OauthMetadata = OauthMetadata.OauthMetadata;
+import * as OauthMetadataSummary from "./oauth-metadata-summary";
+export import OauthMetadataSummary = OauthMetadataSummary.OauthMetadataSummary;
 import * as ReplicaDetails from "./replica-details";
 export import ReplicaDetails = ReplicaDetails.ReplicaDetails;
 import * as ReplicationStatusDetails from "./replication-status-details";
@@ -83,6 +102,8 @@ import * as SignDataDetails from "./sign-data-details";
 export import SignDataDetails = SignDataDetails.SignDataDetails;
 import * as SignedData from "./signed-data";
 export import SignedData = SignedData.SignedData;
+import * as UpdateEkmsPrivateEndpointDetails from "./update-ekms-private-endpoint-details";
+export import UpdateEkmsPrivateEndpointDetails = UpdateEkmsPrivateEndpointDetails.UpdateEkmsPrivateEndpointDetails;
 import * as UpdateKeyDetails from "./update-key-details";
 export import UpdateKeyDetails = UpdateKeyDetails.UpdateKeyDetails;
 import * as UpdateVaultDetails from "./update-vault-details";

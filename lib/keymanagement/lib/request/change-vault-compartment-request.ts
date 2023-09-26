@@ -23,7 +23,7 @@ export interface ChangeVaultCompartmentRequest extends common.BaseRequest {
    */
   "vaultId": string;
   /**
-   *
+   * ChangeVaultCompartmentDetails
    */
   "changeVaultCompartmentDetails": model.ChangeVaultCompartmentDetails;
   /**
