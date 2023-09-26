@@ -206,7 +206,7 @@
     "uuid": "3.3.3",
     "webpack": "4.0.0",
     "webpack-cli": "^3.3.0",
-    "node-fetch": "2.6.5"
+    "node-fetch": "2.6.7"
   },
   "husky": {
     "hooks": {
