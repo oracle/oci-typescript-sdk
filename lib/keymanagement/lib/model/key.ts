@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -16,6 +15,9 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The logical entities that represent one or more key versions, each of which contains cryptographic material.
+ */
 export interface Key {
   /**
    * The OCID of the compartment that contains this master encryption key.
@@ -59,6 +61,9 @@ export interface Key {
    * the HSM. A protection mode of `SOFTWARE` means that the key persists on the server, protected by the vault's RSA wrapping key which persists
    * on the HSM. All cryptographic operations that use a key with a protection mode of `SOFTWARE` are performed on the server. By default,
    * a key's protection mode is set to `HSM`. You can't change a key's protection mode after the key is created or imported.
+   * A protection mode of `EXTERNAL` mean that the key persists on the customer's external key manager which is hosted externally outside of oracle.
+   * Oracle only hold a reference to that key.
+   * All cryptographic operations that use a key with a protection mode of `EXTERNAL` are performed by external key manager.
    *
    */
   "protectionMode"?: Key.ProtectionMode;
@@ -91,13 +96,18 @@ Example: `2018-04-03T21:10:29.600Z`
    */
   "restoredFromKeyId"?: string;
   "replicaDetails"?: model.KeyReplicaDetails;
+  /**
+   * A Boolean value that indicates whether the Key belongs to primary Vault or replica vault.
+   */
   "isPrimary"?: boolean;
+  "externalKeyReferenceDetails"?: model.ExternalKeyReferenceDetails;
 }
 
 export namespace Key {
   export enum ProtectionMode {
     Hsm = "HSM",
     Software = "SOFTWARE",
+    External = "EXTERNAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -134,6 +144,10 @@ export namespace Key {
 
         "replicaDetails": obj.replicaDetails
           ? model.KeyReplicaDetails.getJsonObj(obj.replicaDetails)
+          : undefined,
+
+        "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
+          ? model.ExternalKeyReferenceDetails.getJsonObj(obj.externalKeyReferenceDetails)
           : undefined
       }
     };
@@ -148,6 +162,12 @@ export namespace Key {
 
         "replicaDetails": obj.replicaDetails
           ? model.KeyReplicaDetails.getDeserializedJsonObj(obj.replicaDetails)
+          : undefined,
+
+        "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
+          ? model.ExternalKeyReferenceDetails.getDeserializedJsonObj(
+              obj.externalKeyReferenceDetails
+            )
           : undefined
       }
     };

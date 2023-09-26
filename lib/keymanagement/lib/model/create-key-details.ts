@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -16,6 +15,9 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The details of the key that you want to create.
+ */
 export interface CreateKeyDetails {
   /**
    * The OCID of the compartment where you want to create the master encryption key.
@@ -48,22 +50,31 @@ export interface CreateKeyDetails {
    * the HSM. A protection mode of `SOFTWARE` means that the key persists on the server, protected by the vault's RSA wrapping key which persists
    * on the HSM. All cryptographic operations that use a key with a protection mode of `SOFTWARE` are performed on the server. By default,
    * a key's protection mode is set to `HSM`. You can't change a key's protection mode after the key is created or imported.
+   * A protection mode of `EXTERNAL` mean that the key persists on the customer's external key manager which is hosted externally outside of oracle.
+   * Oracle only hold a reference to that key.
+   * All cryptographic operations that use a key with a protection mode of `EXTERNAL` are performed by external key manager.
    *
    */
   "protectionMode"?: CreateKeyDetails.ProtectionMode;
+  "externalKeyReference"?: model.ExternalKeyReference;
 }
 
 export namespace CreateKeyDetails {
   export enum ProtectionMode {
     Hsm = "HSM",
-    Software = "SOFTWARE"
+    Software = "SOFTWARE",
+    External = "EXTERNAL"
   }
 
   export function getJsonObj(obj: CreateKeyDetails): object {
     const jsonObj = {
       ...obj,
       ...{
-        "keyShape": obj.keyShape ? model.KeyShape.getJsonObj(obj.keyShape) : undefined
+        "keyShape": obj.keyShape ? model.KeyShape.getJsonObj(obj.keyShape) : undefined,
+
+        "externalKeyReference": obj.externalKeyReference
+          ? model.ExternalKeyReference.getJsonObj(obj.externalKeyReference)
+          : undefined
       }
     };
 
@@ -73,7 +84,11 @@ export namespace CreateKeyDetails {
     const jsonObj = {
       ...obj,
       ...{
-        "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined
+        "keyShape": obj.keyShape ? model.KeyShape.getDeserializedJsonObj(obj.keyShape) : undefined,
+
+        "externalKeyReference": obj.externalKeyReference
+          ? model.ExternalKeyReference.getDeserializedJsonObj(obj.externalKeyReference)
+          : undefined
       }
     };
 

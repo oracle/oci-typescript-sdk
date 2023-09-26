@@ -58,6 +58,8 @@ export interface ListKeysRequest extends common.BaseRequest {
    * performed inside the HSM. A protection mode of `SOFTWARE` means that the key persists on the server, protected by the vault's
    * RSA wrapping key which persists on the HSM. All cryptographic operations that use a key with a protection mode of
    * `SOFTWARE` are performed on the server.
+   * A protection mode of `EXTERNAL` mean that the key persists on the customer's external key manager which is hosted externally outside of oracle.
+   * Oracle only hold a reference to that key. All cryptographic operations that use a key with a protection mode of `EXTERNAL` are performed by external key manager.
    *
    */
   "protectionMode"?: ListKeysRequest.ProtectionMode;
@@ -91,7 +93,8 @@ export namespace ListKeysRequest {
 
   export enum ProtectionMode {
     Hsm = "HSM",
-    Software = "SOFTWARE"
+    Software = "SOFTWARE",
+    External = "EXTERNAL"
   }
 
   export enum Algorithm {

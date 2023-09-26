@@ -23,7 +23,7 @@ export interface ChangeKeyCompartmentRequest extends common.BaseRequest {
    */
   "keyId": string;
   /**
-   *
+   * Details of change key compartment.
    */
   "changeKeyCompartmentDetails": model.ChangeKeyCompartmentDetails;
   /**

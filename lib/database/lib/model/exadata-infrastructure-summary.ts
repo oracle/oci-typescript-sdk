@@ -249,6 +249,7 @@ export namespace ExadataInfrastructureSummary {
     X8 = "X8",
     X8M = "X8M",
     X9M = "X9M",
+    X10M = "X10M",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

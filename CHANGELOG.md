@@ -3,6 +3,14 @@ All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](http://keepachangelog.com/).
 
+## 2.70.2 - 2023-09-26
+### Added
+- Support for listing compute performances and storage performances in Database service
+- Support for private endpoints for external key managers in Key Management service
+- Support for additional parameters in vaults and keys for external key managers in Key Management service
+- Support for domains while creating integration instances in Oracle Integration Cloud service 
+
+
 ## 2.70.1 - 2023-09-12
 ### Added
 - Support for SQL tuning sets in Database Management service
