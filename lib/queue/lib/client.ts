@@ -324,7 +324,7 @@ export class QueueClient {
    * When channelFilter is present, service will return available messages from the channel which ID exactly matched the filter.
    * When filter is not specified, messages will be returned from a random non-empty channel within a queue.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetMessagesRequest
    * @return GetMessagesResponse
    * @throws OciError when an error occurs
@@ -352,7 +352,7 @@ export class QueueClient {
       "opc-request-id": getMessagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getMessagesRequest.retryConfiguration,
@@ -560,7 +560,7 @@ export class QueueClient {
    * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to produce messages.
    * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PutMessagesRequest
    * @return PutMessagesResponse
    * @throws OciError when an error occurs
@@ -583,7 +583,7 @@ export class QueueClient {
       "opc-request-id": putMessagesRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       putMessagesRequest.retryConfiguration,
@@ -1813,3 +1813,4 @@ export class QueueAdminClient {
     }
   }
 }
+
