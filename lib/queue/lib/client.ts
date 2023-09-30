@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -35,6 +35,7 @@ export class QueueClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Queue";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -54,6 +55,9 @@ export class QueueClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -66,7 +70,12 @@ export class QueueClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -160,7 +169,10 @@ export class QueueClient {
   }
 
   /**
-   * Deletes from the queue the message represented by the receipt.
+   * Deletes the message represented by the receipt from the queue.
+   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to delete messages.
+   * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMessageRequest
    * @return DeleteMessageResponse
@@ -228,6 +240,9 @@ export class QueueClient {
 
   /**
    * Deletes multiple messages from the queue.
+   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to delete messages.
+   * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteMessagesRequest
    * @return DeleteMessagesResponse
@@ -302,7 +317,13 @@ export class QueueClient {
   }
 
   /**
-   * Consumes message from the queue.
+   * Consumes messages from the queue.
+   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to consume messages.
+   * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
+   * GetMessages accepts optional channelFilter query parameter that can filter source channels of the messages.
+   * When channelFilter is present, service will return available messages from the channel which ID exactly matched the filter.
+   * When filter is not specified, messages will be returned from a random non-empty channel within a queue.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetMessagesRequest
    * @return GetMessagesResponse
@@ -322,7 +343,8 @@ export class QueueClient {
     const queryParams = {
       "visibilityInSeconds": getMessagesRequest.visibilityInSeconds,
       "timeoutInSeconds": getMessagesRequest.timeoutInSeconds,
-      "limit": getMessagesRequest.limit
+      "limit": getMessagesRequest.limit,
+      "channelFilter": getMessagesRequest.channelFilter
     };
 
     let headerParams = {
@@ -377,6 +399,9 @@ export class QueueClient {
 
   /**
    * Gets the statistics for the queue and its dead letter queue.
+   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to get a queue's statistics.
+   * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetStatsRequest
    * @return GetStatsResponse
@@ -393,7 +418,9 @@ export class QueueClient {
       "{queueId}": getStatsRequest.queueId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "channelId": getStatsRequest.channelId
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -446,7 +473,93 @@ export class QueueClient {
   }
 
   /**
-   * Puts messages in the queue
+   * Gets the list of IDs of non-empty channels.
+   * It will return an approximate list of IDs of non-empty channels. That information is based on the queue level statistics.
+   * API supports optional channelFilter parameter which will filter the returned results according to the specified filter.
+   * List of channel IDs is approximate, because statistics is refreshed once per-second, and that list represents a snapshot of the past information. API is paginated.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListChannelsRequest
+   * @return ListChannelsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/queue/ListChannels.ts.html |here} to see how to use ListChannels API.
+   */
+  public async listChannels(
+    listChannelsRequest: requests.ListChannelsRequest
+  ): Promise<responses.ListChannelsResponse> {
+    if (this.logger) this.logger.debug("Calling operation QueueClient#listChannels.");
+    const operationName = "listChannels";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{queueId}": listChannelsRequest.queueId
+    };
+
+    const queryParams = {
+      "limit": listChannelsRequest.limit,
+      "page": listChannelsRequest.page,
+      "channelFilter": listChannelsRequest.channelFilter
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listChannelsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listChannelsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/queues/{queueId}/channels",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListChannelsResponse>{},
+        body: await response.json(),
+        bodyKey: "channelCollection",
+        bodyModel: model.ChannelCollection,
+        type: "model.ChannelCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Puts messages into the queue.
+   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to produce messages.
+   * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param PutMessagesRequest
    * @return PutMessagesResponse
@@ -522,6 +635,9 @@ export class QueueClient {
 
   /**
    * Updates the visibility of the message represented by the receipt.
+   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to update messages.
+   * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMessageRequest
    * @return UpdateMessageResponse
@@ -598,6 +714,9 @@ export class QueueClient {
 
   /**
    * Updates multiple messages in the queue.
+   * You must use the [messages endpoint](https://docs.cloud.oracle.com/iaas/Content/queue/messages.htm#messages__messages-endpoint) to update messages.
+   * The messages endpoint may be different for different queues. Use {@link #getQueue(GetQueueRequest) getQueue} to find the queue's `messagesEndpoint`.
+   *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateMessagesRequest
    * @return UpdateMessagesResponse
@@ -685,6 +804,7 @@ export class QueueAdminClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "QueueAdmin";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -704,6 +824,9 @@ export class QueueAdminClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -716,7 +839,12 @@ export class QueueAdminClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -833,7 +961,7 @@ export class QueueAdminClient {
   }
 
   /**
-   * Moves a Queue resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * Moves a queue from one compartment to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeQueueCompartmentRequest
    * @return ChangeQueueCompartmentResponse
@@ -911,7 +1039,7 @@ export class QueueAdminClient {
   }
 
   /**
-   * Creates a new Queue.
+   * Creates a new queue.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateQueueRequest
@@ -987,7 +1115,7 @@ export class QueueAdminClient {
   }
 
   /**
-   * Deletes a Queue resource by identifier
+   * Deletes a queue resource by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteQueueRequest
    * @return DeleteQueueResponse
@@ -1059,7 +1187,7 @@ export class QueueAdminClient {
   }
 
   /**
-   * Gets a Queue by identifier
+   * Gets a queue by identifier.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetQueueRequest
    * @return GetQueueResponse
@@ -1209,7 +1337,7 @@ export class QueueAdminClient {
   }
 
   /**
-   * Returns a list of Queues.
+   * Returns a list of queues.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListQueuesRequest
@@ -1529,8 +1657,9 @@ export class QueueAdminClient {
   }
 
   /**
-   * Deletes all messages present in the queue at the time of invocation. Only one concurrent purge operation is supported for any given queue.
+   * Deletes all messages present in the queue, or deletes all the messages in the specific channel at the time of invocation. Only one concurrent purge operation is supported for any given queue.
    * However multiple concurrent purge operations are supported for different queues.
+   * Purge request without specification of target channels will clean up all messages in the queue and in the child channels.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PurgeQueueRequest
@@ -1608,7 +1737,7 @@ export class QueueAdminClient {
   }
 
   /**
-   * Updates the Queue
+   * Updates the specified queue.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateQueueRequest
    * @return UpdateQueueResponse

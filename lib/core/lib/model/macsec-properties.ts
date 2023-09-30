@@ -34,6 +34,10 @@ export interface MacsecProperties {
    * Type of encryption cipher suite to use for the MACsec connection.
    */
   "encryptionCipher"?: model.MacsecEncryptionCipher;
+  /**
+   * Indicates whether unencrypted traffic is allowed if MACsec Key Agreement protocol (MKA) fails.
+   */
+  "isUnprotectedTrafficAllowed"?: boolean;
 }
 
 export namespace MacsecProperties {

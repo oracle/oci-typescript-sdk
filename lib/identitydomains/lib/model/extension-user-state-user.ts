@@ -16,17 +16,18 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * This extension defines attributes used to manage account passwords within a service provider. The extension is typically applied to a User resource, but MAY be applied to other resources that use passwords.
+ * This extension defines the attributes used to manage account passwords within a service provider. The extension is typically applied to a User resource, but MAY be applied to other resources that use passwords.
  */
 export interface ExtensionUserStateUser {
   /**
-   * The last successful login date
+   * The last successful login date.
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: true
    *  - idcsAllowUpdatesInReadOnlyMode: true
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: request
    *  - type: dateTime
@@ -34,13 +35,14 @@ export interface ExtensionUserStateUser {
    */
   "lastSuccessfulLoginDate"?: string;
   /**
-   * The previous successful login date
+   * The previous successful login date.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: request
    *  - type: dateTime
@@ -48,13 +50,14 @@ export interface ExtensionUserStateUser {
    */
   "previousSuccessfulLoginDate"?: string;
   /**
-   * The last failed login date
+   * The last failed login date.
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: false
    *  - idcsAllowUpdatesInReadOnlyMode: true
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: request
    *  - type: dateTime
@@ -69,6 +72,8 @@ export interface ExtensionUserStateUser {
    *  - idcsAllowUpdatesInReadOnlyMode: true
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    *  - required: false
    *  - returned: request
    *  - type: integer
@@ -84,6 +89,7 @@ export interface ExtensionUserStateUser {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: request
    *  - type: integer
@@ -106,7 +112,7 @@ export interface ExtensionUserStateUser {
    */
   "recoveryEnrollAttempts"?: number;
   /**
-   * Maximum number of concurrent sessions for a User
+   * The maximum number of concurrent sessions for a user.
    * <p>
    **Added In:** 20.1.3
    * <p>

@@ -104,7 +104,8 @@ Example: `{\"Department\": \"Finance\"}`
     */
   "freeformTags"?: { [key: string]: string };
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the
+   * [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) that the instance will be created in.
    *
    */
   "computeClusterId"?: string;
@@ -141,9 +142,9 @@ The default iPXE script connects to the instance's local boot
 * following iSCSI IP address: 169.254.0.2, and boot volume IQN:
 * iqn.2015-02.oracle.boot.
 * <p>
-If your instance boot volume type is paravirtualized,
+If your instance boot volume attachment type is paravirtualized,
 * the boot volume is attached to the instance through virtio-scsi and no iPXE script is used.
-* If your instance boot volume type is paravirtualized
+* If your instance boot volume attachment type is paravirtualized
 * and you use custom iPXE to network boot into your instance,
 * the primary boot volume is attached as a data volume through virtio-scsi drive.
 * <p>
@@ -219,7 +220,7 @@ A metadata service runs on every launched instance. The service is an HTTP
 You can enumerate all available shapes by calling {@link #listShapes(ListShapesRequest) listShapes}.
 * 
     */
-  "shape": string;
+  "shape"?: string;
   "shapeConfig"?: model.LaunchInstanceShapeConfigDetails;
   "sourceDetails"?: model.InstanceSourceViaImageDetails | model.InstanceSourceViaBootVolumeDetails;
   /**
@@ -241,7 +242,12 @@ You can enumerate all available shapes by calling {@link #listShapes(ListShapesR
     | model.IntelVmLaunchInstancePlatformConfig
     | model.IntelSkylakeBmLaunchInstancePlatformConfig
     | model.AmdMilanBmLaunchInstancePlatformConfig
+    | model.GenericBmLaunchInstancePlatformConfig
     | model.AmdMilanBmGpuLaunchInstancePlatformConfig;
+  /**
+   * The OCID of the Instance Configuration containing instance launch details. Any other fields supplied in this instance launch request will override the details stored in the Instance Configuration for this instance launch.
+   */
+  "instanceConfigurationId"?: string;
 }
 
 export namespace LaunchInstanceDetails {

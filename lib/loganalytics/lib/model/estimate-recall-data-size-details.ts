@@ -28,6 +28,14 @@ export interface EstimateRecallDataSizeDetails {
    * This is the end of the time range for the data to be recalled
    */
   "timeDataEnded": Date;
+  /**
+   * This is the list of logsets to be accounted for in the recalled data
+   */
+  "logSets"?: string;
+  /**
+   * This indicates if only new data has to be recalled in the timeframe
+   */
+  "isRecallNewDataOnly"?: boolean;
 }
 
 export namespace EstimateRecallDataSizeDetails {

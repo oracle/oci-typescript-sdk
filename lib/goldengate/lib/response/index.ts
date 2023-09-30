@@ -14,6 +14,8 @@
 
 import * as CancelDeploymentBackupResponse from "./cancel-deployment-backup-response";
 export import CancelDeploymentBackupResponse = CancelDeploymentBackupResponse.CancelDeploymentBackupResponse;
+import * as CancelDeploymentUpgradeResponse from "./cancel-deployment-upgrade-response";
+export import CancelDeploymentUpgradeResponse = CancelDeploymentUpgradeResponse.CancelDeploymentUpgradeResponse;
 import * as CancelSnoozeDeploymentUpgradeResponse from "./cancel-snooze-deployment-upgrade-response";
 export import CancelSnoozeDeploymentUpgradeResponse = CancelSnoozeDeploymentUpgradeResponse.CancelSnoozeDeploymentUpgradeResponse;
 import * as ChangeConnectionCompartmentResponse from "./change-connection-compartment-response";
@@ -26,6 +28,8 @@ import * as ChangeDeploymentCompartmentResponse from "./change-deployment-compar
 export import ChangeDeploymentCompartmentResponse = ChangeDeploymentCompartmentResponse.ChangeDeploymentCompartmentResponse;
 import * as CollectDeploymentDiagnosticResponse from "./collect-deployment-diagnostic-response";
 export import CollectDeploymentDiagnosticResponse = CollectDeploymentDiagnosticResponse.CollectDeploymentDiagnosticResponse;
+import * as CopyDeploymentBackupResponse from "./copy-deployment-backup-response";
+export import CopyDeploymentBackupResponse = CopyDeploymentBackupResponse.CopyDeploymentBackupResponse;
 import * as CreateConnectionResponse from "./create-connection-response";
 export import CreateConnectionResponse = CreateConnectionResponse.CreateConnectionResponse;
 import * as CreateConnectionAssignmentResponse from "./create-connection-assignment-response";
@@ -96,6 +100,8 @@ import * as ListWorkRequestLogsResponse from "./list-work-request-logs-response"
 export import ListWorkRequestLogsResponse = ListWorkRequestLogsResponse.ListWorkRequestLogsResponse;
 import * as ListWorkRequestsResponse from "./list-work-requests-response";
 export import ListWorkRequestsResponse = ListWorkRequestsResponse.ListWorkRequestsResponse;
+import * as RescheduleDeploymentUpgradeResponse from "./reschedule-deployment-upgrade-response";
+export import RescheduleDeploymentUpgradeResponse = RescheduleDeploymentUpgradeResponse.RescheduleDeploymentUpgradeResponse;
 import * as RestoreDeploymentResponse from "./restore-deployment-response";
 export import RestoreDeploymentResponse = RestoreDeploymentResponse.RestoreDeploymentResponse;
 import * as RollbackDeploymentUpgradeResponse from "./rollback-deployment-upgrade-response";
@@ -106,6 +112,8 @@ import * as StartDeploymentResponse from "./start-deployment-response";
 export import StartDeploymentResponse = StartDeploymentResponse.StartDeploymentResponse;
 import * as StopDeploymentResponse from "./stop-deployment-response";
 export import StopDeploymentResponse = StopDeploymentResponse.StopDeploymentResponse;
+import * as TestConnectionAssignmentResponse from "./test-connection-assignment-response";
+export import TestConnectionAssignmentResponse = TestConnectionAssignmentResponse.TestConnectionAssignmentResponse;
 import * as UpdateConnectionResponse from "./update-connection-response";
 export import UpdateConnectionResponse = UpdateConnectionResponse.UpdateConnectionResponse;
 import * as UpdateDatabaseRegistrationResponse from "./update-database-registration-response";

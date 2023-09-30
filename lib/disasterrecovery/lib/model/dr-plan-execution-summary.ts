@@ -24,14 +24,14 @@ export interface DrPlanExecutionSummary {
   /**
     * The OCID of this plan execution.
 * <p>
-Example: `ocid1.drplanexecution.oc1.iad.exampleocid2`
+Example: `ocid1.drplanexecution.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "id": string;
   /**
     * The OCID of the compartment containing this plan execution.
 * <p>
-Example: `ocid1.compartment.oc1..exampleocid1`
+Example: `ocid1.compartment.oc1..&lt;unique_id&gt;`
 * 
     */
   "compartmentId": string;
@@ -45,7 +45,7 @@ Example: `Execution - EBS Switchover PHX to IAD`
   /**
     * The OCID of the DR Plan for this plan execution.
 * <p>
-Example: `ocid1.drplan.oc1.iad.exampleocid2`
+Example: `ocid1.drplan.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "planId": string;
@@ -57,7 +57,7 @@ Example: `ocid1.drplan.oc1.iad.exampleocid2`
   /**
     * The OCID of DR Protection Group associated with this plan execution.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.iad.exampleocid2`
+Example: `ocid1.drprotectiongroup.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "drProtectionGroupId": string;
@@ -65,7 +65,7 @@ Example: `ocid1.drprotectiongroup.oc1.iad.exampleocid2`
     * The OCID of peer (remote) DR Protection Group associated with this plan execution's
 * DR Protection Group.
 * <p>
-Example: `ocid1.drprotectiongroup.oc1.phx.exampleocid1`
+Example: `ocid1.drprotectiongroup.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "peerDrProtectionGroupId": string;

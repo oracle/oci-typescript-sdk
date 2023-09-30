@@ -16,7 +16,7 @@ import common = require("oci-common");
 
 /**
  * Details of the request to start a JFR analysis.
- * When the targets aren't specified, then all managed instances currently in the fleet are selected.
+ * When the targets aren't specified, then all managed instances currently in the Fleet are selected.
  *
  */
 export interface RequestCryptoAnalysesDetails {
@@ -28,6 +28,14 @@ export interface RequestCryptoAnalysesDetails {
    * Duration of the JFR recording in minutes. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recordingDurationInMinutes"?: number;
+  /**
+   * Period to looking for JVMs. In addition to attach to running JVMs when given the command,
+   * JVM started within the waiting period will also be attached for JFR. The value should be
+   * larger than the agent polling interval setting for the fleet to ensure agent can get the
+   * instructions. If not specified, the agent polling interval for the fleet is used.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "waitingPeriodInMinutes"?: number;
 }
 
 export namespace RequestCryptoAnalysesDetails {

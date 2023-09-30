@@ -26,17 +26,23 @@ export interface HttpClient {
 export class FetchHttpClient implements HttpClient {
   private circuitBreaker = (null as unknown) as typeof Breaker;
   private httpOptions: { [key: string]: any } | undefined = undefined;
+  private bodyDuplexMode: any;
+  private static BODY_DUPLEX_KEY: string = "duplex";
+  private static DEFAULT_DUPLEX_VALUE: string = "half";
 
   constructor(
     private readonly signer: RequestSigner | null,
     circuitBreaker?: typeof Breaker,
-    httpOptions?: { [key: string]: any } | undefined
+    httpOptions?: { [key: string]: any } | undefined,
+    bodyDuplexMode?: any
   ) {
     if (circuitBreaker) {
       this.circuitBreaker = circuitBreaker;
     }
 
     if (httpOptions) this.httpOptions = httpOptions;
+
+    if (bodyDuplexMode) this.bodyDuplexMode = bodyDuplexMode;
   }
 
   public async send(
@@ -62,12 +68,21 @@ export class FetchHttpClient implements HttpClient {
         forceExcludeBody
       );
     }
-    const request = new Request(req.uri, {
+
+    const reqInit: any = {
       method: req.method,
       headers: req.headers,
       body: body.requestBody
-    });
+    };
 
+    if (body.requestBody) {
+      reqInit[FetchHttpClient.BODY_DUPLEX_KEY] = this.bodyDuplexMode
+        ? this.bodyDuplexMode
+        : FetchHttpClient.DEFAULT_DUPLEX_VALUE;
+    }
+
+    const request = new Request(req.uri, reqInit);
+    // Send Request
     // Need to convert to type RequestInit for Fetch() type compatibility
     let options: RequestInit = (this.httpOptions as unknown) as RequestInit;
 

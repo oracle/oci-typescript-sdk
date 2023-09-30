@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface AdvancedUsageTracking {
   /**
-   * AdvancedUsageTracking flag to store enabled or disabled status
+   * AdvancedUsageTracking flag to store enabled or disabled status.
    */
   "isEnabled"?: boolean;
 }

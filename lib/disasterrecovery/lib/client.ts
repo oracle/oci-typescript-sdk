@@ -40,6 +40,7 @@ export class DisasterRecoveryClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "DisasterRecovery";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -59,6 +60,9 @@ export class DisasterRecoveryClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -71,7 +75,12 @@ export class DisasterRecoveryClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -188,10 +197,10 @@ export class DisasterRecoveryClient {
   }
 
   /**
-   * Create an association the DR Protection Group identified by *drProtectionGroupId* and
+   * Create an association between the DR Protection Group identified by *drProtectionGroupId* and
    * another DR Protection Group in a different region.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param AssociateDrProtectionGroupRequest
    * @return AssociateDrProtectionGroupResponse
    * @throws OciError when an error occurs
@@ -217,7 +226,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": associateDrProtectionGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       associateDrProtectionGroupRequest.retryConfiguration,
@@ -270,7 +279,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Cancel the DR Plan Execution indentified by *drPlanExecutionId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelDrPlanExecutionRequest
    * @return CancelDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -296,7 +305,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": cancelDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelDrPlanExecutionRequest.retryConfiguration,
@@ -349,7 +358,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Cancel the work request identified by *workRequestId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CancelWorkRequestRequest
    * @return CancelWorkRequestResponse
    * @throws OciError when an error occurs
@@ -374,7 +383,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": cancelWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       cancelWorkRequestRequest.retryConfiguration,
@@ -417,7 +426,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Move the DR Protection Group identified by *drProtectionGroupId* to a different compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeDrProtectionGroupCompartmentRequest
    * @return ChangeDrProtectionGroupCompartmentResponse
    * @throws OciError when an error occurs
@@ -445,7 +454,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": changeDrProtectionGroupCompartmentRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       changeDrProtectionGroupCompartmentRequest.retryConfiguration,
@@ -498,7 +507,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Creates a new DR Plan of the specified DR Plan type.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrPlanRequest
    * @return CreateDrPlanResponse
    * @throws OciError when an error occurs
@@ -520,7 +529,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": createDrPlanRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDrPlanRequest.retryConfiguration,
@@ -587,7 +596,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Execute a DR Plan for a DR Protection Group.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrPlanExecutionRequest
    * @return CreateDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -610,7 +619,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": createDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDrPlanExecutionRequest.retryConfiguration,
@@ -677,7 +686,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Create a new DR Protection Group.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateDrProtectionGroupRequest
    * @return CreateDrProtectionGroupResponse
    * @throws OciError when an error occurs
@@ -700,7 +709,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": createDrProtectionGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       createDrProtectionGroupRequest.retryConfiguration,
@@ -767,7 +776,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Delete the DR Plan identified by *drPlanId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDrPlanRequest
    * @return DeleteDrPlanResponse
    * @throws OciError when an error occurs
@@ -791,7 +800,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": deleteDrPlanRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDrPlanRequest.retryConfiguration,
@@ -834,7 +843,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Delete the DR Plan Execution identified by *drPlanExecutionId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDrPlanExecutionRequest
    * @return DeleteDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -859,7 +868,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": deleteDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDrPlanExecutionRequest.retryConfiguration,
@@ -907,7 +916,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Delete the DR Protection Group identified by *drProtectionGroupId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteDrProtectionGroupRequest
    * @return DeleteDrProtectionGroupResponse
    * @throws OciError when an error occurs
@@ -932,7 +941,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": deleteDrProtectionGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       deleteDrProtectionGroupRequest.retryConfiguration,
@@ -982,7 +991,7 @@ export class DisasterRecoveryClient {
    * Delete the association between the DR Protection Group identified by *drProtectionGroupId*.
    * and its peer DR Protection Group.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DisassociateDrProtectionGroupRequest
    * @return DisassociateDrProtectionGroupResponse
    * @throws OciError when an error occurs
@@ -1008,7 +1017,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": disassociateDrProtectionGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       disassociateDrProtectionGroupRequest.retryConfiguration,
@@ -1061,7 +1070,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Get details for the DR Plan identified by *drPlanId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrPlanRequest
    * @return GetDrPlanResponse
    * @throws OciError when an error occurs
@@ -1084,7 +1093,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": getDrPlanRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDrPlanRequest.retryConfiguration,
@@ -1136,7 +1145,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Get details for the DR Plan Execution identified by *drPlanExecutionId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrPlanExecutionRequest
    * @return GetDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -1160,7 +1169,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": getDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDrPlanExecutionRequest.retryConfiguration,
@@ -1212,7 +1221,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Get the DR Protection Group identified by *drProtectionGroupId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetDrProtectionGroupRequest
    * @return GetDrProtectionGroupResponse
    * @throws OciError when an error occurs
@@ -1236,7 +1245,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": getDrProtectionGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getDrProtectionGroupRequest.retryConfiguration,
@@ -1288,7 +1297,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Get the status of the work request identified by *workRequestId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetWorkRequestRequest
    * @return GetWorkRequestResponse
    * @throws OciError when an error occurs
@@ -1311,7 +1320,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": getWorkRequestRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       getWorkRequestRequest.retryConfiguration,
@@ -1368,7 +1377,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Ignore failed group or step in DR Plan Execution identified by *drPlanExecutionId* and resume execution.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param IgnoreDrPlanExecutionRequest
    * @return IgnoreDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -1394,7 +1403,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": ignoreDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       ignoreDrPlanExecutionRequest.retryConfiguration,
@@ -1447,7 +1456,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Get a summary list of all DR Plan Executions for a DR Protection Group.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDrPlanExecutionsRequest
    * @return ListDrPlanExecutionsResponse
    * @throws OciError when an error occurs
@@ -1479,7 +1488,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": listDrPlanExecutionsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDrPlanExecutionsRequest.retryConfiguration,
@@ -1531,7 +1540,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Gets a summary list of all DR Plans for a DR Protection Group.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDrPlansRequest
    * @return ListDrPlansResponse
    * @throws OciError when an error occurs
@@ -1562,7 +1571,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": listDrPlansRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDrPlansRequest.retryConfiguration,
@@ -1614,7 +1623,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Gets a summary list of all DR Protection Groups in a compartment.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListDrProtectionGroupsRequest
    * @return ListDrProtectionGroupsResponse
    * @throws OciError when an error occurs
@@ -1637,7 +1646,8 @@ export class DisasterRecoveryClient {
       "limit": listDrProtectionGroupsRequest.limit,
       "page": listDrProtectionGroupsRequest.page,
       "sortOrder": listDrProtectionGroupsRequest.sortOrder,
-      "sortBy": listDrProtectionGroupsRequest.sortBy
+      "sortBy": listDrProtectionGroupsRequest.sortBy,
+      "role": listDrProtectionGroupsRequest.role
     };
 
     let headerParams = {
@@ -1645,7 +1655,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": listDrProtectionGroupsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listDrProtectionGroupsRequest.retryConfiguration,
@@ -1698,7 +1708,7 @@ export class DisasterRecoveryClient {
   /**
    * Return a (paginated) list of errors for a given work request.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
    * @return ListWorkRequestErrorsResponse
    * @throws OciError when an error occurs
@@ -1727,7 +1737,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestErrorsRequest.retryConfiguration,
@@ -1780,7 +1790,7 @@ export class DisasterRecoveryClient {
   /**
    * Return a (paginated) list of logs for the work request identified by *workRequestId*.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
    * @return ListWorkRequestLogsResponse
    * @throws OciError when an error occurs
@@ -1809,7 +1819,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": listWorkRequestLogsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestLogsRequest.retryConfiguration,
@@ -1862,7 +1872,7 @@ export class DisasterRecoveryClient {
   /**
    * Lists the work requests in a compartment.
    *
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestsRequest
    * @return ListWorkRequestsResponse
    * @throws OciError when an error occurs
@@ -1893,7 +1903,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": listWorkRequestsRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       listWorkRequestsRequest.retryConfiguration,
@@ -1945,7 +1955,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Pause the DR Plan Execution identified by *drPlanExecutionId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param PauseDrPlanExecutionRequest
    * @return PauseDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -1971,7 +1981,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": pauseDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       pauseDrPlanExecutionRequest.retryConfiguration,
@@ -2024,7 +2034,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Resume the DR Plan Execution identified by *drPlanExecutionId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ResumeDrPlanExecutionRequest
    * @return ResumeDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -2050,7 +2060,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": resumeDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       resumeDrPlanExecutionRequest.retryConfiguration,
@@ -2103,7 +2113,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Retry failed group or step in DR Plan Execution identified by *drPlanExecutionId* and resume execution.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RetryDrPlanExecutionRequest
    * @return RetryDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -2129,7 +2139,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": retryDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       retryDrPlanExecutionRequest.retryConfiguration,
@@ -2182,7 +2192,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Update the DR Plan identified by *drPlanId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrPlanRequest
    * @return UpdateDrPlanResponse
    * @throws OciError when an error occurs
@@ -2206,7 +2216,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": updateDrPlanRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDrPlanRequest.retryConfiguration,
@@ -2259,7 +2269,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Update the DR Plan Execution identified by *drPlanExecutionId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrPlanExecutionRequest
    * @return UpdateDrPlanExecutionResponse
    * @throws OciError when an error occurs
@@ -2284,7 +2294,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": updateDrPlanExecutionRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDrPlanExecutionRequest.retryConfiguration,
@@ -2337,7 +2347,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Update the DR Protection Group identified by *drProtectionGroupId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrProtectionGroupRequest
    * @return UpdateDrProtectionGroupResponse
    * @throws OciError when an error occurs
@@ -2362,7 +2372,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": updateDrProtectionGroupRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDrProtectionGroupRequest.retryConfiguration,
@@ -2415,7 +2425,7 @@ export class DisasterRecoveryClient {
 
   /**
    * Update the role of the DR Protection Group identified by *drProtectionGroupId*.
-   * This operation does not retry by default if the user has not defined a retry configuration.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateDrProtectionGroupRoleRequest
    * @return UpdateDrProtectionGroupRoleResponse
    * @throws OciError when an error occurs
@@ -2441,7 +2451,7 @@ export class DisasterRecoveryClient {
       "opc-request-id": updateDrProtectionGroupRoleRequest.opcRequestId
     };
 
-    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
       updateDrProtectionGroupRoleRequest.retryConfiguration,

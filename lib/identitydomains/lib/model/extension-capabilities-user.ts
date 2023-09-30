@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ExtensionCapabilitiesUser {
   /**
-   * Indicates weather a user can use api keys
+   * Indicates whether a user can use API keys.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -36,7 +36,7 @@ export interface ExtensionCapabilitiesUser {
    */
   "canUseApiKeys"?: boolean;
   /**
-   * Indicates weather a user can use auth tokens
+   * Indicates whether a user can use Auth tokens.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -52,7 +52,7 @@ export interface ExtensionCapabilitiesUser {
    */
   "canUseAuthTokens"?: boolean;
   /**
-   * Indicates weather a user can use console password
+   * Indicates whether a user can use Console passwords.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -68,7 +68,7 @@ export interface ExtensionCapabilitiesUser {
    */
   "canUseConsolePassword"?: boolean;
   /**
-   * Indicates weather a user can use customer secret keys
+   * Indicates whether a user can use customer secret keys.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -84,7 +84,7 @@ export interface ExtensionCapabilitiesUser {
    */
   "canUseCustomerSecretKeys"?: boolean;
   /**
-   * Indicates weather a user can use oauth2 client credentials
+   * Indicates whether a user can use OAuth2 client credentials.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -100,7 +100,7 @@ export interface ExtensionCapabilitiesUser {
    */
   "canUseOAuth2ClientCredentials"?: boolean;
   /**
-   * Indicates weather a user can use smtp credentials
+   * Indicates whether a user can use SMTP credentials.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -116,7 +116,7 @@ export interface ExtensionCapabilitiesUser {
    */
   "canUseSmtpCredentials"?: boolean;
   /**
-   * Indicates weather a user can use db credentials
+   * Indicates whether a user can use database credentials.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -131,6 +131,22 @@ export interface ExtensionCapabilitiesUser {
    *  - uniqueness: none
    */
   "canUseDbCredentials"?: boolean;
+  /**
+   * Specifies whether user can access the Console.
+   * <p>
+   **Added In:** 2206280902
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsSearchable: false
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: boolean
+   *  - uniqueness: none
+   */
+  "canUseConsole"?: boolean;
 }
 
 export namespace ExtensionCapabilitiesUser {

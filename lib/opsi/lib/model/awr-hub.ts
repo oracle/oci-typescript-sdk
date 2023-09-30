@@ -79,6 +79,10 @@ export interface AwrHub {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: string;
+  /**
+   * Dst Time Zone Version of the AWR Hub
+   */
+  "hubDstTimezoneVersion"?: string;
 }
 
 export namespace AwrHub {

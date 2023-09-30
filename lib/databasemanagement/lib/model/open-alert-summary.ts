@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An alert from storage server.
+ * An alert from the Exadata storage server.
  */
 export interface OpenAlertSummary {
   /**
@@ -26,7 +26,7 @@ export interface OpenAlertSummary {
    */
   "severity"?: model.AlertSeverityEnum;
   /**
-   * The type of the alert.
+   * The type of alert.
    */
   "type"?: model.AlertTypeEnum;
   /**

@@ -15,41 +15,45 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * link between 2 nodes
+ * Details of the link between two nodes.
  */
 export interface Link {
   /**
-   * id of Link
+   * ID of the link.
    */
   "id": string;
   /**
-   * source node id
+   * ID of the source node.
    */
   "source"?: string;
   /**
-   * destination node id
+   * ID of the destination node.
    */
   "destination"?: string;
   /**
-   * number of times this link is repeated Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Number of times the link is repeated. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "repeatCount"?: number;
   /**
-   * average packet loss Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Average packet loss. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "forwardingLoss"?: number;
   /**
-   * difference of packet response time between source and destination in milliseconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Difference of the packet response time between source and destination nodes, in milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "delayInMilliseconds"?: number;
   /**
-   * minimum delay in milliseconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Minimum delay in milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "minDelayInMilliseconds"?: number;
   /**
-   * maximum delay in milliseconds Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Maximum delay in milliseconds. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxDelayInMilliseconds"?: number;
+  /**
+   * List of all path IDs of which this link is part of.
+   */
+  "paths"?: Array<string>;
 }
 
 export namespace Link {

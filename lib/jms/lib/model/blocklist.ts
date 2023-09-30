@@ -28,7 +28,7 @@ export interface Blocklist {
    */
   "operation": model.OperationType;
   /**
-   * The reason for why the operation is blocklisted
+   * The reason why the operation is blocklisted.
    */
   "reason"?: string;
 }

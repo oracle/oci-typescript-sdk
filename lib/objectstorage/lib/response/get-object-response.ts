@@ -94,7 +94,7 @@ export interface GetObjectResponse {
    */
   "timeOfArchival": Date;
   /**
-   * VersionId of the object requested
+   * VersionId of the object
    */
   "versionId": string;
   /**

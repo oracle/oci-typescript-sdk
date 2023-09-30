@@ -46,6 +46,25 @@ Example: `14.0`
    *
    */
   "lightLevelIndicator"?: CrossConnectStatus.LightLevelIndicator;
+  /**
+    * Encryption status of this cross connect.
+* <p>
+Possible values:
+* * **UP:** Traffic is encrypted over this cross-connect
+* * **DOWN:** Traffic is not encrypted over this cross-connect
+* * **CIPHER_MISMATCH:** The MACsec encryption cipher doesn't match the cipher on the CPE
+* * **CKN_MISMATCH:** The MACsec Connectivity association Key Name (CKN) doesn't match the CKN on the CPE
+* * **CAK_MISMATCH:** The MACsec Connectivity Association Key (CAK) doesn't match the CAK on the CPE
+* 
+    */
+  "encryptionStatus"?: CrossConnectStatus.EncryptionStatus;
+  /**
+    * The light levels of the cross-connect (in dBm).
+* <p>
+Example: `[14.0, -14.0, 2.1, -10.1]`
+* 
+    */
+  "lightLevelsInDBm"?: Array<number>;
 }
 
 export namespace CrossConnectStatus {
@@ -65,6 +84,19 @@ export namespace CrossConnectStatus {
     HighWarn = "HIGH_WARN",
     Bad = "BAD",
     Good = "GOOD",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum EncryptionStatus {
+    Up = "UP",
+    Down = "DOWN",
+    CipherMismatch = "CIPHER_MISMATCH",
+    CknMismatch = "CKN_MISMATCH",
+    CakMismatch = "CAK_MISMATCH",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -45,7 +45,7 @@ export interface RemoveIpv6VcnCidrRequest extends common.BaseRequest {
    */
   "ifMatch"?: string;
   /**
-   * Details object for removing a VCN ipv6 CIDR.
+   * Details object for removing a VCN IPv6 prefix.
    */
   "removeVcnIpv6CidrDetails"?: model.RemoveVcnIpv6CidrDetails;
 }

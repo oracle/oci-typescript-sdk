@@ -37,6 +37,10 @@ export interface ClassMetrics {
    * Measures the model's ability to predict actual positive classes. It is the ratio between the predicted true positives and what was actually tagged. The recall metric reveals how many of the predicted classes are correct. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "recall": number;
+  /**
+   * number of samples in the test set Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "support"?: number;
 }
 
 export namespace ClassMetrics {

@@ -91,6 +91,11 @@ export namespace PlatformConfig {
             <model.IntelVmPlatformConfig>(<object>jsonObj),
             true
           );
+        case "GENERIC_BM":
+          return model.GenericBmPlatformConfig.getJsonObj(
+            <model.GenericBmPlatformConfig>(<object>jsonObj),
+            true
+          );
         case "AMD_MILAN_BM_GPU":
           return model.AmdMilanBmGpuPlatformConfig.getJsonObj(
             <model.AmdMilanBmGpuPlatformConfig>(<object>jsonObj),
@@ -140,6 +145,11 @@ export namespace PlatformConfig {
         case "INTEL_VM":
           return model.IntelVmPlatformConfig.getDeserializedJsonObj(
             <model.IntelVmPlatformConfig>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_BM":
+          return model.GenericBmPlatformConfig.getDeserializedJsonObj(
+            <model.GenericBmPlatformConfig>(<object>jsonObj),
             true
           );
         case "AMD_MILAN_BM_GPU":

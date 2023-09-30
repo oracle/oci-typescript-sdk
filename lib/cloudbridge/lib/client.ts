@@ -39,6 +39,7 @@ export class CommonClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Common";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -58,6 +59,9 @@ export class CommonClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -70,7 +74,12 @@ export class CommonClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -592,6 +601,7 @@ export class DiscoveryClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Discovery";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -611,6 +621,9 @@ export class DiscoveryClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -623,7 +636,12 @@ export class DiscoveryClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -1836,6 +1854,7 @@ export class InventoryClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Inventory";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -1855,6 +1874,9 @@ export class InventoryClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1867,7 +1889,12 @@ export class InventoryClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -3256,6 +3283,7 @@ export class OcbAgentSvcClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "OcbAgentSvc";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -3275,6 +3303,9 @@ export class OcbAgentSvcClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -3287,7 +3318,12 @@ export class OcbAgentSvcClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&

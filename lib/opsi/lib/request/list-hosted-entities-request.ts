@@ -54,9 +54,9 @@ export interface ListHostedEntitiesRequest extends common.BaseRequest {
   "timeIntervalEnd"?: Date;
   /**
    * Filter by one or more platform types.
-   * Supported platformType(s) for MACS-managed external host insight: [LINUX].
+   * Supported platformType(s) for MACS-managed external host insight: [LINUX, SOLARIS, WINDOWS].
    * Supported platformType(s) for MACS-managed cloud host insight: [LINUX].
-   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX].
+   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX, WINDOWS, AIX].
    *
    */
   "platformType"?: Array<ListHostedEntitiesRequest.PlatformType>;
@@ -115,7 +115,9 @@ export namespace ListHostedEntitiesRequest {
     Linux = "LINUX",
     Solaris = "SOLARIS",
     Sunos = "SUNOS",
-    Zlinux = "ZLINUX"
+    Zlinux = "ZLINUX",
+    Windows = "WINDOWS",
+    Aix = "AIX"
   }
 
   export enum SortBy {

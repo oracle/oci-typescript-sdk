@@ -42,6 +42,7 @@ export class ChannelsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Channels";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -61,6 +62,9 @@ export class ChannelsClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -73,7 +77,12 @@ export class ChannelsClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -814,6 +823,7 @@ export class DbBackupsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "DbBackups";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -833,6 +843,9 @@ export class DbBackupsClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -845,7 +858,12 @@ export class DbBackupsClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -1514,6 +1532,7 @@ export class DbSystemClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "DbSystem";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -1533,6 +1552,9 @@ export class DbSystemClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1545,7 +1567,12 @@ export class DbSystemClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -1659,96 +1686,6 @@ export class DbSystemClient {
       return this._waiters;
     }
     throw Error("Waiters do not exist. Please create waiters.");
-  }
-
-  /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Adds an Analytics Cluster to the DB System.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param AddAnalyticsClusterRequest
-   * @return AddAnalyticsClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/AddAnalyticsCluster.ts.html |here} to see how to use AddAnalyticsCluster API.
-   */
-  public async addAnalyticsCluster(
-    addAnalyticsClusterRequest: requests.AddAnalyticsClusterRequest
-  ): Promise<responses.AddAnalyticsClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation DbSystemClient#addAnalyticsCluster.");
-    const operationName = "addAnalyticsCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/AddAnalyticsCluster";
-    const pathParams = {
-      "{dbSystemId}": addAnalyticsClusterRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": addAnalyticsClusterRequest.ifMatch,
-      "opc-request-id": addAnalyticsClusterRequest.opcRequestId,
-      "opc-retry-token": addAnalyticsClusterRequest.opcRetryToken
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      addAnalyticsClusterRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/add",
-      method: "POST",
-      bodyContent: common.ObjectSerializer.serialize(
-        addAnalyticsClusterRequest.addAnalyticsClusterDetails,
-        "AddAnalyticsClusterDetails",
-        model.AddAnalyticsClusterDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.AddAnalyticsClusterResponse>{},
-        body: await response.json(),
-        bodyKey: "analyticsCluster",
-        bodyModel: model.AnalyticsCluster,
-        type: "model.AnalyticsCluster",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
   }
 
   /**
@@ -1931,82 +1868,6 @@ export class DbSystemClient {
   }
 
   /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Deletes the Analytics Cluster including terminating, detaching, removing, finalizing and
-   * otherwise deleting all related resources.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param DeleteAnalyticsClusterRequest
-   * @return DeleteAnalyticsClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/DeleteAnalyticsCluster.ts.html |here} to see how to use DeleteAnalyticsCluster API.
-   */
-  public async deleteAnalyticsCluster(
-    deleteAnalyticsClusterRequest: requests.DeleteAnalyticsClusterRequest
-  ): Promise<responses.DeleteAnalyticsClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation DbSystemClient#deleteAnalyticsCluster.");
-    const operationName = "deleteAnalyticsCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/DeleteAnalyticsCluster";
-    const pathParams = {
-      "{dbSystemId}": deleteAnalyticsClusterRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": deleteAnalyticsClusterRequest.ifMatch,
-      "opc-request-id": deleteAnalyticsClusterRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      deleteAnalyticsClusterRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsCluster",
-      method: "DELETE",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.DeleteAnalyticsClusterResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Delete a DB System, including terminating, detaching,
    * removing, finalizing and otherwise deleting all related resources.
    *
@@ -2157,86 +2018,6 @@ export class DbSystemClient {
   }
 
   /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Sends a request to estimate the memory footprints of user tables when loaded to Analytics Cluster memory.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param GenerateAnalyticsClusterMemoryEstimateRequest
-   * @return GenerateAnalyticsClusterMemoryEstimateResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GenerateAnalyticsClusterMemoryEstimate.ts.html |here} to see how to use GenerateAnalyticsClusterMemoryEstimate API.
-   */
-  public async generateAnalyticsClusterMemoryEstimate(
-    generateAnalyticsClusterMemoryEstimateRequest: requests.GenerateAnalyticsClusterMemoryEstimateRequest
-  ): Promise<responses.GenerateAnalyticsClusterMemoryEstimateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DbSystemClient#generateAnalyticsClusterMemoryEstimate.");
-    const operationName = "generateAnalyticsClusterMemoryEstimate";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsClusterMemoryEstimate/GenerateAnalyticsClusterMemoryEstimate";
-    const pathParams = {
-      "{dbSystemId}": generateAnalyticsClusterMemoryEstimateRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": generateAnalyticsClusterMemoryEstimateRequest.opcRequestId,
-      "opc-retry-token": generateAnalyticsClusterMemoryEstimateRequest.opcRetryToken
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      generateAnalyticsClusterMemoryEstimateRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsClusterMemoryEstimate/actions/generate",
-      method: "POST",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GenerateAnalyticsClusterMemoryEstimateResponse>{},
-        body: await response.json(),
-        bodyKey: "analyticsClusterMemoryEstimate",
-        bodyModel: model.AnalyticsClusterMemoryEstimate,
-        type: "model.AnalyticsClusterMemoryEstimate",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
    * Sends a request to estimate the memory footprints of user tables when loaded to HeatWave cluster memory.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2304,160 +2085,6 @@ export class DbSystemClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Gets information about the Analytics Cluster.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param GetAnalyticsClusterRequest
-   * @return GetAnalyticsClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetAnalyticsCluster.ts.html |here} to see how to use GetAnalyticsCluster API.
-   */
-  public async getAnalyticsCluster(
-    getAnalyticsClusterRequest: requests.GetAnalyticsClusterRequest
-  ): Promise<responses.GetAnalyticsClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation DbSystemClient#getAnalyticsCluster.");
-    const operationName = "getAnalyticsCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/GetAnalyticsCluster";
-    const pathParams = {
-      "{dbSystemId}": getAnalyticsClusterRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getAnalyticsClusterRequest.opcRequestId,
-      "if-none-match": getAnalyticsClusterRequest.ifNoneMatch
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      getAnalyticsClusterRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsCluster",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetAnalyticsClusterResponse>{},
-        body: await response.json(),
-        bodyKey: "analyticsCluster",
-        bodyModel: model.AnalyticsCluster,
-        type: "model.AnalyticsCluster",
-        responseHeaders: [
-          {
-            value: response.headers.get("etag"),
-            key: "etag",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Gets the most recent Analytics Cluster memory estimate that can be used to determine a suitable
-   * Analytics Cluster size.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param GetAnalyticsClusterMemoryEstimateRequest
-   * @return GetAnalyticsClusterMemoryEstimateResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/GetAnalyticsClusterMemoryEstimate.ts.html |here} to see how to use GetAnalyticsClusterMemoryEstimate API.
-   */
-  public async getAnalyticsClusterMemoryEstimate(
-    getAnalyticsClusterMemoryEstimateRequest: requests.GetAnalyticsClusterMemoryEstimateRequest
-  ): Promise<responses.GetAnalyticsClusterMemoryEstimateResponse> {
-    if (this.logger)
-      this.logger.debug("Calling operation DbSystemClient#getAnalyticsClusterMemoryEstimate.");
-    const operationName = "getAnalyticsClusterMemoryEstimate";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsClusterMemoryEstimate/GetAnalyticsClusterMemoryEstimate";
-    const pathParams = {
-      "{dbSystemId}": getAnalyticsClusterMemoryEstimateRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "opc-request-id": getAnalyticsClusterMemoryEstimateRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      getAnalyticsClusterMemoryEstimateRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsClusterMemoryEstimate",
-      method: "GET",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.GetAnalyticsClusterMemoryEstimateResponse>{},
-        body: await response.json(),
-        bodyKey: "analyticsClusterMemoryEstimate",
-        bodyModel: model.AnalyticsClusterMemoryEstimate,
-        type: "model.AnalyticsClusterMemoryEstimate",
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -2717,7 +2344,6 @@ export class DbSystemClient {
     const pathParams = {};
 
     const queryParams = {
-      "isAnalyticsClusterAttached": listDbSystemsRequest.isAnalyticsClusterAttached,
       "isHeatWaveClusterAttached": listDbSystemsRequest.isHeatWaveClusterAttached,
       "compartmentId": listDbSystemsRequest.compartmentId,
       "dbSystemId": listDbSystemsRequest.dbSystemId,
@@ -2836,82 +2462,6 @@ export class DbSystemClient {
     request: requests.ListDbSystemsRequest
   ): AsyncIterableIterator<responses.ListDbSystemsResponse> {
     return paginateResponses(request, req => this.listDbSystems(req));
-  }
-
-  /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Restarts the Analytics Cluster.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param RestartAnalyticsClusterRequest
-   * @return RestartAnalyticsClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/RestartAnalyticsCluster.ts.html |here} to see how to use RestartAnalyticsCluster API.
-   */
-  public async restartAnalyticsCluster(
-    restartAnalyticsClusterRequest: requests.RestartAnalyticsClusterRequest
-  ): Promise<responses.RestartAnalyticsClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation DbSystemClient#restartAnalyticsCluster.");
-    const operationName = "restartAnalyticsCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/RestartAnalyticsCluster";
-    const pathParams = {
-      "{dbSystemId}": restartAnalyticsClusterRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": restartAnalyticsClusterRequest.ifMatch,
-      "opc-request-id": restartAnalyticsClusterRequest.opcRequestId,
-      "opc-retry-token": restartAnalyticsClusterRequest.opcRetryToken
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      restartAnalyticsClusterRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/restart",
-      method: "POST",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.RestartAnalyticsClusterResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
   }
 
   /**
@@ -3047,82 +2597,6 @@ export class DbSystemClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.RestartHeatWaveClusterResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Starts the Analytics Cluster.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param StartAnalyticsClusterRequest
-   * @return StartAnalyticsClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StartAnalyticsCluster.ts.html |here} to see how to use StartAnalyticsCluster API.
-   */
-  public async startAnalyticsCluster(
-    startAnalyticsClusterRequest: requests.StartAnalyticsClusterRequest
-  ): Promise<responses.StartAnalyticsClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation DbSystemClient#startAnalyticsCluster.");
-    const operationName = "startAnalyticsCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/StartAnalyticsCluster";
-    const pathParams = {
-      "{dbSystemId}": startAnalyticsClusterRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": startAnalyticsClusterRequest.ifMatch,
-      "opc-request-id": startAnalyticsClusterRequest.opcRequestId,
-      "opc-retry-token": startAnalyticsClusterRequest.opcRetryToken
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      startAnalyticsClusterRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/start",
-      method: "POST",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.StartAnalyticsClusterResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3292,82 +2766,6 @@ export class DbSystemClient {
   }
 
   /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Stops the Analytics Cluster.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param StopAnalyticsClusterRequest
-   * @return StopAnalyticsClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/StopAnalyticsCluster.ts.html |here} to see how to use StopAnalyticsCluster API.
-   */
-  public async stopAnalyticsCluster(
-    stopAnalyticsClusterRequest: requests.StopAnalyticsClusterRequest
-  ): Promise<responses.StopAnalyticsClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation DbSystemClient#stopAnalyticsCluster.");
-    const operationName = "stopAnalyticsCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/StopAnalyticsCluster";
-    const pathParams = {
-      "{dbSystemId}": stopAnalyticsClusterRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": stopAnalyticsClusterRequest.ifMatch,
-      "opc-request-id": stopAnalyticsClusterRequest.opcRequestId,
-      "opc-retry-token": stopAnalyticsClusterRequest.opcRetryToken
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      stopAnalyticsClusterRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsCluster/actions/stop",
-      method: "POST",
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.StopAnalyticsClusterResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
      * Stops the specified DB System.
 * <p>
 A stopped DB System is not billed.
@@ -3503,86 +2901,6 @@ A stopped DB System is not billed.
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.StopHeatWaveClusterResponse>{},
-        responseHeaders: [
-          {
-            value: response.headers.get("opc-request-id"),
-            key: "opcRequestId",
-            dataType: "string"
-          },
-          {
-            value: response.headers.get("opc-work-request-id"),
-            key: "opcWorkRequestId",
-            dataType: "string"
-          }
-        ]
-      });
-
-      return sdkResponse;
-    } catch (err) {
-      throw err;
-    }
-  }
-
-  /**
-   * DEPRECATED -- please use HeatWave API instead.
-   * Updates the Analytics Cluster.
-   *
-   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param UpdateAnalyticsClusterRequest
-   * @return UpdateAnalyticsClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/mysql/UpdateAnalyticsCluster.ts.html |here} to see how to use UpdateAnalyticsCluster API.
-   */
-  public async updateAnalyticsCluster(
-    updateAnalyticsClusterRequest: requests.UpdateAnalyticsClusterRequest
-  ): Promise<responses.UpdateAnalyticsClusterResponse> {
-    if (this.logger) this.logger.debug("Calling operation DbSystemClient#updateAnalyticsCluster.");
-    const operationName = "updateAnalyticsCluster";
-    const apiReferenceLink =
-      "https://docs.oracle.com/iaas/api/#/en/mysql/20190415/AnalyticsCluster/UpdateAnalyticsCluster";
-    const pathParams = {
-      "{dbSystemId}": updateAnalyticsClusterRequest.dbSystemId
-    };
-
-    const queryParams = {};
-
-    let headerParams = {
-      "Content-Type": common.Constants.APPLICATION_JSON,
-      "if-match": updateAnalyticsClusterRequest.ifMatch,
-      "opc-request-id": updateAnalyticsClusterRequest.opcRequestId
-    };
-
-    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
-    const retrier = GenericRetrier.createPreferredRetrier(
-      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
-      updateAnalyticsClusterRequest.retryConfiguration,
-      specRetryConfiguration
-    );
-    if (this.logger) retrier.logger = this.logger;
-    const request = await composeRequest({
-      baseEndpoint: this._endpoint,
-      defaultHeaders: this._defaultHeaders,
-      path: "/dbSystems/{dbSystemId}/analyticsCluster",
-      method: "PUT",
-      bodyContent: common.ObjectSerializer.serialize(
-        updateAnalyticsClusterRequest.updateAnalyticsClusterDetails,
-        "UpdateAnalyticsClusterDetails",
-        model.UpdateAnalyticsClusterDetails.getJsonObj
-      ),
-      pathParams: pathParams,
-      headerParams: headerParams,
-      queryParams: queryParams
-    });
-    try {
-      const response = await retrier.makeServiceCall(
-        this._httpClient,
-        request,
-        this.targetService,
-        operationName,
-        apiReferenceLink
-      );
-      const sdkResponse = composeResponse({
-        responseObject: <responses.UpdateAnalyticsClusterResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -3782,6 +3100,7 @@ export class MysqlaasClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Mysqlaas";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -3801,6 +3120,9 @@ export class MysqlaasClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -3813,7 +3135,12 @@ export class MysqlaasClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -4559,6 +3886,7 @@ export class ReplicasClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Replicas";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -4578,6 +3906,9 @@ export class ReplicasClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -4590,7 +3921,12 @@ export class ReplicasClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -5173,6 +4509,7 @@ export class WorkRequestsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "WorkRequests";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -5192,6 +4529,9 @@ export class WorkRequestsClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -5204,7 +4544,12 @@ export class WorkRequestsClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&

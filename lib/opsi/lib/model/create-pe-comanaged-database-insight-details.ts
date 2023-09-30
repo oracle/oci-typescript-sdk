@@ -43,6 +43,7 @@ export interface CreatePeComanagedDatabaseInsightDetails
    */
   "serviceName": string;
   "credentialDetails": model.CredentialsBySource | model.CredentialByVault;
+  "connectionDetails"?: model.PeComanagedDatabaseConnectionDetails;
   /**
    * Database Deployment Type
    */
@@ -77,6 +78,9 @@ export namespace CreatePeComanagedDatabaseInsightDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.CredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "connectionDetails": obj.connectionDetails
+          ? model.PeComanagedDatabaseConnectionDetails.getJsonObj(obj.connectionDetails)
           : undefined
       }
     };
@@ -97,6 +101,9 @@ export namespace CreatePeComanagedDatabaseInsightDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.CredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "connectionDetails": obj.connectionDetails
+          ? model.PeComanagedDatabaseConnectionDetails.getDeserializedJsonObj(obj.connectionDetails)
           : undefined
       }
     };

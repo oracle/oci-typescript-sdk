@@ -29,6 +29,8 @@ export interface SqlJob extends model.Job {
    * The SQL text to be executed in the job. This is a mandatory field for the EXECUTE_SQL operationType.
    */
   "sqlText"?: string;
+  "inBinds"?: model.JobInBindsDetails;
+  "outBinds"?: model.JobOutBindsDetails;
   /**
    * The SQL operation type.
    */
@@ -80,7 +82,13 @@ export namespace SqlJob {
   }
 
   export function getJsonObj(obj: SqlJob, isParentJsonObj?: boolean): object {
-    const jsonObj = { ...(isParentJsonObj ? obj : (model.Job.getJsonObj(obj) as SqlJob)), ...{} };
+    const jsonObj = {
+      ...(isParentJsonObj ? obj : (model.Job.getJsonObj(obj) as SqlJob)),
+      ...{
+        "inBinds": obj.inBinds ? model.JobInBindsDetails.getJsonObj(obj.inBinds) : undefined,
+        "outBinds": obj.outBinds ? model.JobOutBindsDetails.getJsonObj(obj.outBinds) : undefined
+      }
+    };
 
     return jsonObj;
   }
@@ -88,7 +96,14 @@ export namespace SqlJob {
   export function getDeserializedJsonObj(obj: SqlJob, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.Job.getDeserializedJsonObj(obj) as SqlJob)),
-      ...{}
+      ...{
+        "inBinds": obj.inBinds
+          ? model.JobInBindsDetails.getDeserializedJsonObj(obj.inBinds)
+          : undefined,
+        "outBinds": obj.outBinds
+          ? model.JobOutBindsDetails.getDeserializedJsonObj(obj.outBinds)
+          : undefined
+      }
     };
 
     return jsonObj;

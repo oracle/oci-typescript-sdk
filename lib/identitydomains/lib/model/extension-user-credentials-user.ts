@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ExtensionUserCredentialsUser {
   /**
-   * A list of db credentials corresponding to user.
+   * A list of database credentials corresponding to user.
    * <p>
    **Added In:** 2102181953
    * <p>
@@ -52,7 +52,7 @@ export interface ExtensionUserCredentialsUser {
    */
   "customerSecretKeys"?: Array<model.UserExtCustomerSecretKeys>;
   /**
-   * A list of auth tokens corresponding to user.
+   * A list of Auth tokens corresponding to user.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -68,7 +68,7 @@ export interface ExtensionUserCredentialsUser {
    */
   "authTokens"?: Array<model.UserExtAuthTokens>;
   /**
-   * A list of smtp credentials corresponding to user.
+   * A list of SMTP credentials corresponding to user.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -84,7 +84,7 @@ export interface ExtensionUserCredentialsUser {
    */
   "smtpCredentials"?: Array<model.UserExtSmtpCredentials>;
   /**
-   * A list of api keys corresponding to user.
+   * A list of API keys corresponding to user.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -100,7 +100,7 @@ export interface ExtensionUserCredentialsUser {
    */
   "apiKeys"?: Array<model.UserExtApiKeys>;
   /**
-   * A list of oauth2 client credentials corresponding to user.
+   * A list of OAuth2 client credentials corresponding to a user.
    * <p>
    **Added In:** 2012271618
    * <p>

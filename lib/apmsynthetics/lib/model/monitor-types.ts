@@ -22,6 +22,7 @@ export enum MonitorTypes {
   Browser = "BROWSER",
   ScriptedRest = "SCRIPTED_REST",
   Rest = "REST",
+  Network = "NETWORK",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -259,9 +259,55 @@ export interface ExtensionX509IdentityProvider {
    *  - uniqueness: none Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "crlReloadDuration"?: number;
+  /**
+   * Set to true to enable EKU Validation
+   * <p>
+   **Added In:** 2304270343
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsSearchable: false
+   *  - multiValued: false
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: boolean
+   *  - uniqueness: none
+   */
+  "ekuValidationEnabled"?: boolean;
+  /**
+   * List of EKU which needs to be validated
+   * <p>
+   **Added In:** 2304270343
+   * <p>
+   **SCIM++ Properties:**
+   *  - caseExact: false
+   *  - idcsSearchable: false
+   *  - multiValued: true
+   *  - mutability: readWrite
+   *  - required: false
+   *  - returned: default
+   *  - type: string
+   *  - uniqueness: none
+   */
+  "ekuValues"?: Array<ExtensionX509IdentityProvider.EkuValues>;
 }
 
 export namespace ExtensionX509IdentityProvider {
+  export enum EkuValues {
+    ServerAuth = "SERVER_AUTH",
+    ClientAuth = "CLIENT_AUTH",
+    CodeSigning = "CODE_SIGNING",
+    EmailProtection = "EMAIL_PROTECTION",
+    TimeStamping = "TIME_STAMPING",
+    OcspSigning = "OCSP_SIGNING",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ExtensionX509IdentityProvider): object {
     const jsonObj = { ...obj, ...{} };
 

@@ -39,6 +39,7 @@ export class DatabaseClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Database";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -58,6 +59,9 @@ export class DatabaseClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -70,7 +74,12 @@ export class DatabaseClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -1760,7 +1769,7 @@ export class DatabaseClient {
   }
 
   /**
-   * This operation updates the cross-region disaster recovery (DR) details of the standby Shared Autonomous Database, and must be run on the standby side.
+   * This operation updates the cross-region disaster recovery (DR) details of the standby Autonomous Database Serverless database, and must be run on the standby side.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeDisasterRecoveryConfigurationRequest
    * @return ChangeDisasterRecoveryConfigurationResponse
@@ -2270,6 +2279,85 @@ export class DatabaseClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeKeyStoreCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Changes encryption key management type
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeKeyStoreTypeRequest
+   * @return ChangeKeyStoreTypeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ChangeKeyStoreType.ts.html |here} to see how to use ChangeKeyStoreType API.
+   */
+  public async changeKeyStoreType(
+    changeKeyStoreTypeRequest: requests.ChangeKeyStoreTypeRequest
+  ): Promise<responses.ChangeKeyStoreTypeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#changeKeyStoreType.");
+    const operationName = "changeKeyStoreType";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/Database/ChangeKeyStoreType";
+    const pathParams = {
+      "{databaseId}": changeKeyStoreTypeRequest.databaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeKeyStoreTypeRequest.ifMatch,
+      "opc-retry-token": changeKeyStoreTypeRequest.opcRetryToken,
+      "opc-request-id": changeKeyStoreTypeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeKeyStoreTypeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/databases/{databaseId}/actions/changeKeyStoreType",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeKeyStoreTypeRequest.changeKeyStoreTypeDetails,
+        "ChangeKeyStoreTypeDetails",
+        model.ChangeKeyStoreTypeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeKeyStoreTypeResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3732,6 +3820,11 @@ export class DatabaseClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -5868,6 +5961,11 @@ All Oracle Cloud Infrastructure resources, including Data Guard associations, ge
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -10012,6 +10110,87 @@ A failover might result in data loss depending on the protection mode in effect 
   }
 
   /**
+   * Get resource usage details for the specified Autonomous Container Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetAutonomousContainerDatabaseResourceUsageRequest
+   * @return GetAutonomousContainerDatabaseResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetAutonomousContainerDatabaseResourceUsage.ts.html |here} to see how to use GetAutonomousContainerDatabaseResourceUsage API.
+   */
+  public async getAutonomousContainerDatabaseResourceUsage(
+    getAutonomousContainerDatabaseResourceUsageRequest: requests.GetAutonomousContainerDatabaseResourceUsageRequest
+  ): Promise<responses.GetAutonomousContainerDatabaseResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getAutonomousContainerDatabaseResourceUsage."
+      );
+    const operationName = "getAutonomousContainerDatabaseResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousContainerDatabase/GetAutonomousContainerDatabaseResourceUsage";
+    const pathParams = {
+      "{autonomousContainerDatabaseId}":
+        getAutonomousContainerDatabaseResourceUsageRequest.autonomousContainerDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getAutonomousContainerDatabaseResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getAutonomousContainerDatabaseResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousContainerDatabases/{autonomousContainerDatabaseId}/resourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetAutonomousContainerDatabaseResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "autonomousContainerDatabaseResourceUsage",
+        bodyModel: model.AutonomousContainerDatabaseResourceUsage,
+        type: "model.AutonomousContainerDatabaseResourceUsage",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of the specified Autonomous Database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -10911,6 +11090,87 @@ A failover might result in data loss depending on the protection mode in effect 
         bodyKey: "cloudAutonomousVmCluster",
         bodyModel: model.CloudAutonomousVmCluster,
         type: "model.CloudAutonomousVmCluster",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Get the resource usage details for the specified Cloud Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCloudAutonomousVmClusterResourceUsageRequest
+   * @return GetCloudAutonomousVmClusterResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/GetCloudAutonomousVmClusterResourceUsage.ts.html |here} to see how to use GetCloudAutonomousVmClusterResourceUsage API.
+   */
+  public async getCloudAutonomousVmClusterResourceUsage(
+    getCloudAutonomousVmClusterResourceUsageRequest: requests.GetCloudAutonomousVmClusterResourceUsageRequest
+  ): Promise<responses.GetCloudAutonomousVmClusterResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#getCloudAutonomousVmClusterResourceUsage."
+      );
+    const operationName = "getCloudAutonomousVmClusterResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/GetCloudAutonomousVmClusterResourceUsage";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        getCloudAutonomousVmClusterResourceUsageRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCloudAutonomousVmClusterResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCloudAutonomousVmClusterResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/resourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCloudAutonomousVmClusterResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "cloudAutonomousVmClusterResourceUsage",
+        bodyModel: model.CloudAutonomousVmClusterResourceUsage,
+        type: "model.CloudAutonomousVmClusterResourceUsage",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -15064,6 +15324,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
     const queryParams = {
       "isShared": listAutonomousDatabaseCharacterSetsRequest.isShared,
+      "isDedicated": listAutonomousDatabaseCharacterSetsRequest.isDedicated,
       "characterSetType": listAutonomousDatabaseCharacterSetsRequest.characterSetType
     };
 
@@ -15623,7 +15884,7 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
 
   /**
    * Gets a list of supported Autonomous Database versions. Note that preview version software is only available for
-   * databases with [shared Exadata infrastructure](https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html).
+   * Autonomous Database Serverless (https://docs.oracle.com/en/cloud/paas/autonomous-database/index.html) databases.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListAutonomousDbPreviewVersionsRequest
@@ -16697,6 +16958,148 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
     request: requests.ListBackupsRequest
   ): AsyncIterableIterator<responses.ListBackupsResponse> {
     return paginateResponses(request, req => this.listBackups(req));
+  }
+
+  /**
+   * Gets the list of resource usage details for all the Cloud Autonomous Container Database
+   * in the specified Cloud Autonomous Exadata VM cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListCloudAutonomousVmClusterAcdResourceUsageRequest
+   * @return ListCloudAutonomousVmClusterAcdResourceUsageResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ListCloudAutonomousVmClusterAcdResourceUsage.ts.html |here} to see how to use ListCloudAutonomousVmClusterAcdResourceUsage API.
+   */
+  public async listCloudAutonomousVmClusterAcdResourceUsage(
+    listCloudAutonomousVmClusterAcdResourceUsageRequest: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): Promise<responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DatabaseClient#listCloudAutonomousVmClusterAcdResourceUsage."
+      );
+    const operationName = "listCloudAutonomousVmClusterAcdResourceUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/CloudAutonomousVmCluster/ListCloudAutonomousVmClusterAcdResourceUsage";
+    const pathParams = {
+      "{cloudAutonomousVmClusterId}":
+        listCloudAutonomousVmClusterAcdResourceUsageRequest.cloudAutonomousVmClusterId
+    };
+
+    const queryParams = {
+      "compartmentId": listCloudAutonomousVmClusterAcdResourceUsageRequest.compartmentId,
+      "limit": listCloudAutonomousVmClusterAcdResourceUsageRequest.limit,
+      "page": listCloudAutonomousVmClusterAcdResourceUsageRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCloudAutonomousVmClusterAcdResourceUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCloudAutonomousVmClusterAcdResourceUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/cloudAutonomousVmClusters/{cloudAutonomousVmClusterId}/acdResourceUsage",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.AutonomousContainerDatabaseResourceUsage,
+        type: "Array<model.AutonomousContainerDatabaseResourceUsage>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCloudAutonomousVmClusterAcdResourceUsageRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseResourceUsage objects
+   * contained in responses from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudAutonomousVmClusterAcdResourceUsage(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseResourceUsage> {
+    return paginateRecords(request, req => this.listCloudAutonomousVmClusterAcdResourceUsage(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listCloudAutonomousVmClusterAcdResourceUsageResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllCloudAutonomousVmClusterAcdResourceUsageResponses(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse> {
+    return paginateResponses(request, req =>
+      this.listCloudAutonomousVmClusterAcdResourceUsage(req)
+    );
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.AutonomousContainerDatabaseResourceUsage objects
+   * contained in responses from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudAutonomousVmClusterAcdResourceUsageRecordIterator(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<model.AutonomousContainerDatabaseResourceUsage> {
+    return paginateRecords(request, req => this.listCloudAutonomousVmClusterAcdResourceUsage(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listCloudAutonomousVmClusterAcdResourceUsage operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listCloudAutonomousVmClusterAcdResourceUsageResponseIterator(
+    request: requests.ListCloudAutonomousVmClusterAcdResourceUsageRequest
+  ): AsyncIterableIterator<responses.ListCloudAutonomousVmClusterAcdResourceUsageResponse> {
+    return paginateResponses(request, req =>
+      this.listCloudAutonomousVmClusterAcdResourceUsage(req)
+    );
   }
 
   /**
@@ -24268,6 +24671,81 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Create a new version of the existing encryption key.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param RotatePluggableDatabaseEncryptionKeyRequest
+   * @return RotatePluggableDatabaseEncryptionKeyResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/RotatePluggableDatabaseEncryptionKey.ts.html |here} to see how to use RotatePluggableDatabaseEncryptionKey API.
+   */
+  public async rotatePluggableDatabaseEncryptionKey(
+    rotatePluggableDatabaseEncryptionKeyRequest: requests.RotatePluggableDatabaseEncryptionKeyRequest
+  ): Promise<responses.RotatePluggableDatabaseEncryptionKeyResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DatabaseClient#rotatePluggableDatabaseEncryptionKey.");
+    const operationName = "rotatePluggableDatabaseEncryptionKey";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/PluggableDatabase/RotatePluggableDatabaseEncryptionKey";
+    const pathParams = {
+      "{pluggableDatabaseId}": rotatePluggableDatabaseEncryptionKeyRequest.pluggableDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": rotatePluggableDatabaseEncryptionKeyRequest.ifMatch,
+      "opc-request-id": rotatePluggableDatabaseEncryptionKeyRequest.opcRequestId,
+      "opc-retry-token": rotatePluggableDatabaseEncryptionKeyRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      rotatePluggableDatabaseEncryptionKeyRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/pluggableDatabases/{pluggableDatabaseId}/actions/rotateKey",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.RotatePluggableDatabaseEncryptionKeyResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * **Deprecated.** Use the {@link #rotateCloudAutonomousVmClusterSslCerts(RotateCloudAutonomousVmClusterSslCertsRequest) rotateCloudAutonomousVmClusterSslCerts} to rotate SSL certs for an Autonomous Exadata VM cluster instead.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -26563,6 +27041,94 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
   }
 
   /**
+   * Updates the specified database node console connection.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateConsoleConnectionRequest
+   * @return UpdateConsoleConnectionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateConsoleConnection.ts.html |here} to see how to use UpdateConsoleConnection API.
+   */
+  public async updateConsoleConnection(
+    updateConsoleConnectionRequest: requests.UpdateConsoleConnectionRequest
+  ): Promise<responses.UpdateConsoleConnectionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateConsoleConnection.");
+    const operationName = "updateConsoleConnection";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/ConsoleConnection/UpdateConsoleConnection";
+    const pathParams = {
+      "{dbNodeId}": updateConsoleConnectionRequest.dbNodeId,
+      "{consoleConnectionId}": updateConsoleConnectionRequest.consoleConnectionId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateConsoleConnectionRequest.ifMatch,
+      "opc-request-id": updateConsoleConnectionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateConsoleConnectionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}/consoleConnections/{consoleConnectionId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateConsoleConnectionRequest.updateConsoleConnectionDetails,
+        "UpdateConsoleConnectionDetails",
+        model.UpdateConsoleConnectionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateConsoleConnectionResponse>{},
+        body: await response.json(),
+        bodyKey: "consoleConnection",
+        bodyModel: model.ConsoleConnection,
+        type: "model.ConsoleConnection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the Data Guard association the specified database. This API can be used to change the `protectionMode` and `transportType` of the Data Guard association.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -26882,6 +27448,93 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
         bodyKey: "dbHome",
         bodyModel: model.DbHome,
         type: "model.DbHome",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the specified database node.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDbNodeRequest
+   * @return UpdateDbNodeResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/UpdateDbNode.ts.html |here} to see how to use UpdateDbNode API.
+   */
+  public async updateDbNode(
+    updateDbNodeRequest: requests.UpdateDbNodeRequest
+  ): Promise<responses.UpdateDbNodeResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#updateDbNode.");
+    const operationName = "updateDbNode";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/DbNode/UpdateDbNode";
+    const pathParams = {
+      "{dbNodeId}": updateDbNodeRequest.dbNodeId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateDbNodeRequest.ifMatch,
+      "opc-request-id": updateDbNodeRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDbNodeRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dbNodes/{dbNodeId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDbNodeRequest.updateDbNodeDetails,
+        "UpdateDbNodeDetails",
+        model.UpdateDbNodeDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDbNodeResponse>{},
+        body: await response.json(),
+        bodyKey: "dbNode",
+        bodyModel: model.DbNode,
+        type: "model.DbNode",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

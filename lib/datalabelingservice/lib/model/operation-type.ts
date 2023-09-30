@@ -26,6 +26,7 @@ export enum OperationType {
   AddDatasetLabels = "ADD_DATASET_LABELS",
   RemoveDatasetLabels = "REMOVE_DATASET_LABELS",
   RenameDatasetLabels = "RENAME_DATASET_LABELS",
+  ImportDataset = "IMPORT_DATASET",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

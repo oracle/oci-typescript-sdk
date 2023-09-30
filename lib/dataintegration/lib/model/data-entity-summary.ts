@@ -39,6 +39,11 @@ export namespace DataEntitySummary {
             <model.DataEntitySummaryFromFile>(<object>jsonObj),
             true
           );
+        case "OBJECT_ENTITY":
+          return model.DataEntitySummaryFromObject.getJsonObj(
+            <model.DataEntitySummaryFromObject>(<object>jsonObj),
+            true
+          );
         case "TABLE_ENTITY":
           return model.DataEntitySummaryFromTable.getJsonObj(
             <model.DataEntitySummaryFromTable>(<object>jsonObj),
@@ -80,6 +85,11 @@ export namespace DataEntitySummary {
         case "FILE_ENTITY":
           return model.DataEntitySummaryFromFile.getDeserializedJsonObj(
             <model.DataEntitySummaryFromFile>(<object>jsonObj),
+            true
+          );
+        case "OBJECT_ENTITY":
+          return model.DataEntitySummaryFromObject.getDeserializedJsonObj(
+            <model.DataEntitySummaryFromObject>(<object>jsonObj),
             true
           );
         case "TABLE_ENTITY":

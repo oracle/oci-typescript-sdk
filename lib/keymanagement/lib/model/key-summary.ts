@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -16,6 +15,9 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The details of the Key.
+ */
 export interface KeySummary {
   /**
    * The OCID of the compartment that contains the key.
@@ -69,6 +71,9 @@ Example: `2018-04-03T21:10:29.600Z`
    * the HSM. A protection mode of `SOFTWARE` means that the key persists on the server, protected by the vault's RSA wrapping key which persists
    * on the HSM. All cryptographic operations that use a key with a protection mode of `SOFTWARE` are performed on the server. By default,
    * a key's protection mode is set to `HSM`. You can't change a key's protection mode after the key is created or imported.
+   * A protection mode of `EXTERNAL` mean that the key persists on the customer's external key manager which is hosted externally outside of oracle.
+   * Oracle only hold a reference to that key.
+   * All cryptographic operations that use a key with a protection mode of `EXTERNAL` are performed by external key manager.
    *
    */
   "protectionMode"?: KeySummary.ProtectionMode;
@@ -76,6 +81,7 @@ Example: `2018-04-03T21:10:29.600Z`
    * The algorithm used by a key's key versions to encrypt or decrypt data.
    */
   "algorithm"?: KeySummary.Algorithm;
+  "externalKeyReferenceDetails"?: model.ExternalKeyReferenceDetails;
 }
 
 export namespace KeySummary {
@@ -103,6 +109,7 @@ export namespace KeySummary {
   export enum ProtectionMode {
     Hsm = "HSM",
     Software = "SOFTWARE",
+    External = "EXTERNAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -122,12 +129,28 @@ export namespace KeySummary {
   }
 
   export function getJsonObj(obj: KeySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
+          ? model.ExternalKeyReferenceDetails.getJsonObj(obj.externalKeyReferenceDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: KeySummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
+          ? model.ExternalKeyReferenceDetails.getDeserializedJsonObj(
+              obj.externalKeyReferenceDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

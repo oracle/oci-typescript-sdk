@@ -143,9 +143,9 @@ The default iPXE script connects to the instance's local boot
 * following iSCSI IP address: 169.254.0.2, and boot volume IQN:
 * iqn.2015-02.oracle.boot.
 * <p>
-If your instance boot volume type is paravirtualized,
+If your instance boot volume attachment type is paravirtualized,
 * the boot volume is attached to the instance through virtio-scsi and no iPXE script is used.
-* If your instance boot volume type is paravirtualized
+* If your instance boot volume attachment type is paravirtualized
 * and you use custom iPXE to network boot into your instance,
 * the primary boot volume is attached as a data volume through virtio-scsi drive.
 * <p>
@@ -232,7 +232,12 @@ Example: `2016-08-25T21:10:29.600Z`
     | model.IntelIcelakeBmPlatformConfig
     | model.AmdVmPlatformConfig
     | model.IntelVmPlatformConfig
+    | model.GenericBmPlatformConfig
     | model.AmdMilanBmGpuPlatformConfig;
+  /**
+   * The OCID of the Instance Configuration used to source launch details for this instance. Any other fields supplied in the instance launch request override the details stored in the Instance Configuration for this instance launch.
+   */
+  "instanceConfigurationId"?: string;
 }
 
 export namespace Instance {

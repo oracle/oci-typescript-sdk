@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The size and amount of resources available to the Container Instance.
+ * The size and amount of resources available to the container instance.
  *
  */
 export interface CreateContainerInstanceShapeConfigDetails {
   /**
-   * The total number of OCPUs available to the instance.
+   * The total number of OCPUs available to the container instance.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus": number;
   /**
-   * The total amount of memory available to the instance, in gigabytes.
+   * The total amount of memory available to the container instance (GB).
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs"?: number;

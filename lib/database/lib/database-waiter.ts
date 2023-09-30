@@ -637,6 +637,27 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forChangeKeyStoreType
+   *
+   * @param request the request to send
+   * @return response returns ChangeKeyStoreTypeResponse, GetWorkRequestResponse tuple
+   */
+  public async forChangeKeyStoreType(
+    request: serviceRequests.ChangeKeyStoreTypeRequest
+  ): Promise<{
+    response: serviceResponses.ChangeKeyStoreTypeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const changeKeyStoreTypeResponse = await this.client.changeKeyStoreType(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      changeKeyStoreTypeResponse.opcWorkRequestId
+    );
+    return { response: changeKeyStoreTypeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
    * Waits forChangeOneoffPatchCompartment
    *
    * @param request the request to send
@@ -998,6 +1019,30 @@ export class DatabaseWaiter {
       createCloudVmClusterResponse.opcWorkRequestId
     );
     return { response: createCloudVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forCreateConsoleConnection
+   *
+   * @param request the request to send
+   * @return response returns CreateConsoleConnectionResponse, GetWorkRequestResponse tuple
+   */
+  public async forCreateConsoleConnection(
+    request: serviceRequests.CreateConsoleConnectionRequest
+  ): Promise<{
+    response: serviceResponses.CreateConsoleConnectionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const createConsoleConnectionResponse = await this.client.createConsoleConnection(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      createConsoleConnectionResponse.opcWorkRequestId
+    );
+    return {
+      response: createConsoleConnectionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -1546,6 +1591,30 @@ export class DatabaseWaiter {
       deleteCloudVmClusterResponse.opcWorkRequestId
     );
     return { response: deleteCloudVmClusterResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forDeleteConsoleConnection
+   *
+   * @param request the request to send
+   * @return response returns DeleteConsoleConnectionResponse, GetWorkRequestResponse tuple
+   */
+  public async forDeleteConsoleConnection(
+    request: serviceRequests.DeleteConsoleConnectionRequest
+  ): Promise<{
+    response: serviceResponses.DeleteConsoleConnectionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const deleteConsoleConnectionResponse = await this.client.deleteConsoleConnection(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      deleteConsoleConnectionResponse.opcWorkRequestId
+    );
+    return {
+      response: deleteConsoleConnectionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
   }
 
   /**
@@ -3960,6 +4029,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forRotatePluggableDatabaseEncryptionKey
+   *
+   * @param request the request to send
+   * @return response returns RotatePluggableDatabaseEncryptionKeyResponse, GetWorkRequestResponse tuple
+   */
+  public async forRotatePluggableDatabaseEncryptionKey(
+    request: serviceRequests.RotatePluggableDatabaseEncryptionKeyRequest
+  ): Promise<{
+    response: serviceResponses.RotatePluggableDatabaseEncryptionKeyResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const rotatePluggableDatabaseEncryptionKeyResponse = await this.client.rotatePluggableDatabaseEncryptionKey(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      rotatePluggableDatabaseEncryptionKeyResponse.opcWorkRequestId
+    );
+    return {
+      response: rotatePluggableDatabaseEncryptionKeyResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forRotateSslCerts
    *
    * @param request the request to send
@@ -4599,6 +4694,30 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forUpdateConsoleConnection
+   *
+   * @param request the request to send
+   * @return response returns UpdateConsoleConnectionResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateConsoleConnection(
+    request: serviceRequests.UpdateConsoleConnectionRequest
+  ): Promise<{
+    response: serviceResponses.UpdateConsoleConnectionResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateConsoleConnectionResponse = await this.client.updateConsoleConnection(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateConsoleConnectionResponse.opcWorkRequestId
+    );
+    return {
+      response: updateConsoleConnectionResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forUpdateDataGuardAssociation
    *
    * @param request the request to send
@@ -4664,6 +4783,27 @@ export class DatabaseWaiter {
       updateDbHomeResponse.opcWorkRequestId
     );
     return { response: updateDbHomeResponse, workRequestResponse: getWorkRequestResponse };
+  }
+
+  /**
+   * Waits forUpdateDbNode
+   *
+   * @param request the request to send
+   * @return response returns UpdateDbNodeResponse, GetWorkRequestResponse tuple
+   */
+  public async forUpdateDbNode(
+    request: serviceRequests.UpdateDbNodeRequest
+  ): Promise<{
+    response: serviceResponses.UpdateDbNodeResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const updateDbNodeResponse = await this.client.updateDbNode(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      updateDbNodeResponse.opcWorkRequestId
+    );
+    return { response: updateDbNodeResponse, workRequestResponse: getWorkRequestResponse };
   }
 
   /**

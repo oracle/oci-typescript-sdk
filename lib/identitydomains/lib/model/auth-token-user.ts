@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User linked to auth token
+ * The user linked to the Auth token.
  * <p>
  **SCIM++ Properties:**
  *  - caseExact: false
@@ -30,7 +30,7 @@ import common = require("oci-common");
  */
 export interface AuthTokenUser {
   /**
-   * User's id
+   * The user's ID.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -44,7 +44,7 @@ export interface AuthTokenUser {
    */
   "value"?: string;
   /**
-   * User's ocid
+   * The user's OCID.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -72,7 +72,7 @@ export interface AuthTokenUser {
    */
   "ref"?: string;
   /**
-   * User display name
+   * The user's display name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -86,7 +86,7 @@ export interface AuthTokenUser {
    */
   "display"?: string;
   /**
-   * User name
+   * The username.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

@@ -40,6 +40,7 @@ export class EsxiHostClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "EsxiHost";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -59,6 +60,9 @@ export class EsxiHostClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -71,7 +75,12 @@ export class EsxiHostClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -466,7 +475,10 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
       "page": listEsxiHostsRequest.page,
       "sortOrder": listEsxiHostsRequest.sortOrder,
       "sortBy": listEsxiHostsRequest.sortBy,
-      "lifecycleState": listEsxiHostsRequest.lifecycleState
+      "lifecycleState": listEsxiHostsRequest.lifecycleState,
+      "isBillingDonorsOnly": listEsxiHostsRequest.isBillingDonorsOnly,
+      "isSwapBillingOnly": listEsxiHostsRequest.isSwapBillingOnly,
+      "compartmentId": listEsxiHostsRequest.compartmentId
     };
 
     let headerParams = {
@@ -513,6 +525,83 @@ Remember that in terms of implementation, an ESXi host is a Compute instance tha
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Swap billing between two Active ESXi hosts.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SwapBillingRequest
+   * @return SwapBillingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/ocvp/SwapBilling.ts.html |here} to see how to use SwapBilling API.
+   */
+  public async swapBilling(
+    swapBillingRequest: requests.SwapBillingRequest
+  ): Promise<responses.SwapBillingResponse> {
+    if (this.logger) this.logger.debug("Calling operation EsxiHostClient#swapBilling.");
+    const operationName = "swapBilling";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/vmware/20200501/EsxiHost/SwapBilling";
+    const pathParams = {
+      "{esxiHostId}": swapBillingRequest.esxiHostId
+    };
+
+    const queryParams = {
+      "swapBillingHostId": swapBillingRequest.swapBillingHostId
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": swapBillingRequest.opcRetryToken,
+      "if-match": swapBillingRequest.ifMatch,
+      "opc-request-id": swapBillingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      swapBillingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/esxiHosts/{esxiHostId}/actions/swapBilling",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SwapBillingResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -620,6 +709,7 @@ export class SddcClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Sddc";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -639,6 +729,9 @@ export class SddcClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -651,7 +744,12 @@ export class SddcClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -1817,6 +1915,7 @@ export class WorkRequestClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "WorkRequest";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -1836,6 +1935,9 @@ export class WorkRequestClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1848,7 +1950,12 @@ export class WorkRequestClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&

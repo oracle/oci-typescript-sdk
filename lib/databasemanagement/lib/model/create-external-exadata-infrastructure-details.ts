@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The details of creating external Exadata infrastructure.
+ * The details required to create the external Exadata infrastructure.
  */
 export interface CreateExternalExadataInfrastructureDetails {
   /**
@@ -31,7 +31,7 @@ export interface CreateExternalExadataInfrastructureDetails {
    */
   "licenseModel"?: CreateExternalExadataInfrastructureDetails.LicenseModel;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId": string;
   /**
@@ -39,11 +39,11 @@ export interface CreateExternalExadataInfrastructureDetails {
    */
   "displayName": string;
   /**
-   * The list of all the rac database system OCIDs.
+   * The list of DB systems in the Exadata infrastructure.
    */
   "dbSystemIds": Array<string>;
   /**
-   * The list of all the storage server names to be included for monitoering purpose. If not specified, all the storage servers associated with the database systems are included.
+   * The list of all the Exadata storage server names to be included for monitoring purposes. If not specified, all the Exadata storage servers associated with the DB systems are included.
    */
   "storageServerNames"?: Array<string>;
 }

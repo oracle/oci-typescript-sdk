@@ -60,6 +60,8 @@ import * as ChangeExternalPluggableDatabaseCompartmentResponse from "./change-ex
 export import ChangeExternalPluggableDatabaseCompartmentResponse = ChangeExternalPluggableDatabaseCompartmentResponse.ChangeExternalPluggableDatabaseCompartmentResponse;
 import * as ChangeKeyStoreCompartmentResponse from "./change-key-store-compartment-response";
 export import ChangeKeyStoreCompartmentResponse = ChangeKeyStoreCompartmentResponse.ChangeKeyStoreCompartmentResponse;
+import * as ChangeKeyStoreTypeResponse from "./change-key-store-type-response";
+export import ChangeKeyStoreTypeResponse = ChangeKeyStoreTypeResponse.ChangeKeyStoreTypeResponse;
 import * as ChangeOneoffPatchCompartmentResponse from "./change-oneoff-patch-compartment-response";
 export import ChangeOneoffPatchCompartmentResponse = ChangeOneoffPatchCompartmentResponse.ChangeOneoffPatchCompartmentResponse;
 import * as ChangeVmClusterCompartmentResponse from "./change-vm-cluster-compartment-response";
@@ -246,6 +248,8 @@ import * as GetAutonomousContainerDatabaseResponse from "./get-autonomous-contai
 export import GetAutonomousContainerDatabaseResponse = GetAutonomousContainerDatabaseResponse.GetAutonomousContainerDatabaseResponse;
 import * as GetAutonomousContainerDatabaseDataguardAssociationResponse from "./get-autonomous-container-database-dataguard-association-response";
 export import GetAutonomousContainerDatabaseDataguardAssociationResponse = GetAutonomousContainerDatabaseDataguardAssociationResponse.GetAutonomousContainerDatabaseDataguardAssociationResponse;
+import * as GetAutonomousContainerDatabaseResourceUsageResponse from "./get-autonomous-container-database-resource-usage-response";
+export import GetAutonomousContainerDatabaseResourceUsageResponse = GetAutonomousContainerDatabaseResourceUsageResponse.GetAutonomousContainerDatabaseResourceUsageResponse;
 import * as GetAutonomousDatabaseResponse from "./get-autonomous-database-response";
 export import GetAutonomousDatabaseResponse = GetAutonomousDatabaseResponse.GetAutonomousDatabaseResponse;
 import * as GetAutonomousDatabaseBackupResponse from "./get-autonomous-database-backup-response";
@@ -270,6 +274,8 @@ import * as GetBackupDestinationResponse from "./get-backup-destination-response
 export import GetBackupDestinationResponse = GetBackupDestinationResponse.GetBackupDestinationResponse;
 import * as GetCloudAutonomousVmClusterResponse from "./get-cloud-autonomous-vm-cluster-response";
 export import GetCloudAutonomousVmClusterResponse = GetCloudAutonomousVmClusterResponse.GetCloudAutonomousVmClusterResponse;
+import * as GetCloudAutonomousVmClusterResourceUsageResponse from "./get-cloud-autonomous-vm-cluster-resource-usage-response";
+export import GetCloudAutonomousVmClusterResourceUsageResponse = GetCloudAutonomousVmClusterResourceUsageResponse.GetCloudAutonomousVmClusterResourceUsageResponse;
 import * as GetCloudExadataInfrastructureResponse from "./get-cloud-exadata-infrastructure-response";
 export import GetCloudExadataInfrastructureResponse = GetCloudExadataInfrastructureResponse.GetCloudExadataInfrastructureResponse;
 import * as GetCloudExadataInfrastructureUnallocatedResourcesResponse from "./get-cloud-exadata-infrastructure-unallocated-resources-response";
@@ -394,6 +400,8 @@ import * as ListBackupDestinationResponse from "./list-backup-destination-respon
 export import ListBackupDestinationResponse = ListBackupDestinationResponse.ListBackupDestinationResponse;
 import * as ListBackupsResponse from "./list-backups-response";
 export import ListBackupsResponse = ListBackupsResponse.ListBackupsResponse;
+import * as ListCloudAutonomousVmClusterAcdResourceUsageResponse from "./list-cloud-autonomous-vm-cluster-acd-resource-usage-response";
+export import ListCloudAutonomousVmClusterAcdResourceUsageResponse = ListCloudAutonomousVmClusterAcdResourceUsageResponse.ListCloudAutonomousVmClusterAcdResourceUsageResponse;
 import * as ListCloudAutonomousVmClustersResponse from "./list-cloud-autonomous-vm-clusters-response";
 export import ListCloudAutonomousVmClustersResponse = ListCloudAutonomousVmClustersResponse.ListCloudAutonomousVmClustersResponse;
 import * as ListCloudExadataInfrastructuresResponse from "./list-cloud-exadata-infrastructures-response";
@@ -526,6 +534,8 @@ import * as RotateCloudAutonomousVmClusterSslCertsResponse from "./rotate-cloud-
 export import RotateCloudAutonomousVmClusterSslCertsResponse = RotateCloudAutonomousVmClusterSslCertsResponse.RotateCloudAutonomousVmClusterSslCertsResponse;
 import * as RotateOrdsCertsResponse from "./rotate-ords-certs-response";
 export import RotateOrdsCertsResponse = RotateOrdsCertsResponse.RotateOrdsCertsResponse;
+import * as RotatePluggableDatabaseEncryptionKeyResponse from "./rotate-pluggable-database-encryption-key-response";
+export import RotatePluggableDatabaseEncryptionKeyResponse = RotatePluggableDatabaseEncryptionKeyResponse.RotatePluggableDatabaseEncryptionKeyResponse;
 import * as RotateSslCertsResponse from "./rotate-ssl-certs-response";
 export import RotateSslCertsResponse = RotateSslCertsResponse.RotateSslCertsResponse;
 import * as RotateVaultKeyResponse from "./rotate-vault-key-response";
@@ -580,6 +590,8 @@ import * as UpdateCloudVmClusterResponse from "./update-cloud-vm-cluster-respons
 export import UpdateCloudVmClusterResponse = UpdateCloudVmClusterResponse.UpdateCloudVmClusterResponse;
 import * as UpdateCloudVmClusterIormConfigResponse from "./update-cloud-vm-cluster-iorm-config-response";
 export import UpdateCloudVmClusterIormConfigResponse = UpdateCloudVmClusterIormConfigResponse.UpdateCloudVmClusterIormConfigResponse;
+import * as UpdateConsoleConnectionResponse from "./update-console-connection-response";
+export import UpdateConsoleConnectionResponse = UpdateConsoleConnectionResponse.UpdateConsoleConnectionResponse;
 import * as UpdateDataGuardAssociationResponse from "./update-data-guard-association-response";
 export import UpdateDataGuardAssociationResponse = UpdateDataGuardAssociationResponse.UpdateDataGuardAssociationResponse;
 import * as UpdateDatabaseResponse from "./update-database-response";
@@ -588,6 +600,8 @@ import * as UpdateDatabaseSoftwareImageResponse from "./update-database-software
 export import UpdateDatabaseSoftwareImageResponse = UpdateDatabaseSoftwareImageResponse.UpdateDatabaseSoftwareImageResponse;
 import * as UpdateDbHomeResponse from "./update-db-home-response";
 export import UpdateDbHomeResponse = UpdateDbHomeResponse.UpdateDbHomeResponse;
+import * as UpdateDbNodeResponse from "./update-db-node-response";
+export import UpdateDbNodeResponse = UpdateDbNodeResponse.UpdateDbNodeResponse;
 import * as UpdateDbSystemResponse from "./update-db-system-response";
 export import UpdateDbSystemResponse = UpdateDbSystemResponse.UpdateDbSystemResponse;
 import * as UpdateExadataInfrastructureResponse from "./update-exadata-infrastructure-response";

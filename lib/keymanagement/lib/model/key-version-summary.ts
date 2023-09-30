@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -16,6 +15,9 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The details of the KeyVersion.
+ */
 export interface KeyVersionSummary {
   /**
    * The OCID of the compartment that contains this key version.
@@ -57,6 +59,7 @@ Example: `2018-04-03T21:10:29.600Z`
    * The OCID of the vault that contains this key version.
    */
   "vaultId": string;
+  "externalKeyReferenceDetails"?: model.ExternalKeyReferenceDetails;
 }
 
 export namespace KeyVersionSummary {
@@ -89,12 +92,28 @@ export namespace KeyVersionSummary {
   }
 
   export function getJsonObj(obj: KeyVersionSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
+          ? model.ExternalKeyReferenceDetails.getJsonObj(obj.externalKeyReferenceDetails)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: KeyVersionSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalKeyReferenceDetails": obj.externalKeyReferenceDetails
+          ? model.ExternalKeyReferenceDetails.getDeserializedJsonObj(
+              obj.externalKeyReferenceDetails
+            )
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

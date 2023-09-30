@@ -122,6 +122,25 @@ export class OperationsInsightsWaiter {
   }
 
   /**
+   * Waits forNewsReport till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetNewsReportResponse | null (null in case of 404 response)
+   */
+  public async forNewsReport(
+    request: serviceRequests.GetNewsReportRequest,
+    ...targetStates: models.LifecycleState[]
+  ): Promise<serviceResponses.GetNewsReportResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getNewsReport(request),
+      response => targetStates.includes(response.newsReport.lifecycleState!),
+      targetStates.includes(models.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forOperationsInsightsPrivateEndpoint till it reaches any of the provided states
    *
    * @param request the request to send

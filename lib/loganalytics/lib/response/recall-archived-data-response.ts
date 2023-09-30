@@ -30,4 +30,13 @@ export interface RecallArchivedDataResponse {
    *
    */
   "location": string;
+  /**
+   * For optimistic concurrency control. See `if-match`.
+   *
+   */
+  "etag": string;
+  /**
+   * The returned model.RecalledDataInfo instance.
+   */
+  "recalledDataInfo": model.RecalledDataInfo;
 }

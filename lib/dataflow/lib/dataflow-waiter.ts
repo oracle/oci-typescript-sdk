@@ -44,6 +44,25 @@ export class DataFlowWaiter {
   }
 
   /**
+   * Waits forPool till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetPoolResponse | null (null in case of 404 response)
+   */
+  public async forPool(
+    request: serviceRequests.GetPoolRequest,
+    ...targetStates: models.PoolLifecycleState[]
+  ): Promise<serviceResponses.GetPoolResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getPool(request),
+      response => targetStates.includes(response.pool.lifecycleState!),
+      targetStates.includes(models.PoolLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forPrivateEndpoint till it reaches any of the provided states
    *
    * @param request the request to send
@@ -77,6 +96,25 @@ export class DataFlowWaiter {
       this.config,
       () => this.client.getRun(request),
       response => targetStates.includes(response.run.lifecycleState!)
+    );
+  }
+
+  /**
+   * Waits forSqlEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetSqlEndpointResponse | null (null in case of 404 response)
+   */
+  public async forSqlEndpoint(
+    request: serviceRequests.GetSqlEndpointRequest,
+    ...targetStates: models.SqlEndpointLifecycleState[]
+  ): Promise<serviceResponses.GetSqlEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getSqlEndpoint(request),
+      response => targetStates.includes(response.sqlEndpoint.lifecycleState!),
+      targetStates.includes(models.SqlEndpointLifecycleState.Deleted)
     );
   }
 

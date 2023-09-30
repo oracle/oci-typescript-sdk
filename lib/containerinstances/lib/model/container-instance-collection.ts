@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a containerInstance search. Contains boh ContainerInstanceSummary items and other information, such as metadata.
+ * Summary information about a list of container instances.
  */
 export interface ContainerInstanceCollection {
   /**
-   * List of containerInstances.
+   * List of container instances.
    */
   "items": Array<model.ContainerInstanceSummary>;
 }

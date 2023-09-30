@@ -36,6 +36,7 @@ export class FusionApplicationsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "FusionApplications";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -55,6 +56,9 @@ export class FusionApplicationsClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -67,7 +71,12 @@ export class FusionApplicationsClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -2406,6 +2415,9 @@ export class FusionApplicationsClient {
         listScheduledActivitiesRequest.timeExpectedFinishLessThanOrEqualTo,
       "runCycle": listScheduledActivitiesRequest.runCycle,
       "lifecycleState": listScheduledActivitiesRequest.lifecycleState,
+      "scheduledActivityAssociationId":
+        listScheduledActivitiesRequest.scheduledActivityAssociationId,
+      "scheduledActivityPhase": listScheduledActivitiesRequest.scheduledActivityPhase,
       "limit": listScheduledActivitiesRequest.limit,
       "page": listScheduledActivitiesRequest.page,
       "sortOrder": listScheduledActivitiesRequest.sortOrder,

@@ -77,9 +77,14 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromRest>(<object>jsonObj),
             true
           );
-        case "ORACLE_ATP_DATA_ASSET":
-          return model.UpdateDataAssetFromAtp.getJsonObj(
-            <model.UpdateDataAssetFromAtp>(<object>jsonObj),
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.UpdateDataAssetFromMySqlHeatWave.getJsonObj(
+            <model.UpdateDataAssetFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.UpdateDataAssetFromOracleEbs.getJsonObj(
+            <model.UpdateDataAssetFromOracleEbs>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_DATA_ASSET":
@@ -87,9 +92,14 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromAdwc>(<object>jsonObj),
             true
           );
-        case "GENERIC_JDBC_DATA_ASSET":
-          return model.UpdateDataAssetFromJdbc.getJsonObj(
-            <model.UpdateDataAssetFromJdbc>(<object>jsonObj),
+        case "HDFS_DATA_ASSET":
+          return model.UpdateDataAssetFromHdfs.getJsonObj(
+            <model.UpdateDataAssetFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.UpdateDataAssetFromOraclePeopleSoft.getJsonObj(
+            <model.UpdateDataAssetFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
@@ -102,24 +112,39 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromAmazonS3>(<object>jsonObj),
             true
           );
-        case "FUSION_APP_DATA_ASSET":
-          return model.UpdateDataAssetFromFusionApp.getJsonObj(
-            <model.UpdateDataAssetFromFusionApp>(<object>jsonObj),
-            true
-          );
         case "MYSQL_DATA_ASSET":
           return model.UpdateDataAssetFromMySQL.getJsonObj(
             <model.UpdateDataAssetFromMySQL>(<object>jsonObj),
             true
           );
-        case "ORACLE_DATA_ASSET":
-          return model.UpdateDataAssetFromOracle.getJsonObj(
-            <model.UpdateDataAssetFromOracle>(<object>jsonObj),
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.UpdateDataAssetFromOracleSiebel.getJsonObj(
+            <model.UpdateDataAssetFromOracleSiebel>(<object>jsonObj),
             true
           );
         case "LAKE_DATA_ASSET":
           return model.UpdateDataAssetFromLake.getJsonObj(
             <model.UpdateDataAssetFromLake>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.UpdateDataAssetFromAtp.getJsonObj(
+            <model.UpdateDataAssetFromAtp>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.UpdateDataAssetFromJdbc.getJsonObj(
+            <model.UpdateDataAssetFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.UpdateDataAssetFromFusionApp.getJsonObj(
+            <model.UpdateDataAssetFromFusionApp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_DATA_ASSET":
+          return model.UpdateDataAssetFromOracle.getJsonObj(
+            <model.UpdateDataAssetFromOracle>(<object>jsonObj),
             true
           );
         default:
@@ -145,9 +170,14 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromRest>(<object>jsonObj),
             true
           );
-        case "ORACLE_ATP_DATA_ASSET":
-          return model.UpdateDataAssetFromAtp.getDeserializedJsonObj(
-            <model.UpdateDataAssetFromAtp>(<object>jsonObj),
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.UpdateDataAssetFromMySqlHeatWave.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.UpdateDataAssetFromOracleEbs.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromOracleEbs>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_DATA_ASSET":
@@ -155,9 +185,14 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromAdwc>(<object>jsonObj),
             true
           );
-        case "GENERIC_JDBC_DATA_ASSET":
-          return model.UpdateDataAssetFromJdbc.getDeserializedJsonObj(
-            <model.UpdateDataAssetFromJdbc>(<object>jsonObj),
+        case "HDFS_DATA_ASSET":
+          return model.UpdateDataAssetFromHdfs.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.UpdateDataAssetFromOraclePeopleSoft.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
@@ -170,24 +205,39 @@ export namespace UpdateDataAssetDetails {
             <model.UpdateDataAssetFromAmazonS3>(<object>jsonObj),
             true
           );
-        case "FUSION_APP_DATA_ASSET":
-          return model.UpdateDataAssetFromFusionApp.getDeserializedJsonObj(
-            <model.UpdateDataAssetFromFusionApp>(<object>jsonObj),
-            true
-          );
         case "MYSQL_DATA_ASSET":
           return model.UpdateDataAssetFromMySQL.getDeserializedJsonObj(
             <model.UpdateDataAssetFromMySQL>(<object>jsonObj),
             true
           );
-        case "ORACLE_DATA_ASSET":
-          return model.UpdateDataAssetFromOracle.getDeserializedJsonObj(
-            <model.UpdateDataAssetFromOracle>(<object>jsonObj),
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.UpdateDataAssetFromOracleSiebel.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromOracleSiebel>(<object>jsonObj),
             true
           );
         case "LAKE_DATA_ASSET":
           return model.UpdateDataAssetFromLake.getDeserializedJsonObj(
             <model.UpdateDataAssetFromLake>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.UpdateDataAssetFromAtp.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromAtp>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.UpdateDataAssetFromJdbc.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "FUSION_APP_DATA_ASSET":
+          return model.UpdateDataAssetFromFusionApp.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromFusionApp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_DATA_ASSET":
+          return model.UpdateDataAssetFromOracle.getDeserializedJsonObj(
+            <model.UpdateDataAssetFromOracle>(<object>jsonObj),
             true
           );
         default:

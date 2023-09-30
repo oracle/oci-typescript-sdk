@@ -152,6 +152,38 @@ export interface RoverNode {
    */
   "masterKeyId"?: string;
   /**
+   * The certificateAuthorityId of subordinate/intermediate certificate authority.
+   */
+  "certificateAuthorityId"?: string;
+  /**
+   * The time after which leaf certificate will invalid.
+   */
+  "timeCertValidityEnd"?: Date;
+  /**
+   * The common name for the leaf certificate.
+   */
+  "commonName"?: string;
+  /**
+   * The compartmentId of the leaf certificate.
+   */
+  "certCompartmentId"?: string;
+  /**
+   * The version number of the leaf certificate.
+   */
+  "certificateVersionNumber"?: string;
+  /**
+   * The id of the leaf certificate.
+   */
+  "certificateId"?: string;
+  /**
+   * key algorithm for issuing leaf certificate.
+   */
+  "certKeyAlgorithm"?: model.CertKeyAlgorithm;
+  /**
+   * signature algorithm for issuing leaf certificate.
+   */
+  "certSignatureAlgorithm"?: model.CertSignatureAlgorithm;
+  /**
    * The tags associated with tagSlug.
    *
    */

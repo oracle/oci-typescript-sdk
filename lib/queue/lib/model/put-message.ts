@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -15,13 +15,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A message that has been published in a queue.
+ * A message that has been published to a queue.
  */
 export interface PutMessage {
   /**
-   * The id of the message Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The ID of the message. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "id": number;
+  /**
+    * The time after which the message will be automatically deleted, expressed in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
+* <p>
+Example: `2018-04-20T00:00:07.405Z`
+* 
+    */
+  "expireAfter"?: Date;
 }
 
 export namespace PutMessage {

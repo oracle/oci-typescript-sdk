@@ -37,6 +37,7 @@ export class ContainerInstanceClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "ContainerInstance";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -56,6 +57,9 @@ export class ContainerInstanceClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -68,7 +72,12 @@ export class ContainerInstanceClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -185,7 +194,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Moves a ContainerInstance resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * Moves a container instance resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeContainerInstanceCompartmentRequest
    * @return ChangeContainerInstanceCompartmentResponse
@@ -265,7 +274,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Creates a new ContainerInstance.
+   * Creates a container instance and deploys the containers on it.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateContainerInstanceRequest
@@ -351,7 +360,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Deletes a ContainerInstance resource by identifier
+   * Deletes a container instance and its containers.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteContainerInstanceRequest
    * @return DeleteContainerInstanceResponse
@@ -499,7 +508,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Gets a ContainerInstance by identifier
+   * Gets information about the specified container instance.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetContainerInstanceRequest
    * @return GetContainerInstanceResponse
@@ -650,7 +659,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Get a list of shapes for creating Container Instances and their details.
+   * Lists the shapes that can be used to create container instances.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainerInstanceShapesRequest
    * @return ListContainerInstanceShapesResponse
@@ -729,7 +738,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Returns a list of ContainerInstances.
+   * Returns a list of container instances.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainerInstancesRequest
@@ -813,7 +822,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Return a list of Containers.
+   * Returns a list of containers in a compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListContainersRequest
@@ -897,7 +906,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Return a (paginated) list of errors for a given work request.
+   * Return a paginated list of errors for a given work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestErrorsRequest
@@ -918,7 +927,9 @@ export class ContainerInstanceClient {
 
     const queryParams = {
       "page": listWorkRequestErrorsRequest.page,
-      "limit": listWorkRequestErrorsRequest.limit
+      "limit": listWorkRequestErrorsRequest.limit,
+      "sortBy": listWorkRequestErrorsRequest.sortBy,
+      "sortOrder": listWorkRequestErrorsRequest.sortOrder
     };
 
     let headerParams = {
@@ -977,7 +988,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Return a (paginated) list of logs for a given work request.
+   * Return a paginated list of logs for a given work request.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListWorkRequestLogsRequest
@@ -998,7 +1009,9 @@ export class ContainerInstanceClient {
 
     const queryParams = {
       "page": listWorkRequestLogsRequest.page,
-      "limit": listWorkRequestLogsRequest.limit
+      "limit": listWorkRequestLogsRequest.limit,
+      "sortBy": listWorkRequestLogsRequest.sortBy,
+      "sortOrder": listWorkRequestLogsRequest.sortOrder
     };
 
     let headerParams = {
@@ -1078,7 +1091,11 @@ export class ContainerInstanceClient {
       "compartmentId": listWorkRequestsRequest.compartmentId,
       "workRequestId": listWorkRequestsRequest.workRequestId,
       "page": listWorkRequestsRequest.page,
-      "limit": listWorkRequestsRequest.limit
+      "limit": listWorkRequestsRequest.limit,
+      "availabilityDomain": listWorkRequestsRequest.availabilityDomain,
+      "status": listWorkRequestsRequest.status,
+      "sortBy": listWorkRequestsRequest.sortBy,
+      "sortOrder": listWorkRequestsRequest.sortOrder
     };
 
     let headerParams = {
@@ -1210,7 +1227,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Retrieve recent log from a single container by the container ID up to 256KB.
+   * Retrieves recent logs from the specified container. The most recent 256 KB of logs are returned.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param RetrieveLogsRequest
@@ -1427,7 +1444,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Update a Container.
+   * Updates a container.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateContainerRequest
    * @return UpdateContainerResponse
@@ -1505,7 +1522,7 @@ export class ContainerInstanceClient {
   }
 
   /**
-   * Updates the ContainerInstance
+   * Updates a container instance.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateContainerInstanceRequest
    * @return UpdateContainerInstanceResponse

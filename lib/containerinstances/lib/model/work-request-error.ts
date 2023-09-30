@@ -19,17 +19,16 @@ import common = require("oci-common");
  */
 export interface WorkRequestError {
   /**
-   * A machine-usable code for the error that occured. Error codes are listed on
-   * (https://docs.cloud.oracle.com/Content/API/References/apierrors.htm)
+   * A machine-usable code for the error that occured. See [API Errors](https://docs.cloud.oracle.com/Content/API/References/apierrors.htm) for a list of error codes.
    *
    */
   "code": string;
   /**
-   * A human readable description of the issue encountered.
+   * A description of the issue encountered.
    */
   "message": string;
   /**
-   * The time the error occured. An RFC3339 formatted datetime string.
+   * The time the error occured, in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timestamp": Date;
 }

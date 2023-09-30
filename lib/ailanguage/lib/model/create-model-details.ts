@@ -37,8 +37,20 @@ export interface CreateModelDetails {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the project to associate with the model.
    */
   "projectId": string;
-  "modelDetails": model.NamedEntityRecognitionModelDetails | model.TextClassificationModelDetails;
-  "trainingDataset": model.DataScienceLabelingDataset | model.ObjectStorageDataset;
+  "modelDetails":
+    | model.PreTrainedKeyPhraseExtractionModelDetails
+    | model.PreTrainedHealthNluModelDetails
+    | model.PreTrainedUniversalModel
+    | model.NamedEntityRecognitionModelDetails
+    | model.PreTrainedLanguageDetectionModelDetails
+    | model.PreTrainedNamedEntityRecognitionModelDetails
+    | model.PreTrainedSentimentAnalysisModelDetails
+    | model.PreTrainedPhiModelDetails
+    | model.PreTrainedTextClassificationModelDetails
+    | model.TextClassificationModelDetails
+    | model.PreTrainedSummarization
+    | model.PreTrainedPiiModelDetails;
+  "trainingDataset"?: model.DataScienceLabelingDataset | model.ObjectStorageDataset;
   "testStrategy"?: model.TestAndValidationDatasetStrategy;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.

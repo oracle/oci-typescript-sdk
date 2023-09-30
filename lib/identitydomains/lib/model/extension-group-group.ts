@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Idcs Group
+ * Oracle Identity Cloud Service Group
  */
 export interface ExtensionGroupGroup {
   /**

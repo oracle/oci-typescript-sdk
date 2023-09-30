@@ -40,6 +40,7 @@ export class OperationsInsightsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "OperationsInsights";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -59,6 +60,9 @@ export class OperationsInsightsClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -71,7 +75,12 @@ export class OperationsInsightsClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -657,6 +666,86 @@ export class OperationsInsightsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.ChangeHostInsightCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Moves a news report resource from one compartment identifier to another. When provided, If-Match is checked against ETag values of the resource.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeNewsReportCompartmentRequest
+   * @return ChangeNewsReportCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ChangeNewsReportCompartment.ts.html |here} to see how to use ChangeNewsReportCompartment API.
+   */
+  public async changeNewsReportCompartment(
+    changeNewsReportCompartmentRequest: requests.ChangeNewsReportCompartmentRequest
+  ): Promise<responses.ChangeNewsReportCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#changeNewsReportCompartment.");
+    const operationName = "changeNewsReportCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/ChangeNewsReportCompartment";
+    const pathParams = {
+      "{newsReportId}": changeNewsReportCompartmentRequest.newsReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": changeNewsReportCompartmentRequest.ifMatch,
+      "opc-request-id": changeNewsReportCompartmentRequest.opcRequestId,
+      "opc-retry-token": changeNewsReportCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeNewsReportCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/newsReports/{newsReportId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeNewsReportCompartmentRequest.changeNewsReportCompartmentDetails,
+        "ChangeNewsReportCompartmentDetails",
+        model.ChangeNewsReportCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeNewsReportCompartmentResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -1377,6 +1466,103 @@ export class OperationsInsightsClient {
         bodyKey: "hostInsight",
         bodyModel: model.HostInsight,
         type: "model.HostInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("location"),
+            key: "location",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("content-location"),
+            key: "contentLocation",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Create a news report in Operations Insights. The report will be enabled in Operations Insights. Insights will be emailed as per selected frequency.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateNewsReportRequest
+   * @return CreateNewsReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/CreateNewsReport.ts.html |here} to see how to use CreateNewsReport API.
+   */
+  public async createNewsReport(
+    createNewsReportRequest: requests.CreateNewsReportRequest
+  ): Promise<responses.CreateNewsReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#createNewsReport.");
+    const operationName = "createNewsReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/CreateNewsReport";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createNewsReportRequest.opcRetryToken,
+      "opc-request-id": createNewsReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createNewsReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/newsReports",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createNewsReportRequest.createNewsReportDetails,
+        "CreateNewsReportDetails",
+        model.CreateNewsReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateNewsReportResponse>{},
+        body: await response.json(),
+        bodyKey: "newsReport",
+        bodyModel: model.NewsReport,
+        type: "model.NewsReport",
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -2156,6 +2342,80 @@ export class OperationsInsightsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes a news report. The news report will be deleted and cannot be enabled again.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DeleteNewsReportRequest
+   * @return DeleteNewsReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/DeleteNewsReport.ts.html |here} to see how to use DeleteNewsReport API.
+   */
+  public async deleteNewsReport(
+    deleteNewsReportRequest: requests.DeleteNewsReportRequest
+  ): Promise<responses.DeleteNewsReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#deleteNewsReport.");
+    const operationName = "deleteNewsReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/DeleteNewsReport";
+    const pathParams = {
+      "{newsReportId}": deleteNewsReportRequest.newsReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": deleteNewsReportRequest.ifMatch,
+      "opc-request-id": deleteNewsReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteNewsReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/newsReports/{newsReportId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteNewsReportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),
@@ -3825,6 +4085,82 @@ export class OperationsInsightsClient {
         bodyKey: "hostInsight",
         bodyModel: model.HostInsight,
         type: "model.HostInsight",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets details of a news report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetNewsReportRequest
+   * @return GetNewsReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/GetNewsReport.ts.html |here} to see how to use GetNewsReport API.
+   */
+  public async getNewsReport(
+    getNewsReportRequest: requests.GetNewsReportRequest
+  ): Promise<responses.GetNewsReportResponse> {
+    if (this.logger) this.logger.debug("Calling operation OperationsInsightsClient#getNewsReport.");
+    const operationName = "getNewsReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/GetNewsReport";
+    const pathParams = {
+      "{newsReportId}": getNewsReportRequest.newsReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getNewsReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getNewsReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/newsReports/{newsReportId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetNewsReportResponse>{},
+        body: await response.json(),
+        bodyKey: "newsReport",
+        bodyModel: model.NewsReport,
+        type: "model.NewsReport",
         responseHeaders: [
           {
             value: response.headers.get("etag"),
@@ -6947,6 +7283,97 @@ export class OperationsInsightsClient {
   }
 
   /**
+   * Gets a list of news reports based on the query parameters specified. Either compartmentId or id query parameter must be specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListNewsReportsRequest
+   * @return ListNewsReportsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListNewsReports.ts.html |here} to see how to use ListNewsReports API.
+   */
+  public async listNewsReports(
+    listNewsReportsRequest: requests.ListNewsReportsRequest
+  ): Promise<responses.ListNewsReportsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listNewsReports.");
+    const operationName = "listNewsReports";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReport/ListNewsReports";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listNewsReportsRequest.compartmentId,
+      "newsReportId": listNewsReportsRequest.newsReportId,
+      "status": listNewsReportsRequest.status,
+      "lifecycleState": listNewsReportsRequest.lifecycleState,
+      "limit": listNewsReportsRequest.limit,
+      "page": listNewsReportsRequest.page,
+      "sortOrder": listNewsReportsRequest.sortOrder,
+      "sortBy": listNewsReportsRequest.sortBy,
+      "compartmentIdInSubtree": listNewsReportsRequest.compartmentIdInSubtree
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listNewsReportsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listNewsReportsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/newsReports",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListNewsReportsResponse>{},
+        body: await response.json(),
+        bodyKey: "newsReportCollection",
+        bodyModel: model.NewsReportCollection,
+        type: "model.NewsReportCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-total-items"),
+            key: "opcTotalItems",
+            dataType: "number"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets a list of Operation Insights private endpoints.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListOperationsInsightsPrivateEndpointsRequest
@@ -7323,7 +7750,9 @@ export class OperationsInsightsClient {
       "limit": listOpsiDataObjectsRequest.limit,
       "page": listOpsiDataObjectsRequest.page,
       "sortOrder": listOpsiDataObjectsRequest.sortOrder,
-      "sortBy": listOpsiDataObjectsRequest.sortBy
+      "sortBy": listOpsiDataObjectsRequest.sortBy,
+      "groupName": listOpsiDataObjectsRequest.groupName,
+      "name": listOpsiDataObjectsRequest.name
     };
 
     let headerParams = {
@@ -7619,6 +8048,94 @@ export class OperationsInsightsClient {
         bodyKey: "sqlTextCollection",
         bodyModel: model.SqlTextCollection,
         type: "model.SqlTextCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets a list of Warehouse data objects (e.g: views, tables), based on the query parameters specified.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWarehouseDataObjectsRequest
+   * @return ListWarehouseDataObjectsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/ListWarehouseDataObjects.ts.html |here} to see how to use ListWarehouseDataObjects API.
+   */
+  public async listWarehouseDataObjects(
+    listWarehouseDataObjectsRequest: requests.ListWarehouseDataObjectsRequest
+  ): Promise<responses.ListWarehouseDataObjectsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#listWarehouseDataObjects.");
+    const operationName = "listWarehouseDataObjects";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/ListWarehouseDataObjects";
+    const pathParams = {
+      "{warehouseType}": listWarehouseDataObjectsRequest.warehouseType,
+      "{warehouseId}": listWarehouseDataObjectsRequest.warehouseId
+    };
+
+    const queryParams = {
+      "dataObjectType": listWarehouseDataObjectsRequest.dataObjectType,
+      "name": listWarehouseDataObjectsRequest.name,
+      "owner": listWarehouseDataObjectsRequest.owner,
+      "limit": listWarehouseDataObjectsRequest.limit,
+      "page": listWarehouseDataObjectsRequest.page,
+      "sortOrder": listWarehouseDataObjectsRequest.sortOrder,
+      "sortBy": listWarehouseDataObjectsRequest.sortBy,
+      "summaryField": listWarehouseDataObjectsRequest.summaryField
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWarehouseDataObjectsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWarehouseDataObjectsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/{warehouseType}/{warehouseId}/dataObjects",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWarehouseDataObjectsResponse>{},
+        body: await response.json(),
+        bodyKey: "warehouseDataObjectCollection",
+        bodyModel: model.WarehouseDataObjectCollection,
+        type: "model.WarehouseDataObjectCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -7953,6 +8470,94 @@ export class OperationsInsightsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.QueryOpsiDataObjectDataResponse>{},
+        body: await response.json(),
+        bodyKey: "queryDataObjectResultSetRowsCollection",
+        bodyModel: model.QueryDataObjectResultSetRowsCollection,
+        type: "model.QueryDataObjectResultSetRowsCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Queries Warehouse data objects (e.g: views, tables) with the inputs provided and sends the result set back.
+   * Any data to which an OperationsInsightsWarehouseUser with a permission to the corresponding Warehouse can be queried.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param QueryWarehouseDataObjectDataRequest
+   * @return QueryWarehouseDataObjectDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/QueryWarehouseDataObjectData.ts.html |here} to see how to use QueryWarehouseDataObjectData API.
+   */
+  public async queryWarehouseDataObjectData(
+    queryWarehouseDataObjectDataRequest: requests.QueryWarehouseDataObjectDataRequest
+  ): Promise<responses.QueryWarehouseDataObjectDataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#queryWarehouseDataObjectData.");
+    const operationName = "queryWarehouseDataObjectData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/OpsiWarehouseDataObjects/QueryWarehouseDataObjectData";
+    const pathParams = {
+      "{warehouseType}": queryWarehouseDataObjectDataRequest.warehouseType,
+      "{warehouseId}": queryWarehouseDataObjectDataRequest.warehouseId
+    };
+
+    const queryParams = {
+      "limit": queryWarehouseDataObjectDataRequest.limit,
+      "page": queryWarehouseDataObjectDataRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": queryWarehouseDataObjectDataRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      queryWarehouseDataObjectDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/{warehouseType}/{warehouseId}/actions/queryData",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        queryWarehouseDataObjectDataRequest.queryWarehouseDataObjectDataDetails,
+        "QueryWarehouseDataObjectDataDetails",
+        model.QueryWarehouseDataObjectDataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.QueryWarehouseDataObjectDataResponse>{},
         body: await response.json(),
         bodyKey: "queryDataObjectResultSetRowsCollection",
         bodyModel: model.QueryDataObjectResultSetRowsCollection,
@@ -13339,6 +13944,85 @@ Note that this API does not return information on the number of times each datab
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.UpdateHostInsightResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the  configuration of a news report.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param UpdateNewsReportRequest
+   * @return UpdateNewsReportResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/opsi/UpdateNewsReport.ts.html |here} to see how to use UpdateNewsReport API.
+   */
+  public async updateNewsReport(
+    updateNewsReportRequest: requests.UpdateNewsReportRequest
+  ): Promise<responses.UpdateNewsReportResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation OperationsInsightsClient#updateNewsReport.");
+    const operationName = "updateNewsReport";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/operations-insights/20200630/NewsReports/UpdateNewsReport";
+    const pathParams = {
+      "{newsReportId}": updateNewsReportRequest.newsReportId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": updateNewsReportRequest.ifMatch,
+      "opc-request-id": updateNewsReportRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateNewsReportRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/newsReports/{newsReportId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateNewsReportRequest.updateNewsReportDetails,
+        "UpdateNewsReportDetails",
+        model.UpdateNewsReportDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateNewsReportResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-work-request-id"),

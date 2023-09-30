@@ -24,6 +24,25 @@ export class StackMonitoringWaiter {
   ) {}
 
   /**
+   * Waits forConfig till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetConfigResponse | null (null in case of 404 response)
+   */
+  public async forConfig(
+    request: serviceRequests.GetConfigRequest,
+    ...targetStates: models.Config.LifecycleState[]
+  ): Promise<serviceResponses.GetConfigResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getConfig(request),
+      response => targetStates.includes(response.config.lifecycleState!),
+      targetStates.includes(models.Config.LifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forDiscoveryJob till it reaches any of the provided states
    *
    * @param request the request to send

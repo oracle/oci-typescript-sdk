@@ -60,6 +60,11 @@ export namespace MonitorConfiguration {
             <model.BrowserMonitorConfiguration>(<object>jsonObj),
             true
           );
+        case "NETWORK_CONFIG":
+          return model.NetworkMonitorConfiguration.getJsonObj(
+            <model.NetworkMonitorConfiguration>(<object>jsonObj),
+            true
+          );
         default:
           if (common.LOG.logger) common.LOG.logger.info(`Unknown value for: ${obj.configType}`);
       }
@@ -96,6 +101,11 @@ export namespace MonitorConfiguration {
         case "BROWSER_CONFIG":
           return model.BrowserMonitorConfiguration.getDeserializedJsonObj(
             <model.BrowserMonitorConfiguration>(<object>jsonObj),
+            true
+          );
+        case "NETWORK_CONFIG":
+          return model.NetworkMonitorConfiguration.getDeserializedJsonObj(
+            <model.NetworkMonitorConfiguration>(<object>jsonObj),
             true
           );
         default:

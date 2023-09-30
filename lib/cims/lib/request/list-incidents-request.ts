@@ -19,17 +19,13 @@ import common = require("oci-common");
  */
 export interface ListIncidentsRequest extends common.BaseRequest {
   /**
-   * The Customer Support Identifier associated with the support account.
-   */
-  "csi": string;
-  /**
    * The OCID of the tenancy.
    */
   "compartmentId": string;
   /**
-   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
+   * The Customer Support Identifier (CSI) associated with the support account.
    */
-  "ocid": string;
+  "csi"?: string;
   /**
    * For list pagination. The maximum number of results per page, or items to return in a paginated \"List\" call. For important details about how pagination works, see [List Pagination](https://docs.cloud.oracle.com/iaas/Content/API/Concepts/usingapi.htm#nine).
    *
@@ -57,6 +53,10 @@ export interface ListIncidentsRequest extends common.BaseRequest {
    */
   "opcRequestId"?: string;
   /**
+   * User OCID for Oracle Identity Cloud Service (IDCS) users who also have a federated Oracle Cloud Infrastructure account.
+   */
+  "ocid"?: string;
+  /**
    * The region of the tenancy.
    */
   "homeregion"?: string;
@@ -64,4 +64,20 @@ export interface ListIncidentsRequest extends common.BaseRequest {
    * The kind of support request.
    */
   "problemType"?: string;
+  /**
+   * Token type that determine which cloud provider the request come from.
+   */
+  "bearertokentype"?: string;
+  /**
+   * Token that provided by multi cloud provider, which help to validate the email.
+   */
+  "bearertoken"?: string;
+  /**
+   * IdToken that provided by multi cloud provider, which help to validate the email.
+   */
+  "idtoken"?: string;
+  /**
+   * The OCID of identity domain.
+   */
+  "domainid"?: string;
 }

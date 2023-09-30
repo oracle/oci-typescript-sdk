@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Db Credentials User extension
+ * The database credentials user extension.
  */
 export interface ExtensionDbCredentialsUser {
   /**
-   * The Database User Name
+   * The database username.
    * <p>
    **Added In:** 2102181953
    * <p>

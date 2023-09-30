@@ -48,6 +48,10 @@ export interface SummarizeHostInsightResourceForecastTrendAggregation {
    */
   "usageUnit": SummarizeHostInsightResourceForecastTrendAggregation.UsageUnit;
   /**
+   * Auto-ML algorithm leveraged for the forecast. Only applicable for Auto-ML forecast.
+   */
+  "selectedForecastAlgorithm"?: string;
+  /**
    * Time series patterns used in the forecasting.
    */
   "pattern": SummarizeHostInsightResourceForecastTrendAggregation.Pattern;

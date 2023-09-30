@@ -15,14 +15,14 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * An interface to a virtual network available to Containers on a Container Instance.
+ * An interface to a virtual network available to containers on a container instance.
  *
  */
 export interface ContainerVnic {
   /**
-   * The ID of the Virtual Network Interface Card (VNIC) over which
-   * Containers accessing this network can communicate with the
-   * larger Virtual Client Network.
+   * The identifier of the virtual network interface card (VNIC) over which
+   * the containers accessing this network can communicate with the
+   * larger virtual cloud network.
    *
    */
   "vnicId"?: string;

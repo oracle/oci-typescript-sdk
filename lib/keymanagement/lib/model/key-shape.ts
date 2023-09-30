@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -21,7 +20,7 @@ import common = require("oci-common");
  */
 export interface KeyShape {
   /**
-   * The algorithm used by a key's key versions to encrypt or decrypt.
+   * The algorithm used by a key's key versions to encrypt or decrypt. Only AES algorithm is supported for `External` keys.
    */
   "algorithm": KeyShape.Algorithm;
   /**

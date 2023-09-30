@@ -14,6 +14,8 @@
 
 import * as CancelDeploymentBackupRequest from "./cancel-deployment-backup-request";
 export import CancelDeploymentBackupRequest = CancelDeploymentBackupRequest.CancelDeploymentBackupRequest;
+import * as CancelDeploymentUpgradeRequest from "./cancel-deployment-upgrade-request";
+export import CancelDeploymentUpgradeRequest = CancelDeploymentUpgradeRequest.CancelDeploymentUpgradeRequest;
 import * as CancelSnoozeDeploymentUpgradeRequest from "./cancel-snooze-deployment-upgrade-request";
 export import CancelSnoozeDeploymentUpgradeRequest = CancelSnoozeDeploymentUpgradeRequest.CancelSnoozeDeploymentUpgradeRequest;
 import * as ChangeConnectionCompartmentRequest from "./change-connection-compartment-request";
@@ -26,6 +28,8 @@ import * as ChangeDeploymentCompartmentRequest from "./change-deployment-compart
 export import ChangeDeploymentCompartmentRequest = ChangeDeploymentCompartmentRequest.ChangeDeploymentCompartmentRequest;
 import * as CollectDeploymentDiagnosticRequest from "./collect-deployment-diagnostic-request";
 export import CollectDeploymentDiagnosticRequest = CollectDeploymentDiagnosticRequest.CollectDeploymentDiagnosticRequest;
+import * as CopyDeploymentBackupRequest from "./copy-deployment-backup-request";
+export import CopyDeploymentBackupRequest = CopyDeploymentBackupRequest.CopyDeploymentBackupRequest;
 import * as CreateConnectionRequest from "./create-connection-request";
 export import CreateConnectionRequest = CreateConnectionRequest.CreateConnectionRequest;
 import * as CreateConnectionAssignmentRequest from "./create-connection-assignment-request";
@@ -96,6 +100,8 @@ import * as ListWorkRequestLogsRequest from "./list-work-request-logs-request";
 export import ListWorkRequestLogsRequest = ListWorkRequestLogsRequest.ListWorkRequestLogsRequest;
 import * as ListWorkRequestsRequest from "./list-work-requests-request";
 export import ListWorkRequestsRequest = ListWorkRequestsRequest.ListWorkRequestsRequest;
+import * as RescheduleDeploymentUpgradeRequest from "./reschedule-deployment-upgrade-request";
+export import RescheduleDeploymentUpgradeRequest = RescheduleDeploymentUpgradeRequest.RescheduleDeploymentUpgradeRequest;
 import * as RestoreDeploymentRequest from "./restore-deployment-request";
 export import RestoreDeploymentRequest = RestoreDeploymentRequest.RestoreDeploymentRequest;
 import * as RollbackDeploymentUpgradeRequest from "./rollback-deployment-upgrade-request";
@@ -106,6 +112,8 @@ import * as StartDeploymentRequest from "./start-deployment-request";
 export import StartDeploymentRequest = StartDeploymentRequest.StartDeploymentRequest;
 import * as StopDeploymentRequest from "./stop-deployment-request";
 export import StopDeploymentRequest = StopDeploymentRequest.StopDeploymentRequest;
+import * as TestConnectionAssignmentRequest from "./test-connection-assignment-request";
+export import TestConnectionAssignmentRequest = TestConnectionAssignmentRequest.TestConnectionAssignmentRequest;
 import * as UpdateConnectionRequest from "./update-connection-request";
 export import UpdateConnectionRequest = UpdateConnectionRequest.UpdateConnectionRequest;
 import * as UpdateDatabaseRegistrationRequest from "./update-database-registration-request";

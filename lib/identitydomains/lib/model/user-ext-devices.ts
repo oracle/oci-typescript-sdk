@@ -31,7 +31,7 @@ import common = require("oci-common");
  */
 export interface UserExtDevices {
   /**
-   * The identifier of the User's device.
+   * The user's device identifier.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -47,7 +47,7 @@ export interface UserExtDevices {
    */
   "value": string;
   /**
-   * The URI of the corresponding Device resource which belongs to user
+   * The URI of the corresponding Device resource which belongs to user.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -77,7 +77,7 @@ export interface UserExtDevices {
    */
   "display"?: string;
   /**
-   * Device status.
+   * The device's status.
    * <p>
    **Added In:** 18.4.2
    * <p>
@@ -92,7 +92,7 @@ export interface UserExtDevices {
    */
   "status"?: string;
   /**
-   * Last Sync time for device.
+   * The last sync time for device.
    * <p>
    **Added In:** 18.4.2
    * <p>
@@ -107,7 +107,7 @@ export interface UserExtDevices {
    */
   "lastSyncTime"?: string;
   /**
-   * Device authentication factor type.
+   * The device authentication factor type.
    * <p>
    **Added In:** 18.4.2
    * <p>
@@ -122,7 +122,7 @@ export interface UserExtDevices {
    */
   "factorType"?: string;
   /**
-   * Device authentication factor status.
+   * The device authentication factor status.
    * <p>
    **Added In:** 18.4.2
    * <p>
@@ -137,7 +137,7 @@ export interface UserExtDevices {
    */
   "factorStatus"?: string;
   /**
-   * Authentication method.
+   * The authentication method.
    * <p>
    **Added In:** 2009232244
    * <p>
@@ -152,7 +152,7 @@ export interface UserExtDevices {
    */
   "authenticationMethod"?: string;
   /**
-   * Third party factor vendor name.
+   * The third-party factor vendor name.
    * <p>
    **Added In:** 2009232244
    * <p>

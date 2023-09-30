@@ -31,7 +31,7 @@ Example: `Execution - EBS Switchover PHX to IAD`
   /**
     * The OCID of the DR Plan.
 * <p>
-Example: `ocid1.drplan.oc1.iad.exampleocid2`
+Example: `ocid1.drplan.oc1.iad.&lt;unique_id&gt;`
 * 
     */
   "planId": string;

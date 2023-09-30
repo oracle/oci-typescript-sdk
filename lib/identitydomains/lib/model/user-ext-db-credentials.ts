@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of db credentials corresponding to user.
+ * A list of database credentials corresponding to user.
  * <p>
  **Added In:** 2102181953
  * <p>
@@ -32,7 +32,7 @@ import common = require("oci-common");
  */
 export interface UserExtDbCredentials {
   /**
-   * The identifier of the User's db credential.
+   * The user's database credential identifier.
    * <p>
    **Added In:** 2102181953
    * <p>
@@ -48,7 +48,7 @@ export interface UserExtDbCredentials {
    */
   "value"?: string;
   /**
-   * The URI of the corresponding UserDbCredential resource to which the user belongs
+   * The URI of the corresponding UserDbCredential resource to which the user belongs.
    * <p>
    **Added In:** 2102181953
    * <p>
@@ -63,7 +63,7 @@ export interface UserExtDbCredentials {
    */
   "ref"?: string;
   /**
-   * Ocid of the User's db credential.
+   * The user's database credential OCID.
    * <p>
    **Added In:** 2102181953
    * <p>

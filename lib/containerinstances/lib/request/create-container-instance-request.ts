@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CreateContainerInstanceRequest extends common.BaseRequest {
   /**
-   * Details for the new ContainerInstance.
+   * Details for the new container instance.
    */
   "createContainerInstanceDetails": model.CreateContainerInstanceDetails;
   /**
@@ -32,7 +32,7 @@ export interface CreateContainerInstanceRequest extends common.BaseRequest {
    */
   "opcRetryToken"?: string;
   /**
-   * The client request ID for tracing.
+   * Unique Oracle-assigned identifier for the request. If you need to contact Oracle about a particular request, please provide the request ID.
    */
   "opcRequestId"?: string;
 }

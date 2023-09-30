@@ -19,6 +19,10 @@ import common = require("oci-common");
  */
 export interface RuntimeOperator {
   /**
+   * The RuntimeOperator key.
+   */
+  "key"?: string;
+  /**
    * The TaskRun key.
    */
   "taskRunKey"?: string;
@@ -35,6 +39,27 @@ export interface RuntimeOperator {
    */
   "status"?: RuntimeOperator.Status;
   /**
+   * The type of the object.
+   */
+  "modelType"?: string;
+  /**
+   * The model version of an object.
+   */
+  "modelVersion"?: string;
+  "parentRef"?: model.ParentReference;
+  /**
+   * Free form text without any restriction on permitted characters. Name can have letters, numbers, and special characters. The value is editable and is restricted to 1000 characters.
+   */
+  "name"?: string;
+  /**
+   * The version of the object that is used to track changes in the object instance. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "objectVersion"?: number;
+  /**
+   * Value can only contain upper case letters, underscore and numbers. It should begin with upper case letter or underscore. The value can be modified.
+   */
+  "identifier"?: string;
+  /**
    * status
    */
   "executionState"?: RuntimeOperator.ExecutionState;
@@ -43,6 +68,34 @@ export interface RuntimeOperator {
    */
   "parameters"?: Array<model.Parameter>;
   /**
+   * The status of an object that can be set to value 1 for shallow references across objects, other values reserved. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "objectStatus"?: number;
+  "metadata"?: model.ObjectMetadata;
+  "operator"?:
+    | model.Joiner
+    | model.TaskOperator
+    | model.Flatten
+    | model.Aggregator
+    | model.SortOper
+    | model.Projection
+    | model.EndOperator
+    | model.Source
+    | model.Union
+    | model.ExpressionOperator
+    | model.Function
+    | model.DecisionOperator
+    | model.Intersect
+    | model.Target
+    | model.Distinct
+    | model.Filter
+    | model.Lookup
+    | model.Pivot
+    | model.StartOperator
+    | model.MergeOperator
+    | model.Split
+    | model.Minus;
+  /**
    * The configuration provider bindings.
    */
   "inputs"?: { [key: string]: model.ParameterValue };
@@ -50,6 +103,15 @@ export interface RuntimeOperator {
    * The configuration provider bindings.
    */
   "outputs"?: { [key: string]: model.ParameterValue };
+  /**
+   * The type of task run.
+   */
+  "taskType"?: RuntimeOperator.TaskType;
+  "configProvider"?: model.ConfigProvider;
+  /**
+   * The type of Runtime Operator
+   */
+  "operatorType"?: RuntimeOperator.OperatorType;
   /**
    * A map metrics for the task run.
    */
@@ -80,6 +142,39 @@ export namespace RuntimeOperator {
     Error = "ERROR",
     Skipped = "SKIPPED",
     Unknown = "UNKNOWN",
+    Ignored = "IGNORED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum TaskType {
+    IntegrationTask = "INTEGRATION_TASK",
+    DataLoaderTask = "DATA_LOADER_TASK",
+    PipelineTask = "PIPELINE_TASK",
+    SqlTask = "SQL_TASK",
+    OciDataflowTask = "OCI_DATAFLOW_TASK",
+    RestTask = "REST_TASK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum OperatorType {
+    BashOperator = "BASH_OPERATOR",
+    TaskOperator = "TASK_OPERATOR",
+    RestOperator = "REST_OPERATOR",
+    StartOperator = "START_OPERATOR",
+    EndOperator = "END_OPERATOR",
+    ExpressionOperator = "EXPRESSION_OPERATOR",
+    MergeOperator = "MERGE_OPERATOR",
+    DecisionOperator = "DECISION_OPERATOR",
+    LoopOperator = "LOOP_OPERATOR",
+    ActualEndOperator = "ACTUAL_END_OPERATOR",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -91,16 +186,25 @@ export namespace RuntimeOperator {
     const jsonObj = {
       ...obj,
       ...{
+        "parentRef": obj.parentRef ? model.ParentReference.getJsonObj(obj.parentRef) : undefined,
+
         "parameters": obj.parameters
           ? obj.parameters.map(item => {
               return model.Parameter.getJsonObj(item);
             })
           : undefined,
+
+        "metadata": obj.metadata ? model.ObjectMetadata.getJsonObj(obj.metadata) : undefined,
+        "operator": obj.operator ? model.Operator.getJsonObj(obj.operator) : undefined,
         "inputs": obj.inputs
           ? common.mapContainer(obj.inputs, model.ParameterValue.getJsonObj)
           : undefined,
         "outputs": obj.outputs
           ? common.mapContainer(obj.outputs, model.ParameterValue.getJsonObj)
+          : undefined,
+
+        "configProvider": obj.configProvider
+          ? model.ConfigProvider.getJsonObj(obj.configProvider)
           : undefined
       }
     };
@@ -111,16 +215,29 @@ export namespace RuntimeOperator {
     const jsonObj = {
       ...obj,
       ...{
+        "parentRef": obj.parentRef
+          ? model.ParentReference.getDeserializedJsonObj(obj.parentRef)
+          : undefined,
+
         "parameters": obj.parameters
           ? obj.parameters.map(item => {
               return model.Parameter.getDeserializedJsonObj(item);
             })
           : undefined,
+
+        "metadata": obj.metadata
+          ? model.ObjectMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined,
+        "operator": obj.operator ? model.Operator.getDeserializedJsonObj(obj.operator) : undefined,
         "inputs": obj.inputs
           ? common.mapContainer(obj.inputs, model.ParameterValue.getDeserializedJsonObj)
           : undefined,
         "outputs": obj.outputs
           ? common.mapContainer(obj.outputs, model.ParameterValue.getDeserializedJsonObj)
+          : undefined,
+
+        "configProvider": obj.configProvider
+          ? model.ConfigProvider.getDeserializedJsonObj(obj.configProvider)
           : undefined
       }
     };

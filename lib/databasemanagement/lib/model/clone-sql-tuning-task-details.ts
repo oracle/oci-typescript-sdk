@@ -19,6 +19,7 @@ import common = require("oci-common");
 
 /**
  * The request to clone and run a SQL tuning task. The new task uses the same inputs as the one being cloned.
+ *
  */
 export interface CloneSqlTuningTaskDetails {
   /**

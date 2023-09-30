@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ExtensionMfaUser {
   /**
-   * Preferred Authentication Factor Type
+   * The preferred authentication factor type.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -36,7 +36,7 @@ export interface ExtensionMfaUser {
    */
   "preferredAuthenticationFactor"?: ExtensionMfaUser.PreferredAuthenticationFactor;
   /**
-   * User Opted for MFA
+   * The user opted for MFA.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -45,6 +45,7 @@ export interface ExtensionMfaUser {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: string
@@ -52,7 +53,7 @@ export interface ExtensionMfaUser {
    */
   "mfaStatus"?: ExtensionMfaUser.MfaStatus;
   /**
-   * Preferred Third party vendor name
+   * The preferred third-party vendor name.
    * <p>
    **Added In:** 19.2.1
    * <p>
@@ -68,7 +69,7 @@ export interface ExtensionMfaUser {
    */
   "preferredThirdPartyVendor"?: string;
   /**
-   * Preferred Authentication method
+   * The preferred authentication method.
    * <p>
    **Added In:** 2009232244
    * <p>
@@ -84,7 +85,7 @@ export interface ExtensionMfaUser {
    */
   "preferredAuthenticationMethod"?: string;
   /**
-   * Number of incorrect Multi Factor Authentication login attempts made by this user. The user gets locked, if this reaches the threshold specified in the maxIncorrectAttempts attribute in AuthenticationFactorSettings
+   * The number of incorrect multi factor authentication sign in attempts made by this user. The user is  locked if this reaches the threshold specified in the maxIncorrectAttempts attribute in AuthenticationFactorSettings.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -92,6 +93,8 @@ export interface ExtensionMfaUser {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: integer
@@ -99,7 +102,7 @@ export interface ExtensionMfaUser {
    */
   "loginAttempts"?: number;
   /**
-   * This represents the date when the user enrolled for multi factor authentication. This will be set to null, when the user resets his factors.
+   * The date when the user enrolled in multi factor authentication. This will be set to null, when the user resets their factors.
    * <p>
    **Added In:** 18.3.6
    * <p>
@@ -146,7 +149,7 @@ export interface ExtensionMfaUser {
    */
   "devices"?: Array<model.UserExtDevices>;
   /**
-   * A list of bypass codes belongs to user
+   * A list of bypass codes that belongs to the user.
    * <p>
    **Added In:** 18.3.6
    * <p>

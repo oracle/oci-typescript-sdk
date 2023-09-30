@@ -24,7 +24,7 @@ export interface DrProtectionGroupMember {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.instance.oc1.phx.exampleocid1`
+Example: `ocid1.instance.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "memberId": string;
@@ -43,6 +43,11 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberVolumeGroup>(<object>jsonObj),
             true
           );
+        case "COMPUTE_INSTANCE_MOVABLE":
+          return model.DrProtectionGroupMemberComputeInstanceMovable.getJsonObj(
+            <model.DrProtectionGroupMemberComputeInstanceMovable>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.DrProtectionGroupMemberAutonomousDatabase.getJsonObj(
             <model.DrProtectionGroupMemberAutonomousDatabase>(<object>jsonObj),
@@ -51,6 +56,11 @@ export namespace DrProtectionGroupMember {
         case "COMPUTE_INSTANCE":
           return model.DrProtectionGroupMemberComputeInstance.getJsonObj(
             <model.DrProtectionGroupMemberComputeInstance>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_NON_MOVABLE":
+          return model.DrProtectionGroupMemberComputeInstanceNonMovable.getJsonObj(
+            <model.DrProtectionGroupMemberComputeInstanceNonMovable>(<object>jsonObj),
             true
           );
         case "DATABASE":
@@ -74,6 +84,11 @@ export namespace DrProtectionGroupMember {
             <model.DrProtectionGroupMemberVolumeGroup>(<object>jsonObj),
             true
           );
+        case "COMPUTE_INSTANCE_MOVABLE":
+          return model.DrProtectionGroupMemberComputeInstanceMovable.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberComputeInstanceMovable>(<object>jsonObj),
+            true
+          );
         case "AUTONOMOUS_DATABASE":
           return model.DrProtectionGroupMemberAutonomousDatabase.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberAutonomousDatabase>(<object>jsonObj),
@@ -82,6 +97,11 @@ export namespace DrProtectionGroupMember {
         case "COMPUTE_INSTANCE":
           return model.DrProtectionGroupMemberComputeInstance.getDeserializedJsonObj(
             <model.DrProtectionGroupMemberComputeInstance>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_NON_MOVABLE":
+          return model.DrProtectionGroupMemberComputeInstanceNonMovable.getDeserializedJsonObj(
+            <model.DrProtectionGroupMemberComputeInstanceNonMovable>(<object>jsonObj),
             true
           );
         case "DATABASE":

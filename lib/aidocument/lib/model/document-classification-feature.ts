@@ -22,6 +22,14 @@ export interface DocumentClassificationFeature extends model.DocumentFeature {
    * The maximum number of results to return. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "maxResults"?: number;
+  /**
+   * The custom model ID.
+   */
+  "modelId"?: string;
+  /**
+   * The custom model tenancy ID when modelId represents aliasName.
+   */
+  "tenancyId"?: string;
 
   "featureType": string;
 }

@@ -108,6 +108,7 @@ export interface InvoiceSummary {
    */
   "isDisplayDownloadPdf"?: boolean;
   "lastPaymentDetail"?:
+    | model.EcheckPaymentDetail
     | model.OtherPaymentDetail
     | model.PaypalPaymentDetail
     | model.CreditCardPaymentDetail;

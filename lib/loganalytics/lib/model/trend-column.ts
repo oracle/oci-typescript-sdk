@@ -35,8 +35,20 @@ export interface TrendColumn extends model.AbstractColumn {
    *
    */
   "totalIntervalCounts"?: Array<number>;
+  /**
+   * Sum of column values for a given timestamp after applying filter.
+   *
+   */
   "totalIntervalCountsAfterFilter"?: Array<number>;
+  /**
+   * Number of aggregated groups for a given timestamp.
+   *
+   */
   "intervalGroupCounts"?: Array<number>;
+  /**
+   * Number of aggregated groups for a given timestamp after applying filter.
+   *
+   */
   "intervalGroupCountsAfterFilter"?: Array<number>;
 
   "type": string;

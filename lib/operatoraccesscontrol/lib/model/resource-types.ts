@@ -27,6 +27,7 @@ export enum ResourceTypes {
   Exadatainfrastructure = "EXADATAINFRASTRUCTURE",
   Autonomousvmcluster = "AUTONOMOUSVMCLUSTER",
   Cloudautonomousvmcluster = "CLOUDAUTONOMOUSVMCLUSTER",
+  Cccinfrastructure = "CCCINFRASTRUCTURE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

@@ -66,8 +66,13 @@ export interface ListJobsRequest extends common.BaseRequest {
    */
   "dataAssetKey"?: string;
   /**
+   * Unique glossary key.
+   */
+  "glossaryKey"?: string;
+  /**
    * Interval on which the job will be run. Value is specified as a cron-supported time specification \"nickname\".
    * The following subset of those is supported: @monthly, @weekly, @daily, @hourly.
+   * For metastore sync, an additional option @default is supported, which will schedule jobs at a more granular frequency.
    *
    */
   "scheduleCronExpression"?: string;

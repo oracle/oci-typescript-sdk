@@ -15,17 +15,17 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Details used to schedule maintenance window.
+ * Details required to schedule maintenance window.
  */
 export interface MaintenanceWindowSchedule {
   /**
-   * Start time for the maintenance window, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * Start time of the maintenance window, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    * Example: `2020-02-12T22:47:12.613Z`
    *
    */
   "timeStarted"?: Date;
   /**
-   * End time for the maintenance window, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
+   * End time of the maintenance window, expressed in [RFC 3339](https://tools.ietf.org/html/rfc3339) timestamp format.
    * Example: `2020-02-12T22:47:12.613Z`
    *
    */

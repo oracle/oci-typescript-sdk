@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of auth tokens corresponding to user.
+ * A list of Auth tokens corresponding to user.
  * <p>
  **Added In:** 2012271618
  * <p>
@@ -32,7 +32,7 @@ import common = require("oci-common");
  */
 export interface UserExtAuthTokens {
   /**
-   * The identifier of the User's auth token.
+   * The user's Auth token identifier.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -48,7 +48,7 @@ export interface UserExtAuthTokens {
    */
   "value"?: string;
   /**
-   * Ocid of the User's auth token.
+   * The user's Auth token OCID.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -64,7 +64,7 @@ export interface UserExtAuthTokens {
    */
   "ocid"?: string;
   /**
-   * The URI of the corresponding AuthToken resource to which the user belongs
+   * The URI of the corresponding AuthToken resource to which the user belongs.
    * <p>
    **Added In:** 2012271618
    * <p>

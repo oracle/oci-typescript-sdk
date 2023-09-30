@@ -1,6 +1,6 @@
 {
   "name": "oci-monitoring",
-  "version": "2.62.1",
+  "version": "2.70.2",
   "description": "OCI NodeJS client for Monitoring",
   "repository": {
     "type": "git",

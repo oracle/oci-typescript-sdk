@@ -15,28 +15,28 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The shape configuration for a Container Instance. The shape configuration determines
- * the resources allocated to the Instance and it's containers.
+ * The shape configuration for a container instance. The shape configuration determines
+ * the resources thats are available to the container instance and its containers.
  *
  */
 export interface ContainerInstanceShapeConfig {
   /**
-   * The total number of OCPUs available to the instance.
+   * The total number of OCPUs available to the container instance.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "ocpus": number;
   /**
-   * The total amount of memory available to the instance, in gigabytes.
+   * The total amount of memory available to the container instance, in gigabytes.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryInGBs": number;
   /**
-   * A short description of the instance's processor (CPU).
+   * A short description of the container instance's processor (CPU).
    *
    */
   "processorDescription": string;
   /**
-   * The networking bandwidth available to the instance, in gigabits per second.
+   * The networking bandwidth available to the container instance, in gigabits per second.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "networkingBandwidthInGbps": number;

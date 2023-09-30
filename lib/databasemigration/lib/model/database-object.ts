@@ -35,6 +35,11 @@ export interface DatabaseObject {
    *
    */
   "type"?: string;
+  /**
+   * Whether an excluded table should be omitted from replication. Only valid for database objects that have are of type TABLE and that are included in the exludeObjects.
+   *
+   */
+  "isOmitExcludedTableFromReplication"?: boolean;
 }
 
 export namespace DatabaseObject {

@@ -60,6 +60,8 @@ import * as ChangeExternalPluggableDatabaseCompartmentRequest from "./change-ext
 export import ChangeExternalPluggableDatabaseCompartmentRequest = ChangeExternalPluggableDatabaseCompartmentRequest.ChangeExternalPluggableDatabaseCompartmentRequest;
 import * as ChangeKeyStoreCompartmentRequest from "./change-key-store-compartment-request";
 export import ChangeKeyStoreCompartmentRequest = ChangeKeyStoreCompartmentRequest.ChangeKeyStoreCompartmentRequest;
+import * as ChangeKeyStoreTypeRequest from "./change-key-store-type-request";
+export import ChangeKeyStoreTypeRequest = ChangeKeyStoreTypeRequest.ChangeKeyStoreTypeRequest;
 import * as ChangeOneoffPatchCompartmentRequest from "./change-oneoff-patch-compartment-request";
 export import ChangeOneoffPatchCompartmentRequest = ChangeOneoffPatchCompartmentRequest.ChangeOneoffPatchCompartmentRequest;
 import * as ChangeVmClusterCompartmentRequest from "./change-vm-cluster-compartment-request";
@@ -246,6 +248,8 @@ import * as GetAutonomousContainerDatabaseRequest from "./get-autonomous-contain
 export import GetAutonomousContainerDatabaseRequest = GetAutonomousContainerDatabaseRequest.GetAutonomousContainerDatabaseRequest;
 import * as GetAutonomousContainerDatabaseDataguardAssociationRequest from "./get-autonomous-container-database-dataguard-association-request";
 export import GetAutonomousContainerDatabaseDataguardAssociationRequest = GetAutonomousContainerDatabaseDataguardAssociationRequest.GetAutonomousContainerDatabaseDataguardAssociationRequest;
+import * as GetAutonomousContainerDatabaseResourceUsageRequest from "./get-autonomous-container-database-resource-usage-request";
+export import GetAutonomousContainerDatabaseResourceUsageRequest = GetAutonomousContainerDatabaseResourceUsageRequest.GetAutonomousContainerDatabaseResourceUsageRequest;
 import * as GetAutonomousDatabaseRequest from "./get-autonomous-database-request";
 export import GetAutonomousDatabaseRequest = GetAutonomousDatabaseRequest.GetAutonomousDatabaseRequest;
 import * as GetAutonomousDatabaseBackupRequest from "./get-autonomous-database-backup-request";
@@ -270,6 +274,8 @@ import * as GetBackupDestinationRequest from "./get-backup-destination-request";
 export import GetBackupDestinationRequest = GetBackupDestinationRequest.GetBackupDestinationRequest;
 import * as GetCloudAutonomousVmClusterRequest from "./get-cloud-autonomous-vm-cluster-request";
 export import GetCloudAutonomousVmClusterRequest = GetCloudAutonomousVmClusterRequest.GetCloudAutonomousVmClusterRequest;
+import * as GetCloudAutonomousVmClusterResourceUsageRequest from "./get-cloud-autonomous-vm-cluster-resource-usage-request";
+export import GetCloudAutonomousVmClusterResourceUsageRequest = GetCloudAutonomousVmClusterResourceUsageRequest.GetCloudAutonomousVmClusterResourceUsageRequest;
 import * as GetCloudExadataInfrastructureRequest from "./get-cloud-exadata-infrastructure-request";
 export import GetCloudExadataInfrastructureRequest = GetCloudExadataInfrastructureRequest.GetCloudExadataInfrastructureRequest;
 import * as GetCloudExadataInfrastructureUnallocatedResourcesRequest from "./get-cloud-exadata-infrastructure-unallocated-resources-request";
@@ -394,6 +400,8 @@ import * as ListBackupDestinationRequest from "./list-backup-destination-request
 export import ListBackupDestinationRequest = ListBackupDestinationRequest.ListBackupDestinationRequest;
 import * as ListBackupsRequest from "./list-backups-request";
 export import ListBackupsRequest = ListBackupsRequest.ListBackupsRequest;
+import * as ListCloudAutonomousVmClusterAcdResourceUsageRequest from "./list-cloud-autonomous-vm-cluster-acd-resource-usage-request";
+export import ListCloudAutonomousVmClusterAcdResourceUsageRequest = ListCloudAutonomousVmClusterAcdResourceUsageRequest.ListCloudAutonomousVmClusterAcdResourceUsageRequest;
 import * as ListCloudAutonomousVmClustersRequest from "./list-cloud-autonomous-vm-clusters-request";
 export import ListCloudAutonomousVmClustersRequest = ListCloudAutonomousVmClustersRequest.ListCloudAutonomousVmClustersRequest;
 import * as ListCloudExadataInfrastructuresRequest from "./list-cloud-exadata-infrastructures-request";
@@ -526,6 +534,8 @@ import * as RotateCloudAutonomousVmClusterSslCertsRequest from "./rotate-cloud-a
 export import RotateCloudAutonomousVmClusterSslCertsRequest = RotateCloudAutonomousVmClusterSslCertsRequest.RotateCloudAutonomousVmClusterSslCertsRequest;
 import * as RotateOrdsCertsRequest from "./rotate-ords-certs-request";
 export import RotateOrdsCertsRequest = RotateOrdsCertsRequest.RotateOrdsCertsRequest;
+import * as RotatePluggableDatabaseEncryptionKeyRequest from "./rotate-pluggable-database-encryption-key-request";
+export import RotatePluggableDatabaseEncryptionKeyRequest = RotatePluggableDatabaseEncryptionKeyRequest.RotatePluggableDatabaseEncryptionKeyRequest;
 import * as RotateSslCertsRequest from "./rotate-ssl-certs-request";
 export import RotateSslCertsRequest = RotateSslCertsRequest.RotateSslCertsRequest;
 import * as RotateVaultKeyRequest from "./rotate-vault-key-request";
@@ -580,6 +590,8 @@ import * as UpdateCloudVmClusterRequest from "./update-cloud-vm-cluster-request"
 export import UpdateCloudVmClusterRequest = UpdateCloudVmClusterRequest.UpdateCloudVmClusterRequest;
 import * as UpdateCloudVmClusterIormConfigRequest from "./update-cloud-vm-cluster-iorm-config-request";
 export import UpdateCloudVmClusterIormConfigRequest = UpdateCloudVmClusterIormConfigRequest.UpdateCloudVmClusterIormConfigRequest;
+import * as UpdateConsoleConnectionRequest from "./update-console-connection-request";
+export import UpdateConsoleConnectionRequest = UpdateConsoleConnectionRequest.UpdateConsoleConnectionRequest;
 import * as UpdateDataGuardAssociationRequest from "./update-data-guard-association-request";
 export import UpdateDataGuardAssociationRequest = UpdateDataGuardAssociationRequest.UpdateDataGuardAssociationRequest;
 import * as UpdateDatabaseRequest from "./update-database-request";
@@ -588,6 +600,8 @@ import * as UpdateDatabaseSoftwareImageRequest from "./update-database-software-
 export import UpdateDatabaseSoftwareImageRequest = UpdateDatabaseSoftwareImageRequest.UpdateDatabaseSoftwareImageRequest;
 import * as UpdateDbHomeRequest from "./update-db-home-request";
 export import UpdateDbHomeRequest = UpdateDbHomeRequest.UpdateDbHomeRequest;
+import * as UpdateDbNodeRequest from "./update-db-node-request";
+export import UpdateDbNodeRequest = UpdateDbNodeRequest.UpdateDbNodeRequest;
 import * as UpdateDbSystemRequest from "./update-db-system-request";
 export import UpdateDbSystemRequest = UpdateDbSystemRequest.UpdateDbSystemRequest;
 import * as UpdateExadataInfrastructureRequest from "./update-exadata-infrastructure-request";

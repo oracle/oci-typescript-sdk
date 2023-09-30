@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -13,6 +19,8 @@
 
 import * as CreateIncidentResponse from "./create-incident-response";
 export import CreateIncidentResponse = CreateIncidentResponse.CreateIncidentResponse;
+import * as GetCsiNumberResponse from "./get-csi-number-response";
+export import GetCsiNumberResponse = GetCsiNumberResponse.GetCsiNumberResponse;
 import * as GetIncidentResponse from "./get-incident-response";
 export import GetIncidentResponse = GetIncidentResponse.GetIncidentResponse;
 import * as GetStatusResponse from "./get-status-response";
@@ -25,5 +33,3 @@ import * as UpdateIncidentResponse from "./update-incident-response";
 export import UpdateIncidentResponse = UpdateIncidentResponse.UpdateIncidentResponse;
 import * as ValidateUserResponse from "./validate-user-response";
 export import ValidateUserResponse = ValidateUserResponse.ValidateUserResponse;
-import * as CreateUserResponse from "./create-user-response";
-export import CreateUserResponse = CreateUserResponse.CreateUserResponse;

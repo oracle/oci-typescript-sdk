@@ -17,7 +17,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Specific connection details for an IPSec tunnel.
+ * Deprecated. For tunnel information, instead see {@link IPSecConnectionTunnel}.
  *
  */
 export interface TunnelStatus {
@@ -53,6 +53,7 @@ export namespace TunnelStatus {
     Up = "UP",
     Down = "DOWN",
     DownForMaintenance = "DOWN_FOR_MAINTENANCE",
+    PartialUp = "PARTIAL_UP",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

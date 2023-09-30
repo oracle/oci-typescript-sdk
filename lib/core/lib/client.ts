@@ -48,6 +48,7 @@ export class BlockstorageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Blockstorage";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -67,6 +68,9 @@ export class BlockstorageClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -79,7 +83,12 @@ export class BlockstorageClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -5566,6 +5575,7 @@ export class ComputeClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Compute";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -5585,6 +5595,9 @@ export class ComputeClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = false;
@@ -5597,7 +5610,12 @@ export class ComputeClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -6290,7 +6308,7 @@ The `CaptureConsoleHistory` operation works with the other console history opera
 
   /**
      * Moves a compute cluster into a different compartment within the same tenancy.
-* A compute cluster is a remote direct memory access (RDMA) network group.
+* A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a remote direct memory access (RDMA) network group.
 * <p>
 For information about moving resources between compartments, see
 * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
@@ -6967,13 +6985,19 @@ Use the capacity report to determine whether sufficient capacity is available fo
   }
 
   /**
-     * Creates an empty compute cluster, which is a remote direct memory access (RDMA) network group.
-* After the compute cluster is created, you can use the compute cluster's OCID with the
-* {@link #launchInstance(LaunchInstanceRequest) launchInstance} operation to create instances in the compute cluster.
-* For more information, see [Compute Clusters](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm).
+     * Creates an empty [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
+* is a remote direct memory access (RDMA) network group.
 * <p>
-To create a cluster network that uses intance pools to manage groups of identical instances,
-* see {@link #createClusterNetwork(CreateClusterNetworkRequest) createClusterNetwork}.
+After the compute cluster is created, you can use the compute cluster's OCID with the
+* {@link #launchInstance(LaunchInstanceRequest) launchInstance} operation to create instances in the compute cluster.
+* The instances must be created in the same compartment and availability domain as the cluster.
+* <p>
+Use compute clusters when you want to manage instances in the cluster individually, or when you want
+* to use different types of instances in the RDMA network group.
+* <p>
+If you want predictable capacity for a specific number of identical instances that are managed as a group,
+* create a cluster network that uses instance pools by using the
+* {@link #createClusterNetwork(CreateClusterNetworkRequest) createClusterNetwork} operation.
 * 
      * This operation does not retry by default if the user has not defined a retry configuration.
      * @param CreateComputeClusterRequest
@@ -7558,15 +7582,18 @@ For more information about instance console connections, see [Troubleshooting In
   }
 
   /**
-   * Deletes the compute cluster, which is a remote direct memory access (RDMA) network group.
-   * To delete a compute cluster, all instances in the cluster must be deleted first.
-   *
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param DeleteComputeClusterRequest
-   * @return DeleteComputeClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCluster.ts.html |here} to see how to use DeleteComputeCluster API.
-   */
+     * Deletes a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
+* remote direct memory access (RDMA) network group.
+* <p>
+Before you delete a compute cluster, first delete all instances in the cluster by using
+* the {@link #terminateInstance(TerminateInstanceRequest) terminateInstance} operation.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DeleteComputeClusterRequest
+     * @return DeleteComputeClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/DeleteComputeCluster.ts.html |here} to see how to use DeleteComputeCluster API.
+     */
   public async deleteComputeCluster(
     deleteComputeClusterRequest: requests.DeleteComputeClusterRequest
   ): Promise<responses.DeleteComputeClusterResponse> {
@@ -8673,7 +8700,9 @@ See [Object Storage URLs](https://docs.cloud.oracle.com/iaas/Content/Compute/Tas
   }
 
   /**
-   * Gets information about the specified compute cluster.
+   * Gets information about a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm)
+   * is a remote direct memory access (RDMA) network group.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetComputeClusterRequest
    * @return GetComputeClusterResponse
@@ -13440,7 +13469,7 @@ Currently, the only supported volume attachment type are {@link IScsiVolumeAttac
   }
 
   /**
-     * Terminates (deletes) the specified instance. Any attached VNICs and volumes are automatically detached
+     * Permanently terminates (deletes) the specified instance. Any attached VNICs and volumes are automatically detached
 * when the instance terminates.
 * <p>
 To preserve the boot volume associated with the instance, specify `true` for `PreserveBootVolumeQueryParam`.
@@ -13599,13 +13628,21 @@ This is an asynchronous operation. The instance's `lifecycleState` changes to TE
   }
 
   /**
-   * Updates the specified compute cluster.
-   * This operation does not retry by default if the user has not defined a retry configuration.
-   * @param UpdateComputeClusterRequest
-   * @return UpdateComputeClusterResponse
-   * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCluster.ts.html |here} to see how to use UpdateComputeCluster API.
-   */
+     * Updates a compute cluster. A [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm) is a
+* remote direct memory access (RDMA) network group.
+* <p>
+To create instances within a compute cluster, use the {@link #launchInstance(LaunchInstanceRequest) launchInstance}
+* operation.
+* <p>
+To delete instances from a compute cluster, use the {@link #terminateInstance(TerminateInstanceRequest) terminateInstance}
+* operation.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param UpdateComputeClusterRequest
+     * @return UpdateComputeClusterResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/UpdateComputeCluster.ts.html |here} to see how to use UpdateComputeCluster API.
+     */
   public async updateComputeCluster(
     updateComputeClusterRequest: requests.UpdateComputeClusterRequest
   ): Promise<responses.UpdateComputeClusterResponse> {
@@ -14288,6 +14325,7 @@ export class ComputeManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "ComputeManagement";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -14307,6 +14345,9 @@ export class ComputeManagementClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -14319,7 +14360,12 @@ export class ComputeManagementClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -14618,7 +14664,8 @@ export class ComputeManagementClient {
   }
 
   /**
-     * Moves a cluster network into a different compartment within the same tenancy. For
+     * Moves a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
+* into a different compartment within the same tenancy. For
 * information about moving resources between compartments, see
 * [Moving Resources to a Different Compartment](https://docs.cloud.oracle.com/iaas/Content/Identity/Tasks/managingcompartments.htm#moveRes).
 * <p>
@@ -14888,8 +14935,17 @@ When you move an instance pool to a different compartment, associated resources 
   }
 
   /**
-     * Creates a cluster network. For more information about cluster networks, see
-* [Managing Cluster Networks](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+     * Creates a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+* A cluster network is a group of high performance computing (HPC), GPU, or optimized bare metal
+* instances that are connected with an ultra low-latency remote direct memory access (RDMA) network.
+* Cluster networks with instance pools use instance pools to manage groups of identical instances.
+* <p>
+Use cluster networks with instance pools when you want predictable capacity for a specific number of identical
+* instances that are managed as a group.
+* <p>
+If you want to manage instances in the RDMA network independently of each other or use different types of instances
+* in the network group, create a compute cluster by using the {@link #createComputeCluster(CreateComputeClusterRequest) createComputeCluster}
+* operation.
 * <p>
 To determine whether capacity is available for a specific shape before you create a cluster network,
 * use the {@link #createComputeCapacityReport(CreateComputeCapacityReportRequest) createComputeCapacityReport}
@@ -15376,7 +15432,8 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Gets information about the specified cluster network.
+   * Gets information about a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetClusterNetworkRequest
    * @return GetClusterNetworkResponse
@@ -15856,7 +15913,8 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Lists the instances in the specified cluster network.
+   * Lists the instances in a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworkInstancesRequest
    * @return ListClusterNetworkInstancesResponse
@@ -15991,7 +16049,9 @@ To determine whether capacity is available for a specific shape before you creat
   }
 
   /**
-   * Lists the cluster networks in the specified compartment.
+   * Lists the [cluster networks with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm)
+   * in the specified compartment.
+   *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListClusterNetworksRequest
    * @return ListClusterNetworksResponse
@@ -16933,7 +16993,7 @@ Softstop gracefully reboots the instances by sending a shutdown command to the o
   }
 
   /**
-     * Terminates the specified cluster network.
+     * Deletes (terminates) a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
 * <p>
 When you delete a cluster network, all of its resources are permanently deleted,
 * including associated instances and instance pools.
@@ -17085,7 +17145,8 @@ If an autoscaling configuration applies to the instance pool, the autoscaling co
   }
 
   /**
-   * Updates the specified cluster network. The OCID of the cluster network remains the same.
+   * Updates a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+   * The OCID of the cluster network remains the same.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateClusterNetworkRequest
@@ -17351,6 +17412,7 @@ export class VirtualNetworkClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "VirtualNetwork";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -17370,6 +17432,9 @@ export class VirtualNetworkClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -17382,7 +17447,12 @@ export class VirtualNetworkClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -17660,7 +17730,7 @@ export class VirtualNetworkClient {
   }
 
   /**
-   * Add an IPv6 CIDR to a subnet.
+   * Add an IPv6 prefix to a subnet.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddIpv6SubnetCidrRequest
@@ -17745,8 +17815,8 @@ export class VirtualNetworkClient {
   }
 
   /**
-   * Add an IPv6 CIDR to a VCN. The VCN size is always /56 and assigned by Oracle.
-   * Once added the IPv6 CIDR block cannot be removed or modified.
+   * Add an IPv6 prefix to a VCN. The VCN size is always /56 and assigned by Oracle.
+   * Once added the IPv6 prefix cannot be removed or modified.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param AddIpv6VcnCidrRequest
@@ -34649,6 +34719,144 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
+   * Gets the specified virtual circuit's associatedTunnelsInfo.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListVirtualCircuitAssociatedTunnelsRequest
+   * @return ListVirtualCircuitAssociatedTunnelsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/core/ListVirtualCircuitAssociatedTunnels.ts.html |here} to see how to use ListVirtualCircuitAssociatedTunnels API.
+   */
+  public async listVirtualCircuitAssociatedTunnels(
+    listVirtualCircuitAssociatedTunnelsRequest: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): Promise<responses.ListVirtualCircuitAssociatedTunnelsResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation VirtualNetworkClient#listVirtualCircuitAssociatedTunnels."
+      );
+    const operationName = "listVirtualCircuitAssociatedTunnels";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/iaas/20160918/VirtualCircuitAssociatedTunnelDetails/ListVirtualCircuitAssociatedTunnels";
+    const pathParams = {
+      "{virtualCircuitId}": listVirtualCircuitAssociatedTunnelsRequest.virtualCircuitId
+    };
+
+    const queryParams = {
+      "limit": listVirtualCircuitAssociatedTunnelsRequest.limit,
+      "page": listVirtualCircuitAssociatedTunnelsRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listVirtualCircuitAssociatedTunnelsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/virtualCircuits/{virtualCircuitId}/associatedTunnels",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListVirtualCircuitAssociatedTunnelsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.VirtualCircuitAssociatedTunnelDetails,
+        type: "Array<model.VirtualCircuitAssociatedTunnelDetails>",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitAssociatedTunnelsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.VirtualCircuitAssociatedTunnelDetails objects
+   * contained in responses from the listVirtualCircuitAssociatedTunnels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualCircuitAssociatedTunnels(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<model.VirtualCircuitAssociatedTunnelDetails> {
+    return paginateRecords(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listVirtualCircuitAssociatedTunnelsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuitAssociatedTunnels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllVirtualCircuitAssociatedTunnelsResponses(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<responses.ListVirtualCircuitAssociatedTunnelsResponse> {
+    return paginateResponses(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.VirtualCircuitAssociatedTunnelDetails objects
+   * contained in responses from the listVirtualCircuitAssociatedTunnels operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitAssociatedTunnelsRecordIterator(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<model.VirtualCircuitAssociatedTunnelDetails> {
+    return paginateRecords(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listVirtualCircuitAssociatedTunnels operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listVirtualCircuitAssociatedTunnelsResponseIterator(
+    request: requests.ListVirtualCircuitAssociatedTunnelsRequest
+  ): AsyncIterableIterator<responses.ListVirtualCircuitAssociatedTunnelsResponse> {
+    return paginateResponses(request, req => this.listVirtualCircuitAssociatedTunnels(req));
+  }
+
+  /**
    * The deprecated operation lists available bandwidth levels for virtual circuits. For the compartment ID, provide the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of your tenancy (the root compartment).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -35658,7 +35866,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
-   * Remove an IPv6 CIDR from a subnet. At least one IPv6 CIDR should remain.
+   * Remove an IPv6 prefix from a subnet. At least one IPv6 CIDR should remain.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveIpv6SubnetCidrRequest
@@ -35744,7 +35952,7 @@ To list the ephemeral public IPs assigned to private IPs:
   }
 
   /**
-   * Removing an existing IPv6 CIDR from a VCN.
+   * Removing an existing IPv6 prefix from a VCN.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param RemoveIpv6VcnCidrRequest

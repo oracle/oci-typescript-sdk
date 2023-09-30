@@ -1,6 +1,6 @@
 /**
  * Object Storage Service API
- * Common set of Object Storage and Archive Storage APIs for managing buckets, objects, and related resources.
+ * Use Object Storage and Archive Storage APIs to manage buckets, objects, and related resources.
 For more information, see [Overview of Object Storage](/Content/Object/Concepts/objectstorageoverview.htm) and
 [Overview of Archive Storage](/Content/Archive/Concepts/archivestorageoverview.htm).
 
@@ -37,7 +37,10 @@ export enum ObjectStorageApiKeys {}
  */
 export class ObjectStorageClient {
   protected static serviceEndpointTemplate = "https://objectstorage.{region}.{secondLevelDomain}";
-  protected static endpointServiceName = "";
+  protected static endpointServiceName = "objectstorage";
+  protected static serviceEndpointTemplatePerRealm = {
+    "oc1": "https://{namespaceName+Dot}objectstorage.{region}.oci.customer-oci.com"
+  };
   protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
   protected "_endpoint": string = "";
   protected "_defaultHeaders": any = {};
@@ -45,6 +48,7 @@ export class ObjectStorageClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "ObjectStorage";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -64,6 +68,9 @@ export class ObjectStorageClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -76,7 +83,12 @@ export class ObjectStorageClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -124,13 +136,17 @@ export class ObjectStorageClient {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
         ObjectStorageClient.serviceEndpointTemplate,
         this._region,
-        ObjectStorageClient.endpointServiceName
+        ObjectStorageClient.endpointServiceName,
+        ObjectStorageClient.serviceEndpointTemplatePerRealm,
+        this._realmSpecificEndpointTemplateEnabled
       );
     } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
       this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
         ObjectStorageClient.serviceEndpointTemplate,
         this._regionId,
-        ObjectStorageClient.endpointServiceName
+        ObjectStorageClient.endpointServiceName,
+        ObjectStorageClient.serviceEndpointTemplatePerRealm,
+        this._realmSpecificEndpointTemplateEnabled
       );
     }
   }
@@ -145,7 +161,9 @@ export class ObjectStorageClient {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
       ObjectStorageClient.serviceEndpointTemplate,
       region,
-      ObjectStorageClient.endpointServiceName
+      ObjectStorageClient.endpointServiceName,
+      ObjectStorageClient.serviceEndpointTemplatePerRealm,
+      this._realmSpecificEndpointTemplateEnabled
     );
     this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
   }
@@ -163,7 +181,9 @@ export class ObjectStorageClient {
     this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
       ObjectStorageClient.serviceEndpointTemplate,
       regionId,
-      ObjectStorageClient.endpointServiceName
+      ObjectStorageClient.endpointServiceName,
+      ObjectStorageClient.serviceEndpointTemplatePerRealm,
+      this._realmSpecificEndpointTemplateEnabled
     );
     this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
   }
@@ -223,6 +243,18 @@ export class ObjectStorageClient {
       "opc-client-request-id": abortMultipartUploadRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>([
+      "namespaceName",
+      "bucketName",
+      "objectName",
+      "uploadId"
+    ]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -231,7 +263,7 @@ export class ObjectStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/u/{objectName}",
       method: "DELETE",
@@ -296,6 +328,13 @@ export class ObjectStorageClient {
       "opc-client-request-id": cancelWorkRequestRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["workRequestId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -304,7 +343,7 @@ export class ObjectStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}",
       method: "DELETE",
@@ -376,6 +415,18 @@ export class ObjectStorageClient {
       "opc-client-request-id": commitMultipartUploadRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>([
+      "namespaceName",
+      "bucketName",
+      "objectName",
+      "uploadId"
+    ]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -384,7 +435,7 @@ export class ObjectStorageClient {
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/u/{objectName}",
       method: "POST",
@@ -485,6 +536,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-sse-kms-key-id": copyObjectRequest.opcSseKmsKeyId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -493,7 +551,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/actions/copyObject",
       method: "POST",
@@ -569,6 +627,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": createBucketRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -577,7 +642,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b",
       method: "POST",
@@ -672,6 +737,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-sse-kms-key-id": createMultipartUploadRequest.opcSseKmsKeyId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -680,7 +752,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/u",
       method: "POST",
@@ -761,6 +833,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": createPreauthenticatedRequestRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -769,7 +848,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/p",
       method: "POST",
@@ -845,6 +924,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": createReplicationPolicyRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -853,7 +939,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/replicationPolicies",
       method: "POST",
@@ -930,6 +1016,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": createRetentionRuleRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -938,7 +1031,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/retentionRules",
       method: "POST",
@@ -1022,6 +1115,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": deleteBucketRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1030,7 +1130,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}",
       method: "DELETE",
@@ -1100,6 +1200,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": deleteObjectRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1108,7 +1215,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/o/{objectName}",
       method: "DELETE",
@@ -1191,6 +1298,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "if-match": deleteObjectLifecyclePolicyRequest.ifMatch
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1199,7 +1313,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/l",
       method: "DELETE",
@@ -1266,6 +1380,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": deletePreauthenticatedRequestRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "parId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1274,7 +1395,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/p/{parId}",
       method: "DELETE",
@@ -1342,6 +1463,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": deleteReplicationPolicyRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "replicationId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1350,7 +1478,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/replicationPolicies/{replicationId}",
       method: "DELETE",
@@ -1418,6 +1546,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": deleteRetentionRuleRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1426,7 +1561,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/retentionRules/{retentionRuleId}",
       method: "DELETE",
@@ -1496,6 +1631,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": getBucketRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1504,7 +1646,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}",
       method: "GET",
@@ -1584,6 +1726,13 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
       "opc-client-request-id": getNamespaceRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>([]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1592,7 +1741,7 @@ GetNamespace returns the name of the Object Storage namespace for the user makin
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n",
       method: "GET",
@@ -1657,6 +1806,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getNamespaceMetadataRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1665,7 +1821,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}",
       method: "GET",
@@ -1750,6 +1906,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-sse-customer-key-sha256": getObjectRequest.opcSseCustomerKeySha256
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1758,7 +1921,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/o/{objectName}",
       method: "GET",
@@ -1917,6 +2080,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getObjectLifecyclePolicyRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -1925,7 +2095,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/l",
       method: "GET",
@@ -2001,6 +2171,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getPreauthenticatedRequestRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "parId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2009,7 +2186,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/p/{parId}",
       method: "GET",
@@ -2081,6 +2258,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getReplicationPolicyRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "replicationId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2089,7 +2273,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/replicationPolicies/{replicationId}",
       method: "GET",
@@ -2159,6 +2343,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getRetentionRuleRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2167,7 +2358,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/retentionRules/{retentionRuleId}",
       method: "GET",
@@ -2245,6 +2436,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": getWorkRequestRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["workRequestId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2253,7 +2451,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}",
       method: "GET",
@@ -2330,6 +2528,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-client-request-id": headBucketRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2338,7 +2543,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}",
       method: "HEAD",
@@ -2417,6 +2622,13 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
       "opc-sse-customer-key-sha256": headObjectRequest.opcSseCustomerKeySha256
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2425,7 +2637,7 @@ Any user with the OBJECTSTORAGE_NAMESPACE_READ permission will be able to see th
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/o/{objectName}",
       method: "HEAD",
@@ -2581,6 +2793,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listBucketsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "compartmentId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2589,7 +2808,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b",
       method: "GET",
@@ -2722,6 +2941,18 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listMultipartUploadPartsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>([
+      "namespaceName",
+      "bucketName",
+      "objectName",
+      "uploadId"
+    ]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2730,7 +2961,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/u/{objectName}",
       method: "GET",
@@ -2861,6 +3092,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listMultipartUploadsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -2869,7 +3107,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/u",
       method: "GET",
@@ -3012,6 +3250,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listObjectVersionsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3020,7 +3265,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/objectversions",
       method: "GET",
@@ -3112,6 +3357,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listObjectsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3120,7 +3372,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/o",
       method: "GET",
@@ -3269,6 +3521,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listPreauthenticatedRequestsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3277,7 +3536,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/p",
       method: "GET",
@@ -3408,6 +3667,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listReplicationPoliciesRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3416,7 +3682,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/replicationPolicies",
       method: "GET",
@@ -3547,6 +3813,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listReplicationSourcesRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3555,7 +3828,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/replicationSources",
       method: "GET",
@@ -3684,6 +3957,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "Content-Type": common.Constants.APPLICATION_JSON
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3692,7 +3972,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/retentionRules",
       method: "GET",
@@ -3769,6 +4049,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestErrorsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["workRequestId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3777,7 +4064,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/errors",
       method: "GET",
@@ -3906,6 +4193,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestLogsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["workRequestId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -3914,7 +4208,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests/{workRequestId}/logs",
       method: "GET",
@@ -4042,6 +4336,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": listWorkRequestsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["compartmentId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4050,7 +4351,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/workRequests",
       method: "GET",
@@ -4180,6 +4481,13 @@ To use this and other API operations, you must be authorized in an IAM policy. I
       "opc-client-request-id": makeBucketWritableRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4188,7 +4496,7 @@ To use this and other API operations, you must be authorized in an IAM policy. I
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/actions/makeBucketWritable",
       method: "POST",
@@ -4281,6 +4589,13 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
         Object.assign(headerParams, { ["opc-meta-" + key]: value });
       });
     }
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4289,7 +4604,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/o/{objectName}",
       method: "PUT",
@@ -4381,6 +4696,13 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
       "if-none-match": putObjectLifecyclePolicyRequest.ifNoneMatch
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4389,7 +4711,7 @@ See [Special Instructions for Object Storage PUT](https://docs.cloud.oracle.com/
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/l",
       method: "PUT",
@@ -4483,6 +4805,13 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
       "opc-client-request-id": reencryptBucketRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4491,7 +4820,7 @@ Calling this API starts a work request task to re-encrypt the data encryption ke
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/actions/reencrypt",
       method: "POST",
@@ -4573,6 +4902,13 @@ You can alternatively employ one of these encryption strategies for an object:
       "opc-client-request-id": reencryptObjectRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "objectName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4581,7 +4917,7 @@ You can alternatively employ one of these encryption strategies for an object:
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/actions/reencrypt/{objectName}",
       method: "POST",
@@ -4655,6 +4991,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": renameObjectRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4663,7 +5006,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/actions/renameObject",
       method: "POST",
@@ -4750,6 +5093,13 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
       "opc-client-request-id": restoreObjectsRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4758,7 +5108,7 @@ See [Object Names](https://docs.cloud.oracle.com/Content/Object/Tasks/managingob
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/actions/restoreObjects",
       method: "POST",
@@ -4834,6 +5184,13 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
       "opc-client-request-id": updateBucketRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4842,7 +5199,7 @@ Use UpdateBucket to move a bucket from one compartment to another within the sam
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}",
       method: "POST",
@@ -4928,6 +5285,13 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateNamespaceMetadataRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -4936,7 +5300,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}",
       method: "PUT",
@@ -5012,6 +5376,13 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateObjectStorageTierRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5020,7 +5391,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/actions/updateObjectStorageTier",
       method: "POST",
@@ -5094,6 +5465,13 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-client-request-id": updateRetentionRuleRequest.opcClientRequestId
     };
 
+    const requiredParams = new Set<string>(["namespaceName", "bucketName", "retentionRuleId"]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5102,7 +5480,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/retentionRules/{retentionRuleId}",
       method: "PUT",
@@ -5194,6 +5572,19 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
       "opc-sse-kms-key-id": uploadPartRequest.opcSseKmsKeyId
     };
 
+    const requiredParams = new Set<string>([
+      "namespaceName",
+      "bucketName",
+      "objectName",
+      "uploadId",
+      "uploadPartNum"
+    ]);
+    let endpoint = common.EndpointBuilder.populateServiceParamsInEndpoint(
+      this.endpoint,
+      pathParams,
+      queryParams,
+      requiredParams
+    );
     const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
     const retrier = GenericRetrier.createPreferredRetrier(
       this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
@@ -5202,7 +5593,7 @@ You can change the default Swift/Amazon S3 compartmentId designation to a differ
     );
     if (this.logger) retrier.logger = this.logger;
     const request = await composeRequest({
-      baseEndpoint: this._endpoint,
+      baseEndpoint: endpoint,
       defaultHeaders: this._defaultHeaders,
       path: "/n/{namespaceName}/b/{bucketName}/u/{objectName}",
       method: "PUT",

@@ -19,6 +19,12 @@ import common = require("oci-common");
  *
  */
 export interface HostDumpTransferDetails {
+  /**
+   * Directory path to OCI SSL wallet location on Db server node.
+   *
+   */
+  "walletLocation"?: string;
+
   "kind": string;
 }
 

@@ -35,6 +35,7 @@ export interface EnablePeComanagedDatabaseInsightDetails
    */
   "serviceName": string;
   "credentialDetails": model.CredentialsBySource | model.CredentialByVault;
+  "connectionDetails"?: model.PeComanagedDatabaseConnectionDetails;
   /**
    * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
    * Example: `{\"bar-key\": \"value\"}`
@@ -71,6 +72,9 @@ export namespace EnablePeComanagedDatabaseInsightDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.CredentialDetails.getJsonObj(obj.credentialDetails)
+          : undefined,
+        "connectionDetails": obj.connectionDetails
+          ? model.PeComanagedDatabaseConnectionDetails.getJsonObj(obj.connectionDetails)
           : undefined
       }
     };
@@ -91,6 +95,9 @@ export namespace EnablePeComanagedDatabaseInsightDetails {
       ...{
         "credentialDetails": obj.credentialDetails
           ? model.CredentialDetails.getDeserializedJsonObj(obj.credentialDetails)
+          : undefined,
+        "connectionDetails": obj.connectionDetails
+          ? model.PeComanagedDatabaseConnectionDetails.getDeserializedJsonObj(obj.connectionDetails)
           : undefined
       }
     };

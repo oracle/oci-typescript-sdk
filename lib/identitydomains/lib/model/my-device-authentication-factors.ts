@@ -31,6 +31,8 @@ export interface MyDeviceAuthenticationFactors {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "type": MyDeviceAuthenticationFactors.Type;
   /**
@@ -44,6 +46,8 @@ export interface MyDeviceAuthenticationFactors {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "status"?: MyDeviceAuthenticationFactors.Status;
   /**
@@ -57,6 +61,8 @@ export interface MyDeviceAuthenticationFactors {
    *  - returned: default
    *  - type: string
    *  - uniqueness: none
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    */
   "publicKey"?: string;
 }

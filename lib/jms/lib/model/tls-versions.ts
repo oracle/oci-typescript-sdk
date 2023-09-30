@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * List of tls versions to be disabled
+ * List of TLS versions to be disabled.
  **/
 export enum TlsVersions {
   Tls10 = "TLS_1_0",

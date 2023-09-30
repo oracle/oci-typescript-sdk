@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface RestMonitorConfiguration extends model.MonitorConfiguration {
   /**
-   * If redirection enabled, then redirects will be allowed while accessing target URL.
+   * If redirection is enabled, then redirects will be allowed while accessing target URL.
    */
   "isRedirectionEnabled"?: boolean;
   /**
-   * If certificate validation enabled, then call will fail for certificate errors.
+   * If certificate validation is enabled, then call will fail for certificate errors.
    */
   "isCertificateValidationEnabled"?: boolean;
   /**
@@ -31,10 +31,11 @@ export interface RestMonitorConfiguration extends model.MonitorConfiguration {
    */
   "requestMethod"?: model.RequestMethods;
   /**
-   * Request http authentication scheme.
+   * Request HTTP authentication scheme.
    */
   "reqAuthenticationScheme"?: model.RequestAuthenticationSchemes;
   "reqAuthenticationDetails"?: model.RequestAuthenticationDetails;
+  "clientCertificateDetails"?: model.ClientCertificateDetails;
   /**
    * List of request headers. Example: `[{\"headerName\": \"content-type\", \"headerValue\":\"json\"}]`
    *
@@ -75,6 +76,9 @@ export namespace RestMonitorConfiguration {
         "reqAuthenticationDetails": obj.reqAuthenticationDetails
           ? model.RequestAuthenticationDetails.getJsonObj(obj.reqAuthenticationDetails)
           : undefined,
+        "clientCertificateDetails": obj.clientCertificateDetails
+          ? model.ClientCertificateDetails.getJsonObj(obj.clientCertificateDetails)
+          : undefined,
         "requestHeaders": obj.requestHeaders
           ? obj.requestHeaders.map(item => {
               return model.Header.getJsonObj(item);
@@ -106,6 +110,9 @@ export namespace RestMonitorConfiguration {
       ...{
         "reqAuthenticationDetails": obj.reqAuthenticationDetails
           ? model.RequestAuthenticationDetails.getDeserializedJsonObj(obj.reqAuthenticationDetails)
+          : undefined,
+        "clientCertificateDetails": obj.clientCertificateDetails
+          ? model.ClientCertificateDetails.getDeserializedJsonObj(obj.clientCertificateDetails)
           : undefined,
         "requestHeaders": obj.requestHeaders
           ? obj.requestHeaders.map(item => {

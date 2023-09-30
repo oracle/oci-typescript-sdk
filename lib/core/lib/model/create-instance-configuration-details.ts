@@ -26,7 +26,7 @@ import common = require("oci-common");
  *
  */
 export interface CreateInstanceConfigurationDetails extends model.CreateInstanceConfigurationBase {
-  "instanceDetails": model.ComputeInstanceDetails;
+  "instanceDetails": model.ComputeInstanceOptions | model.ComputeInstanceDetails;
 
   "source": string;
 }

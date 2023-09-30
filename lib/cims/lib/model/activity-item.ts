@@ -1,6 +1,12 @@
 /**
  * Support Management API
- * Use the Support Management API to manage support requests. For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm). **Note**: Before you can create service requests with this API, you need to have an Oracle Single Sign On (SSO) account, and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+ * Use the Support Management API to manage support requests.
+For more information, see [Getting Help and Contacting Support](/iaas/Content/GSG/Tasks/contactingsupport.htm).
+
+**Note**: Before you can create service requests with this API, 
+you need to have an Oracle Single Sign On (SSO) account, 
+and you need to register your Customer Support Identifier (CSI) with My Oracle Support.
+
  * OpenAPI spec version: 20181231
  * Contact: oci_ops_cims_dev_us_grp@oracle.com
  *
@@ -21,23 +27,25 @@ export interface ActivityItem extends model.Item {
   /**
    * Comments added with the activity on the support ticket.
    */
-  "comments"?: string;
+  "comments": string;
   /**
    * The time when the activity was created, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "timeCreated"?: number;
+  "timeCreated": number;
   /**
    * The time when the activity was updated, in milliseconds since epoch time. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "timeUpdated"?: number;
+  "timeUpdated": number;
   /**
    * The type of activity occuring on the support ticket.
    */
-  "activityType"?: ActivityItem.ActivityType;
+  "activityType": ActivityItem.ActivityType;
+  "activityAuthor": ActivityItem.ActivityAuthor;
+  "itemType"?: ActivityItem.ItemType;
   /**
-   * The person who updates the activity on the support ticket.
+   * Who updates the activity on the support ticket.
    */
-  "activityAuthor"?: ActivityItem.ActivityAuthor;
+  "itemStatus"?: ActivityItem.ItemStatus;
 
   "type": string;
 }
@@ -48,6 +56,7 @@ export namespace ActivityItem {
     ProblemDescription = "PROBLEM_DESCRIPTION",
     Update = "UPDATE",
     Close = "CLOSE",
+    Reopen = "REOPEN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -58,6 +67,28 @@ export namespace ActivityItem {
   export enum ActivityAuthor {
     Customer = "CUSTOMER",
     Oracle = "ORACLE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ItemType {
+    Attachments = "ATTACHMENTS",
+    Comments = "COMMENTS",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ItemStatus {
+    Processing = "PROCESSING",
+    Attached = "ATTACHED",
+    Removed = "REMOVED",
+    Failed = "FAILED",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

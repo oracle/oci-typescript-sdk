@@ -9,6 +9,7 @@ import CertificateAndPrivateKeyPair from "./certificate-and-privatekey-pair";
 import Refreshable from "./models/refreshable";
 import { getStringFromResponseBody } from "../helper";
 import CircuitBreaker from "../circuit-breaker";
+import fetch, { Response } from "node-fetch";
 
 /**
  * A class that retrieves certificate based on metadata service url
@@ -85,13 +86,16 @@ export class ResourceDetails {
     private headers: Headers,
     private circuitBreaker: CircuitBreaker
   ) {}
+  private METADATA_AUTH_HEADERS = "Bearer Oracle";
+  private AUTHORIZATION = "Authorization";
 
   async send(): Promise<Response> {
     const httpClient = new FetchHttpClient(null, this.circuitBreaker);
-    const response = await httpClient.send({
-      uri: this.url,
+    const metaDataHeaders: any = {};
+    metaDataHeaders[this.AUTHORIZATION] = this.METADATA_AUTH_HEADERS;
+    const response = await fetch(this.url, {
       method: "GET",
-      headers: this.headers
+      headers: metaDataHeaders
     });
     return response;
   }

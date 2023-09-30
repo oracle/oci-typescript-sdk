@@ -13,12 +13,18 @@
 
 import * as AssociateMonitoredResourcesRequest from "./associate-monitored-resources-request";
 export import AssociateMonitoredResourcesRequest = AssociateMonitoredResourcesRequest.AssociateMonitoredResourcesRequest;
+import * as ChangeConfigCompartmentRequest from "./change-config-compartment-request";
+export import ChangeConfigCompartmentRequest = ChangeConfigCompartmentRequest.ChangeConfigCompartmentRequest;
 import * as ChangeMonitoredResourceCompartmentRequest from "./change-monitored-resource-compartment-request";
 export import ChangeMonitoredResourceCompartmentRequest = ChangeMonitoredResourceCompartmentRequest.ChangeMonitoredResourceCompartmentRequest;
+import * as CreateConfigRequest from "./create-config-request";
+export import CreateConfigRequest = CreateConfigRequest.CreateConfigRequest;
 import * as CreateDiscoveryJobRequest from "./create-discovery-job-request";
 export import CreateDiscoveryJobRequest = CreateDiscoveryJobRequest.CreateDiscoveryJobRequest;
 import * as CreateMonitoredResourceRequest from "./create-monitored-resource-request";
 export import CreateMonitoredResourceRequest = CreateMonitoredResourceRequest.CreateMonitoredResourceRequest;
+import * as DeleteConfigRequest from "./delete-config-request";
+export import DeleteConfigRequest = DeleteConfigRequest.DeleteConfigRequest;
 import * as DeleteDiscoveryJobRequest from "./delete-discovery-job-request";
 export import DeleteDiscoveryJobRequest = DeleteDiscoveryJobRequest.DeleteDiscoveryJobRequest;
 import * as DeleteMonitoredResourceRequest from "./delete-monitored-resource-request";
@@ -27,12 +33,16 @@ import * as DisableExternalDatabaseRequest from "./disable-external-database-req
 export import DisableExternalDatabaseRequest = DisableExternalDatabaseRequest.DisableExternalDatabaseRequest;
 import * as DisassociateMonitoredResourcesRequest from "./disassociate-monitored-resources-request";
 export import DisassociateMonitoredResourcesRequest = DisassociateMonitoredResourcesRequest.DisassociateMonitoredResourcesRequest;
+import * as GetConfigRequest from "./get-config-request";
+export import GetConfigRequest = GetConfigRequest.GetConfigRequest;
 import * as GetDiscoveryJobRequest from "./get-discovery-job-request";
 export import GetDiscoveryJobRequest = GetDiscoveryJobRequest.GetDiscoveryJobRequest;
 import * as GetMonitoredResourceRequest from "./get-monitored-resource-request";
 export import GetMonitoredResourceRequest = GetMonitoredResourceRequest.GetMonitoredResourceRequest;
 import * as GetWorkRequestRequest from "./get-work-request-request";
 export import GetWorkRequestRequest = GetWorkRequestRequest.GetWorkRequestRequest;
+import * as ListConfigsRequest from "./list-configs-request";
+export import ListConfigsRequest = ListConfigsRequest.ListConfigsRequest;
 import * as ListDiscoveryJobLogsRequest from "./list-discovery-job-logs-request";
 export import ListDiscoveryJobLogsRequest = ListDiscoveryJobLogsRequest.ListDiscoveryJobLogsRequest;
 import * as ListDiscoveryJobsRequest from "./list-discovery-jobs-request";
@@ -53,5 +63,7 @@ import * as SearchMonitoredResourcesRequest from "./search-monitored-resources-r
 export import SearchMonitoredResourcesRequest = SearchMonitoredResourcesRequest.SearchMonitoredResourcesRequest;
 import * as UpdateAndPropagateTagsRequest from "./update-and-propagate-tags-request";
 export import UpdateAndPropagateTagsRequest = UpdateAndPropagateTagsRequest.UpdateAndPropagateTagsRequest;
+import * as UpdateConfigRequest from "./update-config-request";
+export import UpdateConfigRequest = UpdateConfigRequest.UpdateConfigRequest;
 import * as UpdateMonitoredResourceRequest from "./update-monitored-resource-request";
 export import UpdateMonitoredResourceRequest = UpdateMonitoredResourceRequest.UpdateMonitoredResourceRequest;

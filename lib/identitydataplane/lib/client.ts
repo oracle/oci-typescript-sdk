@@ -1,6 +1,6 @@
 /**
- * Identity Service
- * API for the Identity Dataplane
+ * Identity and Access Management Data Plane API
+ * APIs for managing identity data plane services. For example, use this API to create a scoped-access security token. To manage identity domains (for example, creating or deleting an identity domain) or to manage resources (for example, users and groups) within the default identity domain, see [IAM API](https://docs.oracle.com/iaas/api/#/en/identity/).
  * OpenAPI spec version: v1
  *
  *
@@ -34,6 +34,7 @@ export class DataplaneClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Dataplane";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -53,6 +54,9 @@ export class DataplaneClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -65,7 +69,12 @@ export class DataplaneClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -159,7 +168,7 @@ export class DataplaneClient {
   }
 
   /**
-   * Based on the calling principal and the input payload, derive the claims and create a security token.
+   * Based on the calling Principal and the input payload, derive the claims, and generate a scoped-access token for specific resources. For example, set scope to urn:oracle:db::id::<compartment-id> for access to a database in a compartment.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GenerateScopedAccessTokenRequest
@@ -173,7 +182,8 @@ export class DataplaneClient {
     if (this.logger)
       this.logger.debug("Calling operation DataplaneClient#generateScopedAccessToken.");
     const operationName = "generateScopedAccessToken";
-    const apiReferenceLink = "";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity-dp/v1/SecurityToken/GenerateScopedAccessToken";
     const pathParams = {};
 
     const queryParams = {};
@@ -213,6 +223,84 @@ export class DataplaneClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.GenerateScopedAccessTokenResponse>{},
+        body: await response.json(),
+        bodyKey: "securityToken",
+        bodyModel: model.SecurityToken,
+        type: "model.SecurityToken",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Exchanges a valid user token-based signature (API key and UPST) for a short-lived UPST of the authenticated
+   * user principal. When not specified, the user session duration is set to a default of 60 minutes in all realms. Resulting UPSTs
+   * are refreshable while the user session has not expired.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GenerateUserSecurityTokenRequest
+   * @return GenerateUserSecurityTokenResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/identitydataplane/GenerateUserSecurityToken.ts.html |here} to see how to use GenerateUserSecurityToken API.
+   */
+  public async generateUserSecurityToken(
+    generateUserSecurityTokenRequest: requests.GenerateUserSecurityTokenRequest
+  ): Promise<responses.GenerateUserSecurityTokenResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataplaneClient#generateUserSecurityToken.");
+    const operationName = "generateUserSecurityToken";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/identity-dp/v1/SecurityToken/GenerateUserSecurityToken";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": generateUserSecurityTokenRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      generateUserSecurityTokenRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/token/upst/actions/GenerateUpst",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        generateUserSecurityTokenRequest.generateUserSecurityTokenDetails,
+        "GenerateUserSecurityTokenDetails",
+        model.GenerateUserSecurityTokenDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GenerateUserSecurityTokenResponse>{},
         body: await response.json(),
         bodyKey: "securityToken",
         bodyModel: model.SecurityToken,

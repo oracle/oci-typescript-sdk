@@ -24,6 +24,10 @@ export interface IpsecTunnelDrgAttachmentNetworkDetails extends model.DrgAttachm
    * The IPSec connection that contains the attached IPSec tunnel.
    */
   "ipsecConnectionId"?: string;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the virtual circuit's DRG attachment.
+   */
+  "transportAttachmentId"?: string;
 
   "type": string;
 }

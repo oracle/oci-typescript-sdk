@@ -15,12 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The information to be updated.
+ * The container information to be updated.
  */
 export interface UpdateContainerDetails {
   /**
-   * Display name for the Container. There are no guarantees of uniqueness
-   * for this name.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    *
    */
   "displayName"?: string;
@@ -32,7 +31,7 @@ export interface UpdateContainerDetails {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

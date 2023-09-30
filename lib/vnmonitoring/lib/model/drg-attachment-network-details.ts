@@ -21,7 +21,7 @@ export interface DrgAttachmentNetworkDetails {
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the network attached to the DRG.
    *
    */
-  "id": string;
+  "id"?: string;
 
   "type": string;
 }
@@ -35,6 +35,11 @@ export namespace DrgAttachmentNetworkDetails {
         case "VCN":
           return model.VcnDrgAttachmentNetworkDetails.getJsonObj(
             <model.VcnDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        case "LOOPBACK":
+          return model.LoopBackDrgAttachmentNetworkDetails.getJsonObj(
+            <model.LoopBackDrgAttachmentNetworkDetails>(<object>jsonObj),
             true
           );
         case "IPSEC_TUNNEL":
@@ -66,6 +71,11 @@ export namespace DrgAttachmentNetworkDetails {
         case "VCN":
           return model.VcnDrgAttachmentNetworkDetails.getDeserializedJsonObj(
             <model.VcnDrgAttachmentNetworkDetails>(<object>jsonObj),
+            true
+          );
+        case "LOOPBACK":
+          return model.LoopBackDrgAttachmentNetworkDetails.getDeserializedJsonObj(
+            <model.LoopBackDrgAttachmentNetworkDetails>(<object>jsonObj),
             true
           );
         case "IPSEC_TUNNEL":

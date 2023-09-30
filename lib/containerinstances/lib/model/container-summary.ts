@@ -15,20 +15,20 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A reduced set of details about a single Container returned by list APIs.
+ * Summary information about a container.
  *
  */
 export interface ContainerSummary {
   /**
-   * Unique identifier that is immutable on creation
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container.
    */
   "id": string;
   /**
-   * Display name for the Container. Can be renamed.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * Compartment Identifier
+   * The compartment [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm).
    */
   "compartmentId": string;
   /**
@@ -39,64 +39,64 @@ export interface ContainerSummary {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`.
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Availability Domain where the Container's Instance is running.
+   * The availability domain where the container instance that hosts this container runs.
    */
   "availabilityDomain": string;
   /**
-   * Fault Domain where the Container's Instance is running.
+   * The fault domain where the container instance that hosts the container runs.
    */
   "faultDomain"?: string;
   /**
-   * The current state of the Container.
+   * The current state of the container.
    */
   "lifecycleState": string;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide
-   * actionable information for a resource in Failed state.
+   * A message that describes the current state of the container in more detail. Can be used to provide
+   * actionable information.
    *
    */
   "lifecycleDetails"?: string;
   /**
-   * The time the the Container was created. An RFC3339 formatted datetime string
+   * The time the the container was created in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timeCreated": Date;
   /**
-   * The time the Container was updated. An RFC3339 formatted datetime string
+   * The time the container was updated in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The identifier of the Container Instance on which this container is running.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance on which the container is running.
    */
   "containerInstanceId": string;
   "resourceConfig"?: model.ContainerResourceConfig;
   /**
-   * The container image information. Currently only support public docker registry. Can be either image name,
-   * e.g `containerImage`, image name with version, e.g `containerImage:v1` or complete docker image Url e.g
-   * `docker.io/library/containerImage:latest`.
-   * If no registry is provided, will default the registry to public docker hub `docker.io/library`.
-   * The registry used for container image must be reachable over the Container Instance's VNIC.
-   *
-   */
+    * A URL identifying the image that the container runs in, such as docker.io/library/busybox:latest. If you do not provide a tag, the tag will default to latest.
+* <p>
+If no registry is provided, will default the registry to public docker hub `docker.io/library`.
+* The registry used for container image must be reachable over the Container Instance's VNIC.
+* 
+    */
   "imageUrl": string;
   /**
-   * Determines if the Container will have access to the Container Instance Resource Principal.
-   * This method utilizes resource principal version 2.2. Please refer to
-   * https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm#sdk_authentication_methods_resource_principal
-   * for detailed explanation of how to leverage the exposed resource principal elements.
-   *
-   */
+    * Determines whether the container will have access to the container instance resource principal.
+* <p>
+This method utilizes resource principal version 2.2. For information on how to use the exposed resource principal elements, see
+* https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm#sdk_authentication_methods_resource_principal.
+* 
+    */
   "isResourcePrincipalDisabled"?: boolean;
+  "securityContext"?: model.LinuxSecurityContext;
 }
 
 export namespace ContainerSummary {
@@ -106,6 +106,10 @@ export namespace ContainerSummary {
       ...{
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -118,6 +122,10 @@ export namespace ContainerSummary {
       ...{
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getDeserializedJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getDeserializedJsonObj(obj.securityContext)
           : undefined
       }
     };

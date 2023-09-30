@@ -21,6 +21,11 @@ import common = require("oci-common");
  * Possible text classification multi class mode details
  */
 export interface ClassificationMultiClassModeDetails extends model.ClassificationType {
+  /**
+   * Optional if nothing specified latest base model will be used for training. Supported versions can be found at /modelTypes/{modelType}
+   */
+  "version"?: string;
+
   "classificationMode": string;
 }
 

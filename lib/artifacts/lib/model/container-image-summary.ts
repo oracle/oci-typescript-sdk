@@ -64,6 +64,28 @@ Example: `ocid1.containerimage.oc1..exampleuniqueID`
    * The most recent version associated with this image.
    */
   "version"?: string;
+  /**
+    * Free-form tags for this resource. Each tag is a simple key-value pair with no
+* predefined name, type, or namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Department\": \"Finance\"}`
+* 
+    */
+  "freeformTags": { [key: string]: string };
+  /**
+    * Defined tags for this resource. Each key is predefined and scoped to a
+* namespace. For more information, see [Resource Tags](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/resourcetags.htm).
+* <p>
+Example: `{\"Operations\": {\"CostCenter\": \"42\"}}`
+* 
+    */
+  "definedTags": { [key: string]: { [key: string]: any } };
+  /**
+   * The system tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   *
+   */
+  "systemTags": { [key: string]: { [key: string]: any } };
 }
 
 export namespace ContainerImageSummary {

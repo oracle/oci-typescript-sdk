@@ -26,13 +26,18 @@ export interface CreateDataAssetRequest extends common.BaseRequest {
    * The information needed to create a data asset.
    */
   "createDataAssetDetails":
-    | model.CreateDataAssetFromJdbc
-    | model.CreateDataAssetFromMySQL
+    | model.CreateDataAssetFromHdfs
     | model.CreateDataAssetFromLake
-    | model.CreateDataAssetFromOracle
-    | model.CreateDataAssetFromAdwc
+    | model.CreateDataAssetFromMySqlHeatWave
     | model.CreateDataAssetFromAmazonS3
     | model.CreateDataAssetFromRest
+    | model.CreateDataAssetFromOracleSiebel
+    | model.CreateDataAssetFromJdbc
+    | model.CreateDataAssetFromMySQL
+    | model.CreateDataAssetFromOracle
+    | model.CreateDataAssetFromAdwc
+    | model.CreateDataAssetFromOracleEbs
+    | model.CreateDataAssetFromOraclePeopleSoft
     | model.CreateDataAssetFromFusionApp
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;

@@ -21,15 +21,15 @@ export interface ObjectStorageDataset extends model.Dataset {
   /**
    * The namespace name of the Object Storage bucket that contains the input data file.
    */
-  "namespaceName"?: string;
+  "namespaceName": string;
   /**
    * The name of the Object Storage bucket that contains the input data file.
    */
-  "bucketName"?: string;
+  "bucketName": string;
   /**
    * The object name of the input data file.
    */
-  "objectName"?: string;
+  "objectName": string;
 
   "datasetType": string;
 }

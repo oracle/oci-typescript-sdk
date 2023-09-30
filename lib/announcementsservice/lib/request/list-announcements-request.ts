@@ -78,6 +78,14 @@ export interface ListAnnouncementsRequest extends common.BaseRequest {
    */
   "excludeAnnouncementTypes"?: Array<string>;
   /**
+   * A filter to display only the latest announcement in a chain.
+   */
+  "shouldShowOnlyLatestInChain"?: boolean;
+  /**
+   * A filter to return only announcements belonging to the specified announcement chain ID.
+   */
+  "chainId"?: string;
+  /**
    * The unique Oracle-assigned identifier for the request. If you need to contact Oracle about
    * a particular request, please provide the complete request ID.
    *

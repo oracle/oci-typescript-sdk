@@ -31,9 +31,9 @@ export interface MacsManagedCloudHostInsightSummary extends model.HostInsightSum
   "managementAgentId": string;
   /**
    * Platform type.
-   * Supported platformType(s) for MACS-managed external host insight: [LINUX].
+   * Supported platformType(s) for MACS-managed external host insight: [LINUX, SOLARIS, WINDOWS].
    * Supported platformType(s) for MACS-managed cloud host insight: [LINUX].
-   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX].
+   * Supported platformType(s) for EM-managed external host insight: [LINUX, SOLARIS, SUNOS, ZLINUX, WINDOWS, AIX].
    *
    */
   "platformType"?: MacsManagedCloudHostInsightSummary.PlatformType;
@@ -47,6 +47,8 @@ export namespace MacsManagedCloudHostInsightSummary {
     Solaris = "SOLARIS",
     Sunos = "SUNOS",
     Zlinux = "ZLINUX",
+    Windows = "WINDOWS",
+    Aix = "AIX",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

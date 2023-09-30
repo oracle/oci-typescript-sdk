@@ -90,19 +90,14 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromJdbc>(<object>jsonObj),
             true
           );
-        case "BICC_CONNECTION":
-          return model.ConnectionSummaryFromBICC.getJsonObj(
-            <model.ConnectionSummaryFromBICC>(<object>jsonObj),
-            true
-          );
         case "REST_NO_AUTH_CONNECTION":
           return model.ConnectionSummaryFromRestNoAuth.getJsonObj(
             <model.ConnectionSummaryFromRestNoAuth>(<object>jsonObj),
             true
           );
-        case "ORACLE_ATP_CONNECTION":
-          return model.ConnectionSummaryFromAtp.getJsonObj(
-            <model.ConnectionSummaryFromAtp>(<object>jsonObj),
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionSummaryFromOracleSiebel.getJsonObj(
+            <model.ConnectionSummaryFromOracleSiebel>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":
@@ -110,14 +105,24 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromOracle>(<object>jsonObj),
             true
           );
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionSummaryFromMySqlHeatWave.getJsonObj(
+            <model.ConnectionSummaryFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionSummaryFromAmazonS3.getJsonObj(
             <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
             true
           );
-        case "REST_BASIC_AUTH_CONNECTION":
-          return model.ConnectionSummaryFromRestBasicAuth.getJsonObj(
-            <model.ConnectionSummaryFromRestBasicAuth>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionSummaryFromOraclePeopleSoft.getJsonObj(
+            <model.ConnectionSummaryFromOraclePeopleSoft>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionSummaryFromOracleEbs.getJsonObj(
+            <model.ConnectionSummaryFromOracleEbs>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_CONNECTION":
@@ -138,6 +143,26 @@ export namespace ConnectionSummary {
         case "BIP_CONNECTION":
           return model.ConnectionSummaryFromBIP.getJsonObj(
             <model.ConnectionSummaryFromBIP>(<object>jsonObj),
+            true
+          );
+        case "HDFS_CONNECTION":
+          return model.ConnectionSummaryFromHdfs.getJsonObj(
+            <model.ConnectionSummaryFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionSummaryFromBICC.getJsonObj(
+            <model.ConnectionSummaryFromBICC>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionSummaryFromAtp.getJsonObj(
+            <model.ConnectionSummaryFromAtp>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionSummaryFromRestBasicAuth.getJsonObj(
+            <model.ConnectionSummaryFromRestBasicAuth>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":
@@ -181,19 +206,14 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromJdbc>(<object>jsonObj),
             true
           );
-        case "BICC_CONNECTION":
-          return model.ConnectionSummaryFromBICC.getDeserializedJsonObj(
-            <model.ConnectionSummaryFromBICC>(<object>jsonObj),
-            true
-          );
         case "REST_NO_AUTH_CONNECTION":
           return model.ConnectionSummaryFromRestNoAuth.getDeserializedJsonObj(
             <model.ConnectionSummaryFromRestNoAuth>(<object>jsonObj),
             true
           );
-        case "ORACLE_ATP_CONNECTION":
-          return model.ConnectionSummaryFromAtp.getDeserializedJsonObj(
-            <model.ConnectionSummaryFromAtp>(<object>jsonObj),
+        case "ORACLE_SIEBEL_CONNECTION":
+          return model.ConnectionSummaryFromOracleSiebel.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromOracleSiebel>(<object>jsonObj),
             true
           );
         case "ORACLEDB_CONNECTION":
@@ -201,14 +221,24 @@ export namespace ConnectionSummary {
             <model.ConnectionSummaryFromOracle>(<object>jsonObj),
             true
           );
+        case "MYSQL_HEATWAVE_CONNECTION":
+          return model.ConnectionSummaryFromMySqlHeatWave.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
         case "AMAZON_S3_CONNECTION":
           return model.ConnectionSummaryFromAmazonS3.getDeserializedJsonObj(
             <model.ConnectionSummaryFromAmazonS3>(<object>jsonObj),
             true
           );
-        case "REST_BASIC_AUTH_CONNECTION":
-          return model.ConnectionSummaryFromRestBasicAuth.getDeserializedJsonObj(
-            <model.ConnectionSummaryFromRestBasicAuth>(<object>jsonObj),
+        case "ORACLE_PEOPLESOFT_CONNECTION":
+          return model.ConnectionSummaryFromOraclePeopleSoft.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromOraclePeopleSoft>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_CONNECTION":
+          return model.ConnectionSummaryFromOracleEbs.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromOracleEbs>(<object>jsonObj),
             true
           );
         case "ORACLE_ADWC_CONNECTION":
@@ -229,6 +259,26 @@ export namespace ConnectionSummary {
         case "BIP_CONNECTION":
           return model.ConnectionSummaryFromBIP.getDeserializedJsonObj(
             <model.ConnectionSummaryFromBIP>(<object>jsonObj),
+            true
+          );
+        case "HDFS_CONNECTION":
+          return model.ConnectionSummaryFromHdfs.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromHdfs>(<object>jsonObj),
+            true
+          );
+        case "BICC_CONNECTION":
+          return model.ConnectionSummaryFromBICC.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromBICC>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_CONNECTION":
+          return model.ConnectionSummaryFromAtp.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromAtp>(<object>jsonObj),
+            true
+          );
+        case "REST_BASIC_AUTH_CONNECTION":
+          return model.ConnectionSummaryFromRestBasicAuth.getDeserializedJsonObj(
+            <model.ConnectionSummaryFromRestBasicAuth>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_CONNECTION":

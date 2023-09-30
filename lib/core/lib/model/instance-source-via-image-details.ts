@@ -30,7 +30,7 @@ export interface InstanceSourceViaImageDetails extends model.InstanceSourceDetai
   /**
    * The OCID of the image used to boot the instance.
    */
-  "imageId": string;
+  "imageId"?: string;
   /**
    * The OCID of the Vault service key to assign as the master encryption key for the boot volume.
    */
@@ -52,6 +52,7 @@ For volumes with the auto-tuned performance feature enabled, this is set to the 
 *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
     */
   "bootVolumeVpusPerGB"?: number;
+  "instanceSourceImageFilterDetails"?: model.InstanceSourceImageFilterDetails;
 
   "sourceType": string;
 }
@@ -65,7 +66,11 @@ export namespace InstanceSourceViaImageDetails {
       ...(isParentJsonObj
         ? obj
         : (model.InstanceSourceDetails.getJsonObj(obj) as InstanceSourceViaImageDetails)),
-      ...{}
+      ...{
+        "instanceSourceImageFilterDetails": obj.instanceSourceImageFilterDetails
+          ? model.InstanceSourceImageFilterDetails.getJsonObj(obj.instanceSourceImageFilterDetails)
+          : undefined
+      }
     };
 
     return jsonObj;
@@ -81,7 +86,13 @@ export namespace InstanceSourceViaImageDetails {
         : (model.InstanceSourceDetails.getDeserializedJsonObj(
             obj
           ) as InstanceSourceViaImageDetails)),
-      ...{}
+      ...{
+        "instanceSourceImageFilterDetails": obj.instanceSourceImageFilterDetails
+          ? model.InstanceSourceImageFilterDetails.getDeserializedJsonObj(
+              obj.instanceSourceImageFilterDetails
+            )
+          : undefined
+      }
     };
 
     return jsonObj;

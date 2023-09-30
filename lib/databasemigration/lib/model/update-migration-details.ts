@@ -67,6 +67,7 @@ export interface UpdateMigrationDetails {
    *
    */
   "includeObjects"?: Array<model.DatabaseObject>;
+  "goldenGateServiceDetails"?: model.UpdateGoldenGateServiceDetails;
   "goldenGateDetails"?: model.UpdateGoldenGateDetails;
   "vaultDetails"?: model.UpdateVaultDetails;
   /**
@@ -110,6 +111,9 @@ export namespace UpdateMigrationDetails {
               return model.DatabaseObject.getJsonObj(item);
             })
           : undefined,
+        "goldenGateServiceDetails": obj.goldenGateServiceDetails
+          ? model.UpdateGoldenGateServiceDetails.getJsonObj(obj.goldenGateServiceDetails)
+          : undefined,
         "goldenGateDetails": obj.goldenGateDetails
           ? model.UpdateGoldenGateDetails.getJsonObj(obj.goldenGateDetails)
           : undefined,
@@ -148,6 +152,11 @@ export namespace UpdateMigrationDetails {
           ? obj.includeObjects.map(item => {
               return model.DatabaseObject.getDeserializedJsonObj(item);
             })
+          : undefined,
+        "goldenGateServiceDetails": obj.goldenGateServiceDetails
+          ? model.UpdateGoldenGateServiceDetails.getDeserializedJsonObj(
+              obj.goldenGateServiceDetails
+            )
           : undefined,
         "goldenGateDetails": obj.goldenGateDetails
           ? model.UpdateGoldenGateDetails.getDeserializedJsonObj(obj.goldenGateDetails)

@@ -89,6 +89,18 @@ Example: `{\"Department\": \"Finance\"}`
    *
    */
   "loadBalancers"?: Array<model.InstancePoolLoadBalancerAttachment>;
+  /**
+   * A user-friendly formatter for the instance pool's instances. Instance displaynames follow the format.
+   * The formatter does not retroactively change instance's displaynames, only instance displaynames in the future follow the format
+   *
+   */
+  "instanceDisplayNameFormatter"?: string;
+  /**
+   * A user-friendly formatter for the instance pool's instances. Instance hostnames follow the format.
+   * The formatter does not retroactively change instance's hostnames, only instance hostnames in the future follow the format
+   *
+   */
+  "instanceHostnameFormatter"?: string;
 }
 
 export namespace InstancePool {

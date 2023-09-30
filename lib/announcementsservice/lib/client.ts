@@ -36,6 +36,7 @@ export class AnnouncementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Announcement";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -55,6 +56,9 @@ export class AnnouncementClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -67,7 +71,12 @@ export class AnnouncementClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -353,7 +362,9 @@ This call is subject to an Announcements limit that applies to the total number 
       "environmentName": listAnnouncementsRequest.environmentName,
       "service": listAnnouncementsRequest.service,
       "platformType": listAnnouncementsRequest.platformType,
-      "excludeAnnouncementTypes": listAnnouncementsRequest.excludeAnnouncementTypes
+      "excludeAnnouncementTypes": listAnnouncementsRequest.excludeAnnouncementTypes,
+      "shouldShowOnlyLatestInChain": listAnnouncementsRequest.shouldShowOnlyLatestInChain,
+      "chainId": listAnnouncementsRequest.chainId
     };
 
     let headerParams = {
@@ -516,6 +527,7 @@ export class AnnouncementSubscriptionClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "AnnouncementSubscription";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -535,6 +547,9 @@ export class AnnouncementSubscriptionClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -547,7 +562,12 @@ export class AnnouncementSubscriptionClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -1437,6 +1457,7 @@ export class AnnouncementsPreferencesClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "AnnouncementsPreferences";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -1456,6 +1477,9 @@ export class AnnouncementsPreferencesClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -1468,7 +1492,12 @@ export class AnnouncementsPreferencesClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&

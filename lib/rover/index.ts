@@ -18,10 +18,12 @@ import * as client from "./lib/client";
 import * as rovercluster_waiter from "./lib/rovercluster-waiter";
 import * as roverentitlement_waiter from "./lib/roverentitlement-waiter";
 import * as rovernode_waiter from "./lib/rovernode-waiter";
+import * as workrequests_waiter from "./lib/workrequests-waiter";
 
 export { models };
 export { requests };
 export { responses };
+export import RoverBundleClient = client.RoverBundleClient;
 export import RoverClusterClient = client.RoverClusterClient;
 export import RoverClusterWaiter = rovercluster_waiter.RoverClusterWaiter;
 export import RoverEntitlementClient = client.RoverEntitlementClient;
@@ -29,3 +31,5 @@ export import RoverEntitlementWaiter = roverentitlement_waiter.RoverEntitlementW
 export import RoverNodeClient = client.RoverNodeClient;
 export import RoverNodeWaiter = rovernode_waiter.RoverNodeWaiter;
 export import ShapeClient = client.ShapeClient;
+export import WorkRequestsClient = client.WorkRequestsClient;
+export import WorkRequestsWaiter = workrequests_waiter.WorkRequestsWaiter;

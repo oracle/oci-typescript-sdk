@@ -23,7 +23,7 @@ export interface EnableExternalExadataInfrastructureManagementRequest extends co
    */
   "externalExadataInfrastructureId": string;
   /**
-   * The details required to enable the management for the Exadata infrastructure.
+   * The details required to enable management for the Exadata infrastructure.
    */
   "enableExternalExadataInfrastructureManagementDetails": model.EnableExternalExadataInfrastructureManagementDetails;
   /**

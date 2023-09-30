@@ -54,6 +54,10 @@ export interface ListJobDefinitionsRequest extends common.BaseRequest {
    */
   "dataAssetKey"?: string;
   /**
+   * Unique glossary key.
+   */
+  "glossaryKey"?: string;
+  /**
    * Unique connection key.
    */
   "connectionKey"?: string;

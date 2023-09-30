@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * For a flexible shape, the number of OCPUs available for instances that use this shape.
+ * For a flexible shape, the number of OCPUs available for container instances that use this shape.
  *
  */
 export interface ShapeOcpuOptions {

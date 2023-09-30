@@ -19,7 +19,7 @@ import common = require("oci-common");
  */
 export interface CryptoEventAnalysis {
   /**
-   * CryptoEventAnalysis flag to store enabled or disabled status
+   * CryptoEventAnalysis flag to store enabled or disabled status.
    */
   "isEnabled"?: boolean;
   "summarizedEventsLog"?: model.SummarizedEventsLog;

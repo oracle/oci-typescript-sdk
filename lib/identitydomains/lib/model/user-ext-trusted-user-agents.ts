@@ -31,7 +31,7 @@ import common = require("oci-common");
  */
 export interface UserExtTrustedUserAgents {
   /**
-   * The identifier of the User's trusted user agent.
+   * The user's trusted user agent identifier.
    * <p>
    **Added In:** 18.3.6
    * <p>

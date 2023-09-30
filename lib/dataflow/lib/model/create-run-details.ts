@@ -155,6 +155,11 @@ export interface CreateRunDetails {
    */
   "parameters"?: Array<model.ApplicationParameter>;
   /**
+   * The OCID of a pool. Unique Id to indentify a dataflow pool resource.
+   *
+   */
+  "poolId"?: string;
+  /**
    * The Spark version utilized to run the application. This value may be set if applicationId is not since the Spark version will be taken from the associated application.
    *
    */

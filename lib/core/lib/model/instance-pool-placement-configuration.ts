@@ -33,10 +33,11 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet to place instances.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet in which to place instances. This field is deprecated.
+   * Use `primaryVnicSubnets` instead to set VNIC data for instances in the pool.
    *
    */
-  "primarySubnetId": string;
+  "primarySubnetId"?: string;
   /**
     * The fault domains to place instances.
 * <p>
@@ -55,6 +56,7 @@ Example: `[FAULT-DOMAIN-1, FAULT-DOMAIN-2, FAULT-DOMAIN-3]`
 * 
     */
   "faultDomains"?: Array<string>;
+  "primaryVnicSubnets"?: model.InstancePoolPlacementPrimarySubnet;
   /**
    * The set of secondary VNIC data for instances in the pool.
    */
@@ -66,6 +68,9 @@ export namespace InstancePoolPlacementConfiguration {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getJsonObj(item);
@@ -80,6 +85,9 @@ export namespace InstancePoolPlacementConfiguration {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getDeserializedJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getDeserializedJsonObj(item);

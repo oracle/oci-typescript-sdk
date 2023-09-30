@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface LogAnalyticsPreference {
   /**
-   * The preference name. Currently, only \"DEFAULT_HOMEPAGE\" is supported.
+   * The preference name.
    */
   "name"?: string;
   /**

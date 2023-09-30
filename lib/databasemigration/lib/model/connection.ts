@@ -67,6 +67,7 @@ export interface Connection {
   "certificateTdn"?: string;
   "sshDetails"?: model.SshDetails;
   "adminCredentials"?: model.AdminCredentials;
+  "replicationCredentials"?: model.AdminCredentials;
   "privateEndpoint"?: model.PrivateEndpointDetails;
   "vaultDetails"?: model.VaultDetails;
   /**
@@ -128,6 +129,9 @@ export namespace Connection {
         "adminCredentials": obj.adminCredentials
           ? model.AdminCredentials.getJsonObj(obj.adminCredentials)
           : undefined,
+        "replicationCredentials": obj.replicationCredentials
+          ? model.AdminCredentials.getJsonObj(obj.replicationCredentials)
+          : undefined,
         "privateEndpoint": obj.privateEndpoint
           ? model.PrivateEndpointDetails.getJsonObj(obj.privateEndpoint)
           : undefined,
@@ -152,6 +156,9 @@ export namespace Connection {
           : undefined,
         "adminCredentials": obj.adminCredentials
           ? model.AdminCredentials.getDeserializedJsonObj(obj.adminCredentials)
+          : undefined,
+        "replicationCredentials": obj.replicationCredentials
+          ? model.AdminCredentials.getDeserializedJsonObj(obj.replicationCredentials)
           : undefined,
         "privateEndpoint": obj.privateEndpoint
           ? model.PrivateEndpointDetails.getDeserializedJsonObj(obj.privateEndpoint)

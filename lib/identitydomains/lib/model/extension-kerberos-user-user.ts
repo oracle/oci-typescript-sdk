@@ -20,7 +20,7 @@ import common = require("oci-common");
  */
 export interface ExtensionKerberosUserUser {
   /**
-   * A list of kerberos realm users for an OCI IAM User
+   * A list of kerberos realm users for an Oracle Identity Cloud Service User
    * <p>
    **SCIM++ Properties:**
    *  - idcsCompositeKey: [value]

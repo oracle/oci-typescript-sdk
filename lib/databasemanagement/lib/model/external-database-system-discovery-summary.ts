@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The summary of the database system.
+ * The summary of the DB system discovery.
  */
 export interface ExternalDatabaseSystemDiscoverySummary extends model.EntityDiscovered {
   /**
@@ -26,7 +26,7 @@ export interface ExternalDatabaseSystemDiscoverySummary extends model.EntityDisc
    */
   "oracleHome"?: string;
   /**
-   * The display name of ASM connector.
+   * The display name of the ASM connector.
    */
   "asmConnectorName"?: string;
   /**
@@ -35,7 +35,7 @@ export interface ExternalDatabaseSystemDiscoverySummary extends model.EntityDisc
    */
   "licenseModel"?: ExternalDatabaseSystemDiscoverySummary.LicenseModel;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of compartment.
+   * The [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the compartment.
    */
   "compartmentId"?: string;
 

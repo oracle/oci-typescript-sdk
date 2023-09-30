@@ -38,6 +38,7 @@ export class DataIntegrationClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "DataIntegration";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -57,6 +58,9 @@ export class DataIntegrationClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -69,7 +73,12 @@ export class DataIntegrationClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -1274,6 +1283,93 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Export Metadata Object
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateExportRequestRequest
+   * @return CreateExportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateExportRequest.ts.html |here} to see how to use CreateExportRequest API.
+   */
+  public async createExportRequest(
+    createExportRequestRequest: requests.CreateExportRequestRequest
+  ): Promise<responses.CreateExportRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createExportRequest.");
+    const operationName = "createExportRequest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{workspaceId}": createExportRequestRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createExportRequestRequest.opcRequestId,
+      "opc-retry-token": createExportRequestRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createExportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/exportRequests",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createExportRequestRequest.createExportRequestDetails,
+        "CreateExportRequestDetails",
+        model.CreateExportRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateExportRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "exportRequest",
+        bodyModel: model.ExportRequest,
+        type: "model.ExportRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Publish a DataFlow in a OCI DataFlow application.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param CreateExternalPublicationRequest
@@ -1601,6 +1697,93 @@ export class DataIntegrationClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Import Metadata Object
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param CreateImportRequestRequest
+   * @return CreateImportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/CreateImportRequest.ts.html |here} to see how to use CreateImportRequest API.
+   */
+  public async createImportRequest(
+    createImportRequestRequest: requests.CreateImportRequestRequest
+  ): Promise<responses.CreateImportRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#createImportRequest.");
+    const operationName = "createImportRequest";
+    const apiReferenceLink = "";
+    const pathParams = {
+      "{workspaceId}": createImportRequestRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createImportRequestRequest.opcRequestId,
+      "opc-retry-token": createImportRequestRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createImportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/importRequests",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createImportRequestRequest.createImportRequestDetails,
+        "CreateImportRequestDetails",
+        model.CreateImportRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateImportRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "importRequest",
+        bodyModel: model.ImportRequest,
+        type: "model.ImportRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
             dataType: "string"
           }
         ]
@@ -3310,6 +3493,77 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Delete export object request using the specified identifier.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteExportRequestRequest
+   * @return DeleteExportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteExportRequest.ts.html |here} to see how to use DeleteExportRequest API.
+   */
+  public async deleteExportRequest(
+    deleteExportRequestRequest: requests.DeleteExportRequestRequest
+  ): Promise<responses.DeleteExportRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deleteExportRequest.");
+    const operationName = "deleteExportRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/DeleteExportRequest";
+    const pathParams = {
+      "{workspaceId}": deleteExportRequestRequest.workspaceId,
+      "{exportRequestKey}": deleteExportRequestRequest.exportRequestKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteExportRequestRequest.opcRequestId,
+      "if-match": deleteExportRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteExportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/exportRequests/{exportRequestKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteExportRequestResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Removes a published object using the specified identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalPublicationRequest
@@ -3581,6 +3835,77 @@ export class DataIntegrationClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DeleteFunctionLibraryResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Delete import object request using the specified identifier.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteImportRequestRequest
+   * @return DeleteImportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/DeleteImportRequest.ts.html |here} to see how to use DeleteImportRequest API.
+   */
+  public async deleteImportRequest(
+    deleteImportRequestRequest: requests.DeleteImportRequestRequest
+  ): Promise<responses.DeleteImportRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#deleteImportRequest.");
+    const operationName = "deleteImportRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/DeleteImportRequest";
+    const pathParams = {
+      "{importRequestKey}": deleteImportRequestRequest.importRequestKey,
+      "{workspaceId}": deleteImportRequestRequest.workspaceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteImportRequestRequest.opcRequestId,
+      "if-match": deleteImportRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteImportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/importRequests/{importRequestKey}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteImportRequestResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -4604,6 +4929,82 @@ export class DataIntegrationClient {
   }
 
   /**
+   * This endpoint can be used to get composite state for a given aggregator
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetCompositeStateRequest
+   * @return GetCompositeStateResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetCompositeState.ts.html |here} to see how to use GetCompositeState API.
+   */
+  public async getCompositeState(
+    getCompositeStateRequest: requests.GetCompositeStateRequest
+  ): Promise<responses.GetCompositeStateResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#getCompositeState.");
+    const operationName = "getCompositeState";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/CompositeState/GetCompositeState";
+    const pathParams = {
+      "{workspaceId}": getCompositeStateRequest.workspaceId,
+      "{applicationKey}": getCompositeStateRequest.applicationKey
+    };
+
+    const queryParams = {
+      "aggregatorKey": getCompositeStateRequest.aggregatorKey
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getCompositeStateRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getCompositeStateRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/applications/{applicationKey}/compositeState",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetCompositeStateResponse>{},
+        body: await response.json(),
+        bodyKey: "compositeState",
+        bodyModel: model.CompositeState,
+        type: "model.CompositeState",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves the connection details using the specified identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetConnectionRequest
@@ -5465,6 +5866,84 @@ export class DataIntegrationClient {
   }
 
   /**
+   * This endpoint can be used to get the summary/details of object being exported.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetExportRequestRequest
+   * @return GetExportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetExportRequest.ts.html |here} to see how to use GetExportRequest API.
+   */
+  public async getExportRequest(
+    getExportRequestRequest: requests.GetExportRequestRequest
+  ): Promise<responses.GetExportRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getExportRequest.");
+    const operationName = "getExportRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExportRequest/GetExportRequest";
+    const pathParams = {
+      "{workspaceId}": getExportRequestRequest.workspaceId,
+      "{exportRequestKey}": getExportRequestRequest.exportRequestKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getExportRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getExportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/exportRequests/{exportRequestKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetExportRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "exportRequest",
+        bodyModel: model.ExportRequest,
+        type: "model.ExportRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a publshed object in an task using the specified identifier.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetExternalPublicationRequest
@@ -5775,6 +6254,87 @@ export class DataIntegrationClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This endpoint can be used to get the summary/details of object being imported.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetImportRequestRequest
+   * @return GetImportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/GetImportRequest.ts.html |here} to see how to use GetImportRequest API.
+   */
+  public async getImportRequest(
+    getImportRequestRequest: requests.GetImportRequestRequest
+  ): Promise<responses.GetImportRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation DataIntegrationClient#getImportRequest.");
+    const operationName = "getImportRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ImportRequest/GetImportRequest";
+    const pathParams = {
+      "{workspaceId}": getImportRequestRequest.workspaceId,
+      "{importRequestKey}": getImportRequestRequest.importRequestKey
+    };
+
+    const queryParams = {
+      "limit": getImportRequestRequest.limit,
+      "page": getImportRequestRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getImportRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getImportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/importRequests/{importRequestKey}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetImportRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "importRequest",
+        bodyModel: model.ImportRequest,
+        type: "model.ImportRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -8331,6 +8891,94 @@ export class DataIntegrationClient {
   }
 
   /**
+   * This endpoint can be used to get the list of export object requests.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListExportRequestsRequest
+   * @return ListExportRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListExportRequests.ts.html |here} to see how to use ListExportRequests API.
+   */
+  public async listExportRequests(
+    listExportRequestsRequest: requests.ListExportRequestsRequest
+  ): Promise<responses.ListExportRequestsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listExportRequests.");
+    const operationName = "listExportRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ExportRequestSummaryCollection/ListExportRequests";
+    const pathParams = {
+      "{workspaceId}": listExportRequestsRequest.workspaceId
+    };
+
+    const queryParams = {
+      "page": listExportRequestsRequest.page,
+      "limit": listExportRequestsRequest.limit,
+      "name": listExportRequestsRequest.name,
+      "sortOrder": listExportRequestsRequest.sortOrder,
+      "sortBy": listExportRequestsRequest.sortBy,
+      "exportStatus": listExportRequestsRequest.exportStatus,
+      "projection": listExportRequestsRequest.projection,
+      "timeStartedInMillis": listExportRequestsRequest.timeStartedInMillis,
+      "timeEndedInMillis": listExportRequestsRequest.timeEndedInMillis
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listExportRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listExportRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/exportRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListExportRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "exportRequestSummaryCollection",
+        bodyModel: model.ExportRequestSummaryCollection,
+        type: "model.ExportRequestSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Retrieves a lists of external publication validations in a workspace and provides options to filter the list.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -8708,6 +9356,94 @@ export class DataIntegrationClient {
             value: response.headers.get("opc-total-items"),
             key: "opcTotalItems",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * This endpoint can be used to get the list of import object requests.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListImportRequestsRequest
+   * @return ListImportRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/ListImportRequests.ts.html |here} to see how to use ListImportRequests API.
+   */
+  public async listImportRequests(
+    listImportRequestsRequest: requests.ListImportRequestsRequest
+  ): Promise<responses.ListImportRequestsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#listImportRequests.");
+    const operationName = "listImportRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/ImportRequestSummaryCollection/ListImportRequests";
+    const pathParams = {
+      "{workspaceId}": listImportRequestsRequest.workspaceId
+    };
+
+    const queryParams = {
+      "page": listImportRequestsRequest.page,
+      "limit": listImportRequestsRequest.limit,
+      "name": listImportRequestsRequest.name,
+      "sortOrder": listImportRequestsRequest.sortOrder,
+      "sortBy": listImportRequestsRequest.sortBy,
+      "importStatus": listImportRequestsRequest.importStatus,
+      "projection": listImportRequestsRequest.projection,
+      "timeStartedInMillis": listImportRequestsRequest.timeStartedInMillis,
+      "timeEndedInMillis": listImportRequestsRequest.timeEndedInMillis
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listImportRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listImportRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/importRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListImportRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "importRequestSummaryCollection",
+        bodyModel: model.ImportRequestSummaryCollection,
+        type: "model.ImportRequestSummaryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
           }
         ]
       });
@@ -12055,6 +12791,90 @@ export class DataIntegrationClient {
   }
 
   /**
+   * Updates the status of a export object request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateExportRequestRequest
+   * @return UpdateExportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateExportRequest.ts.html |here} to see how to use UpdateExportRequest API.
+   */
+  public async updateExportRequest(
+    updateExportRequestRequest: requests.UpdateExportRequestRequest
+  ): Promise<responses.UpdateExportRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#updateExportRequest.");
+    const operationName = "updateExportRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/UpdateExportRequest";
+    const pathParams = {
+      "{workspaceId}": updateExportRequestRequest.workspaceId,
+      "{exportRequestKey}": updateExportRequestRequest.exportRequestKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateExportRequestRequest.opcRequestId,
+      "if-match": updateExportRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateExportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/exportRequests/{exportRequestKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateExportRequestRequest.updateExportRequestDetails,
+        "UpdateExportRequestDetails",
+        model.UpdateExportRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateExportRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "exportRequest",
+        bodyModel: model.ExportRequest,
+        type: "model.ExportRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Updates the external publication object.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalPublicationRequest
@@ -12287,6 +13107,90 @@ export class DataIntegrationClient {
         bodyKey: "functionLibrary",
         bodyModel: model.FunctionLibrary,
         type: "model.FunctionLibrary",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Updates the status of a import object request.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateImportRequestRequest
+   * @return UpdateImportRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/dataintegration/UpdateImportRequest.ts.html |here} to see how to use UpdateImportRequest API.
+   */
+  public async updateImportRequest(
+    updateImportRequestRequest: requests.UpdateImportRequestRequest
+  ): Promise<responses.UpdateImportRequestResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataIntegrationClient#updateImportRequest.");
+    const operationName = "updateImportRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-integration/20200430/Workspace/UpdateImportRequest";
+    const pathParams = {
+      "{workspaceId}": updateImportRequestRequest.workspaceId,
+      "{importRequestKey}": updateImportRequestRequest.importRequestKey
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateImportRequestRequest.opcRequestId,
+      "if-match": updateImportRequestRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateImportRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workspaces/{workspaceId}/importRequests/{importRequestKey}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateImportRequestRequest.updateImportRequestDetails,
+        "UpdateImportRequestDetails",
+        model.UpdateImportRequestDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateImportRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "importRequest",
+        bodyModel: model.ImportRequest,
+        type: "model.ImportRequest",
         responseHeaders: [
           {
             value: response.headers.get("etag"),

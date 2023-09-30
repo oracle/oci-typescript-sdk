@@ -22,6 +22,10 @@ export interface ScriptedBrowserMonitorConfiguration extends model.MonitorConfig
    * If certificate validation is enabled, then the call will fail in case of certification errors.
    */
   "isCertificateValidationEnabled"?: boolean;
+  /**
+   * If disabled, auto snapshots are not collected.
+   */
+  "isDefaultSnapshotEnabled"?: boolean;
   "networkConfiguration"?: model.NetworkConfiguration;
 
   "configType": string;

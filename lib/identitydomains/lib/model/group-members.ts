@@ -16,11 +16,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Group members - when requesting members attribute, a max of 10,000 members will be returned in a single request. It is recommended to use startIndex and count to return members in pages instead of in a single response, eg : #attributes=members[startIndex=1%26count=10]
+ * The group members. <b>Important:</b> When requesting group members, a maximum of 10,000 members can be returned in a single request. If the response contains more than 10,000 members, the request will fail. Use 'startIndex' and 'count' to return members in pages instead of in a single response, for example: #attributes=members[startIndex=1%26count=10]. This REST API is SCIM compliant.
  */
 export interface GroupMembers {
   /**
-   * ID of the member of this Group
+   * The ID of the member of this Group
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -34,7 +34,7 @@ export interface GroupMembers {
    */
   "value": string;
   /**
-   * The DateTime the member was added to the Group.
+   * The date and time that the member was added to the group.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -48,7 +48,7 @@ export interface GroupMembers {
    */
   "dateAdded"?: string;
   /**
-   * OCID of the member of this Group
+   * The OCID of the member of this group.
    * <p>
    **Added In:** 2012271618
    * <p>
@@ -64,7 +64,7 @@ export interface GroupMembers {
    */
   "ocid"?: string;
   /**
-   * Membership Ocid
+   * The membership OCID.
    * <p>
    **Added In:** 2102181953
    * <p>
@@ -80,7 +80,7 @@ export interface GroupMembers {
    */
   "membershipOcid"?: string;
   /**
-   * The URI that corresponds to the member Resource of this Group
+   * The URI that corresponds to the member Resource of this group.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -94,7 +94,7 @@ export interface GroupMembers {
    */
   "ref"?: string;
   /**
-   * Member display name
+   * The member's display name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -108,7 +108,7 @@ export interface GroupMembers {
    */
   "display"?: string;
   /**
-   * Indicates the type of resource--for example, User or Group
+   * Indicates the type of resource, for example, User or Group.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -123,7 +123,7 @@ export interface GroupMembers {
    */
   "type": GroupMembers.Type;
   /**
-   * Member name
+   * The member's name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

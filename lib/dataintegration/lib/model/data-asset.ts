@@ -91,14 +91,49 @@ export namespace DataAsset {
             <model.DataAssetFromOracleDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.DataAssetFromAmazonS3.getJsonObj(
+            <model.DataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.DataAssetFromMySqlHeatWave.getJsonObj(
+            <model.DataAssetFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DATA_ASSET":
+          return model.DataAssetFromMySQL.getJsonObj(
+            <model.DataAssetFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.DataAssetFromOraclePeopleSoftDetails.getJsonObj(
+            <model.DataAssetFromOraclePeopleSoftDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.DataAssetFromOracleEbsDetails.getJsonObj(
+            <model.DataAssetFromOracleEbsDetails>(<object>jsonObj),
+            true
+          );
+        case "REST_DATA_ASSET":
+          return model.DataAssetFromRestDetails.getJsonObj(
+            <model.DataAssetFromRestDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_DATA_ASSET":
           return model.DataAssetFromAdwcDetails.getJsonObj(
             <model.DataAssetFromAdwcDetails>(<object>jsonObj),
             true
           );
-        case "AMAZON_S3_DATA_ASSET":
-          return model.DataAssetFromAmazonS3.getJsonObj(
-            <model.DataAssetFromAmazonS3>(<object>jsonObj),
+        case "HDFS_DATA_ASSET":
+          return model.DataAssetFromHdfsDetails.getJsonObj(
+            <model.DataAssetFromHdfsDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.DataAssetFromOracleSiebelDetails.getJsonObj(
+            <model.DataAssetFromOracleSiebelDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
@@ -119,16 +154,6 @@ export namespace DataAsset {
         case "ORACLE_ATP_DATA_ASSET":
           return model.DataAssetFromAtpDetails.getJsonObj(
             <model.DataAssetFromAtpDetails>(<object>jsonObj),
-            true
-          );
-        case "MYSQL_DATA_ASSET":
-          return model.DataAssetFromMySQL.getJsonObj(
-            <model.DataAssetFromMySQL>(<object>jsonObj),
-            true
-          );
-        case "REST_DATA_ASSET":
-          return model.DataAssetFromRestDetails.getJsonObj(
-            <model.DataAssetFromRestDetails>(<object>jsonObj),
             true
           );
         default:
@@ -166,14 +191,49 @@ export namespace DataAsset {
             <model.DataAssetFromOracleDetails>(<object>jsonObj),
             true
           );
+        case "AMAZON_S3_DATA_ASSET":
+          return model.DataAssetFromAmazonS3.getDeserializedJsonObj(
+            <model.DataAssetFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.DataAssetFromMySqlHeatWave.getDeserializedJsonObj(
+            <model.DataAssetFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_DATA_ASSET":
+          return model.DataAssetFromMySQL.getDeserializedJsonObj(
+            <model.DataAssetFromMySQL>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.DataAssetFromOraclePeopleSoftDetails.getDeserializedJsonObj(
+            <model.DataAssetFromOraclePeopleSoftDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.DataAssetFromOracleEbsDetails.getDeserializedJsonObj(
+            <model.DataAssetFromOracleEbsDetails>(<object>jsonObj),
+            true
+          );
+        case "REST_DATA_ASSET":
+          return model.DataAssetFromRestDetails.getDeserializedJsonObj(
+            <model.DataAssetFromRestDetails>(<object>jsonObj),
+            true
+          );
         case "ORACLE_ADWC_DATA_ASSET":
           return model.DataAssetFromAdwcDetails.getDeserializedJsonObj(
             <model.DataAssetFromAdwcDetails>(<object>jsonObj),
             true
           );
-        case "AMAZON_S3_DATA_ASSET":
-          return model.DataAssetFromAmazonS3.getDeserializedJsonObj(
-            <model.DataAssetFromAmazonS3>(<object>jsonObj),
+        case "HDFS_DATA_ASSET":
+          return model.DataAssetFromHdfsDetails.getDeserializedJsonObj(
+            <model.DataAssetFromHdfsDetails>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.DataAssetFromOracleSiebelDetails.getDeserializedJsonObj(
+            <model.DataAssetFromOracleSiebelDetails>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
@@ -194,16 +254,6 @@ export namespace DataAsset {
         case "ORACLE_ATP_DATA_ASSET":
           return model.DataAssetFromAtpDetails.getDeserializedJsonObj(
             <model.DataAssetFromAtpDetails>(<object>jsonObj),
-            true
-          );
-        case "MYSQL_DATA_ASSET":
-          return model.DataAssetFromMySQL.getDeserializedJsonObj(
-            <model.DataAssetFromMySQL>(<object>jsonObj),
-            true
-          );
-        case "REST_DATA_ASSET":
-          return model.DataAssetFromRestDetails.getDeserializedJsonObj(
-            <model.DataAssetFromRestDetails>(<object>jsonObj),
             true
           );
         default:

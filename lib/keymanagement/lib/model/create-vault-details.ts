@@ -1,7 +1,6 @@
 /**
- * Vault Service Key Management API
- * API for managing and performing operations with keys and vaults. (For the API for managing secrets, see the Vault Service 
-Secret Management API. For the API for retrieving secrets, see the Vault Service Secret Retrieval API.)
+ * Vault Key Management API
+ * Use the Key Management API to manage vaults and keys. For more information, see [Managing Vaults](/Content/KeyManagement/Tasks/managingvaults.htm) and [Managing Keys](/Content/KeyManagement/Tasks/managingkeys.htm).
 
  * OpenAPI spec version: release
  * Contact: sparta_kms_us_grp@oracle.com
@@ -16,6 +15,9 @@ Secret Management API. For the API for retrieving secrets, see the Vault Service
 import * as model from "../model";
 import common = require("oci-common");
 
+/**
+ * The details of the vault that you want to create.
+ */
 export interface CreateVaultDetails {
   /**
    * The OCID of the compartment where you want to create this vault.
@@ -41,6 +43,7 @@ export interface CreateVaultDetails {
    *
    */
   "freeformTags"?: { [key: string]: string };
+  "externalKeyManagerMetadata"?: model.ExternalKeyManagerMetadata;
   /**
    * The type of vault to create. Each type of vault stores the key with different degrees of isolation and has different options and pricing.
    *
@@ -51,16 +54,31 @@ export interface CreateVaultDetails {
 export namespace CreateVaultDetails {
   export enum VaultType {
     VirtualPrivate = "VIRTUAL_PRIVATE",
-    Default = "DEFAULT"
+    Default = "DEFAULT",
+    External = "EXTERNAL"
   }
 
   export function getJsonObj(obj: CreateVaultDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalKeyManagerMetadata": obj.externalKeyManagerMetadata
+          ? model.ExternalKeyManagerMetadata.getJsonObj(obj.externalKeyManagerMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateVaultDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "externalKeyManagerMetadata": obj.externalKeyManagerMetadata
+          ? model.ExternalKeyManagerMetadata.getDeserializedJsonObj(obj.externalKeyManagerMetadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

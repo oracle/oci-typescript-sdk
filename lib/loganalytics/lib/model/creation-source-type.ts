@@ -16,12 +16,13 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Entities are auto-created when enterprise manager bridge is configured in logging analytics. Similarly
- * entities can be auto-created when logs are forwarded from service connector.
+ * Entities are auto-created when enterprise manager bridge is configured in logging analytics, or
+ * when logs are forwarded from service connector or through bulk discovery from object store.
  *
  **/
 export enum CreationSourceType {
   EmBridge = "EM_BRIDGE",
+  BulkDiscovery = "BULK_DISCOVERY",
   ServiceConnectorHub = "SERVICE_CONNECTOR_HUB",
   Discovery = "DISCOVERY",
   None = "NONE",

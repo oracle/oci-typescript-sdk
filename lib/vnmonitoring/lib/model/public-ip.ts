@@ -30,9 +30,21 @@ For more information and comparison of the two types,
 */
 export interface PublicIp {
   /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the entity the public IP is assigned to, or in the process of
+   * being assigned to.
+   *
+   */
+  "assignedEntityId"?: string;
+  /**
+   * The type of entity the public IP is assigned to, or in the process of being
+   * assigned to.
+   *
+   */
+  "assignedEntityType"?: PublicIp.AssignedEntityType;
+  /**
     * The public IP's availability domain. This property is set only for ephemeral public IPs
-* (that is, when the `scope` of the public IP is set to AVAILABILITY_DOMAIN). The value
-* is the availability domain of the assigned private IP.
+* that are assigned to a private IP (that is, when the `scope` of the public IP is set to
+* AVAILABILITY_DOMAIN). The value is the availability domain of the assigned private IP.
 * <p>
 Example: `Uocm:PHX-AD-1`
 * 
@@ -40,8 +52,9 @@ Example: `Uocm:PHX-AD-1`
   "availabilityDomain"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment containing the public IP. For an ephemeral public IP, this is
-   * the same compartment as the private IP's. For a reserved public IP that is currently assigned,
-   * this can be a different compartment than the assigned private IP's.
+   * the compartment of its assigned entity (which can be a private IP or a regional entity such
+   * as a NAT gateway). For a reserved public IP that is currently assigned,
+   * its compartment can be different from the assigned private IP's.
    *
    */
   "compartmentId"?: string;
@@ -81,10 +94,12 @@ Example: `203.0.113.2`
   /**
     * Defines when the public IP is deleted and released back to Oracle's public IP pool.
 * <p>
-* `EPHEMERAL`: The lifetime is tied to the lifetime of its assigned private IP. The
-* ephemeral public IP is automatically deleted when its private IP is deleted, when
-* the VNIC is terminated, or when the instance is terminated. An ephemeral
-* public IP must always be assigned to a private IP.
+* `EPHEMERAL`: The lifetime is tied to the lifetime of its assigned entity. An ephemeral
+* public IP must always be assigned to an entity. If the assigned entity is a private IP,
+* the ephemeral public IP is automatically deleted when the private IP is deleted, when
+* the VNIC is terminated, or when the instance is terminated. If the assigned entity is a
+* {@link NatGateway}, the ephemeral public IP is automatically
+* deleted when the NAT gateway is terminated.
 * <p>
 * `RESERVED`: You control the public IP's lifetime. You can delete a reserved public IP
 * whenever you like. It does not need to be assigned to a private IP at all times.
@@ -95,20 +110,27 @@ For more information and comparison of the two types,
     */
   "lifetime"?: PublicIp.Lifetime;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private IP that the public IP is currently assigned to, or in the
-   * process of being assigned to.
-   *
-   */
+    * Deprecated. Use `assignedEntityId` instead.
+* <p>
+The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the private IP that the public IP is currently assigned to, or in the
+* process of being assigned to.
+* <p>
+**Note:** This is `null` if the public IP is not assigned to a private IP, or is
+* in the process of being assigned to one.
+* 
+    */
   "privateIpId"?: string;
   /**
    * Whether the public IP is regional or specific to a particular availability domain.
    * <p>
-   * `REGION`: The public IP exists within a region and can be assigned to a private IP
-   * in any availability domain in the region. Reserved public IPs have `scope` = `REGION`.
+   * `REGION`: The public IP exists within a region and is assigned to a regional entity
+   * (such as a {@link NatGateway}), or can be assigned to a private
+   * IP in any availability domain in the region. Reserved public IPs and ephemeral public IPs
+   * assigned to a regional entity have `scope` = `REGION`.
    * <p>
-   * `AVAILABILITY_DOMAIN`: The public IP exists within the availability domain of the private IP
+   * `AVAILABILITY_DOMAIN`: The public IP exists within the availability domain of the entity
    * it's assigned to, which is specified by the `availabilityDomain` property of the public IP object.
-   * Ephemeral public IPs have `scope` = `AVAILABILITY_DOMAIN`.
+   * Ephemeral public IPs that are assigned to private IPs have `scope` = `AVAILABILITY_DOMAIN`.
    *
    */
   "scope"?: PublicIp.Scope;
@@ -119,9 +141,23 @@ Example: `2016-08-25T21:10:29.600Z`
 * 
     */
   "timeCreated"?: Date;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the pool object created in the current tenancy.
+   */
+  "publicIpPoolId"?: string;
 }
 
 export namespace PublicIp {
+  export enum AssignedEntityType {
+    PrivateIp = "PRIVATE_IP",
+    NatGateway = "NAT_GATEWAY",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export enum LifecycleState {
     Provisioning = "PROVISIONING",
     Available = "AVAILABLE",

@@ -20,9 +20,9 @@ import common = require("oci-common");
  */
 export interface CreateGoldenGateHub {
   "restAdminCredentials": model.CreateAdminCredentials;
-  "sourceDbAdminCredentials": model.CreateAdminCredentials;
+  "sourceDbAdminCredentials"?: model.CreateAdminCredentials;
   "sourceContainerDbAdminCredentials"?: model.CreateAdminCredentials;
-  "targetDbAdminCredentials": model.CreateAdminCredentials;
+  "targetDbAdminCredentials"?: model.CreateAdminCredentials;
   /**
    * Oracle GoldenGate Microservices hub's REST endpoint.
    * Refer to https://docs.oracle.com/en/middleware/goldengate/core/19.1/securing/network.html#GUID-A709DA55-111D-455E-8942-C9BDD1E38CAA
@@ -33,12 +33,12 @@ export interface CreateGoldenGateHub {
    * Name of GoldenGate Microservices deployment to operate on source database
    *
    */
-  "sourceMicroservicesDeploymentName": string;
+  "sourceMicroservicesDeploymentName"?: string;
   /**
    * Name of GoldenGate Microservices deployment to operate on target database
    *
    */
-  "targetMicroservicesDeploymentName": string;
+  "targetMicroservicesDeploymentName"?: string;
   /**
    * OCID of GoldenGate Microservices compute instance.
    *

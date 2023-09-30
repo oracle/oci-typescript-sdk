@@ -53,6 +53,16 @@ You can't remove a DRG route table from a DRG attachment, but you can reassign w
    *
    */
   "exportDrgRouteDistributionId"?: string;
+  /**
+    * This is the [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the route table that is used to route the traffic as it enters a VCN through this attachment.
+* <p>
+For information about why you would associate a route table with a DRG attachment, see:
+* <p>
+  * [Transit Routing: Access to Multiple VCNs in Same Region](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitrouting.htm)
+*   * [Transit Routing: Private Access to Oracle Services](https://docs.cloud.oracle.com/iaas/Content/Network/Tasks/transitroutingoracleservices.htm)
+* 
+    */
+  "routeTableId"?: string;
 }
 
 export namespace UpdateDrgAttachmentDetails {

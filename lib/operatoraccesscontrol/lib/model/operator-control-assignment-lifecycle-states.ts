@@ -26,6 +26,7 @@ export enum OperatorControlAssignmentLifecycleStates {
   Applied = "APPLIED",
   Applyfailed = "APPLYFAILED",
   Updating = "UPDATING",
+  Updatefailed = "UPDATEFAILED",
   Deleting = "DELETING",
   Deleted = "DELETED",
   Deletionfailed = "DELETIONFAILED",

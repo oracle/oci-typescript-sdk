@@ -19,11 +19,11 @@ import common = require("oci-common");
  */
 export interface HealthCheckHttpHeader {
   /**
-   * Container Http header Key.
+   * Container HTTP header Key.
    */
   "name": string;
   /**
-   * Container Http header value.
+   * Container HTTP header value.
    */
   "value": string;
 }

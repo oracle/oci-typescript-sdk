@@ -77,29 +77,34 @@ export namespace DataAssetSummary {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.DataAssetSummaryFromOracleSiebel.getJsonObj(
+            <model.DataAssetSummaryFromOracleSiebel>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.DataAssetSummaryFromMySqlHeatWave.getJsonObj(
+            <model.DataAssetSummaryFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
         case "MYSQL_DATA_ASSET":
           return model.DataAssetSummaryFromMySQL.getJsonObj(
             <model.DataAssetSummaryFromMySQL>(<object>jsonObj),
             true
           );
-        case "ORACLE_ATP_DATA_ASSET":
-          return model.DataAssetSummaryFromAtp.getJsonObj(
-            <model.DataAssetSummaryFromAtp>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_ADWC_DATA_ASSET":
-          return model.DataAssetSummaryFromAdwc.getJsonObj(
-            <model.DataAssetSummaryFromAdwc>(<object>jsonObj),
-            true
-          );
-        case "GENERIC_JDBC_DATA_ASSET":
-          return model.DataAssetSummaryFromJdbc.getJsonObj(
-            <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
+        case "HDFS_DATA_ASSET":
+          return model.DataAssetSummaryFromHdfs.getJsonObj(
+            <model.DataAssetSummaryFromHdfs>(<object>jsonObj),
             true
           );
         case "AMAZON_S3_DATA_ASSET":
           return model.DataAssetSummaryFromAmazonS3.getJsonObj(
             <model.DataAssetSummaryFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.DataAssetSummaryFromOraclePeopleSoft.getJsonObj(
+            <model.DataAssetSummaryFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
@@ -120,6 +125,26 @@ export namespace DataAssetSummary {
         case "ORACLE_DATA_ASSET":
           return model.DataAssetSummaryFromOracle.getJsonObj(
             <model.DataAssetSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.DataAssetSummaryFromAtp.getJsonObj(
+            <model.DataAssetSummaryFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.DataAssetSummaryFromAdwc.getJsonObj(
+            <model.DataAssetSummaryFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.DataAssetSummaryFromJdbc.getJsonObj(
+            <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.DataAssetSummaryFromOracleEbs.getJsonObj(
+            <model.DataAssetSummaryFromOracleEbs>(<object>jsonObj),
             true
           );
         case "FUSION_APP_DATA_ASSET":
@@ -152,29 +177,34 @@ export namespace DataAssetSummary {
 
     if (obj && "modelType" in obj && obj.modelType) {
       switch (obj.modelType) {
+        case "ORACLE_SIEBEL_DATA_ASSET":
+          return model.DataAssetSummaryFromOracleSiebel.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromOracleSiebel>(<object>jsonObj),
+            true
+          );
+        case "MYSQL_HEATWAVE_DATA_ASSET":
+          return model.DataAssetSummaryFromMySqlHeatWave.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromMySqlHeatWave>(<object>jsonObj),
+            true
+          );
         case "MYSQL_DATA_ASSET":
           return model.DataAssetSummaryFromMySQL.getDeserializedJsonObj(
             <model.DataAssetSummaryFromMySQL>(<object>jsonObj),
             true
           );
-        case "ORACLE_ATP_DATA_ASSET":
-          return model.DataAssetSummaryFromAtp.getDeserializedJsonObj(
-            <model.DataAssetSummaryFromAtp>(<object>jsonObj),
-            true
-          );
-        case "ORACLE_ADWC_DATA_ASSET":
-          return model.DataAssetSummaryFromAdwc.getDeserializedJsonObj(
-            <model.DataAssetSummaryFromAdwc>(<object>jsonObj),
-            true
-          );
-        case "GENERIC_JDBC_DATA_ASSET":
-          return model.DataAssetSummaryFromJdbc.getDeserializedJsonObj(
-            <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
+        case "HDFS_DATA_ASSET":
+          return model.DataAssetSummaryFromHdfs.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromHdfs>(<object>jsonObj),
             true
           );
         case "AMAZON_S3_DATA_ASSET":
           return model.DataAssetSummaryFromAmazonS3.getDeserializedJsonObj(
             <model.DataAssetSummaryFromAmazonS3>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_PEOPLESOFT_DATA_ASSET":
+          return model.DataAssetSummaryFromOraclePeopleSoft.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromOraclePeopleSoft>(<object>jsonObj),
             true
           );
         case "ORACLE_OBJECT_STORAGE_DATA_ASSET":
@@ -195,6 +225,26 @@ export namespace DataAssetSummary {
         case "ORACLE_DATA_ASSET":
           return model.DataAssetSummaryFromOracle.getDeserializedJsonObj(
             <model.DataAssetSummaryFromOracle>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ATP_DATA_ASSET":
+          return model.DataAssetSummaryFromAtp.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromAtp>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_ADWC_DATA_ASSET":
+          return model.DataAssetSummaryFromAdwc.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromAdwc>(<object>jsonObj),
+            true
+          );
+        case "GENERIC_JDBC_DATA_ASSET":
+          return model.DataAssetSummaryFromJdbc.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromJdbc>(<object>jsonObj),
+            true
+          );
+        case "ORACLE_EBS_DATA_ASSET":
+          return model.DataAssetSummaryFromOracleEbs.getDeserializedJsonObj(
+            <model.DataAssetSummaryFromOracleEbs>(<object>jsonObj),
             true
           );
         case "FUSION_APP_DATA_ASSET":

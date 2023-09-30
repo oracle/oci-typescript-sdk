@@ -91,6 +91,10 @@ export interface LogAnalyticsAssociation {
    * The log group compartment.
    */
   "logGroupCompartment"?: string;
+  /**
+   * A list of association properties.
+   */
+  "associationProperties"?: Array<model.AssociationProperty>;
 }
 
 export namespace LogAnalyticsAssociation {
@@ -107,12 +111,30 @@ export namespace LogAnalyticsAssociation {
   }
 
   export function getJsonObj(obj: LogAnalyticsAssociation): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associationProperties": obj.associationProperties
+          ? obj.associationProperties.map(item => {
+              return model.AssociationProperty.getJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: LogAnalyticsAssociation): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "associationProperties": obj.associationProperties
+          ? obj.associationProperties.map(item => {
+              return model.AssociationProperty.getDeserializedJsonObj(item);
+            })
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

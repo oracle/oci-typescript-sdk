@@ -15,23 +15,23 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* A single container on a Container Instance.
+* A single container on a container instance.
 * <p>
-If this Container is DELETED, the record will remain visible for a short period
+If you delete a container, the record remains visible for a short period
 * of time before being permanently removed.
 * 
 */
 export interface Container {
   /**
-   * Unique identifier that is immutable on creation
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container.
    */
   "id": string;
   /**
-   * Display name for the Container. Can be renamed.
+   * A user-friendly name. Does not have to be unique, and it's changeable. Avoid entering confidential information.
    */
   "displayName": string;
   /**
-   * Compartment Identifier
+   * The OCID of the compartment that contains the container.
    */
   "compartmentId": string;
   /**
@@ -42,93 +42,89 @@ export interface Container {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
    * Usage of system tag keys. These predefined keys are scoped to namespaces.
-   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`
+   * Example: `{\"orcl-cloud\": {\"free-tier-retained\": \"true\"}}`.
    *
    */
   "systemTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * Availability Domain where the Container's Instance is running.
+   * The availability domain where the container instance that hosts the container runs.
    */
   "availabilityDomain": string;
   /**
-   * Fault Domain where the Container's Instance is running.
+   * The fault domain of the container instance that hosts the container runs.
    */
   "faultDomain"?: string;
   /**
-   * The current state of the Container.
+   * The current state of the container.
    */
   "lifecycleState": Container.LifecycleState;
   /**
-   * A message describing the current state in more detail. For example, can be used to provide
-   * actionable information for a resource in Failed state.
+   * A message that describes the current state of the container in more detail. Can be used to provide
+   * actionable information.
    *
    */
   "lifecycleDetails"?: string;
   /**
-   * The exit code of the container process if it has stopped executing. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The exit code of the container process when it stopped running. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "exitCode"?: number;
   /**
-   * Time at which the container last terminated. An RFC3339 formatted datetime string
+   * The time when the container last deleted (terminated), in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timeTerminated"?: Date;
   /**
-   * The time the the Container was created. An RFC3339 formatted datetime string
+   * The time the container was created, in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timeCreated": Date;
   /**
-   * The time the Container was updated. An RFC3339 formatted datetime string
+   * The time the container was updated, in the format defined by [RFC 3339](https://tools.ietf.org/rfc/rfc3339).
    */
   "timeUpdated"?: Date;
   /**
-   * The identifier of the Container Instance on which this container is running.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the container instance that the container is running on.
    */
   "containerInstanceId": string;
   /**
-   * The container image information. Currently only support public docker registry. Can be either image name,
-   * e.g `containerImage`, image name with version, e.g `containerImage:v1` or complete docker image Url e.g
-   * `docker.io/library/containerImage:latest`.
-   * If no registry is provided, will default the registry to public docker hub `docker.io/library`.
-   * The registry used for container image must be reachable over the Container Instance's VNIC.
-   *
-   */
+    * The container image information. Currently only supports public Docker registry.
+* <p>
+You can provide either the image name (containerImage), image name with version (containerImagev1), or complete Docker image URL
+* `docker.io/library/containerImage:latest`.
+* <p>
+If you do not provide a registry, the registry defaults to public Docker hub `docker.io/library`.
+* The registry used for the container image must be reachable over the VNIC of the container instance.
+* 
+    */
   "imageUrl": string;
   /**
-   * This command will override the container's entrypoint process.
-   * If not specified, the existing entrypoint process defined in the image will be used.
+   * This command overrides ENTRYPOINT process of the container.
+   * If you do not specify this command, the existing ENTRYPOINT process defined in the image is the default.
    *
    */
   "command"?: Array<string>;
   /**
-    * A list of string arguments for a Container's entrypoint process.
+    * A list of string arguments for the ENTRYPOINT process of the container.
 * <p>
-Many containers use an entrypoint process pointing to a shell,
-* for example /bin/bash. For such containers, this argument list
-* can also be used to specify the main command in the container process.
+Many containers use an ENTRYPOINT process pointing to a shell
+* `/bin/bash`. For those containers, you can use the argument list to specify the main command in the container process.
 * 
     */
   "arguments"?: Array<string>;
   /**
-   * A list of additional configurable container capabilities
-   *
-   */
-  "additionalCapabilities"?: Array<Container.AdditionalCapabilities>;
-  /**
-   * The working directory within the Container's filesystem for
-   * the Container process. If this is not present, the default
-   * working directory from the image will be used.
+   * The working directory within the container's filesystem for
+   * the container process. If not specified, the default
+   * working directory from the image is used.
    *
    */
   "workingDirectory"?: string;
   /**
-   * A map of additional environment variables to set in the environment of the container's
-   * entrypoint process. These variables are in addition to any variables already defined
+   * A map of additional environment variables to set in the environment of the
+   * ENTRYPOINT process of the container. These variables are in addition to any variables already defined
    * in the container's image.
    *
    */
@@ -143,18 +139,19 @@ Many containers use an entrypoint process pointing to a shell,
    */
   "healthChecks"?: Array<model.ContainerHealthCheck>;
   /**
-   * Determines if the Container will have access to the Container Instance Resource Principal.
-   * This method utilizes resource principal version 2.2. Please refer to
-   * https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm#sdk_authentication_methods_resource_principal
-   * for detailed explanation of how to leverage the exposed resource principal elements.
-   *
-   */
+    * Determines if the container will have access to the container instance resource principal.
+* <p>
+This method utilizes resource principal version 2.2. For more information on how to use the exposed resource principal elements, see
+* https://docs.oracle.com/en-us/iaas/Content/API/Concepts/sdk_authentication_methods.htm#sdk_authentication_methods_resource_principal.
+* 
+    */
   "isResourcePrincipalDisabled"?: boolean;
   "resourceConfig"?: model.ContainerResourceConfig;
   /**
-   * The number of container restart attempts. A restart may be attempted after a health check failure or a container exit, based on the restart policy. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The number of container restart attempts. Depending on the restart policy, a restart might be attempted after a health check failure or a container exit. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "containerRestartAttemptCount"?: number;
+  "securityContext"?: model.LinuxSecurityContext;
 }
 
 export namespace Container {
@@ -166,16 +163,6 @@ export namespace Container {
     Deleting = "DELETING",
     Deleted = "DELETED",
     Failed = "FAILED",
-    /**
-     * This value is used if a service returns a value for this enum that is not recognized by this
-     * version of the SDK.
-     */
-    UnknownValue = "UNKNOWN_VALUE"
-  }
-
-  export enum AdditionalCapabilities {
-    CapNetAdmin = "CAP_NET_ADMIN",
-    CapNetRaw = "CAP_NET_RAW",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -200,6 +187,10 @@ export namespace Container {
 
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getJsonObj(obj.securityContext)
           : undefined
       }
     };
@@ -223,6 +214,10 @@ export namespace Container {
 
         "resourceConfig": obj.resourceConfig
           ? model.ContainerResourceConfig.getDeserializedJsonObj(obj.resourceConfig)
+          : undefined,
+
+        "securityContext": obj.securityContext
+          ? model.SecurityContext.getDeserializedJsonObj(obj.securityContext)
           : undefined
       }
     };

@@ -1,6 +1,6 @@
 /**
  * Identity and Access Management Service API
- * APIs for managing users, groups, compartments, policies, and identity domains.
+ * Use the Identity and Access Management Service API to manage users, groups, identity domains, compartments, policies, tagging, and limits. For information about managing users, groups, compartments, and policies, see [Identity and Access Management (without identity domains)](/iaas/Content/Identity/Concepts/overview.htm). For information about tagging and service limits, see [Tagging](/iaas/Content/Tagging/Concepts/taggingoverview.htm) and [Service Limits](/iaas/Content/General/Concepts/servicelimits.htm). For information about creating, modifying, and deleting identity domains, see [Identity and Access Management (with identity domains)](/iaas/Content/Identity/home.htm).
  * OpenAPI spec version: 20160918
  *
  *
@@ -37,6 +37,7 @@ export class IdentityClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Identity";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -56,6 +57,9 @@ export class IdentityClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -68,7 +72,12 @@ export class IdentityClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -768,8 +777,8 @@ After you send your request, the new object's `lifecycleState` will temporarily 
 * tags from all resources in your tenancy. The tag key definitions must be within the same tag namespace.
 * <p>
 The following actions happen immediately:
-* \u00A0
-*   * If the tag is a cost-tracking tag, the tag no longer counts against your
+* <p>
+  * If the tag is a cost-tracking tag, the tag no longer counts against your
 *   10 cost-tracking tags limit, even if you do not disable the tag before running this operation.
 *   * If the tag is used with dynamic groups, the rules that contain the tag are no longer
 *   evaluated against the tag.
@@ -4986,7 +4995,7 @@ To track the progress of the request, submitting an HTTP GET on the /iamWorkRequ
   }
 
   /**
-   * Gets the authentication policy for the given tenancy. You must specify your tenant\u2019s OCID as the value for
+   * Gets the authentication policy for the given tenancy. You must specify your tenant's OCID as the value for
    * the compartment ID (remember that the tenancy is simply the root compartment).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.

@@ -23,7 +23,7 @@ export interface SummarizeLibraryUsageRequest extends common.BaseRequest {
    */
   "fleetId": string;
   /**
-   * The Java server instance key.
+   * The Java Server instance key.
    *
    */
   "serverInstanceKey"?: string;

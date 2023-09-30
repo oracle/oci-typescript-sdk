@@ -36,9 +36,19 @@ export interface UpdateDhcpDetails {
    */
   "freeformTags"?: { [key: string]: string };
   "options"?: Array<model.DhcpOption>;
+  /**
+   * The search domain name type of DHCP options
+   */
+  "domainNameType"?: UpdateDhcpDetails.DomainNameType;
 }
 
 export namespace UpdateDhcpDetails {
+  export enum DomainNameType {
+    SubnetDomain = "SUBNET_DOMAIN",
+    VcnDomain = "VCN_DOMAIN",
+    CustomDomain = "CUSTOM_DOMAIN"
+  }
+
   export function getJsonObj(obj: UpdateDhcpDetails): object {
     const jsonObj = {
       ...obj,

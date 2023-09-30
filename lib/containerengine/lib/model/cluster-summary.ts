@@ -100,7 +100,7 @@ export interface ClusterSummary {
    */
   "clusterPodNetworkOptions"?: Array<model.ClusterPodNetworkOptionDetails>;
   /**
-   * Type of cluster
+   * Type of cluster. Values can be BASIC_CLUSTER or ENHANCED_CLUSTER. For more information, see [Cluster Types](https://docs.cloud.oracle.com/Content/ContEng/Tasks/contengcomparingenhancedwithbasicclusters_topic.htm)
    */
   "type"?: model.ClusterType;
 }

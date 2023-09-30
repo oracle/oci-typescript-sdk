@@ -74,6 +74,14 @@ export interface ScheduledActivity {
    * A message describing the current state in more detail. For example, can be used to provide actionable information for a resource in Failed state.
    */
   "lifecycleDetails"?: ScheduledActivity.LifecycleDetails;
+  /**
+   * A property describing the phase of the scheduled activity.
+   */
+  "scheduledActivityPhase": ScheduledActivity.ScheduledActivityPhase;
+  /**
+   * The unique identifier that associates a scheduled activity with others in one complete maintenance. For example, with ZDT, a complete upgrade maintenance includes 5 scheduled activities - PREPARE, EXECUTE, POST, PRE_MAINTENANCE, and POST_MAINTENANCE. All of them share the same unique identifier - scheduledActivityAssociationId.
+   */
+  "scheduledActivityAssociationId": string;
 }
 
 export namespace ScheduledActivity {
@@ -118,6 +126,17 @@ export namespace ScheduledActivity {
     Rollbackinprogress = "ROLLBACKINPROGRESS",
     Rollbacksucceeded = "ROLLBACKSUCCEEDED",
     Rollbackfailed = "ROLLBACKFAILED",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum ScheduledActivityPhase {
+    PreMaintenance = "PRE_MAINTENANCE",
+    Maintenance = "MAINTENANCE",
+    PostMaintenance = "POST_MAINTENANCE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

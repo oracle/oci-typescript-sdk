@@ -19,27 +19,37 @@ import common = require("oci-common");
  */
 export interface CreateConnectionValidationDetails {
   "dataAsset"?:
-    | model.CreateDataAssetFromJdbc
-    | model.CreateDataAssetFromMySQL
+    | model.CreateDataAssetFromHdfs
     | model.CreateDataAssetFromLake
-    | model.CreateDataAssetFromOracle
-    | model.CreateDataAssetFromAdwc
+    | model.CreateDataAssetFromMySqlHeatWave
     | model.CreateDataAssetFromAmazonS3
     | model.CreateDataAssetFromRest
+    | model.CreateDataAssetFromOracleSiebel
+    | model.CreateDataAssetFromJdbc
+    | model.CreateDataAssetFromMySQL
+    | model.CreateDataAssetFromOracle
+    | model.CreateDataAssetFromAdwc
+    | model.CreateDataAssetFromOracleEbs
+    | model.CreateDataAssetFromOraclePeopleSoft
     | model.CreateDataAssetFromFusionApp
     | model.CreateDataAssetFromAtp
     | model.CreateDataAssetFromObjectStorage;
   "connection"?:
-    | model.CreateConnectionFromMySQL
+    | model.CreateConnectionFromOracleSiebel
     | model.CreateConnectionFromAmazonS3
-    | model.CreateConnectionFromJdbc
     | model.CreateConnectionFromBICC
     | model.CreateConnectionFromAtp
-    | model.CreateConnectionFromBIP
+    | model.CreateConnectionFromHdfs
+    | model.CreateConnectionFromMySqlHeatWave
     | model.CreateConnectionFromRestBasicAuth
+    | model.CreateConnectionFromOracle
+    | model.CreateConnectionFromOraclePeopleSoft
+    | model.CreateConnectionFromOracleEbs
+    | model.CreateConnectionFromMySQL
+    | model.CreateConnectionFromJdbc
+    | model.CreateConnectionFromBIP
     | model.CreateConnectionFromAdwc
     | model.CreateConnectionFromRestNoAuth
-    | model.CreateConnectionFromOracle
     | model.CreateConnectionFromObjectStorage
     | model.CreateConnectionFromLake;
   "registryMetadata"?: model.RegistryMetadata;

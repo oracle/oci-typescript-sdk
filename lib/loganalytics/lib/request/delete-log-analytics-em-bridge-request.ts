@@ -41,4 +41,8 @@ export interface DeleteLogAnalyticsEmBridgeRequest extends common.BaseRequest {
    * The client request ID for tracing.
    */
   "opcRequestId"?: string;
+  /**
+   * If true, delete entities created by this bridge
+   */
+  "isDeleteEntities"?: boolean;
 }

@@ -21,11 +21,16 @@ import common = require("oci-common");
  */
 export interface FacetedSearchStringFilterRequest {
   /**
-   * String/boolean/numerical field name that needs to filtered with
+   * String/boolean/numerical field name that needs to be filtered by.
+   * Acceptable field names: CatalogType, AttributeType, FolderType, DataAssetType, CreatedBy, UpdatedBy, Term, Tag, DataAssetName, LifeCycleState.
+   *
    */
   "field"?: string;
   /**
    * Array of values that the search results needs to be filtered by.
+   * Acceptable values for field 'CatalogType': DataAsset, Folder, DataEntity, Attribute, Term, Category, Glossary, Pattern, Job, Schedule, CustomProperty.
+   * For other fields, acceptable values can be derived by inspecting the data object.
+   *
    */
   "values"?: Array<string>;
 }

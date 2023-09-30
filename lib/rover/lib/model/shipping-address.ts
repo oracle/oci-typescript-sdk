@@ -59,11 +59,11 @@ export interface ShippingAddress {
    */
   "country": string;
   /**
-   * recepient phone number.
+   * recipient phone number.
    */
   "phoneNumber": string;
   /**
-   * recepient email address.
+   * recipient email address.
    */
   "email"?: string;
 }

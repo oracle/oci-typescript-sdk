@@ -20,15 +20,15 @@ import common = require("oci-common");
 export interface CreateContainerHttpHealthCheckDetails
   extends model.CreateContainerHealthCheckDetails {
   /**
-   * Container health check Http's path.
+   * Container health check HTTP path.
    */
   "path": string;
   /**
-   * Container health check Http's port. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Container health check HTTP port. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "port": number;
   /**
-   * Container health check Http's headers.
+   * Container health check HTTP headers.
    */
   "headers"?: Array<model.HealthCheckHttpHeader>;
 

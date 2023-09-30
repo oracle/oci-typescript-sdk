@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of an Java Server instance usage search.  Contains Java Server usage items.
+ * Results of a Java Server instance usage search. Contains Java Server usage items.
  *
  */
 export interface JavaServerInstanceUsageCollection {

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A list of bypass codes belongs to user
+ * A list of bypass codes that belongs to the user.
  * <p>
  **Added In:** 18.3.6
  * <p>
@@ -31,7 +31,7 @@ import common = require("oci-common");
  */
 export interface UserExtBypassCodes {
   /**
-   * The identifier of the User's bypass code.
+   * The user's bypass code identifier.
    * <p>
    **Added In:** 18.3.6
    * <p>

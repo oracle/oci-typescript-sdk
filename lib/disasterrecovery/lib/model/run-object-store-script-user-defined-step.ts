@@ -24,18 +24,18 @@ export interface RunObjectStoreScriptUserDefinedStep extends model.DrPlanUserDef
   /**
     * The OCID of the instance where this script or command should be executed.
 * <p>
-Example: `ocid1.instance.oc1.phx.exampleocid1`
+Example: `ocid1.instance.oc1.phx.&lt;unique_id&gt;`
 * 
     */
-  "runOnInstanceId"?: string;
+  "runOnInstanceId": string;
   /**
     * The region of the instance where this script or command should be executed.
 * <p>
 Example: `us-phoenix-1`
 * 
     */
-  "runOnInstanceRegion"?: string;
-  "objectStorageScriptLocation"?: model.ObjectStorageScriptLocation;
+  "runOnInstanceRegion": string;
+  "objectStorageScriptLocation": model.ObjectStorageScriptLocation;
 
   "stepType": string;
 }

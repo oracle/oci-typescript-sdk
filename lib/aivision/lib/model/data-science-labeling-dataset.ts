@@ -21,7 +21,7 @@ export interface DataScienceLabelingDataset extends model.Dataset {
   /**
    * OCID of the Data Labeling dataset.
    */
-  "datasetId"?: string;
+  "datasetId": string;
 
   "datasetType": string;
 }

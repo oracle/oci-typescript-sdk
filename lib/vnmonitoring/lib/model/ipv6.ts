@@ -57,47 +57,17 @@ export interface Ipv6 {
    */
   "id": string;
   /**
-    * The IPv6 address of the `IPv6` object. The address is within the IPv6 CIDR block
-* of the VNIC's subnet (see the `ipv6CidrBlock` attribute for the {@link Subnet}
-* object.
+    * The IPv6 address of the `IPv6` object. The address is within the IPv6 CIDR block of the VNIC's subnet
+* (see the `ipv6CidrBlock` attribute for the {@link Subnet} object.
 * <p>
 Example: `2001:0db8:0123:1111:abcd:ef01:2345:6789`
 * 
     */
   "ipAddress": string;
   /**
-    * Whether the IPv6 can be used for internet communication. Allowed by default for an IPv6 in
-* a public subnet. Never allowed for an IPv6 in a private subnet. If the value is `true`, the
-* IPv6 uses its public IP address for internet communication.
-* <p>
-Example: `true`
-* 
-    */
-  "isInternetAccessAllowed"?: boolean;
-  /**
    * The IPv6's current state.
    */
   "lifecycleState": Ipv6.LifecycleState;
-  /**
-    * The IPv6 address to be used for internet communication. The address is within the
-* IPv6 CIDR block of the VNIC's subnet (see the `ipv6PublicCidrBlock` attribute for the
-* {@link Subnet} object).
-* <p>
-If your organization did NOT assign a custom IPv6 CIDR to the VCN for the private address
-* space, Oracle provides the IPv6 CIDR and uses that same CIDR for the private and public
-* address space. Therefore the `publicIpAddress` would be the same as the `ipAddress`.
-* <p>
-If your organization assigned a custom IPv6 CIDR to the VCN for the address space,
-* the right 80 bits of the IPv6 IP (the subnet and address bits) are the same as for
-* the `ipAddress`. But the left 48 bits are from the IPv6 CIDR that Oracle assigned
-* to the VCN.
-* <p>
-This is null if the IPv6 is created with `isInternetAccessAllowed` set to `false`.
-* <p>
-Example: `2001:0db8:0123:1111:abcd:ef01:2345:6789`
-* 
-    */
-  "publicIpAddress"?: string;
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the subnet the VNIC is in.
    */

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Security question and answers provided by end-user for Account recovery and/or MFA. While setting up security questions, end-user can also provide hint along with answer.
+ * The schema used to mnage security question and answers provided by a user for account recovery and/or MFA. While setting up security questions, a user can also provide a hint for the answer.
  * <p>
  **SCIM++ Properties:**
  *  - idcsCompositeKey: [value]
@@ -29,7 +29,7 @@ import common = require("oci-common");
  */
 export interface UserExtSecQuestions {
   /**
-   * Id of the question selected by user while setting up Security Question.
+   * The identifier of the question selected by the user when setting up a security question.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -43,7 +43,7 @@ export interface UserExtSecQuestions {
    */
   "value": string;
   /**
-   * The URI of the corresponding SecurityQuestion resource
+   * The URI of the corresponding Security Question resource.
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: false
@@ -56,7 +56,7 @@ export interface UserExtSecQuestions {
    */
   "ref"?: string;
   /**
-   * Answer provided by an user for a security question.
+   * The answer provided by a user for a security question.
    * <p>
    **SCIM++ Properties:**
    *  - idcsCsvAttributeName: Answer
@@ -72,7 +72,7 @@ export interface UserExtSecQuestions {
    */
   "answer": string;
   /**
-   * Hint for an answer given by user while setting up Security Question.
+   * The hint for an answer that's given by user when setting up a security question.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

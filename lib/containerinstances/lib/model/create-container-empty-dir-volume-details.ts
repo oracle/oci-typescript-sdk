@@ -15,11 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The empty directory for container instance
+ * The empty directory for the container instance.
  */
 export interface CreateContainerEmptyDirVolumeDetails extends model.CreateContainerVolumeDetails {
   /**
-   * Volume type that we are using for empty dir where it could be either File Storage or Memory
+   * The volume type of the empty directory, can be either File Storage or Memory.
    */
   "backingStore"?: string;
 

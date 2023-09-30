@@ -64,6 +64,12 @@ export interface DataAssetSummary {
    * State of the data asset.
    */
   "lifecycleState"?: model.LifecycleState;
+  /**
+   * A message describing the current state in more detail. An object not in ACTIVE state may have functional limitations,
+   * see service documentation for details.
+   *
+   */
+  "lifecycleDetails"?: string;
 }
 
 export namespace DataAssetSummary {

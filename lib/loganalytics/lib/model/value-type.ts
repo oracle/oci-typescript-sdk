@@ -27,6 +27,7 @@ export enum ValueType {
   Integer = "INTEGER",
   Timestamp = "TIMESTAMP",
   Facet = "FACET",
+  Table = "TABLE",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

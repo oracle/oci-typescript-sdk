@@ -51,13 +51,14 @@ Example: `[FAULT-DOMAIN-1, FAULT-DOMAIN-2, FAULT-DOMAIN-3]`
     */
   "faultDomains"?: Array<string>;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet to place
-   * instances.
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet in which to place instances. This field is deprecated.
+   * Use `primaryVnicSubnets` instead to set VNIC data for instances in the pool.
    *
    */
-  "primarySubnetId": string;
+  "primarySubnetId"?: string;
+  "primaryVnicSubnets"?: model.InstancePoolPlacementPrimarySubnet;
   /**
-   * The set of subnet OCIDs for secondary VNICs for instances in the pool.
+   * The set of secondary VNIC data for instances in the pool.
    */
   "secondaryVnicSubnets"?: Array<model.InstancePoolPlacementSecondaryVnicSubnet>;
 }
@@ -67,6 +68,9 @@ export namespace UpdateInstancePoolPlacementConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getJsonObj(item);
@@ -83,6 +87,9 @@ export namespace UpdateInstancePoolPlacementConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getDeserializedJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getDeserializedJsonObj(item);

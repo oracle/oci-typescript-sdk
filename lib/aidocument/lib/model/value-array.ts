@@ -18,6 +18,9 @@ import common = require("oci-common");
  * The array of field values.
  */
 export interface ValueArray extends model.FieldValue {
+  /**
+   * The array of values.
+   */
   "items": Array<model.DocumentField>;
 
   "valueType": string;

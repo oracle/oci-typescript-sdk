@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -22,16 +22,29 @@ export interface PutMessagesDetailsEntry {
    * The content of the message
    */
   "content": string;
+  "metadata"?: model.MessageMetadata;
 }
 
 export namespace PutMessagesDetailsEntry {
   export function getJsonObj(obj: PutMessagesDetailsEntry): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata ? model.MessageMetadata.getJsonObj(obj.metadata) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: PutMessagesDetailsEntry): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "metadata": obj.metadata
+          ? model.MessageMetadata.getDeserializedJsonObj(obj.metadata)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

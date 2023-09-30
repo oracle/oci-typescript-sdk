@@ -22,8 +22,8 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The platform configuration used when launching a bare metal GPU instance with the following shape: BM.GPU.GM4.8
- * (the AMD Milan platform).
+ * The platform configuration used when launching a bare metal GPU instance with the following shape: BM.GPU.GM4.8 (also
+ * named BM.GPU.A100-v2.8) (the AMD Milan platform).
  *
  */
 export interface AmdMilanBmGpuPlatformConfig extends model.PlatformConfig {
@@ -60,6 +60,11 @@ Intel and AMD processors have two hardware execution threads per core (OCPU). SM
    *
    */
   "isInputOutputMemoryManagementUnitEnabled"?: boolean;
+  /**
+   * Instance Platform Configuration Configuration Map for flexible setting input.
+   *
+   */
+  "configMap"?: { [key: string]: string };
 
   "type": string;
 }

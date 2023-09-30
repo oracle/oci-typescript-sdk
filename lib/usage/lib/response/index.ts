@@ -11,6 +11,10 @@
  * This software is dual-licensed to you under the Universal Permissive License (UPL) 1.0 as shown at https://oss.oracle.com/licenses/upl or Apache License 2.0 as shown at http://www.apache.org/licenses/LICENSE-2.0. You may choose either license.
  */
 
+import * as ListResourceQuotaResponse from "./list-resource-quota-response";
+export import ListResourceQuotaResponse = ListResourceQuotaResponse.ListResourceQuotaResponse;
+import * as ListResourcesResponse from "./list-resources-response";
+export import ListResourcesResponse = ListResourcesResponse.ListResourcesResponse;
 import * as CreateRedeemableUserResponse from "./create-redeemable-user-response";
 export import CreateRedeemableUserResponse = CreateRedeemableUserResponse.CreateRedeemableUserResponse;
 import * as DeleteRedeemableUserResponse from "./delete-redeemable-user-response";
@@ -23,3 +27,5 @@ import * as ListRedemptionsResponse from "./list-redemptions-response";
 export import ListRedemptionsResponse = ListRedemptionsResponse.ListRedemptionsResponse;
 import * as ListRewardsResponse from "./list-rewards-response";
 export import ListRewardsResponse = ListRewardsResponse.ListRewardsResponse;
+import * as ListUsageLimitsResponse from "./list-usage-limits-response";
+export import ListUsageLimitsResponse = ListUsageLimitsResponse.ListUsageLimitsResponse;

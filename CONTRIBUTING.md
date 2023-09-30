@@ -1,6 +1,4 @@
-# Contributing to the Oracle Cloud Infrastructure SDK for TypeScript and JavaScript
-
-_Copyright (c) 2020, 2023 Oracle and/or its affiliates. All rights reserved._
+# Contributing to this repository
 
 We welcome your contributions! There are multiple ways to contribute.
 

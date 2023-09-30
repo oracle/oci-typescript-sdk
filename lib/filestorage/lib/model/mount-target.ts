@@ -71,6 +71,11 @@ Example: `My mount target`
    */
   "subnetId": string;
   /**
+   * The method used to map a Unix UID to secondary groups. If NONE, the mount target will not use the Unix UID for ID mapping.
+   */
+  "idmapType"?: MountTarget.IdmapType;
+  "ldapIdmap"?: model.LdapIdmap;
+  /**
    * A list of Network Security Group [OCIDs](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) associated with this mount target.
    * A maximum of 5 is allowed.
    * Setting this to an empty array after the list is created removes the mount target from all NSGs.
@@ -78,6 +83,7 @@ Example: `My mount target`
    *
    */
   "nsgIds"?: Array<string>;
+  "kerberos"?: model.Kerberos;
   /**
     * The date and time the mount target was created, expressed
 * in [RFC 3339](https://tools.ietf.org/rfc/rfc3339) timestamp format.
@@ -117,13 +123,39 @@ export namespace MountTarget {
     UnknownValue = "UNKNOWN_VALUE"
   }
 
+  export enum IdmapType {
+    Ldap = "LDAP",
+    None = "NONE",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: MountTarget): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ldapIdmap": obj.ldapIdmap ? model.LdapIdmap.getJsonObj(obj.ldapIdmap) : undefined,
+
+        "kerberos": obj.kerberos ? model.Kerberos.getJsonObj(obj.kerberos) : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: MountTarget): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "ldapIdmap": obj.ldapIdmap
+          ? model.LdapIdmap.getDeserializedJsonObj(obj.ldapIdmap)
+          : undefined,
+
+        "kerberos": obj.kerberos ? model.Kerberos.getDeserializedJsonObj(obj.kerberos) : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -94,6 +94,11 @@ export namespace AbstractCommandDescriptor {
             <model.TailCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "OUTLIER":
+          return model.OutlierCommandDescriptor.getJsonObj(
+            <model.OutlierCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "DEMO_MODE":
           return model.DemoModeCommandDescriptor.getJsonObj(
             <model.DemoModeCommandDescriptor>(<object>jsonObj),
@@ -147,6 +152,11 @@ export namespace AbstractCommandDescriptor {
         case "BUCKET":
           return model.BucketCommandDescriptor.getJsonObj(
             <model.BucketCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "RARE":
+          return model.RareCommandDescriptor.getJsonObj(
+            <model.RareCommandDescriptor>(<object>jsonObj),
             true
           );
         case "ADD_INSIGHTS":
@@ -242,6 +252,11 @@ export namespace AbstractCommandDescriptor {
         case "CLUSTER_SPLIT":
           return model.ClusterSplitCommandDescriptor.getJsonObj(
             <model.ClusterSplitCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "FREQUENT":
+          return model.FrequentCommandDescriptor.getJsonObj(
+            <model.FrequentCommandDescriptor>(<object>jsonObj),
             true
           );
         case "CLUSTER_DETAILS":
@@ -369,6 +384,11 @@ export namespace AbstractCommandDescriptor {
             <model.TailCommandDescriptor>(<object>jsonObj),
             true
           );
+        case "OUTLIER":
+          return model.OutlierCommandDescriptor.getDeserializedJsonObj(
+            <model.OutlierCommandDescriptor>(<object>jsonObj),
+            true
+          );
         case "DEMO_MODE":
           return model.DemoModeCommandDescriptor.getDeserializedJsonObj(
             <model.DemoModeCommandDescriptor>(<object>jsonObj),
@@ -422,6 +442,11 @@ export namespace AbstractCommandDescriptor {
         case "BUCKET":
           return model.BucketCommandDescriptor.getDeserializedJsonObj(
             <model.BucketCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "RARE":
+          return model.RareCommandDescriptor.getDeserializedJsonObj(
+            <model.RareCommandDescriptor>(<object>jsonObj),
             true
           );
         case "ADD_INSIGHTS":
@@ -517,6 +542,11 @@ export namespace AbstractCommandDescriptor {
         case "CLUSTER_SPLIT":
           return model.ClusterSplitCommandDescriptor.getDeserializedJsonObj(
             <model.ClusterSplitCommandDescriptor>(<object>jsonObj),
+            true
+          );
+        case "FREQUENT":
+          return model.FrequentCommandDescriptor.getDeserializedJsonObj(
+            <model.FrequentCommandDescriptor>(<object>jsonObj),
             true
           );
         case "CLUSTER_DETAILS":

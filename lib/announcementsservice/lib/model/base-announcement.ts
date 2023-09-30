@@ -110,6 +110,10 @@ export interface BaseAnnouncement {
    *
    */
   "platformType"?: BaseAnnouncement.PlatformType;
+  /**
+   * The sequence of connected announcements, or announcement chain, that this announcement belongs to. Related announcements share the same chain ID.
+   */
+  "chainId"?: string;
 
   "type": string;
 }

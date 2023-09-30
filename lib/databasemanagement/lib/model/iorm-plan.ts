@@ -18,7 +18,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The IORM plan from a storage server.
+ * The IORM plan from an Exadata storage server.
  */
 export interface IormPlan {
   /**

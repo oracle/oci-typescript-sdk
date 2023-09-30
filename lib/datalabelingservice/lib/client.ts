@@ -37,6 +37,7 @@ export class DataLabelingManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "DataLabelingManagement";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -56,6 +57,9 @@ export class DataLabelingManagementClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -68,7 +72,12 @@ export class DataLabelingManagementClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -740,6 +749,86 @@ export class DataLabelingManagementClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Imports records and annotations from dataset files into existing Dataset.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ImportPreAnnotatedDataRequest
+   * @return ImportPreAnnotatedDataResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datalabelingservice/ImportPreAnnotatedData.ts.html |here} to see how to use ImportPreAnnotatedData API.
+   */
+  public async importPreAnnotatedData(
+    importPreAnnotatedDataRequest: requests.ImportPreAnnotatedDataRequest
+  ): Promise<responses.ImportPreAnnotatedDataResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataLabelingManagementClient#importPreAnnotatedData.");
+    const operationName = "importPreAnnotatedData";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/datalabeling/20211001/Dataset/ImportPreAnnotatedData";
+    const pathParams = {
+      "{datasetId}": importPreAnnotatedDataRequest.datasetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": importPreAnnotatedDataRequest.ifMatch,
+      "opc-request-id": importPreAnnotatedDataRequest.opcRequestId,
+      "opc-retry-token": importPreAnnotatedDataRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      importPreAnnotatedDataRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/datasets/{datasetId}/actions/importPreAnnotatedData",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        importPreAnnotatedDataRequest.importPreAnnotatedDataDetails,
+        "ImportPreAnnotatedDataDetails",
+        model.ImportPreAnnotatedDataDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ImportPreAnnotatedDataResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
           }
         ]
       });

@@ -39,6 +39,7 @@ export class DbManagementClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "DbManagement";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -58,6 +59,9 @@ export class DbManagementClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -70,7 +74,12 @@ export class DbManagementClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -683,7 +692,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Moves the Exadata infrastructure  and its related resources (storage server, storage server connectors and storage server grid) to the specified compartment.
+   * Moves the Exadata infrastructure and its related resources (Exadata storage server, Exadata storage server connectors and Exadata storage server grid) to the specified compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ChangeExternalExadataInfrastructureCompartmentRequest
@@ -925,6 +934,232 @@ export class DbManagementClient {
   }
 
   /**
+     * Changes the retention period of unused plans. The period can range
+* between 5 and 523 weeks.
+* <p>
+The database purges plans that have not been used for longer than
+* the plan retention period.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param ChangePlanRetentionRequest
+     * @return ChangePlanRetentionResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangePlanRetention.ts.html |here} to see how to use ChangePlanRetention API.
+     */
+  public async changePlanRetention(
+    changePlanRetentionRequest: requests.ChangePlanRetentionRequest
+  ): Promise<responses.ChangePlanRetentionResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#changePlanRetention.");
+    const operationName = "changePlanRetention";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangePlanRetention";
+    const pathParams = {
+      "{managedDatabaseId}": changePlanRetentionRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changePlanRetentionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changePlanRetentionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/changePlanRetention",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changePlanRetentionRequest.changePlanRetentionDetails,
+        "ChangePlanRetentionDetails",
+        model.ChangePlanRetentionDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangePlanRetentionResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Changes the disk space limit for the SQL Management Base. The allowable
+   * range for this limit is between 1% and 50%.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSpaceBudgetRequest
+   * @return ChangeSpaceBudgetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeSpaceBudget.ts.html |here} to see how to use ChangeSpaceBudget API.
+   */
+  public async changeSpaceBudget(
+    changeSpaceBudgetRequest: requests.ChangeSpaceBudgetRequest
+  ): Promise<responses.ChangeSpaceBudgetResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#changeSpaceBudget.");
+    const operationName = "changeSpaceBudget";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangeSpaceBudget";
+    const pathParams = {
+      "{managedDatabaseId}": changeSpaceBudgetRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeSpaceBudgetRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSpaceBudgetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/changeSpaceBudget",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSpaceBudgetRequest.changeSpaceBudgetDetails,
+        "ChangeSpaceBudgetDetails",
+        model.ChangeSpaceBudgetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSpaceBudgetResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Changes one or more attributes of a single plan or all plans associated with a SQL statement.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ChangeSqlPlanBaselinesAttributesRequest
+   * @return ChangeSqlPlanBaselinesAttributesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ChangeSqlPlanBaselinesAttributes.ts.html |here} to see how to use ChangeSqlPlanBaselinesAttributes API.
+   */
+  public async changeSqlPlanBaselinesAttributes(
+    changeSqlPlanBaselinesAttributesRequest: requests.ChangeSqlPlanBaselinesAttributesRequest
+  ): Promise<responses.ChangeSqlPlanBaselinesAttributesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#changeSqlPlanBaselinesAttributes.");
+    const operationName = "changeSqlPlanBaselinesAttributes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ChangeSqlPlanBaselinesAttributes";
+    const pathParams = {
+      "{managedDatabaseId}": changeSqlPlanBaselinesAttributesRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeSqlPlanBaselinesAttributesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeSqlPlanBaselinesAttributesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/changeSqlPlanBaselinesAttributes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeSqlPlanBaselinesAttributesRequest.changeSqlPlanBaselinesAttributesDetails,
+        "ChangeSqlPlanBaselinesAttributesDetails",
+        model.ChangeSqlPlanBaselinesAttributesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeSqlPlanBaselinesAttributesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Checks the status of the external DB system component connection specified in this connector.
    * This operation will refresh the connectionStatus and timeConnectionStatusLastUpdated fields.
    *
@@ -1010,7 +1245,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Check the status of the Exadata storage server connection specified by exadataStorageConnectorId.
+   * Checks the status of the Exadata storage server connection specified by exadataStorageConnectorId.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CheckExternalExadataStorageConnectorRequest
@@ -1079,6 +1314,161 @@ export class DbManagementClient {
             key: "etag",
             dataType: "string"
           },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Configures automatic capture filters to capture only those statements
+   * that match the filter criteria.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConfigureAutomaticCaptureFiltersRequest
+   * @return ConfigureAutomaticCaptureFiltersResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ConfigureAutomaticCaptureFilters.ts.html |here} to see how to use ConfigureAutomaticCaptureFilters API.
+   */
+  public async configureAutomaticCaptureFilters(
+    configureAutomaticCaptureFiltersRequest: requests.ConfigureAutomaticCaptureFiltersRequest
+  ): Promise<responses.ConfigureAutomaticCaptureFiltersResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#configureAutomaticCaptureFilters.");
+    const operationName = "configureAutomaticCaptureFilters";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ConfigureAutomaticCaptureFilters";
+    const pathParams = {
+      "{managedDatabaseId}": configureAutomaticCaptureFiltersRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": configureAutomaticCaptureFiltersRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureAutomaticCaptureFiltersRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/configureAutomaticCaptureFilters",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        configureAutomaticCaptureFiltersRequest.configureAutomaticCaptureFiltersDetails,
+        "ConfigureAutomaticCaptureFiltersDetails",
+        model.ConfigureAutomaticCaptureFiltersDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfigureAutomaticCaptureFiltersResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Configures the Automatic SPM Evolve Advisor task `SYS_AUTO_SPM_EVOLVE_TASK`
+   * by specifying task parameters. As the task is owned by `SYS`, only `SYS` can
+   * set task parameters.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ConfigureAutomaticSpmEvolveAdvisorTaskRequest
+   * @return ConfigureAutomaticSpmEvolveAdvisorTaskResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ConfigureAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use ConfigureAutomaticSpmEvolveAdvisorTask API.
+   */
+  public async configureAutomaticSpmEvolveAdvisorTask(
+    configureAutomaticSpmEvolveAdvisorTaskRequest: requests.ConfigureAutomaticSpmEvolveAdvisorTaskRequest
+  ): Promise<responses.ConfigureAutomaticSpmEvolveAdvisorTaskResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#configureAutomaticSpmEvolveAdvisorTask."
+      );
+    const operationName = "configureAutomaticSpmEvolveAdvisorTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ConfigureAutomaticSpmEvolveAdvisorTask";
+    const pathParams = {
+      "{managedDatabaseId}": configureAutomaticSpmEvolveAdvisorTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": configureAutomaticSpmEvolveAdvisorTaskRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      configureAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/configureAutomaticSpmEvolveAdvisorTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        configureAutomaticSpmEvolveAdvisorTaskRequest.configureAutomaticSpmEvolveAdvisorTaskDetails,
+        "ConfigureAutomaticSpmEvolveAdvisorTaskDetails",
+        model.ConfigureAutomaticSpmEvolveAdvisorTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ConfigureAutomaticSpmEvolveAdvisorTaskResponse>{},
+        responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
@@ -1461,7 +1851,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Creates an OCI resource for the Exadata infrastructure and enable monitoring service on the exadata infrastructure.
+   * Creates an OCI resource for the Exadata infrastructure and enables the Monitoring service for the Exadata infrastructure.
    * The following resource/subresources are created:
    *   Infrastructure
    *   Storage server connectors
@@ -1550,9 +1940,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Create the storage server connector after validating the connection information.
-   * Or only validates the connection information for creating the connection to the storage server.
-   * The connector for one storage server is associated with the Exadata infrastructure discovery or existing Exadata infrastructure.
+   * Creates the Exadata storage server connector after validating the connection information.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param CreateExternalExadataStorageConnectorRequest
@@ -2182,7 +2570,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Deletes the the Exadata infrastructure specified by externalExadataInfrastructureId.
+   * Deletes the Exadata infrastructure specified by externalExadataInfrastructureId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalExadataInfrastructureRequest
@@ -2260,7 +2648,7 @@ export class DbManagementClient {
   }
 
   /**
-   * Deletes the storage server connector specified by exadataStorageConnectorId.
+   * Deletes the Exadata storage server connector specified by exadataStorageConnectorId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param DeleteExternalExadataStorageConnectorRequest
@@ -2542,6 +2930,161 @@ export class DbManagementClient {
   }
 
   /**
+   * Disables automatic initial plan capture.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DisableAutomaticInitialPlanCaptureRequest
+   * @return DisableAutomaticInitialPlanCaptureResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutomaticInitialPlanCapture.ts.html |here} to see how to use DisableAutomaticInitialPlanCapture API.
+   */
+  public async disableAutomaticInitialPlanCapture(
+    disableAutomaticInitialPlanCaptureRequest: requests.DisableAutomaticInitialPlanCaptureRequest
+  ): Promise<responses.DisableAutomaticInitialPlanCaptureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#disableAutomaticInitialPlanCapture.");
+    const operationName = "disableAutomaticInitialPlanCapture";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableAutomaticInitialPlanCapture";
+    const pathParams = {
+      "{managedDatabaseId}": disableAutomaticInitialPlanCaptureRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableAutomaticInitialPlanCaptureRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAutomaticInitialPlanCaptureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/disableAutomaticInitialPlanCapture",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableAutomaticInitialPlanCaptureRequest.disableAutomaticInitialPlanCaptureDetails,
+        "DisableAutomaticInitialPlanCaptureDetails",
+        model.DisableAutomaticInitialPlanCaptureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAutomaticInitialPlanCaptureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Disables the Automatic SPM Evolve Advisor task.
+* <p>
+One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve Advisor.
+* Thus, the same task enables or disables both.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DisableAutomaticSpmEvolveAdvisorTaskRequest
+     * @return DisableAutomaticSpmEvolveAdvisorTaskResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use DisableAutomaticSpmEvolveAdvisorTask API.
+     */
+  public async disableAutomaticSpmEvolveAdvisorTask(
+    disableAutomaticSpmEvolveAdvisorTaskRequest: requests.DisableAutomaticSpmEvolveAdvisorTaskRequest
+  ): Promise<responses.DisableAutomaticSpmEvolveAdvisorTaskResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableAutomaticSpmEvolveAdvisorTask."
+      );
+    const operationName = "disableAutomaticSpmEvolveAdvisorTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableAutomaticSpmEvolveAdvisorTask";
+    const pathParams = {
+      "{managedDatabaseId}": disableAutomaticSpmEvolveAdvisorTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableAutomaticSpmEvolveAdvisorTaskRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/disableAutomaticSpmEvolveAdvisorTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableAutomaticSpmEvolveAdvisorTaskRequest.disableAutomaticSpmEvolveAdvisorTaskDetails,
+        "DisableAutomaticSpmEvolveAdvisorTaskDetails",
+        model.DisableAutomaticSpmEvolveAdvisorTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableAutomaticSpmEvolveAdvisorTaskResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Disables Database Management service for all the components of the specified
    * external DB system (except databases).
    *
@@ -2621,19 +3164,100 @@ export class DbManagementClient {
   }
 
   /**
-   * Disables Database Management service for the Exadata infrastructure specified by externalExadataInfrastructureId.
-   * It covers the following components
-   *           Exadata infrastructure
-   *           Exadata storage grid
-   *           Exadata storage server
-   * Database systems within the Exdata infrastructure will not be impacted and should be disabled explicitly if needed.
+   * Disables Stack Monitoring for all the components of the specified
+   * external DB system (except databases).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param DisableExternalExadataInfrastructureManagementRequest
-   * @return DisableExternalExadataInfrastructureManagementResponse
+   * @param DisableExternalDbSystemStackMonitoringRequest
+   * @return DisableExternalDbSystemStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalExadataInfrastructureManagement.ts.html |here} to see how to use DisableExternalExadataInfrastructureManagement API.
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalDbSystemStackMonitoring.ts.html |here} to see how to use DisableExternalDbSystemStackMonitoring API.
    */
+  public async disableExternalDbSystemStackMonitoring(
+    disableExternalDbSystemStackMonitoringRequest: requests.DisableExternalDbSystemStackMonitoringRequest
+  ): Promise<responses.DisableExternalDbSystemStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableExternalDbSystemStackMonitoring."
+      );
+    const operationName = "disableExternalDbSystemStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/DisableExternalDbSystemStackMonitoring";
+    const pathParams = {
+      "{externalDbSystemId}": disableExternalDbSystemStackMonitoringRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableExternalDbSystemStackMonitoringRequest.opcRequestId,
+      "opc-retry-token": disableExternalDbSystemStackMonitoringRequest.opcRetryToken,
+      "if-match": disableExternalDbSystemStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableExternalDbSystemStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}/actions/disableStackMonitoring",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableExternalDbSystemStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Disables Database Management for the Exadata infrastructure specified by externalExadataInfrastructureId.
+* It covers the following components:
+* <p>
+- Exadata infrastructure
+* - Exadata storage grid
+* - Exadata storage server
+* <p>
+Note that Database Management will not be disabled for the DB systems within the Exadata infrastructure and should be disabled explicitly, if required.
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param DisableExternalExadataInfrastructureManagementRequest
+     * @return DisableExternalExadataInfrastructureManagementResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableExternalExadataInfrastructureManagement.ts.html |here} to see how to use DisableExternalExadataInfrastructureManagement API.
+     */
   public async disableExternalExadataInfrastructureManagement(
     disableExternalExadataInfrastructureManagementRequest: requests.DisableExternalExadataInfrastructureManagementRequest
   ): Promise<responses.DisableExternalExadataInfrastructureManagementResponse> {
@@ -2706,19 +3330,182 @@ export class DbManagementClient {
   }
 
   /**
-     * Completes the Exadata system prechecking on the following:
-* Verifies if the database systems are valid RAC database systems. Otherwise, return 400 status code with NON_RAC_DATABASE_SYSTEM error code.
-* Verifies if the ASM connectors defined for each database system.  Otherwise,  return 400 status code with CONNECTOR_NOT_DEFINED error code.
-* Verifies if the agents associated with ASM are valid and could be used for the storage servers. Otherwise, return 400 status code with INVALID_AGENT error code.
-* Verifies if it is an Exadata system. Otherwise, return 400 status code with INVALID_EXADATA_SYSTEM error code.
+     * Disables the high-frequency Automatic SPM Evolve Advisor task.
 * <p>
-Starts the discovery process for the Exadata system infrastructure.The following resources/components could be discovered
-*   storage servers from each database systems
-*   storage grid for all storage server
-*   exadata infrastructure
-* The same API covers both new discovery and re-discovery cases.
-*   For the new discovery case, new managed resources/sub-resources are created or override the existing one.
-*   For re-discovery case, the existing managed resources/sub-resources are checked to find out which ones should be added or which one should be
+It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
+* Cloud Service (ExaCS) and Oracle Database Exadata Cloud@Customer (ExaCC).
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
+     * @return DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableHighFrequencyAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use DisableHighFrequencyAutomaticSpmEvolveAdvisorTask API.
+     */
+  public async disableHighFrequencyAutomaticSpmEvolveAdvisorTask(
+    disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest: requests.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
+  ): Promise<responses.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#disableHighFrequencyAutomaticSpmEvolveAdvisorTask."
+      );
+    const operationName = "disableHighFrequencyAutomaticSpmEvolveAdvisorTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableHighFrequencyAutomaticSpmEvolveAdvisorTask";
+    const pathParams = {
+      "{managedDatabaseId}":
+        disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/disableHighFrequencyAutomaticSpmEvolveAdvisorTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.disableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails,
+        "DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails",
+        model.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Disables the use of SQL plan baselines stored in SQL Management Base.
+* <p>
+When disabled, the optimizer does not use any SQL plan baselines.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param DisableSqlPlanBaselinesUsageRequest
+     * @return DisableSqlPlanBaselinesUsageResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DisableSqlPlanBaselinesUsage.ts.html |here} to see how to use DisableSqlPlanBaselinesUsage API.
+     */
+  public async disableSqlPlanBaselinesUsage(
+    disableSqlPlanBaselinesUsageRequest: requests.DisableSqlPlanBaselinesUsageRequest
+  ): Promise<responses.DisableSqlPlanBaselinesUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#disableSqlPlanBaselinesUsage.");
+    const operationName = "disableSqlPlanBaselinesUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DisableSqlPlanBaselinesUsage";
+    const pathParams = {
+      "{managedDatabaseId}": disableSqlPlanBaselinesUsageRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": disableSqlPlanBaselinesUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      disableSqlPlanBaselinesUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/disableSqlPlanBaselinesUsage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        disableSqlPlanBaselinesUsageRequest.disableSqlPlanBaselinesUsageDetails,
+        "DisableSqlPlanBaselinesUsageDetails",
+        model.DisableSqlPlanBaselinesUsageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DisableSqlPlanBaselinesUsageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Completes the Exadata system prechecking on the following:
+* <p>
+- Verifies if the DB systems are valid RAC DB systems or return 400 status code with NON_RAC_DATABASE_SYSTEM error code.
+* - Verifies if the ASM connector defined for each DB system or return 400 status code with CONNECTOR_NOT_DEFINED error code.
+* - Verifies if the agents associated with ASM are valid and could be used for the Exadata storage servers or return 400 status code with 
+* INVALID_AGENT error code.
+* - Verifies if it is an Exadata system or return 400 status code with INVALID_EXADATA_SYSTEM error code.
+* <p>
+Starts the discovery process for the Exadata system infrastructure. The following resources/components are discovered
+* <p>
+- Exadata storage servers from each DB systems
+* - Exadata storage grid for all Exadata storage servers
+* - Exadata infrastructure
+* <p>
+The same API covers both new discovery and rediscovery cases.
+*   For the new discovery case, new managed resources/sub-resources are created or the existing ones are overridden.
+*   For rediscovery case, the existing managed resources/sub-resources are checked to find out which ones should be added or which ones 
+* should be
 *     removed based on the unique key defined for each resource/sub-resource.
 * 
      * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -2804,6 +3591,80 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
+   * Drops a single plan or all plans associated with a SQL statement.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DropSqlPlanBaselinesRequest
+   * @return DropSqlPlanBaselinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlPlanBaselines.ts.html |here} to see how to use DropSqlPlanBaselines API.
+   */
+  public async dropSqlPlanBaselines(
+    dropSqlPlanBaselinesRequest: requests.DropSqlPlanBaselinesRequest
+  ): Promise<responses.DropSqlPlanBaselinesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#dropSqlPlanBaselines.");
+    const operationName = "dropSqlPlanBaselines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/DropSqlPlanBaselines";
+    const pathParams = {
+      "{managedDatabaseId}": dropSqlPlanBaselinesRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": dropSqlPlanBaselinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dropSqlPlanBaselinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/dropSqlPlanBaselines",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        dropSqlPlanBaselinesRequest.dropSqlPlanBaselinesDetails,
+        "DropSqlPlanBaselinesDetails",
+        model.DropSqlPlanBaselinesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DropSqlPlanBaselinesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Drops the tablespace specified by tablespaceName within the Managed Database specified by managedDatabaseId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2868,6 +3729,177 @@ Starts the discovery process for the Exadata system infrastructure.The following
         bodyKey: "tablespaceAdminStatus",
         bodyModel: model.TablespaceAdminStatus,
         type: "model.TablespaceAdminStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Enables automatic initial plan capture. When enabled, the database checks whether
+* executed SQL statements are eligible for automatic capture. It creates initial
+* plan baselines for eligible statements.
+* <p>
+By default, the database creates a SQL plan baseline for every eligible repeatable
+* statement, including all recursive SQL and monitoring SQL. Thus, automatic capture
+* may result in the creation of an extremely large number of plan baselines. To limit
+* the statements that are eligible for plan baselines, configure filters.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param EnableAutomaticInitialPlanCaptureRequest
+     * @return EnableAutomaticInitialPlanCaptureResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutomaticInitialPlanCapture.ts.html |here} to see how to use EnableAutomaticInitialPlanCapture API.
+     */
+  public async enableAutomaticInitialPlanCapture(
+    enableAutomaticInitialPlanCaptureRequest: requests.EnableAutomaticInitialPlanCaptureRequest
+  ): Promise<responses.EnableAutomaticInitialPlanCaptureResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#enableAutomaticInitialPlanCapture.");
+    const operationName = "enableAutomaticInitialPlanCapture";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableAutomaticInitialPlanCapture";
+    const pathParams = {
+      "{managedDatabaseId}": enableAutomaticInitialPlanCaptureRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableAutomaticInitialPlanCaptureRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAutomaticInitialPlanCaptureRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/enableAutomaticInitialPlanCapture",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableAutomaticInitialPlanCaptureRequest.enableAutomaticInitialPlanCaptureDetails,
+        "EnableAutomaticInitialPlanCaptureDetails",
+        model.EnableAutomaticInitialPlanCaptureDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAutomaticInitialPlanCaptureResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Enables the Automatic SPM Evolve Advisor task. By default, the automatic task
+* `SYS_AUTO_SPM_EVOLVE_TASK` runs every day in the scheduled maintenance window.
+* <p>
+The SPM Evolve Advisor performs the following tasks:
+* <p>
+- Checks AWR for top SQL
+* - Looks for alternative plans in all available sources
+* - Adds unaccepted plans to the plan history
+* - Tests the execution of as many plans as possible during the maintenance window
+* - Adds the alternative plan to the baseline if it performs better than the current plan
+* <p>
+One client controls both Automatic SQL Tuning Advisor and Automatic SPM Evolve Advisor.
+* Thus, the same task enables or disables both.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param EnableAutomaticSpmEvolveAdvisorTaskRequest
+     * @return EnableAutomaticSpmEvolveAdvisorTaskResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use EnableAutomaticSpmEvolveAdvisorTask API.
+     */
+  public async enableAutomaticSpmEvolveAdvisorTask(
+    enableAutomaticSpmEvolveAdvisorTaskRequest: requests.EnableAutomaticSpmEvolveAdvisorTaskRequest
+  ): Promise<responses.EnableAutomaticSpmEvolveAdvisorTaskResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableAutomaticSpmEvolveAdvisorTask."
+      );
+    const operationName = "enableAutomaticSpmEvolveAdvisorTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableAutomaticSpmEvolveAdvisorTask";
+    const pathParams = {
+      "{managedDatabaseId}": enableAutomaticSpmEvolveAdvisorTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableAutomaticSpmEvolveAdvisorTaskRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/enableAutomaticSpmEvolveAdvisorTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableAutomaticSpmEvolveAdvisorTaskRequest.enableAutomaticSpmEvolveAdvisorTaskDetails,
+        "EnableAutomaticSpmEvolveAdvisorTaskDetails",
+        model.EnableAutomaticSpmEvolveAdvisorTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableAutomaticSpmEvolveAdvisorTaskResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -2968,18 +4000,103 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Enables Database Management service for the exadata infrastructure specified by externalExadataInfrastructureId. It covers the following
-   * components
-   *   Exadata infrastructure
-   *   Exadata storage grid
-   *   Exadata storage server
+   * Enables Stack Monitoring for all the components of the specified
+   * external DB system (except databases).
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
-   * @param EnableExternalExadataInfrastructureManagementRequest
-   * @return EnableExternalExadataInfrastructureManagementResponse
+   * @param EnableExternalDbSystemStackMonitoringRequest
+   * @return EnableExternalDbSystemStackMonitoringResponse
    * @throws OciError when an error occurs
-   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalExadataInfrastructureManagement.ts.html |here} to see how to use EnableExternalExadataInfrastructureManagement API.
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalDbSystemStackMonitoring.ts.html |here} to see how to use EnableExternalDbSystemStackMonitoring API.
    */
+  public async enableExternalDbSystemStackMonitoring(
+    enableExternalDbSystemStackMonitoringRequest: requests.EnableExternalDbSystemStackMonitoringRequest
+  ): Promise<responses.EnableExternalDbSystemStackMonitoringResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableExternalDbSystemStackMonitoring."
+      );
+    const operationName = "enableExternalDbSystemStackMonitoring";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ExternalDbSystem/EnableExternalDbSystemStackMonitoring";
+    const pathParams = {
+      "{externalDbSystemId}": enableExternalDbSystemStackMonitoringRequest.externalDbSystemId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableExternalDbSystemStackMonitoringRequest.opcRequestId,
+      "opc-retry-token": enableExternalDbSystemStackMonitoringRequest.opcRetryToken,
+      "if-match": enableExternalDbSystemStackMonitoringRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableExternalDbSystemStackMonitoringRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/externalDbSystems/{externalDbSystemId}/actions/enableStackMonitoring",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableExternalDbSystemStackMonitoringRequest.enableExternalDbSystemStackMonitoringDetails,
+        "EnableExternalDbSystemStackMonitoringDetails",
+        model.EnableExternalDbSystemStackMonitoringDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableExternalDbSystemStackMonitoringResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Enables Database Management for the Exadata infrastructure specified by externalExadataInfrastructureId. It covers the following 
+* components:
+* <p>
+- Exadata infrastructure
+* - Exadata storage grid
+* - Exadata storage server
+* 
+     * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+     * @param EnableExternalExadataInfrastructureManagementRequest
+     * @return EnableExternalExadataInfrastructureManagementResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableExternalExadataInfrastructureManagement.ts.html |here} to see how to use EnableExternalExadataInfrastructureManagement API.
+     */
   public async enableExternalExadataInfrastructureManagement(
     enableExternalExadataInfrastructureManagementRequest: requests.EnableExternalExadataInfrastructureManagementRequest
   ): Promise<responses.EnableExternalExadataInfrastructureManagementResponse> {
@@ -3045,6 +4162,170 @@ Starts the discovery process for the Exadata system infrastructure.The following
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Enables the high-frequency Automatic SPM Evolve Advisor task. The high-frequency
+* task runs every hour and runs for no longer than 30 minutes. These settings
+* are not configurable.
+* <p>
+The high-frequency task complements the standard Automatic SPM Evolve Advisor task.
+* They are independent and are scheduled through two different frameworks.
+* <p>
+It is available only on Oracle Exadata Database Machine, Oracle Database Exadata
+* Cloud Service (ExaCS) and Oracle Database Exadata Cloud@Customer (ExaCC).
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
+     * @return EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableHighFrequencyAutomaticSpmEvolveAdvisorTask.ts.html |here} to see how to use EnableHighFrequencyAutomaticSpmEvolveAdvisorTask API.
+     */
+  public async enableHighFrequencyAutomaticSpmEvolveAdvisorTask(
+    enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest: requests.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest
+  ): Promise<responses.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#enableHighFrequencyAutomaticSpmEvolveAdvisorTask."
+      );
+    const operationName = "enableHighFrequencyAutomaticSpmEvolveAdvisorTask";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableHighFrequencyAutomaticSpmEvolveAdvisorTask";
+    const pathParams = {
+      "{managedDatabaseId}":
+        enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/enableHighFrequencyAutomaticSpmEvolveAdvisorTask",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableHighFrequencyAutomaticSpmEvolveAdvisorTaskRequest.enableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails,
+        "EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails",
+        model.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableHighFrequencyAutomaticSpmEvolveAdvisorTaskResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+     * Enables the use of SQL plan baselines stored in SQL Management Base.
+* <p>
+When enabled, the optimizer uses SQL plan baselines to select plans
+* to avoid potential performance regressions.
+* 
+     * This operation does not retry by default if the user has not defined a retry configuration.
+     * @param EnableSqlPlanBaselinesUsageRequest
+     * @return EnableSqlPlanBaselinesUsageResponse
+     * @throws OciError when an error occurs
+     * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/EnableSqlPlanBaselinesUsage.ts.html |here} to see how to use EnableSqlPlanBaselinesUsage API.
+     */
+  public async enableSqlPlanBaselinesUsage(
+    enableSqlPlanBaselinesUsageRequest: requests.EnableSqlPlanBaselinesUsageRequest
+  ): Promise<responses.EnableSqlPlanBaselinesUsageResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#enableSqlPlanBaselinesUsage.");
+    const operationName = "enableSqlPlanBaselinesUsage";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/EnableSqlPlanBaselinesUsage";
+    const pathParams = {
+      "{managedDatabaseId}": enableSqlPlanBaselinesUsageRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": enableSqlPlanBaselinesUsageRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      enableSqlPlanBaselinesUsageRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/enableSqlPlanBaselinesUsage",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        enableSqlPlanBaselinesUsageRequest.enableSqlPlanBaselinesUsageDetails,
+        "EnableSqlPlanBaselinesUsageDetails",
+        model.EnableSqlPlanBaselinesUsageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.EnableSqlPlanBaselinesUsageResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -4372,7 +5653,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Gets the details for the the Exadata infrastructure specified by externalExadataInfrastructureId. It includes the database systems and storage grid within the
+   * Gets the details for the Exadata infrastructure specified by externalExadataInfrastructureId. It includes the DB systems and storage grid within the
    * Exadata infrastructure.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -4452,7 +5733,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Gets the details for the storage server connector specified by exadataStorageConnectorId.
+   * Gets the details for the Exadata storage server connector specified by exadataStorageConnectorId.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExternalExadataStorageConnectorRequest
@@ -4531,7 +5812,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Gets the details for the storage server grid specified by exadataStorageGridId.
+   * Gets the details for the Exadata storage server grid specified by exadataStorageGridId.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExternalExadataStorageGridRequest
@@ -4610,7 +5891,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Gets the summary for the storage server specified by exadataStorageServerId.
+   * Gets the summary for the Exadata storage server specified by exadataStorageServerId.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetExternalExadataStorageServerRequest
@@ -4766,7 +6047,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Get the IORM plan from the specific exadata storage server.
+   * Get the IORM plan from the specific Exadata storage server.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetIormPlanRequest
@@ -5212,7 +6493,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Get open alerts from storage server.
+   * Gets the open alerts from the specified Exadata storage server.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetOpenAlertHistoryRequest
@@ -5679,6 +6960,154 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
+   * Gets the SQL plan baseline details for the specified planName.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSqlPlanBaselineRequest
+   * @return GetSqlPlanBaselineResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlPlanBaseline.ts.html |here} to see how to use GetSqlPlanBaseline API.
+   */
+  public async getSqlPlanBaseline(
+    getSqlPlanBaselineRequest: requests.GetSqlPlanBaselineRequest
+  ): Promise<responses.GetSqlPlanBaselineResponse> {
+    if (this.logger) this.logger.debug("Calling operation DbManagementClient#getSqlPlanBaseline.");
+    const operationName = "getSqlPlanBaseline";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlPlanBaseline";
+    const pathParams = {
+      "{managedDatabaseId}": getSqlPlanBaselineRequest.managedDatabaseId,
+      "{planName}": getSqlPlanBaselineRequest.planName
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlPlanBaselineRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlPlanBaselineRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/{planName}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlPlanBaselineResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaseline",
+        bodyModel: model.SqlPlanBaseline,
+        type: "model.SqlPlanBaseline",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the configuration details of SQL plan baselines for the specified
+   * Managed Database. The details include the settings for the capture and use of
+   * SQL plan baselines, SPM Evolve Advisor task, and SQL Management Base.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetSqlPlanBaselineConfigurationRequest
+   * @return GetSqlPlanBaselineConfigurationResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/GetSqlPlanBaselineConfiguration.ts.html |here} to see how to use GetSqlPlanBaselineConfiguration API.
+   */
+  public async getSqlPlanBaselineConfiguration(
+    getSqlPlanBaselineConfigurationRequest: requests.GetSqlPlanBaselineConfigurationRequest
+  ): Promise<responses.GetSqlPlanBaselineConfigurationResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#getSqlPlanBaselineConfiguration.");
+    const operationName = "getSqlPlanBaselineConfiguration";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/GetSqlPlanBaselineConfiguration";
+    const pathParams = {
+      "{managedDatabaseId}": getSqlPlanBaselineConfigurationRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getSqlPlanBaselineConfigurationRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getSqlPlanBaselineConfigurationRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselineConfiguration",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetSqlPlanBaselineConfigurationResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaselineConfiguration",
+        bodyModel: model.SqlPlanBaselineConfiguration,
+        type: "model.SqlPlanBaselineConfiguration",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of the tablespace specified by tablespaceName within the Managed Database specified by managedDatabaseId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -5752,7 +7181,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Get SQL ID with top cpu activity from storage server.
+   * Gets the SQL IDs with the top CPU activity from the Exadata storage server.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param GetTopSqlCpuActivityRequest
@@ -6470,6 +7899,90 @@ Starts the discovery process for the Exadata system infrastructure.The following
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the SQL statements from shared SQL area, also called the cursor cache.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListCursorCacheStatementsRequest
+   * @return ListCursorCacheStatementsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListCursorCacheStatements.ts.html |here} to see how to use ListCursorCacheStatements API.
+   */
+  public async listCursorCacheStatements(
+    listCursorCacheStatementsRequest: requests.ListCursorCacheStatementsRequest
+  ): Promise<responses.ListCursorCacheStatementsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listCursorCacheStatements.");
+    const operationName = "listCursorCacheStatements";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListCursorCacheStatements";
+    const pathParams = {
+      "{managedDatabaseId}": listCursorCacheStatementsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "sqlText": listCursorCacheStatementsRequest.sqlText,
+      "page": listCursorCacheStatementsRequest.page,
+      "limit": listCursorCacheStatementsRequest.limit,
+      "sortBy": listCursorCacheStatementsRequest.sortBy,
+      "sortOrder": listCursorCacheStatementsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listCursorCacheStatementsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listCursorCacheStatementsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/cursorCacheStatements",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListCursorCacheStatementsResponse>{},
+        body: await response.json(),
+        bodyKey: "cursorCacheStatementCollection",
+        bodyModel: model.CursorCacheStatementCollection,
+        type: "model.CursorCacheStatementCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]
@@ -7722,7 +9235,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Lists the Exadata infrastructures for a specific compartment.
+   * Lists the Exadata infrastructure resources in the specified compartment.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExternalExadataInfrastructuresRequest
@@ -7805,7 +9318,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Lists the connectors for the specific Exadata infrastructures.
+   * Lists the Exadata storage server connectors for the specified Exadata infrastructure.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExternalExadataStorageConnectorsRequest
@@ -7892,7 +9405,7 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
-   * Lists all the storage servers for the exadata infrastructure or storage grid.
+   * Lists the Exadata storage servers for the specified Exadata infrastructure.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param ListExternalExadataStorageServersRequest
@@ -9280,6 +10793,182 @@ Starts the discovery process for the Exadata system infrastructure.The following
   }
 
   /**
+   * Lists the database jobs used for loading SQL plan baselines in the specified Managed Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSqlPlanBaselineJobsRequest
+   * @return ListSqlPlanBaselineJobsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlPlanBaselineJobs.ts.html |here} to see how to use ListSqlPlanBaselineJobs API.
+   */
+  public async listSqlPlanBaselineJobs(
+    listSqlPlanBaselineJobsRequest: requests.ListSqlPlanBaselineJobsRequest
+  ): Promise<responses.ListSqlPlanBaselineJobsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listSqlPlanBaselineJobs.");
+    const operationName = "listSqlPlanBaselineJobs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlPlanBaselineJobs";
+    const pathParams = {
+      "{managedDatabaseId}": listSqlPlanBaselineJobsRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "name": listSqlPlanBaselineJobsRequest.name,
+      "page": listSqlPlanBaselineJobsRequest.page,
+      "limit": listSqlPlanBaselineJobsRequest.limit,
+      "sortBy": listSqlPlanBaselineJobsRequest.sortBy,
+      "sortOrder": listSqlPlanBaselineJobsRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlPlanBaselineJobsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlPlanBaselineJobsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselineJobs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlPlanBaselineJobsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaselineJobCollection",
+        bodyModel: model.SqlPlanBaselineJobCollection,
+        type: "model.SqlPlanBaselineJobCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists the SQL plan baselines for the specified Managed Database.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListSqlPlanBaselinesRequest
+   * @return ListSqlPlanBaselinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ListSqlPlanBaselines.ts.html |here} to see how to use ListSqlPlanBaselines API.
+   */
+  public async listSqlPlanBaselines(
+    listSqlPlanBaselinesRequest: requests.ListSqlPlanBaselinesRequest
+  ): Promise<responses.ListSqlPlanBaselinesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#listSqlPlanBaselines.");
+    const operationName = "listSqlPlanBaselines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ListSqlPlanBaselines";
+    const pathParams = {
+      "{managedDatabaseId}": listSqlPlanBaselinesRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "planName": listSqlPlanBaselinesRequest.planName,
+      "sqlHandle": listSqlPlanBaselinesRequest.sqlHandle,
+      "sqlText": listSqlPlanBaselinesRequest.sqlText,
+      "isEnabled": listSqlPlanBaselinesRequest.isEnabled,
+      "isAccepted": listSqlPlanBaselinesRequest.isAccepted,
+      "isReproduced": listSqlPlanBaselinesRequest.isReproduced,
+      "isFixed": listSqlPlanBaselinesRequest.isFixed,
+      "isAdaptive": listSqlPlanBaselinesRequest.isAdaptive,
+      "origin": listSqlPlanBaselinesRequest.origin,
+      "page": listSqlPlanBaselinesRequest.page,
+      "limit": listSqlPlanBaselinesRequest.limit,
+      "sortBy": listSqlPlanBaselinesRequest.sortBy,
+      "sortOrder": listSqlPlanBaselinesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listSqlPlanBaselinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listSqlPlanBaselinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListSqlPlanBaselinesResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaselineCollection",
+        bodyModel: model.SqlPlanBaselineCollection,
+        type: "model.SqlPlanBaselineCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the list of system privileges granted to a specific user.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ListSystemPrivilegesRequest
@@ -9838,6 +11527,172 @@ Starts the discovery process for the Exadata system infrastructure.The following
           {
             value: response.headers.get("opc-next-page"),
             key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Loads plans from Automatic Workload Repository (AWR) snapshots. You must
+   * specify the beginning and ending of the snapshot range. Optionally, you
+   * can apply a filter to load only plans that meet specified criteria. By
+   * default, the optimizer uses the loaded plans the next time that the database
+   * executes the SQL statements.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param LoadSqlPlanBaselinesFromAwrRequest
+   * @return LoadSqlPlanBaselinesFromAwrResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlPlanBaselinesFromAwr.ts.html |here} to see how to use LoadSqlPlanBaselinesFromAwr API.
+   */
+  public async loadSqlPlanBaselinesFromAwr(
+    loadSqlPlanBaselinesFromAwrRequest: requests.LoadSqlPlanBaselinesFromAwrRequest
+  ): Promise<responses.LoadSqlPlanBaselinesFromAwrResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#loadSqlPlanBaselinesFromAwr.");
+    const operationName = "loadSqlPlanBaselinesFromAwr";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/LoadSqlPlanBaselinesFromAwr";
+    const pathParams = {
+      "{managedDatabaseId}": loadSqlPlanBaselinesFromAwrRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": loadSqlPlanBaselinesFromAwrRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      loadSqlPlanBaselinesFromAwrRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/loadSqlPlanBaselinesFromAwr",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        loadSqlPlanBaselinesFromAwrRequest.loadSqlPlanBaselinesFromAwrDetails,
+        "LoadSqlPlanBaselinesFromAwrDetails",
+        model.LoadSqlPlanBaselinesFromAwrDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.LoadSqlPlanBaselinesFromAwrResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaselineJob",
+        bodyModel: model.SqlPlanBaselineJob,
+        type: "model.SqlPlanBaselineJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Loads plans for statements directly from the shared SQL area, also called
+   * the cursor cache. By applying a filter on the module name, the schema, or
+   * the SQL ID you identify the SQL statement or set of SQL statements to load.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param LoadSqlPlanBaselinesFromCursorCacheRequest
+   * @return LoadSqlPlanBaselinesFromCursorCacheResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlPlanBaselinesFromCursorCache.ts.html |here} to see how to use LoadSqlPlanBaselinesFromCursorCache API.
+   */
+  public async loadSqlPlanBaselinesFromCursorCache(
+    loadSqlPlanBaselinesFromCursorCacheRequest: requests.LoadSqlPlanBaselinesFromCursorCacheRequest
+  ): Promise<responses.LoadSqlPlanBaselinesFromCursorCacheResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#loadSqlPlanBaselinesFromCursorCache."
+      );
+    const operationName = "loadSqlPlanBaselinesFromCursorCache";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/LoadSqlPlanBaselinesFromCursorCache";
+    const pathParams = {
+      "{managedDatabaseId}": loadSqlPlanBaselinesFromCursorCacheRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": loadSqlPlanBaselinesFromCursorCacheRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      loadSqlPlanBaselinesFromCursorCacheRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlPlanBaselines/actions/loadSqlPlanBaselinesFromCursorCache",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        loadSqlPlanBaselinesFromCursorCacheRequest.loadSqlPlanBaselinesFromCursorCacheDetails,
+        "LoadSqlPlanBaselinesFromCursorCacheDetails",
+        model.LoadSqlPlanBaselinesFromCursorCacheDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.LoadSqlPlanBaselinesFromCursorCacheResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaselineJob",
+        bodyModel: model.SqlPlanBaselineJob,
+        type: "model.SqlPlanBaselineJob",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -11772,6 +13627,168 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
+   * Gets the number of SQL plan baselines aggregated by their attributes.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeSqlPlanBaselinesRequest
+   * @return SummarizeSqlPlanBaselinesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeSqlPlanBaselines.ts.html |here} to see how to use SummarizeSqlPlanBaselines API.
+   */
+  public async summarizeSqlPlanBaselines(
+    summarizeSqlPlanBaselinesRequest: requests.SummarizeSqlPlanBaselinesRequest
+  ): Promise<responses.SummarizeSqlPlanBaselinesResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DbManagementClient#summarizeSqlPlanBaselines.");
+    const operationName = "summarizeSqlPlanBaselines";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeSqlPlanBaselines";
+    const pathParams = {
+      "{managedDatabaseId}": summarizeSqlPlanBaselinesRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "page": summarizeSqlPlanBaselinesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeSqlPlanBaselinesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlPlanBaselinesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselineStats",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeSqlPlanBaselinesResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaselineAggregationCollection",
+        bodyModel: model.SqlPlanBaselineAggregationCollection,
+        type: "model.SqlPlanBaselineAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the number of SQL plan baselines aggregated by the age of their last execution in weeks.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SummarizeSqlPlanBaselinesByLastExecutionRequest
+   * @return SummarizeSqlPlanBaselinesByLastExecutionResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SummarizeSqlPlanBaselinesByLastExecution.ts.html |here} to see how to use SummarizeSqlPlanBaselinesByLastExecution API.
+   */
+  public async summarizeSqlPlanBaselinesByLastExecution(
+    summarizeSqlPlanBaselinesByLastExecutionRequest: requests.SummarizeSqlPlanBaselinesByLastExecutionRequest
+  ): Promise<responses.SummarizeSqlPlanBaselinesByLastExecutionResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DbManagementClient#summarizeSqlPlanBaselinesByLastExecution."
+      );
+    const operationName = "summarizeSqlPlanBaselinesByLastExecution";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/SummarizeSqlPlanBaselinesByLastExecution";
+    const pathParams = {
+      "{managedDatabaseId}": summarizeSqlPlanBaselinesByLastExecutionRequest.managedDatabaseId
+    };
+
+    const queryParams = {
+      "page": summarizeSqlPlanBaselinesByLastExecutionRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": summarizeSqlPlanBaselinesByLastExecutionRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      summarizeSqlPlanBaselinesByLastExecutionRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlPlanBaselineExecutionStats",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SummarizeSqlPlanBaselinesByLastExecutionResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlPlanBaselineAggregationCollection",
+        bodyModel: model.SqlPlanBaselineAggregationCollection,
+        type: "model.SqlPlanBaselineAggregationCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Tests the preferred credential.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -12504,7 +14521,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Updates the details for the the Exadata infrastructure specified by externalExadataInfrastructureId.
+   * Updates the details for the Exadata infrastructure specified by externalExadataInfrastructureId.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param UpdateExternalExadataInfrastructureRequest
@@ -12592,7 +14609,7 @@ Note that this API does not return information on the number of times each datab
   }
 
   /**
-   * Updates the details for the storage server connector specified by exadataStorageConnectorId.
+   * Updates the Exadata storage server connector specified by exadataStorageConnectorId.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param UpdateExternalExadataStorageConnectorRequest
@@ -13101,6 +15118,7 @@ export class DiagnosabilityClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Diagnosability";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -13120,6 +15138,9 @@ export class DiagnosabilityClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -13132,7 +15153,12 @@ export class DiagnosabilityClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -13577,6 +15603,225 @@ export class DiagnosabilityClient {
     }
   }
 }
+export enum PerfhubApiKeys {}
+/**
+ * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
+ */
+export class PerfhubClient {
+  protected static serviceEndpointTemplate = "https://dbmgmt.{region}.oci.{secondLevelDomain}";
+  protected static endpointServiceName = "";
+  protected "_realmSpecificEndpointTemplateEnabled": boolean = false;
+  protected "_endpoint": string = "";
+  protected "_defaultHeaders": any = {};
+  protected "_clientConfiguration": common.ClientConfiguration;
+  protected _circuitBreaker = null;
+  protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
+  public targetService = "Perfhub";
+  protected _regionId: string = "";
+  protected "_region": common.Region;
+  protected _lastSetRegionOrRegionId: string = "";
+
+  protected _httpClient: common.HttpClient;
+
+  constructor(params: common.AuthParams, clientConfiguration?: common.ClientConfiguration) {
+    const requestSigner = params.authenticationDetailsProvider
+      ? new common.DefaultRequestSigner(params.authenticationDetailsProvider)
+      : null;
+    if (clientConfiguration) {
+      this._clientConfiguration = clientConfiguration;
+      this._circuitBreaker = clientConfiguration.circuitBreaker
+        ? clientConfiguration.circuitBreaker!.circuit
+        : null;
+      this._httpOptions = clientConfiguration.httpOptions
+        ? clientConfiguration.httpOptions
+        : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
+    }
+    // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
+    const specCircuitBreakerEnabled = true;
+    if (
+      !this._circuitBreaker &&
+      common.utils.isCircuitBreakerSystemEnabled(clientConfiguration!) &&
+      (specCircuitBreakerEnabled || common.CircuitBreaker.DefaultCircuitBreakerOverriden)
+    ) {
+      this._circuitBreaker = new common.CircuitBreaker().circuit;
+    }
+    this._httpClient =
+      params.httpClient ||
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
+
+    if (
+      params.authenticationDetailsProvider &&
+      common.isRegionProvider(params.authenticationDetailsProvider)
+    ) {
+      const provider: common.RegionProvider = params.authenticationDetailsProvider;
+      if (provider.getRegion()) {
+        this.region = provider.getRegion();
+      }
+    }
+  }
+
+  /**
+   * Get the endpoint that is being used to call (ex, https://www.example.com).
+   */
+  public get endpoint() {
+    return this._endpoint;
+  }
+
+  /**
+   * Sets the endpoint to call (ex, https://www.example.com).
+   * @param endpoint The endpoint of the service.
+   */
+  public set endpoint(endpoint: string) {
+    this._endpoint = endpoint;
+    this._endpoint = this._endpoint + "/20201101";
+    if (this.logger) this.logger.info(`PerfhubClient endpoint set to ${this._endpoint}`);
+  }
+
+  public get logger() {
+    return common.LOG.logger;
+  }
+
+  /**
+   * Determines whether realm specific endpoint should be used or not.
+   * Set realmSpecificEndpointTemplateEnabled to "true" if the user wants to enable use of realm specific endpoint template, otherwise set it to "false"
+   * @param realmSpecificEndpointTemplateEnabled flag to enable the use of realm specific endpoint template
+   */
+  public set useRealmSpecificEndpointTemplate(realmSpecificEndpointTemplateEnabled: boolean) {
+    this._realmSpecificEndpointTemplateEnabled = realmSpecificEndpointTemplateEnabled;
+    if (this.logger)
+      this.logger.info(
+        `realmSpecificEndpointTemplateEnabled set to ${this._realmSpecificEndpointTemplateEnabled}`
+      );
+    if (this._lastSetRegionOrRegionId === common.Region.REGION_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+        PerfhubClient.serviceEndpointTemplate,
+        this._region,
+        PerfhubClient.endpointServiceName
+      );
+    } else if (this._lastSetRegionOrRegionId === common.Region.REGION_ID_STRING) {
+      this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+        PerfhubClient.serviceEndpointTemplate,
+        this._regionId,
+        PerfhubClient.endpointServiceName
+      );
+    }
+  }
+
+  /**
+   * Sets the region to call (ex, Region.US_PHOENIX_1).
+   * Note, this will call {@link #endpoint(String) endpoint} after resolving the endpoint.
+   * @param region The region of the service.
+   */
+  public set region(region: common.Region) {
+    this._region = region;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegion(
+      PerfhubClient.serviceEndpointTemplate,
+      region,
+      PerfhubClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_STRING;
+  }
+
+  /**
+   * Sets the regionId to call (ex, 'us-phoenix-1').
+   *
+   * Note, this will first try to map the region ID to a known Region and call {@link #region(Region) region}.
+   * If no known Region could be determined, it will create an endpoint assuming its in default Realm OC1
+   * and then call {@link #endpoint(String) endpoint}.
+   * @param regionId The public region ID.
+   */
+  public set regionId(regionId: string) {
+    this._regionId = regionId;
+    this.endpoint = common.EndpointBuilder.createEndpointFromRegionId(
+      PerfhubClient.serviceEndpointTemplate,
+      regionId,
+      PerfhubClient.endpointServiceName
+    );
+    this._lastSetRegionOrRegionId = common.Region.REGION_ID_STRING;
+  }
+
+  /**
+   * Modifies the snapshot settings for the specified Database.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ModifySnapshotSettingsRequest
+   * @return ModifySnapshotSettingsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ModifySnapshotSettings.ts.html |here} to see how to use ModifySnapshotSettings API.
+   */
+  public async modifySnapshotSettings(
+    modifySnapshotSettingsRequest: requests.ModifySnapshotSettingsRequest
+  ): Promise<responses.ModifySnapshotSettingsResponse> {
+    if (this.logger) this.logger.debug("Calling operation PerfhubClient#modifySnapshotSettings.");
+    const operationName = "modifySnapshotSettings";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/ManagedDatabase/ModifySnapshotSettings";
+    const pathParams = {
+      "{managedDatabaseId}": modifySnapshotSettingsRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": modifySnapshotSettingsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      modifySnapshotSettingsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/actions/modifySnapshotSettings",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        modifySnapshotSettingsRequest.modifySnapshotSettingsDetails,
+        "ModifySnapshotSettingsDetails",
+        model.ModifySnapshotSettingsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ModifySnapshotSettingsResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+}
 export enum SqlTuningApiKeys {}
 /**
  * This service client uses {@link common.CircuitBreaker.DefaultConfiguration} for all the operations by default if no circuit breaker configuration is defined by the user.
@@ -13590,6 +15835,7 @@ export class SqlTuningClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "SqlTuning";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -13609,6 +15855,9 @@ export class SqlTuningClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -13621,7 +15870,12 @@ export class SqlTuningClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -13793,6 +16047,164 @@ export class SqlTuningClient {
   }
 
   /**
+   * Creates an empty Sql tuning set within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateSqlTuningSetRequest
+   * @return CreateSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/CreateSqlTuningSet.ts.html |here} to see how to use CreateSqlTuningSet API.
+   */
+  public async createSqlTuningSet(
+    createSqlTuningSetRequest: requests.CreateSqlTuningSetRequest
+  ): Promise<responses.CreateSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#createSqlTuningSet.");
+    const operationName = "createSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/CreateSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": createSqlTuningSetRequest.managedDatabaseId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": createSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": createSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningSets",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createSqlTuningSetRequest.createSqlTuningSetDetails,
+        "CreateSqlTuningSetDetails",
+        model.CreateSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSet",
+        bodyModel: model.SqlTuningSet,
+        type: "model.SqlTuningSet",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Drops the Sql tuning set specified by sqlTuningSet within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DropSqlTuningSetRequest
+   * @return DropSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlTuningSet.ts.html |here} to see how to use DropSqlTuningSet API.
+   */
+  public async dropSqlTuningSet(
+    dropSqlTuningSetRequest: requests.DropSqlTuningSetRequest
+  ): Promise<responses.DropSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlTuningSet.");
+    const operationName = "dropSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/DropSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": dropSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": dropSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": dropSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": dropSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dropSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/dropSqlTuningSet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        dropSqlTuningSetRequest.dropSqlTuningSetDetails,
+        "DropSqlTuningSetDetails",
+        model.DropSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DropSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Drops a SQL tuning task and its related results from the database.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -13851,6 +16263,166 @@ export class SqlTuningClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.DropSqlTuningTaskResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Deletes the Sqls in the specified Sql tuning set that matches the filter criteria provided in the basicFilter.
+   * If basicFilter criteria is not provided, then entire Sqls in the Sql tuning set is deleted.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param DropSqlsInSqlTuningSetRequest
+   * @return DropSqlsInSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/DropSqlsInSqlTuningSet.ts.html |here} to see how to use DropSqlsInSqlTuningSet API.
+   */
+  public async dropSqlsInSqlTuningSet(
+    dropSqlsInSqlTuningSetRequest: requests.DropSqlsInSqlTuningSetRequest
+  ): Promise<responses.DropSqlsInSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#dropSqlsInSqlTuningSet.");
+    const operationName = "dropSqlsInSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/DropSqlsInSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": dropSqlsInSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": dropSqlsInSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": dropSqlsInSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": dropSqlsInSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      dropSqlsInSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/dropSqlsInSqlTuningSet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        dropSqlsInSqlTuningSetRequest.dropSqlsInSqlTuningSetDetails,
+        "DropSqlsInSqlTuningSetDetails",
+        model.DropSqlsInSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DropSqlsInSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Fetch the details of Sql statements in the Sql tuning set specified by name, owner and optional filter parameters.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param FetchSqlTuningSetRequest
+   * @return FetchSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/FetchSqlTuningSet.ts.html |here} to see how to use FetchSqlTuningSet API.
+   */
+  public async fetchSqlTuningSet(
+    fetchSqlTuningSetRequest: requests.FetchSqlTuningSetRequest
+  ): Promise<responses.FetchSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#fetchSqlTuningSet.");
+    const operationName = "fetchSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/FetchSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": fetchSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": fetchSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": fetchSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": fetchSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      fetchSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        fetchSqlTuningSetRequest.fetchSqlTuningSetDetails,
+        "FetchSqlTuningSetDetails",
+        model.FetchSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.FetchSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSet",
+        bodyModel: model.SqlTuningSet,
+        type: "model.SqlTuningSet",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -14461,6 +17033,165 @@ export class SqlTuningClient {
   }
 
   /**
+   * Load Sql statements into the Sql tuning set specified by name and optional filter parameters within the Managed Database specified by managedDatabaseId.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param LoadSqlTuningSetRequest
+   * @return LoadSqlTuningSetResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/LoadSqlTuningSet.ts.html |here} to see how to use LoadSqlTuningSet API.
+   */
+  public async loadSqlTuningSet(
+    loadSqlTuningSetRequest: requests.LoadSqlTuningSetRequest
+  ): Promise<responses.LoadSqlTuningSetResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#loadSqlTuningSet.");
+    const operationName = "loadSqlTuningSet";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/LoadSqlTuningSet";
+    const pathParams = {
+      "{managedDatabaseId}": loadSqlTuningSetRequest.managedDatabaseId,
+      "{sqlTuningSetId}": loadSqlTuningSetRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": loadSqlTuningSetRequest.opcRequestId,
+      "opc-retry-token": loadSqlTuningSetRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      loadSqlTuningSetRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/loadSqlTuningSet",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        loadSqlTuningSetRequest.loadSqlTuningSetDetails,
+        "LoadSqlTuningSetDetails",
+        model.LoadSqlTuningSetDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.LoadSqlTuningSetResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Saves the specified list of Sqls statements into another new Sql tuning set or loads into an existing Sql tuning set'.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param SaveSqlTuningSetAsRequest
+   * @return SaveSqlTuningSetAsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/SaveSqlTuningSetAs.ts.html |here} to see how to use SaveSqlTuningSetAs API.
+   */
+  public async saveSqlTuningSetAs(
+    saveSqlTuningSetAsRequest: requests.SaveSqlTuningSetAsRequest
+  ): Promise<responses.SaveSqlTuningSetAsResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#saveSqlTuningSetAs.");
+    const operationName = "saveSqlTuningSetAs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/SaveSqlTuningSetAs";
+    const pathParams = {
+      "{managedDatabaseId}": saveSqlTuningSetAsRequest.managedDatabaseId,
+      "{sqlTuningSetId}": saveSqlTuningSetAsRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": saveSqlTuningSetAsRequest.opcRequestId,
+      "opc-retry-token": saveSqlTuningSetAsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      saveSqlTuningSetAsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/saveAs",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        saveSqlTuningSetAsRequest.saveSqlTuningSetAsDetails,
+        "SaveSqlTuningSetAsDetails",
+        model.SaveSqlTuningSetAsDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.SaveSqlTuningSetAsResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Starts a SQL tuning task for a given set of SQL statements from the active session history top SQL statements.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -14523,6 +17254,86 @@ export class SqlTuningClient {
         bodyKey: "sqlTuningTaskReturn",
         bodyModel: model.SqlTuningTaskReturn,
         type: "model.SqlTuningTaskReturn",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Executes a SQL query to check whether user entered basic filter criteria is valid or not.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ValidateBasicFilterRequest
+   * @return ValidateBasicFilterResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/databasemanagement/ValidateBasicFilter.ts.html |here} to see how to use ValidateBasicFilter API.
+   */
+  public async validateBasicFilter(
+    validateBasicFilterRequest: requests.ValidateBasicFilterRequest
+  ): Promise<responses.ValidateBasicFilterResponse> {
+    if (this.logger) this.logger.debug("Calling operation SqlTuningClient#validateBasicFilter.");
+    const operationName = "validateBasicFilter";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database-management/20201101/SqlTuningSet/ValidateBasicFilter";
+    const pathParams = {
+      "{managedDatabaseId}": validateBasicFilterRequest.managedDatabaseId,
+      "{sqlTuningSetId}": validateBasicFilterRequest.sqlTuningSetId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": validateBasicFilterRequest.opcRequestId,
+      "opc-retry-token": validateBasicFilterRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      validateBasicFilterRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path:
+        "/managedDatabases/{managedDatabaseId}/sqlTuningSets/{sqlTuningSetId}/actions/validateBasicFilter",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        validateBasicFilterRequest.validateBasicFilterDetails,
+        "ValidateBasicFilterDetails",
+        model.ValidateBasicFilterDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ValidateBasicFilterResponse>{},
+        body: await response.json(),
+        bodyKey: "sqlTuningSetAdminActionStatus",
+        bodyModel: model.SqlTuningSetAdminActionStatus,
+        type: "model.SqlTuningSetAdminActionStatus",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

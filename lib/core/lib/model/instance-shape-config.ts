@@ -94,6 +94,13 @@ If the instance does not have any local disks, this field is `null`.
 * 
     */
   "localDiskDescription"?: string;
+  /**
+   * The total number of VCPUs available to the instance. This can be used instead of OCPUs,
+   * in which case the actual number of OCPUs will be calculated based on this value
+   * and the actual hardware. This must be a multiple of 2.
+   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   */
+  "vcpus"?: number;
 }
 
 export namespace InstanceShapeConfig {

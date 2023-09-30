@@ -32,6 +32,10 @@ export interface DataObjectColumnMetadata {
   /**
    * Type of a data object column.
    */
+  "dataType"?: string;
+  /**
+   * Type name of a data object column.
+   */
   "dataTypeName"?: DataObjectColumnMetadata.DataTypeName;
   /**
    * Display name of the column.
@@ -62,6 +66,7 @@ export namespace DataObjectColumnMetadata {
     Dimension = "DIMENSION",
     Metric = "METRIC",
     TimeDimension = "TIME_DIMENSION",
+    Unknown = "UNKNOWN",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.
@@ -73,6 +78,7 @@ export namespace DataObjectColumnMetadata {
     Number = "NUMBER",
     Timestamp = "TIMESTAMP",
     Varchar2 = "VARCHAR2",
+    Other = "OTHER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

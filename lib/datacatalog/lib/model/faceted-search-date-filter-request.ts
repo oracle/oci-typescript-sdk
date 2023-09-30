@@ -21,7 +21,7 @@ import common = require("oci-common");
  */
 export interface FacetedSearchDateFilterRequest {
   /**
-   * Date field name that needs to be filtered by.
+   * Date field name that needs to be filtered by. Acceptable fields include TimeCreated and TimeUpdated.
    */
   "fieldName"?: string;
   /**

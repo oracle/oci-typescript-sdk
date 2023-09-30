@@ -24,7 +24,7 @@ export interface CreateDrProtectionGroupMemberDetails {
   /**
     * The OCID of the member.
 * <p>
-Example: `ocid1.instance.oc1.phx.exampleocid1`
+Example: `ocid1.instance.oc1.phx.&lt;unique_id&gt;`
 * 
     */
   "memberId": string;
@@ -38,6 +38,16 @@ export namespace CreateDrProtectionGroupMemberDetails {
 
     if (obj && "memberType" in obj && obj.memberType) {
       switch (obj.memberType) {
+        case "COMPUTE_INSTANCE_MOVABLE":
+          return model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_NON_MOVABLE":
+          return model.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getJsonObj(
+            <model.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE":
           return model.CreateDrProtectionGroupMemberComputeInstanceDetails.getJsonObj(
             <model.CreateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),
@@ -69,6 +79,16 @@ export namespace CreateDrProtectionGroupMemberDetails {
 
     if (obj && "memberType" in obj && obj.memberType) {
       switch (obj.memberType) {
+        case "COMPUTE_INSTANCE_MOVABLE":
+          return model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberComputeInstanceMovableDetails>(<object>jsonObj),
+            true
+          );
+        case "COMPUTE_INSTANCE_NON_MOVABLE":
+          return model.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails.getDeserializedJsonObj(
+            <model.CreateDrProtectionGroupMemberComputeInstanceNonMovableDetails>(<object>jsonObj),
+            true
+          );
         case "COMPUTE_INSTANCE":
           return model.CreateDrProtectionGroupMemberComputeInstanceDetails.getDeserializedJsonObj(
             <model.CreateDrProtectionGroupMemberComputeInstanceDetails>(<object>jsonObj),

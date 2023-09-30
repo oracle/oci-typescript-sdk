@@ -25,6 +25,8 @@ export interface CreateSqlJobDetails extends model.CreateJobDetails {
    * The SQL text to be executed as part of the job.
    */
   "sqlText"?: string;
+  "inBinds"?: model.JobInBindsDetails;
+  "outBinds"?: model.JobOutBindsDetails;
   "sqlType"?: string;
   /**
    * The SQL operation type.
@@ -57,7 +59,10 @@ export namespace CreateSqlJobDetails {
   export function getJsonObj(obj: CreateSqlJobDetails, isParentJsonObj?: boolean): object {
     const jsonObj = {
       ...(isParentJsonObj ? obj : (model.CreateJobDetails.getJsonObj(obj) as CreateSqlJobDetails)),
-      ...{}
+      ...{
+        "inBinds": obj.inBinds ? model.JobInBindsDetails.getJsonObj(obj.inBinds) : undefined,
+        "outBinds": obj.outBinds ? model.JobOutBindsDetails.getJsonObj(obj.outBinds) : undefined
+      }
     };
 
     return jsonObj;
@@ -71,7 +76,14 @@ export namespace CreateSqlJobDetails {
       ...(isParentJsonObj
         ? obj
         : (model.CreateJobDetails.getDeserializedJsonObj(obj) as CreateSqlJobDetails)),
-      ...{}
+      ...{
+        "inBinds": obj.inBinds
+          ? model.JobInBindsDetails.getDeserializedJsonObj(obj.inBinds)
+          : undefined,
+        "outBinds": obj.outBinds
+          ? model.JobOutBindsDetails.getDeserializedJsonObj(obj.outBinds)
+          : undefined
+      }
     };
 
     return jsonObj;

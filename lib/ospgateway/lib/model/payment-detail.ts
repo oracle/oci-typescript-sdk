@@ -40,6 +40,11 @@ export namespace PaymentDetail {
 
     if (obj && "paymentMethod" in obj && obj.paymentMethod) {
       switch (obj.paymentMethod) {
+        case "ECHECK":
+          return model.EcheckPaymentDetail.getJsonObj(
+            <model.EcheckPaymentDetail>(<object>jsonObj),
+            true
+          );
         case "OTHER":
           return model.OtherPaymentDetail.getJsonObj(
             <model.OtherPaymentDetail>(<object>jsonObj),
@@ -66,6 +71,11 @@ export namespace PaymentDetail {
 
     if (obj && "paymentMethod" in obj && obj.paymentMethod) {
       switch (obj.paymentMethod) {
+        case "ECHECK":
+          return model.EcheckPaymentDetail.getDeserializedJsonObj(
+            <model.EcheckPaymentDetail>(<object>jsonObj),
+            true
+          );
         case "OTHER":
           return model.OtherPaymentDetail.getDeserializedJsonObj(
             <model.OtherPaymentDetail>(<object>jsonObj),

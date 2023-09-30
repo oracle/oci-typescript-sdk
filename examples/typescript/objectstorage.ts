@@ -20,6 +20,8 @@ import common = require("oci-common");
 import st = require("stream");
 import { createReadStream, statSync } from "fs";
 import { NodeFSBlob } from "oci-objectstorage";
+// If using Node JS version >= 18, import the following package for working with streams
+// import consumers from 'stream/consumers';
 
 const provider: common.ConfigFileAuthenticationDetailsProvider = new common.ConfigFileAuthenticationDetailsProvider();
 const args = process.argv.slice(2);
@@ -114,13 +116,20 @@ const client = new os.ObjectStorageClient({ authenticationDetailsProvider: provi
   }
 })();
 
-function compareStreams(stream1: st.Readable, stream2: st.Readable): boolean {
+function compareStreams(stream1: any, stream2: any): boolean {
   return streamToString(stream1) === streamToString(stream2);
 }
+// When using NodeJS version >= 18, use the following definition for the function
+/*
+async function streamToString(stream: any) { 
+  const data = await consumers.buffer(getObjectResponse.value as NodeJS.ReadableStream).toString("utf8");
+  return data;
+}
+*/
 
-function streamToString(stream: st.Readable) {
+function streamToString(stream: any) {
   let output = "";
-  stream.on("data", function(data) {
+  stream.on("data", function(data: any) {
     output += data.toString();
   });
   stream.on("end", function() {

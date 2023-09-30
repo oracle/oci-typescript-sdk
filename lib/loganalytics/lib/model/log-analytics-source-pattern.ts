@@ -99,6 +99,10 @@ export interface LogAnalyticsSourcePattern {
    * The source entity type.
    */
   "entityType"?: Array<string>;
+  /**
+   * A list of pattern properties.
+   */
+  "patternProperties"?: Array<model.LogAnalyticsProperty>;
 }
 
 export namespace LogAnalyticsSourcePattern {
@@ -114,6 +118,12 @@ export namespace LogAnalyticsSourcePattern {
 
         "patternFilter": obj.patternFilter
           ? model.LogAnalyticsPatternFilter.getJsonObj(obj.patternFilter)
+          : undefined,
+
+        "patternProperties": obj.patternProperties
+          ? obj.patternProperties.map(item => {
+              return model.LogAnalyticsProperty.getJsonObj(item);
+            })
           : undefined
       }
     };
@@ -132,6 +142,12 @@ export namespace LogAnalyticsSourcePattern {
 
         "patternFilter": obj.patternFilter
           ? model.LogAnalyticsPatternFilter.getDeserializedJsonObj(obj.patternFilter)
+          : undefined,
+
+        "patternProperties": obj.patternProperties
+          ? obj.patternProperties.map(item => {
+              return model.LogAnalyticsProperty.getDeserializedJsonObj(item);
+            })
           : undefined
       }
     };

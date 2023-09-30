@@ -65,6 +65,10 @@ import * as RestoreContainerImageResponse from "./restore-container-image-respon
 export import RestoreContainerImageResponse = RestoreContainerImageResponse.RestoreContainerImageResponse;
 import * as UpdateContainerConfigurationResponse from "./update-container-configuration-response";
 export import UpdateContainerConfigurationResponse = UpdateContainerConfigurationResponse.UpdateContainerConfigurationResponse;
+import * as UpdateContainerImageResponse from "./update-container-image-response";
+export import UpdateContainerImageResponse = UpdateContainerImageResponse.UpdateContainerImageResponse;
+import * as UpdateContainerImageSignatureResponse from "./update-container-image-signature-response";
+export import UpdateContainerImageSignatureResponse = UpdateContainerImageSignatureResponse.UpdateContainerImageSignatureResponse;
 import * as UpdateContainerRepositoryResponse from "./update-container-repository-response";
 export import UpdateContainerRepositoryResponse = UpdateContainerRepositoryResponse.UpdateContainerRepositoryResponse;
 import * as UpdateGenericArtifactResponse from "./update-generic-artifact-response";

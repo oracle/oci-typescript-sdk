@@ -20,6 +20,8 @@ import common = require("oci-common");
 /**
  * Enumeration of different type of members in a DR Protection Group.
  * - COMPUTE_INSTANCE - An Oracle Cloud compute instance.
+ * - COMPUTE_INSTANCE_MOVABLE - An Oracle Cloud compute instance that moves across regions or ADs during DR.
+ * - COMPUTE_INSTANCE_NON_MOVABLE - An Oracle Cloud compute instance that does not move across regions or ADs during DR.
  * - VOLUME_GROUP - An Oracle Cloud volume group.
  * - DATABASE - An Oracle Database Cloud Service database.
  * - AUTONOMOUS_DATABASE - An Oracle Autonomous Database.
@@ -27,6 +29,8 @@ import common = require("oci-common");
  **/
 export enum DrProtectionGroupMemberType {
   ComputeInstance = "COMPUTE_INSTANCE",
+  ComputeInstanceMovable = "COMPUTE_INSTANCE_MOVABLE",
+  ComputeInstanceNonMovable = "COMPUTE_INSTANCE_NON_MOVABLE",
   VolumeGroup = "VOLUME_GROUP",
   Database = "DATABASE",
   AutonomousDatabase = "AUTONOMOUS_DATABASE",

@@ -15,9 +15,11 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The target to collect JFR data. A target is a managed instance, with options to further limit to specific application and/or Java runtime.
+ * The target to collect JFR data. A target is a managed instance, with options to further limit to specific application and/or Java Runtime.
  * When the applicationKey isn't specified, then all applications are selected.
- * When the jreKey isn't specified, then all supported Java runtime versions are selected.
+ * When the jreKey isn't specified, then all supported Java Runtime versions are selected.
+ * When the applicationInstallationKey isn't specified, then all application installations are selected.
+ * Keys applicationKey and applicationInstallationKey are mutually exclusive.
  *
  */
 export interface JfrAttachmentTarget {
@@ -26,9 +28,13 @@ export interface JfrAttachmentTarget {
    */
   "managedInstanceId": string;
   /**
-   * Unique key that identify the application for JFR data collection.
+   * Unique key that identifies the application for JFR data collection.
    */
   "applicationKey"?: string;
+  /**
+   * Unique key that identifies the application installation for JFR data collection.
+   */
+  "applicationInstallationKey"?: string;
   /**
    * Unique key that identify the JVM for JFR data collection.
    */

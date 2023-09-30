@@ -15,27 +15,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * aggregated network data.
+ * Details of the aggregated network data.
  */
 export interface AggregatedNetworkData {
   /**
-   * state of the result
+   * Status of the aggregated network data result.
    */
   "resultState": AggregatedNetworkData.ResultState;
   /**
-   * List of VantagePointNode items.
+   * List of vantage point nodes.
    */
   "vantagePointNodes"?: Array<model.VantagePointNode>;
   /**
-   * 2d array of nodes where each internal array corresponds to 1 level
+   * An array of node arrays where each internal array corresponds to nodes at one level.
    */
   "nodesByLevel"?: Array<Array<model.Node>>;
   /**
-   * map of Link objects
+   * Map of link objects.
    */
   "links"?: { [key: string]: model.Link };
   /**
-   * string contaiing error details
+   * String containing error details.
    */
   "errorDetails"?: string;
 }

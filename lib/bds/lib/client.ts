@@ -39,6 +39,7 @@ export class BdsClient {
   protected "_clientConfiguration": common.ClientConfiguration;
   protected _circuitBreaker = null;
   protected _httpOptions: any = undefined;
+  protected _bodyDuplexMode: any = undefined;
   public targetService = "Bds";
   protected _regionId: string = "";
   protected "_region": common.Region;
@@ -58,6 +59,9 @@ export class BdsClient {
       this._httpOptions = clientConfiguration.httpOptions
         ? clientConfiguration.httpOptions
         : undefined;
+      this._bodyDuplexMode = clientConfiguration.bodyDuplexMode
+        ? clientConfiguration.bodyDuplexMode
+        : undefined;
     }
     // if circuit breaker is not created, check if circuit breaker system is enabled to use default circuit breaker
     const specCircuitBreakerEnabled = true;
@@ -70,7 +74,12 @@ export class BdsClient {
     }
     this._httpClient =
       params.httpClient ||
-      new common.FetchHttpClient(requestSigner, this._circuitBreaker, this._httpOptions);
+      new common.FetchHttpClient(
+        requestSigner,
+        this._circuitBreaker,
+        this._httpOptions,
+        this._bodyDuplexMode
+      );
 
     if (
       params.authenticationDetailsProvider &&
@@ -568,6 +577,166 @@ export class BdsClient {
       );
       const sdkResponse = composeResponse({
         responseObject: <responses.AddKafkaResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Increases the size (scales out) of a cluster by adding master nodes. The added master nodes will have the same shape and will have the same amount of attached block storage as other master nodes in the cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddMasterNodesRequest
+   * @return AddMasterNodesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddMasterNodes.ts.html |here} to see how to use AddMasterNodes API.
+   */
+  public async addMasterNodes(
+    addMasterNodesRequest: requests.AddMasterNodesRequest
+  ): Promise<responses.AddMasterNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#addMasterNodes.");
+    const operationName = "addMasterNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddMasterNodes";
+    const pathParams = {
+      "{bdsInstanceId}": addMasterNodesRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addMasterNodesRequest.opcRequestId,
+      "if-match": addMasterNodesRequest.ifMatch,
+      "opc-retry-token": addMasterNodesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addMasterNodesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/addMasterNodes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addMasterNodesRequest.addMasterNodesDetails,
+        "AddMasterNodesDetails",
+        model.AddMasterNodesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddMasterNodesResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Increases the size (scales out) of a cluster by adding utility nodes. The added utility nodes will have the same shape and will have the same amount of attached block storage as other utility nodes in the cluster.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param AddUtilityNodesRequest
+   * @return AddUtilityNodesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/AddUtilityNodes.ts.html |here} to see how to use AddUtilityNodes API.
+   */
+  public async addUtilityNodes(
+    addUtilityNodesRequest: requests.AddUtilityNodesRequest
+  ): Promise<responses.AddUtilityNodesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#addUtilityNodes.");
+    const operationName = "addUtilityNodes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/AddUtilityNodes";
+    const pathParams = {
+      "{bdsInstanceId}": addUtilityNodesRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": addUtilityNodesRequest.opcRequestId,
+      "if-match": addUtilityNodesRequest.ifMatch,
+      "opc-retry-token": addUtilityNodesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      addUtilityNodesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/addUtilityNodes",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        addUtilityNodesRequest.addUtilityNodesDetails,
+        "AddUtilityNodesDetails",
+        model.AddUtilityNodesDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.AddUtilityNodesResponse>{},
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),
@@ -1675,6 +1844,86 @@ export class BdsClient {
   }
 
   /**
+   * Get the details of an os patch
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param GetOsPatchDetailsRequest
+   * @return GetOsPatchDetailsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/GetOsPatchDetails.ts.html |here} to see how to use GetOsPatchDetails API.
+   */
+  public async getOsPatchDetails(
+    getOsPatchDetailsRequest: requests.GetOsPatchDetailsRequest
+  ): Promise<responses.GetOsPatchDetailsResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#getOsPatchDetails.");
+    const operationName = "getOsPatchDetails";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/GetOsPatchDetails";
+    const pathParams = {
+      "{bdsInstanceId}": getOsPatchDetailsRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "osPatchVersion": getOsPatchDetailsRequest.osPatchVersion
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getOsPatchDetailsRequest.opcRequestId,
+      "if-match": getOsPatchDetailsRequest.ifMatch,
+      "opc-retry-token": getOsPatchDetailsRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getOsPatchDetailsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/getOsPatch",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetOsPatchDetailsResponse>{},
+        body: await response.json(),
+        bodyKey: "osPatchDetails",
+        bodyModel: model.OsPatchDetails,
+        type: "model.OsPatchDetails",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Returns the status of the work request identified by the given ID.
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param GetWorkRequestRequest
@@ -1740,6 +1989,86 @@ export class BdsClient {
             value: response.headers.get("retry-after"),
             key: "retryAfter",
             dataType: "number"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Install an os patch on a cluster
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param InstallOsPatchRequest
+   * @return InstallOsPatchResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/InstallOsPatch.ts.html |here} to see how to use InstallOsPatch API.
+   */
+  public async installOsPatch(
+    installOsPatchRequest: requests.InstallOsPatchRequest
+  ): Promise<responses.InstallOsPatchResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#installOsPatch.");
+    const operationName = "installOsPatch";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/InstallOsPatch";
+    const pathParams = {
+      "{bdsInstanceId}": installOsPatchRequest.bdsInstanceId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": installOsPatchRequest.opcRequestId,
+      "if-match": installOsPatchRequest.ifMatch,
+      "opc-retry-token": installOsPatchRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      installOsPatchRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/installOsPatch",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        installOsPatchRequest.installOsPatchDetails,
+        "InstallOsPatchDetails",
+        model.InstallOsPatchDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.InstallOsPatchResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
           }
         ]
       });
@@ -2381,6 +2710,146 @@ export class BdsClient {
   }
 
   /**
+   * List all available os patches for a given cluster
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ListOsPatchesRequest
+   * @return ListOsPatchesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/bds/ListOsPatches.ts.html |here} to see how to use ListOsPatches API.
+   */
+  public async listOsPatches(
+    listOsPatchesRequest: requests.ListOsPatchesRequest
+  ): Promise<responses.ListOsPatchesResponse> {
+    if (this.logger) this.logger.debug("Calling operation BdsClient#listOsPatches.");
+    const operationName = "listOsPatches";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/bigdata/20190531/BdsInstance/ListOsPatches";
+    const pathParams = {
+      "{bdsInstanceId}": listOsPatchesRequest.bdsInstanceId
+    };
+
+    const queryParams = {
+      "page": listOsPatchesRequest.page,
+      "limit": listOsPatchesRequest.limit,
+      "sortBy": listOsPatchesRequest.sortBy,
+      "sortOrder": listOsPatchesRequest.sortOrder
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listOsPatchesRequest.opcRequestId,
+      "if-match": listOsPatchesRequest.ifMatch,
+      "opc-retry-token": listOsPatchesRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listOsPatchesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/bdsInstances/{bdsInstanceId}/actions/listOsPatches",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListOsPatchesResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.OsPatchSummary,
+        type: "Array<model.OsPatchSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listOsPatchesRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.OsPatchSummary objects
+   * contained in responses from the listOsPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOsPatches(
+    request: requests.ListOsPatchesRequest
+  ): AsyncIterableIterator<model.OsPatchSummary> {
+    return paginateRecords(request, req => this.listOsPatches(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listOsPatchesResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listOsPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllOsPatchesResponses(
+    request: requests.ListOsPatchesRequest
+  ): AsyncIterableIterator<responses.ListOsPatchesResponse> {
+    return paginateResponses(request, req => this.listOsPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.OsPatchSummary objects
+   * contained in responses from the listOsPatches operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOsPatchesRecordIterator(
+    request: requests.ListOsPatchesRequest
+  ): AsyncIterableIterator<model.OsPatchSummary> {
+    return paginateRecords(request, req => this.listOsPatches(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listOsPatches operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listOsPatchesResponseIterator(
+    request: requests.ListOsPatchesRequest
+  ): AsyncIterableIterator<responses.ListOsPatchesResponse> {
+    return paginateResponses(request, req => this.listOsPatches(req));
+  }
+
+  /**
    * List the patch history of this cluster.
    *
    * This operation does not retry by default if the user has not defined a retry configuration.
@@ -2406,7 +2875,8 @@ export class BdsClient {
       "patchVersion": listPatchHistoriesRequest.patchVersion,
       "sortOrder": listPatchHistoriesRequest.sortOrder,
       "page": listPatchHistoriesRequest.page,
-      "limit": listPatchHistoriesRequest.limit
+      "limit": listPatchHistoriesRequest.limit,
+      "patchType": listPatchHistoriesRequest.patchType
     };
 
     let headerParams = {

@@ -61,6 +61,7 @@ export interface UpdateMonitorDetails {
    * For BROWSER and REST monitor types, target is mandatory.
    * If target is specified in the SCRIPTED_BROWSER monitor type, then the monitor will run the selected script (specified by scriptId in monitor) against the specified target endpoint.
    * If target is not specified in the SCRIPTED_BROWSER monitor type, then the monitor will run the selected script as it is.
+   * For NETWORK monitor with TCP protocol, a port needs to be provided along with target. Example: 192.168.0.1:80
    *
    */
   "target"?: string;
@@ -75,7 +76,8 @@ export interface UpdateMonitorDetails {
     | model.ScriptedRestMonitorConfiguration
     | model.ScriptedBrowserMonitorConfiguration
     | model.RestMonitorConfiguration
-    | model.BrowserMonitorConfiguration;
+    | model.BrowserMonitorConfiguration
+    | model.NetworkMonitorConfiguration;
   "availabilityConfiguration"?: model.AvailabilityConfiguration;
   "maintenanceWindowSchedule"?: model.MaintenanceWindowSchedule;
   /**
@@ -91,15 +93,15 @@ export interface UpdateMonitorDetails {
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };
   /**
-   * If isRunNow is enabled, then the monitor will run now.
+   * If isRunNow is enabled, then the monitor will run immediately.
    */
   "isRunNow"?: boolean;
   /**
-   * Scheduling policy on Vantage points.
+   * Scheduling policy to decide the distribution of monitor executions on vantage points.
    */
   "schedulingPolicy"?: model.SchedulingPolicy;
   /**
-   * Time interval between 2 runs in round robin batch mode (*SchedulingPolicy - BATCHED_ROUND_ROBIN). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * Time interval between two runs in round robin batch mode (SchedulingPolicy - BATCHED_ROUND_ROBIN). Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "batchIntervalInSeconds"?: number;
 }

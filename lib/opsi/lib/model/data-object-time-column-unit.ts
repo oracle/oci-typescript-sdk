@@ -41,6 +41,7 @@ export namespace DataObjectTimeColumnUnit {
     Week = "WEEK",
     Month = "MONTH",
     Year = "YEAR",
+    Minute = "MINUTE",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

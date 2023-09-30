@@ -22,8 +22,16 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The data to create a cluster network.
- */
+* The data to create a [cluster network with instance pools](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/managingclusternetworks.htm).
+* <p>
+Use cluster networks with instance pools when you want predictable capacity for a specific number of identical
+* instances that are managed as a group.
+* <p>
+For details about creating compute clusters, which let you manage instances in the RDMA network independently
+* of each other or use different types of instances in the network group,
+* see {@link #createComputeClusterDetails(CreateComputeClusterDetailsRequest) createComputeClusterDetails}.
+* 
+*/
 export interface CreateClusterNetworkDetails {
   /**
    * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the compartment
@@ -61,6 +69,7 @@ Each cluster network can have one instance pool.
     */
   "instancePools": Array<model.CreateClusterNetworkInstancePoolDetails>;
   "placementConfiguration": model.ClusterNetworkPlacementConfigurationDetails;
+  "clusterConfiguration"?: model.ClusterConfigurationDetails;
 }
 
 export namespace CreateClusterNetworkDetails {
@@ -75,6 +84,9 @@ export namespace CreateClusterNetworkDetails {
           : undefined,
         "placementConfiguration": obj.placementConfiguration
           ? model.ClusterNetworkPlacementConfigurationDetails.getJsonObj(obj.placementConfiguration)
+          : undefined,
+        "clusterConfiguration": obj.clusterConfiguration
+          ? model.ClusterConfigurationDetails.getJsonObj(obj.clusterConfiguration)
           : undefined
       }
     };
@@ -94,6 +106,9 @@ export namespace CreateClusterNetworkDetails {
           ? model.ClusterNetworkPlacementConfigurationDetails.getDeserializedJsonObj(
               obj.placementConfiguration
             )
+          : undefined,
+        "clusterConfiguration": obj.clusterConfiguration
+          ? model.ClusterConfigurationDetails.getDeserializedJsonObj(obj.clusterConfiguration)
           : undefined
       }
     };

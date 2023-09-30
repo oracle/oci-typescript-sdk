@@ -33,11 +33,16 @@ Example: `Uocm:PHX-AD-1`
     */
   "availabilityDomain": string;
   /**
-   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet to place
-   * instances.
+   * The placement constraint when reserving hosts.
+   */
+  "placementConstraint"?: ClusterNetworkPlacementConfigurationDetails.PlacementConstraint;
+  /**
+   * The [OCID](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/identifiers.htm) of the primary subnet to place instances. This field is deprecated.
+   * Use `primaryVnicSubnets` instead to set VNIC data for instances in the pool.
    *
    */
-  "primarySubnetId": string;
+  "primarySubnetId"?: string;
+  "primaryVnicSubnets"?: model.InstancePoolPlacementPrimarySubnet;
   /**
    * The set of secondary VNIC data for instances in the pool.
    */
@@ -45,10 +50,24 @@ Example: `Uocm:PHX-AD-1`
 }
 
 export namespace ClusterNetworkPlacementConfigurationDetails {
+  export enum PlacementConstraint {
+    SingleTier = "SINGLE_TIER",
+    SingleBlock = "SINGLE_BLOCK",
+    PackedDistributionMultiBlock = "PACKED_DISTRIBUTION_MULTI_BLOCK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
   export function getJsonObj(obj: ClusterNetworkPlacementConfigurationDetails): object {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getJsonObj(item);
@@ -63,6 +82,9 @@ export namespace ClusterNetworkPlacementConfigurationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "primaryVnicSubnets": obj.primaryVnicSubnets
+          ? model.InstancePoolPlacementPrimarySubnet.getDeserializedJsonObj(obj.primaryVnicSubnets)
+          : undefined,
         "secondaryVnicSubnets": obj.secondaryVnicSubnets
           ? obj.secondaryVnicSubnets.map(item => {
               return model.InstancePoolPlacementSecondaryVnicSubnet.getDeserializedJsonObj(item);

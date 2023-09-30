@@ -29,6 +29,7 @@ export interface MyTrustedUserAgentTrustedFactors {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: true
    *  - returned: default
    *  - type: string
@@ -45,6 +46,7 @@ export interface MyTrustedUserAgentTrustedFactors {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: string
@@ -61,6 +63,7 @@ export interface MyTrustedUserAgentTrustedFactors {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: true
    *  - returned: default
    *  - type: dateTime

@@ -15,24 +15,26 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The resource configuration for a Container. The resource configuration determines
- * the guaranteed resources allocated to the container and the maximum allowed resources for a container.
+ * The resource configuration for a container. The resource configuration determines
+ * the amount of resources allocated to the container and the maximum allowed resources for a container.
  *
  */
 export interface ContainerResourceConfig {
   /**
-   * The maximum amount of CPU utilization which may be consumed by the Container's
-   * process. If no value is provided, then the process may consume
-   * all CPU resources on the Instance.
-   * CPU usage is defined in terms of logical CPUs. This means that the
-   * maximum possible value on an E3 ContainerInstance with 1 OCPU is 2.0.
-   *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
-   */
+    * The maximum amount of CPUs that can be consumed by the container's process.
+* <p>
+If you do not set a value, then the process
+* may use all available CPU resources on the container instance.
+* <p>
+CPU usage is defined in terms of logical CPUs. This means that the
+* maximum possible value on an E3 ContainerInstance with 1 OCPU is 2.0.
+*  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+    */
   "vcpusLimit"?: number;
   /**
-   * The maximum amount of memory which may be consumed by the Container's
-   * process. If no value is provided, then the process
-   * may use all available memory on the Instance.
+   * The maximum amount of memory that can be consumed by the container's
+   * process. If you do not set a value, then the process
+   * may use all available memory on the instance.
    *  Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryLimitInGBs"?: number;

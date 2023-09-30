@@ -19,13 +19,17 @@ import common = require("oci-common");
  */
 export interface CreateComputeClusterRequest extends common.BaseRequest {
   /**
- * Details for creating a [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm), which is a remote direct memory access (RDMA) network group.
-* When first created, the compute cluster is empty.
-* After the compute cluster is created, you can use the compute cluster's OCID with the {@link #launchInstance(LaunchInstanceRequest) launchInstance}
-* operation to create instances in the compute cluster.
-* Compute clusters allow you to manage instances in the cluster individually.
+ * The data for creating a [compute cluster](https://docs.cloud.oracle.com/iaas/Content/Compute/Tasks/compute-clusters.htm). A compute cluster
+* is an empty remote direct memory access (RDMA) network group.
 * <p>
-For details about creating a cluster network that uses intance pools to manage groups of identical instances,
+After the compute cluster is created, you can use the compute cluster's OCID with the
+* {@link #launchInstance(LaunchInstanceRequest) launchInstance} operation to create instances in the compute cluster.
+* The instances must be created in the same compartment and availability domain as the cluster.
+* <p>
+Use compute clusters when you want to manage instances in the cluster individually, or when you want
+* to use different types of instances in the RDMA network group.
+* <p>
+For details about creating a cluster network that uses instance pools to manage groups of identical instances,
 * see {@link #createClusterNetworkDetails(CreateClusterNetworkDetailsRequest) createClusterNetworkDetails}.
 * 
  */

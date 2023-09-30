@@ -22,6 +22,7 @@ export enum RequestAuthenticationSchemes {
   None = "NONE",
   Basic = "BASIC",
   Bearer = "BEARER",
+  ResourcePrincipal = "RESOURCE_PRINCIPAL",
 
   /**
    * This value is used if a service returns a value for this enum that is not recognized by this

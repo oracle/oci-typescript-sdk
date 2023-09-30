@@ -18,27 +18,27 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The Exadata storage server.
+ * The summary of the Exadata storage server discovery.
  */
 export interface ExternalStorageServerDiscoverySummary extends model.EntityDiscovered {
   /**
-   * The IP address of the storage server.
+   * The IP address of the Exadata storage server.
    */
   "ipAddress"?: string;
   /**
-   * The make model of the storage server.
+   * The make model of the Exadata storage server.
    */
   "makeModel"?: string;
   /**
-   * The cpu count of the storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The CPU count of the Exadata storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "cpuCount"?: number;
   /**
-   * The memory size in GB of the storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The memory size in GB of the Exadata storage server. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "memoryGB"?: number;
   /**
-   * The connector name of the storage server in rediscovery case.
+   * The name of the Exadata storage server connector in case of rediscovery.
    */
   "connectorName"?: string;
 

@@ -1,6 +1,6 @@
 /**
  * Queue API
- * A description of the Queue API
+ * Use the Queue API to produce and consume messages, create queues, and manage related items. For more information, see [Queue](/iaas/Content/queue/overview.htm).
  * OpenAPI spec version: 20210201
  *
  *
@@ -15,6 +15,8 @@ import * as ActionType from "./action-type";
 export import ActionType = ActionType.ActionType;
 import * as ChangeQueueCompartmentDetails from "./change-queue-compartment-details";
 export import ChangeQueueCompartmentDetails = ChangeQueueCompartmentDetails.ChangeQueueCompartmentDetails;
+import * as ChannelCollection from "./channel-collection";
+export import ChannelCollection = ChannelCollection.ChannelCollection;
 import * as CreateQueueDetails from "./create-queue-details";
 export import CreateQueueDetails = CreateQueueDetails.CreateQueueDetails;
 import * as DeleteMessagesDetails from "./delete-messages-details";
@@ -29,6 +31,8 @@ import * as GetMessage from "./get-message";
 export import GetMessage = GetMessage.GetMessage;
 import * as GetMessages from "./get-messages";
 export import GetMessages = GetMessages.GetMessages;
+import * as MessageMetadata from "./message-metadata";
+export import MessageMetadata = MessageMetadata.MessageMetadata;
 import * as OperationStatus from "./operation-status";
 export import OperationStatus = OperationStatus.OperationStatus;
 import * as OperationType from "./operation-type";

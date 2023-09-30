@@ -50,7 +50,7 @@ export interface DatabaseConnectionStringProfile {
   "sessionMode": DatabaseConnectionStringProfile.SessionMode;
   /**
    * Specifies whether the connection string is using the long (`LONG`), Easy Connect (`EZCONNECT`), or Easy Connect Plus (`EZCONNECTPLUS`) format.
-   * Autonomous Databases on shared Exadata infrastructure always use the long format.
+   * Autonomous Database Serverless instances always use the long format.
    *
    */
   "syntaxFormat": DatabaseConnectionStringProfile.SyntaxFormat;

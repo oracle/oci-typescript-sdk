@@ -30,7 +30,7 @@ import common = require("oci-common");
  */
 export interface CustomerSecretKeyUser {
   /**
-   * User's id
+   * The user's ID.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -44,7 +44,7 @@ export interface CustomerSecretKeyUser {
    */
   "value"?: string;
   /**
-   * User's ocid
+   * The user's OCID.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -58,7 +58,7 @@ export interface CustomerSecretKeyUser {
    */
   "ocid"?: string;
   /**
-   * The URI that corresponds to the user linked to this credential
+   * The URI that corresponds to the user linked to this credential.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -72,7 +72,7 @@ export interface CustomerSecretKeyUser {
    */
   "ref"?: string;
   /**
-   * User display name
+   * The user's display name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
@@ -86,7 +86,7 @@ export interface CustomerSecretKeyUser {
    */
   "display"?: string;
   /**
-   * User name
+   * The user's name.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false

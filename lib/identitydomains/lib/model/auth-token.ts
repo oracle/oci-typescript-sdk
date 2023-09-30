@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User's Auth token resource
+ * The user's Auth token resource.
  */
 export interface AuthToken {
   /**
@@ -175,7 +175,7 @@ export interface AuthToken {
    */
   "description"?: string;
   /**
-   * User credential status
+   * The user's credential status.
    * <p>
    **Added In:** 2109090424
    * <p>
@@ -191,7 +191,7 @@ export interface AuthToken {
    */
   "status"?: AuthToken.Status;
   /**
-   * User credential expires on
+   * When the user's credential expire.
    * <p>
    **Added In:** 2109090424
    * <p>

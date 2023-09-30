@@ -15,7 +15,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * Results of a deployed application usage search.  Contains deployed application usage items.
+ * Results of a deployed application usage search. Contains deployed application usage items.
  *
  */
 export interface DeployedApplicationUsageCollection {

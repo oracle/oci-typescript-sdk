@@ -18,6 +18,15 @@ import common = require("oci-common");
  * Configuration details for the SCRIPTED_REST monitor type.
  */
 export interface ScriptedRestMonitorConfiguration extends model.MonitorConfiguration {
+  /**
+   * Request HTTP authentication scheme.
+   */
+  "reqAuthenticationScheme"?: model.RequestAuthenticationSchemesForScriptedRest;
+  /**
+   * Expected HTTP response codes. For status code range, set values such as 2xx, 3xx.
+   *
+   */
+  "verifyResponseCodes"?: Array<string>;
   "networkConfiguration"?: model.NetworkConfiguration;
 
   "configType": string;

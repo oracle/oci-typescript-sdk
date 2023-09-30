@@ -26,17 +26,17 @@ export interface UpdateRunLocalScriptUserDefinedStepDetails
   /**
     * The OCID of the instance where this script or command should be executed.
 * <p>
-Example: `ocid1.instance.oc1.phx.exampleocid1`
+Example: `ocid1.instance.oc1.phx.&lt;unique_id&gt;`
 * 
     */
-  "runOnInstanceId"?: string;
+  "runOnInstanceId": string;
   /**
     * The script name and arguments.
 * <p>
 Example: `/usr/bin/python3 /home/opc/scripts/my_app_script.py arg1 arg2 arg3`
 * 
     */
-  "scriptCommand"?: string;
+  "scriptCommand": string;
   /**
     * The userid on the instance to be used for executing the script or command.
 * <p>

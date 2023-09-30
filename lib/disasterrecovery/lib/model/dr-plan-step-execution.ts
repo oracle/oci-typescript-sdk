@@ -24,7 +24,7 @@ export interface DrPlanStepExecution {
   /**
     * The unique id of this step. Must not be modified by user.
 * <p>
-Example: `sgid1.step..examplestepsgid`
+Example: `sgid1.step..&lt;unique_id&gt;`
 * 
     */
   "stepId": string;
@@ -36,7 +36,7 @@ Example: `sgid1.step..examplestepsgid`
   /**
     * The unique id of the group to which this step belongs. Must not be modified by user.
 * <p>
-Example: `sgid1.group..examplegroupsgid`
+Example: `sgid1.group..&lt;unique_id&gt;`
 * 
     */
   "groupId": string;

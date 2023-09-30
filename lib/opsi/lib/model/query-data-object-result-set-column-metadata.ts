@@ -26,7 +26,11 @@ export interface QueryDataObjectResultSetColumnMetadata {
    */
   "name": string;
   /**
-   * Type of the column in a data object query result set.
+   * Type of the column in a data object query result.
+   */
+  "dataType"?: string;
+  /**
+   * Type name of the column in a data object query result set.
    */
   "dataTypeName"?: QueryDataObjectResultSetColumnMetadata.DataTypeName;
 }
@@ -36,6 +40,7 @@ export namespace QueryDataObjectResultSetColumnMetadata {
     Number = "NUMBER",
     Timestamp = "TIMESTAMP",
     Varchar2 = "VARCHAR2",
+    Other = "OTHER",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * User token returned if userFlowControlledByExternalClient is true
+ * The user token returned if userFlowControlledByExternalClient is set to true.
  * <p>
  **SCIM++ Properties:**
  *  - type: complex
@@ -29,7 +29,7 @@ import common = require("oci-common");
  */
 export interface UserPasswordResetterUserToken {
   /**
-   * User Token identifier
+   * The user token identifier.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: true
@@ -43,7 +43,7 @@ export interface UserPasswordResetterUserToken {
    */
   "value"?: string;
   /**
-   * User Token URI
+   * The user token URI.
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: false

@@ -44,11 +44,11 @@ export interface TextClassificationModelMetrics {
   /**
    * Precision refers to the number of true positives divided by the total number of positive predictions (i.e., the number of true positives plus the number of false positives) Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "macroPrecision"?: number;
+  "macroPrecision": number;
   /**
    * Measures the model's ability to predict actual positive classes. It is the ratio between the predicted true positives and what was actually tagged. The recall metric reveals how many of the predicted classes are correct. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
-  "macroRecall"?: number;
+  "macroRecall": number;
   /**
    * F1-score, is a measure of a model\u2019s accuracy on a dataset Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */

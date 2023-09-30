@@ -71,12 +71,32 @@ Allowed values:
    *
    */
   "networkEntityId": string;
+  /**
+   * An optional description of your choice for the rule.
+   *
+   */
+  "description"?: string;
+  /**
+   * A route rule can be STATIC if manually added to the route table, LOCAL if added by OCI to the route table.
+   *
+   */
+  "routeType"?: RouteRule.RouteType;
 }
 
 export namespace RouteRule {
   export enum DestinationType {
     CidrBlock = "CIDR_BLOCK",
     ServiceCidrBlock = "SERVICE_CIDR_BLOCK",
+    /**
+     * This value is used if a service returns a value for this enum that is not recognized by this
+     * version of the SDK.
+     */
+    UnknownValue = "UNKNOWN_VALUE"
+  }
+
+  export enum RouteType {
+    Static = "STATIC",
+    Local = "LOCAL",
     /**
      * This value is used if a service returns a value for this enum that is not recognized by this
      * version of the SDK.

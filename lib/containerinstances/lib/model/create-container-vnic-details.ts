@@ -15,14 +15,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
-* Create a Virtual Network Interface Card (VNIC) which gives
-* Containers on this Container Instance access to a Virtual Client Network (VCN).
+* Information to create a virtual network interface card (VNIC) which gives
+* the containers on this container instance access to a virtual client network (VCN).
 * <p>
-This VNIC will be created in the same compartment as the specified subnet on
+You use this object when creating the primary VNIC during container instance launch or when creating a secondary VNIC.
+* This VNIC is created in the same compartment as the specified subnet on
 * behalf of the customer.
 * <p>
-The VNIC created by this call will contain both the tags specified
-* in this object as well as any tags specified in the parent ContainerInstance object.
+The VNIC created by this call contains both the tags specified
+* in this object as well as any tags specified in the parent container instance.
 * 
 */
 export interface CreateContainerVnicDetails {
@@ -33,7 +34,7 @@ export interface CreateContainerVnicDetails {
    */
   "displayName"?: string;
   /**
-   * The hostname for the VNIC's primary private IP.
+   * The hostname for the VNIC's primary private IP. Used for DNS.
    *
    */
   "hostnameLabel"?: string;
@@ -71,7 +72,7 @@ export interface CreateContainerVnicDetails {
   "freeformTags"?: { [key: string]: string };
   /**
    * Defined tags for this resource. Each key is predefined and scoped to a namespace.
-   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`.
    *
    */
   "definedTags"?: { [key: string]: { [key: string]: any } };

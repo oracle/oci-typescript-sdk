@@ -171,6 +171,7 @@ export interface MyTrustedUserAgent {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: immutable
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: true
    *  - returned: always
    *  - type: string
@@ -186,6 +187,7 @@ export interface MyTrustedUserAgent {
    *  - idcsSensitive: none
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: true
    *  - returned: always
    *  - type: string
@@ -200,6 +202,7 @@ export interface MyTrustedUserAgent {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: immutable
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: string
@@ -213,6 +216,7 @@ export interface MyTrustedUserAgent {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: immutable
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: string
@@ -227,6 +231,7 @@ export interface MyTrustedUserAgent {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readOnly
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: dateTime
@@ -243,6 +248,7 @@ export interface MyTrustedUserAgent {
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: dateTime
@@ -258,6 +264,7 @@ export interface MyTrustedUserAgent {
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: string

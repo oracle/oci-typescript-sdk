@@ -27,6 +27,12 @@ export interface CreateCrossConnectDetails {
    */
   "crossConnectGroupId"?: string;
   /**
+   * Defined tags for this resource. Each key is predefined and scoped to a namespace.
+   * Example: `{\"foo-namespace\": {\"bar-key\": \"value\"}}`
+   *
+   */
+  "definedTags"?: { [key: string]: { [key: string]: any } };
+  /**
    * A user-friendly name. Does not have to be unique, and it's changeable.
    * Avoid entering confidential information.
    *
@@ -40,6 +46,12 @@ export interface CreateCrossConnectDetails {
    *
    */
   "farCrossConnectOrCrossConnectGroupId"?: string;
+  /**
+   * Simple key-value pair that is applied without any predefined name, type or scope. Exists for cross-compatibility only.
+   * Example: `{\"bar-key\": \"value\"}`
+   *
+   */
+  "freeformTags"?: { [key: string]: string };
   /**
     * The name of the FastConnect location where this cross-connect will be installed.
 * To get a list of the available locations, see
@@ -64,16 +76,37 @@ Example: `10 Gbps`
 * 
     */
   "portSpeedShapeName": string;
+  /**
+   * A reference name or identifier for the physical fiber connection that this cross-connect
+   * uses.
+   *
+   */
+  "customerReferenceName"?: string;
+  "macsecProperties"?: model.CreateMacsecProperties;
 }
 
 export namespace CreateCrossConnectDetails {
   export function getJsonObj(obj: CreateCrossConnectDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.CreateMacsecProperties.getJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateCrossConnectDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "macsecProperties": obj.macsecProperties
+          ? model.CreateMacsecProperties.getDeserializedJsonObj(obj.macsecProperties)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

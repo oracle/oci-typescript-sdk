@@ -16,7 +16,7 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A complex attribute that indicates an account is locked (blocking new sessions)
+ * A complex attribute that indicates an account is locked (blocking any new sessions).
  * <p>
  **SCIM++ Properties:**
  *  - idcsCsvAttributeNameMappings: [[columnHeaderName:Locked, mapsTo:locked.on], [columnHeaderName:Locked Reason, mapsTo:locked.reason], [columnHeaderName:Locked Date, mapsTo:locked.lockDate]]
@@ -31,12 +31,14 @@ import common = require("oci-common");
  */
 export interface UserExtLocked {
   /**
-   * Indicates the reason for locking. Valid values are: 0 - failed password login attempts, 1 - admin lock, 2 - failed reset password attempts, 3 - failed MFA login attempts, 4 - failed MFA login attempts for federated user, 5 - failed Database login attempts
+   * Indicates the reason for locking the account. Valid values are: 0 - failed password login attempts, 1 - admin lock, 2 - failed reset password attempts, 3 - failed MFA login attempts, 4 - failed MFA login attempts for federated user, 5 - failed Database login attempts
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: integer
@@ -44,13 +46,15 @@ export interface UserExtLocked {
    */
   "reason"?: number;
   /**
-   * Indicates tat the account is locked
+   * Indicates that the account is locked.
    * <p>
    **SCIM++ Properties:**
    *  - caseExact: false
    *  - idcsSearchable: true
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
+   *  - idcsRequiresImmediateReadAfterWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: boolean
@@ -58,12 +62,13 @@ export interface UserExtLocked {
    */
   "on"?: boolean;
   /**
-   * The date and time that the current resource was locked
+   * The date and time that the current resource was locked.
    * <p>
    **SCIM++ Properties:**
    *  - idcsSearchable: false
    *  - multiValued: false
    *  - mutability: readWrite
+   *  - idcsRequiresWriteForAccessFlows: true
    *  - required: false
    *  - returned: default
    *  - type: dateTime
@@ -71,7 +76,7 @@ export interface UserExtLocked {
    */
   "lockDate"?: string;
   /**
-   * Indicates whether user password is expired. If this value is false, password expiry will still be evaluated during user login.
+   * Indicates whether the user password is expired. If this value is false, password expiry is still evaluated during user login.
    * <p>
    **Added In:** 20.1.3
    * <p>

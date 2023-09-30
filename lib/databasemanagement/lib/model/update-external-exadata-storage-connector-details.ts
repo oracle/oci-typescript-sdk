@@ -18,15 +18,15 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * The connector details of the storage server to be updated.
+ * The connector details of the Exadata storage server to be updated.
  */
 export interface UpdateExternalExadataStorageConnectorDetails {
   /**
-   * The connector name if OCI connector is created.
+   * The name of the Exadata storage server connector.
    */
   "connectorName"?: string;
   /**
-   * The unique connection string of the connection. For example, \"https://slcm21celadm02.us.oracle.com:443/MS/RESTService/\".
+   * The unique string of the connection. For example, \"https://<storage-server-name>/MS/RESTService/\".
    */
   "connectionUri"?: string;
   "credentialInfo"?: model.RestCredential;

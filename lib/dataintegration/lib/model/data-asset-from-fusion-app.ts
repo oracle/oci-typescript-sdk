@@ -27,13 +27,18 @@ export interface DataAssetFromFusionApp extends model.DataAsset {
     | model.ConnectionFromRestNoAuthDetails
     | model.ConnectionFromAmazonS3Details
     | model.ConnectionFromObjectStorageDetails
-    | model.ConnectionFromBICCDetails
+    | model.ConnectionFromOracleSiebelDetails
+    | model.ConnectionFromHdfsDetails
     | model.ConnectionFromMySQLDetails
-    | model.ConnectionFromAdwcDetails
+    | model.ConnectionFromMySqlHeatWaveDetails
     | model.ConnectionFromAtpDetails
-    | model.ConnectionFromOracleDetails
-    | model.ConnectionFromLakeDetails
+    | model.ConnectionFromOraclePeopleSoftDetails
     | model.ConnectionFromRestBasicAuthDetails
+    | model.ConnectionFromBICCDetails
+    | model.ConnectionFromAdwcDetails
+    | model.ConnectionFromOracleDetails
+    | model.ConnectionFromOracleEbsDetails
+    | model.ConnectionFromLakeDetails
     | model.ConnectionFromBipDetails;
 
   "modelType": string;

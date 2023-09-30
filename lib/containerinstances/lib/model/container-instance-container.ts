@@ -15,12 +15,12 @@ import * as model from "../model";
 import common = require("oci-common");
 
 /**
- * A container on a Container Instance.
+ * A container on a container instance.
  *
  */
 export interface ContainerInstanceContainer {
   /**
-   * The ID of the Container on this Instance.
+   * The OCID of the container.
    */
   "containerId": string;
   /**
