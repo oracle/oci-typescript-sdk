@@ -502,6 +502,12 @@ import * as RemoveVirtualMachineFromVmClusterDetails from "./remove-virtual-mach
 export import RemoveVirtualMachineFromVmClusterDetails = RemoveVirtualMachineFromVmClusterDetails.RemoveVirtualMachineFromVmClusterDetails;
 import * as ResizeVmClusterNetworkDetails from "./resize-vm-cluster-network-details";
 export import ResizeVmClusterNetworkDetails = ResizeVmClusterNetworkDetails.ResizeVmClusterNetworkDetails;
+import * as ResourcePoolShapeCollection from "./resource-pool-shape-collection";
+export import ResourcePoolShapeCollection = ResourcePoolShapeCollection.ResourcePoolShapeCollection;
+import * as ResourcePoolShapeSummary from "./resource-pool-shape-summary";
+export import ResourcePoolShapeSummary = ResourcePoolShapeSummary.ResourcePoolShapeSummary;
+import * as ResourcePoolSummary from "./resource-pool-summary";
+export import ResourcePoolSummary = ResourcePoolSummary.ResourcePoolSummary;
 import * as RestoreAutonomousDatabaseDetails from "./restore-autonomous-database-details";
 export import RestoreAutonomousDatabaseDetails = RestoreAutonomousDatabaseDetails.RestoreAutonomousDatabaseDetails;
 import * as RestoreDatabaseDetails from "./restore-database-details";

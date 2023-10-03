@@ -15772,7 +15772,9 @@ Use the {@link #createCloudExadataInfrastructure(CreateCloudExadataInfrastructur
       "isFreeTier": listAutonomousDatabasesRequest.isFreeTier,
       "displayName": listAutonomousDatabasesRequest.displayName,
       "isRefreshableClone": listAutonomousDatabasesRequest.isRefreshableClone,
-      "isDataGuardEnabled": listAutonomousDatabasesRequest.isDataGuardEnabled
+      "isDataGuardEnabled": listAutonomousDatabasesRequest.isDataGuardEnabled,
+      "isResourcePoolLeader": listAutonomousDatabasesRequest.isResourcePoolLeader,
+      "resourcePoolLeaderId": listAutonomousDatabasesRequest.resourcePoolLeaderId
     };
 
     let headerParams = {
@@ -23740,6 +23742,90 @@ For Exadata Cloud Service instances, support for this API will end on May 15th, 
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Lists available resource pools shapes.
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param ResourcePoolShapesRequest
+   * @return ResourcePoolShapesResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/database/ResourcePoolShapes.ts.html |here} to see how to use ResourcePoolShapes API.
+   */
+  public async resourcePoolShapes(
+    resourcePoolShapesRequest: requests.ResourcePoolShapesRequest
+  ): Promise<responses.ResourcePoolShapesResponse> {
+    if (this.logger) this.logger.debug("Calling operation DatabaseClient#resourcePoolShapes.");
+    const operationName = "resourcePoolShapes";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/database/20160918/AutonomousDatabase/ResourcePoolShapes";
+    const pathParams = {};
+
+    const queryParams = {
+      "limit": resourcePoolShapesRequest.limit,
+      "page": resourcePoolShapesRequest.page
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "if-match": resourcePoolShapesRequest.ifMatch,
+      "opc-retry-token": resourcePoolShapesRequest.opcRetryToken,
+      "opc-request-id": resourcePoolShapesRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      resourcePoolShapesRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/autonomousDatabases/actions/listResourcePoolShapes",
+      method: "POST",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ResourcePoolShapesResponse>{},
+        body: await response.json(),
+        bodyKey: "resourcePoolShapeCollection",
+        bodyModel: model.ResourcePoolShapeCollection,
+        type: "model.ResourcePoolShapeCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
             dataType: "string"
           }
         ]

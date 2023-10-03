@@ -328,6 +328,11 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
     */
   "isMtlsConnectionRequired"?: boolean;
   /**
+   * The unique identifier for leader autonomous database OCID [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "resourcePoolLeaderId"?: string;
+  "resourcePoolSummary"?: model.ResourcePoolSummary;
+  /**
     * The list of scheduled operations.
 * <p>
 This cannot be updated in parallel with any of the following: licenseModel, dbEdition, cpuCoreCount, computeCount, computeModel, whitelistedIps, isMTLSConnectionRequired, openMode, permissionLevel, dbWorkload, privateEndpointLabel, nsgIds, dbVersion, isRefreshable, dbName, dbToolsDetails, isLocalDataGuardEnabled, or isFreeTier.
@@ -415,6 +420,9 @@ export namespace UpdateAutonomousDatabaseDetails {
             })
           : undefined,
 
+        "resourcePoolSummary": obj.resourcePoolSummary
+          ? model.ResourcePoolSummary.getJsonObj(obj.resourcePoolSummary)
+          : undefined,
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
@@ -445,6 +453,9 @@ export namespace UpdateAutonomousDatabaseDetails {
             })
           : undefined,
 
+        "resourcePoolSummary": obj.resourcePoolSummary
+          ? model.ResourcePoolSummary.getDeserializedJsonObj(obj.resourcePoolSummary)
+          : undefined,
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getDeserializedJsonObj(item);

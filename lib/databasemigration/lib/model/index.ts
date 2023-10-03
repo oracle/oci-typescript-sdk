@@ -115,6 +115,8 @@ import * as DataPumpTablespaceBlockSizesInKb from "./data-pump-tablespace-block-
 export import DataPumpTablespaceBlockSizesInKb = DataPumpTablespaceBlockSizesInKb.DataPumpTablespaceBlockSizesInKb;
 import * as DataTransferMediumDetails from "./data-transfer-medium-details";
 export import DataTransferMediumDetails = DataTransferMediumDetails.DataTransferMediumDetails;
+import * as DataTransferMediumDetailsV2 from "./data-transfer-medium-details-v2";
+export import DataTransferMediumDetailsV2 = DataTransferMediumDetailsV2.DataTransferMediumDetailsV2;
 import * as DatabaseConnectionTypes from "./database-connection-types";
 export import DatabaseConnectionTypes = DatabaseConnectionTypes.DatabaseConnectionTypes;
 import * as DatabaseCredentials from "./database-credentials";
@@ -324,6 +326,8 @@ import * as ADBDedicatedRemapTargetTablespaceDetails from "./a-db-dedicated-rema
 export import ADBDedicatedRemapTargetTablespaceDetails = ADBDedicatedRemapTargetTablespaceDetails.ADBDedicatedRemapTargetTablespaceDetails;
 import * as ADBServerlesTablespaceDetails from "./a-db-serverles-tablespace-details";
 export import ADBServerlesTablespaceDetails = ADBServerlesTablespaceDetails.ADBServerlesTablespaceDetails;
+import * as AwsS3DataTransferMediumDetails from "./aws-s3-data-transfer-medium-details";
+export import AwsS3DataTransferMediumDetails = AwsS3DataTransferMediumDetails.AwsS3DataTransferMediumDetails;
 import * as CreateADBDedicatedAutoCreateTablespaceDetails from "./create-ad-bdedicated-auto-create-tablespace-details";
 export import CreateADBDedicatedAutoCreateTablespaceDetails = CreateADBDedicatedAutoCreateTablespaceDetails.CreateADBDedicatedAutoCreateTablespaceDetails;
 import * as CreateADBDedicatedRemapTargetTablespaceDetails from "./create-ad-bdedicated-remap-target-tablespace-details";
@@ -340,10 +344,16 @@ import * as CreateOciCliDumpTransferDetails from "./create-oci-cli-dump-transfer
 export import CreateOciCliDumpTransferDetails = CreateOciCliDumpTransferDetails.CreateOciCliDumpTransferDetails;
 import * as CurlTransferDetails from "./curl-transfer-details";
 export import CurlTransferDetails = CurlTransferDetails.CurlTransferDetails;
+import * as DbLinkDataTransferMediumDetails from "./db-link-data-transfer-medium-details";
+export import DbLinkDataTransferMediumDetails = DbLinkDataTransferMediumDetails.DbLinkDataTransferMediumDetails;
+import * as NfsDataTransferMediumDetails from "./nfs-data-transfer-medium-details";
+export import NfsDataTransferMediumDetails = NfsDataTransferMediumDetails.NfsDataTransferMediumDetails;
 import * as NonADBAutoCreateTablespaceDetails from "./non-ad-bauto-create-tablespace-details";
 export import NonADBAutoCreateTablespaceDetails = NonADBAutoCreateTablespaceDetails.NonADBAutoCreateTablespaceDetails;
 import * as NonADBRemapTablespaceDetails from "./non-ad-bremap-tablespace-details";
 export import NonADBRemapTablespaceDetails = NonADBRemapTablespaceDetails.NonADBRemapTablespaceDetails;
+import * as ObjectStorageDataTransferMediumDetails from "./object-storage-data-transfer-medium-details";
+export import ObjectStorageDataTransferMediumDetails = ObjectStorageDataTransferMediumDetails.ObjectStorageDataTransferMediumDetails;
 import * as OciCliDumpTransferDetails from "./oci-cli-dump-transfer-details";
 export import OciCliDumpTransferDetails = OciCliDumpTransferDetails.OciCliDumpTransferDetails;
 import * as UpdateADBDedicatedAutoCreateTablespaceDetails from "./update-ad-bdedicated-auto-create-tablespace-details";

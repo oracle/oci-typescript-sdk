@@ -105,6 +105,8 @@ import * as PointInTimeRecoveryDetails from "./point-in-time-recovery-details";
 export import PointInTimeRecoveryDetails = PointInTimeRecoveryDetails.PointInTimeRecoveryDetails;
 import * as Replica from "./replica";
 export import Replica = Replica.Replica;
+import * as ReplicaOverrides from "./replica-overrides";
+export import ReplicaOverrides = ReplicaOverrides.ReplicaOverrides;
 import * as ReplicaSummary from "./replica-summary";
 export import ReplicaSummary = ReplicaSummary.ReplicaSummary;
 import * as RestartDbSystemDetails from "./restart-db-system-details";

@@ -86,6 +86,15 @@ export interface ListAutonomousDatabasesRequest extends common.BaseRequest {
    * A filter to return only resources that have Data Guard enabled.
    */
   "isDataGuardEnabled"?: boolean;
+  /**
+   * Filter if the resource is the resource pool leader. A value of `true` returns only resource pool leader.
+   *
+   */
+  "isResourcePoolLeader"?: boolean;
+  /**
+   * The database [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm) of the resourcepool Leader Autonomous Database.
+   */
+  "resourcePoolLeaderId"?: string;
 }
 
 export namespace ListAutonomousDatabasesRequest {

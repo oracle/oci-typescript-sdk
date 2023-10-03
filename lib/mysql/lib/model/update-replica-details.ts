@@ -46,16 +46,31 @@ export interface UpdateReplicaDetails {
    *
    */
   "isDeleteProtected"?: boolean;
+  "replicaOverrides"?: model.ReplicaOverrides;
 }
 
 export namespace UpdateReplicaDetails {
   export function getJsonObj(obj: UpdateReplicaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaOverrides": obj.replicaOverrides
+          ? model.ReplicaOverrides.getJsonObj(obj.replicaOverrides)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: UpdateReplicaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaOverrides": obj.replicaOverrides
+          ? model.ReplicaOverrides.getDeserializedJsonObj(obj.replicaOverrides)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

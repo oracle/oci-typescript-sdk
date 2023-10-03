@@ -21,6 +21,11 @@ import common = require("oci-common");
 export interface UpdateDumpTransferDetails {
   "source"?: model.UpdateCurlTransferDetails | model.UpdateOciCliDumpTransferDetails;
   "target"?: model.UpdateCurlTransferDetails | model.UpdateOciCliDumpTransferDetails;
+  /**
+   * OCID of the shared storage mount target
+   *
+   */
+  "sharedStorageMountTargetId"?: string;
 }
 
 export namespace UpdateDumpTransferDetails {

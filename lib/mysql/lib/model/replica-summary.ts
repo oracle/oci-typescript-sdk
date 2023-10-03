@@ -57,7 +57,7 @@ export interface ReplicaSummary {
    */
   "timeUpdated"?: Date;
   /**
-   * The MySQL version used by the read replica.
+   * The MySQL version currently in use by the read replica.
    */
   "mysqlVersion": string;
   /**
@@ -102,6 +102,18 @@ export interface ReplicaSummary {
    *
    */
   "isDeleteProtected"?: boolean;
+  /**
+   * The shape currently in use by the read replica. The shape determines the resources allocated:
+   * CPU cores and memory for VM shapes, CPU cores, memory and storage for non-VM (bare metal) shapes.
+   * To get a list of shapes, use the {@link #listShapes(ListShapesRequest) listShapes} operation.
+   *
+   */
+  "shapeName"?: string;
+  /**
+   * The OCID of the Configuration currently in use by the read replica.
+   */
+  "configurationId"?: string;
+  "replicaOverrides"?: model.ReplicaOverrides;
 }
 
 export namespace ReplicaSummary {
@@ -122,12 +134,26 @@ export namespace ReplicaSummary {
   }
 
   export function getJsonObj(obj: ReplicaSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaOverrides": obj.replicaOverrides
+          ? model.ReplicaOverrides.getJsonObj(obj.replicaOverrides)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: ReplicaSummary): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaOverrides": obj.replicaOverrides
+          ? model.ReplicaOverrides.getDeserializedJsonObj(obj.replicaOverrides)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

@@ -39,6 +39,7 @@ import { RequireOnlyOne, AuthParams } from "./lib/types";
 import { HttpRequest } from "./lib/http-request";
 import InstancePrincipalsAuthenticationDetailsProviderBuilder from "./lib/auth/instance-principals-authentication-detail-provider";
 import ResourcePrincipalAuthenticationDetailsProvider from "./lib/auth/resource-principal-authentication-details-provider";
+import OkeWorkloadIdentityAuthenticationDetailsProvider from "./lib/auth/oke-workload-identity-authentication-details-provider";
 import { BaseRequest } from "./lib/base-request";
 import { ClientConfiguration } from "./lib/client-configuration";
 import {
@@ -119,5 +120,6 @@ export {
   Constants,
   CircuitBreaker,
   getChunk,
-  utils
+  utils,
+  OkeWorkloadIdentityAuthenticationDetailsProvider
 };
