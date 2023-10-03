@@ -75,6 +75,11 @@ export interface Migration {
    *
    */
   "executingJobId"?: string;
+  "dataTransferMediumDetailsV2"?:
+    | model.NfsDataTransferMediumDetails
+    | model.ObjectStorageDataTransferMediumDetails
+    | model.DbLinkDataTransferMediumDetails
+    | model.AwsS3DataTransferMediumDetails;
   "dataTransferMediumDetails"?: model.DataTransferMediumDetails;
   "dumpTransferDetails"?: model.DumpTransferDetails;
   "datapumpSettings"?: model.DataPumpSettings;
@@ -143,6 +148,9 @@ export namespace Migration {
     const jsonObj = {
       ...obj,
       ...{
+        "dataTransferMediumDetailsV2": obj.dataTransferMediumDetailsV2
+          ? model.DataTransferMediumDetailsV2.getJsonObj(obj.dataTransferMediumDetailsV2)
+          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.DataTransferMediumDetails.getJsonObj(obj.dataTransferMediumDetails)
           : undefined,
@@ -183,6 +191,11 @@ export namespace Migration {
     const jsonObj = {
       ...obj,
       ...{
+        "dataTransferMediumDetailsV2": obj.dataTransferMediumDetailsV2
+          ? model.DataTransferMediumDetailsV2.getDeserializedJsonObj(
+              obj.dataTransferMediumDetailsV2
+            )
+          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.DataTransferMediumDetails.getDeserializedJsonObj(obj.dataTransferMediumDetails)
           : undefined,

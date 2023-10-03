@@ -50,16 +50,31 @@ export interface CreateReplicaDetails {
    *
    */
   "isDeleteProtected"?: boolean;
+  "replicaOverrides"?: model.ReplicaOverrides;
 }
 
 export namespace CreateReplicaDetails {
   export function getJsonObj(obj: CreateReplicaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaOverrides": obj.replicaOverrides
+          ? model.ReplicaOverrides.getJsonObj(obj.replicaOverrides)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }
   export function getDeserializedJsonObj(obj: CreateReplicaDetails): object {
-    const jsonObj = { ...obj, ...{} };
+    const jsonObj = {
+      ...obj,
+      ...{
+        "replicaOverrides": obj.replicaOverrides
+          ? model.ReplicaOverrides.getDeserializedJsonObj(obj.replicaOverrides)
+          : undefined
+      }
+    };
 
     return jsonObj;
   }

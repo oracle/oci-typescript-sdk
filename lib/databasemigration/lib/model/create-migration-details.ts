@@ -55,6 +55,11 @@ export interface CreateMigrationDetails {
    *
    */
   "targetDatabaseConnectionId": string;
+  "dataTransferMediumDetailsV2"?:
+    | model.NfsDataTransferMediumDetails
+    | model.ObjectStorageDataTransferMediumDetails
+    | model.DbLinkDataTransferMediumDetails
+    | model.AwsS3DataTransferMediumDetails;
   "dataTransferMediumDetails"?: model.CreateDataTransferMediumDetails;
   "dumpTransferDetails"?: model.CreateDumpTransferDetails;
   "datapumpSettings"?: model.CreateDataPumpSettings;
@@ -96,6 +101,9 @@ export namespace CreateMigrationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataTransferMediumDetailsV2": obj.dataTransferMediumDetailsV2
+          ? model.DataTransferMediumDetailsV2.getJsonObj(obj.dataTransferMediumDetailsV2)
+          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.CreateDataTransferMediumDetails.getJsonObj(obj.dataTransferMediumDetails)
           : undefined,
@@ -137,6 +145,11 @@ export namespace CreateMigrationDetails {
     const jsonObj = {
       ...obj,
       ...{
+        "dataTransferMediumDetailsV2": obj.dataTransferMediumDetailsV2
+          ? model.DataTransferMediumDetailsV2.getDeserializedJsonObj(
+              obj.dataTransferMediumDetailsV2
+            )
+          : undefined,
         "dataTransferMediumDetails": obj.dataTransferMediumDetails
           ? model.CreateDataTransferMediumDetails.getDeserializedJsonObj(
               obj.dataTransferMediumDetails

@@ -625,6 +625,90 @@ export class DataScienceClient {
   }
 
   /**
+   * Moves a private endpoint into a different compartment. When provided, If-Match is checked against ETag values of the resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ChangeDataSciencePrivateEndpointCompartmentRequest
+   * @return ChangeDataSciencePrivateEndpointCompartmentResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ChangeDataSciencePrivateEndpointCompartment.ts.html |here} to see how to use ChangeDataSciencePrivateEndpointCompartment API.
+   */
+  public async changeDataSciencePrivateEndpointCompartment(
+    changeDataSciencePrivateEndpointCompartmentRequest: requests.ChangeDataSciencePrivateEndpointCompartmentRequest
+  ): Promise<responses.ChangeDataSciencePrivateEndpointCompartmentResponse> {
+    if (this.logger)
+      this.logger.debug(
+        "Calling operation DataScienceClient#changeDataSciencePrivateEndpointCompartment."
+      );
+    const operationName = "changeDataSciencePrivateEndpointCompartment";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/ChangeDataSciencePrivateEndpointCompartment";
+    const pathParams = {
+      "{dataSciencePrivateEndpointId}":
+        changeDataSciencePrivateEndpointCompartmentRequest.dataSciencePrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": changeDataSciencePrivateEndpointCompartmentRequest.opcRequestId,
+      "if-match": changeDataSciencePrivateEndpointCompartmentRequest.ifMatch,
+      "opc-retry-token": changeDataSciencePrivateEndpointCompartmentRequest.opcRetryToken
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      changeDataSciencePrivateEndpointCompartmentRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSciencePrivateEndpoints/{dataSciencePrivateEndpointId}/actions/changeCompartment",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        changeDataSciencePrivateEndpointCompartmentRequest.changeDataSciencePrivateEndpointCompartmentDetails,
+        "ChangeDataSciencePrivateEndpointCompartmentDetails",
+        model.ChangeDataSciencePrivateEndpointCompartmentDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ChangeDataSciencePrivateEndpointCompartmentResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Changes a job's compartment
    * This operation does not retry by default if the user has not defined a retry configuration.
    * @param ChangeJobCompartmentRequest
@@ -1288,6 +1372,97 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Creates a Data Science private endpoint to be used by a Data Science resource.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param CreateDataSciencePrivateEndpointRequest
+   * @return CreateDataSciencePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/CreateDataSciencePrivateEndpoint.ts.html |here} to see how to use CreateDataSciencePrivateEndpoint API.
+   */
+  public async createDataSciencePrivateEndpoint(
+    createDataSciencePrivateEndpointRequest: requests.CreateDataSciencePrivateEndpointRequest
+  ): Promise<responses.CreateDataSciencePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#createDataSciencePrivateEndpoint.");
+    const operationName = "createDataSciencePrivateEndpoint";
+    const apiReferenceLink = "";
+    const pathParams = {};
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": createDataSciencePrivateEndpointRequest.opcRetryToken,
+      "opc-request-id": createDataSciencePrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      createDataSciencePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSciencePrivateEndpoints",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        createDataSciencePrivateEndpointRequest.createDataSciencePrivateEndpointDetails,
+        "CreateDataSciencePrivateEndpointDetails",
+        model.CreateDataSciencePrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.CreateDataSciencePrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSciencePrivateEndpoint",
+        bodyModel: model.DataSciencePrivateEndpoint,
+        type: "model.DataSciencePrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("Location"),
+            key: "location",
             dataType: "string"
           }
         ]
@@ -2586,6 +2761,82 @@ export class DataScienceClient {
   }
 
   /**
+   * Deletes a private endpoint using `privateEndpointId`.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param DeleteDataSciencePrivateEndpointRequest
+   * @return DeleteDataSciencePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/DeleteDataSciencePrivateEndpoint.ts.html |here} to see how to use DeleteDataSciencePrivateEndpoint API.
+   */
+  public async deleteDataSciencePrivateEndpoint(
+    deleteDataSciencePrivateEndpointRequest: requests.DeleteDataSciencePrivateEndpointRequest
+  ): Promise<responses.DeleteDataSciencePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#deleteDataSciencePrivateEndpoint.");
+    const operationName = "deleteDataSciencePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/DeleteDataSciencePrivateEndpoint";
+    const pathParams = {
+      "{dataSciencePrivateEndpointId}":
+        deleteDataSciencePrivateEndpointRequest.dataSciencePrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": deleteDataSciencePrivateEndpointRequest.opcRequestId,
+      "if-match": deleteDataSciencePrivateEndpointRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      deleteDataSciencePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSciencePrivateEndpoints/{dataSciencePrivateEndpointId}",
+      method: "DELETE",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.DeleteDataSciencePrivateEndpointResponse>{},
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Deletes a job.
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
    * @param DeleteJobRequest
@@ -3307,6 +3558,85 @@ export class DataScienceClient {
           {
             value: response.headers.get("opc-work-request-id"),
             key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Retrieves an private endpoint using a `privateEndpointId`.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetDataSciencePrivateEndpointRequest
+   * @return GetDataSciencePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/GetDataSciencePrivateEndpoint.ts.html |here} to see how to use GetDataSciencePrivateEndpoint API.
+   */
+  public async getDataSciencePrivateEndpoint(
+    getDataSciencePrivateEndpointRequest: requests.GetDataSciencePrivateEndpointRequest
+  ): Promise<responses.GetDataSciencePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#getDataSciencePrivateEndpoint.");
+    const operationName = "getDataSciencePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/GetDataSciencePrivateEndpoint";
+    const pathParams = {
+      "{dataSciencePrivateEndpointId}":
+        getDataSciencePrivateEndpointRequest.dataSciencePrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getDataSciencePrivateEndpointRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getDataSciencePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSciencePrivateEndpoints/{dataSciencePrivateEndpointId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetDataSciencePrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSciencePrivateEndpoint",
+        bodyModel: model.DataSciencePrivateEndpoint,
+        type: "model.DataSciencePrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
             dataType: "string"
           }
         ]
@@ -4806,6 +5136,149 @@ export class DataScienceClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * Lists all Data Science private endpoints in the specified compartment. The query must include compartmentId. The query can also include one other parameter. If the query doesn't include compartmentId, or includes compartmentId with two or more other parameters, then an error is returned.
+   *
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListDataSciencePrivateEndpointsRequest
+   * @return ListDataSciencePrivateEndpointsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/ListDataSciencePrivateEndpoints.ts.html |here} to see how to use ListDataSciencePrivateEndpoints API.
+   */
+  public async listDataSciencePrivateEndpoints(
+    listDataSciencePrivateEndpointsRequest: requests.ListDataSciencePrivateEndpointsRequest
+  ): Promise<responses.ListDataSciencePrivateEndpointsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#listDataSciencePrivateEndpoints.");
+    const operationName = "listDataSciencePrivateEndpoints";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/ListDataSciencePrivateEndpoints";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listDataSciencePrivateEndpointsRequest.compartmentId,
+      "limit": listDataSciencePrivateEndpointsRequest.limit,
+      "page": listDataSciencePrivateEndpointsRequest.page,
+      "lifecycleState": listDataSciencePrivateEndpointsRequest.lifecycleState,
+      "sortBy": listDataSciencePrivateEndpointsRequest.sortBy,
+      "sortOrder": listDataSciencePrivateEndpointsRequest.sortOrder,
+      "displayName": listDataSciencePrivateEndpointsRequest.displayName,
+      "createdBy": listDataSciencePrivateEndpointsRequest.createdBy,
+      "dataScienceResourceType": listDataSciencePrivateEndpointsRequest.dataScienceResourceType
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listDataSciencePrivateEndpointsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listDataSciencePrivateEndpointsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSciencePrivateEndpoints",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListDataSciencePrivateEndpointsResponse>{},
+        body: await response.json(),
+        bodyKey: "items",
+        bodyModel: model.DataSciencePrivateEndpointSummary,
+        type: "Array<model.DataSciencePrivateEndpointSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDataSciencePrivateEndpointsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.DataSciencePrivateEndpointSummary objects
+   * contained in responses from the listDataSciencePrivateEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDataSciencePrivateEndpoints(
+    request: requests.ListDataSciencePrivateEndpointsRequest
+  ): AsyncIterableIterator<model.DataSciencePrivateEndpointSummary> {
+    return paginateRecords(request, req => this.listDataSciencePrivateEndpoints(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listDataSciencePrivateEndpointsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listDataSciencePrivateEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllDataSciencePrivateEndpointsResponses(
+    request: requests.ListDataSciencePrivateEndpointsRequest
+  ): AsyncIterableIterator<responses.ListDataSciencePrivateEndpointsResponse> {
+    return paginateResponses(request, req => this.listDataSciencePrivateEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.DataSciencePrivateEndpointSummary objects
+   * contained in responses from the listDataSciencePrivateEndpoints operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataSciencePrivateEndpointsRecordIterator(
+    request: requests.ListDataSciencePrivateEndpointsRequest
+  ): AsyncIterableIterator<model.DataSciencePrivateEndpointSummary> {
+    return paginateRecords(request, req => this.listDataSciencePrivateEndpoints(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listDataSciencePrivateEndpoints operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listDataSciencePrivateEndpointsResponseIterator(
+    request: requests.ListDataSciencePrivateEndpointsRequest
+  ): AsyncIterableIterator<responses.ListDataSciencePrivateEndpointsResponse> {
+    return paginateResponses(request, req => this.listDataSciencePrivateEndpoints(req));
   }
 
   /**
@@ -6649,7 +7122,10 @@ export class DataScienceClient {
       "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "limit": listWorkRequestErrorsRequest.limit,
+      "page": listWorkRequestErrorsRequest.page
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -6691,6 +7167,16 @@ export class DataScienceClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
           }
         ]
       });
@@ -6699,6 +7185,58 @@ export class DataScienceClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllWorkRequestErrors(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listWorkRequestErrorsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllWorkRequestErrorsResponses(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestError objects
+   * contained in responses from the listWorkRequestErrors operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsRecordIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<model.WorkRequestError> {
+    return paginateRecords(request, req => this.listWorkRequestErrors(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestErrors operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestErrorsResponseIterator(
+    request: requests.ListWorkRequestErrorsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestErrorsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestErrors(req));
   }
 
   /**
@@ -6720,7 +7258,10 @@ export class DataScienceClient {
       "{workRequestId}": listWorkRequestLogsRequest.workRequestId
     };
 
-    const queryParams = {};
+    const queryParams = {
+      "limit": listWorkRequestLogsRequest.limit,
+      "page": listWorkRequestLogsRequest.page
+    };
 
     let headerParams = {
       "Content-Type": common.Constants.APPLICATION_JSON,
@@ -6762,6 +7303,16 @@ export class DataScienceClient {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
             dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-prev-page"),
+            key: "opcPrevPage",
+            dataType: "string"
           }
         ]
       });
@@ -6770,6 +7321,58 @@ export class DataScienceClient {
     } catch (err) {
       throw err;
     }
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsRecordIterator function.
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllWorkRequestLogs(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * NOTE: This function is deprecated in favor of listWorkRequestLogsResponseIterator function.
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listAllWorkRequestLogsResponses(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the models.WorkRequestLogEntry objects
+   * contained in responses from the listWorkRequestLogs operation. This iterator will fetch more data from the
+   * server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsRecordIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<model.WorkRequestLogEntry> {
+    return paginateRecords(request, req => this.listWorkRequestLogs(req));
+  }
+
+  /**
+   * Creates a new async iterator which will iterate over the responses received from the listWorkRequestLogs operation. This iterator
+   * will fetch more data from the server as needed.
+   *
+   * @param request a request which can be sent to the service operation
+   */
+  public listWorkRequestLogsResponseIterator(
+    request: requests.ListWorkRequestLogsRequest
+  ): AsyncIterableIterator<responses.ListWorkRequestLogsResponse> {
+    return paginateResponses(request, req => this.listWorkRequestLogs(req));
   }
 
   /**
@@ -6910,6 +7513,98 @@ export class DataScienceClient {
     request: requests.ListWorkRequestsRequest
   ): AsyncIterableIterator<responses.ListWorkRequestsResponse> {
     return paginateResponses(request, req => this.listWorkRequests(req));
+  }
+
+  /**
+   * Updates a private endpoint using a `privateEndpointId`.  If changes to a private endpoint match
+   * a previously defined private endpoint, then a 409 status code is returned.  This indicates
+   * that a conflict has been detected.
+   *
+   * This operation does not retry by default if the user has not defined a retry configuration.
+   * @param UpdateDataSciencePrivateEndpointRequest
+   * @return UpdateDataSciencePrivateEndpointResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/datascience/UpdateDataSciencePrivateEndpoint.ts.html |here} to see how to use UpdateDataSciencePrivateEndpoint API.
+   */
+  public async updateDataSciencePrivateEndpoint(
+    updateDataSciencePrivateEndpointRequest: requests.UpdateDataSciencePrivateEndpointRequest
+  ): Promise<responses.UpdateDataSciencePrivateEndpointResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation DataScienceClient#updateDataSciencePrivateEndpoint.");
+    const operationName = "updateDataSciencePrivateEndpoint";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/data-science/20190101/DataSciencePrivateEndpoint/UpdateDataSciencePrivateEndpoint";
+    const pathParams = {
+      "{dataSciencePrivateEndpointId}":
+        updateDataSciencePrivateEndpointRequest.dataSciencePrivateEndpointId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": updateDataSciencePrivateEndpointRequest.opcRequestId,
+      "if-match": updateDataSciencePrivateEndpointRequest.ifMatch
+    };
+
+    const specRetryConfiguration = common.NoRetryConfigurationDetails;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      updateDataSciencePrivateEndpointRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/dataSciencePrivateEndpoints/{dataSciencePrivateEndpointId}",
+      method: "PUT",
+      bodyContent: common.ObjectSerializer.serialize(
+        updateDataSciencePrivateEndpointRequest.updateDataSciencePrivateEndpointDetails,
+        "UpdateDataSciencePrivateEndpointDetails",
+        model.UpdateDataSciencePrivateEndpointDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.UpdateDataSciencePrivateEndpointResponse>{},
+        body: await response.json(),
+        bodyKey: "dataSciencePrivateEndpoint",
+        bodyModel: model.DataSciencePrivateEndpoint,
+        type: "model.DataSciencePrivateEndpoint",
+        responseHeaders: [
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
   }
 
   /**

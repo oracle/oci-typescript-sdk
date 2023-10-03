@@ -59,6 +59,16 @@ export interface ListReplicasRequest extends common.BaseRequest {
    */
   "replicaId"?: string;
   /**
+   * The requested Configuration instance.
+   */
+  "configurationId"?: string;
+  /**
+   * Filter instances if they are using the latest revision of the
+   * Configuration they are associated with.
+   *
+   */
+  "isUpToDate"?: boolean;
+  /**
    * The field to sort by. You can sort by one field only. By default, the Time field is sorted in descending order and the Display Name field in ascending order.
    *
    */

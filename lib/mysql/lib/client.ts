@@ -4306,6 +4306,8 @@ export class ReplicasClient {
       "compartmentId": listReplicasRequest.compartmentId,
       "lifecycleState": listReplicasRequest.lifecycleState,
       "replicaId": listReplicasRequest.replicaId,
+      "configurationId": listReplicasRequest.configurationId,
+      "isUpToDate": listReplicasRequest.isUpToDate,
       "sortBy": listReplicasRequest.sortBy,
       "sortOrder": listReplicasRequest.sortOrder
     };

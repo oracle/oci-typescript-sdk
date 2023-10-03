@@ -512,6 +512,8 @@ import * as RemoveVirtualMachineFromVmClusterRequest from "./remove-virtual-mach
 export import RemoveVirtualMachineFromVmClusterRequest = RemoveVirtualMachineFromVmClusterRequest.RemoveVirtualMachineFromVmClusterRequest;
 import * as ResizeVmClusterNetworkRequest from "./resize-vm-cluster-network-request";
 export import ResizeVmClusterNetworkRequest = ResizeVmClusterNetworkRequest.ResizeVmClusterNetworkRequest;
+import * as ResourcePoolShapesRequest from "./resource-pool-shapes-request";
+export import ResourcePoolShapesRequest = ResourcePoolShapesRequest.ResourcePoolShapesRequest;
 import * as RestartAutonomousContainerDatabaseRequest from "./restart-autonomous-container-database-request";
 export import RestartAutonomousContainerDatabaseRequest = RestartAutonomousContainerDatabaseRequest.RestartAutonomousContainerDatabaseRequest;
 import * as RestartAutonomousDatabaseRequest from "./restart-autonomous-database-request";

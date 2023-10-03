@@ -91,7 +91,11 @@ export namespace ListWorkRequestsRequest {
     PipelineDelete = "PIPELINE_DELETE",
     PipelineRunCreate = "PIPELINE_RUN_CREATE",
     PipelineRunCancel = "PIPELINE_RUN_CANCEL",
-    PipelineRunDelete = "PIPELINE_RUN_DELETE"
+    PipelineRunDelete = "PIPELINE_RUN_DELETE",
+    PrivateEndpointCreate = "PRIVATE_ENDPOINT_CREATE",
+    PrivateEndpointDelete = "PRIVATE_ENDPOINT_DELETE",
+    PrivateEndpointMove = "PRIVATE_ENDPOINT_MOVE",
+    PrivateEndpointUpdate = "PRIVATE_ENDPOINT_UPDATE"
   }
 
   export enum Status {

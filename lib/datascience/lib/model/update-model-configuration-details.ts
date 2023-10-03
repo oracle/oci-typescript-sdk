@@ -26,7 +26,7 @@ export interface UpdateModelConfigurationDetails {
   "instanceConfiguration"?: model.InstanceConfiguration;
   "scalingPolicy"?: model.FixedSizeScalingPolicy;
   /**
-   * The network bandwidth for the model. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
+   * The minimum network bandwidth for the model deployment. Note: Numbers greater than Number.MAX_SAFE_INTEGER will result in rounding issues.
    */
   "bandwidthMbps"?: number;
 }

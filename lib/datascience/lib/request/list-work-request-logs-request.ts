@@ -27,4 +27,22 @@ export interface ListWorkRequestLogsRequest extends common.BaseRequest {
    *
    */
   "opcRequestId"?: string;
+  /**
+ * For list pagination. The maximum number of results per page,
+* or items to return in a paginated \"List\" call.
+* 1 is the minimum, 1000 is the maximum.
+* See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
+* <p>
+Example: `500`
+* 
+ */
+  "limit"?: number;
+  /**
+ * For list pagination. The value of the `opc-next-page` response
+* header from the previous \"List\" call.
+* <p>
+See [List Pagination](https://docs.cloud.oracle.com/iaas/Content/General/Concepts/usingapi.htm#nine).
+* 
+ */
+  "page"?: string;
 }

@@ -503,6 +503,15 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
     */
   "isMtlsConnectionRequired"?: boolean;
   /**
+   * The time the member joined the resource pool.
+   */
+  "timeOfJoiningResourcePool"?: Date;
+  /**
+   * The unique identifier for leader autonomous database OCID [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "resourcePoolLeaderId"?: string;
+  "resourcePoolSummary"?: model.ResourcePoolSummary;
+  /**
    * Indicates if the refreshable clone can be reconnected to its source database.
    */
   "isReconnectCloneEnabled"?: boolean;
@@ -823,6 +832,10 @@ export namespace AutonomousDatabaseSummary {
             })
           : undefined,
 
+        "resourcePoolSummary": obj.resourcePoolSummary
+          ? model.ResourcePoolSummary.getJsonObj(obj.resourcePoolSummary)
+          : undefined,
+
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
@@ -883,6 +896,10 @@ export namespace AutonomousDatabaseSummary {
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "resourcePoolSummary": obj.resourcePoolSummary
+          ? model.ResourcePoolSummary.getDeserializedJsonObj(obj.resourcePoolSummary)
           : undefined,
 
         "scheduledOperations": obj.scheduledOperations

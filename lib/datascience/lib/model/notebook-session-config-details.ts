@@ -34,6 +34,11 @@ export interface NotebookSessionConfigDetails {
    *
    */
   "subnetId"?: string;
+  /**
+   * The OCID of a Data Science private endpoint.
+   *
+   */
+  "privateEndpointId"?: string;
   "notebookSessionShapeConfigDetails"?: model.NotebookSessionShapeConfigDetails;
 }
 

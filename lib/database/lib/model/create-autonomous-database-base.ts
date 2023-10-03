@@ -300,6 +300,11 @@ Service Change: The default value of the isMTLSConnectionRequired attribute will
     */
   "isMtlsConnectionRequired"?: boolean;
   /**
+   * The unique identifier for leader autonomous database OCID [OCID](https://docs.cloud.oracle.com/Content/General/Concepts/identifiers.htm).
+   */
+  "resourcePoolLeaderId"?: string;
+  "resourcePoolSummary"?: model.ResourcePoolSummary;
+  /**
    * The maintenance schedule type of the Autonomous Database Serverless. An EARLY maintenance schedule
    * follows a schedule applying patches prior to the REGULAR schedule. A REGULAR maintenance schedule follows the normal cycle
    *
@@ -382,6 +387,10 @@ export namespace CreateAutonomousDatabaseBase {
             })
           : undefined,
 
+        "resourcePoolSummary": obj.resourcePoolSummary
+          ? model.ResourcePoolSummary.getJsonObj(obj.resourcePoolSummary)
+          : undefined,
+
         "scheduledOperations": obj.scheduledOperations
           ? obj.scheduledOperations.map(item => {
               return model.ScheduledOperationDetails.getJsonObj(item);
@@ -447,6 +456,10 @@ export namespace CreateAutonomousDatabaseBase {
           ? obj.customerContacts.map(item => {
               return model.CustomerContact.getDeserializedJsonObj(item);
             })
+          : undefined,
+
+        "resourcePoolSummary": obj.resourcePoolSummary
+          ? model.ResourcePoolSummary.getDeserializedJsonObj(obj.resourcePoolSummary)
           : undefined,
 
         "scheduledOperations": obj.scheduledOperations

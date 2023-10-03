@@ -25,6 +25,25 @@ export class DataScienceWaiter {
   ) {}
 
   /**
+   * Waits forDataSciencePrivateEndpoint till it reaches any of the provided states
+   *
+   * @param request the request to send
+   * @param targetStates the desired states to wait for. The waiter will return once the resource reaches any of the provided states
+   * @return response returns GetDataSciencePrivateEndpointResponse | null (null in case of 404 response)
+   */
+  public async forDataSciencePrivateEndpoint(
+    request: serviceRequests.GetDataSciencePrivateEndpointRequest,
+    ...targetStates: models.DataSciencePrivateEndpointLifecycleState[]
+  ): Promise<serviceResponses.GetDataSciencePrivateEndpointResponse | null> {
+    return genericTerminalConditionWaiter(
+      this.config,
+      () => this.client.getDataSciencePrivateEndpoint(request),
+      response => targetStates.includes(response.dataSciencePrivateEndpoint.lifecycleState!),
+      targetStates.includes(models.DataSciencePrivateEndpointLifecycleState.Deleted)
+    );
+  }
+
+  /**
    * Waits forJob till it reaches any of the provided states
    *
    * @param request the request to send
