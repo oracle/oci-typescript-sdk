@@ -61,9 +61,11 @@ The SDK for TypeScript and JavaScript currently supports NodeJS but does not hav
 
 ## Contributing
 
-`oci-typescript-sdk` welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md)
+This project welcomes contributions from the community. Before submitting a pull request, please [review our contribution guide](./CONTRIBUTING.md)
 
-Oracle gratefully acknowledges the contributions to oci-typescript-sdk that have been made by the community.
+## Security
+
+Please consult the [security guide](./SECURITY.md) for our responsible security vulnerability disclosure process
 
 ## Security
 
