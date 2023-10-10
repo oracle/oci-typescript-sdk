@@ -74,6 +74,8 @@ import * as ConfigureAutonomousDatabaseVaultKeyRequest from "./configure-autonom
 export import ConfigureAutonomousDatabaseVaultKeyRequest = ConfigureAutonomousDatabaseVaultKeyRequest.ConfigureAutonomousDatabaseVaultKeyRequest;
 import * as ConvertToPdbRequest from "./convert-to-pdb-request";
 export import ConvertToPdbRequest = ConvertToPdbRequest.ConvertToPdbRequest;
+import * as ConvertToRegularPluggableDatabaseRequest from "./convert-to-regular-pluggable-database-request";
+export import ConvertToRegularPluggableDatabaseRequest = ConvertToRegularPluggableDatabaseRequest.ConvertToRegularPluggableDatabaseRequest;
 import * as CreateApplicationVipRequest from "./create-application-vip-request";
 export import CreateApplicationVipRequest = CreateApplicationVipRequest.CreateApplicationVipRequest;
 import * as CreateAutonomousContainerDatabaseRequest from "./create-autonomous-container-database-request";
@@ -268,6 +270,8 @@ import * as GetAutonomousVirtualMachineRequest from "./get-autonomous-virtual-ma
 export import GetAutonomousVirtualMachineRequest = GetAutonomousVirtualMachineRequest.GetAutonomousVirtualMachineRequest;
 import * as GetAutonomousVmClusterRequest from "./get-autonomous-vm-cluster-request";
 export import GetAutonomousVmClusterRequest = GetAutonomousVmClusterRequest.GetAutonomousVmClusterRequest;
+import * as GetAutonomousVmClusterResourceUsageRequest from "./get-autonomous-vm-cluster-resource-usage-request";
+export import GetAutonomousVmClusterResourceUsageRequest = GetAutonomousVmClusterResourceUsageRequest.GetAutonomousVmClusterResourceUsageRequest;
 import * as GetBackupRequest from "./get-backup-request";
 export import GetBackupRequest = GetBackupRequest.GetBackupRequest;
 import * as GetBackupDestinationRequest from "./get-backup-destination-request";
@@ -394,6 +398,8 @@ import * as ListAutonomousExadataInfrastructuresRequest from "./list-autonomous-
 export import ListAutonomousExadataInfrastructuresRequest = ListAutonomousExadataInfrastructuresRequest.ListAutonomousExadataInfrastructuresRequest;
 import * as ListAutonomousVirtualMachinesRequest from "./list-autonomous-virtual-machines-request";
 export import ListAutonomousVirtualMachinesRequest = ListAutonomousVirtualMachinesRequest.ListAutonomousVirtualMachinesRequest;
+import * as ListAutonomousVmClusterAcdResourceUsageRequest from "./list-autonomous-vm-cluster-acd-resource-usage-request";
+export import ListAutonomousVmClusterAcdResourceUsageRequest = ListAutonomousVmClusterAcdResourceUsageRequest.ListAutonomousVmClusterAcdResourceUsageRequest;
 import * as ListAutonomousVmClustersRequest from "./list-autonomous-vm-clusters-request";
 export import ListAutonomousVmClustersRequest = ListAutonomousVmClustersRequest.ListAutonomousVmClustersRequest;
 import * as ListBackupDestinationRequest from "./list-backup-destination-request";
@@ -498,6 +504,8 @@ import * as ModifyDatabaseManagementRequest from "./modify-database-management-r
 export import ModifyDatabaseManagementRequest = ModifyDatabaseManagementRequest.ModifyDatabaseManagementRequest;
 import * as ModifyPluggableDatabaseManagementRequest from "./modify-pluggable-database-management-request";
 export import ModifyPluggableDatabaseManagementRequest = ModifyPluggableDatabaseManagementRequest.ModifyPluggableDatabaseManagementRequest;
+import * as RefreshPluggableDatabaseRequest from "./refresh-pluggable-database-request";
+export import RefreshPluggableDatabaseRequest = RefreshPluggableDatabaseRequest.RefreshPluggableDatabaseRequest;
 import * as RegisterAutonomousDatabaseDataSafeRequest from "./register-autonomous-database-data-safe-request";
 export import RegisterAutonomousDatabaseDataSafeRequest = RegisterAutonomousDatabaseDataSafeRequest.RegisterAutonomousDatabaseDataSafeRequest;
 import * as ReinstateAutonomousContainerDatabaseDataguardAssociationRequest from "./reinstate-autonomous-container-database-dataguard-association-request";

@@ -864,6 +864,89 @@ export class MarketplaceClient {
   }
 
   /**
+   * Exports container images or helm chart from marketplace to customer's registry.
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ExportListingRequest
+   * @return ExportListingResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ExportListing.ts.html |here} to see how to use ExportListing API.
+   */
+  public async exportListing(
+    exportListingRequest: requests.ExportListingRequest
+  ): Promise<responses.ExportListingResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#exportListing.");
+    const operationName = "exportListing";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/Listing/ExportListing";
+    const pathParams = {
+      "{listingId}": exportListingRequest.listingId,
+      "{packageVersion}": exportListingRequest.packageVersion
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-retry-token": exportListingRequest.opcRetryToken,
+      "opc-request-id": exportListingRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      exportListingRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/listings/{listingId}/packages/{packageVersion}/actions/export",
+      method: "POST",
+      bodyContent: common.ObjectSerializer.serialize(
+        exportListingRequest.exportPackageDetails,
+        "ExportPackageDetails",
+        model.ExportPackageDetails.getJsonObj
+      ),
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ExportListingResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-work-request-id"),
+            key: "opcWorkRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
    * Gets the details of a specific, previously accepted terms of use agreement.
    *
    * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
@@ -1346,6 +1429,82 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
           {
             value: response.headers.get("opc-request-id"),
             key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * Gets the details of the specified work request
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param GetWorkRequestRequest
+   * @return GetWorkRequestResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/GetWorkRequest.ts.html |here} to see how to use GetWorkRequest API.
+   */
+  public async getWorkRequest(
+    getWorkRequestRequest: requests.GetWorkRequestRequest
+  ): Promise<responses.GetWorkRequestResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#getWorkRequest.");
+    const operationName = "getWorkRequest";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/GetWorkRequest";
+    const pathParams = {
+      "{workRequestId}": getWorkRequestRequest.workRequestId
+    };
+
+    const queryParams = {};
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": getWorkRequestRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      getWorkRequestRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.GetWorkRequestResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequest",
+        bodyModel: model.WorkRequest,
+        type: "model.WorkRequest",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("etag"),
+            key: "etag",
             dataType: "string"
           }
         ]
@@ -2687,6 +2846,251 @@ To get the image ID to launch an instance, issue a [GetAppCatalogListingResource
         bodyKey: "items",
         bodyModel: model.TaxSummary,
         type: "Array<model.TaxSummary>",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List all errors for a work request
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestErrorsRequest
+   * @return ListWorkRequestErrorsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequestErrors.ts.html |here} to see how to use ListWorkRequestErrors API.
+   */
+  public async listWorkRequestErrors(
+    listWorkRequestErrorsRequest: requests.ListWorkRequestErrorsRequest
+  ): Promise<responses.ListWorkRequestErrorsResponse> {
+    if (this.logger)
+      this.logger.debug("Calling operation MarketplaceClient#listWorkRequestErrors.");
+    const operationName = "listWorkRequestErrors";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/ListWorkRequestErrors";
+    const pathParams = {
+      "{workRequestId}": listWorkRequestErrorsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestErrorsRequest.page,
+      "limit": listWorkRequestErrorsRequest.limit,
+      "sortOrder": listWorkRequestErrorsRequest.sortOrder,
+      "sortBy": listWorkRequestErrorsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestErrorsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestErrorsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/errors",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestErrorsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestErrorCollection",
+        bodyModel: model.WorkRequestErrorCollection,
+        type: "model.WorkRequestErrorCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List all logs for a work request
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestLogsRequest
+   * @return ListWorkRequestLogsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequestLogs.ts.html |here} to see how to use ListWorkRequestLogs API.
+   */
+  public async listWorkRequestLogs(
+    listWorkRequestLogsRequest: requests.ListWorkRequestLogsRequest
+  ): Promise<responses.ListWorkRequestLogsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listWorkRequestLogs.");
+    const operationName = "listWorkRequestLogs";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/ListWorkRequestLogs";
+    const pathParams = {
+      "{workRequestId}": listWorkRequestLogsRequest.workRequestId
+    };
+
+    const queryParams = {
+      "page": listWorkRequestLogsRequest.page,
+      "limit": listWorkRequestLogsRequest.limit,
+      "sortOrder": listWorkRequestLogsRequest.sortOrder,
+      "sortBy": listWorkRequestLogsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestLogsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestLogsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests/{workRequestId}/logs",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestLogsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestLogEntryCollection",
+        bodyModel: model.WorkRequestLogEntryCollection,
+        type: "model.WorkRequestLogEntryCollection",
+        responseHeaders: [
+          {
+            value: response.headers.get("opc-next-page"),
+            key: "opcNextPage",
+            dataType: "string"
+          },
+          {
+            value: response.headers.get("opc-request-id"),
+            key: "opcRequestId",
+            dataType: "string"
+          }
+        ]
+      });
+
+      return sdkResponse;
+    } catch (err) {
+      throw err;
+    }
+  }
+
+  /**
+   * List all work requests in a compartment
+   * This operation uses {@link common.OciSdkDefaultRetryConfiguration} by default if no retry configuration is defined by the user.
+   * @param ListWorkRequestsRequest
+   * @return ListWorkRequestsResponse
+   * @throws OciError when an error occurs
+   * @example Click {@link https://docs.cloud.oracle.com/en-us/iaas/tools/typescript-sdk-examples/latest/marketplace/ListWorkRequests.ts.html |here} to see how to use ListWorkRequests API.
+   */
+  public async listWorkRequests(
+    listWorkRequestsRequest: requests.ListWorkRequestsRequest
+  ): Promise<responses.ListWorkRequestsResponse> {
+    if (this.logger) this.logger.debug("Calling operation MarketplaceClient#listWorkRequests.");
+    const operationName = "listWorkRequests";
+    const apiReferenceLink =
+      "https://docs.oracle.com/iaas/api/#/en/marketplace/20181001/WorkRequest/ListWorkRequests";
+    const pathParams = {};
+
+    const queryParams = {
+      "compartmentId": listWorkRequestsRequest.compartmentId,
+      "workRequestId": listWorkRequestsRequest.workRequestId,
+      "status": listWorkRequestsRequest.status,
+      "page": listWorkRequestsRequest.page,
+      "limit": listWorkRequestsRequest.limit,
+      "sortOrder": listWorkRequestsRequest.sortOrder,
+      "sortBy": listWorkRequestsRequest.sortBy
+    };
+
+    let headerParams = {
+      "Content-Type": common.Constants.APPLICATION_JSON,
+      "opc-request-id": listWorkRequestsRequest.opcRequestId
+    };
+
+    const specRetryConfiguration = common.OciSdkDefaultRetryConfiguration;
+    const retrier = GenericRetrier.createPreferredRetrier(
+      this._clientConfiguration ? this._clientConfiguration.retryConfiguration : undefined,
+      listWorkRequestsRequest.retryConfiguration,
+      specRetryConfiguration
+    );
+    if (this.logger) retrier.logger = this.logger;
+    const request = await composeRequest({
+      baseEndpoint: this._endpoint,
+      defaultHeaders: this._defaultHeaders,
+      path: "/workRequests",
+      method: "GET",
+      pathParams: pathParams,
+      headerParams: headerParams,
+      queryParams: queryParams
+    });
+    try {
+      const response = await retrier.makeServiceCall(
+        this._httpClient,
+        request,
+        this.targetService,
+        operationName,
+        apiReferenceLink
+      );
+      const sdkResponse = composeResponse({
+        responseObject: <responses.ListWorkRequestsResponse>{},
+        body: await response.json(),
+        bodyKey: "workRequestCollection",
+        bodyModel: model.WorkRequestCollection,
+        type: "model.WorkRequestCollection",
         responseHeaders: [
           {
             value: response.headers.get("opc-request-id"),

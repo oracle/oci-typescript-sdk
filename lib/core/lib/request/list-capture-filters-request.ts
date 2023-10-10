@@ -73,6 +73,10 @@ Example: `50`
    *
    */
   "lifecycleState"?: string;
+  /**
+   * A filter to only return resources that match the given capture `filterType`. The `filterType` value is the string representation of enum - `VTAP`, `FLOWLOG`.
+   */
+  "filterType"?: string;
 }
 
 export namespace ListCaptureFiltersRequest {

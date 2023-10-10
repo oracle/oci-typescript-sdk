@@ -275,6 +275,8 @@ import * as FastConnectProviderService from "./fast-connect-provider-service";
 export import FastConnectProviderService = FastConnectProviderService.FastConnectProviderService;
 import * as FastConnectProviderServiceKey from "./fast-connect-provider-service-key";
 export import FastConnectProviderServiceKey = FastConnectProviderServiceKey.FastConnectProviderServiceKey;
+import * as FlowLogCaptureFilterRuleDetails from "./flow-log-capture-filter-rule-details";
+export import FlowLogCaptureFilterRuleDetails = FlowLogCaptureFilterRuleDetails.FlowLogCaptureFilterRuleDetails;
 import * as ForwardedRoutingActionDetails from "./forwarded-routing-action-details";
 export import ForwardedRoutingActionDetails = ForwardedRoutingActionDetails.ForwardedRoutingActionDetails;
 import * as ForwardedRoutingConfiguration from "./forwarded-routing-configuration";

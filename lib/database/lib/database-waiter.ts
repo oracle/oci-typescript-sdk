@@ -807,6 +807,32 @@ export class DatabaseWaiter {
   }
 
   /**
+   * Waits forConvertToRegularPluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns ConvertToRegularPluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forConvertToRegularPluggableDatabase(
+    request: serviceRequests.ConvertToRegularPluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.ConvertToRegularPluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const convertToRegularPluggableDatabaseResponse = await this.client.convertToRegularPluggableDatabase(
+      request
+    );
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      convertToRegularPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: convertToRegularPluggableDatabaseResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
    * Waits forCreateApplicationVip
    *
    * @param request the request to send
@@ -3572,6 +3598,30 @@ export class DatabaseWaiter {
     );
     return {
       response: modifyPluggableDatabaseManagementResponse,
+      workRequestResponse: getWorkRequestResponse
+    };
+  }
+
+  /**
+   * Waits forRefreshPluggableDatabase
+   *
+   * @param request the request to send
+   * @return response returns RefreshPluggableDatabaseResponse, GetWorkRequestResponse tuple
+   */
+  public async forRefreshPluggableDatabase(
+    request: serviceRequests.RefreshPluggableDatabaseRequest
+  ): Promise<{
+    response: serviceResponses.RefreshPluggableDatabaseResponse;
+    workRequestResponse: responses.GetWorkRequestResponse;
+  }> {
+    const refreshPluggableDatabaseResponse = await this.client.refreshPluggableDatabase(request);
+    const getWorkRequestResponse = await waitForWorkRequest(
+      this.config,
+      this.workRequestClient,
+      refreshPluggableDatabaseResponse.opcWorkRequestId
+    );
+    return {
+      response: refreshPluggableDatabaseResponse,
       workRequestResponse: getWorkRequestResponse
     };
   }

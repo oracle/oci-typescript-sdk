@@ -1,6 +1,6 @@
 {
   "name": "oci-networkfirewall",
-  "version": "2.70.3",
+  "version": "2.70.4",
   "description": "OCI NodeJS client for Network Firewall Service",
   "repository": {
     "type": "git",

@@ -41,6 +41,10 @@ export interface CreateDatabaseFromBackupDetails {
    *
    */
   "sidPrefix"?: string;
+  /**
+   * The list of pluggable databases that needs to be restored into new database.
+   */
+  "pluggableDatabases"?: Array<string>;
 }
 
 export namespace CreateDatabaseFromBackupDetails {

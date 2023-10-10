@@ -40,6 +40,10 @@ export interface CreateDatabaseFromAnotherDatabaseDetails {
    * The point in time of the original database from which the new database is created. If not specifed, the latest backup is used to create the database.
    */
   "timeStampForPointInTimeRecovery"?: Date;
+  /**
+   * The list of pluggable databases that needs to be restored into new database.
+   */
+  "pluggableDatabases"?: Array<string>;
 }
 
 export namespace CreateDatabaseFromAnotherDatabaseDetails {
